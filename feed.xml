@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 <generator uri="http://jekyllrb.com" version="3.0.1">Jekyll</generator>
-<link href="https://taylantatli.github.io/Moon/feed.xml" rel="self" type="application/atom+xml" />
-<link href="https://taylantatli.github.io/Moon/" rel="alternate" type="text/html" />
-<updated>2017-02-01T16:29:03+09:00</updated>
-<id>https://taylantatli.github.io/Moon/</id>
+<link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" />
+<link href="https://lahuman.github.io/" rel="alternate" type="text/html" />
+<updated>2017-02-03T10:25:12+09:00</updated>
+<id>https://lahuman.github.io/</id>
 <subtitle>Moon is a minimal, one column jekyll theme for your blog.</subtitle>
 <entry>
 <title>Moon Jekyll Theme</title>
-<link href="https://taylantatli.github.io/Moon/moon-theme/" rel="alternate" type="text/html" title="Moon Jekyll Theme" />
+<link href="https://lahuman.github.io/moon-theme/" rel="alternate" type="text/html" title="Moon Jekyll Theme" />
 <published>2016-04-06T00:00:00+09:00</published>
 <updated>2016-04-06T00:00:00+09:00</updated>
-<id>https://taylantatli.github.io/Moon/moon-theme</id>
-<content type="html" xml:base="https://taylantatli.github.io/Moon/moon-theme/">&lt;p&gt;&lt;img src=&quot;https://cloud.githubusercontent.com/assets/754514/14509720/61c61058-01d6-11e6-93ab-0918515ecd56.png&quot; alt=&quot;Moon Homepage&quot; /&gt;&lt;/p&gt;
+<id>https://lahuman.github.io/moon-theme</id>
+<content type="html" xml:base="https://lahuman.github.io/moon-theme/">&lt;p&gt;&lt;img src=&quot;https://cloud.githubusercontent.com/assets/754514/14509720/61c61058-01d6-11e6-93ab-0918515ecd56.png&quot; alt=&quot;Moon Homepage&quot; /&gt;&lt;/p&gt;
 
 &lt;center&gt;&lt;b&gt;Moon&lt;/b&gt; is a minimal, one column jekyll theme.&lt;/center&gt;
 
@@ -176,11 +176,11 @@ feaure: http://example.com/some-image.png
 </entry>
 <entry>
 <title>Markdown Syntax</title>
-<link href="https://taylantatli.github.io/Moon/markdown-syntax/" rel="alternate" type="text/html" title="Markdown Syntax" />
+<link href="https://lahuman.github.io/markdown-syntax/" rel="alternate" type="text/html" title="Markdown Syntax" />
 <published>2016-03-15T00:00:00+09:00</published>
 <updated>2016-03-15T00:00:00+09:00</updated>
-<id>https://taylantatli.github.io/Moon/markdown-syntax</id>
-<content type="html" xml:base="https://taylantatli.github.io/Moon/markdown-syntax/">&lt;h2 id=&quot;html-elements&quot;&gt;HTML Elements&lt;/h2&gt;
+<id>https://lahuman.github.io/markdown-syntax</id>
+<content type="html" xml:base="https://lahuman.github.io/markdown-syntax/">&lt;h2 id=&quot;html-elements&quot;&gt;HTML Elements&lt;/h2&gt;
 
 &lt;p&gt;Below is just about everything you’ll need to style in the theme. Check the source code to see the many embedded elements within paragraphs.&lt;/p&gt;
 
@@ -325,11 +325,11 @@ feaure: http://example.com/some-image.png
 </entry>
 <entry>
 <title>A Post with a Video</title>
-<link href="https://taylantatli.github.io/Moon/video-post/" rel="alternate" type="text/html" title="A Post with a Video" />
+<link href="https://lahuman.github.io/video-post/" rel="alternate" type="text/html" title="A Post with a Video" />
 <published>2016-03-15T00:00:00+09:00</published>
 <updated>2016-03-15T00:00:00+09:00</updated>
-<id>https://taylantatli.github.io/Moon/video-post</id>
-<content type="html" xml:base="https://taylantatli.github.io/Moon/video-post/">&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;//www.youtube.com/embed/SU3kYxJmWuQ&quot; frameborder=&quot;0&quot;&gt; &lt;/iframe&gt;
+<id>https://lahuman.github.io/video-post</id>
+<content type="html" xml:base="https://lahuman.github.io/video-post/">&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;//www.youtube.com/embed/SU3kYxJmWuQ&quot; frameborder=&quot;0&quot;&gt; &lt;/iframe&gt;
 
 &lt;p&gt;Video embeds are responsive and scale with the width of the main content block with the help of &lt;a href=&quot;http://fitvidsjs.com/&quot;&gt;FitVids&lt;/a&gt;.&lt;/p&gt;
 
@@ -346,11 +346,11 @@ feaure: http://example.com/some-image.png
 </entry>
 <entry>
 <title>MathJax Example</title>
-<link href="https://taylantatli.github.io/Moon/mathjax-example/" rel="alternate" type="text/html" title="MathJax Example" />
+<link href="https://lahuman.github.io/mathjax-example/" rel="alternate" type="text/html" title="MathJax Example" />
 <published>2015-08-10T00:00:00+09:00</published>
 <updated>2015-08-10T00:00:00+09:00</updated>
-<id>https://taylantatli.github.io/Moon/mathjax-example</id>
-<content type="html" xml:base="https://taylantatli.github.io/Moon/mathjax-example/">&lt;p&gt;&lt;a href=&quot;http://www.mathjax.org/&quot;&gt;MathJax&lt;/a&gt; is a simple way of including Tex/LaTex/MathML based mathematics in HTML webpages. To get up and running you need to include the MathJax script in the header of your github pages page, and then write some maths. For LaTex, there are two delimiters you need to know about, one for block or displayed mathematics &lt;code class=&quot;highlighter-rouge&quot;&gt;\[ ... \]&lt;/code&gt;, and the other for inline mathematics &lt;code class=&quot;highlighter-rouge&quot;&gt;\( ... \)&lt;/code&gt;.&lt;/p&gt;
+<id>https://lahuman.github.io/mathjax-example</id>
+<content type="html" xml:base="https://lahuman.github.io/mathjax-example/">&lt;p&gt;&lt;a href=&quot;http://www.mathjax.org/&quot;&gt;MathJax&lt;/a&gt; is a simple way of including Tex/LaTex/MathML based mathematics in HTML webpages. To get up and running you need to include the MathJax script in the header of your github pages page, and then write some maths. For LaTex, there are two delimiters you need to know about, one for block or displayed mathematics &lt;code class=&quot;highlighter-rouge&quot;&gt;\[ ... \]&lt;/code&gt;, and the other for inline mathematics &lt;code class=&quot;highlighter-rouge&quot;&gt;\( ... \)&lt;/code&gt;.&lt;/p&gt;
 
 &lt;h2 id=&quot;usage&quot;&gt;Usage&lt;/h2&gt;
 
@@ -396,11 +396,11 @@ mathjax: true
 </entry>
 <entry>
 <title>Syntax Highlighting Post</title>
-<link href="https://taylantatli.github.io/Moon/code-highlighting-post/" rel="alternate" type="text/html" title="Syntax Highlighting Post" />
+<link href="https://lahuman.github.io/code-highlighting-post/" rel="alternate" type="text/html" title="Syntax Highlighting Post" />
 <published>2013-08-16T00:00:00+09:00</published>
 <updated>2013-08-16T00:00:00+09:00</updated>
-<id>https://taylantatli.github.io/Moon/code-highlighting-post</id>
-<content type="html" xml:base="https://taylantatli.github.io/Moon/code-highlighting-post/">&lt;p&gt;Syntax highlighting is a feature that displays source code, in different colors and fonts according to the category of terms. This feature facilitates writing in a structured language such as a programming language or a markup language as both structures and syntax errors are visually distinct. Highlighting does not affect the meaning of the text itself; it is intended only for human readers.&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+<id>https://lahuman.github.io/code-highlighting-post</id>
+<content type="html" xml:base="https://lahuman.github.io/code-highlighting-post/">&lt;p&gt;Syntax highlighting is a feature that displays source code, in different colors and fonts according to the category of terms. This feature facilitates writing in a structured language such as a programming language or a markup language as both structures and syntax errors are visually distinct. Highlighting does not affect the meaning of the text itself; it is intended only for human readers.&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;highlighted-code-blocks&quot;&gt;Highlighted Code Blocks&lt;/h3&gt;
 
@@ -526,11 +526,11 @@ end
 </entry>
 <entry>
 <title>A Post with Images</title>
-<link href="https://taylantatli.github.io/Moon/sample-post-images/" rel="alternate" type="text/html" title="A Post with Images" />
+<link href="https://lahuman.github.io/sample-post-images/" rel="alternate" type="text/html" title="A Post with Images" />
 <published>2013-05-22T00:00:00+09:00</published>
 <updated>2013-05-22T00:00:00+09:00</updated>
-<id>https://taylantatli.github.io/Moon/sample-post-images</id>
-<content type="html" xml:base="https://taylantatli.github.io/Moon/sample-post-images/">&lt;p&gt;Here are some examples of what a post with images might look like. If you want to display two or three images next to each other responsively use &lt;code class=&quot;highlighter-rouge&quot;&gt;figure&lt;/code&gt; with the appropriate &lt;code class=&quot;highlighter-rouge&quot;&gt;class&lt;/code&gt;. Each instance of &lt;code class=&quot;highlighter-rouge&quot;&gt;figure&lt;/code&gt; is auto-numbered and displayed in the caption.&lt;/p&gt;
+<id>https://lahuman.github.io/sample-post-images</id>
+<content type="html" xml:base="https://lahuman.github.io/sample-post-images/">&lt;p&gt;Here are some examples of what a post with images might look like. If you want to display two or three images next to each other responsively use &lt;code class=&quot;highlighter-rouge&quot;&gt;figure&lt;/code&gt; with the appropriate &lt;code class=&quot;highlighter-rouge&quot;&gt;class&lt;/code&gt;. Each instance of &lt;code class=&quot;highlighter-rouge&quot;&gt;figure&lt;/code&gt; is auto-numbered and displayed in the caption.&lt;/p&gt;
 
 &lt;h3 id=&quot;figures-for-images-or-video&quot;&gt;Figures (for images or video)&lt;/h3&gt;
 
@@ -628,11 +628,11 @@ Available values: [1..3].&lt;/li&gt;
 </entry>
 <entry>
 <title>Post with Image Feature</title>
-<link href="https://taylantatli.github.io/Moon/readability-feature-post/" rel="alternate" type="text/html" title="Post with Image Feature" />
+<link href="https://lahuman.github.io/readability-feature-post/" rel="alternate" type="text/html" title="Post with Image Feature" />
 <published>2012-05-23T00:00:00+09:00</published>
 <updated>2012-05-23T00:00:00+09:00</updated>
-<id>https://taylantatli.github.io/Moon/readability-feature-post</id>
-<content type="html" xml:base="https://taylantatli.github.io/Moon/readability-feature-post/">&lt;p&gt;Portland in shoreditch Vice, labore typewriter pariatur hoodie fap sartorial Austin. Pinterest literally occupy Schlitz forage. Odio ad blue bottle vinyl, 90’s narwhal commodo bitters pour-over nostrud. Ugh est hashtag in, fingerstache adipisicing laboris esse Pinterest shabby chic Portland. Shoreditch bicycle rights anim, flexitarian laboris put a bird on it vinyl cupidatat narwhal. Hashtag artisan skateboard, flannel Bushwick nesciunt salvia aute fixie do plaid post-ironic dolor McSweeney’s. Cliche pour-over chambray nulla four loko skateboard sapiente hashtag.&lt;/p&gt;
+<id>https://lahuman.github.io/readability-feature-post</id>
+<content type="html" xml:base="https://lahuman.github.io/readability-feature-post/">&lt;p&gt;Portland in shoreditch Vice, labore typewriter pariatur hoodie fap sartorial Austin. Pinterest literally occupy Schlitz forage. Odio ad blue bottle vinyl, 90’s narwhal commodo bitters pour-over nostrud. Ugh est hashtag in, fingerstache adipisicing laboris esse Pinterest shabby chic Portland. Shoreditch bicycle rights anim, flexitarian laboris put a bird on it vinyl cupidatat narwhal. Hashtag artisan skateboard, flannel Bushwick nesciunt salvia aute fixie do plaid post-ironic dolor McSweeney’s. Cliche pour-over chambray nulla four loko skateboard sapiente hashtag.&lt;/p&gt;
 
 &lt;p&gt;Vero laborum commodo occupy. Semiotics voluptate mumblecore pug. Cosby sweater ullamco quinoa ennui assumenda, sapiente occupy delectus lo-fi. Ea fashion axe Marfa cillum aliquip. Retro Bushwick keytar cliche. Before they sold out sustainable gastropub Marfa readymade, ethical Williamsburg skateboard brunch qui consectetur gentrify semiotics. Mustache cillum irony, fingerstache magna pour-over keffiyeh tousled selfies.&lt;/p&gt;
 
@@ -682,11 +682,11 @@ Available values: [1..3].&lt;/li&gt;
 </entry>
 <entry>
 <title>Testing Readability with a Bunch of Text</title>
-<link href="https://taylantatli.github.io/Moon/readability-post/" rel="alternate" type="text/html" title="Testing Readability with a Bunch of Text" />
+<link href="https://lahuman.github.io/readability-post/" rel="alternate" type="text/html" title="Testing Readability with a Bunch of Text" />
 <published>2012-05-22T00:00:00+09:00</published>
 <updated>2012-05-22T00:00:00+09:00</updated>
-<id>https://taylantatli.github.io/Moon/readability-post</id>
-<content type="html" xml:base="https://taylantatli.github.io/Moon/readability-post/">&lt;p&gt;Portland in shoreditch Vice, labore typewriter pariatur hoodie fap sartorial Austin. Pinterest literally occupy Schlitz forage. Odio ad blue bottle vinyl, 90’s narwhal commodo bitters pour-over nostrud. Ugh est hashtag in, fingerstache adipisicing laboris esse Pinterest shabby chic Portland. Shoreditch bicycle rights anim, flexitarian laboris put a bird on it vinyl cupidatat narwhal. Hashtag artisan skateboard, flannel Bushwick nesciunt salvia aute fixie do plaid post-ironic dolor McSweeney’s. Cliche pour-over chambray nulla four loko skateboard sapiente hashtag.&lt;/p&gt;
+<id>https://lahuman.github.io/readability-post</id>
+<content type="html" xml:base="https://lahuman.github.io/readability-post/">&lt;p&gt;Portland in shoreditch Vice, labore typewriter pariatur hoodie fap sartorial Austin. Pinterest literally occupy Schlitz forage. Odio ad blue bottle vinyl, 90’s narwhal commodo bitters pour-over nostrud. Ugh est hashtag in, fingerstache adipisicing laboris esse Pinterest shabby chic Portland. Shoreditch bicycle rights anim, flexitarian laboris put a bird on it vinyl cupidatat narwhal. Hashtag artisan skateboard, flannel Bushwick nesciunt salvia aute fixie do plaid post-ironic dolor McSweeney’s. Cliche pour-over chambray nulla four loko skateboard sapiente hashtag.&lt;/p&gt;
 
 &lt;p&gt;Vero laborum commodo occupy. Semiotics voluptate mumblecore pug. Cosby sweater ullamco quinoa ennui assumenda, sapiente occupy delectus lo-fi. Ea fashion axe Marfa cillum aliquip. Retro Bushwick keytar cliche. Before they sold out sustainable gastropub Marfa readymade, ethical Williamsburg skateboard brunch qui consectetur gentrify semiotics. Mustache cillum irony, fingerstache magna pour-over keffiyeh tousled selfies.&lt;/p&gt;
 
