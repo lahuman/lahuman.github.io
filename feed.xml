@@ -3,7 +3,7 @@
 <generator uri="http://jekyllrb.com" version="3.4.0">Jekyll</generator>
 <link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" />
 <link href="https://lahuman.github.io/" rel="alternate" type="text/html" />
-<updated>2017-02-06T10:03:27+09:00</updated>
+<updated>2017-02-06T10:32:25+09:00</updated>
 <id>https://lahuman.github.io/</id>
 <subtitle>열심히 사는 아저씨</subtitle>
 <entry>
@@ -102,6 +102,78 @@
 <category term="distribute" />
 <category term="CI" />
 <summary>쉬운 백업 &amp;amp; 배포를 지원 하며, 필요에 따라 Shell 을 실행</summary>
+</entry>
+<entry>
+<title>Shell Command Runner</title>
+<link href="https://lahuman.github.io/Shell-Command-Runner/" rel="alternate" type="text/html" title="Shell Command Runner" />
+<published>2017-02-06T00:00:00+09:00</published>
+<updated>2017-02-06T00:00:00+09:00</updated>
+<id>https://lahuman.github.io/Shell-Command-Runner</id>
+<content type="html" xml:base="https://lahuman.github.io/Shell-Command-Runner/">&lt;center&gt;&lt;b&gt;SCS(Shell Command Runner)&lt;/b&gt;는 여러 서버에서 Shell을 실행하고, 실행결과를 File로 로컬 디스크에 저장해주는 프로그램 입니다.&lt;/center&gt;
+
+&lt;p&gt;특정 기간때(일,월,분기) 모든 서버에서 실행해야 하는 업무를 처리 할 때 사용 할 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;{% capture images %}
+	https://lahuman.github.io/assets/project/scr/SCR.PNG
+{% endcapture %}
+{% include gallery images=images caption=”SCR Screen shot” cols=1 %}&lt;/p&gt;
+
+&lt;div&gt;&lt;a href=&quot;https://github.com/lahuman/SCR&quot; class=&quot;btn btn-warning&quot;&gt;Source 바로가기&lt;/a&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;download&quot;&gt;Download&lt;/h2&gt;
+
+&lt;h3 id=&quot;template-&quot;&gt;Template 파일&lt;/h3&gt;
+&lt;div&gt;&lt;a href=&quot;https://lahuman.github.io/assets/project/scr/SERVER_INFO.xml&quot; class=&quot;btn btn-info&quot;&gt;Shell Template&lt;/a&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;windows---&quot;&gt;Windows 전용 실행 파일&lt;/h3&gt;
+
+&lt;div&gt;&lt;a href=&quot;https://lahuman.github.io/assets/project/scr/SCR_32.zip&quot; class=&quot;btn btn-success&quot;&gt;SCR 32bit&lt;/a&gt;&lt;/div&gt;
+
+&lt;div&gt;&lt;a href=&quot;https://lahuman.github.io/assets/project/scr/SCR_64.zip&quot; class=&quot;btn btn-success&quot;&gt;SCR 64bit&lt;/a&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;os--source----&quot;&gt;다른 OS의 경우 Source를 다운받아 실행 하셔야 합니다.&lt;/h3&gt;
+
+&lt;h2 id=&quot;notice&quot;&gt;Notice&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;JRE 1.7 이상이 설치 되어 있어야 합니다.&lt;/li&gt;
+  &lt;li&gt;JRE_HOME 환경 변수가 설정 되어 있어야 합니다.
+    &lt;ul&gt;
+      &lt;li&gt;다음이 path에 추가 되어야 함
+        &lt;ul&gt;
+          &lt;li&gt;$JRE_HOME$\bin&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;function&quot;&gt;Function&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;여러 서버에 대한 처리&lt;/li&gt;
+  &lt;li&gt;결과를 파일로 저장&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;update-history&quot;&gt;Update history&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;2013.07.23
+    &lt;ul&gt;
+      &lt;li&gt;최초 배포&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;license&quot;&gt;License&lt;/h2&gt;
+
+&lt;p&gt;SCR 는 open source 프로그램으로 MIT 라이선스를 따릅니다.&lt;/p&gt;
+
+&lt;p&gt;This SCR is free and open source software, distributed under the MIT License. So feel free to use this program on your project without linking back to me or including a disclaimer.&lt;/p&gt;
+</content>
+<category term="java" />
+<category term="Shell" />
+<category term="Daily" />
+<summary>Shell 명령어를 실행하고 결과를 저장하는 프로그램</summary>
 </entry>
 <entry>
 <title>jekyll를 이용한 github에 개인 사이트 구축</title>
@@ -881,57 +953,5 @@ Available values: [1..3].&lt;/li&gt;
 <category term="image" />
 <category term="feature" />
 <summary>A ton of text to test readability with image feature.</summary>
-</entry>
-<entry>
-<title>Testing Readability with a Bunch of Text</title>
-<link href="https://lahuman.github.io/readability-post/" rel="alternate" type="text/html" title="Testing Readability with a Bunch of Text" />
-<published>2012-05-22T00:00:00+09:00</published>
-<updated>2012-05-22T00:00:00+09:00</updated>
-<id>https://lahuman.github.io/readability-post</id>
-<content type="html" xml:base="https://lahuman.github.io/readability-post/">&lt;p&gt;Portland in shoreditch Vice, labore typewriter pariatur hoodie fap sartorial Austin. Pinterest literally occupy Schlitz forage. Odio ad blue bottle vinyl, 90’s narwhal commodo bitters pour-over nostrud. Ugh est hashtag in, fingerstache adipisicing laboris esse Pinterest shabby chic Portland. Shoreditch bicycle rights anim, flexitarian laboris put a bird on it vinyl cupidatat narwhal. Hashtag artisan skateboard, flannel Bushwick nesciunt salvia aute fixie do plaid post-ironic dolor McSweeney’s. Cliche pour-over chambray nulla four loko skateboard sapiente hashtag.&lt;/p&gt;
-
-&lt;p&gt;Vero laborum commodo occupy. Semiotics voluptate mumblecore pug. Cosby sweater ullamco quinoa ennui assumenda, sapiente occupy delectus lo-fi. Ea fashion axe Marfa cillum aliquip. Retro Bushwick keytar cliche. Before they sold out sustainable gastropub Marfa readymade, ethical Williamsburg skateboard brunch qui consectetur gentrify semiotics. Mustache cillum irony, fingerstache magna pour-over keffiyeh tousled selfies.&lt;/p&gt;
-
-&lt;h2 id=&quot;cupidatat-90s-lo-fi-authentic-try-hard&quot;&gt;Cupidatat 90’s lo-fi authentic try-hard&lt;/h2&gt;
-
-&lt;p&gt;In pug Portland incididunt mlkshk put a bird on it vinyl quinoa. Terry Richardson shabby chic +1, scenester Tonx excepteur tempor fugiat voluptate fingerstache aliquip nisi next level. Farm-to-table hashtag Truffaut, Odd Future ex meggings gentrify single-origin coffee try-hard 90’s.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Sartorial hoodie&lt;/li&gt;
-  &lt;li&gt;Labore viral forage&lt;/li&gt;
-  &lt;li&gt;Tote bag selvage&lt;/li&gt;
-  &lt;li&gt;DIY exercitation et id ugh tumblr church-key&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Incididunt umami sriracha, ethical fugiat VHS ex assumenda yr irure direct trade. Marfa Truffaut bicycle rights, kitsch placeat Etsy kogi asymmetrical. Beard locavore flexitarian, kitsch photo booth hoodie plaid ethical readymade leggings yr.&lt;/p&gt;
-
-&lt;p&gt;Aesthetic odio dolore, meggings disrupt qui readymade stumptown brunch Terry Richardson pour-over gluten-free. Banksy american apparel in selfies, biodiesel flexitarian organic meh wolf quinoa gentrify banjo kogi. Readymade tofu ex, scenester dolor umami fingerstache occaecat fashion axe Carles jean shorts minim. Keffiyeh fashion axe nisi Godard mlkshk dolore. Lomo you probably haven’t heard of them eu non, Odd Future Truffaut pug keytar meggings McSweeney’s Pinterest cred. Etsy literally aute esse, eu bicycle rights qui meggings fanny pack. Gentrify leggings pug flannel duis.&lt;/p&gt;
-
-&lt;h2 id=&quot;forage-occaecat-cardigan-qui&quot;&gt;Forage occaecat cardigan qui&lt;/h2&gt;
-
-&lt;p&gt;Fashion axe hella gastropub lo-fi kogi 90’s aliquip +1 veniam delectus tousled. Cred sriracha locavore gastropub kale chips, iPhone mollit sartorial. Anim dolore 8-bit, pork belly dolor photo booth aute flannel small batch. Dolor disrupt ennui, tattooed whatever salvia Banksy sartorial roof party selfies raw denim sint meh pour-over. Ennui eu cardigan sint, gentrify iPhone cornhole.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Whatever velit occaecat quis deserunt gastropub, leggings elit tousled roof party 3 wolf moon kogi pug blue bottle ea. Fashion axe shabby chic Austin quinoa pickled laborum bitters next level, disrupt deep v accusamus non fingerstache.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Tote bag asymmetrical elit sunt. Occaecat authentic Marfa, hella McSweeney’s next level irure veniam master cleanse. Sed hoodie letterpress artisan wolf leggings, 3 wolf moon commodo ullamco. Anim occupy ea labore Terry Richardson. Tofu ex master cleanse in whatever pitchfork banh mi, occupy fugiat fanny pack Austin authentic. Magna fugiat 3 wolf moon, labore McSweeney’s sustainable vero consectetur. Gluten-free disrupt enim, aesthetic fugiat jean shorts trust fund keffiyeh magna try-hard.&lt;/p&gt;
-
-&lt;h2 id=&quot;hoodie-duis&quot;&gt;Hoodie Duis&lt;/h2&gt;
-
-&lt;p&gt;Actually salvia consectetur, hoodie duis lomo YOLO sunt sriracha. Aute pop-up brunch farm-to-table odio, salvia irure occaecat. Sriracha small batch literally skateboard. Echo Park nihil hoodie, aliquip forage artisan laboris. Trust fund reprehenderit nulla locavore. Stumptown raw denim kitsch, keffiyeh nulla twee dreamcatcher fanny pack ullamco 90’s pop-up est culpa farm-to-table. Selfies 8-bit do pug odio.&lt;/p&gt;
-
-&lt;h3 id=&quot;thundercats-ho&quot;&gt;Thundercats Ho!&lt;/h3&gt;
-
-&lt;p&gt;Fingerstache thundercats Williamsburg, deep v scenester Banksy ennui vinyl selfies mollit biodiesel duis odio pop-up. Banksy 3 wolf moon try-hard, sapiente enim stumptown deep v ad letterpress. Squid beard brunch, exercitation raw denim yr sint direct trade. Raw denim narwhal id, flannel DIY McSweeney’s seitan. Letterpress artisan bespoke accusamus, meggings laboris consequat Truffaut qui in seitan. Sustainable cornhole Schlitz, twee Cosby sweater banh mi deep v forage letterpress flannel whatever keffiyeh. Sartorial cred irure, semiotics ethical sed blue bottle nihil letterpress.&lt;/p&gt;
-
-&lt;p&gt;Occupy et selvage squid, pug brunch blog nesciunt hashtag mumblecore skateboard yr kogi. Ugh small batch swag four loko. Fap post-ironic qui tote bag farm-to-table american apparel scenester keffiyeh vero, swag non pour-over gentrify authentic pitchfork. Schlitz scenester lo-fi voluptate, tote bag irony bicycle rights pariatur vero Vice freegan wayfarers exercitation nisi shoreditch. Chambray tofu vero sed. Street art swag literally leggings, Cosby sweater mixtape PBR lomo Banksy non in pitchfork ennui McSweeney’s selfies. Odd Future Banksy non authentic.&lt;/p&gt;
-
-&lt;p&gt;Aliquip enim artisan dolor post-ironic. Pug tote bag Marfa, deserunt pour-over Portland wolf eu odio intelligentsia american apparel ugh ea. Sunt viral et, 3 wolf moon gastropub pug id. Id fashion axe est typewriter, mlkshk Portland art party aute brunch. Sint pork belly Cosby sweater, deep v mumblecore kitsch american apparel. Try-hard direct trade tumblr sint skateboard. Adipisicing bitters excepteur biodiesel, pickled gastropub aute veniam.&lt;/p&gt;
-</content>
-<category term="sample post" />
-<category term="readability" />
-<category term="test" />
-<summary>A ton of text to test readability.</summary>
 </entry>
 </feed>
