@@ -3,7 +3,7 @@
 <generator uri="http://jekyllrb.com" version="3.4.0">Jekyll</generator>
 <link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" />
 <link href="https://lahuman.github.io/" rel="alternate" type="text/html" />
-<updated>2017-02-06T11:04:37+09:00</updated>
+<updated>2017-02-06T11:08:52+09:00</updated>
 <id>https://lahuman.github.io/</id>
 <subtitle>열심히 사는 아저씨</subtitle>
 <entry>
@@ -418,12 +418,8 @@
 
 &lt;p&gt;This DB-PRINT is free and open source software, distributed under the MIT License. So feel free to use this program on your project without linking back to me or including a disclaimer.&lt;/p&gt;
 </content>
-<category term="java" />
 <category term="database" />
-<category term="oracle" />
-<category term="mysql" />
 <category term="html" />
-<category term="excel" />
 <summary>DATABASE의 Table 정보 저장 프로그램</summary>
 </entry>
 <entry>
