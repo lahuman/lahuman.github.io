@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+특수 문자가 들어 가는 내용은 
+<![CDATA[ ]]>
+으로 꼭 감쌓아 주세요.
+ -->
+<root>
+	<!-- 서버당 반복 구문 시작. -->
+	<server>
+		<info>
+			<!-- 각 서버의 정보입니다. 모든 항목은 필수 입니다. -->
+			<name>serverName</name>
+			<ip>SERVER1</ip>
+			<port>22</port>
+			<id>lahuman</id>
+			<pw><![CDATA[test1]]></pw>
+		</info>
+		<commands>
+			<!-- 실행할 명령어 입니다. N개를 넣을 수 있으며, 갯수 제한은 없습니다.-->
+			<command><![CDATA[ ls -al ]]></command>
+			<command><![CDATA[ ps -ef | grep tomcat ]]></command>
+			<command><![CDATA[ df -h ]]></command>
+			<command><![CDATA[ free -m ]]></command>
+			<command><![CDATA[ cat /var/log/message* | egrep -i 'error|fail|down|timeout' ]]></command>
+		</commands>
+	</server>
+	<!-- 서버당 반복 구문 종료. -->
+	<!-- 서버당 반복 구문 시작. -->
+	<server>
+		<info>
+			<name>serverName</name>
+			<ip>SERVER1</ip>
+			<port>22</port>
+			<id>lahuman</id>
+			<pw><![CDATA[test1]]></pw>
+		</info>
+		<commands>
+			<!-- 실행할 명령어 입니다. N개를 넣을 수 있으며, 갯수 제한은 없습니다.-->
+			<command><![CDATA[ ls -al ]]></command>
+			<command><![CDATA[ ps -ef | grep tomcat ]]></command>
+			<command><![CDATA[ df -h ]]></command>
+			<command><![CDATA[ free -m ]]></command>
+			<command><![CDATA[ cat /var/log/message* | egrep -i 'error|fail|down|timeout' ]]></command>
+		</commands>
+	</server>
+	<!-- 서버당 반복 구문 종료. -->
+	<!-- 서버당 반복 구문 시작. -->
+	<server>
+		<info>
+			<ip>SERVER1</ip>
+			<port>22</port>
+			<id>lahuman</id>
+			<pw><![CDATA[test1]]></pw>
+		</info>
+		<commands>
+			<!-- 실행할 명령어 입니다. N개를 넣을 수 있으며, 갯수 제한은 없습니다.-->
+			<command><![CDATA[ ls -al ]]></command>
+			<command><![CDATA[ ps -ef | grep tomcat ]]></command>
+			<command><![CDATA[ df -h ]]></command>
+			<command><![CDATA[ free -m ]]></command>
+			<command><![CDATA[ cat /var/log/message* | egrep -i 'error|fail|down|timeout' ]]></command>
+		</commands>
+	</server>
+	<!-- 서버당 반복 구문 종료. -->
+</root>
