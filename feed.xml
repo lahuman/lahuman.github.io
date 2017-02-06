@@ -3,7 +3,7 @@
 <generator uri="http://jekyllrb.com" version="3.4.0">Jekyll</generator>
 <link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" />
 <link href="https://lahuman.github.io/" rel="alternate" type="text/html" />
-<updated>2017-02-06T10:46:04+09:00</updated>
+<updated>2017-02-06T11:02:49+09:00</updated>
 <id>https://lahuman.github.io/</id>
 <subtitle>열심히 사는 아저씨</subtitle>
 <entry>
@@ -178,7 +178,7 @@
 <published>2017-02-06T00:00:00+09:00</published>
 <updated>2017-02-06T00:00:00+09:00</updated>
 <id>https://lahuman.github.io/Shell-Command-Runner</id>
-<content type="html" xml:base="https://lahuman.github.io/Shell-Command-Runner/">&lt;center&gt;&lt;b&gt;SCS(Shell Command Runner)&lt;/b&gt;는 여러 서버에서 Shell을 실행하고, 결과를 로컬 디스크에 저장해주는 프로그램 입니다.&lt;/center&gt;
+<content type="html" xml:base="https://lahuman.github.io/Shell-Command-Runner/">&lt;center&gt;&lt;b&gt;SCR(Shell Command Runner)&lt;/b&gt;는 여러 서버에서 Shell을 실행하고, 결과를 로컬 디스크에 저장해주는 프로그램 입니다.&lt;/center&gt;
 
 &lt;p&gt;특정 기간때(일,월,분기) 모든 서버에서 실행해야 하는 업무를 처리 할 때 사용 할 수 있습니다.&lt;/p&gt;
 
@@ -348,6 +348,83 @@
 <category term="about" />
 <category term="theme" />
 <summary>10분만에 개인 블로그 뚝딱 만들기</summary>
+</entry>
+<entry>
+<title>DB-PRINT</title>
+<link href="https://lahuman.github.io/db-print/" rel="alternate" type="text/html" title="DB-PRINT" />
+<published>2017-02-02T00:00:00+09:00</published>
+<updated>2017-02-02T00:00:00+09:00</updated>
+<id>https://lahuman.github.io/db-print</id>
+<content type="html" xml:base="https://lahuman.github.io/db-print/">&lt;center&gt;&lt;b&gt;DB-PRINT&lt;/b&gt;는 Database의 Table 정보를 시각화 하는 도구 입니다.&lt;/center&gt;
+
+&lt;p&gt;현재 지원하는 DBMS는 Oracle, Mysql 두종류 입니다.&lt;/p&gt;
+
+&lt;p&gt;{% capture images %}
+	https://lahuman.github.io/assets/project/dbprint/ui.PNG
+	https://lahuman.github.io/assets/project/dbprint/output.png
+{% endcapture %}
+{% include gallery images=images caption=”DB-PRINT Screen shot” cols=1 %}&lt;/p&gt;
+
+&lt;div&gt;&lt;a href=&quot;https://github.com/lahuman/DB-PRINT&quot; class=&quot;btn btn-warning&quot;&gt;Source 바로가기&lt;/a&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;download&quot;&gt;Download&lt;/h2&gt;
+
+&lt;h3 id=&quot;windows---&quot;&gt;Windows 전용 실행 파일&lt;/h3&gt;
+
+&lt;div&gt;&lt;a href=&quot;https://lahuman.github.io/assets/project/dbprint/DB-PRINT_32.zip&quot; class=&quot;btn btn-success&quot;&gt;DB-PRINT 32bit&lt;/a&gt;&lt;/div&gt;
+
+&lt;div&gt;&lt;a href=&quot;https://lahuman.github.io/assets/project/dbprint/DB-PRINT_64.zip&quot; class=&quot;btn btn-success&quot;&gt;DB-PRINT 64bit&lt;/a&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;os--source----&quot;&gt;다른 OS의 경우 Source를 다운받아 실행 하셔야 합니다.&lt;/h3&gt;
+
+&lt;h2 id=&quot;notice&quot;&gt;Notice&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;JRE 1.7 이상이 설치 되어 있어야 합니다.&lt;/li&gt;
+  &lt;li&gt;JRE_HOME 환경 변수가 설정 되어 있어야 합니다.
+    &lt;ul&gt;
+      &lt;li&gt;다음이 path에 추가 되어야 함
+        &lt;ul&gt;
+          &lt;li&gt;$JRE_HOME$\bin&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;function&quot;&gt;Function&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;특정 테이블만 저장 가능&lt;/li&gt;
+  &lt;li&gt;테이블 정보를 HTML or EXCEL로 저장&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;update-history&quot;&gt;Update history&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;2014.03.07
+    &lt;ul&gt;
+      &lt;li&gt;로그 추가 및 버그 개선&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;2010.09.04
+    &lt;ul&gt;
+      &lt;li&gt;최초 배포&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;license&quot;&gt;License&lt;/h2&gt;
+
+&lt;p&gt;DB-PRINT 는 open source 프로그램으로 MIT 라이선스를 따릅니다.&lt;/p&gt;
+
+&lt;p&gt;This DB-PRINT is free and open source software, distributed under the MIT License. So feel free to use this program on your project without linking back to me or including a disclaimer.&lt;/p&gt;
+</content>
+<category term="java" />
+<category term="database" />
+<category term="oracle" />
+<category term="mysql" />
+<category term="html" />
+<category term="excel" />
+<summary>DATABASE의 Table 정보 저장 프로그램</summary>
 </entry>
 <entry>
 <title>Moon Jekyll Theme</title>
@@ -866,107 +943,5 @@ end
 <category term="code" />
 <category term="highlighting" />
 <summary>Demo post displaying the various ways of highlighting code in Markdown.</summary>
-</entry>
-<entry>
-<title>A Post with Images</title>
-<link href="https://lahuman.github.io/sample-post-images/" rel="alternate" type="text/html" title="A Post with Images" />
-<published>2013-05-22T00:00:00+09:00</published>
-<updated>2013-05-22T00:00:00+09:00</updated>
-<id>https://lahuman.github.io/sample-post-images</id>
-<content type="html" xml:base="https://lahuman.github.io/sample-post-images/">&lt;p&gt;Here are some examples of what a post with images might look like. If you want to display two or three images next to each other responsively use &lt;code class=&quot;highlighter-rouge&quot;&gt;figure&lt;/code&gt; with the appropriate &lt;code class=&quot;highlighter-rouge&quot;&gt;class&lt;/code&gt;. Each instance of &lt;code class=&quot;highlighter-rouge&quot;&gt;figure&lt;/code&gt; is auto-numbered and displayed in the caption.&lt;/p&gt;
-
-&lt;h3 id=&quot;figures-for-images-or-video&quot;&gt;Figures (for images or video)&lt;/h3&gt;
-
-&lt;h4 id=&quot;one-up&quot;&gt;One Up&lt;/h4&gt;
-
-&lt;figure&gt;
-	&lt;a href=&quot;http://farm9.staticflickr.com/8426/7758832526_cc8f681e48_b.jpg&quot;&gt;&lt;img src=&quot;http://farm9.staticflickr.com/8426/7758832526_cc8f681e48_c.jpg&quot; /&gt;&lt;/a&gt;
-	&lt;figcaption&gt;&lt;a href=&quot;http://www.flickr.com/photos/80901381@N04/7758832526/&quot; title=&quot;Morning Fog Emerging From Trees by A Guy Taking Pictures, on Flickr&quot;&gt;Morning Fog Emerging From Trees by A Guy Taking Pictures, on Flickr&lt;/a&gt;.&lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;Vero laborum commodo occupy. Semiotics voluptate mumblecore pug. Cosby sweater ullamco quinoa ennui assumenda, sapiente occupy delectus lo-fi. Ea fashion axe Marfa cillum aliquip. Retro Bushwick keytar cliche. Before they sold out sustainable gastropub Marfa readymade, ethical Williamsburg skateboard brunch qui consectetur gentrify semiotics. Mustache cillum irony, fingerstache magna pour-over keffiyeh tousled selfies.&lt;/p&gt;
-
-&lt;h4 id=&quot;two-up&quot;&gt;Two Up&lt;/h4&gt;
-
-&lt;p&gt;Apply the &lt;code class=&quot;highlighter-rouge&quot;&gt;half&lt;/code&gt; class like so to display two images side by side that share the same caption.&lt;/p&gt;
-
-&lt;p&gt;{% highlight html %}&lt;/p&gt;
-&lt;figure class=&quot;half&quot;&gt;
-    &lt;a href=&quot;/images/image-filename-1-large.jpg&quot;&gt;&lt;img src=&quot;/images/image-filename-1.jpg&quot; /&gt;&lt;/a&gt;
-    &lt;a href=&quot;/images/image-filename-2-large.jpg&quot;&gt;&lt;img src=&quot;/images/image-filename-2.jpg&quot; /&gt;&lt;/a&gt;
-    &lt;figcaption&gt;Caption describing these two images.&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;p&gt;{% endhighlight %}&lt;/p&gt;
-
-&lt;p&gt;And you’ll get something that looks like this:&lt;/p&gt;
-
-&lt;figure class=&quot;half&quot;&gt;
-	&lt;a href=&quot;http://placehold.it/1200x600.JPG&quot;&gt;&lt;img src=&quot;http://placehold.it/600x300.jpg&quot; /&gt;&lt;/a&gt;
-	&lt;a href=&quot;http://placehold.it/1200x600.jpeg&quot;&gt;&lt;img src=&quot;http://placehold.it/600x300.jpg&quot; /&gt;&lt;/a&gt;
-	&lt;figcaption&gt;Two images.&lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;h4 id=&quot;three-up&quot;&gt;Three Up&lt;/h4&gt;
-
-&lt;p&gt;Apply the &lt;code class=&quot;highlighter-rouge&quot;&gt;third&lt;/code&gt; class like so to display three images side by side that share the same caption.&lt;/p&gt;
-
-&lt;p&gt;{% highlight html %}&lt;/p&gt;
-&lt;figure class=&quot;third&quot;&gt;
-	&lt;img src=&quot;/images/image-filename-1.jpg&quot; /&gt;
-	&lt;img src=&quot;/images/image-filename-2.jpg&quot; /&gt;
-	&lt;img src=&quot;/images/image-filename-3.jpg&quot; /&gt;
-	&lt;figcaption&gt;Caption describing these three images.&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;p&gt;{% endhighlight %}&lt;/p&gt;
-
-&lt;p&gt;And you’ll get something that looks like this:&lt;/p&gt;
-
-&lt;figure class=&quot;third&quot;&gt;
-	&lt;img src=&quot;http://placehold.it/600x300.jpg&quot; /&gt;
-	&lt;img src=&quot;http://placehold.it/600x300.jpg&quot; /&gt;
-	&lt;img src=&quot;http://placehold.it/600x300.jpg&quot; /&gt;
-	&lt;figcaption&gt;Three images.&lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;h3 id=&quot;alternative-way&quot;&gt;Alternative way&lt;/h3&gt;
-
-&lt;p&gt;Another way to achieve the same result is to include &lt;code class=&quot;highlighter-rouge&quot;&gt;gallery&lt;/code&gt; Liquid template. In this case you
-don’t have to write any HTML tags – just copy a small block of code, adjust the parameters (see below)
-and fill the block with any number of links to images. You can mix relative and external links.&lt;/p&gt;
-
-&lt;p&gt;Here is the block you might want to use:&lt;/p&gt;
-
-&lt;p&gt;{% highlight liquid %}
-{% raw %}
-{% capture images %}
-	http://vignette2.wikia.nocookie.net/naruto/images/9/97/Hinata.png
-	http://vignette4.wikia.nocookie.net/naruto/images/7/79/Hinata_Part_II.png
-	http://vignette1.wikia.nocookie.net/naruto/images/1/15/J%C5%ABho_S%C5%8Dshiken.png
-{% endcapture %}
-{% include gallery images=images caption=”Test images” cols=3 %}
-{% endraw %}
-{% endhighlight %}&lt;/p&gt;
-
-&lt;p&gt;Parameters:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;caption&lt;/code&gt;: Sets the caption under the gallery (see &lt;code class=&quot;highlighter-rouge&quot;&gt;figcaption&lt;/code&gt; HTML tag above);&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cols&lt;/code&gt;: Sets the number of columns of the gallery.
-Available values: [1..3].&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;It will look something like this:&lt;/p&gt;
-
-&lt;p&gt;{% capture images %}
-	http://vignette2.wikia.nocookie.net/naruto/images/9/97/Hinata.png
-	http://vignette4.wikia.nocookie.net/naruto/images/7/79/Hinata_Part_II.png
-	http://vignette1.wikia.nocookie.net/naruto/images/1/15/J%C5%ABho_S%C5%8Dshiken.png
-{% endcapture %}
-{% include gallery images=images caption=”Test images” cols=3 %}&lt;/p&gt;
-</content>
-<category term="sample post" />
-<category term="images" />
-<category term="test" />
-<summary>Examples and code for displaying images in posts.</summary>
 </entry>
 </feed>
