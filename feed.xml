@@ -3,7 +3,7 @@
 <generator uri="http://jekyllrb.com" version="3.4.0">Jekyll</generator>
 <link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" />
 <link href="https://lahuman.github.io/" rel="alternate" type="text/html" />
-<updated>2017-02-17T09:17:19+09:00</updated>
+<updated>2017-02-17T09:21:47+09:00</updated>
 <id>https://lahuman.github.io/</id>
 <subtitle>열심히 사는 아저씨</subtitle>
 <entry>
@@ -19,7 +19,7 @@
 깨진 유리창 하나를 방치해두면, 그 지점을 중심으로 범죄가 확산되기 시작한다는 이론으로, 사소한 무질서를 방치하면 큰 문제로 이어질 가능성이 높다는 의미를 담고 있다.
 &lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;개발에서도 몇가지 지켜야 하는 규칙들이 있다. 특히 코드 컨벤션과 명명 규칙(도메인 포함) 등은 많은 사람의 작업에서 자주 지켜지지 않는 규칙이 된다.
+&lt;p&gt;개발에서도 코드 컨벤션과 명명 규칙(도메인 포함) 등은 많은 사람이 함께 하는 작업에서 몇가지 지켜야 하는 규칙들이 있다.
 &lt;br /&gt;
 깨진 유리창 이론과 같이 초반에 제대로 확인하여 지켜지지 않으면 작업의 종료 시점에는 큰 문제로 이어질 수 있다.&lt;/p&gt;
 
