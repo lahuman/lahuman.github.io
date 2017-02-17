@@ -3,9 +3,30 @@
 <generator uri="http://jekyllrb.com" version="3.4.0">Jekyll</generator>
 <link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" />
 <link href="https://lahuman.github.io/" rel="alternate" type="text/html" />
-<updated>2017-02-16T14:31:46+09:00</updated>
+<updated>2017-02-17T09:17:19+09:00</updated>
 <id>https://lahuman.github.io/</id>
 <subtitle>열심히 사는 아저씨</subtitle>
+<entry>
+<title>[2016.02.17] 짧은 생각 - 깨진 유리창 이론</title>
+<link href="https://lahuman.github.io/20160217-phase/" rel="alternate" type="text/html" title="[2016.02.17] 짧은 생각 - 깨진 유리창 이론" />
+<published>2017-02-17T00:00:00+09:00</published>
+<updated>2017-02-17T00:00:00+09:00</updated>
+<id>https://lahuman.github.io/20160217-phase</id>
+<content type="html" xml:base="https://lahuman.github.io/20160217-phase/">&lt;h1 id=&quot;section&quot;&gt;깨진 유리창 이론&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://ko.wikipedia.org/wiki/%EA%B9%A8%EC%A7%84_%EC%9C%A0%EB%A6%AC%EC%B0%BD_%EC%9D%B4%EB%A1%A0&quot; target=&quot;_blank&quot;&gt;깨진 유리창 이론&lt;/a&gt;은 미국의 범죄 학자인 제임스 윌슨과 조지 켈링이 1982년 3월에 공동 발표한 깨진 유리창 이라는 글에서 처음 소개된 사회 무질서에 관한 이론이다.
+&lt;br /&gt;
+깨진 유리창 하나를 방치해두면, 그 지점을 중심으로 범죄가 확산되기 시작한다는 이론으로, 사소한 무질서를 방치하면 큰 문제로 이어질 가능성이 높다는 의미를 담고 있다.
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;개발에서도 몇가지 지켜야 하는 규칙들이 있다. 특히 코드 컨벤션과 명명 규칙(도메인 포함) 등은 많은 사람의 작업에서 자주 지켜지지 않는 규칙이 된다.
+&lt;br /&gt;
+깨진 유리창 이론과 같이 초반에 제대로 확인하여 지켜지지 않으면 작업의 종료 시점에는 큰 문제로 이어질 수 있다.&lt;/p&gt;
+
+</content>
+<category term="단상" />
+<summary>단상</summary>
+</entry>
 <entry>
 <title>[2016.02.16] 짧은 생각 - 정보의 과잉</title>
 <link href="https://lahuman.github.io/20160216-phase/" rel="alternate" type="text/html" title="[2016.02.16] 짧은 생각 - 정보의 과잉" />
@@ -906,26 +927,5 @@ feaure: http://example.com/some-image.png
 <category term="test" />
 <category term="jekyll" />
 <summary>Just about everything you’ll need to style in the theme: headings, paragraphs, blockquotes, tables, code blocks, and more.</summary>
-</entry>
-<entry>
-<title>A Post with a Video</title>
-<link href="https://lahuman.github.io/video-post/" rel="alternate" type="text/html" title="A Post with a Video" />
-<published>2016-03-15T00:00:00+09:00</published>
-<updated>2016-03-15T00:00:00+09:00</updated>
-<id>https://lahuman.github.io/video-post</id>
-<content type="html" xml:base="https://lahuman.github.io/video-post/">&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;//www.youtube.com/embed/SU3kYxJmWuQ&quot; frameborder=&quot;0&quot;&gt; &lt;/iframe&gt;
-
-&lt;p&gt;Video embeds are responsive and scale with the width of the main content block with the help of &lt;a href=&quot;http://fitvidsjs.com/&quot;&gt;FitVids&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Not sure if this only effects Kramdown or if it’s an issue with Markdown in general. But adding YouTube video embeds causes errors when building your Jekyll site. To fix add a space between the &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;iframe&amp;gt;&lt;/code&gt; tags and remove &lt;code class=&quot;highlighter-rouge&quot;&gt;allowfullscreen&lt;/code&gt;. Example below:&lt;/p&gt;
-
-&lt;p&gt;{% highlight html %}&lt;/p&gt;
-&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;//www.youtube.com/embed/SU3kYxJmWuQ&quot; frameborder=&quot;0&quot;&gt; &lt;/iframe&gt;
-&lt;p&gt;{% endhighlight %}&lt;/p&gt;
-</content>
-<category term="sample" />
-<category term="post" />
-<category term="video" />
-<summary>Custom written post descriptions are the way to go… if you’re not lazy.</summary>
 </entry>
 </feed>
