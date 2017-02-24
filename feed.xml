@@ -3,9 +3,47 @@
 <generator uri="http://jekyllrb.com" version="3.4.0">Jekyll</generator>
 <link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" />
 <link href="https://lahuman.github.io/" rel="alternate" type="text/html" />
-<updated>2017-02-23T12:03:08+09:00</updated>
+<updated>2017-02-24T13:57:15+09:00</updated>
 <id>https://lahuman.github.io/</id>
 <subtitle>열심히 사는 아저씨</subtitle>
+<entry>
+<title>[2016.02.24] 짧은 생각 - 책</title>
+<link href="https://lahuman.github.io/20160224-phase/" rel="alternate" type="text/html" title="[2016.02.24] 짧은 생각 - 책" />
+<published>2017-02-24T00:00:00+09:00</published>
+<updated>2017-02-24T00:00:00+09:00</updated>
+<id>https://lahuman.github.io/20160224-phase</id>
+<content type="html" xml:base="https://lahuman.github.io/20160224-phase/">&lt;h1 id=&quot;section&quot;&gt;책&lt;/h1&gt;
+
+&lt;p&gt;책을 읽는 것은 정말 중요 하다. 어떤 사람은 다독을 권장 하기도 하고, 정독을 권장 하기도 한다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;꼭 공부나 무언가를 배우기 위한 책도 좋지만, 주변을 환기 시키고 생각에 잠기게 하는 좋은 책도 있다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;다음은 윤동주 시인의 &lt;kbd&gt;서시&lt;/kbd&gt; 이다.&lt;/p&gt;
+
+&lt;p&gt;{% highlight text %}&lt;/p&gt;
+
+&lt;序詩&gt;
+              
+죽는 날까지 하늘을 우러러
+한 점 부끄러움이 없기를
+잎새에 이는 바람에도 
+나는 괴로워했다.
+별을 노래하는 마음으로
+모든 죽어 가는 것을 사랑해야지
+그리고 나한테 주워진 길을
+걸어가야겠다
+
+오늘밤도 별이 바람에 스치운다
+
+{% endhighlight %}
+
+
+### 하루에 한 소절을 읽어도 좋다. 죽는 날까지 멈추지 말고 계속 책을 읽자.&lt;br /&gt;
+&lt;/序詩&gt;
+</content>
+<category term="단상" />
+<summary>단상</summary>
+</entry>
 <entry>
 <title>Spring MVC에서 ResponsBody로 String을 전달시 한글 깨짐 현상 해결</title>
 <link href="https://lahuman.github.io/korean-utf-8-String/" rel="alternate" type="text/html" title="Spring MVC에서 ResponsBody로 String을 전달시 한글 깨짐 현상 해결" />
@@ -14,7 +52,7 @@
 <id>https://lahuman.github.io/korean-utf-8-String</id>
 <content type="html" xml:base="https://lahuman.github.io/korean-utf-8-String/">&lt;h1 id=&quot;spring-mvc--responsbody-string------&quot;&gt;Spring MVC 에서 ResponsBody로 String 을 전달시 한글 깨짐 현상 해결&lt;/h1&gt;
 
-&lt;p&gt;Controller에서 단순한 문자열(String)을 ResponseBody로 전달 할 경우, 깨지는 현상이 발생할수 있습니다.
+&lt;p&gt;Controller에서 단순한 문자열(String)을 ResponseBody로 전달할 경우, 깨지는 현상이 발생할 수 있습니다. 
 코드는 다음과 같습니다.&lt;/p&gt;
 
 &lt;p&gt;{% highlight java %}
@@ -24,13 +62,13 @@ public @ResponseBody String getContent(@PathVariable(“id”) long id) {
 }
 {% endhighlight %}&lt;/p&gt;
 
-&lt;p&gt;한글이깨지는 원인은 브라우져에서 해당 요청에 대한 응답의 헤더 값을 보면 다음과 같이 표현 되어 있습니다.&lt;/p&gt;
+&lt;p&gt;한글이 깨지는 원인은 브라우저에서 해당 요청에 대한 응답의 헤더 값을 보면 다음과 같이 표현되어 있습니다.&lt;/p&gt;
 
 &lt;p&gt;{% highlight css %}
 Content-Type:application/json;charset=ISO-8859-1
 {% endhighlight %}&lt;/p&gt;
 
-&lt;p&gt;위의 문제를 해결 하기 위해서는 다음과 같이 spring servlet xml 설정을 추가 해야 합니다.
+&lt;p&gt;위의 문제를 해결하기 위해서는 다음과 같이 spring servlet xml 설정을 추가해야 합니다.
 {% highlight xml %}&lt;/p&gt;
 &lt;mvc:annotation-driven&gt;
     &lt;mvc:message-converters&gt;
@@ -46,13 +84,13 @@ Content-Type:application/json;charset=ISO-8859-1
 &lt;/mvc:annotation-driven&gt;
 &lt;p&gt;{% endhighlight %}&lt;/p&gt;
 
-&lt;p&gt;위와 같이 설정을 한 후 응답의 해더 값을 확인 하면 다음과 같습니다.&lt;/p&gt;
+&lt;p&gt;위와 같이 설정을 한 후 응답의 해더 값을 확인하면 다음과 같습니다.&lt;/p&gt;
 
 &lt;p&gt;{% highlight css %}
 Content-Type:application/json;charset=UTF-8
 {% endhighlight %}&lt;/p&gt;
 
-&lt;p&gt;이후 Content 값을 확인하면, 한글이 깨지지 않고 제대로 표출 되는 것을 확인 할 수 있습니다.&lt;/p&gt;
+&lt;p&gt;이후 Content 값을 확인하면, 한글이 깨지지 않고 제대로 표출되는 것을 확인할 수 있습니다.&lt;/p&gt;
 </content>
 <category term="한글" />
 <category term="Spring MVC" />
@@ -524,110 +562,5 @@ AB|자동책등록프로그램
 <category term="Shell" />
 <category term="Daily" />
 <summary>Shell 명령어를 실행하고 결과를 저장하는 프로그램</summary>
-</entry>
-<entry>
-<title>jekyll를 이용한 github에 개인 사이트 구축</title>
-<link href="https://lahuman.github.io/use-jekyll-personal-page/" rel="alternate" type="text/html" title="jekyll를 이용한 github에 개인 사이트 구축" />
-<published>2017-02-03T00:00:00+09:00</published>
-<updated>2017-02-03T00:00:00+09:00</updated>
-<id>https://lahuman.github.io/use-jekyll-personal-page</id>
-<content type="html" xml:base="https://lahuman.github.io/use-jekyll-personal-page/">&lt;p&gt;&lt;img src=&quot;https://jekyllrb-ko.github.io/img/logo-2x.png&quot; alt=&quot;jekyll&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;about-jekyll&quot;&gt;About jekyll&lt;/h2&gt;
-
-&lt;p&gt;다음은 &lt;a href=&quot;https://jekyllrb-ko.github.io/docs/home/&quot; target=&quot;_blank&quot;&gt;jekyll 문서&lt;/a&gt;에서 가져온 내용입니다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Jekyll 은 아주 심플하고 블로그 지향적인 정적 사이트 생성기입니다. Jekyll 은 다양한 포맷의 원본 텍스트 파일을 템플릿 디렉토리로부터 읽어서, (&lt;a href=&quot;http://daringfireball.net/projects/markdown/&quot; target=&quot;_blank&quot;&gt;Markdown&lt;/a&gt; 등의) 변환기와 &lt;a href=&quot;https://github.com/Shopify/liquid/wiki&quot; target=&quot;_blank&quot;&gt;Liquid&lt;/a&gt; 렌더러를 통해 가공하여, 당신이 즐겨 사용하는 웹 서버에 곧바로 게시할 수 있는, 완성된 정적 웹사이트를 만들어냅니다. 그리고 Jekyll 은 &lt;a href=&quot;http://pages.github.com/&quot; target=&quot;_blank&quot;&gt;GitHub Pages&lt;/a&gt; 의 내부 엔진이기도 합니다. 다시 말해, Jekyll 을 사용하면 자신의 프로젝트 페이지나 블로그, 웹사이트를 무료로 GitHub 에 호스팅 할 수 있다는 뜻입니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;install-jekyll&quot;&gt;Install jekyll&lt;/h2&gt;
-
-&lt;h4 id=&quot;jekyll--------&quot;&gt;먼저 jekyll의 설치를 하기전에 다음의 준비물이 설치 되어 있어야 한다.&lt;/h4&gt;
-
-&lt;p&gt;Jekyll 설치는 아주 쉽고 직관적이지만, 시작하기 전에 먼저 확인해야 할 몇 가지 준비물이 있습니다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Ruby (Jekyll 2 사용 시 v1.9.3 이상, Jekyll 3 사용 시 v2 이상의 개발 패키지 포함)&lt;/li&gt;
-  &lt;li&gt;RubyGems&lt;/li&gt;
-  &lt;li&gt;리눅스, 유닉스, 또는 맥 OS X&lt;/li&gt;
-  &lt;li&gt;NodeJS, 또는 다른 JavaScript 실행환경 (Jekyll 2 와 그 이전 버전에서, CoffeeScript 지원에 필요함).&lt;/li&gt;
-  &lt;li&gt;Python 2.7 (Jekyll 2 나 그 이전 버전일 경우)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;a-hrefhttpsjekyllrb-kogithubiodocsinstallation-targetblanka--&quot;&gt;상세 설치 주소는 &lt;a href=&quot;https://jekyllrb-ko.github.io/docs/installation/&quot; target=&quot;_blank&quot;&gt;여기&lt;/a&gt; 에서 확인&lt;/h4&gt;
-
-&lt;h3 id=&quot;jekyll------&quot;&gt;가장 기본적인 형태로 Jekyll 사이트를 구축하고 실행하는 방법을 먼저 알려드립니다.&lt;/h3&gt;
-&lt;p&gt;{% highlight bash %}
-~ $ gem install jekyll
-~ $ jekyll new myblog
-~ $ cd myblog
-~/myblog $ jekyll serve
-# =&amp;gt; Now browse to http://localhost:4000
-{% endhighlight %}&lt;/p&gt;
-
-&lt;p&gt;현재 디렉토리에서 Jekyll 을 구성하려면, 새 디렉토리 이름 대신 &lt;kbd&gt;jekyll new .&lt;/kbd&gt; 을 실행하세요.&lt;/p&gt;
-
-&lt;p&gt;초기 블로그의 화면은 http://localhost:4000 로 접근 하면 확인이 가능 하다.&lt;/p&gt;
-
-&lt;h3 id=&quot;jekyll-------1&quot;&gt;&lt;em&gt;만약, jekyll이 위의 방법으로 설치 되지 않을 경우&lt;/em&gt;&lt;/h3&gt;
-
-&lt;p&gt;다음의 방법으로 jekyll를 설치 하세요.
-{% highlight bash %}
-~ $ sudo apt-get install jekyll
-{% endhighlight %}&lt;/p&gt;
-
-&lt;h2 id=&quot;make-blog-with-theme&quot;&gt;Make Blog with Theme&lt;/h2&gt;
-
-&lt;p&gt;테마를 사용하면, 좀더 멋진 블로그를 만들 수 있다.
-내가 사용한 테마는 &lt;a href=&quot;https://github.com/TaylanTatli/Moon&quot; target=&quot;_blank&quot;&gt;Moon&lt;/a&gt;이다.&lt;/p&gt;
-
-&lt;p&gt;테마는 &lt;a href=&quot;http://jekyllthemes.org/&quot; target=&quot;_blank&quot;&gt;jekyll Themes&lt;/a&gt;에서 찾아 볼 수 있다.&lt;/p&gt;
-
-&lt;h3 id=&quot;section&quot;&gt;테마를 사용하기 위해서 하는 일은 다음과 같다.&lt;/h3&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;테마의 소스를 로컬 PC에 다운로드 한다.&lt;/li&gt;
-  &lt;li&gt;소스를 빌드 한다.
-    &lt;ul&gt;
-      &lt;li&gt;빌드 중 오류가 발생 하면, &lt;em&gt;4.&lt;/em&gt;을 참고&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;빌드된 디렉토리에서 &lt;kbd&gt;jekyll serve&lt;/kbd&gt;를 입력 한다.&lt;/li&gt;
-  &lt;li&gt;설치 하라는 플러그인이 있을 경우 추가로 설치 한다.
-    &lt;ol&gt;
-      &lt;li&gt;설치해야하는 플러그인 정보는 &lt;kbd&gt;Gemfile&lt;/kbd&gt; 에 표현되어 있다.&lt;/li&gt;
-      &lt;li&gt;그 외에 추가 설치 정보는 오류 메시지를 확인 하자&lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
-  &lt;li&gt;실행이 완료 되었으면 &lt;kbd&gt;http://localhost:4000&lt;/kbd&gt; 를 확인 한다.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;section-1&quot;&gt;플러그인 설치 중 오류 발생시 다음을 실행&lt;/h3&gt;
-
-&lt;p&gt;{% highlight bash %}
-~ $ sudo apt-get install ruby-dev
-~ $ sudo gem update –system
-~ $ sudo apt-get install libxml2
-~ $ sudo apt-get install zlib1g-dev
-{% endhighlight %}&lt;/p&gt;
-
-&lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;https://brunch.co.kr/@hee072794/39&lt;/li&gt;
-  &lt;li&gt;https://vjinn.github.io/tip/jekyll-plugins-and-github-pages/&lt;/li&gt;
-  &lt;li&gt;https://github.com/flapjack/omnibus-flapjack/issues/72&lt;/li&gt;
-  &lt;li&gt;https://nolboo.kim/blog/2013/10/15/free-blog-with-github-jekyll/&lt;/li&gt;
-  &lt;li&gt;https://github.com/TaylanTatli/Moon&lt;/li&gt;
-  &lt;li&gt;http://jekyllrb-ko.github.io/docs/home/&lt;/li&gt;
-&lt;/ul&gt;
-</content>
-<category term="jekyll" />
-<category term="moon" />
-<category term="blog" />
-<category term="about" />
-<category term="theme" />
-<summary>10분만에 개인 블로그 뚝딱 만들기</summary>
 </entry>
 </feed>
