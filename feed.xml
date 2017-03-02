@@ -3,7 +3,7 @@
 <generator uri="http://jekyllrb.com" version="3.4.0">Jekyll</generator>
 <link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" />
 <link href="https://lahuman.github.io/" rel="alternate" type="text/html" />
-<updated>2017-03-02T11:53:18+09:00</updated>
+<updated>2017-03-02T12:02:35+09:00</updated>
 <id>https://lahuman.github.io/</id>
 <subtitle>열심히 사는 아저씨</subtitle>
 <entry>
@@ -12,15 +12,17 @@
 <published>2017-03-01T00:00:00+09:00</published>
 <updated>2017-03-01T00:00:00+09:00</updated>
 <id>https://lahuman.github.io/20160301-phase</id>
-<content type="html" xml:base="https://lahuman.github.io/20160301-phase/">&lt;h1 id=&quot;section&quot;&gt;소프트웨어 공학&lt;/h1&gt;
+<content type="html" xml:base="https://lahuman.github.io/20160301-phase/">&lt;h1 id=&quot;section&quot;&gt;소프트웨어 공학 이란&lt;/h1&gt;
 
-&lt;h2 id=&quot;section-1&quot;&gt;소프트웨어 공학은 소프트웨어 생산의 모든 관점을 다루는 공학 분야이다.&lt;/h2&gt;
-&lt;p&gt;## 소프트웨어는 프로그램과 관련 문서 및 실행에 필요한 데이터를 포함한다.
-## 좋은 소프트웨어 제품이 되기 위해서는 유지보수성, 신뢰성(dependability), 보안성, 효율성 및 수용성(acceptability)이 보장되어야 한다.
-## 소프트웨어 프로세스는 소프트웨어 개발과 관련한 모든 활동을 포함하며 기본적으로 명세, 개발, 검증(validation)과 진화 (evolution)로 이루어진다.
-## 시스템의 유형에 따라 개발에 사용되는 도구와 기술이 달라질 수 있다.
-## 소프트웨어공학의 기본 개념은 모든 유형의 소프트웨어 시스템에 적용될 수 있다.
-## 소프트웨어 엔지니어는 기술적 책무 외에도 윤리적 책임의식을 가져야 한다.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;소프트웨어 공학은 소프트웨어 생산의 모든 관점을 다루는 공학 분야이다.&lt;/li&gt;
+  &lt;li&gt;소프트웨어는 프로그램과 관련 문서 및 실행에 필요한 데이터를 포함한다.&lt;/li&gt;
+  &lt;li&gt;좋은 소프트웨어 제품이 되기 위해서는 유지보수성, 신뢰성(dependability), 보안성, 효율성 및 수용성(acceptability)이 보장되어야 한다.&lt;/li&gt;
+  &lt;li&gt;소프트웨어 프로세스는 소프트웨어 개발과 관련한 모든 활동을 포함하며 기본적으로 명세, 개발, 검증(validation)과 진화 (evolution)로 이루어진다.&lt;/li&gt;
+  &lt;li&gt;시스템의 유형에 따라 개발에 사용되는 도구와 기술이 달라질 수 있다.&lt;/li&gt;
+  &lt;li&gt;소프트웨어공학의 기본 개념은 모든 유형의 소프트웨어 시스템에 적용될 수 있다.&lt;/li&gt;
+  &lt;li&gt;소프트웨어 엔지니어는 기술적 책무 외에도 윤리적 책임의식을 가져야 한다.&lt;/li&gt;
+&lt;/ul&gt;
 
 </content>
 <category term="단상" />
