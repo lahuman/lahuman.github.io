@@ -3,9 +3,42 @@
 <generator uri="http://jekyllrb.com" version="3.4.0">Jekyll</generator>
 <link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" />
 <link href="https://lahuman.github.io/" rel="alternate" type="text/html" />
-<updated>2017-03-02T12:02:35+09:00</updated>
+<updated>2017-03-03T10:54:42+09:00</updated>
 <id>https://lahuman.github.io/</id>
 <subtitle>열심히 사는 아저씨</subtitle>
+<entry>
+<title>[2016.03.03] 짧은 생각 - 개발 방법론</title>
+<link href="https://lahuman.github.io/20160303-phase/" rel="alternate" type="text/html" title="[2016.03.03] 짧은 생각 - 개발 방법론" />
+<published>2017-03-03T00:00:00+09:00</published>
+<updated>2017-03-03T00:00:00+09:00</updated>
+<id>https://lahuman.github.io/20160303-phase</id>
+<content type="html" xml:base="https://lahuman.github.io/20160303-phase/">&lt;h1 id=&quot;section&quot;&gt;개발 방법론&lt;/h1&gt;
+
+&lt;p&gt;많은 개발 방법론이 있지만, SI프로젝트에서 가장 많이 쓰이는 건 Waterfall Model(폭포수 개발 방법론)으로 불리는 방법을 사용한다. &lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;순서는 다음과 같다.&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;요구사항 분석&lt;/li&gt;
+  &lt;li&gt;시스템&amp;amp;소프트웨어 아키텍처 설계&lt;/li&gt;
+  &lt;li&gt;구현과 유닛 테스트&lt;/li&gt;
+  &lt;li&gt;통합과 시스템 테스트&lt;/li&gt;
+  &lt;li&gt;운영&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;해당 개발 방법론의 단점은 변경에 수행이 어렵다고 하지만, 실제 프로젝트에서의 변경은 매번 발생한다. &lt;br /&gt;
+또한 변경에 따른 &lt;kbd&gt;재설계&lt;/kbd&gt;를 하는 게 아니라 구현 단계에서 땜빵을 한다.&lt;br /&gt;
+이는 곧 기술 부채로 이어지고 운영시점이 되면 걷잡을수 없을 정도가 되고 만다.&lt;/p&gt;
+
+&lt;p&gt;CBD(Component Based Development)방법론을 따르는 프로젝트에서도 일해 보았지만 Waterfall Model과 다른건 산출물뿐이었다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;일정에 쫓기게 되어 급하게 개발 하고 늘 후회하였다.&lt;/p&gt;
+&lt;/blockquote&gt;
+</content>
+<category term="단상" />
+<summary>단상</summary>
+</entry>
 <entry>
 <title>[2016.03.01] 짧은 생각 - 소프트웨어 공학</title>
 <link href="https://lahuman.github.io/20160301-phase/" rel="alternate" type="text/html" title="[2016.03.01] 짧은 생각 - 소프트웨어 공학" />
@@ -373,74 +406,5 @@ AB|자동책등록프로그램
 <category term="등록" />
 <category term="자동화" />
 <summary>책 등록을 자동으로 해주는 프로그램을 만들자</summary>
-</entry>
-<entry>
-<title>passGen</title>
-<link href="https://lahuman.github.io/passGen/" rel="alternate" type="text/html" title="passGen" />
-<published>2017-02-06T00:00:00+09:00</published>
-<updated>2017-02-06T00:00:00+09:00</updated>
-<id>https://lahuman.github.io/passGen</id>
-<content type="html" xml:base="https://lahuman.github.io/passGen/">&lt;center&gt;&lt;b&gt;passGen&lt;/b&gt;은 간단한 비밀번호 생성기 입니다.&lt;/center&gt;
-
-&lt;p&gt;비밀번호에 대한 조건을 설정하면 해당 조건에 알맞은 랜덤값으로 여러개의 비밀번호를 생성 합니다.&lt;/p&gt;
-
-&lt;p&gt;{% capture images %}
-	https://lahuman.github.io/assets/project/passgen/passgen.PNG
-{% endcapture %}
-{% include gallery images=images caption=”passGen Screen shot” cols=1 %}&lt;/p&gt;
-
-&lt;div&gt;&lt;a href=&quot;https://github.com/lahuman/passGen&quot; class=&quot;btn btn-warning&quot;&gt;Source 바로가기&lt;/a&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;download&quot;&gt;Download&lt;/h2&gt;
-
-&lt;h3 id=&quot;windows---&quot;&gt;Windows 전용 실행 파일&lt;/h3&gt;
-
-&lt;div&gt;&lt;a href=&quot;https://lahuman.github.io/assets/project/passgen/passGen_32.zip&quot; class=&quot;btn btn-success&quot;&gt;passGen 32bit&lt;/a&gt;&lt;/div&gt;
-
-&lt;div&gt;&lt;a href=&quot;https://lahuman.github.io/assets/project/passgen/passGen_64.zip&quot; class=&quot;btn btn-success&quot;&gt;passGen 64bit&lt;/a&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;os--source----&quot;&gt;다른 OS의 경우 Source를 다운받아 실행 하셔야 합니다.&lt;/h3&gt;
-
-&lt;h2 id=&quot;notice&quot;&gt;Notice&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;JRE 1.7 이상이 설치 되어 있어야 합니다.&lt;/li&gt;
-  &lt;li&gt;JRE_HOME 환경 변수가 설정 되어 있어야 합니다.
-    &lt;ul&gt;
-      &lt;li&gt;다음이 path에 추가 되어야 함
-        &lt;ul&gt;
-          &lt;li&gt;$JRE_HOME$\bin&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;function&quot;&gt;Function&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;조건에 맞는 비밀번호 생성&lt;/li&gt;
-  &lt;li&gt;결과를 파일로 저장&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;update-history&quot;&gt;Update history&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;2013.07.15
-    &lt;ul&gt;
-      &lt;li&gt;최초 배포&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;license&quot;&gt;License&lt;/h2&gt;
-
-&lt;p&gt;passGen 는 open source 프로그램으로 MIT 라이선스를 따릅니다.&lt;/p&gt;
-
-&lt;p&gt;This passGen is free and open source software, distributed under the MIT License. So feel free to use this program on your project without linking back to me or including a disclaimer.&lt;/p&gt;
-</content>
-<category term="java" />
-<category term="password" />
-<category term="maker" />
-<summary>비밀 번호 생성기</summary>
 </entry>
 </feed>
