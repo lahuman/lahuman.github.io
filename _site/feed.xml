@@ -3,9 +3,186 @@
 <generator uri="http://jekyllrb.com" version="3.4.0">Jekyll</generator>
 <link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" />
 <link href="https://lahuman.github.io/" rel="alternate" type="text/html" />
-<updated>2017-03-06T10:31:30+09:00</updated>
+<updated>2017-03-07T10:54:20+09:00</updated>
 <id>https://lahuman.github.io/</id>
 <subtitle>열심히 사는 아저씨</subtitle>
+<entry>
+<title>Redis 설치 및 Cluster 구성</title>
+<link href="https://lahuman.github.io/redis-cluster-install/" rel="alternate" type="text/html" title="Redis 설치 및 Cluster 구성" />
+<published>2017-03-06T00:00:00+09:00</published>
+<updated>2017-03-06T00:00:00+09:00</updated>
+<id>https://lahuman.github.io/redis-cluster-install</id>
+<content type="html" xml:base="https://lahuman.github.io/redis-cluster-install/">&lt;h1 id=&quot;redis---cluster-&quot;&gt;Redis 설치 및 Cluster 구성&lt;/h1&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;1. 계정을 생성 한다.&lt;/h2&gt;
+
+&lt;p&gt;{% highlight bash %}
+$&amp;gt; adduser redis
+{% endhighlight %}&lt;/p&gt;
+
+&lt;h2 id=&quot;open-file---limit--&quot;&gt;2. open file 갯수에 대한 Limit 을 변경한다.&lt;/h2&gt;
+&lt;p&gt;{% highlight bash %}
+$&amp;gt; vi /etc/security/limits.conf&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;redis soft nofile 65535
+redis hard nofile 65535
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;{% endhighlight %}&lt;/p&gt;
+
+&lt;h2 id=&quot;section-1&quot;&gt;3. 메모리 스와핑을 최소로 사용하도록 설정을 한다.&lt;/h2&gt;
+&lt;p&gt;{% highlight bash %}
+$&amp;gt; sysctl -w vm.swappiness=1&lt;/p&gt;
+
+&lt;p&gt;이후 재기동 이후 반영을 위해&lt;/p&gt;
+
+&lt;p&gt;$&amp;gt;vi /etc/sysctl.conf 
+    vm.swappiness=1&lt;/p&gt;
+
+&lt;p&gt;{% endhighlight %}&lt;/p&gt;
+
+&lt;h2 id=&quot;section-2&quot;&gt;4. 메모리를 다 사용해도 충분한 메모리가 있는 것처럼 처리 한다.&lt;/h2&gt;
+&lt;p&gt;{% highlight bash %}
+$&amp;gt; sysctl -w vm.overcommit_memory=1&lt;/p&gt;
+
+&lt;p&gt;이후 재기동 이후 반영을 위해&lt;/p&gt;
+
+&lt;p&gt;$&amp;gt; vi /etc/sysctl.conf
+    vm.overcommit_memory=1 추가&lt;/p&gt;
+
+&lt;p&gt;{% endhighlight %}&lt;/p&gt;
+
+&lt;h2 id=&quot;section-3&quot;&gt;5. 네트워크 연결 개수를 설정 한다.&lt;/h2&gt;
+&lt;p&gt;{% highlight bash %}
+$&amp;gt; sysctl -w net.core.somaxconn=65535&lt;/p&gt;
+
+&lt;p&gt;이후 재기동 이후 반영을 위해&lt;/p&gt;
+
+&lt;p&gt;$&amp;gt; vi /etc/rc.local
+    sysctl -w net.core.somaxconn=65535&lt;/p&gt;
+
+&lt;p&gt;{% endhighlight %}&lt;/p&gt;
+
+&lt;h2 id=&quot;system-hang----thp----&quot;&gt;6. System Hang 을 막기 위해 THP 사용 안하도록 설정 한다.&lt;/h2&gt;
+&lt;p&gt;{% highlight bash %}
+$&amp;gt; echo never &amp;gt; /sys/kernel/mm/transparent_hugepage/enabled&lt;/p&gt;
+
+&lt;p&gt;이후 재기동 이후 반영을 위해&lt;/p&gt;
+
+&lt;p&gt;$&amp;gt; vi /etc/rc.local
+    echo never &amp;gt; /sys/kernel/mm/transparent_hugepage/enabled
+{% endhighlight %}&lt;/p&gt;
+
+&lt;h2 id=&quot;redis----redis--&quot;&gt;7. Redis 설치 - redis 계정으로 진행&lt;/h2&gt;
+&lt;p&gt;{% highlight bash %}
+# Source Download
+$&amp;gt; wget http://download.redis.io/releases/redis-3.2.6.tar.gz
+# 압축 헤제
+$&amp;gt; tar xvzf redis-3.2.6.tar.gz
+# 해제된 디렉토리 이동
+$&amp;gt; cd redis-3.2.6
+# 설치 진행
+$&amp;gt; make&lt;/p&gt;
+
+&lt;h1 id=&quot;section-4&quot;&gt;에러 발생시 다음 진행&lt;/h1&gt;
+&lt;p&gt;$&amp;gt; yum install gcc-c++
+$&amp;gt; make distclean
+$&amp;gt; make&lt;/p&gt;
+
+&lt;h1 id=&quot;usrlocalbin----root--&quot;&gt;/usr/local/bin에 실행 파일 복사됨, root 권한 필요&lt;/h1&gt;
+&lt;p&gt;$&amp;gt; make install
+{% endhighlight %}&lt;/p&gt;
+
+&lt;h2 id=&quot;cluster-&quot;&gt;8. Cluster 구성&lt;/h2&gt;
+
+&lt;h3 id=&quot;conf-file-&quot;&gt;8.1 Conf File 수정&lt;/h3&gt;
+&lt;p&gt;{% highlight bash %}
+$&amp;gt; vi redis conf
+    #원격 서버에서 접속 가능하게 설정하려면 no로 지정
+    protected-mode no
+    tcp-keepalive 60
+    loglevel notice
+    logfile “/var/log/redis/redis_5543.log”&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;daemonize yes
+#포트 지정
+port 5543
+#bind 127.0.0.1를 주석 처리
+# bind 127.0.0.1 
+#비밀번호 지정
+requirepass &amp;lt;password&amp;gt;
+masterauth &amp;lt;password&amp;gt;
+#yes로 설정시 클러스터 모드, no로 설정시 standalone 모드로 시작
+cluster-enabled yes 
+#클러스터의 상태를 기록하는 바이너리 파일 경로
+cluster-config-file nodes_5543.conf 
+#레디스 노드가 다운되었는지 판단하는 시간 단위는 millisecond.
+cluster-node-timeout 3000 
+#다운 시도 횟수 
+cluster-slave-validity-factor 2 
+#위치 지정
+pidfile /var/run/redis/redis_5543.pid 
+dbfilename dump-5543.rdb
+# appendonly 는 변경시 해당 명령을 저장해 두었다가, 복구시 저장된 명령을 순서대로 실행하는 옵션
+appendonly yes  {% endhighlight %}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;section-5&quot;&gt;8.2 인스턴스 시작&lt;/h3&gt;
+&lt;p&gt;{% highlight bash %}
+$&amp;gt;  $REDIS_BIN/redis-server $REDIS_NODE_CONF/redis-${port}.conf&lt;/p&gt;
+
+&lt;p&gt;#7000 ~ 7002 까지 인스턴스 실행 예
+$&amp;gt; $REDIS_BIN/redis-server $REDIS_NODE_CONF/redis-7000.conf
+$&amp;gt; $REDIS_BIN/redis-server $REDIS_NODE_CONF/redis-7001.conf
+$&amp;gt; $REDIS_BIN/redis-server $REDIS_NODE_CONF/redis-7002.conf
+{% endhighlight %}&lt;/p&gt;
+
+&lt;h3 id=&quot;section-6&quot;&gt;8.3 인스턴스별 슬롯 할당&lt;/h3&gt;
+&lt;p&gt;{% highlight bash %}
+$&amp;gt; redis-cli -c -h 124.66.185.75 -p 7000 -a &lt;password&gt; cluster addslots {0..5460}
+$&amp;gt; redis-cli -c -h 124.66.185.75 -p 7001 -a &lt;password&gt; cluster addslots {5461..10922}
+$&amp;gt; redis-cli -c -h 124.66.185.75 -p 7002 -a &lt;password&gt; cluster addslots {10923..16383}
+{% endhighlight %}&lt;/password&gt;&lt;/password&gt;&lt;/password&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;epoch-&quot;&gt;8.4 epoch 설정&lt;/h3&gt;
+&lt;p&gt;{% highlight bash %}
+$&amp;gt; redis-cli -c -h 124.66.185.75 -p 7000 -a &lt;password&gt; cluster set-config-epoch 1
+$&amp;gt; redis-cli -c -h 124.66.185.75 -p 7001 -a &lt;password&gt; cluster set-config-epoch 2
+$&amp;gt; redis-cli -c -h 124.66.185.75 -p 7002 -a &lt;password&gt; cluster set-config-epoch 3
+{% endhighlight %}&lt;/password&gt;&lt;/password&gt;&lt;/password&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;meet-nodes&quot;&gt;8.5 meet nodes&lt;/h3&gt;
+&lt;p&gt;{% highlight bash %}
+$&amp;gt; redis-cli -c -h 124.66.185.75 -p 7000 -a &lt;password&gt; cluster meet 124.66.185.75 7001
+$&amp;gt; redis-cli -c -h 124.66.185.75 -p 7002 -a &lt;password&gt; cluster meet 124.66.185.75 7001
+{% endhighlight %}&lt;/password&gt;&lt;/password&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;salve-&quot;&gt;8.6 salve 추가&lt;/h3&gt;
+
+&lt;h4 id=&quot;meet-slave-to-master&quot;&gt;8.6.1 meet slave to master&lt;/h4&gt;
+&lt;p&gt;{% highlight bash %}
+$&amp;gt; redis-cli -c -h 124.66.185.75 -p 7002 -a &lt;password&gt; cluster meet 124.66.185.71 6000
+{% endhighlight %}&lt;/password&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;regist-slave-to-master&quot;&gt;8.6.2 regist slave to master&lt;/h4&gt;
+&lt;p&gt;{% highlight bash %}
+#node-id 는 70002의 노드 ID 이어야 한다.
+$&amp;gt; redis-cli -c -h 124.66.185.71 -p 6000 -a &lt;password&gt; cluster replicate &lt;node-id&gt;
+{% endhighlight %}&lt;/node-id&gt;&lt;/password&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section-7&quot;&gt;참고 자료&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.redisgate.com/redis/cluster/cluster_cmd_intro.php&quot;&gt;http://www.redisgate.com/redis/cluster/cluster_cmd_intro.php&lt;/a&gt; &lt;br /&gt;
+&lt;a href=&quot;http://knight76.tistory.com/entry/redis-AOF-appendonlyfile&quot;&gt;http://knight76.tistory.com/entry/redis-AOF-appendonlyfile&lt;/a&gt; &lt;br /&gt;
+&lt;a href=&quot;http://knight76.tistory.com/entry/redis-%EB%A6%AC%EB%88%85%EC%8A%A4-%EB%A9%94%EB%AA%A8%EB%A6%AC-%EC%84%A4%EC%A0%95-%EA%B4%80%EB%A0%A8-%ED%99%95%EC%9D%B8%ED%95%98%EB%8A%94-%EC%BD%94%EB%93%9C-%EB%A9%94%EB%AA%A8%EB%A6%AC-%EC%98%A4%EB%B2%84%EC%BB%A4%EB%B0%8B-THP&quot;&gt;http://knight76.tistory.com/entry/redis-%EB%A6%AC%EB%88%85%EC%8A%A4-%EB%A9%94%EB%AA%A8%EB%A6%AC-%EC%84%A4%EC%A0%95-%EA%B4%80%EB%A0%A8-%ED%99%95%EC%9D%B8%ED%95%98%EB%8A%94-%EC%BD%94%EB%93%9C-%EB%A9%94%EB%AA%A8%EB%A6%AC-%EC%98%A4%EB%B2%84%EC%BB%A4%EB%B0%8B-THP&lt;/a&gt; &lt;br /&gt;&lt;/p&gt;
+
+</content>
+<category term="Redis" />
+<category term="install" />
+<category term="cluster" />
+<summary>레디스 설치 클러스터 구성</summary>
+</entry>
 <entry>
 <title>[2016.03.06] 짧은 생각 - TDD</title>
 <link href="https://lahuman.github.io/20160306-phase/" rel="alternate" type="text/html" title="[2016.03.06] 짧은 생각 - TDD" />
@@ -261,25 +438,6 @@ Content-Type:application/json;charset=UTF-8
 &lt;p&gt;개발에서도 코드 컨벤션과 명명 규칙(도메인 포함) 등은 많은 사람이 함께 하는 작업에서 몇가지 지켜야 하는 규칙들이 있다.
 &lt;br /&gt;
 깨진 유리창 이론과 같이 초반에 제대로 확인하여 지켜지지 않으면 작업의 종료 시점에는 큰 문제로 이어질 수 있다.&lt;/p&gt;
-
-</content>
-<category term="단상" />
-<summary>단상</summary>
-</entry>
-<entry>
-<title>[2016.02.16] 짧은 생각 - 정보의 과잉</title>
-<link href="https://lahuman.github.io/20160216-phase/" rel="alternate" type="text/html" title="[2016.02.16] 짧은 생각 - 정보의 과잉" />
-<published>2017-02-16T00:00:00+09:00</published>
-<updated>2017-02-16T00:00:00+09:00</updated>
-<id>https://lahuman.github.io/20160216-phase</id>
-<content type="html" xml:base="https://lahuman.github.io/20160216-phase/">&lt;h1 id=&quot;section&quot;&gt;정보의 과잉&lt;/h1&gt;
-
-&lt;p&gt;요즘 일을 하면서, 정보의 과잉에 대한 많은 생각을 가지게 된다.&lt;br /&gt;
-현재 시대에서는 인터넷과 스마트 기기의 발달로, 수많은 정보를 받게 되는데 이에 대한 적절한 차단을 하지 않으면 정보의 바다에서 허우적 거리게 된다.&lt;/p&gt;
-
-&lt;p&gt;업무를 하면서도 마찬가지다.&lt;br /&gt;
-지금 내게 필요 하고 중요한 정보에 집중을 하고, 그 이외의 정보는 과감하게 버릴수 있어야 한다.&lt;br /&gt;
-당장 중요 하지 않은 정보에 길을 잃고 헤메게 되면, 결국 중요한 본질을 잃어 버리게 된다.&lt;/p&gt;
 
 </content>
 <category term="단상" />
