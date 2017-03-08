@@ -3,9 +3,54 @@
 <generator uri="http://jekyllrb.com" version="3.4.0">Jekyll</generator>
 <link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" />
 <link href="https://lahuman.github.io/" rel="alternate" type="text/html" />
-<updated>2017-03-07T10:54:20+09:00</updated>
+<updated>2017-03-08T11:03:59+09:00</updated>
 <id>https://lahuman.github.io/</id>
 <subtitle>열심히 사는 아저씨</subtitle>
+<entry>
+<title>[2016.03.08] 기초 - 병렬 처리 용어 설명</title>
+<link href="https://lahuman.github.io/20160308-phase/" rel="alternate" type="text/html" title="[2016.03.08] 기초 - 병렬 처리 용어 설명" />
+<published>2017-03-08T00:00:00+09:00</published>
+<updated>2017-03-08T00:00:00+09:00</updated>
+<id>https://lahuman.github.io/20160308-phase</id>
+<content type="html" xml:base="https://lahuman.github.io/20160308-phase/">&lt;h1 id=&quot;section&quot;&gt;병렬 처리 용어 설명&lt;/h1&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;다중 프로그래밍(Multi Programming)
+    &lt;ul&gt;
+      &lt;li&gt;배치 처리 방식에서 CPU 처리시간을 낭비하지 않고 사용하기 위해 한 프로그램이 입출력을 시작하여 끝나기를 기다리는 동안, 계산 수행이 필요한 다른 프로그램을 실행하는 방법&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;다중 프로세싱(Multi Processing)
+    &lt;ul&gt;
+      &lt;li&gt;두 개 이상의 프로세서로 구성되어 동시에 여러 개의 작업을 처리할 수 있는 시스템&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;선점(Preemption)
+    &lt;ul&gt;
+      &lt;li&gt;클라이언트를 서비스하는 도중 일시 중지시키고 다른 클라이언트를 서비스하는 것&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;명령어 수준 병렬(ILP) 구조
+    &lt;ul&gt;
+      &lt;li&gt;하나의 프로그램을 구성하는 명령을 병렬 실행할 수 있도록 하는 프로세서 구조&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;공유 메모리 구조
+    &lt;ul&gt;
+      &lt;li&gt;모든 처리 노드들이 전체 주소 공간을 공유하며 직접 접근할 수 있는 구조&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;분산 메모리 구조
+    &lt;ul&gt;
+      &lt;li&gt;각 처리노드가 독자적인 주소 공간을 가지며, 다른 노드의 기억 장치에 접근하기 위해서는 정해진 절차와 방법에 따라야 하는 구조&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+</content>
+<category term="용어설명" />
+<summary>용어설명</summary>
+</entry>
 <entry>
 <title>Redis 설치 및 Cluster 구성</title>
 <link href="https://lahuman.github.io/redis-cluster-install/" rel="alternate" type="text/html" title="Redis 설치 및 Cluster 구성" />
@@ -417,27 +462,6 @@ Content-Type:application/json;charset=UTF-8
 그렇게 진행 할 경우 적은 에너지로 기존 LEACH 방식에 비하여 라이프사이클이 길어 질것으로 생각 된다.&lt;br /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;http://okmindmap.com/map/MzhkNTFlMWItNmYwOC00ZThmLWE5MWMtMjU4YzFkYTY4YTZj&quot; target=&quot;_blank&quot;&gt;마인드 맵&lt;/a&gt;은 공부 하면서 작성한 것인다.&lt;br /&gt;&lt;/p&gt;
-
-</content>
-<category term="단상" />
-<summary>단상</summary>
-</entry>
-<entry>
-<title>[2016.02.17] 짧은 생각 - 깨진 유리창 이론</title>
-<link href="https://lahuman.github.io/20160217-phase/" rel="alternate" type="text/html" title="[2016.02.17] 짧은 생각 - 깨진 유리창 이론" />
-<published>2017-02-17T00:00:00+09:00</published>
-<updated>2017-02-17T00:00:00+09:00</updated>
-<id>https://lahuman.github.io/20160217-phase</id>
-<content type="html" xml:base="https://lahuman.github.io/20160217-phase/">&lt;h1 id=&quot;section&quot;&gt;깨진 유리창 이론&lt;/h1&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://ko.wikipedia.org/wiki/%EA%B9%A8%EC%A7%84_%EC%9C%A0%EB%A6%AC%EC%B0%BD_%EC%9D%B4%EB%A1%A0&quot; target=&quot;_blank&quot;&gt;깨진 유리창 이론&lt;/a&gt;은 미국의 범죄 학자인 제임스 윌슨과 조지 켈링이 1982년 3월에 공동 발표한 깨진 유리창 이라는 글에서 처음 소개된 사회 무질서에 관한 이론이다.
-&lt;br /&gt;
-깨진 유리창 하나를 방치해두면, 그 지점을 중심으로 범죄가 확산되기 시작한다는 이론으로, 사소한 무질서를 방치하면 큰 문제로 이어질 가능성이 높다는 의미를 담고 있다.
-&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;개발에서도 코드 컨벤션과 명명 규칙(도메인 포함) 등은 많은 사람이 함께 하는 작업에서 몇가지 지켜야 하는 규칙들이 있다.
-&lt;br /&gt;
-깨진 유리창 이론과 같이 초반에 제대로 확인하여 지켜지지 않으면 작업의 종료 시점에는 큰 문제로 이어질 수 있다.&lt;/p&gt;
 
 </content>
 <category term="단상" />
