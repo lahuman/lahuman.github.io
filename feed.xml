@@ -3,9 +3,27 @@
 <generator uri="http://jekyllrb.com" version="3.4.0">Jekyll</generator>
 <link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" />
 <link href="https://lahuman.github.io/" rel="alternate" type="text/html" />
-<updated>2017-03-13T10:19:42+09:00</updated>
+<updated>2017-03-13T10:22:01+09:00</updated>
 <id>https://lahuman.github.io/</id>
 <subtitle>열심히 사는 아저씨</subtitle>
+<entry>
+<title>[2016.03.13] 육아 - 아이와 함께 자라기</title>
+<link href="https://lahuman.github.io/20160313-phase/" rel="alternate" type="text/html" title="[2016.03.13] 육아 - 아이와 함께 자라기" />
+<published>2017-03-13T00:00:00+09:00</published>
+<updated>2017-03-13T00:00:00+09:00</updated>
+<id>https://lahuman.github.io/20160313-phase</id>
+<content type="html" xml:base="https://lahuman.github.io/20160313-phase/">&lt;h1 id=&quot;section&quot;&gt;아이와 함께 자라기&lt;/h1&gt;
+
+&lt;p&gt;육아를 시작 하면서 많은 것을 포기한다고 생각하고, 아이와 놀아준다는 것은 쉽지 않다. &lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;관점을 조금만 바꾸면 아이와 함께 생각하고, 아이와 함께 노는 것은 즐거워 질수 있다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;나는 아직 어른이 아니다. 아이와 함께 고민하고 성장 하도록 노력하자.&lt;br /&gt;&lt;/p&gt;
+
+</content>
+<category term="육아" />
+<summary>육아</summary>
+</entry>
 <entry>
 <title>[JAVASCRIPT] - 주소창의 parameter 제거</title>
 <link href="https://lahuman.github.io/javascript-remove-url-parameter/" rel="alternate" type="text/html" title="[JAVASCRIPT] - 주소창의 parameter 제거" />
@@ -32,24 +50,6 @@ history.replaceState({}, null, location.pathname);
 <category term="javascript" />
 <category term="parameter" />
 <summary>주소창의 parameter 제거</summary>
-</entry>
-<entry>
-<title>[2016.03.13] 육아 - 아이와 함께 자라기</title>
-<link href="https://lahuman.github.io/20160313-phase/" rel="alternate" type="text/html" title="[2016.03.13] 육아 - 아이와 함께 자라기" />
-<published>2017-03-08T00:00:00+09:00</published>
-<updated>2017-03-08T00:00:00+09:00</updated>
-<id>https://lahuman.github.io/20160313-phase</id>
-<content type="html" xml:base="https://lahuman.github.io/20160313-phase/">&lt;h1 id=&quot;section&quot;&gt;아이와 함께 자라기&lt;/h1&gt;
-
-&lt;p&gt;육아를 시작 하면서 많은 것을 포기한다고 생각하고, 아이와 놀아준다는 것은 쉽지 않다. &lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;관점을 조금만 바꾸면 아이와 함께 생각하고, 아이와 함께 노는 것은 즐거워 질수 있다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;나는 아직 어른이 아니다. 아이와 함께 고민하고 성장 하도록 노력하자.&lt;br /&gt;&lt;/p&gt;
-
-</content>
-<category term="육아" />
-<summary>육아</summary>
 </entry>
 <entry>
 <title>[2016.03.08] 기초 - 병렬 처리 용어 설명</title>
