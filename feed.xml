@@ -3,9 +3,35 @@
 <generator uri="http://jekyllrb.com" version="3.4.0">Jekyll</generator>
 <link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" />
 <link href="https://lahuman.github.io/" rel="alternate" type="text/html" />
-<updated>2017-03-13T10:22:01+09:00</updated>
+<updated>2017-03-15T08:47:11+09:00</updated>
 <id>https://lahuman.github.io/</id>
 <subtitle>열심히 사는 아저씨</subtitle>
+<entry>
+<title>[2016.03.15] 단상 - 손글씨</title>
+<link href="https://lahuman.github.io/20160315-phase/" rel="alternate" type="text/html" title="[2016.03.15] 단상 - 손글씨" />
+<published>2017-03-15T00:00:00+09:00</published>
+<updated>2017-03-15T00:00:00+09:00</updated>
+<id>https://lahuman.github.io/20160315-phase</id>
+<content type="html" xml:base="https://lahuman.github.io/20160315-phase/">&lt;h1 id=&quot;section&quot;&gt;손글씨&lt;/h1&gt;
+
+&lt;p&gt;나는 악필이다. 그래서 글씨를 잘쓰는 사람이 많이 부럽다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;또 그림을 잘 그리는 사람도 부럽다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;악필인 이유는 성격 때문이라고 생각한다. 급한 마음에 빠르게 휘갈겨 놓은 내 글씨를 보면, 내가 작성한 코드와 같다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;{% highlight text %}
+적당하게 일하고 좀 더 느긋하게 쉬어라. 
+현명한 사람은 느긋하게 인생을 보냄으로써 진정한 행복을 누리는 것이다. 
+- 그라시안
+{% endhighlight %}&lt;/p&gt;
+
+&lt;p class=&quot;image-right&quot;&gt;&lt;img src=&quot;https://lahuman.github.io/assets/img/phase/handwrite.jpg&quot; alt=&quot;Hand Write&quot; /&gt;&lt;/p&gt;
+
+</content>
+<category term="단상" />
+<summary>단상</summary>
+</entry>
 <entry>
 <title>[2016.03.13] 육아 - 아이와 함께 자라기</title>
 <link href="https://lahuman.github.io/20160313-phase/" rel="alternate" type="text/html" title="[2016.03.13] 육아 - 아이와 함께 자라기" />
@@ -421,58 +447,5 @@ $&amp;gt; redis-cli -c -h 124.66.185.71 -p 6000 -a &lt;password&gt; cluster repl
 </content>
 <category term="단상" />
 <summary>단상</summary>
-</entry>
-<entry>
-<title>Spring MVC에서 ResponsBody로 String을 전달시 한글 깨짐 현상 해결</title>
-<link href="https://lahuman.github.io/korean-utf-8-String/" rel="alternate" type="text/html" title="Spring MVC에서 ResponsBody로 String을 전달시 한글 깨짐 현상 해결" />
-<published>2017-02-21T00:00:00+09:00</published>
-<updated>2017-02-21T00:00:00+09:00</updated>
-<id>https://lahuman.github.io/korean-utf-8-String</id>
-<content type="html" xml:base="https://lahuman.github.io/korean-utf-8-String/">&lt;h1 id=&quot;spring-mvc--responsbody-string------&quot;&gt;Spring MVC 에서 ResponsBody로 String 을 전달시 한글 깨짐 현상 해결&lt;/h1&gt;
-
-&lt;p&gt;Controller에서 단순한 문자열(String)을 ResponseBody로 전달할 경우, 깨지는 현상이 발생할 수 있습니다. 
-코드는 다음과 같습니다.&lt;/p&gt;
-
-&lt;p&gt;{% highlight java %}
-@RequestMapping(value=”/preview/{id}”, method=RequestMethod.GET)
-public @ResponseBody String getContent(@PathVariable(“id”) long id) {
-    return service.getContent(id);
-}
-{% endhighlight %}&lt;/p&gt;
-
-&lt;p&gt;한글이 깨지는 원인은 브라우저에서 해당 요청에 대한 응답의 헤더 값을 보면 다음과 같이 표현되어 있습니다.&lt;/p&gt;
-
-&lt;p&gt;{% highlight css %}
-Content-Type:application/json;charset=ISO-8859-1
-{% endhighlight %}&lt;/p&gt;
-
-&lt;p&gt;위의 문제를 해결하기 위해서는 다음과 같이 spring servlet xml 설정을 추가해야 합니다.
-{% highlight xml %}&lt;/p&gt;
-&lt;mvc:annotation-driven&gt;
-    &lt;mvc:message-converters&gt;
-        &lt;!-- @ResponseBody Content-Type:application/json;charset=UTF-8  --&gt;
-        &lt;bean class=&quot;org.springframework.http.converter.StringHttpMessageConverter&quot;&gt;
-            &lt;property name=&quot;supportedMediaTypes&quot;&gt;
-                &lt;list&gt;
-                    &lt;value&gt;text/html;charset=UTF-8&lt;/value&gt;
-                &lt;/list&gt;
-            &lt;/property&gt;
-        &lt;/bean&gt;
-    &lt;/mvc:message-converters&gt;
-&lt;/mvc:annotation-driven&gt;
-&lt;p&gt;{% endhighlight %}&lt;/p&gt;
-
-&lt;p&gt;위와 같이 설정을 한 후 응답의 해더 값을 확인하면 다음과 같습니다.&lt;/p&gt;
-
-&lt;p&gt;{% highlight css %}
-Content-Type:application/json;charset=UTF-8
-{% endhighlight %}&lt;/p&gt;
-
-&lt;p&gt;이후 Content 값을 확인하면, 한글이 깨지지 않고 제대로 표출되는 것을 확인할 수 있습니다.&lt;/p&gt;
-</content>
-<category term="한글" />
-<category term="Spring MVC" />
-<category term="String" />
-<summary>Spring MVC 한글 처리</summary>
 </entry>
 </feed>
