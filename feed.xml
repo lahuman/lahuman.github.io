@@ -3,14 +3,82 @@
 <generator uri="http://jekyllrb.com" version="3.4.0">Jekyll</generator>
 <link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" />
 <link href="https://lahuman.github.io/" rel="alternate" type="text/html" />
-<updated>2017-03-15T11:13:07+09:00</updated>
+<updated>2017-03-17T10:04:38+09:00</updated>
 <id>https://lahuman.github.io/</id>
 <subtitle>열심히 사는 아저씨</subtitle>
 <entry>
-<title>[2016.03.16] 예시) WEB 개발자 모집 공고</title>
-<link href="https://lahuman.github.io/20160316-recruiting-info/" rel="alternate" type="text/html" title="[2016.03.16] 예시) WEB 개발자 모집 공고" />
-<published>2017-03-15T00:00:00+09:00</published>
-<updated>2017-03-15T00:00:00+09:00</updated>
+<title>Maven-site-plugin 사용법</title>
+<link href="https://lahuman.github.io/how-to-use-maven-site-plugin/" rel="alternate" type="text/html" title="Maven-site-plugin 사용법" />
+<published>2017-03-17T00:00:00+09:00</published>
+<updated>2017-03-17T00:00:00+09:00</updated>
+<id>https://lahuman.github.io/how-to-use-maven-site-plugin</id>
+<content type="html" xml:base="https://lahuman.github.io/how-to-use-maven-site-plugin/">&lt;h1 id=&quot;apache-maven-site-plugin&quot;&gt;Apache Maven Site Plugin&lt;/h1&gt;
+&lt;p&gt;Site 플러그인은 프로젝트의 사이트를 생성하는데 사용된다. 또한 프로젝트 POM 에 대한 설정에 대한 리포트를 만들어 준다.
+현재 Maven-site-plugin 의 버젼은 3이며, &lt;a href=&quot;https://maven.apache.org/plugins-archives/maven-site-plugin-2.4/index.html&quot;&gt;maven&lt;/a&gt; 2.2.1이 필요하다.&lt;/p&gt;
+
+&lt;h1 id=&quot;httpsmavenapacheorgpluginsmaven-site-pluginusagehtml&quot;&gt;&lt;a href=&quot;https://maven.apache.org/plugins/maven-site-plugin/usage.html&quot;&gt;사용법&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;먼저 사용하려는 프로젝트는 Maven 프로젝트이어야 하며, pom.xml에 maven-site-plugin과 maven-project-info-reports-plugin을 추가 해야 한다.&lt;/p&gt;
+
+&lt;p&gt;이후, &lt;reporting&gt; XML 설정을 아래 와 같이 추가 하면 된다.&lt;/reporting&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;pomxml-&quot;&gt;pom.xml 설정&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;project&amp;gt;&lt;/span&gt;
+  ...
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;build&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;pluginManagement&amp;gt;&lt;/span&gt;
+			&lt;span class=&quot;nt&quot;&gt;&amp;lt;plugins&amp;gt;&lt;/span&gt;
+				&lt;span class=&quot;nt&quot;&gt;&amp;lt;plugin&amp;gt;&lt;/span&gt;
+					&lt;span class=&quot;nt&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;maven-site-plugin&lt;span class=&quot;nt&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+					&lt;span class=&quot;nt&quot;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;3.6&lt;span class=&quot;nt&quot;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
+				&lt;span class=&quot;nt&quot;&gt;&amp;lt;/plugin&amp;gt;&lt;/span&gt;
+				&lt;span class=&quot;nt&quot;&gt;&amp;lt;plugin&amp;gt;&lt;/span&gt;
+					&lt;span class=&quot;nt&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.apache.maven.plugins&lt;span class=&quot;nt&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+					&lt;span class=&quot;nt&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;maven-project-info-reports-plugin&lt;span class=&quot;nt&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+					&lt;span class=&quot;nt&quot;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;2.9&lt;span class=&quot;nt&quot;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
+				&lt;span class=&quot;nt&quot;&gt;&amp;lt;/plugin&amp;gt;&lt;/span&gt;
+			&lt;span class=&quot;nt&quot;&gt;&amp;lt;/plugins&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;/pluginManagement&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;/build&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;reporting&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;plugins&amp;gt;&lt;/span&gt;
+			&lt;span class=&quot;nt&quot;&gt;&amp;lt;plugin&amp;gt;&lt;/span&gt;
+				&lt;span class=&quot;nt&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.apache.maven.plugins&lt;span class=&quot;nt&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+				&lt;span class=&quot;nt&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;maven-project-info-reports-plugin&lt;span class=&quot;nt&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+				&lt;span class=&quot;nt&quot;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;2.9&lt;span class=&quot;nt&quot;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
+			&lt;span class=&quot;nt&quot;&gt;&amp;lt;/plugin&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;/plugins&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;/reporting&amp;gt;&lt;/span&gt;
+...
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/project&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;사이트 생성&lt;/h2&gt;
+&lt;p&gt;프로젝트 사이트와 리포트를 생성하는 명령어는 다음과 같다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&amp;gt; &lt;/span&gt;mvn site
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;위의 명령은 기본적으로 &lt;kbd&gt;/target/site/&lt;/kbd&gt; 디렉토리에 결과를 저장한다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;pom.xml 에서 maven-site-plugin 설정을 하지 않으면 오류가 난다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;section-1&quot;&gt;출처&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://maven.apache.org/plugins/maven-site-plugin/&quot;&gt;https://maven.apache.org/plugins/maven-site-plugin/&lt;/a&gt;&lt;/p&gt;
+</content>
+<category term="Maven-site-plugin" />
+<summary>MAVEN reporting</summary>
+</entry>
+<entry>
+<title>예시) WEB 개발자 모집 공고</title>
+<link href="https://lahuman.github.io/20160316-recruiting-info/" rel="alternate" type="text/html" title="예시) WEB 개발자 모집 공고" />
+<published>2017-03-16T00:00:00+09:00</published>
+<updated>2017-03-16T00:00:00+09:00</updated>
 <id>https://lahuman.github.io/20160316-recruiting-info</id>
 <content type="html" xml:base="https://lahuman.github.io/20160316-recruiting-info/">&lt;h1 id=&quot;web---&quot;&gt;예시) WEB 개발자 모집 공고&lt;/h1&gt;
 
@@ -50,8 +118,7 @@
 &lt;ul&gt;
   &lt;li&gt;학력 : 무관&lt;/li&gt;
   &lt;li&gt;경력 : 관련경력 3년 이상&lt;/li&gt;
-  &lt;li&gt;사용기술 : javascript, java, spring, 
-             dhtmlx, maven, gulp등&lt;/li&gt;
+  &lt;li&gt;사용기술 : javascript, java, spring, dhtmlx, maven, gulp 등&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h4 id=&quot;section-2&quot;&gt;[공통 자격요건]&lt;/h4&gt;
@@ -73,7 +140,8 @@
 &lt;/ul&gt;
 </content>
 <category term="모집공고" />
-<summary>모집공고</summary>
+<category term="예시" />
+<summary>모집공고 예시</summary>
 </entry>
 <entry>
 <title>[2016.03.15] 단상 - 손글씨</title>
@@ -446,35 +514,6 @@ $&amp;gt; redis-cli -c -h 124.66.185.71 -p 6000 -a &lt;password&gt; cluster repl
   &lt;li&gt;소프트웨어 엔지니어는 기술적 책무 외에도 윤리적 책임의식을 가져야 한다.&lt;/li&gt;
 &lt;/ul&gt;
 
-</content>
-<category term="단상" />
-<summary>단상</summary>
-</entry>
-<entry>
-<title>[2016.02.28] 짧은 생각 - 보스와 리더</title>
-<link href="https://lahuman.github.io/20160228-phase/" rel="alternate" type="text/html" title="[2016.02.28] 짧은 생각 - 보스와 리더" />
-<published>2017-02-24T00:00:00+09:00</published>
-<updated>2017-02-24T00:00:00+09:00</updated>
-<id>https://lahuman.github.io/20160228-phase</id>
-<content type="html" xml:base="https://lahuman.github.io/20160228-phase/">&lt;h1 id=&quot;section&quot;&gt;보스와 리더&lt;/h1&gt;
-
-&lt;p&gt;{% capture images %}
-	https://lahuman.github.io/assets/img/phase/leader-boss.jpg
-{% endcapture %}
-{% include gallery images=images caption=”BOSS &amp;amp; Leader” cols=1 %}&lt;/p&gt;
-
-&lt;p&gt;업무를 하면서 많은 보스 스타일의 관리자를 보았다. 
-그들은 기본적으로 작업자에 대한 불신을 깔고 일을 진행하기에, 모든 일정을 최대한 짧게 잡는다.
-&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;결과적으로 외부에서 보기에는 프로젝트가 성공적으로 보이지만, 내부적으로는 기술 부채와 관리자에 대한 불평 불만을 가진 팀원의 퇴사로 이어진다. &lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;이후 해당 프로젝트는 2년 후 재개발을 하거나, 리뉴얼이란 이름으로 다시 시작 한다.&lt;br /&gt;
-하지만, 그 프로젝트에서도 처음과 같은 실수를 반복한다. &lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;추가적으로 업무를 하면서 리더는 본적이 없다. 다만, 협업하는 동료가 아닐까 생각한다.&lt;/p&gt;
-
-&lt;h3 id=&quot;section-1&quot;&gt;인간의 욕심은 끝이 없고 같은 실수를 반복한다&lt;/h3&gt;
 </content>
 <category term="단상" />
 <summary>단상</summary>
