@@ -3,9 +3,35 @@
 <generator uri="http://jekyllrb.com" version="3.4.0">Jekyll</generator>
 <link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" />
 <link href="https://lahuman.github.io/" rel="alternate" type="text/html" />
-<updated>2017-03-17T10:04:38+09:00</updated>
+<updated>2017-03-21T20:28:30+09:00</updated>
 <id>https://lahuman.github.io/</id>
 <subtitle>열심히 사는 아저씨</subtitle>
+<entry>
+<title>단상 - 봄이 온다.</title>
+<link href="https://lahuman.github.io/20160321-phase/" rel="alternate" type="text/html" title="단상 - 봄이 온다." />
+<published>2017-03-21T00:00:00+09:00</published>
+<updated>2017-03-21T00:00:00+09:00</updated>
+<id>https://lahuman.github.io/20160321-phase</id>
+<content type="html" xml:base="https://lahuman.github.io/20160321-phase/">&lt;h1 id=&quot;section&quot;&gt;봄이 온다.&lt;/h1&gt;
+
+&lt;p&gt;아침에 6시에 일어나면 환하다. 벌써 봄이 온 것을 느낄 수 있다.&lt;/p&gt;
+
+&lt;h1 id=&quot;section-1&quot;&gt;나른하다.&lt;/h1&gt;
+
+&lt;p&gt;때때로 업무에 집중 하지 못하고 나른하다.&lt;/p&gt;
+
+&lt;h1 id=&quot;section-2&quot;&gt;졸리다.&lt;/h1&gt;
+
+&lt;p&gt;저녁 8시만 되면 피곤하다.&lt;/p&gt;
+
+&lt;h1 id=&quot;section-3&quot;&gt;배고프다.&lt;/h1&gt;
+
+&lt;p&gt;살은 띠룩띠룩 찌지만, 아직도 배고프다.&lt;/p&gt;
+
+</content>
+<category term="단상" />
+<summary>춘곤증</summary>
+</entry>
 <entry>
 <title>Maven-site-plugin 사용법</title>
 <link href="https://lahuman.github.io/how-to-use-maven-site-plugin/" rel="alternate" type="text/html" title="Maven-site-plugin 사용법" />
@@ -76,11 +102,11 @@
 </entry>
 <entry>
 <title>예시) WEB 개발자 모집 공고</title>
-<link href="https://lahuman.github.io/20160316-recruiting-info/" rel="alternate" type="text/html" title="예시) WEB 개발자 모집 공고" />
+<link href="https://lahuman.github.io/recruiting-info-sample/" rel="alternate" type="text/html" title="예시) WEB 개발자 모집 공고" />
 <published>2017-03-16T00:00:00+09:00</published>
 <updated>2017-03-16T00:00:00+09:00</updated>
-<id>https://lahuman.github.io/20160316-recruiting-info</id>
-<content type="html" xml:base="https://lahuman.github.io/20160316-recruiting-info/">&lt;h1 id=&quot;web---&quot;&gt;예시) WEB 개발자 모집 공고&lt;/h1&gt;
+<id>https://lahuman.github.io/recruiting-info-sample</id>
+<content type="html" xml:base="https://lahuman.github.io/recruiting-info-sample/">&lt;h1 id=&quot;web---&quot;&gt;예시) WEB 개발자 모집 공고&lt;/h1&gt;
 
 &lt;p&gt;얼마전 팀원분의 요청으로 WEB 개발자 모집 공고를 작성하였다. &lt;br /&gt;&lt;/p&gt;
 
@@ -492,28 +518,6 @@ $&amp;gt; redis-cli -c -h 124.66.185.71 -p 6000 -a &lt;password&gt; cluster repl
 &lt;blockquote&gt;
   &lt;p&gt;일정에 쫓기게 되어 급하게 개발 하고 늘 후회하였다.&lt;/p&gt;
 &lt;/blockquote&gt;
-</content>
-<category term="단상" />
-<summary>단상</summary>
-</entry>
-<entry>
-<title>[2016.03.01] 짧은 생각 - 소프트웨어 공학</title>
-<link href="https://lahuman.github.io/20160301-phase/" rel="alternate" type="text/html" title="[2016.03.01] 짧은 생각 - 소프트웨어 공학" />
-<published>2017-03-01T00:00:00+09:00</published>
-<updated>2017-03-01T00:00:00+09:00</updated>
-<id>https://lahuman.github.io/20160301-phase</id>
-<content type="html" xml:base="https://lahuman.github.io/20160301-phase/">&lt;h1 id=&quot;section&quot;&gt;소프트웨어 공학 이란&lt;/h1&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;소프트웨어 공학은 소프트웨어 생산의 모든 관점을 다루는 공학 분야이다.&lt;/li&gt;
-  &lt;li&gt;소프트웨어는 프로그램과 관련 문서 및 실행에 필요한 데이터를 포함한다.&lt;/li&gt;
-  &lt;li&gt;좋은 소프트웨어 제품이 되기 위해서는 유지보수성, 신뢰성(dependability), 보안성, 효율성 및 수용성(acceptability)이 보장되어야 한다.&lt;/li&gt;
-  &lt;li&gt;소프트웨어 프로세스는 소프트웨어 개발과 관련한 모든 활동을 포함하며 기본적으로 명세, 개발, 검증(validation)과 진화 (evolution)로 이루어진다.&lt;/li&gt;
-  &lt;li&gt;시스템의 유형에 따라 개발에 사용되는 도구와 기술이 달라질 수 있다.&lt;/li&gt;
-  &lt;li&gt;소프트웨어공학의 기본 개념은 모든 유형의 소프트웨어 시스템에 적용될 수 있다.&lt;/li&gt;
-  &lt;li&gt;소프트웨어 엔지니어는 기술적 책무 외에도 윤리적 책임의식을 가져야 한다.&lt;/li&gt;
-&lt;/ul&gt;
-
 </content>
 <category term="단상" />
 <summary>단상</summary>
