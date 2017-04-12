@@ -3,9 +3,25 @@
 <generator uri="http://jekyllrb.com" version="3.4.0">Jekyll</generator>
 <link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" />
 <link href="https://lahuman.github.io/" rel="alternate" type="text/html" />
-<updated>2017-04-10T13:03:11+09:00</updated>
+<updated>2017-04-12T09:39:57+09:00</updated>
 <id>https://lahuman.github.io/</id>
 <subtitle>열심히 사는 아저씨</subtitle>
+<entry>
+<title>[2017-04-12]단상 - 건강</title>
+<link href="https://lahuman.github.io/20160412-phase/" rel="alternate" type="text/html" title="[2017-04-12]단상 - 건강" />
+<published>2017-04-12T00:00:00+09:00</published>
+<updated>2017-04-12T00:00:00+09:00</updated>
+<id>https://lahuman.github.io/20160412-phase</id>
+<content type="html" xml:base="https://lahuman.github.io/20160412-phase/">&lt;h1 id=&quot;section&quot;&gt;건강&lt;/h1&gt;
+
+&lt;p&gt;건강은 가지고 있을때 지켜야 한다. &lt;br /&gt;
+잃어 버린 건강은 다시 찾기 매우 어렵다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;50분 일하고 10분 운동 하자&lt;/h3&gt;
+</content>
+<category term="단상" />
+<summary>건강</summary>
+</entry>
 <entry>
 <title>[2017-04-10]단상 - 습관</title>
 <link href="https://lahuman.github.io/20160410-phase/" rel="alternate" type="text/html" title="[2017-04-10]단상 - 습관" />
@@ -317,32 +333,5 @@
 </content>
 <category term="육아" />
 <summary>육아</summary>
-</entry>
-<entry>
-<title>[JAVASCRIPT] - 주소창의 parameter 제거</title>
-<link href="https://lahuman.github.io/javascript-remove-url-parameter/" rel="alternate" type="text/html" title="[JAVASCRIPT] - 주소창의 parameter 제거" />
-<published>2017-03-09T00:00:00+09:00</published>
-<updated>2017-03-09T00:00:00+09:00</updated>
-<id>https://lahuman.github.io/javascript-remove-url-parameter</id>
-<content type="html" xml:base="https://lahuman.github.io/javascript-remove-url-parameter/">&lt;h1 id=&quot;javascript----parameter-&quot;&gt;[JAVASCRIPT] - 주소창의 parameter 제거&lt;/h1&gt;
-
-&lt;p&gt;보통은 주소창에 parameter 값이 다음과 같이 표출된다.&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;https://lahuman.github.io/posts/?lang=ko&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;이때 해당 주소에서 parameter 값만 제거 하고 싶을 경우 다음의 스크립트를 이용하면 간단히 처리 할 수 있다.&lt;/p&gt;
-
-&lt;p&gt;{% highlight javascript %}
-history.replaceState({}, null, location.pathname);
-{% endhighlight %}&lt;/p&gt;
-
-&lt;p&gt;parameter가 제거된 값은 다음과 같다.&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;https://lahuman.github.io/posts/&lt;/code&gt;&lt;/p&gt;
-
-</content>
-<category term="javascript" />
-<category term="parameter" />
-<summary>주소창의 parameter 제거</summary>
 </entry>
 </feed>
