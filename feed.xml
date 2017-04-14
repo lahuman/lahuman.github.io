@@ -3,9 +3,26 @@
 <generator uri="http://jekyllrb.com" version="3.4.0">Jekyll</generator>
 <link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" />
 <link href="https://lahuman.github.io/" rel="alternate" type="text/html" />
-<updated>2017-04-12T09:39:57+09:00</updated>
+<updated>2017-04-14T10:19:39+09:00</updated>
 <id>https://lahuman.github.io/</id>
 <subtitle>열심히 사는 아저씨</subtitle>
+<entry>
+<title>[2017-04-14]단상 - 베르디 레퀴엠 중 진노의 날</title>
+<link href="https://lahuman.github.io/20160414-phase/" rel="alternate" type="text/html" title="[2017-04-14]단상 - 베르디 레퀴엠 중 진노의 날" />
+<published>2017-04-14T00:00:00+09:00</published>
+<updated>2017-04-14T00:00:00+09:00</updated>
+<id>https://lahuman.github.io/20160414-phase</id>
+<content type="html" xml:base="https://lahuman.github.io/20160414-phase/">&lt;h1 id=&quot;section&quot;&gt;베르디 레퀴엠 중 진노의 날&lt;/h1&gt;
+
+&lt;p&gt;에반게리온에서 사도가 출현할 때 나오는 배경음이다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/3mUu2p8b_78&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;무언가 튀어 나올 듯한 기분이다.&lt;/h3&gt;
+</content>
+<category term="단상" />
+<summary>진노의 날</summary>
+</entry>
 <entry>
 <title>[2017-04-12]단상 - 건강</title>
 <link href="https://lahuman.github.io/20160412-phase/" rel="alternate" type="text/html" title="[2017-04-12]단상 - 건강" />
@@ -315,23 +332,5 @@
 </content>
 <category term="단상" />
 <summary>단상</summary>
-</entry>
-<entry>
-<title>[2016.03.13] 육아 - 아이와 함께 자라기</title>
-<link href="https://lahuman.github.io/20160313-phase/" rel="alternate" type="text/html" title="[2016.03.13] 육아 - 아이와 함께 자라기" />
-<published>2017-03-13T00:00:00+09:00</published>
-<updated>2017-03-13T00:00:00+09:00</updated>
-<id>https://lahuman.github.io/20160313-phase</id>
-<content type="html" xml:base="https://lahuman.github.io/20160313-phase/">&lt;h1 id=&quot;section&quot;&gt;아이와 함께 자라기&lt;/h1&gt;
-
-&lt;p&gt;육아를 시작 하면서 많은 것을 포기한다고 생각하고, 아이와 놀아준다는 것은 쉽지 않다. &lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;관점을 조금만 바꾸면 아이와 함께 생각하고, 아이와 함께 노는 것은 즐거워 질수 있다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;나는 아직 어른이 아니다. 아이와 함께 고민하고 성장 하도록 노력하자.&lt;br /&gt;&lt;/p&gt;
-
-</content>
-<category term="육아" />
-<summary>육아</summary>
 </entry>
 </feed>
