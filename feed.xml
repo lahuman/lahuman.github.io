@@ -3,9 +3,87 @@
 <generator uri="http://jekyllrb.com" version="3.4.0">Jekyll</generator>
 <link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" />
 <link href="https://lahuman.github.io/" rel="alternate" type="text/html" />
-<updated>2017-04-17T11:16:16+09:00</updated>
+<updated>2017-04-17T15:55:22+09:00</updated>
 <id>https://lahuman.github.io/</id>
 <subtitle>열심히 사는 아저씨</subtitle>
+<entry>
+<title>JAVA SWT를 Linux에서 실행 하기</title>
+<link href="https://lahuman.github.io/JAVA_SWT_RUN_LINUX/" rel="alternate" type="text/html" title="JAVA SWT를 Linux에서 실행 하기" />
+<published>2017-04-17T00:00:00+09:00</published>
+<updated>2017-04-17T00:00:00+09:00</updated>
+<id>https://lahuman.github.io/JAVA_SWT_RUN_LINUX</id>
+<content type="html" xml:base="https://lahuman.github.io/JAVA_SWT_RUN_LINUX/">&lt;h1 id=&quot;java-swt-linux-&quot;&gt;JAVA SWT를 Linux에서 실행&lt;/h1&gt;
+&lt;p&gt;지인에게 개인 프로젝트로 만든 SWT 프로그램을 리눅스에서 돌릴 수 있도록 요청을 받았다.&lt;br /&gt;
+단순하게 SWT.jar파일만 리눅스용을 구해서 설정하면 될지 알았는데, 그렇지 못했다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;우선 SWT가 무엇인지 정리 하고, 만나게된 오류와 해결 방법을 정리 한다.&lt;/p&gt;
+
+&lt;h2 id=&quot;swthttpswwweclipseorgswt-&quot;&gt;&lt;a href=&quot;https://www.eclipse.org/swt/&quot;&gt;SWT&lt;/a&gt; 란?&lt;/h2&gt;
+&lt;p&gt;운영체제에서 사용자 인터페이스 기능과 효율적인 접근을 제공하도록 설계된  JAVA용 오픈 소스 위젯 툴킷입니다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;linux---&quot;&gt;Linux 에서 실행 해보기&lt;/h2&gt;
+
+&lt;p&gt;windows 에서 돌아가는 SWT를 가지고 실행 하면 오류가 납니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Exception &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;thread &lt;span class=&quot;s2&quot;&gt;&quot;main&quot;&lt;/span&gt; java.lang.UnsatisfiedLinkError: Could not load SWT library. Reasons: 
+	no swt-win32-4430 &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;java.library.path
+	no swt-win32 &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;java.library.path
+	Can&lt;span class=&quot;s1&quot;&gt;'t load library: /home/lahuman/.swt/lib/linux/x86_64/libswt-win32-4430.so
+	Can'&lt;/span&gt;t load library: /home/lahuman/.swt/lib/linux/x86_64/libswt-win32.so
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Linux 용 jar 파일이 몇개가 있는데, 그중에 &lt;a href=&quot;https://mvnrepository.com/artifact/org.eclipse.swt/org.eclipse.swt.gtk.linux.x86_64/4.3&quot;&gt;다음&lt;/a&gt;을 받으면 된다.&lt;/p&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;프로젝트 설정&lt;/h3&gt;
+
+&lt;p&gt;Eclipse 를 사용 중이면 프로젝트에서 &lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;kbd&gt;Properties&lt;/kbd&gt; &amp;gt; &lt;kbd&gt;Java Build Path&lt;/kbd&gt; &amp;gt; &lt;kbd&gt;add JARs..&lt;/kbd&gt; 에 maven 에서 받은 라이브 러리 추가 한다.&lt;/p&gt;
+
+&lt;p class=&quot;image-left&quot;&gt;&lt;img src=&quot;https://lahuman.github.io/assets/img/post_img/library_change.png&quot; alt=&quot;라이브러리 추가&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;linux--library--&quot;&gt;Linux에서 필요한 library 및 설정&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# swt 관련 라이브러리 검색&lt;/span&gt;
+&lt;span class=&quot;gp&quot;&gt;$&amp;gt; &lt;/span&gt;aptitude search libswt-gtk
+&lt;span class=&quot;c&quot;&gt;# 검색된 라이브러리를 설치 3, 4 모두 설치 함&lt;/span&gt;
+&lt;span class=&quot;gp&quot;&gt;$&amp;gt;  &lt;/span&gt;sudo apt-get install libswt-gtk-3-java libswt-gtk-3-jni libswt-gtk-3-java-gcj  libswt-gtk-4-java libswt-gtk-4-jni
+&lt;span class=&quot;c&quot;&gt;# 사용자 계정 밑에 링크를 추가 &lt;/span&gt;
+&lt;span class=&quot;gp&quot;&gt;$&amp;gt; &lt;/span&gt;ln -s /usr/lib/jni/libswt-&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; ~/.swt/lib/linux/x86_64/
+&lt;span class=&quot;c&quot;&gt;# disabled되었다는 메시지 출력시 아래 명령 실행&lt;/span&gt;
+&lt;span class=&quot;gp&quot;&gt;$&amp;gt; &lt;/span&gt;sudo execstack -c ~/.swt/lib/linux/x86_64/libswt-gtk-&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;VERSION&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;.so 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;jar--&quot;&gt;실행용 jar 파일 만들기&lt;/h3&gt;
+
+&lt;p&gt;Eclipse 에서 실행 되는 jar 를 만들기 위해서는 해당 프로젝트에서 마우스 오른쪽을 누르고, &lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;kbd&gt;Export&lt;/kbd&gt; &amp;gt; &lt;kbd&gt;Java&lt;/kbd&gt; &amp;gt; &lt;kbd&gt;Runnable JAR file&lt;/kbd&gt; 을 선택 한다.&lt;/p&gt;
+
+&lt;p class=&quot;image-left&quot;&gt;&lt;img src=&quot;https://lahuman.github.io/assets/img/post_img/make_runnable_jar.png&quot; alt=&quot;Runnable Jar&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;실행&lt;/h3&gt;
+
+&lt;p&gt;다음과 같이 실행 하면 된다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;java -jar &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;filename.jar&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h1 id=&quot;section-2&quot;&gt;세상엔 공짜는 없다.&lt;/h1&gt;
+
+&lt;p&gt;#참고 자료
+https://mvnrepository.com/artifact/org.eclipse.swt/org.eclipse.swt.gtk.linux.x86_64/4.3&lt;br /&gt;
+http://stackoverflow.com/questions/10970754/cant-open-eclipse-in-ubuntu-12-04-java-lang-unsatisfiedlinkerror-could-not-l&lt;br /&gt;
+https://www.eclipse.org/swt/&lt;br /&gt;&lt;/p&gt;
+
+</content>
+<category term="JAVA" />
+<category term="SWT" />
+<category term="LINUX" />
+<summary>java SWT를 Linux 64bit 에서 실행 하는 방법</summary>
+</entry>
 <entry>
 <title>[2017-04-17]단상 - 공부</title>
 <link href="https://lahuman.github.io/20160417-phase/" rel="alternate" type="text/html" title="[2017-04-17]단상 - 공부" />
@@ -265,74 +343,5 @@
 </content>
 <category term="Maven-site-plugin" />
 <summary>MAVEN reporting</summary>
-</entry>
-<entry>
-<title>예시) WEB 개발자 모집 공고</title>
-<link href="https://lahuman.github.io/recruiting-info-sample/" rel="alternate" type="text/html" title="예시) WEB 개발자 모집 공고" />
-<published>2017-03-16T00:00:00+09:00</published>
-<updated>2017-03-16T00:00:00+09:00</updated>
-<id>https://lahuman.github.io/recruiting-info-sample</id>
-<content type="html" xml:base="https://lahuman.github.io/recruiting-info-sample/">&lt;h1 id=&quot;web---&quot;&gt;예시) WEB 개발자 모집 공고&lt;/h1&gt;
-
-&lt;p&gt;얼마전 팀원분의 요청으로 WEB 개발자 모집 공고를 작성하였다. &lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;적당히 여기 저기서 긁어 모아서 읽어본 후, 정리를 하였는데 읽어 보면 그럴듯 하다.&lt;/p&gt;
-
-&lt;h2 id=&quot;section&quot;&gt;[수행업무]&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;관제 업무 시스템과 솔루션 개발을 진행&lt;/li&gt;
-  &lt;li&gt;추가 개발은 dhtmlx와 spring framework를 이용하여 개발 예정&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;주요 업무
-    &lt;ul&gt;
-      &lt;li&gt;보안 솔루션 관련 개발 업무&lt;/li&gt;
-      &lt;li&gt;SPA 기반의 UI 개발&lt;/li&gt;
-      &lt;li&gt;REST API 및 외부시스템 연동&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;직무 자격요건
-    &lt;ul&gt;
-      &lt;li&gt;해당 분야 3년 이상의 경험 또는 그에 준하는 능력&lt;/li&gt;
-      &lt;li&gt;소스관리(Svn/Gif/…)에 대한 이해/경험&lt;/li&gt;
-      &lt;li&gt;성능 튜닝 경험&lt;/li&gt;
-      &lt;li&gt;다양한 환경을 고려한 개발 경험&lt;/li&gt;
-      &lt;li&gt;Java/Spring/ORM 기술 기반에서의 API/Back-end 개발에 대한 익숙함&lt;/li&gt;
-      &lt;li&gt;Data Modeling 경험&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;section-1&quot;&gt;[자격 요건]&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;학력 : 무관&lt;/li&gt;
-  &lt;li&gt;경력 : 관련경력 3년 이상&lt;/li&gt;
-  &lt;li&gt;사용기술 : javascript, java, spring, dhtmlx, maven, gulp 등&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;section-2&quot;&gt;[공통 자격요건]&lt;/h4&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;팀원과 깊은 신뢰를 형셩/유지해 나가는데 노력을 아끼지 않으시는 분&lt;/li&gt;
-  &lt;li&gt;구성원이 이끌어 나가는 팀 문화를 만들 분&lt;/li&gt;
-  &lt;li&gt;새로운 것, 모르는 것을 두려워 하지 않으며 배운 것을 공유하는 것을 즐기시는 분&lt;/li&gt;
-  &lt;li&gt;자기개발에 노력을 기울이고 팀원들과 같이 성장해 나가실 분&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;section-3&quot;&gt;[우대사항]&lt;/h4&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;자료구조/알고리즘/디자인패턴/리팩토링에 대한 깊은 이해와 활동 경험&lt;/li&gt;
-  &lt;li&gt;Full-stack 개발 경험&lt;/li&gt;
-  &lt;li&gt;CI 적용 및 테스트 자동화 경험&lt;/li&gt;
-  &lt;li&gt;오픈 소스 발전에 이바지한 경험&lt;/li&gt;
-&lt;/ul&gt;
-</content>
-<category term="모집공고" />
-<category term="예시" />
-<summary>모집공고 예시</summary>
 </entry>
 </feed>
