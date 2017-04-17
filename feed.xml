@@ -3,9 +3,37 @@
 <generator uri="http://jekyllrb.com" version="3.4.0">Jekyll</generator>
 <link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" />
 <link href="https://lahuman.github.io/" rel="alternate" type="text/html" />
-<updated>2017-04-14T10:19:39+09:00</updated>
+<updated>2017-04-17T11:16:16+09:00</updated>
 <id>https://lahuman.github.io/</id>
 <subtitle>열심히 사는 아저씨</subtitle>
+<entry>
+<title>[2017-04-17]단상 - 공부</title>
+<link href="https://lahuman.github.io/20160417-phase/" rel="alternate" type="text/html" title="[2017-04-17]단상 - 공부" />
+<published>2017-04-17T00:00:00+09:00</published>
+<updated>2017-04-17T00:00:00+09:00</updated>
+<id>https://lahuman.github.io/20160417-phase</id>
+<content type="html" xml:base="https://lahuman.github.io/20160417-phase/">&lt;h1 id=&quot;section&quot;&gt;공부에 대하여&lt;/h1&gt;
+
+&lt;p&gt;어릴때 부모님께 공부하라는 잔소리를 들은 적이 없다.&lt;br /&gt;
+물론 부모님이 일하시느라 바쁘시기도 하셨지만, 덕분에 친구들이 성적을 못받아 우는 것을 이해 하지 못하였다. &lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section-1&quot;&gt;지금은&lt;/h2&gt;
+
+&lt;p&gt;지금은 대학원을 다니고, 개발자로서 필요한 공부를 계속 하고 있다.&lt;br /&gt;
+솔찍히 어릴때 보다 더 열심히 공부 한다. &lt;br /&gt;
+공부에 다 때가 있다고 하는데, 나에겐 그 때가 지금이다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section-2&quot;&gt;앞으로&lt;/h2&gt;
+
+&lt;p&gt;신기술은 계속 나오고 아직 나는 욕심이 많다. &lt;br /&gt;
+따라 가지 못하면서 보기만 하는 있고, 한땀 한땀 따라가기 위해 노력하는 부분도 있다.&lt;br /&gt;
+확실한건 내 욕심히 다 할때까진 열심히 공부 할 것이다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;section-3&quot;&gt;오늘도 무언가를 배우자&lt;/h3&gt;
+</content>
+<category term="단상" />
+<summary>공부</summary>
+</entry>
 <entry>
 <title>[2017-04-14]단상 - 베르디 레퀴엠 중 진노의 날</title>
 <link href="https://lahuman.github.io/20160414-phase/" rel="alternate" type="text/html" title="[2017-04-14]단상 - 베르디 레퀴엠 중 진노의 날" />
@@ -306,31 +334,5 @@
 <category term="모집공고" />
 <category term="예시" />
 <summary>모집공고 예시</summary>
-</entry>
-<entry>
-<title>[2016.03.15] 단상 - 손글씨</title>
-<link href="https://lahuman.github.io/20160315-phase/" rel="alternate" type="text/html" title="[2016.03.15] 단상 - 손글씨" />
-<published>2017-03-15T00:00:00+09:00</published>
-<updated>2017-03-15T00:00:00+09:00</updated>
-<id>https://lahuman.github.io/20160315-phase</id>
-<content type="html" xml:base="https://lahuman.github.io/20160315-phase/">&lt;h1 id=&quot;section&quot;&gt;손글씨&lt;/h1&gt;
-
-&lt;p&gt;나는 악필이다. 그래서 글씨를 잘쓰는 사람이 많이 부럽다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;또 그림을 잘 그리는 사람도 부럽다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;악필인 이유는 성격 때문이라고 생각한다. 급한 마음에 빠르게 휘갈겨 놓은 내 글씨를 보면, 내가 작성한 코드와 같다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;{% highlight text %}
-적당하게 일하고 좀 더 느긋하게 쉬어라. 
-현명한 사람은 느긋하게 인생을 보냄으로써 진정한 행복을 누리는 것이다. 
-- 그라시안
-{% endhighlight %}&lt;/p&gt;
-
-&lt;p class=&quot;image-right&quot;&gt;&lt;img src=&quot;https://lahuman.github.io/assets/img/phase/handwrite.jpg&quot; alt=&quot;Hand Write&quot; /&gt;&lt;/p&gt;
-
-</content>
-<category term="단상" />
-<summary>단상</summary>
 </entry>
 </feed>
