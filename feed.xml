@@ -3,7 +3,7 @@
 <generator uri="http://jekyllrb.com" version="3.4.0">Jekyll</generator>
 <link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" />
 <link href="https://lahuman.github.io/" rel="alternate" type="text/html" />
-<updated>2017-04-20T08:24:23+09:00</updated>
+<updated>2017-04-20T11:02:19+09:00</updated>
 <id>https://lahuman.github.io/</id>
 <subtitle>열심히 사는 아저씨</subtitle>
 <entry>
@@ -23,8 +23,26 @@
 
 &lt;p&gt;워낙 뛰어난 사람들만 있어서 그런지 단 2~3개월 만에 전문가가 되어 나타는 사람들이 있다.&lt;br /&gt;&lt;/p&gt;
 
-&lt;h1 id=&quot;section-1&quot;&gt;나는 전문가인가?&lt;/h1&gt;
+&lt;h2 id=&quot;section-1&quot;&gt;나는 전문가인가?&lt;/h2&gt;
 
+&lt;p&gt;JAVA 웹 개발을 10년 넘도록 진행 하였지만, 내가 아는 부분은 아주 미비 하다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;자동차에 비유를 하자면, 운전 하는 사람이지 자동차를 만들거나 수리를 하는 사람은 아니다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;물론 오랜 기간 운전을 하였고, 길도 나름 잘 알고 있다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;운전을 하다 보면 자동차가 고장이 나거나, 문제가 발생할 경우가 많다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;이럴 경우 어떻게 수리 해야 하는지를 배워나가고 있다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section-2&quot;&gt;발전 속도&lt;/h2&gt;
+
+&lt;p&gt;자동차 지금은 하이브리드, 전기차가 나오는 세상이다. &lt;br /&gt;
+계속 변화 하듯 개발 역시 계속 변화 한다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;빠른 변화 속도를 따라가지 못하며 도태 된다. &lt;br /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;section-3&quot;&gt;열심히 노력 하자&lt;/h1&gt;
 </content>
 <category term="단상" />
 <summary>명사로서의 의미와 업무에서 사용되는 의미의 차이</summary>
@@ -50,7 +68,7 @@
 
 &lt;h1 id=&quot;section-1&quot;&gt;참고 문헌&lt;/h1&gt;
 
-&lt;p&gt;http://homo-ware.tistory.com/50&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://homo-ware.tistory.com/50&quot;&gt;http://homo-ware.tistory.com/50&lt;/a&gt;&lt;/p&gt;
 </content>
 <category term="단상" />
 <summary>CoC에 대한 간단한 개념</summary>
