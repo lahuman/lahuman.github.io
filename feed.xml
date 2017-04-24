@@ -3,9 +3,51 @@
 <generator uri="http://jekyllrb.com" version="3.4.0">Jekyll</generator>
 <link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" />
 <link href="https://lahuman.github.io/" rel="alternate" type="text/html" />
-<updated>2017-04-21T13:14:38+09:00</updated>
+<updated>2017-04-24T14:48:28+09:00</updated>
 <id>https://lahuman.github.io/</id>
 <subtitle>열심히 사는 아저씨</subtitle>
+<entry>
+<title>[JDK7]WatchService 간단한 샘플 만들기</title>
+<link href="https://lahuman.github.io/20160424-phase/" rel="alternate" type="text/html" title="[JDK7]WatchService 간단한 샘플 만들기" />
+<published>2017-04-24T00:00:00+09:00</published>
+<updated>2017-04-24T00:00:00+09:00</updated>
+<id>https://lahuman.github.io/20160424-phase</id>
+<content type="html" xml:base="https://lahuman.github.io/20160424-phase/">&lt;h1 id=&quot;watchservice---&quot;&gt;WatchService 간단한 샘플 만들기&lt;/h1&gt;
+
+&lt;p&gt;함께 일하는 분의 요청으로 JDK7 부터 제공되는 File WatcherService를 이용한 디렉토리 변경 내역을 출력하는 샘플을 작성 하였습니다. &lt;br /&gt;&lt;/p&gt;
+
+&lt;div&gt;&lt;a href=&quot;https://github.com/lahuman/FileWatcherSample&quot; class=&quot;btn btn-warning&quot;&gt;Source 바로가기&lt;/a&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;notice&quot;&gt;Notice&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;JRE 1.7 이상이 설치 되어 있어야 합니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;function&quot;&gt;Function&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;특정 디렉토리 Watching&lt;/li&gt;
+  &lt;li&gt;추가/삭제/변경 내역 출력&lt;/li&gt;
+  &lt;li&gt;Thread 를 이용한 계속적인 감시를 지원&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;update-history&quot;&gt;Update history&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;2015.04.24
+    &lt;ul&gt;
+      &lt;li&gt;최초 배포&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://dzone.com/articles/how-watch-file-system-changes&quot;&gt;https://dzone.com/articles/how-watch-file-system-changes&lt;/a&gt;&lt;/p&gt;
+</content>
+<category term="jdk7" />
+<category term="watcher" />
+<summary>Toy Poject : WatchService useing JDK7</summary>
+</entry>
 <entry>
 <title>[2017-04-21]현실의 공포는 마음에 그리는 공포만큼 두렵지 않다</title>
 <link href="https://lahuman.github.io/20160421-phase/" rel="alternate" type="text/html" title="[2017-04-21]현실의 공포는 마음에 그리는 공포만큼 두렵지 않다" />
@@ -306,24 +348,5 @@ WILL(해야 할 일), DOING(진행 중인 일), DONE(마친 일) 등으로 관�
 </content>
 <category term="단상" />
 <summary>습관</summary>
-</entry>
-<entry>
-<title>[2017-03-28]단상 - 직관적의 의미</title>
-<link href="https://lahuman.github.io/20160328-phase/" rel="alternate" type="text/html" title="[2017-03-28]단상 - 직관적의 의미" />
-<published>2017-03-28T00:00:00+09:00</published>
-<updated>2017-03-28T00:00:00+09:00</updated>
-<id>https://lahuman.github.io/20160328-phase</id>
-<content type="html" xml:base="https://lahuman.github.io/20160328-phase/">&lt;h1 id=&quot;ui----&quot;&gt;직관적인 UI, 직관적인 명명, 직관적인 ….&lt;/h1&gt;
-
-&lt;p&gt;직관적으로 해달라는 요구를 많이 받는데, &lt;strong&gt;“직관적이다는 건 경험이 쌓여서 되는 것이다.”&lt;/strong&gt; 라는 생각을 가지고 있다.&lt;br /&gt;
-초기에 팀원들과 함께 도전하고 실패하고 성공하는 경험이 쌓여야 직관적으로 받아 들일 수 있다.&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;다른 예로 코드 컨벤션을 들수 있다. &lt;br /&gt;
-코드 컨벤션을 가지고 팀원들과 사용하면 결과적으로 경험이 쌓여 직관적인 코드(팀원이 보기에)를 작성 할 수 있을 것이다.&lt;br /&gt;
-물론 잘하시는 분은 다르겠지만, 우둔한 나에겐 늘 어느정도 시간과 경험이 필요하다.&lt;br /&gt;&lt;/p&gt;
-
-</content>
-<category term="단상" />
-<summary>직관적</summary>
 </entry>
 </feed>
