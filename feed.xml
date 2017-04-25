@@ -3,16 +3,35 @@
 <generator uri="http://jekyllrb.com" version="3.4.0">Jekyll</generator>
 <link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" />
 <link href="https://lahuman.github.io/" rel="alternate" type="text/html" />
-<updated>2017-04-24T14:48:28+09:00</updated>
+<updated>2017-04-25T13:49:17+09:00</updated>
 <id>https://lahuman.github.io/</id>
 <subtitle>열심히 사는 아저씨</subtitle>
 <entry>
+<title>[2017-04-25]단상 - 요구사항 명세서 (SRS)</title>
+<link href="https://lahuman.github.io/20160425-phase/" rel="alternate" type="text/html" title="[2017-04-25]단상 - 요구사항 명세서 (SRS)" />
+<published>2017-04-25T00:00:00+09:00</published>
+<updated>2017-04-25T00:00:00+09:00</updated>
+<id>https://lahuman.github.io/20160425-phase</id>
+<content type="html" xml:base="https://lahuman.github.io/20160425-phase/">&lt;h1 id=&quot;section&quot;&gt;프로젝트를 진행하면서 가장 종요한 문서&lt;/h1&gt;
+
+&lt;p&gt;요구사항 명세서는 결국 우리가 만들어야 할 모든 것을 담고 있는 명세서 입니다. &lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;따라서 프로젝트 초반 분석 과정에서 가장 공을 들이고, 이후 프로젝트 종료 까지 모든 작업에 마킹 되어야 합니다. &lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Software_requirements_specification&quot;&gt;요구사항명세서-WIKI&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section-1&quot;&gt;요구사항 명세서만 잘써도 반은 먹고 들어간다.&lt;/h2&gt;
+</content>
+<category term="단상" />
+<summary>Software Requirement Specification</summary>
+</entry>
+<entry>
 <title>[JDK7]WatchService 간단한 샘플 만들기</title>
-<link href="https://lahuman.github.io/20160424-phase/" rel="alternate" type="text/html" title="[JDK7]WatchService 간단한 샘플 만들기" />
+<link href="https://lahuman.github.io/JDK7-Watcherservice-example/" rel="alternate" type="text/html" title="[JDK7]WatchService 간단한 샘플 만들기" />
 <published>2017-04-24T00:00:00+09:00</published>
 <updated>2017-04-24T00:00:00+09:00</updated>
-<id>https://lahuman.github.io/20160424-phase</id>
-<content type="html" xml:base="https://lahuman.github.io/20160424-phase/">&lt;h1 id=&quot;watchservice---&quot;&gt;WatchService 간단한 샘플 만들기&lt;/h1&gt;
+<id>https://lahuman.github.io/JDK7-Watcherservice-example</id>
+<content type="html" xml:base="https://lahuman.github.io/JDK7-Watcherservice-example/">&lt;h1 id=&quot;watchservice---&quot;&gt;WatchService 간단한 샘플 만들기&lt;/h1&gt;
 
 &lt;p&gt;함께 일하는 분의 요청으로 JDK7 부터 제공되는 File WatcherService를 이용한 디렉토리 변경 내역을 출력하는 샘플을 작성 하였습니다. &lt;br /&gt;&lt;/p&gt;
 
@@ -318,35 +337,5 @@ WILL(해야 할 일), DOING(진행 중인 일), DONE(마친 일) 등으로 관�
 </content>
 <category term="단상" />
 <summary>건강</summary>
-</entry>
-<entry>
-<title>[2017-04-10]단상 - 습관</title>
-<link href="https://lahuman.github.io/20160410-phase/" rel="alternate" type="text/html" title="[2017-04-10]단상 - 습관" />
-<published>2017-04-10T00:00:00+09:00</published>
-<updated>2017-04-10T00:00:00+09:00</updated>
-<id>https://lahuman.github.io/20160410-phase</id>
-<content type="html" xml:base="https://lahuman.github.io/20160410-phase/">&lt;h1 id=&quot;section&quot;&gt;습관&lt;/h1&gt;
-
-&lt;p&gt;새로운 습관을 익히기 위해 100일 간의 시간이 걸리고 습관일 잃어버리기 위해서는 단지 3일이면 된다는 이야기를 많이 보았다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;습관은 쉽게 만들기도 어렵고 이미 만들어진 습관을 고치기도 어렵다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;다음은 &lt;a href=&quot;http://www.huffingtonpost.kr/meerabelle-dey/story_b_7677070.html&quot;&gt;인생을 바꾸는 습관 8가지의 내용&lt;/a&gt;이다.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;침대를 정돈하라&lt;/li&gt;
-  &lt;li&gt;매일 치실을 사용하라&lt;/li&gt;
-  &lt;li&gt;늘 고맙다고 말하라.&lt;/li&gt;
-  &lt;li&gt;집에서 일찍 나가라&lt;/li&gt;
-  &lt;li&gt;싱크대에 더러운 그릇들을 놔두지 마라&lt;/li&gt;
-  &lt;li&gt;방을 나올때마다 거기 들어갔을 때보다 나은 상태로 만들고 나와라&lt;/li&gt;
-  &lt;li&gt;남들을 칭찬하라.&lt;/li&gt;
-  &lt;li&gt;교통수단이 늘 준비되어 있도록 하라.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;section-1&quot;&gt;좋은 습관을 가지기 위하여 노력하자.&lt;/h3&gt;
-</content>
-<category term="단상" />
-<summary>습관</summary>
 </entry>
 </feed>
