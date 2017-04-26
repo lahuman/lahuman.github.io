@@ -3,7 +3,7 @@
 <generator uri="http://jekyllrb.com" version="3.4.0">Jekyll</generator>
 <link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" />
 <link href="https://lahuman.github.io/" rel="alternate" type="text/html" />
-<updated>2017-04-26T14:20:58+09:00</updated>
+<updated>2017-04-26T14:22:45+09:00</updated>
 <id>https://lahuman.github.io/</id>
 <subtitle>열심히 사는 아저씨</subtitle>
 <entry>
@@ -20,15 +20,13 @@
 &lt;p&gt;원인은 소켓 연결 최대 개수가 1024(기본값) 으로 되어 있었고, &lt;br /&gt;
 서버에서 많은 소켓 연결을 사용하여 발생하는 문제 였습니다.&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;이전에 비슷한 장애를 겪었던 경험과, 함께 일하는 분의 조언으로 다음과 같이 해결 하였습니다.&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;이전에 비슷한 장애를 겪었던 경험과, 함께 일하는 분의 도움, 구글 검색으로 다음과 같이 해결 하였습니다.&lt;br /&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-&lt;span class=&quot;c&quot;&gt;# 프로세스가 가질수 있는 최대 소켓 &amp;amp; 파일 개수(open files 행 확인)&lt;/span&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# 프로세스가 가질수 있는 최대 소켓 &amp;amp; 파일 개수(open files 행 확인)&lt;/span&gt;
 &lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;ulimit&lt;/span&gt; -a
 
 &lt;span class=&quot;c&quot;&gt;# 프로세스가 가질수 있는 최대 소켓 &amp;amp; 파일 개수 증가&lt;/span&gt;
 &lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;ulimit&lt;/span&gt; -SHn 65535
-
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
