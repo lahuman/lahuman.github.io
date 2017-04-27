@@ -3,9 +3,34 @@
 <generator uri="http://jekyllrb.com" version="3.4.0">Jekyll</generator>
 <link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" />
 <link href="https://lahuman.github.io/" rel="alternate" type="text/html" />
-<updated>2017-04-26T14:22:45+09:00</updated>
+<updated>2017-04-27T09:57:34+09:00</updated>
 <id>https://lahuman.github.io/</id>
 <subtitle>열심히 사는 아저씨</subtitle>
+<entry>
+<title>[2017-04-27]단상 - 인성</title>
+<link href="https://lahuman.github.io/20160427-phase/" rel="alternate" type="text/html" title="[2017-04-27]단상 - 인성" />
+<published>2017-04-27T00:00:00+09:00</published>
+<updated>2017-04-27T00:00:00+09:00</updated>
+<id>https://lahuman.github.io/20160427-phase</id>
+<content type="html" xml:base="https://lahuman.github.io/20160427-phase/">&lt;h1 id=&quot;section&quot;&gt;실력도 중요 하지만 인성이 더 중요 하다.&lt;/h1&gt;
+
+&lt;p&gt;회사 생활을 오래 하게 되면 직급도 오르고 아래 사람을 평가 하거나 지시 할 수 있는 힘을 가지게 된다. &lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;군대와 비슷하게 회사 생활에서도 힘을 가진 상급자가 하급자를 함부로 대하거나 할 수 있다. &lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;이건 기본적인 인성의 문제라고 생각 한다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;머리가 희끗하신 분이 젋은 친구와 서로 존대 하며 대화 하는게 이상한가?&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;난 그렇지 않다고 생각 한다. &lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;나이는 숫자에 불과 하다. 회사 내의 팀에서 직급 역시 마찬 가지다. 서로 원활하게 소통이 되어야 시너지도 발생하고 업무 효율도 오른다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;section-1&quot;&gt;본인이 힘을 가졌을때, 하급자를 잡을 생각 보다는 함께 일할 생각을 하자.&lt;/h1&gt;
+</content>
+<category term="단상" />
+<summary>기본적인 인성이 안된 사람과는 상종 말자</summary>
+</entry>
 <entry>
 <title>[2017-04-26]단상 - Linux Socket 연결 개수 초과 오류</title>
 <link href="https://lahuman.github.io/20160426-phase/" rel="alternate" type="text/html" title="[2017-04-26]단상 - Linux Socket 연결 개수 초과 오류" />
@@ -337,22 +362,5 @@ WILL(해야 할 일), DOING(진행 중인 일), DONE(마친 일) 등으로 관�
 </content>
 <category term="단상" />
 <summary>공부</summary>
-</entry>
-<entry>
-<title>[2017-04-14]단상 - 베르디 레퀴엠 중 진노의 날</title>
-<link href="https://lahuman.github.io/20160414-phase/" rel="alternate" type="text/html" title="[2017-04-14]단상 - 베르디 레퀴엠 중 진노의 날" />
-<published>2017-04-14T00:00:00+09:00</published>
-<updated>2017-04-14T00:00:00+09:00</updated>
-<id>https://lahuman.github.io/20160414-phase</id>
-<content type="html" xml:base="https://lahuman.github.io/20160414-phase/">&lt;h1 id=&quot;section&quot;&gt;베르디 레퀴엠 중 진노의 날&lt;/h1&gt;
-
-&lt;p&gt;에반게리온에서 사도가 출현할 때 나오는 배경음이다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/3mUu2p8b_78&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
-
-&lt;h3 id=&quot;section-1&quot;&gt;무언가 튀어 나올 듯한 기분이다.&lt;/h3&gt;
-</content>
-<category term="단상" />
-<summary>진노의 날</summary>
 </entry>
 </feed>
