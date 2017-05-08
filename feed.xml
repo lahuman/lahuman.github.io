@@ -3,9 +3,38 @@
 <generator uri="http://jekyllrb.com" version="3.4.0">Jekyll</generator>
 <link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" />
 <link href="https://lahuman.github.io/" rel="alternate" type="text/html" />
-<updated>2017-05-04T08:14:00+09:00</updated>
+<updated>2017-05-08T09:33:56+09:00</updated>
 <id>https://lahuman.github.io/</id>
 <subtitle>열심히 사는 아저씨</subtitle>
+<entry>
+<title>[2017-05-08]단상 - 도박사의 오류</title>
+<link href="https://lahuman.github.io/20160508-phase/" rel="alternate" type="text/html" title="[2017-05-08]단상 - 도박사의 오류" />
+<published>2017-05-08T00:00:00+09:00</published>
+<updated>2017-05-08T00:00:00+09:00</updated>
+<id>https://lahuman.github.io/20160508-phase</id>
+<content type="html" xml:base="https://lahuman.github.io/20160508-phase/">&lt;h1 id=&quot;section&quot;&gt;도박사의 오류&lt;/h1&gt;
+
+&lt;p&gt;&lt;strong&gt;도박사의 오류(賭博師─誤謬)&lt;/strong&gt;는 서로 독립적으로 일어나는 확률적 사건이 서로 확률에 영향을 미친다는 착각에서 기인한 논리적 오류로, 도박사들이 성격의 특성상 앞에서 일어난 사건과 그 뒤에 일어날 사건이 서로 독립되어 있다는 확률 이론의 가정을 받아들이지 않기 때문에 ‘도박사의 오류’라고 한다&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;큰 예로, &lt;br /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;동전을 던져서 앞면이 5회 나오면 그 다음은 뒷면이 나올 확률이 높아질 것으로 착각&lt;/li&gt;
+  &lt;li&gt;윶을 던져서 도, 개, 걸만 계속 나오면 그 다음은 윶이 나올 확률이 높아질 것으로 착각&lt;/li&gt;
+  &lt;li&gt;주사위를 던져 2가 5번 연속으로 나오면 그 뒤에 던질때는 다시 2가 나올 확률이 낮아진다는 착각&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;이와 같은 착각들은 꼭 도박이 아니라도 일어난다. &lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section-1&quot;&gt;확률에 목매지 말고, 확실하게 만들자.&lt;/h2&gt;
+
+&lt;h2 id=&quot;section-2&quot;&gt;출처&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://ko.wikipedia.org/wiki/%EB%8F%84%EB%B0%95%EC%82%AC%EC%9D%98_%EC%98%A4%EB%A5%98&quot;&gt;도박사의 오류&lt;/a&gt;&lt;/p&gt;
+</content>
+<category term="단상" />
+<summary>독립적으로 일어나는 확률적 사건이 서로 확률에 영향을 미친다는 착각</summary>
+</entry>
 <entry>
 <title>[2017-05-04]단상 - 연휴</title>
 <link href="https://lahuman.github.io/20160504-phase/" rel="alternate" type="text/html" title="[2017-05-04]단상 - 연휴" />
@@ -45,7 +74,7 @@
 
 &lt;p&gt;나이는 숫자에 불과 하다. 회사 내의 팀에서 직급 역시 마찬 가지다. 서로 원활하게 소통이 되어야 시너지도 발생하고 업무 효율도 오른다.&lt;br /&gt;&lt;/p&gt;
 
-&lt;h1 id=&quot;section-1&quot;&gt;본인이 힘을 가졌을때, 하급자를 잡을 생각 보다는 함께 일할 생각을 하자.&lt;/h1&gt;
+&lt;h1 id=&quot;section-1&quot;&gt;본인이 상급자가 되었을때, 하급자를 시킬 생각 보다는 함께 일할 생각을 하자.&lt;/h1&gt;
 </content>
 <category term="단상" />
 <summary>기본적인 인성이 안된 사람과는 상종 말자</summary>
@@ -272,86 +301,5 @@ WILL(해야 할 일), DOING(진행 중인 일), DONE(마친 일) 등으로 관�
 </content>
 <category term="단상" />
 <summary>쏟아나는 아이디어 정리 법</summary>
-</entry>
-<entry>
-<title>JAVA SWT를 Linux에서 실행 하기</title>
-<link href="https://lahuman.github.io/JAVA_SWT_RUN_LINUX/" rel="alternate" type="text/html" title="JAVA SWT를 Linux에서 실행 하기" />
-<published>2017-04-17T00:00:00+09:00</published>
-<updated>2017-04-17T00:00:00+09:00</updated>
-<id>https://lahuman.github.io/JAVA_SWT_RUN_LINUX</id>
-<content type="html" xml:base="https://lahuman.github.io/JAVA_SWT_RUN_LINUX/">&lt;h1 id=&quot;java-swt-linux-&quot;&gt;JAVA SWT를 Linux에서 실행&lt;/h1&gt;
-&lt;p&gt;지인에게 개인 프로젝트로 만든 SWT 프로그램을 리눅스에서 돌릴 수 있도록 요청을 받았다.&lt;br /&gt;
-단순하게 SWT.jar파일만 리눅스용을 구해서 설정하면 될지 알았는데, 그렇지 못했다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;우선 SWT가 무엇인지 정리 하고, 만나게된 오류와 해결 방법을 정리 한다.&lt;/p&gt;
-
-&lt;h2 id=&quot;swthttpswwweclipseorgswt-&quot;&gt;&lt;a href=&quot;https://www.eclipse.org/swt/&quot;&gt;SWT&lt;/a&gt; 란?&lt;/h2&gt;
-&lt;p&gt;운영체제에서 사용자 인터페이스 기능과 효율적인 접근을 제공하도록 설계된  JAVA용 오픈 소스 위젯 툴킷입니다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;linux---&quot;&gt;Linux 에서 실행 해보기&lt;/h2&gt;
-
-&lt;p&gt;windows 에서 돌아가는 SWT를 가지고 실행 하면 오류가 납니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Exception &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;thread &lt;span class=&quot;s2&quot;&gt;&quot;main&quot;&lt;/span&gt; java.lang.UnsatisfiedLinkError: Could not load SWT library. Reasons: 
-	no swt-win32-4430 &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;java.library.path
-	no swt-win32 &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;java.library.path
-	Can&lt;span class=&quot;s1&quot;&gt;'t load library: /home/lahuman/.swt/lib/linux/x86_64/libswt-win32-4430.so
-	Can'&lt;/span&gt;t load library: /home/lahuman/.swt/lib/linux/x86_64/libswt-win32.so
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Linux 용 jar 파일이 몇개가 있는데, 그중에 &lt;a href=&quot;https://mvnrepository.com/artifact/org.eclipse.swt/org.eclipse.swt.gtk.linux.x86_64/4.3&quot;&gt;다음&lt;/a&gt;을 받으면 된다.&lt;/p&gt;
-
-&lt;h3 id=&quot;section&quot;&gt;프로젝트 설정&lt;/h3&gt;
-
-&lt;p&gt;Eclipse 를 사용 중이면 프로젝트에서 &lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;kbd&gt;Properties&lt;/kbd&gt; &amp;gt; &lt;kbd&gt;Java Build Path&lt;/kbd&gt; &amp;gt; &lt;kbd&gt;add JARs..&lt;/kbd&gt; 에 maven 에서 받은 라이브 러리 추가 한다.&lt;/p&gt;
-
-&lt;p class=&quot;image-left&quot;&gt;&lt;img src=&quot;https://lahuman.github.io/assets/img/post_img/library_change.png&quot; alt=&quot;라이브러리 추가&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;linux--library--&quot;&gt;Linux에서 필요한 library 및 설정&lt;/h3&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# swt 관련 라이브러리 검색&lt;/span&gt;
-&lt;span class=&quot;gp&quot;&gt;$&amp;gt; &lt;/span&gt;aptitude search libswt-gtk
-&lt;span class=&quot;c&quot;&gt;# 검색된 라이브러리를 설치 3, 4 모두 설치 함&lt;/span&gt;
-&lt;span class=&quot;gp&quot;&gt;$&amp;gt;  &lt;/span&gt;sudo apt-get install libswt-gtk-3-java libswt-gtk-3-jni libswt-gtk-3-java-gcj  libswt-gtk-4-java libswt-gtk-4-jni
-&lt;span class=&quot;c&quot;&gt;# 사용자 계정 밑에 링크를 추가 &lt;/span&gt;
-&lt;span class=&quot;gp&quot;&gt;$&amp;gt; &lt;/span&gt;ln -s /usr/lib/jni/libswt-&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; ~/.swt/lib/linux/x86_64/
-&lt;span class=&quot;c&quot;&gt;# disabled되었다는 메시지 출력시 아래 명령 실행&lt;/span&gt;
-&lt;span class=&quot;gp&quot;&gt;$&amp;gt; &lt;/span&gt;sudo execstack -c ~/.swt/lib/linux/x86_64/libswt-gtk-&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;VERSION&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;.so 
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;jar--&quot;&gt;실행용 jar 파일 만들기&lt;/h3&gt;
-
-&lt;p&gt;Eclipse 에서 실행 되는 jar 를 만들기 위해서는 해당 프로젝트에서 마우스 오른쪽을 누르고, &lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;kbd&gt;Export&lt;/kbd&gt; &amp;gt; &lt;kbd&gt;Java&lt;/kbd&gt; &amp;gt; &lt;kbd&gt;Runnable JAR file&lt;/kbd&gt; 을 선택 한다.&lt;/p&gt;
-
-&lt;p class=&quot;image-left&quot;&gt;&lt;img src=&quot;https://lahuman.github.io/assets/img/post_img/make_runnable_jar.png&quot; alt=&quot;Runnable Jar&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;section-1&quot;&gt;실행&lt;/h3&gt;
-
-&lt;p&gt;다음과 같이 실행 하면 된다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;java -jar &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;filename.jar&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h1 id=&quot;section-2&quot;&gt;세상엔 공짜는 없다.&lt;/h1&gt;
-
-&lt;h1 id=&quot;section-3&quot;&gt;참고 자료&lt;/h1&gt;
-
-&lt;p&gt;https://mvnrepository.com/artifact/org.eclipse.swt/org.eclipse.swt.gtk.linux.x86_64/4.3&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;http://stackoverflow.com/questions/10970754/cant-open-eclipse-in-ubuntu-12-04-java-lang-unsatisfiedlinkerror-could-not-l&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;https://www.eclipse.org/swt/&lt;br /&gt;&lt;/p&gt;
-
-</content>
-<category term="JAVA" />
-<category term="SWT" />
-<category term="LINUX" />
-<summary>java SWT를 Linux 64bit 에서 실행 하는 방법</summary>
 </entry>
 </feed>
