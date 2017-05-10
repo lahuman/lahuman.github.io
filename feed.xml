@@ -3,9 +3,27 @@
 <generator uri="http://jekyllrb.com" version="3.4.0">Jekyll</generator>
 <link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" />
 <link href="https://lahuman.github.io/" rel="alternate" type="text/html" />
-<updated>2017-05-08T09:33:56+09:00</updated>
+<updated>2017-05-10T13:32:58+09:00</updated>
 <id>https://lahuman.github.io/</id>
 <subtitle>열심히 사는 아저씨</subtitle>
+<entry>
+<title>[2017-05-10]단상 - 들어가는 것도 힘들고, 나가는 것도 힘들다.</title>
+<link href="https://lahuman.github.io/20160510-phase/" rel="alternate" type="text/html" title="[2017-05-10]단상 - 들어가는 것도 힘들고, 나가는 것도 힘들다." />
+<published>2017-05-10T00:00:00+09:00</published>
+<updated>2017-05-10T00:00:00+09:00</updated>
+<id>https://lahuman.github.io/20160510-phase</id>
+<content type="html" xml:base="https://lahuman.github.io/20160510-phase/">&lt;h1 id=&quot;section&quot;&gt;정규직으로의 삶&lt;/h1&gt;
+
+&lt;p&gt;힘들데 정규직으로 입사를 했는데, 일하면서 팀내의 정치에 휘말리는 피곤한 일이 계속 벌어진다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;또한 관리직으로 변경을 계속 요청 하는데, 이 또한 원하는 바가 아니다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;차라리 프리랜서일 때가 편한거 같다.&lt;br /&gt;&lt;/p&gt;
+
+</content>
+<category term="단상" />
+<summary>들어가면 들어가는 데로, 나가면 나가는 데로…</summary>
+</entry>
 <entry>
 <title>[2017-05-08]단상 - 도박사의 오류</title>
 <link href="https://lahuman.github.io/20160508-phase/" rel="alternate" type="text/html" title="[2017-05-08]단상 - 도박사의 오류" />
@@ -262,44 +280,5 @@
 </content>
 <category term="단상" />
 <summary>CoC에 대한 간단한 개념</summary>
-</entry>
-<entry>
-<title>[2017-04-18]단상 - 아이디어 정리 방법</title>
-<link href="https://lahuman.github.io/20160418-phase/" rel="alternate" type="text/html" title="[2017-04-18]단상 - 아이디어 정리 방법" />
-<published>2017-04-18T00:00:00+09:00</published>
-<updated>2017-04-18T00:00:00+09:00</updated>
-<id>https://lahuman.github.io/20160418-phase</id>
-<content type="html" xml:base="https://lahuman.github.io/20160418-phase/">&lt;h2 id=&quot;section&quot;&gt;마인드 맵&lt;/h2&gt;
-
-&lt;p&gt;마인드 맵을 이용 하여 아이디어 정리를 하는 방법은 많이 사용되는 방법이다.&lt;br /&gt;
-개인적으로 사용하는 마인드 맵은 &lt;a href=&quot;http://okmindmap.com/&quot;&gt;OKMindmap&lt;/a&gt;이다.&lt;br /&gt;
-온라인으로 작성하고 쉽게 공유할 수 있다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;httpstrellocom&quot;&gt;&lt;a href=&quot;https://trello.com&quot;&gt;트렐로&lt;/a&gt;&lt;/h2&gt;
-
-&lt;p&gt;보드를 이용한 아이디어를 정리하는 툴이다. &lt;br /&gt;
-WILL(해야 할 일), DOING(진행 중인 일), DONE(마친 일) 등으로 관리를 하거나, &lt;br /&gt;
-&lt;a href=&quot;https://www.slideshare.net/einsub/ss-14963659&quot;&gt;스크럼&lt;/a&gt;을 작성할 때도 사용된다.&lt;/p&gt;
-
-&lt;h2 id=&quot;section-1&quot;&gt;휴대폰 메모&lt;/h2&gt;
-
-&lt;p&gt;언제 어디서든 할 수 있는 방법이다.&lt;br /&gt;
-요즘 휴대폰 없는 사람은 없을 테니, 꼭 메모가 아닌 녹음이나 음성을 글로 변환하는 방식을 이용해도 된다.&lt;/p&gt;
-
-&lt;h2 id=&quot;section-2&quot;&gt;종이와 펜&lt;/h2&gt;
-
-&lt;p&gt;개인적으로 가장 좋아하는 방식이다.&lt;br /&gt;
-고전적이지만, 내 경우에는 글을 쓰면서 다시 한번 생각하여 아이디어가 발전하도록 도와준다.&lt;br /&gt;
-그림을 그리기도 하고, 순서도를 그리기도 한다.&lt;br /&gt;
-참고 자료에 나오는 &lt;a href=&quot;https://brunch.co.kr/@dol74/27&quot;&gt;MECE 프레임워크&lt;/a&gt;를 이용하는 것도 좋은 방안이 된다.&lt;/p&gt;
-
-&lt;h2 id=&quot;section-3&quot;&gt;참고 자료&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://okmindmap.com/&quot;&gt;OKMindmap&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&quot;https://www.slideshare.net/einsub/ss-14963659&quot;&gt;스크럼&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&quot;https://brunch.co.kr/@dol74/27&quot;&gt;MECE 프레임워크&lt;/a&gt;&lt;br /&gt;&lt;/p&gt;
-</content>
-<category term="단상" />
-<summary>쏟아나는 아이디어 정리 법</summary>
 </entry>
 </feed>
