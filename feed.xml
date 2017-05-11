@@ -3,9 +3,31 @@
 <generator uri="http://jekyllrb.com" version="3.4.0">Jekyll</generator>
 <link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" />
 <link href="https://lahuman.github.io/" rel="alternate" type="text/html" />
-<updated>2017-05-10T13:32:58+09:00</updated>
+<updated>2017-05-11T09:47:13+09:00</updated>
 <id>https://lahuman.github.io/</id>
 <subtitle>열심히 사는 아저씨</subtitle>
+<entry>
+<title>[2017-05-11]단상 - 꼭 먹어봐야 똥인줄 아느냐?</title>
+<link href="https://lahuman.github.io/20160511-phase/" rel="alternate" type="text/html" title="[2017-05-11]단상 - 꼭 먹어봐야 똥인줄 아느냐?" />
+<published>2017-05-11T00:00:00+09:00</published>
+<updated>2017-05-11T00:00:00+09:00</updated>
+<id>https://lahuman.github.io/20160511-phase</id>
+<content type="html" xml:base="https://lahuman.github.io/20160511-phase/">&lt;h1 id=&quot;section&quot;&gt;똥인지 된장인지 구분하자&lt;/h1&gt;
+
+&lt;p&gt;된장을 처음 보는 사람이라면, 똥과 구분을 못할 수도 있다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;하지만 된장을 좋아하고, 맛을 좀 본 사람이라면 구분 못할까?&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;가끔 전문가라고 와서 똥인지 된장인지 찍어 먹어 보고 나서야, “이거 똥이네요” 하는 전문가가 있다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;전문가라는 타이틀을 가지고 있다면 된장인지 똥인지는 딱 보고 구분 하자.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;PS : 물론 똥과 된장을 반반 섞어 놓은것은 논외로 하자&lt;/strong&gt;&lt;/p&gt;
+
+</content>
+<category term="단상" />
+<summary>전문가라면, 풍기는 향기와 모양을 보고 구분해줘야지</summary>
+</entry>
 <entry>
 <title>[2017-05-10]단상 - 들어가는 것도 힘들고, 나가는 것도 힘들다.</title>
 <link href="https://lahuman.github.io/20160510-phase/" rel="alternate" type="text/html" title="[2017-05-10]단상 - 들어가는 것도 힘들고, 나가는 것도 힘들다." />
@@ -254,31 +276,5 @@
 </content>
 <category term="단상" />
 <summary>명사로서의 의미와 업무에서 사용되는 의미의 차이</summary>
-</entry>
-<entry>
-<title>[2017-04-19]단상 - Convention over Configuration 개념</title>
-<link href="https://lahuman.github.io/20160419-phase/" rel="alternate" type="text/html" title="[2017-04-19]단상 - Convention over Configuration 개념" />
-<published>2017-04-19T00:00:00+09:00</published>
-<updated>2017-04-19T00:00:00+09:00</updated>
-<id>https://lahuman.github.io/20160419-phase</id>
-<content type="html" xml:base="https://lahuman.github.io/20160419-phase/">&lt;h1 id=&quot;convention-over-configuration&quot;&gt;Convention over Configuration&lt;/h1&gt;
-
-&lt;p&gt;Convention over Configuration(이하 CoC)의 단어상의 근본적인 의미는 개발자는 단지 애플리케이션에서 관습적이지 않은 면만 정의할 필요가 있다는 것이다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;큰 예로 도메인 정의서와 같이 테이블 명과 컬럼 명에 대한 관례를 따라 작성하면 자연스럽게 모델에 대응 될 것이다.&lt;br /&gt;
-그러면 개발자들은 이 관례를 벗어나는 테이블이나 컬럼에 대응하는 도메인을 작성하고 집중 하면 될것이다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;이와 같이 기능들에 일치하는 관례에 따라 툴을 사용해 개발을 하면 설정 파일을 작성할 필요없이 이러한 장점을 누릴 수 있다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;section&quot;&gt;활용&lt;/h1&gt;
-
-&lt;p&gt;대부분의 현대적 프레임워크(Spring, Ruby on Rails, JUnit, ETC… 등)에서는 CoC적인 접근 방식을 사용하고 있다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;section-1&quot;&gt;참고 문헌&lt;/h1&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://homo-ware.tistory.com/50&quot;&gt;http://homo-ware.tistory.com/50&lt;/a&gt;&lt;/p&gt;
-</content>
-<category term="단상" />
-<summary>CoC에 대한 간단한 개념</summary>
 </entry>
 </feed>
