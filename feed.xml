@@ -3,9 +3,40 @@
 <generator uri="http://jekyllrb.com" version="3.4.0">Jekyll</generator>
 <link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" />
 <link href="https://lahuman.github.io/" rel="alternate" type="text/html" />
-<updated>2017-05-12T09:14:32+09:00</updated>
+<updated>2017-05-15T16:06:38+09:00</updated>
 <id>https://lahuman.github.io/</id>
 <subtitle>열심히 사는 아저씨</subtitle>
+<entry>
+<title>[2017-05-15]단상 - YOLO</title>
+<link href="https://lahuman.github.io/20160515-phase/" rel="alternate" type="text/html" title="[2017-05-15]단상 - YOLO" />
+<published>2017-05-15T00:00:00+09:00</published>
+<updated>2017-05-15T00:00:00+09:00</updated>
+<id>https://lahuman.github.io/20160515-phase</id>
+<content type="html" xml:base="https://lahuman.github.io/20160515-phase/">&lt;h1 id=&quot;section&quot;&gt;인생은 딱 한번 뿐!&lt;/h1&gt;
+
+&lt;p&gt;인생은 한번 뿐이니, &lt;strong&gt;인생 뭐 있어 즐기자.&lt;/strong&gt; 라는 의미로 사용된다고 한다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;가끔 생각 한다. 너무 딱딱한 틀에 맞춰서 살고 있는 것은 아닌지?&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;정말 소중한 것을 놓치고 있는 것은 아닌지? &lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;인생은 딱 한번 뿐이니, 나에게 가장 소중한 것을 가장 우선시 하자&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;다음 글귀는 YOLO의 출처에서 가져왔다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;You only live once.
+Make Sure you let people know you love them.&lt;br /&gt;
+인생은 딱 한번 뿐. 사랑하는 사람들에게 당신이 그들을 사랑한다는 것을 꼭 알려 주도록 하세요.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;section-1&quot;&gt;출처&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;http://blog.naver.com/PostView.nhn?blogId=ges2014&amp;amp;logNo=220346660470&amp;amp;parentCategoryNo=&amp;amp;categoryNo=13&amp;amp;viewDate=&amp;amp;isShowPopularPosts=true&amp;amp;from=search&quot;&gt;YOLO 뜻&lt;/a&gt;&lt;/p&gt;
+
+</content>
+<category term="단상" />
+<summary>You Only Live Once.</summary>
+</entry>
 <entry>
 <title>[2017-05-12]단상 - 언어</title>
 <link href="https://lahuman.github.io/20160512-phase/" rel="alternate" type="text/html" title="[2017-05-12]단상 - 언어" />
@@ -234,28 +265,5 @@
 <category term="jdk7" />
 <category term="watcher" />
 <summary>Toy Poject : WatchService useing JDK7</summary>
-</entry>
-<entry>
-<title>[2017-04-21]현실의 공포는 마음에 그리는 공포만큼 두렵지 않다</title>
-<link href="https://lahuman.github.io/20160421-phase/" rel="alternate" type="text/html" title="[2017-04-21]현실의 공포는 마음에 그리는 공포만큼 두렵지 않다" />
-<published>2017-04-21T00:00:00+09:00</published>
-<updated>2017-04-21T00:00:00+09:00</updated>
-<id>https://lahuman.github.io/20160421-phase</id>
-<content type="html" xml:base="https://lahuman.github.io/20160421-phase/">&lt;h1 id=&quot;section&quot;&gt;두려워 말라&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;현실의 공포는 마음에 그리는 공포만큼 두렵지 않다 - 셰익스피어&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;두려운 일을 마음으로 계속 그리면 더욱 두려워 아무 것도 할수 없게 된다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;하지만 현실과 마주하게 되면 생각보다 두렵지 않는 경우가 대부분이다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;상상을 하여 두려움을 더 키우기 보다, 현실적으로 어떻게 할 것인가를 결정하고 한발씩 나아가자&lt;/p&gt;
-
-&lt;h1 id=&quot;section-1&quot;&gt;난 오늘도 한발 나아가기 위해 노력 하는 중이다.&lt;/h1&gt;
-</content>
-<category term="단상" />
-<summary>셰익스피어</summary>
 </entry>
 </feed>
