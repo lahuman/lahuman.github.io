@@ -3,9 +3,58 @@
 <generator uri="http://jekyllrb.com" version="3.4.0">Jekyll</generator>
 <link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" />
 <link href="https://lahuman.github.io/" rel="alternate" type="text/html" />
-<updated>2017-05-16T09:00:56+09:00</updated>
+<updated>2017-05-16T15:54:35+09:00</updated>
 <id>https://lahuman.github.io/</id>
 <subtitle>열심히 사는 아저씨</subtitle>
+<entry>
+<title>Spring Controller 문서 만들기</title>
+<link href="https://lahuman.github.io/Generator-Spring-Controller-Document/" rel="alternate" type="text/html" title="Spring Controller 문서 만들기" />
+<published>2017-05-16T00:00:00+09:00</published>
+<updated>2017-05-16T00:00:00+09:00</updated>
+<id>https://lahuman.github.io/Generator-Spring-Controller-Document</id>
+<content type="html" xml:base="https://lahuman.github.io/Generator-Spring-Controller-Document/">&lt;h1 id=&quot;spring-controller--&quot;&gt;Spring Controller 문서 만들기&lt;/h1&gt;
+
+&lt;p&gt;Spring Controller 에 대한 문서를 표 형식으로 만들어 주는 프로그램 입니다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;div&gt;&lt;a href=&quot;https://github.com/lahuman/GeneratorSpringControllerDocx&quot; class=&quot;btn btn-warning&quot;&gt;Source 바로가기&lt;/a&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;notice&quot;&gt;Notice&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;JRE 1.8 이상이 설치 되어 있어야 합니다.&lt;/li&gt;
+  &lt;li&gt;docx 형식의 샘플 템플릿은 &lt;a href=&quot;https://github.com/lahuman/GeneratorSpringControllerDocx/blob/master/src/resource/DocTemplate.docx&quot;&gt;resource&lt;/a&gt; 에 있습니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;function&quot;&gt;Function&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Spring Controller 에 정보를 표 형식으로 표출&lt;/li&gt;
+  &lt;li&gt;메소드 기준으로 표출
+    &lt;ul&gt;
+      &lt;li&gt;메소드가 가진 전달 값 리턴 값을 표출&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;update-history&quot;&gt;Update history&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;2015.05.16
+    &lt;ul&gt;
+      &lt;li&gt;최초 배포&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;license&quot;&gt;License&lt;/h2&gt;
+
+&lt;p&gt;GeneratorSpringControllerDocx 는 open source 프로그램으로 MIT 라이선스를 따릅니다.&lt;/p&gt;
+
+&lt;p&gt;This J-GeneratorSpringControllerDocx is free and open source software, distributed under the MIT License. So feel free to use this program on your project without linking back to me or including a disclaimer.&lt;/p&gt;
+</content>
+<category term="jdk8" />
+<category term="springcontroller" />
+<category term="docx4j" />
+<summary>Spring Controller의 메소드, 전달 값, 리턴 값을 이용한 docx 형태 문서 만들기</summary>
+</entry>
 <entry>
 <title>[2017-05-16]단상 - 레거시(legacy)</title>
 <link href="https://lahuman.github.io/20160516-phase/" rel="alternate" type="text/html" title="[2017-05-16]단상 - 레거시(legacy)" />
@@ -226,24 +275,5 @@ Make Sure you let people know you love them.&lt;br /&gt;
 </content>
 <category term="단상" />
 <summary>ulimit 명령어를 이용한 소캣 연결 개수 늘리기</summary>
-</entry>
-<entry>
-<title>[2017-04-25]단상 - 요구사항 명세서 (SRS)</title>
-<link href="https://lahuman.github.io/20160425-phase/" rel="alternate" type="text/html" title="[2017-04-25]단상 - 요구사항 명세서 (SRS)" />
-<published>2017-04-25T00:00:00+09:00</published>
-<updated>2017-04-25T00:00:00+09:00</updated>
-<id>https://lahuman.github.io/20160425-phase</id>
-<content type="html" xml:base="https://lahuman.github.io/20160425-phase/">&lt;h1 id=&quot;section&quot;&gt;프로젝트를 진행하면서 가장 종요한 문서&lt;/h1&gt;
-
-&lt;p&gt;요구사항 명세서는 결국 우리가 만들어야 할 모든 것을 담고 있는 명세서 입니다. &lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;따라서 프로젝트 초반 분석 과정에서 가장 공을 들이고, 이후 프로젝트 종료 까지 모든 작업에 마킹 되어야 합니다. &lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Software_requirements_specification&quot;&gt;요구사항명세서-WIKI&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;section-1&quot;&gt;요구사항 명세서만 잘써도 반은 먹고 들어간다.&lt;/h2&gt;
-</content>
-<category term="단상" />
-<summary>Software Requirement Specification</summary>
 </entry>
 </feed>
