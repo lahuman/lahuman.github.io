@@ -3,9 +3,31 @@
 <generator uri="http://jekyllrb.com" version="3.4.0">Jekyll</generator>
 <link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" />
 <link href="https://lahuman.github.io/" rel="alternate" type="text/html" />
-<updated>2017-05-15T16:06:38+09:00</updated>
+<updated>2017-05-16T09:00:56+09:00</updated>
 <id>https://lahuman.github.io/</id>
 <subtitle>열심히 사는 아저씨</subtitle>
+<entry>
+<title>[2017-05-16]단상 - 레거시(legacy)</title>
+<link href="https://lahuman.github.io/20160516-phase/" rel="alternate" type="text/html" title="[2017-05-16]단상 - 레거시(legacy)" />
+<published>2017-05-16T00:00:00+09:00</published>
+<updated>2017-05-16T00:00:00+09:00</updated>
+<id>https://lahuman.github.io/20160516-phase</id>
+<content type="html" xml:base="https://lahuman.github.io/20160516-phase/">&lt;h1 id=&quot;legacy&quot;&gt;레거시(legacy)&lt;/h1&gt;
+
+&lt;p&gt;레거시는 통칭 레거시 시스템(legacy system)의 줄임말로 낡은 기술이나 방법론, 컴퓨터 시스템 소프트웨어 등을 말한다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;이는 현대까지도 남아 쓰이는 기술을 부르는 말일 수도 있지만, 기술 자체를 더 이상 쓰이지 않더라도 기존 시스템에서 운영되는 시스템을 말하기도 한다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;많은 소프트웨어 개발자들이 문서화나, 정리가 되어 있지않고 주먹 구구 식으로 운영된 시스템일수록 잠재적 문제가 있다고 생각 하지만, 이미 구축된 시스템 자체를 무시 할수는 없습니다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;또한 분석을 통하여 레거시 시스템을 이해 해야 하는데, 그냥 무시하고 리펙토링을 진행 하였다간 발생하는 문제를 처리 할 수 없게 됩니다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;출처&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://ko.wikipedia.org/wiki/%EB%A0%88%EA%B1%B0%EC%8B%9C_%EC%8B%9C%EC%8A%A4%ED%85%9C&quot;&gt;레거시 시스템&lt;/a&gt;&lt;/p&gt;
+</content>
+<category term="단상" />
+<summary>유산, 유물, 또는 쓰레기라 불리는…</summary>
+</entry>
 <entry>
 <title>[2017-05-15]단상 - YOLO</title>
 <link href="https://lahuman.github.io/20160515-phase/" rel="alternate" type="text/html" title="[2017-05-15]단상 - YOLO" />
@@ -223,47 +245,5 @@ Make Sure you let people know you love them.&lt;br /&gt;
 </content>
 <category term="단상" />
 <summary>Software Requirement Specification</summary>
-</entry>
-<entry>
-<title>[JDK7]WatchService 간단한 샘플 만들기</title>
-<link href="https://lahuman.github.io/JDK7-Watcherservice-example/" rel="alternate" type="text/html" title="[JDK7]WatchService 간단한 샘플 만들기" />
-<published>2017-04-24T00:00:00+09:00</published>
-<updated>2017-04-24T00:00:00+09:00</updated>
-<id>https://lahuman.github.io/JDK7-Watcherservice-example</id>
-<content type="html" xml:base="https://lahuman.github.io/JDK7-Watcherservice-example/">&lt;h1 id=&quot;watchservice---&quot;&gt;WatchService 간단한 샘플 만들기&lt;/h1&gt;
-
-&lt;p&gt;함께 일하는 분의 요청으로 JDK7 부터 제공되는 File WatcherService를 이용한 디렉토리 변경 내역을 출력하는 샘플을 작성 하였습니다. &lt;br /&gt;&lt;/p&gt;
-
-&lt;div&gt;&lt;a href=&quot;https://github.com/lahuman/FileWatcherSample&quot; class=&quot;btn btn-warning&quot;&gt;Source 바로가기&lt;/a&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;notice&quot;&gt;Notice&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;JRE 1.7 이상이 설치 되어 있어야 합니다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;function&quot;&gt;Function&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;특정 디렉토리 Watching&lt;/li&gt;
-  &lt;li&gt;추가/삭제/변경 내역 출력&lt;/li&gt;
-  &lt;li&gt;Thread 를 이용한 계속적인 감시를 지원&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;update-history&quot;&gt;Update history&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;2015.04.24
-    &lt;ul&gt;
-      &lt;li&gt;최초 배포&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://dzone.com/articles/how-watch-file-system-changes&quot;&gt;https://dzone.com/articles/how-watch-file-system-changes&lt;/a&gt;&lt;/p&gt;
-</content>
-<category term="jdk7" />
-<category term="watcher" />
-<summary>Toy Poject : WatchService useing JDK7</summary>
 </entry>
 </feed>
