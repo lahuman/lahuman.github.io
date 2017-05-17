@@ -3,9 +3,29 @@
 <generator uri="http://jekyllrb.com" version="3.4.0">Jekyll</generator>
 <link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" />
 <link href="https://lahuman.github.io/" rel="alternate" type="text/html" />
-<updated>2017-05-16T16:03:11+09:00</updated>
+<updated>2017-05-17T09:24:32+09:00</updated>
 <id>https://lahuman.github.io/</id>
 <subtitle>열심히 사는 아저씨</subtitle>
+<entry>
+<title>[2017-05-17]단상 - 말</title>
+<link href="https://lahuman.github.io/20160517-phase/" rel="alternate" type="text/html" title="[2017-05-17]단상 - 말" />
+<published>2017-05-17T00:00:00+09:00</published>
+<updated>2017-05-17T00:00:00+09:00</updated>
+<id>https://lahuman.github.io/20160517-phase</id>
+<content type="html" xml:base="https://lahuman.github.io/20160517-phase/">&lt;h1 id=&quot;section&quot;&gt;생각 없이 내뱉은 말이 눈덩이처럼 커져서 돌아온다.&lt;/h1&gt;
+
+&lt;p&gt;말을 조심 하고 아껴야 한다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;지킬수 없는 말은 함부로 해서는 안되며, &lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;남을 비방하거나 헐뜯는 말도 조심해야 한다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;살아가면서 위의 내용을 지키기 힘들지만 노력하자.&lt;br /&gt;&lt;/p&gt;
+
+</content>
+<category term="단상" />
+<summary>밤말은 쥐가 듣고 낮말은 새가 듣는다.</summary>
+</entry>
 <entry>
 <title>Spring Controller 문서 만들기</title>
 <link href="https://lahuman.github.io/Generator-Spring-Controller-Document/" rel="alternate" type="text/html" title="Spring Controller 문서 만들기" />
@@ -14,7 +34,7 @@
 <id>https://lahuman.github.io/Generator-Spring-Controller-Document</id>
 <content type="html" xml:base="https://lahuman.github.io/Generator-Spring-Controller-Document/">&lt;h1 id=&quot;spring-controller--&quot;&gt;Spring Controller 문서 만들기&lt;/h1&gt;
 
-&lt;p&gt;Spring Controller 에 대한 문서를 표 형식으로 만들어 주는 프로그램 입니다.&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;Spring Controller 에 대하여 표 형식의 문서를 만들어 주는 프로그램 입니다.&lt;br /&gt;&lt;/p&gt;
 
 &lt;div&gt;&lt;a href=&quot;https://github.com/lahuman/GeneratorSpringControllerDocx&quot; class=&quot;btn btn-warning&quot;&gt;Source 바로가기&lt;/a&gt;&lt;/div&gt;
 
@@ -22,6 +42,7 @@
 
 &lt;ul&gt;
   &lt;li&gt;JRE 1.8 이상이 설치 되어 있어야 합니다.&lt;/li&gt;
+  &lt;li&gt;실행은 junit 으로 &lt;a href=&quot;https://github.com/lahuman/GeneratorSpringControllerDocx/blob/master/src/test/java/lahuman/doc/spring/controller/GeneratorSpringControllerDoc.java&quot;&gt;GeneratorSpringControllerDoc.java&lt;/a&gt; 을 실행 합니다.&lt;/li&gt;
   &lt;li&gt;docx 형식의 샘플 템플릿은 &lt;a href=&quot;https://github.com/lahuman/GeneratorSpringControllerDocx/blob/master/src/resource/DocTemplate.docx&quot;&gt;resource&lt;/a&gt; 에 있습니다.&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -242,38 +263,5 @@ Make Sure you let people know you love them.&lt;br /&gt;
 </content>
 <category term="단상" />
 <summary>기본적인 인성이 안된 사람과는 상종 말자</summary>
-</entry>
-<entry>
-<title>[2017-04-26]단상 - Linux Socket 연결 개수 초과 오류</title>
-<link href="https://lahuman.github.io/20160426-phase/" rel="alternate" type="text/html" title="[2017-04-26]단상 - Linux Socket 연결 개수 초과 오류" />
-<published>2017-04-26T00:00:00+09:00</published>
-<updated>2017-04-26T00:00:00+09:00</updated>
-<id>https://lahuman.github.io/20160426-phase</id>
-<content type="html" xml:base="https://lahuman.github.io/20160426-phase/">&lt;h1 id=&quot;linux-socket----&quot;&gt;Linux Socket 연결 개수 초과 오류&lt;/h1&gt;
-
-&lt;p&gt;장애가 났다, &lt;strong&gt;특정 연계 시스템과 연결이 안되었가 시간이 지나면 다시 연결이 되는&lt;/strong&gt; 이상한 장애 였습니다.&lt;br /&gt;
-방화벽 문제도 아니고 네트워크 문제도 였습니다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;원인은 소켓 연결 최대 개수가 1024(기본값) 으로 되어 있었고, &lt;br /&gt;
-서버에서 많은 소켓 연결을 사용하여 발생하는 문제 였습니다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;이전에 비슷한 장애를 겪었던 경험과, 함께 일하는 분의 도움, 구글 검색으로 다음과 같이 해결 하였습니다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# 프로세스가 가질수 있는 최대 소켓 &amp;amp; 파일 개수(open files 행 확인)&lt;/span&gt;
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;ulimit&lt;/span&gt; -a
-
-&lt;span class=&quot;c&quot;&gt;# 프로세스가 가질수 있는 최대 소켓 &amp;amp; 파일 개수 증가&lt;/span&gt;
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;ulimit&lt;/span&gt; -SHn 65535
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&quot;it------------&quot;&gt;IT에서 일을 하면서 개발 뿐만이 아니라 서버에 대한 지식도 필요하다는 것을 많이 느낀다.&lt;/h2&gt;
-
-&lt;h1 id=&quot;section&quot;&gt;참고 자료&lt;/h1&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://meetup.toast.com/posts/53&quot;&gt;리눅스 서버의 TCP 네트워크 성능을 결정짓는 커널 파라미터 이야기 -TOAST&lt;/a&gt;&lt;/p&gt;
-</content>
-<category term="단상" />
-<summary>ulimit 명령어를 이용한 소캣 연결 개수 늘리기</summary>
 </entry>
 </feed>
