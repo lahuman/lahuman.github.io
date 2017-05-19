@@ -3,9 +3,24 @@
 <generator uri="http://jekyllrb.com" version="3.4.0">Jekyll</generator>
 <link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" />
 <link href="https://lahuman.github.io/" rel="alternate" type="text/html" />
-<updated>2017-05-18T09:07:02+09:00</updated>
+<updated>2017-05-19T11:11:06+09:00</updated>
 <id>https://lahuman.github.io/</id>
 <subtitle>열심히 사는 아저씨</subtitle>
+<entry>
+<title>[2017-05-19]단상 - 코틀린이 안드로이드 정식 언어로 지정</title>
+<link href="https://lahuman.github.io/20160519-phase/" rel="alternate" type="text/html" title="[2017-05-19]단상 - 코틀린이 안드로이드 정식 언어로 지정" />
+<published>2017-05-19T00:00:00+09:00</published>
+<updated>2017-05-19T00:00:00+09:00</updated>
+<id>https://lahuman.github.io/20160519-phase</id>
+<content type="html" xml:base="https://lahuman.github.io/20160519-phase/">&lt;p&gt;코틀린은 젯브라인이 2011년에 공개한 프로그래밍 언어 입니다.. &lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;코틀린은 자바가상머신(JVM)에서 동작하고, 자바와 높은 상호 운영성을 가지고 있습니다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;section&quot;&gt;이렇게 배워야 하는 언어는 늘어나고…&lt;/h1&gt;
+</content>
+<category term="단상" />
+<summary>구글IO2017에서 코틀린을 안드로이드 공식 언어로 지정</summary>
+</entry>
 <entry>
 <title>[2017-05-18]단상 - 일 못하는 팀장은 이해하고 도와라</title>
 <link href="https://lahuman.github.io/20160518-phase/" rel="alternate" type="text/html" title="[2017-05-18]단상 - 일 못하는 팀장은 이해하고 도와라" />
@@ -245,24 +260,5 @@ Make Sure you let people know you love them.&lt;br /&gt;
 </content>
 <category term="단상" />
 <summary>독립적으로 일어나는 확률적 사건이 서로 확률에 영향을 미친다는 착각</summary>
-</entry>
-<entry>
-<title>[2017-05-04]단상 - 연휴</title>
-<link href="https://lahuman.github.io/20160504-phase/" rel="alternate" type="text/html" title="[2017-05-04]단상 - 연휴" />
-<published>2017-05-04T00:00:00+09:00</published>
-<updated>2017-05-04T00:00:00+09:00</updated>
-<id>https://lahuman.github.io/20160504-phase</id>
-<content type="html" xml:base="https://lahuman.github.io/20160504-phase/">&lt;h1 id=&quot;section&quot;&gt;긴 연휴동안 생각도 마음도 정리 하다.&lt;/h1&gt;
-
-&lt;p&gt;긴 연휴동안 생각과 마음을 정리 하였다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;가족과 즐거운 시간을 보내기도 하고, 아내와 오랜만에 데이트를 하기도 하였다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;가족과 함께 하는 시간이 길어지니, 마음이 안정되고 생각이 깊어 진다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;section-1&quot;&gt;모든 일에 적당한 휴식은 꼭 필요 하다.&lt;/h2&gt;
-</content>
-<category term="단상" />
-<summary>긴 연휴동안 오랜만에 느끼는 행복</summary>
 </entry>
 </feed>
