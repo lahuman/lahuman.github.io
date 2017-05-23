@@ -3,9 +3,28 @@
 <generator uri="http://jekyllrb.com" version="3.4.0">Jekyll</generator>
 <link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" />
 <link href="https://lahuman.github.io/" rel="alternate" type="text/html" />
-<updated>2017-05-22T16:56:24+09:00</updated>
+<updated>2017-05-23T08:59:45+09:00</updated>
 <id>https://lahuman.github.io/</id>
 <subtitle>열심히 사는 아저씨</subtitle>
+<entry>
+<title>[2017-05-23]단상 - 약속</title>
+<link href="https://lahuman.github.io/20160523-phase/" rel="alternate" type="text/html" title="[2017-05-23]단상 - 약속" />
+<published>2017-05-23T00:00:00+09:00</published>
+<updated>2017-05-23T00:00:00+09:00</updated>
+<id>https://lahuman.github.io/20160523-phase</id>
+<content type="html" xml:base="https://lahuman.github.io/20160523-phase/">&lt;h1 id=&quot;section&quot;&gt;지킬수 있는 약속과, 노력.. 그래도 안된다면 사과하자.&lt;/h1&gt;
+
+&lt;p&gt;무언가를 누군가와 약속 할때, 지킬수 있을 것이라고 생각 했었다. &lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;하지만 하다 보니 지키지 못한 일도 많았다. &lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;약속을 잘 안지키는 사람은 신용을 얻을 수 없고, 또한 누군가와 다른 약속을 잡기가 어려울 수 있다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;지킬수 있는 약속만하고, 지키지 못하면 사과 하자&lt;/p&gt;
+</content>
+<category term="단상" />
+<summary>지킬수 있는 약속만 하고, 지키지 못하면 사과 하자.</summary>
+</entry>
 <entry>
 <title>[2017-05-22]단상 - 건강</title>
 <link href="https://lahuman.github.io/20160522-phase/" rel="alternate" type="text/html" title="[2017-05-22]단상 - 건강" />
@@ -230,23 +249,5 @@ Make Sure you let people know you love them.&lt;br /&gt;
 </content>
 <category term="단상" />
 <summary>전문가라면, 풍기는 향기와 모양을 보고 구분해줘야지</summary>
-</entry>
-<entry>
-<title>[2017-05-10]단상 - 들어가는 것도 힘들고, 나가는 것도 힘들다.</title>
-<link href="https://lahuman.github.io/20160510-phase/" rel="alternate" type="text/html" title="[2017-05-10]단상 - 들어가는 것도 힘들고, 나가는 것도 힘들다." />
-<published>2017-05-10T00:00:00+09:00</published>
-<updated>2017-05-10T00:00:00+09:00</updated>
-<id>https://lahuman.github.io/20160510-phase</id>
-<content type="html" xml:base="https://lahuman.github.io/20160510-phase/">&lt;h1 id=&quot;section&quot;&gt;정규직으로의 삶&lt;/h1&gt;
-
-&lt;p&gt;힘들데 정규직으로 입사를 했는데, 일하면서 팀내의 정치에 휘말리는 피곤한 일이 계속 벌어진다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;또한 관리직으로 변경을 계속 요청 하는데, 이 또한 원하는 바가 아니다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;차라리 프리랜서일 때가 편한거 같다.&lt;br /&gt;&lt;/p&gt;
-
-</content>
-<category term="단상" />
-<summary>들어가면 들어가는 데로, 나가면 나가는 데로…</summary>
 </entry>
 </feed>
