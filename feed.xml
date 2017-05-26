@@ -3,9 +3,27 @@
 <generator uri="http://jekyllrb.com" version="3.4.0">Jekyll</generator>
 <link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" />
 <link href="https://lahuman.github.io/" rel="alternate" type="text/html" />
-<updated>2017-05-25T09:20:36+09:00</updated>
+<updated>2017-05-26T09:02:35+09:00</updated>
 <id>https://lahuman.github.io/</id>
 <subtitle>열심히 사는 아저씨</subtitle>
+<entry>
+<title>[2017-05-26]단상 - 말해도 되는 것과 말해선 안되는 것</title>
+<link href="https://lahuman.github.io/20160526-phase/" rel="alternate" type="text/html" title="[2017-05-26]단상 - 말해도 되는 것과 말해선 안되는 것" />
+<published>2017-05-26T00:00:00+09:00</published>
+<updated>2017-05-26T00:00:00+09:00</updated>
+<id>https://lahuman.github.io/20160526-phase</id>
+<content type="html" xml:base="https://lahuman.github.io/20160526-phase/">&lt;h1 id=&quot;section&quot;&gt;말해도 되는 것과 말해선 안되는 것이 있다.&lt;/h1&gt;
+
+&lt;p&gt;같은 공간에서 일하는 사람들끼리는 많은 이야기를 한다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;업무 관계에서는 말 실수 하지 않도록 조심해야 한다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;친해졌다고 생각해도 친하지 않을수 있기 때문이다…&lt;br /&gt;&lt;/p&gt;
+
+</content>
+<category term="단상" />
+<summary>말은 입에서 떠나면 다시 되돌릴 수 없다.</summary>
+</entry>
 <entry>
 <title>[2017-05-25]단상 - 호의가 계속되면 권리인줄 알아요</title>
 <link href="https://lahuman.github.io/20160525-phase/" rel="alternate" type="text/html" title="[2017-05-25]단상 - 호의가 계속되면 권리인줄 알아요" />
@@ -18,7 +36,7 @@
 
 &lt;p&gt;&lt;strong&gt;“호의가 계속되면은 권리인줄 알아요”&lt;/strong&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/watch?v=8YWYXjS2MPw&quot; frameborder=&quot;0&quot;&gt; &lt;/iframe&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;//www.youtube.com/watch?v=8YWYXjS2MPw&quot; frameborder=&quot;0&quot;&gt; &lt;/iframe&gt;
 
 &lt;h1 id=&quot;section-1&quot;&gt;남이 나에게 보이는 호의에 늘 감사하자.&lt;/h1&gt;
 
@@ -217,36 +235,5 @@
 </content>
 <category term="단상" />
 <summary>유산, 유물, 또는 쓰레기라 불리는…</summary>
-</entry>
-<entry>
-<title>[2017-05-15]단상 - YOLO</title>
-<link href="https://lahuman.github.io/20160515-phase/" rel="alternate" type="text/html" title="[2017-05-15]단상 - YOLO" />
-<published>2017-05-15T00:00:00+09:00</published>
-<updated>2017-05-15T00:00:00+09:00</updated>
-<id>https://lahuman.github.io/20160515-phase</id>
-<content type="html" xml:base="https://lahuman.github.io/20160515-phase/">&lt;h1 id=&quot;section&quot;&gt;인생은 딱 한번 뿐!&lt;/h1&gt;
-
-&lt;p&gt;인생은 한번 뿐이니, &lt;strong&gt;인생 뭐 있어 즐기자.&lt;/strong&gt; 라는 의미로 사용된다고 한다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;가끔 생각 한다. 너무 딱딱한 틀에 맞춰서 살고 있는 것은 아닌지?&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;정말 소중한 것을 놓치고 있는 것은 아닌지? &lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;인생은 딱 한번 뿐이니, 나에게 가장 소중한 것을 가장 우선시 하자&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;다음 글귀는 YOLO의 출처에서 가져왔다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;You only live once.
-Make Sure you let people know you love them.&lt;br /&gt;
-인생은 딱 한번 뿐. 사랑하는 사람들에게 당신이 그들을 사랑한다는 것을 꼭 알려 주도록 하세요.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;section-1&quot;&gt;출처&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&quot;http://blog.naver.com/PostView.nhn?blogId=ges2014&amp;amp;logNo=220346660470&amp;amp;parentCategoryNo=&amp;amp;categoryNo=13&amp;amp;viewDate=&amp;amp;isShowPopularPosts=true&amp;amp;from=search&quot;&gt;YOLO 뜻&lt;/a&gt;&lt;/p&gt;
-
-</content>
-<category term="단상" />
-<summary>You Only Live Once.</summary>
 </entry>
 </feed>
