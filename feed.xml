@@ -3,9 +3,32 @@
 <generator uri="http://jekyllrb.com" version="3.4.0">Jekyll</generator>
 <link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" />
 <link href="https://lahuman.github.io/" rel="alternate" type="text/html" />
-<updated>2017-05-26T09:12:53+09:00</updated>
+<updated>2017-05-30T09:51:10+09:00</updated>
 <id>https://lahuman.github.io/</id>
 <subtitle>열심히 사는 아저씨</subtitle>
+<entry>
+<title>[2017-05-30]단상 - 미지에 대한 두려움</title>
+<link href="https://lahuman.github.io/20160530-phase/" rel="alternate" type="text/html" title="[2017-05-30]단상 - 미지에 대한 두려움" />
+<published>2017-05-30T00:00:00+09:00</published>
+<updated>2017-05-30T00:00:00+09:00</updated>
+<id>https://lahuman.github.io/20160530-phase</id>
+<content type="html" xml:base="https://lahuman.github.io/20160530-phase/">&lt;h1 id=&quot;section&quot;&gt;미지에 대한 또는 알지 못하는 것에 대한 두려움을 가질 필요가 없다.&lt;/h1&gt;
+
+&lt;p&gt;난 겁이 많다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;하지만, 두려움을 먼저 가지지 않으려고 노력 한다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;미지에 대한 두려움을 갖게 되면, 그 두려움이 풍선처럼 계속 커지기만 한다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;막상 풍선이 터지고 나면 아무것도 아닌, 심력낭비 시간낭비가 많다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;두려워 하지말고 해보자&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section-1&quot;&gt;오늘도 즐겁게!&lt;/h2&gt;
+</content>
+<category term="단상" />
+<summary>막상 현실이 되면 별거 아닌게 많더라.</summary>
+</entry>
 <entry>
 <title>[2017-05-26]단상 - 말해도 되는 것과 말해선 안되는 것</title>
 <link href="https://lahuman.github.io/20160526-phase/" rel="alternate" type="text/html" title="[2017-05-26]단상 - 말해도 되는 것과 말해선 안되는 것" />
@@ -213,27 +236,5 @@
 <category term="springcontroller" />
 <category term="docx4j" />
 <summary>Spring Controller의 메소드, 전달 값, 리턴 값을 이용한 docx 형태 문서 만들기</summary>
-</entry>
-<entry>
-<title>[2017-05-16]단상 - 레거시(legacy)</title>
-<link href="https://lahuman.github.io/20160516-phase/" rel="alternate" type="text/html" title="[2017-05-16]단상 - 레거시(legacy)" />
-<published>2017-05-16T00:00:00+09:00</published>
-<updated>2017-05-16T00:00:00+09:00</updated>
-<id>https://lahuman.github.io/20160516-phase</id>
-<content type="html" xml:base="https://lahuman.github.io/20160516-phase/">&lt;h1 id=&quot;legacy&quot;&gt;레거시(legacy)&lt;/h1&gt;
-
-&lt;p&gt;레거시는 통칭 레거시 시스템(legacy system)의 줄임말로 낡은 기술이나 방법론, 컴퓨터 시스템 소프트웨어 등을 말한다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;이는 현대까지도 남아 쓰이는 기술을 부르는 말일 수도 있지만, 기술 자체를 더 이상 쓰이지 않더라도 기존 시스템에서 운영되는 시스템을 말하기도 한다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;많은 소프트웨어 개발자들이 문서화나, 정리가 되어 있지않고 주먹 구구 식으로 운영된 시스템일수록 잠재적 문제가 있다고 생각 하지만, 이미 구축된 시스템 자체를 무시 할수는 없습니다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;또한 분석을 통하여 레거시 시스템을 이해 해야 하는데, 그냥 무시하고 리펙토링을 진행 하였다간 발생하는 문제를 처리 할 수 없게 됩니다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;section&quot;&gt;출처&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&quot;https://ko.wikipedia.org/wiki/%EB%A0%88%EA%B1%B0%EC%8B%9C_%EC%8B%9C%EC%8A%A4%ED%85%9C&quot;&gt;레거시 시스템&lt;/a&gt;&lt;/p&gt;
-</content>
-<category term="단상" />
-<summary>유산, 유물, 또는 쓰레기라 불리는…</summary>
 </entry>
 </feed>
