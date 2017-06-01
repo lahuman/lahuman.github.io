@@ -3,9 +3,167 @@
 <generator uri="http://jekyllrb.com" version="3.4.0">Jekyll</generator>
 <link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" />
 <link href="https://lahuman.github.io/" rel="alternate" type="text/html" />
-<updated>2017-05-30T09:51:10+09:00</updated>
+<updated>2017-06-01T10:42:05+09:00</updated>
 <id>https://lahuman.github.io/</id>
 <subtitle>열심히 사는 아저씨</subtitle>
+<entry>
+<title>[CentOS 6]Postgresql 소스 기반으로 설치하기</title>
+<link href="https://lahuman.github.io/postgreesql_install/" rel="alternate" type="text/html" title="[CentOS 6]Postgresql 소스 기반으로 설치하기" />
+<published>2017-06-01T00:00:00+09:00</published>
+<updated>2017-06-01T00:00:00+09:00</updated>
+<id>https://lahuman.github.io/postgreesql_install</id>
+<content type="html" xml:base="https://lahuman.github.io/postgreesql_install/">&lt;h1 id=&quot;postgresql---&quot;&gt;Postgresql 소스 설치 정리&lt;/h1&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;계정 생성
+    &lt;ol&gt;
+      &lt;li&gt;$&amp;gt; adduser postgres&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;postgres 계정으로 로그인
+    &lt;ol&gt;
+      &lt;li&gt;$&amp;gt; su - postgres&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;postgresql 소스 다운로드와 압축 해제
+    &lt;ol&gt;
+      &lt;li&gt;$&amp;gt; wget https://ftp.postgresql.org/pub/source/v9.5.7/postgresql-9.5.7.tar.gz&lt;/li&gt;
+      &lt;li&gt;$&amp;gt; tar xvfz postgresql-9.5.7.tar.gz&lt;/li&gt;
+      &lt;li&gt;$&amp;gt; cd postgresql-9.5.7&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;postgresql 설정 &amp;amp; 설치 진행
+    &lt;ol&gt;
+      &lt;li&gt;$&amp;gt; ./configure –prefix=/home/postgres/pgsql // prefix 는 설치 디렉토리 지정&lt;/li&gt;
+      &lt;li&gt;$&amp;gt; make&lt;/li&gt;
+      &lt;li&gt;$&amp;gt; make install&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;기본 DB 설치 &amp;amp; 접속 테스트
+    &lt;ol&gt;
+      &lt;li&gt;$&amp;gt; cd /home/postgres/pgsql/bin&lt;/li&gt;
+      &lt;li&gt;$&amp;gt; ./initdb -D /home/postgres/pgsql/data&lt;/li&gt;
+      &lt;li&gt;$&amp;gt; ./postgres -D /home/postgres/pgsql/data/ &amp;gt;logfile 2&amp;gt;&amp;amp;1 &amp;amp;&lt;/li&gt;
+      &lt;li&gt;$&amp;gt; ./psql test&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;postgresql-----&quot;&gt;Postgresql 기동 &amp;amp; 재기동 &amp;amp; 정지&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;기동 중지를 위한 pg_ctl 명령어 사용하기&lt;/li&gt;
+  &lt;li&gt;$&amp;gt; cd /home/postgres/pgsql/bin&lt;/li&gt;
+  &lt;li&gt;$&amp;gt; ./pg_ctl status  -D /home/postgres/pgsql/data //상태 확인&lt;/li&gt;
+  &lt;li&gt;$&amp;gt; ./pg_ctl restart  -D /home/postgres/pgsql/data //재기동 start, stop 사용 가능&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;postgresql--&quot;&gt;Postgresql 접속 설정&lt;/h2&gt;
+
+&lt;h3 id=&quot;pgsql--&quot;&gt;로컬에서 암호를 이용해 pgsql 접속 설정&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;$&amp;gt; vi /home/postgres/pgsql/data/pg_hba.conf&lt;/li&gt;
+  &lt;li&gt;local all all peer –&amp;gt; local all all md5 수정&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;외부 접속 허용&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;iptable OPEN
+    &lt;ol&gt;
+      &lt;li&gt;$&amp;gt; iptables  -I INPUT 1 -p tcp –dport 5432 -j ACCEPT&lt;/li&gt;
+      &lt;li&gt;$&amp;gt; iptables  -I OUTPUT 1 -p tcp –dport 5432 -j ACCEPT&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;postgresql.conf 수정
+    &lt;ol&gt;
+      &lt;li&gt;$&amp;gt; vi /home/postgres/pgsql/data/postgresql.conf&lt;/li&gt;
+      &lt;li&gt;listen_addresses = ‘localhost’ –&amp;gt;  listen_addresses = ‘*’ 수정&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;pg_hba.conf 내용 추가
+    &lt;ol&gt;
+      &lt;li&gt;$&amp;gt; vi /home/postgres/pgsql/data/pg_hba.conf&lt;/li&gt;
+      &lt;li&gt;host all all 0.0.0.0/0  password //password 방식으로 모든 IP 인증&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;db--&quot;&gt;DB 사용 정보&lt;/h2&gt;
+
+&lt;h3 id=&quot;db---1&quot;&gt;사용자 추가 &amp;amp; 비밀번호 설정 &amp;amp; DB 권한 설정&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;사용자 추가
+    &lt;ol&gt;
+      &lt;li&gt;$&amp;gt; /home/postgres/pgsql/bin/createuser {ID}&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;비밀번호 설정
+    &lt;ol&gt;
+      &lt;li&gt;$&amp;gt; /home/postgres/pgsql/bin/psql&lt;/li&gt;
+      &lt;li&gt;postgres=# alter user {ID} with encrypted password ‘{PASSWORD}’;&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;DB 권한 부여
+    &lt;ol&gt;
+      &lt;li&gt;$&amp;gt; /home/postgres/pgsql/bin/psql&lt;/li&gt;
+      &lt;li&gt;postgres=# grant all privileges on database {database} unusdev to {ID};&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;tablespace-&quot;&gt;tablespace 생성&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;$&amp;gt; mkdir /home/postgres/pgsql/test_tablespace&lt;/li&gt;
+  &lt;li&gt;$&amp;gt; /home/postgres/pgsql/bin/psql&lt;/li&gt;
+  &lt;li&gt;postgres=# create tablespace test_tblspc location ‘/home/postgres/pgsql/test_tablespace’;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;database-&quot;&gt;DATABASE 생성&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;/home/postgres/pgsql/bin/createdb {database}&lt;/li&gt;
+  &lt;li&gt;pgsql 에서 DB 변경
+    &lt;ol&gt;
+      &lt;li&gt;$&amp;gt; /home/postgres/pgsql/bin/psql&lt;/li&gt;
+      &lt;li&gt;postgres=# \c {database}&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;데이터베이스 목록 보기
+    &lt;ol&gt;
+      &lt;li&gt;$&amp;gt; /home/postgres/pgsql/bin/psql&lt;/li&gt;
+      &lt;li&gt;postgres=# \l+&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;테이블 목록 보기
+    &lt;ol&gt;
+      &lt;li&gt;$&amp;gt; /home/postgres/pgsql/bin/psql&lt;/li&gt;
+      &lt;li&gt;postgres=# \d&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;database---&quot;&gt;DATABASE 백업 &amp;amp; 복구&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;백업
+    &lt;ol&gt;
+      &lt;li&gt;$&amp;gt; /home/postgres/pgsql/bin/pg_dumpall -U postgres -f output_filename&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;복구
+    &lt;ol&gt;
+      &lt;li&gt;$&amp;gt; /home/postgres/pgsql/bin/psql -U postgres -f output_filename&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+</content>
+<category term="postgresql" />
+<summary>Postgresql install on CentOS</summary>
+</entry>
 <entry>
 <title>[2017-05-30]단상 - 미지에 대한 두려움</title>
 <link href="https://lahuman.github.io/20160530-phase/" rel="alternate" type="text/html" title="[2017-05-30]단상 - 미지에 대한 두려움" />
@@ -186,55 +344,5 @@
 </content>
 <category term="단상" />
 <summary>밤말은 쥐가 듣고 낮말은 새가 듣는다.</summary>
-</entry>
-<entry>
-<title>Spring Controller 문서 만들기</title>
-<link href="https://lahuman.github.io/Generator-Spring-Controller-Document/" rel="alternate" type="text/html" title="Spring Controller 문서 만들기" />
-<published>2017-05-16T00:00:00+09:00</published>
-<updated>2017-05-16T00:00:00+09:00</updated>
-<id>https://lahuman.github.io/Generator-Spring-Controller-Document</id>
-<content type="html" xml:base="https://lahuman.github.io/Generator-Spring-Controller-Document/">&lt;h1 id=&quot;spring-controller--&quot;&gt;Spring Controller 문서 만들기&lt;/h1&gt;
-
-&lt;p&gt;Spring Controller 에 대하여 표 형식의 문서를 만들어 주는 프로그램 입니다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;div&gt;&lt;a href=&quot;https://github.com/lahuman/GeneratorSpringControllerDocx&quot; class=&quot;btn btn-warning&quot;&gt;Source 바로가기&lt;/a&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;notice&quot;&gt;Notice&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;JRE 1.8 이상이 설치 되어 있어야 합니다.&lt;/li&gt;
-  &lt;li&gt;실행은 junit 으로 &lt;a href=&quot;https://github.com/lahuman/GeneratorSpringControllerDocx/blob/master/src/test/java/lahuman/doc/spring/controller/GeneratorSpringControllerDoc.java&quot;&gt;GeneratorSpringControllerDoc.java&lt;/a&gt; 을 실행 합니다.&lt;/li&gt;
-  &lt;li&gt;docx 형식의 샘플 템플릿은 &lt;a href=&quot;https://github.com/lahuman/GeneratorSpringControllerDocx/blob/master/src/resource/DocTemplate.docx&quot;&gt;resource&lt;/a&gt; 에 있습니다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;function&quot;&gt;Function&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;Spring Controller 에 정보를 표 형식으로 표출&lt;/li&gt;
-  &lt;li&gt;메소드 기준으로 표출
-    &lt;ul&gt;
-      &lt;li&gt;메소드가 가진 전달 값 리턴 값을 표출&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;update-history&quot;&gt;Update history&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;2015.05.16
-    &lt;ul&gt;
-      &lt;li&gt;최초 배포&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;license&quot;&gt;License&lt;/h2&gt;
-
-&lt;p&gt;GeneratorSpringControllerDocx 는 open source 프로그램으로 MIT 라이선스를 따릅니다.&lt;/p&gt;
-
-&lt;p&gt;This GeneratorSpringControllerDocx is free and open source software, distributed under the MIT License. So feel free to use this program on your project without linking back to me or including a disclaimer.&lt;/p&gt;
-</content>
-<category term="jdk8" />
-<category term="springcontroller" />
-<category term="docx4j" />
-<summary>Spring Controller의 메소드, 전달 값, 리턴 값을 이용한 docx 형태 문서 만들기</summary>
 </entry>
 </feed>
