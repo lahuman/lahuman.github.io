@@ -3,9 +3,24 @@
 <generator uri="http://jekyllrb.com" version="3.4.0">Jekyll</generator>
 <link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" />
 <link href="https://lahuman.github.io/" rel="alternate" type="text/html" />
-<updated>2017-06-01T10:42:05+09:00</updated>
+<updated>2017-06-02T09:07:39+09:00</updated>
 <id>https://lahuman.github.io/</id>
 <subtitle>열심히 사는 아저씨</subtitle>
+<entry>
+<title>Java와 Go간의 병렬 프로그램 성능 비교</title>
+<link href="https://lahuman.github.io/javaVSgo/" rel="alternate" type="text/html" title="Java와 Go간의 병렬 프로그램 성능 비교" />
+<published>2017-06-02T00:00:00+09:00</published>
+<updated>2017-06-02T00:00:00+09:00</updated>
+<id>https://lahuman.github.io/javaVSgo</id>
+<content type="html" xml:base="https://lahuman.github.io/javaVSgo/">&lt;h1 id=&quot;java-go----&quot;&gt;Java와 Go간의 병렬 프로그램 성능 비교&lt;/h1&gt;
+
+&lt;iframe src=&quot;//www.slideshare.net/slideshow/embed_code/key/zxrcqrUp642ZYl&quot; width=&quot;595&quot; height=&quot;485&quot; frameborder=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; scrolling=&quot;no&quot; style=&quot;border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&quot; allowfullscreen=&quot;&quot;&gt; &lt;/iframe&gt;
+&lt;div style=&quot;margin-bottom:5px&quot;&gt; &lt;strong&gt; &lt;a href=&quot;//www.slideshare.net/lahuman1/java-go&quot; title=&quot;Java와 go 간의 병렬 프로그램 성능 비교&quot; target=&quot;_blank&quot;&gt;Java와 go 간의 병렬 프로그램 성능 비교&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a target=&quot;_blank&quot; href=&quot;https://www.slideshare.net/lahuman1&quot;&gt;Daniel Lim&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;
+</content>
+<category term="java" />
+<category term="go" />
+<summary>CPU의 발전으로 중요시된 병렬처리 소프트웨어 언어</summary>
+</entry>
 <entry>
 <title>[CentOS 6]Postgresql 소스 기반으로 설치하기</title>
 <link href="https://lahuman.github.io/postgreesql_install/" rel="alternate" type="text/html" title="[CentOS 6]Postgresql 소스 기반으로 설치하기" />
@@ -324,25 +339,5 @@
 </content>
 <category term="단상" />
 <summary>단, 팀원을 존중하고 챙겨준다면</summary>
-</entry>
-<entry>
-<title>[2017-05-17]단상 - 말</title>
-<link href="https://lahuman.github.io/20160517-phase/" rel="alternate" type="text/html" title="[2017-05-17]단상 - 말" />
-<published>2017-05-17T00:00:00+09:00</published>
-<updated>2017-05-17T00:00:00+09:00</updated>
-<id>https://lahuman.github.io/20160517-phase</id>
-<content type="html" xml:base="https://lahuman.github.io/20160517-phase/">&lt;h1 id=&quot;section&quot;&gt;생각 없이 내뱉은 말이 눈덩이처럼 커져서 돌아온다.&lt;/h1&gt;
-
-&lt;p&gt;말을 조심 하고 아껴야 한다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;지킬수 없는 말은 함부로 해서는 안되며, &lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;남을 비방하거나 헐뜯는 말도 조심해야 한다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;살아가면서 위의 내용을 지키기 힘들지만 노력하자.&lt;br /&gt;&lt;/p&gt;
-
-</content>
-<category term="단상" />
-<summary>밤말은 쥐가 듣고 낮말은 새가 듣는다.</summary>
 </entry>
 </feed>
