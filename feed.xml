@@ -3,9 +3,28 @@
 <generator uri="http://jekyllrb.com" version="3.4.0">Jekyll</generator>
 <link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" />
 <link href="https://lahuman.github.io/" rel="alternate" type="text/html" />
-<updated>2017-06-02T09:07:39+09:00</updated>
+<updated>2017-06-05T08:34:57+09:00</updated>
 <id>https://lahuman.github.io/</id>
 <subtitle>열심히 사는 아저씨</subtitle>
+<entry>
+<title>[2017-06-05]단상 - 운동 부족</title>
+<link href="https://lahuman.github.io/20160605-phase/" rel="alternate" type="text/html" title="[2017-06-05]단상 - 운동 부족" />
+<published>2017-06-05T00:00:00+09:00</published>
+<updated>2017-06-05T00:00:00+09:00</updated>
+<id>https://lahuman.github.io/20160605-phase</id>
+<content type="html" xml:base="https://lahuman.github.io/20160605-phase/">&lt;h1 id=&quot;section&quot;&gt;운동이 부족한 하루 하루가 계속 되고 있다.&lt;/h1&gt;
+
+&lt;p&gt;살이 계속 쪄서 지금에 이르러션 10 KG이나 더 찌고 말았다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;문제는 관리가 잘 안된다. 게으른 부분도 있겠지만..&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;적당한 운동이 필요한 시점이다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section-1&quot;&gt;운동 계획을 세우고 해보자&lt;/h2&gt;
+</content>
+<category term="단상" />
+<summary>내장 비만이 극에 달하고 말았다</summary>
+</entry>
 <entry>
 <title>Java와 Go간의 병렬 프로그램 성능 비교</title>
 <link href="https://lahuman.github.io/javaVSgo/" rel="alternate" type="text/html" title="Java와 Go간의 병렬 프로그램 성능 비교" />
@@ -313,31 +332,5 @@
 </content>
 <category term="단상" />
 <summary>구글IO2017에서 코틀린을 안드로이드 공식 언어로 지정</summary>
-</entry>
-<entry>
-<title>[2017-05-18]단상 - 일 못하는 팀장은 이해하고 도와라</title>
-<link href="https://lahuman.github.io/20160518-phase/" rel="alternate" type="text/html" title="[2017-05-18]단상 - 일 못하는 팀장은 이해하고 도와라" />
-<published>2017-05-18T00:00:00+09:00</published>
-<updated>2017-05-18T00:00:00+09:00</updated>
-<id>https://lahuman.github.io/20160518-phase</id>
-<content type="html" xml:base="https://lahuman.github.io/20160518-phase/">&lt;h1 id=&quot;section&quot;&gt;결국 사람이다.&lt;/h1&gt;
-
-&lt;p&gt;팀장이 일을 못한다면, 그를 보좌 하고 도와라.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;단 그가 팀원의 의견을 존중하고 챙겨 준다면…&lt;/strong&gt; &lt;br /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;팀원의 의견을 존중해야 나의 좋은 제안을 받아 드일 것이다.&lt;/li&gt;
-  &lt;li&gt;팀원을 챙겨줘야 내가 고생한 만큼 보답 받을 것이다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;결국 협업에서 가장 중요한 부분은 사람 그 자체이다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;section-1&quot;&gt;출처&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://brunch.co.kr/@believeinurself/125&quot;&gt;일 못하는 팀장은 이해하고 도와라&lt;/a&gt;&lt;/p&gt;
-</content>
-<category term="단상" />
-<summary>단, 팀원을 존중하고 챙겨준다면</summary>
 </entry>
 </feed>
