@@ -3,9 +3,34 @@
 <generator uri="http://jekyllrb.com" version="3.4.0">Jekyll</generator>
 <link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" />
 <link href="https://lahuman.github.io/" rel="alternate" type="text/html" />
-<updated>2017-06-05T08:34:57+09:00</updated>
+<updated>2017-06-07T12:00:29+09:00</updated>
 <id>https://lahuman.github.io/</id>
 <subtitle>열심히 사는 아저씨</subtitle>
+<entry>
+<title>[2017-06-06]단상 - 개발만 할 수 없는 대한민국 IT 현실</title>
+<link href="https://lahuman.github.io/20160606-phase/" rel="alternate" type="text/html" title="[2017-06-06]단상 - 개발만 할 수 없는 대한민국 IT 현실" />
+<published>2017-06-06T00:00:00+09:00</published>
+<updated>2017-06-06T00:00:00+09:00</updated>
+<id>https://lahuman.github.io/20160606-phase</id>
+<content type="html" xml:base="https://lahuman.github.io/20160606-phase/">&lt;h1 id=&quot;br-&quot;&gt;요즘은 일하는 곳이 즐겁지 않다. &lt;br /&gt;&lt;/h1&gt;
+
+&lt;p&gt;관리자의 길을 종용하기도 하고, 파견 나가서 돈을 벌기 위하여 개발자보다 PL, PM이 필요하다고 한다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;또, 신입 개발자를 1년만 붙여 놓으면 고급개발자가 필요 없다는 이야기도 한다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;그럼 왜 안하냐고 했다가, 이상한 사람이 되었다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;물론 대한민국 IT에서 언제까지 개발만 할 수는 없다.(물론 내가 정말 엄청난!!! 개발자라면 모르겠지만..)&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;하지만, 분명한건 팀내에 개발자가 필요 하다는 것이다. &lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;인건비 문제로 외주 인력을 개발로 돌린다는데, &lt;strong&gt;개발이 우습냐?&lt;/strong&gt; 라고 묻고 싶다. &lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;즐겁지 않더라도 즐겨야지….&lt;/h2&gt;
+</content>
+<category term="단상" />
+<summary>직급이 되었으면 관리자가 되어야 하는가?</summary>
+</entry>
 <entry>
 <title>[2017-06-05]단상 - 운동 부족</title>
 <link href="https://lahuman.github.io/20160605-phase/" rel="alternate" type="text/html" title="[2017-06-05]단상 - 운동 부족" />
@@ -317,20 +342,5 @@
 </content>
 <category term="단상" />
 <summary>젊을때 지키는건 쉬워도 늙으면 훅간다.</summary>
-</entry>
-<entry>
-<title>[2017-05-19]단상 - 코틀린이 안드로이드 정식 언어로 지정</title>
-<link href="https://lahuman.github.io/20160519-phase/" rel="alternate" type="text/html" title="[2017-05-19]단상 - 코틀린이 안드로이드 정식 언어로 지정" />
-<published>2017-05-19T00:00:00+09:00</published>
-<updated>2017-05-19T00:00:00+09:00</updated>
-<id>https://lahuman.github.io/20160519-phase</id>
-<content type="html" xml:base="https://lahuman.github.io/20160519-phase/">&lt;p&gt;코틀린은 젯브라인이 2011년에 공개한 프로그래밍 언어 입니다.. &lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;코틀린은 자바가상머신(JVM)에서 동작하고, 자바와 높은 상호 운영성을 가지고 있습니다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;section&quot;&gt;이렇게 배워야 하는 언어는 늘어나고…&lt;/h1&gt;
-</content>
-<category term="단상" />
-<summary>구글IO2017에서 코틀린을 안드로이드 공식 언어로 지정</summary>
 </entry>
 </feed>
