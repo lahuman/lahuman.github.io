@@ -3,9 +3,30 @@
 <generator uri="http://jekyllrb.com" version="3.4.0">Jekyll</generator>
 <link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" />
 <link href="https://lahuman.github.io/" rel="alternate" type="text/html" />
-<updated>2017-06-07T12:00:29+09:00</updated>
+<updated>2017-06-08T13:51:03+09:00</updated>
 <id>https://lahuman.github.io/</id>
 <subtitle>열심히 사는 아저씨</subtitle>
+<entry>
+<title>[2017-06-08]단상 - 선물 상자</title>
+<link href="https://lahuman.github.io/20160608-phase/" rel="alternate" type="text/html" title="[2017-06-08]단상 - 선물 상자" />
+<published>2017-06-08T00:00:00+09:00</published>
+<updated>2017-06-08T00:00:00+09:00</updated>
+<id>https://lahuman.github.io/20160608-phase</id>
+<content type="html" xml:base="https://lahuman.github.io/20160608-phase/">&lt;h1 id=&quot;section&quot;&gt;얼마전 제주를 다녀와서 선물을 드렸다.&lt;/h1&gt;
+
+&lt;p&gt;가족 여행으로 제주도를 다녀오면서 함께 일하는 분들에게 작은 선물(초콜릿, 땅콩막걸리)를 드렸다. &lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;그랬더니, 보답으로 여러가지를 받았다. &lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;그중에 가장 마음에 드는것은 바로 바로 일본산 젤리!&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;너무 맛나고 토실토실한 식감이 좋다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p class=&quot;image-right&quot;&gt;&lt;img src=&quot;https://s18.postimg.org/ncvxgts49/20170608_132005.jpg&quot; alt=&quot;Jelly by japen&quot; /&gt;&lt;/p&gt;
+</content>
+<category term="단상" />
+<summary>주는게 있으면 받는게 있는 법</summary>
+</entry>
 <entry>
 <title>[2017-06-06]단상 - 개발만 할 수 없는 대한민국 IT 현실</title>
 <link href="https://lahuman.github.io/20160606-phase/" rel="alternate" type="text/html" title="[2017-06-06]단상 - 개발만 할 수 없는 대한민국 IT 현실" />
@@ -325,22 +346,5 @@
 </content>
 <category term="단상" />
 <summary>지킬수 있는 약속만 하고, 지키지 못하면 사과 하자.</summary>
-</entry>
-<entry>
-<title>[2017-05-22]단상 - 건강</title>
-<link href="https://lahuman.github.io/20160522-phase/" rel="alternate" type="text/html" title="[2017-05-22]단상 - 건강" />
-<published>2017-05-22T00:00:00+09:00</published>
-<updated>2017-05-22T00:00:00+09:00</updated>
-<id>https://lahuman.github.io/20160522-phase</id>
-<content type="html" xml:base="https://lahuman.github.io/20160522-phase/">&lt;p&gt;젊을 때 건강이 늘 나와 함께 하는 줄 알았는데, 늙음이 금방 오더라… &lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;나오는 뱃살과 떨어진 체력이 하루 하루 힘들다. &lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;운동을 하여도 많이 좋아 지지 않고, 벅차다. &lt;br /&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;section&quot;&gt;젊음은 젊을 때 부터 지켜야 한다.&lt;/h1&gt;
-</content>
-<category term="단상" />
-<summary>젊을때 지키는건 쉬워도 늙으면 훅간다.</summary>
 </entry>
 </feed>
