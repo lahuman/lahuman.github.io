@@ -3,9 +3,31 @@
 <generator uri="http://jekyllrb.com" version="3.4.0">Jekyll</generator>
 <link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" />
 <link href="https://lahuman.github.io/" rel="alternate" type="text/html" />
-<updated>2017-06-13T09:45:18+09:00</updated>
+<updated>2017-06-19T11:16:49+09:00</updated>
 <id>https://lahuman.github.io/</id>
 <subtitle>열심히 사는 아저씨</subtitle>
+<entry>
+<title>[2017-06-19]리뷰 - 마이크로서비스 아키텍처 구축, 샘뉴먼</title>
+<link href="https://lahuman.github.io/20160619-phase/" rel="alternate" type="text/html" title="[2017-06-19]리뷰 - 마이크로서비스 아키텍처 구축, 샘뉴먼" />
+<published>2017-06-19T00:00:00+09:00</published>
+<updated>2017-06-19T00:00:00+09:00</updated>
+<id>https://lahuman.github.io/20160619-phase</id>
+<content type="html" xml:base="https://lahuman.github.io/20160619-phase/">&lt;h1 id=&quot;httpwwwhanbitcokrstorebookslookphppcodeb8584207882&quot;&gt;&lt;a href=&quot;http://www.hanbit.co.kr/store/books/look.php?p_code=B8584207882&quot;&gt;마이크로서비스 아키텍처 구축&lt;/a&gt;&lt;/h1&gt;
+
+&lt;p&gt;책을 읽으면서 필자의 경험을 함께 공유하는 시간이었다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;마이크로서비스를 찬양 하는 것이 아닌, 자신이 경험한 실수, 성공, 실패에 대하여 정리 되어 가볍게 읽기 좋았다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;추후 마이크로 서비스를 사용하게 되면 다시 읽어 봐야 할 책이다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;마이크로 서비스를 준비중이라면 꼭 읽어 봐야 할 책!&lt;/strong&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;kbd40kbd50&quot;&gt;평점 &lt;kbd&gt;4.0&lt;/kbd&gt;/5.0&lt;/h3&gt;
+
+</content>
+<category term="리뷰" />
+<summary>Building Microservices</summary>
+</entry>
 <entry>
 <title>[2017-06-13]단상 - 인간은 무의식의 습관적 동물이다.</title>
 <link href="https://lahuman.github.io/20160613-phase/" rel="alternate" type="text/html" title="[2017-06-13]단상 - 인간은 무의식의 습관적 동물이다." />
@@ -326,23 +348,5 @@
 </content>
 <category term="단상" />
 <summary>막상 현실이 되면 별거 아닌게 많더라.</summary>
-</entry>
-<entry>
-<title>[2017-05-26]단상 - 말해도 되는 것과 말해선 안되는 것</title>
-<link href="https://lahuman.github.io/20160526-phase/" rel="alternate" type="text/html" title="[2017-05-26]단상 - 말해도 되는 것과 말해선 안되는 것" />
-<published>2017-05-26T00:00:00+09:00</published>
-<updated>2017-05-26T00:00:00+09:00</updated>
-<id>https://lahuman.github.io/20160526-phase</id>
-<content type="html" xml:base="https://lahuman.github.io/20160526-phase/">&lt;h1 id=&quot;section&quot;&gt;말해도 되는 것과 말해선 안되는 것이 있다.&lt;/h1&gt;
-
-&lt;p&gt;같은 공간에서 일하는 사람들끼리는 많은 이야기를 한다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;업무 관계에서는 말 실수 하지 않도록 조심해야 한다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;친해졌다고 생각해도 친하지 않을수 있기 때문이다…&lt;br /&gt;&lt;/p&gt;
-
-</content>
-<category term="단상" />
-<summary>말은 입에서 떠나면 다시 되돌릴 수 없다.</summary>
 </entry>
 </feed>
