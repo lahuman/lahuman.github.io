@@ -3,9 +3,38 @@
 <generator uri="http://jekyllrb.com" version="3.4.0">Jekyll</generator>
 <link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" />
 <link href="https://lahuman.github.io/" rel="alternate" type="text/html" />
-<updated>2017-06-21T11:30:49+09:00</updated>
+<updated>2017-06-22T09:40:43+09:00</updated>
 <id>https://lahuman.github.io/</id>
 <subtitle>열심히 사는 아저씨</subtitle>
+<entry>
+<title>[2017-06-21]단상 - 고객은 결과물을 본 후에야 자신이 뭘 원했는지 안다.</title>
+<link href="https://lahuman.github.io/20160622-phase/" rel="alternate" type="text/html" title="[2017-06-21]단상 - 고객은 결과물을 본 후에야 자신이 뭘 원했는지 안다." />
+<published>2017-06-21T00:00:00+09:00</published>
+<updated>2017-06-21T00:00:00+09:00</updated>
+<id>https://lahuman.github.io/20160622-phase</id>
+<content type="html" xml:base="https://lahuman.github.io/20160622-phase/">&lt;h1 id=&quot;section&quot;&gt;실제 동작하는 프로토타입을 보아야 자신이 무엇을 원했는지를 안다.&lt;/h1&gt;
+
+&lt;p&gt;&lt;strong&gt;30년간 개발자로 살면서 배운 것&lt;/strong&gt; 이라는 글에 내용중, 다음과 같은 내용이 있다. &lt;br /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;고객은 결과물을 본 후에야 자신이 뭘 원했는지 안다.
+이건 첫 직장에서 배웠다. 고객은 직접 만들어서 보여주기 전까지는 자기가 실제로 필요한 게 무엇이었는지 깨닫지 못한다. 구구절절한 말보다는 실제 동작하는 프로토타입이 백번 낫다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;이것은 꼭 고객이 아니더라도, 대부분의 사람이 그렇다고 생각 한다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;고인이 된 스티브 잡스의 경우도 프로토타입을 많이 만든 일화로 유명하다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;특히 UI 를 프로토타입으로 만들어주는 툴을 이용하여 고객이 원하는 것과 내가 생각 하는 산출물의 결과를 확인 하는 경우 쌍방간의 만족도가 높다. &lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://thecodist.com/article/lessons_from_a_lifetime_of_being_a_programmer&quot;&gt;원본글&lt;/a&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://taegon.kim/archives/6546&quot;&gt;번역글&lt;/a&gt;&lt;/p&gt;
+
+</content>
+<category term="단상" />
+<summary>고객뿐 아니라 대부분의 사람이 그렇다.</summary>
+</entry>
 <entry>
 <title>[2017-06-21]단상 - 추억은 추억일때 가장 아름답다.</title>
 <link href="https://lahuman.github.io/20160621-phase/" rel="alternate" type="text/html" title="[2017-06-21]단상 - 추억은 추억일때 가장 아름답다." />
@@ -193,163 +222,5 @@
 <category term="java" />
 <category term="go" />
 <summary>CPU의 발전으로 중요시된 병렬처리 소프트웨어 언어</summary>
-</entry>
-<entry>
-<title>[CentOS 6]Postgresql 소스 기반으로 설치하기</title>
-<link href="https://lahuman.github.io/postgreesql_install/" rel="alternate" type="text/html" title="[CentOS 6]Postgresql 소스 기반으로 설치하기" />
-<published>2017-06-01T00:00:00+09:00</published>
-<updated>2017-06-01T00:00:00+09:00</updated>
-<id>https://lahuman.github.io/postgreesql_install</id>
-<content type="html" xml:base="https://lahuman.github.io/postgreesql_install/">&lt;h1 id=&quot;postgresql---&quot;&gt;Postgresql 소스 설치 정리&lt;/h1&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;계정 생성
-    &lt;ol&gt;
-      &lt;li&gt;$&amp;gt; adduser postgres&lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
-  &lt;li&gt;postgres 계정으로 로그인
-    &lt;ol&gt;
-      &lt;li&gt;$&amp;gt; su - postgres&lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
-  &lt;li&gt;postgresql 소스 다운로드와 압축 해제
-    &lt;ol&gt;
-      &lt;li&gt;$&amp;gt; wget https://ftp.postgresql.org/pub/source/v9.5.7/postgresql-9.5.7.tar.gz&lt;/li&gt;
-      &lt;li&gt;$&amp;gt; tar xvfz postgresql-9.5.7.tar.gz&lt;/li&gt;
-      &lt;li&gt;$&amp;gt; cd postgresql-9.5.7&lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
-  &lt;li&gt;postgresql 설정 &amp;amp; 설치 진행
-    &lt;ol&gt;
-      &lt;li&gt;$&amp;gt; ./configure –prefix=/home/postgres/pgsql // prefix 는 설치 디렉토리 지정&lt;/li&gt;
-      &lt;li&gt;$&amp;gt; make&lt;/li&gt;
-      &lt;li&gt;$&amp;gt; make install&lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
-  &lt;li&gt;기본 DB 설치 &amp;amp; 접속 테스트
-    &lt;ol&gt;
-      &lt;li&gt;$&amp;gt; cd /home/postgres/pgsql/bin&lt;/li&gt;
-      &lt;li&gt;$&amp;gt; ./initdb -D /home/postgres/pgsql/data&lt;/li&gt;
-      &lt;li&gt;$&amp;gt; ./postgres -D /home/postgres/pgsql/data/ &amp;gt;logfile 2&amp;gt;&amp;amp;1 &amp;amp;&lt;/li&gt;
-      &lt;li&gt;$&amp;gt; ./psql test&lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;postgresql-----&quot;&gt;Postgresql 기동 &amp;amp; 재기동 &amp;amp; 정지&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;기동 중지를 위한 pg_ctl 명령어 사용하기&lt;/li&gt;
-  &lt;li&gt;$&amp;gt; cd /home/postgres/pgsql/bin&lt;/li&gt;
-  &lt;li&gt;$&amp;gt; ./pg_ctl status  -D /home/postgres/pgsql/data //상태 확인&lt;/li&gt;
-  &lt;li&gt;$&amp;gt; ./pg_ctl restart  -D /home/postgres/pgsql/data //재기동 start, stop 사용 가능&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;postgresql--&quot;&gt;Postgresql 접속 설정&lt;/h2&gt;
-
-&lt;h3 id=&quot;pgsql--&quot;&gt;로컬에서 암호를 이용해 pgsql 접속 설정&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;$&amp;gt; vi /home/postgres/pgsql/data/pg_hba.conf&lt;/li&gt;
-  &lt;li&gt;local all all peer –&amp;gt; local all all md5 수정&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;section&quot;&gt;외부 접속 허용&lt;/h2&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;iptable OPEN
-    &lt;ol&gt;
-      &lt;li&gt;$&amp;gt; iptables  -I INPUT 1 -p tcp –dport 5432 -j ACCEPT&lt;/li&gt;
-      &lt;li&gt;$&amp;gt; iptables  -I OUTPUT 1 -p tcp –dport 5432 -j ACCEPT&lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
-  &lt;li&gt;postgresql.conf 수정
-    &lt;ol&gt;
-      &lt;li&gt;$&amp;gt; vi /home/postgres/pgsql/data/postgresql.conf&lt;/li&gt;
-      &lt;li&gt;listen_addresses = ‘localhost’ –&amp;gt;  listen_addresses = ‘*’ 수정&lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
-  &lt;li&gt;pg_hba.conf 내용 추가
-    &lt;ol&gt;
-      &lt;li&gt;$&amp;gt; vi /home/postgres/pgsql/data/pg_hba.conf&lt;/li&gt;
-      &lt;li&gt;host all all 0.0.0.0/0  password //password 방식으로 모든 IP 인증&lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;db--&quot;&gt;DB 사용 정보&lt;/h2&gt;
-
-&lt;h3 id=&quot;db---1&quot;&gt;사용자 추가 &amp;amp; 비밀번호 설정 &amp;amp; DB 권한 설정&lt;/h3&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;사용자 추가
-    &lt;ol&gt;
-      &lt;li&gt;$&amp;gt; /home/postgres/pgsql/bin/createuser {ID}&lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
-  &lt;li&gt;비밀번호 설정
-    &lt;ol&gt;
-      &lt;li&gt;$&amp;gt; /home/postgres/pgsql/bin/psql&lt;/li&gt;
-      &lt;li&gt;postgres=# alter user {ID} with encrypted password ‘{PASSWORD}’;&lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
-  &lt;li&gt;DB 권한 부여
-    &lt;ol&gt;
-      &lt;li&gt;$&amp;gt; /home/postgres/pgsql/bin/psql&lt;/li&gt;
-      &lt;li&gt;postgres=# grant all privileges on database {database} unusdev to {ID};&lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;tablespace-&quot;&gt;tablespace 생성&lt;/h3&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;$&amp;gt; mkdir /home/postgres/pgsql/test_tablespace&lt;/li&gt;
-  &lt;li&gt;$&amp;gt; /home/postgres/pgsql/bin/psql&lt;/li&gt;
-  &lt;li&gt;postgres=# create tablespace test_tblspc location ‘/home/postgres/pgsql/test_tablespace’;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;database-&quot;&gt;DATABASE 생성&lt;/h3&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;/home/postgres/pgsql/bin/createdb {database}&lt;/li&gt;
-  &lt;li&gt;pgsql 에서 DB 변경
-    &lt;ol&gt;
-      &lt;li&gt;$&amp;gt; /home/postgres/pgsql/bin/psql&lt;/li&gt;
-      &lt;li&gt;postgres=# \c {database}&lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
-  &lt;li&gt;데이터베이스 목록 보기
-    &lt;ol&gt;
-      &lt;li&gt;$&amp;gt; /home/postgres/pgsql/bin/psql&lt;/li&gt;
-      &lt;li&gt;postgres=# \l+&lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
-  &lt;li&gt;테이블 목록 보기
-    &lt;ol&gt;
-      &lt;li&gt;$&amp;gt; /home/postgres/pgsql/bin/psql&lt;/li&gt;
-      &lt;li&gt;postgres=# \d&lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;database---&quot;&gt;DATABASE 백업 &amp;amp; 복구&lt;/h3&gt;
-&lt;ol&gt;
-  &lt;li&gt;백업
-    &lt;ol&gt;
-      &lt;li&gt;$&amp;gt; /home/postgres/pgsql/bin/pg_dumpall -U postgres -f output_filename&lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
-  &lt;li&gt;복구
-    &lt;ol&gt;
-      &lt;li&gt;$&amp;gt; /home/postgres/pgsql/bin/psql -U postgres -f output_filename&lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-</content>
-<category term="postgresql" />
-<summary>Postgresql install on CentOS</summary>
 </entry>
 </feed>
