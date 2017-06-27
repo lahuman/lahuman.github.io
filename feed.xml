@@ -3,9 +3,30 @@
 <generator uri="http://jekyllrb.com" version="3.4.0">Jekyll</generator>
 <link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" />
 <link href="https://lahuman.github.io/" rel="alternate" type="text/html" />
-<updated>2017-06-23T15:00:25+09:00</updated>
+<updated>2017-06-27T10:36:19+09:00</updated>
 <id>https://lahuman.github.io/</id>
 <subtitle>열심히 사는 아저씨</subtitle>
+<entry>
+<title>[2017-06-27]단상 - 일관성이 있어야 한다.</title>
+<link href="https://lahuman.github.io/20160627-phase/" rel="alternate" type="text/html" title="[2017-06-27]단상 - 일관성이 있어야 한다." />
+<published>2017-06-27T00:00:00+09:00</published>
+<updated>2017-06-27T00:00:00+09:00</updated>
+<id>https://lahuman.github.io/20160627-phase</id>
+<content type="html" xml:base="https://lahuman.github.io/20160627-phase/">&lt;h1 id=&quot;section&quot;&gt;일관성이 있어야 한다.&lt;/h1&gt;
+
+&lt;p&gt;야구에서 심판의 스트라이크 존의 크기와 모양이 모두 다르지만 인정하는 이유는, 늘 한결같은 일관성이 있기 때문이다. &lt;br /&gt;
+&lt;strong&gt;물론 몇몇 심판의 스트라이크 존은 들쑥날쑥 하여, 혼이 담기지 않은 공은 볼이다 라는 웃긴 이야기도 있다&lt;/strong&gt; &lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;마찬가지로 일관성 있는 일을 하기 위해 메뉴얼도 만들고, 지켜야하는 룰을 만들기도 한다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;아이를 대하는 부모 역시 아이를 훈육 할때 일관성을 지켜야 하는데, 그러지 못할 경우 아이는 부모의 눈치를 보게 된다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section-1&quot;&gt;일관성을 가지자!&lt;/h2&gt;
+
+</content>
+<category term="단상" />
+<summary>프로와 아마추어의 차이중 하나는 일관성이다.</summary>
+</entry>
 <entry>
 <title>[2017-06-23]Spring xml 설정으로  Swagger 사용 하기</title>
 <link href="https://lahuman.github.io/swagger_with_spring_use_xml_config-phase/" rel="alternate" type="text/html" title="[2017-06-23]Spring xml 설정으로  Swagger 사용 하기" />
@@ -245,24 +266,5 @@
 </content>
 <category term="단상" />
 <summary>직급이 되었으면 관리자가 되어야 하는가?</summary>
-</entry>
-<entry>
-<title>[2017-06-05]단상 - 운동 부족</title>
-<link href="https://lahuman.github.io/20160605-phase/" rel="alternate" type="text/html" title="[2017-06-05]단상 - 운동 부족" />
-<published>2017-06-05T00:00:00+09:00</published>
-<updated>2017-06-05T00:00:00+09:00</updated>
-<id>https://lahuman.github.io/20160605-phase</id>
-<content type="html" xml:base="https://lahuman.github.io/20160605-phase/">&lt;h1 id=&quot;section&quot;&gt;운동이 부족한 하루 하루가 계속 되고 있다.&lt;/h1&gt;
-
-&lt;p&gt;살이 계속 쪄서 지금에 이르러션 10 KG이나 더 찌고 말았다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;문제는 관리가 잘 안된다. 게으른 부분도 있겠지만..&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;적당한 운동이 필요한 시점이다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;section-1&quot;&gt;운동 계획을 세우고 해보자&lt;/h2&gt;
-</content>
-<category term="단상" />
-<summary>내장 비만이 극에 달하고 말았다</summary>
 </entry>
 </feed>
