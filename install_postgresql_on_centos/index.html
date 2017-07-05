@@ -56,7 +56,7 @@ fs.file-max <span class="o">=</span> 65535
 <span class="gp">$&gt; </span>./postgres -D /home/postgres/pgsql/data &amp;
 <span class="c"># 안될 시,</span>
 <span class="gp">$&gt; </span>./pg_ctl -D /home/postgres/pgsql/data -l logfile start
-</code></pre></div> <h3 id="postgresql-">PostgreSQL 종료</h3> <div class="highlighter-rouge"><pre class="highlight"><code><span class="gp">$&gt; </span><span class="nb">kill</span> <span class="sb">`</span>cat /home/postgres/pgsql/datapostmaster.pid | head -1<span class="sb">`</span>
+</code></pre></div> <h3 id="postgresql-">PostgreSQL 종료</h3> <div class="highlighter-rouge"><pre class="highlight"><code><span class="gp">$&gt; </span><span class="nb">kill</span> <span class="sb">`</span>cat /home/postgres/pgsql/data/postmaster.pid | head -1<span class="sb">`</span>
 </code></pre></div> <h2 id="section-5">초기 설정</h2> <h3 id="section-6">관리자 비밀번호 설정</h3> <div class="highlighter-rouge"><pre class="highlight"><code><span class="gp">$&gt; </span>su - postgresql
 <span class="gp">$&gt; </span>psql -dpostgres
 
