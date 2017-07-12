@@ -1,18 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-<generator uri="http://jekyllrb.com" version="3.4.0">Jekyll</generator>
-<link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" />
-<link href="https://lahuman.github.io/" rel="alternate" type="text/html" />
-<updated>2017-07-05T11:23:20+09:00</updated>
-<id>https://lahuman.github.io/</id>
-<subtitle>열심히 사는 아저씨</subtitle>
-<entry>
-<title>[CentOS]Install PostgreSQL 9.5</title>
-<link href="https://lahuman.github.io/install_postgresql_on_centos/" rel="alternate" type="text/html" title="[CentOS]Install PostgreSQL 9.5" />
-<published>2017-07-05T00:00:00+09:00</published>
-<updated>2017-07-05T00:00:00+09:00</updated>
-<id>https://lahuman.github.io/install_postgresql_on_centos</id>
-<content type="html" xml:base="https://lahuman.github.io/install_postgresql_on_centos/">&lt;h1 id=&quot;centos-postgresql--&quot;&gt;CentOS에 Postgresql 설치 가이드&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.0">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2017-07-12T11:38:35+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">[2017-07-12]단상 - 오랜만에 단상 작성</title><link href="https://lahuman.github.io/20160712-phase/" rel="alternate" type="text/html" title="[2017-07-12]단상 - 오랜만에 단상 작성" /><published>2017-07-12T00:00:00+09:00</published><updated>2017-07-12T00:00:00+09:00</updated><id>https://lahuman.github.io/20160712-phase</id><content type="html" xml:base="https://lahuman.github.io/20160712-phase/">&lt;h1 id=&quot;컴퓨터를-포멧하고-나니-일상도-포멧이-되었다&quot;&gt;컴퓨터를 포멧하고 나니, 일상도 포멧이 되었다.&lt;/h1&gt;
+
+&lt;p&gt;벌써 7월 12일이다. 이제 해야 할 것도 많아지고 올해의 벌려 놓은 일들을 마무리 해야한다. &lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;근래에 백내장이 왔다고 해서 일이 손에 잡히지 않았는데, 다행이 초기라 관리만 잘하면 수술은 필요 없다고 한다. &lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;올해의 반의 지나간 시점이니, 아쉬운 부분에 대하여 더욱 집중하고 하고자 하는 일은 꼭 하도록 하지 &lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;아자아자-힘내자&quot;&gt;아자아자 힘내자!&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">컴퓨터를 포멧했다...</summary></entry><entry><title type="html">[CentOS]Install PostgreSQL 9.5</title><link href="https://lahuman.github.io/install_postgresql_on_centos/" rel="alternate" type="text/html" title="[CentOS]Install PostgreSQL 9.5" /><published>2017-07-05T00:00:00+09:00</published><updated>2017-07-05T00:00:00+09:00</updated><id>https://lahuman.github.io/install_postgresql_on_centos</id><content type="html" xml:base="https://lahuman.github.io/install_postgresql_on_centos/">&lt;h1 id=&quot;centos에-postgresql-설치-가이드&quot;&gt;CentOS에 Postgresql 설치 가이드&lt;/h1&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;PostgreSQL은 높은 인지도와 많은 인기를 얻는 오픈소스 RDMBS입니다. &lt;br /&gt;
@@ -21,16 +15,16 @@
 Postgresql의 경우 &lt;a href=&quot;https://www.postgresql.org/about/licence/&quot;&gt;BSD와 MIT와 비슷한 Liberal Open Source License&lt;/a&gt;를 따릅니다.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h2 id=&quot;section&quot;&gt;초기 주요 설정&lt;/h2&gt;
+&lt;h2 id=&quot;초기-주요-설정&quot;&gt;초기 주요 설정&lt;/h2&gt;
 
 &lt;p&gt;초기에 설치되어야 하는 모듈과 설정은 다음과 같습니다.&lt;/p&gt;
 
-&lt;h3 id=&quot;max-open-files--&quot;&gt;max open files 수 조정&lt;/h3&gt;
+&lt;h3 id=&quot;max-open-files-수-조정&quot;&gt;max open files 수 조정&lt;/h3&gt;
 
 &lt;p&gt;기본 값으로 사용할 경우 운영시 &lt;strong&gt;Getting Too many Open files error for Postgres&lt;/strong&gt;라는 메시지를 볼 수 있습니다. &lt;br /&gt;
 (사용자가 많을 경우 발생합니다.)&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&amp;gt; &lt;/span&gt;vi /etc/security/limits.conf
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&amp;gt; &lt;/span&gt;vi /etc/security/limits.conf
 
 postgres        soft      nofile        65535
 postgres        hard      nofile        65535
@@ -39,13 +33,13 @@ postgres        hard      nofile        65535
 
 &lt;p&gt;또는 리눅스 커널에서 다음과 같이 설정할 수 있습니다.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&amp;gt; &lt;/span&gt;vi /etc/sysctl.conf
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&amp;gt; &lt;/span&gt;vi /etc/sysctl.conf
 
 fs.file-max &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 65535
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;h3 id=&quot;section-1&quot;&gt;관련 패키지 설치&lt;/h3&gt;
+&lt;h3 id=&quot;관련-패키지-설치&quot;&gt;관련 패키지 설치&lt;/h3&gt;
 
 &lt;p&gt;PostgreSQL 을 설치 하기 위해서는 다음의 패키지가 꼭 필요 하다.&lt;/p&gt;
 
@@ -69,11 +63,11 @@ fs.file-max &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 65535
 
 &lt;p&gt;관련 패키지 설치는 &lt;strong&gt;yum&lt;/strong&gt;을 이용합니다.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&amp;gt; &lt;/span&gt;yum -y install gcc gcc-c++ make autoconf readline readline-devel zlib zlib-devel openssl openssl-devel gettext gettext-devel python python-devel wget
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&amp;gt; &lt;/span&gt;yum -y install gcc gcc-c++ make autoconf readline readline-devel zlib zlib-devel openssl openssl-devel gettext gettext-devel python python-devel wget
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;h2 id=&quot;section-2&quot;&gt;설치 진행&lt;/h2&gt;
+&lt;h2 id=&quot;설치-진행&quot;&gt;설치 진행&lt;/h2&gt;
 
 &lt;p&gt;설치 방법은 2가지 방식이 있습니다. &lt;br /&gt;&lt;/p&gt;
 
@@ -82,13 +76,13 @@ fs.file-max &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 65535
   &lt;li&gt;Source Compile을 이용한 수동 설치&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;yum---&quot;&gt;yum을 이용한 설치 방법&lt;/h3&gt;
+&lt;h3 id=&quot;yum을-이용한-설치-방법&quot;&gt;yum을 이용한 설치 방법&lt;/h3&gt;
 
 &lt;ol&gt;
   &lt;li&gt;Repostitory RPM을 설치한다.&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&amp;gt; &lt;/span&gt;yum install https://download.postgresql.org/pub/repos/yum/9.5/redhat/rhel-6-x86_64/pgdg-centos95-9.5-2.noarch.rpm
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&amp;gt; &lt;/span&gt;yum install https://download.postgresql.org/pub/repos/yum/9.5/redhat/rhel-6-x86_64/pgdg-centos95-9.5-2.noarch.rpm
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
@@ -96,7 +90,7 @@ fs.file-max &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 65535
   &lt;li&gt;Client 패키지를 설치한다.&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&amp;gt; &lt;/span&gt;yum install postgresql95
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&amp;gt; &lt;/span&gt;yum install postgresql95
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
@@ -104,13 +98,13 @@ fs.file-max &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 65535
   &lt;li&gt;Server 패키지를 설치한다.&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&amp;gt; &lt;/span&gt;yum install postgresql95-server
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&amp;gt; &lt;/span&gt;yum install postgresql95-server
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;h4 id=&quot;section-3&quot;&gt;설치 후 데이터 설정과 자동 시작&lt;/h4&gt;
+&lt;h4 id=&quot;설치-후-데이터-설정과-자동-시작&quot;&gt;설치 후 데이터 설정과 자동 시작&lt;/h4&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# 데이터 설정&lt;/span&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# 데이터 설정&lt;/span&gt;
 &lt;span class=&quot;gp&quot;&gt;$&amp;gt; &lt;/span&gt;service postgresql-9.5 initdb
 &lt;span class=&quot;c&quot;&gt;# 위의 명령어가 동작하지 않는 다면, &lt;/span&gt;
 &lt;span class=&quot;gp&quot;&gt;$&amp;gt; &lt;/span&gt;/usr/pgsql-9.5/bin/postgresql95-setup initdb
@@ -122,30 +116,30 @@ fs.file-max &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 65535
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;h2 id=&quot;source-compile---&quot;&gt;Source Compile을 이용한 설치 방법&lt;/h2&gt;
+&lt;h2 id=&quot;source-compile을-이용한-설치-방법&quot;&gt;Source Compile을 이용한 설치 방법&lt;/h2&gt;
 
 &lt;h3 id=&quot;postgresql-source-download&quot;&gt;PostgreSQL Source Download&lt;/h3&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://www.postgresql.org/ftp/source/&quot;&gt;PostgreSQL FIle Browser&lt;/a&gt;에서 원하는 버전을 확인한다. &lt;br /&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&amp;gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /usr/local/src
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&amp;gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /usr/local/src
 &lt;span class=&quot;gp&quot;&gt;$&amp;gt; &lt;/span&gt;wget https://ftp.postgresql.org/pub/source/v9.5.7/postgresql-9.5.7.tar.gz
 &lt;span class=&quot;gp&quot;&gt;$&amp;gt; &lt;/span&gt;tar zxvf postgresql-9.5.7.tar.gz
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;h3 id=&quot;postgres--&quot;&gt;postgres 사용자 생성&lt;/h3&gt;
+&lt;h3 id=&quot;postgres-사용자-생성&quot;&gt;postgres 사용자 생성&lt;/h3&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&amp;gt; &lt;/span&gt;useradd -d /home/postgres postgres
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&amp;gt; &lt;/span&gt;useradd -d /home/postgres postgres
 &lt;span class=&quot;gp&quot;&gt;$&amp;gt; &lt;/span&gt;passwd postgres
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;h3 id=&quot;postgres--bashprofile-&quot;&gt;postgres 계정의 .bash_profile 수정&lt;/h3&gt;
+&lt;h3 id=&quot;postgres-계정의-bash_profile-수정&quot;&gt;postgres 계정의 .bash_profile 수정&lt;/h3&gt;
 
 &lt;p&gt;사용자 환경설정을 진행한다.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&amp;gt; &lt;/span&gt;su - postgres
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&amp;gt; &lt;/span&gt;su - postgres
 
 &lt;span class=&quot;gp&quot;&gt;$&amp;gt; &lt;/span&gt;vi .bash_profile
 &lt;/code&gt;&lt;/pre&gt;
@@ -153,7 +147,7 @@ fs.file-max &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 65535
 
 &lt;p&gt;&lt;strong&gt;.bash_profile&lt;/strong&gt; 파일의 하단에 다음 내용을 추가한다.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;POSTGRES_HOME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/home/postgres/pgsql
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;POSTGRES_HOME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/home/postgres/pgsql
 &lt;span class=&quot;nv&quot;&gt;PGLIB&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$POSTGRES_HOME&lt;/span&gt;/lib
 &lt;span class=&quot;nv&quot;&gt;PGDATA&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$POSTGRES_HOME&lt;/span&gt;/data
 &lt;span class=&quot;nv&quot;&gt;MANPATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$MANPATH&lt;/span&gt;:&lt;span class=&quot;nv&quot;&gt;$POSTGRES_HOME&lt;/span&gt;/man
@@ -174,9 +168,9 @@ fs.file-max &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 65535
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;h3 id=&quot;postgresql--&quot;&gt;PostgreSQL  설치&lt;/h3&gt;
+&lt;h3 id=&quot;postgresql--설치&quot;&gt;PostgreSQL  설치&lt;/h3&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&amp;gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /usr/local/src/postgresql-9.5.7
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&amp;gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /usr/local/src/postgresql-9.5.7
 &lt;span class=&quot;gp&quot;&gt;$&amp;gt; &lt;/span&gt;./configure --prefix&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/home/postgres/pgsql --enable-depend --enable-nls&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;utf-8 --with-python
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
@@ -188,7 +182,7 @@ fs.file-max &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 65535
   &lt;li&gt;Error나 Warning이 뜰 경우 “# yum install gcc bison flex”처럼 패키지 설치 후 재실행.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&amp;gt; &lt;/span&gt;make
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&amp;gt; &lt;/span&gt;make
 &lt;span class=&quot;gp&quot;&gt;$&amp;gt; &lt;/span&gt;sudo make install
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
@@ -198,16 +192,16 @@ fs.file-max &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 65535
   &lt;li&gt;sudo make install : root 권한으로 make에서 만들어진 실행 가능한 파일을 실행하여 실행&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;section-4&quot;&gt;데이터 디렉터리 추가 및 권한 부여&lt;/h3&gt;
+&lt;h3 id=&quot;데이터-디렉터리-추가-및-권한-부여&quot;&gt;데이터 디렉터리 추가 및 권한 부여&lt;/h3&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&amp;gt; &lt;/span&gt;mkdir -p /home/postgres/pgsql/data
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&amp;gt; &lt;/span&gt;mkdir -p /home/postgres/pgsql/data
 &lt;span class=&quot;gp&quot;&gt;$&amp;gt; &lt;/span&gt;chown -R postgres:postgres /home/postgres/pgsql
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;h3 id=&quot;postgresql---1&quot;&gt;PostgreSQL 설정 데이터&lt;/h3&gt;
+&lt;h3 id=&quot;postgresql-설정-데이터&quot;&gt;PostgreSQL 설정 데이터&lt;/h3&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&amp;gt; &lt;/span&gt;/home/postgres/pgsql/bin/initdb -E utf-8 -D /home/postgres/pgsql/data
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&amp;gt; &lt;/span&gt;/home/postgres/pgsql/bin/initdb -E utf-8 -D /home/postgres/pgsql/data
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
@@ -216,11 +210,11 @@ fs.file-max &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 65535
   &lt;li&gt;-D : PostgreSQL 초기 설정 데이터 위치&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;postgresql---&quot;&gt;PostgreSQL 구동 &amp;amp; 종료&lt;/h2&gt;
+&lt;h2 id=&quot;postgresql-구동--종료&quot;&gt;PostgreSQL 구동 &amp;amp; 종료&lt;/h2&gt;
 
-&lt;h3 id=&quot;porstgresql-&quot;&gt;PorstgreSQL 구동&lt;/h3&gt;
+&lt;h3 id=&quot;porstgresql-구동&quot;&gt;PorstgreSQL 구동&lt;/h3&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&amp;gt; &lt;/span&gt;su - postgres
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&amp;gt; &lt;/span&gt;su - postgres
 &lt;span class=&quot;gp&quot;&gt;$&amp;gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /home/postgres/pgsql/bin
 &lt;span class=&quot;gp&quot;&gt;$&amp;gt; &lt;/span&gt;./postgres -D /home/postgres/pgsql/data &amp;amp;
 &lt;span class=&quot;c&quot;&gt;# 안될 시,&lt;/span&gt;
@@ -228,16 +222,16 @@ fs.file-max &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 65535
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;h3 id=&quot;postgresql-&quot;&gt;PostgreSQL 종료&lt;/h3&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&amp;gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;kill&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;cat home/postgres/pgsql/datapostmaster.pid | head -1&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;
+&lt;h3 id=&quot;postgresql-종료&quot;&gt;PostgreSQL 종료&lt;/h3&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&amp;gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;kill&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;cat /home/postgres/pgsql/data/postmaster.pid | head -1&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;h2 id=&quot;section-5&quot;&gt;초기 설정&lt;/h2&gt;
+&lt;h2 id=&quot;초기-설정&quot;&gt;초기 설정&lt;/h2&gt;
 
-&lt;h3 id=&quot;section-6&quot;&gt;관리자 비밀번호 설정&lt;/h3&gt;
+&lt;h3 id=&quot;관리자-비밀번호-설정&quot;&gt;관리자 비밀번호 설정&lt;/h3&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&amp;gt; &lt;/span&gt;su - postgresql
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&amp;gt; &lt;/span&gt;su - postgresql
 &lt;span class=&quot;gp&quot;&gt;$&amp;gt; &lt;/span&gt;psql -dpostgres
 
 &lt;span class=&quot;gp&quot;&gt;postgres=# &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\p&lt;/span&gt;assword postgres
@@ -247,9 +241,9 @@ Enter it again: &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;암호 재입력]
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;h3 id=&quot;section-7&quot;&gt;로컬 서버에서 암호를 이용한 접속으로 변경&lt;/h3&gt;
+&lt;h3 id=&quot;로컬-서버에서-암호를-이용한-접속으로-변경&quot;&gt;로컬 서버에서 암호를 이용한 접속으로 변경&lt;/h3&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&amp;gt; &lt;/span&gt;vi pg_hba.conf
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&amp;gt; &lt;/span&gt;vi pg_hba.conf
 
 &lt;span class=&quot;c&quot;&gt;# 변경 전&lt;/span&gt;
 &lt;span class=&quot;nb&quot;&gt;local	&lt;/span&gt;all	all	peer
@@ -258,11 +252,11 @@ Enter it again: &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;암호 재입력]
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;h3 id=&quot;section-8&quot;&gt;외부 접속 허용&lt;/h3&gt;
+&lt;h3 id=&quot;외부-접속-허용&quot;&gt;외부 접속 허용&lt;/h3&gt;
 
 &lt;h4 id=&quot;iptables-open&quot;&gt;iptables open&lt;/h4&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&amp;gt; &lt;/span&gt;vi /etc/sysconfig/iptables
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&amp;gt; &lt;/span&gt;vi /etc/sysconfig/iptables
 
 &lt;span class=&quot;c&quot;&gt;# 추가&lt;/span&gt;
 -A INPUT -m state --state NEW -m tcp -p tcp --dport 5432 -j ACCEPT
@@ -271,18 +265,23 @@ Enter it again: &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;암호 재입력]
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;h4 id=&quot;postgresql---2&quot;&gt;PostgreSQL 설정 수정&lt;/h4&gt;
+&lt;h4 id=&quot;postgresql-설정-수정&quot;&gt;PostgreSQL 설정 수정&lt;/h4&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&amp;gt; &lt;/span&gt;vi /home/postgres/pgsql/data/postgres.conf
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&amp;gt; &lt;/span&gt;vi /home/postgres/pgsql/data/postgresql.conf
 
 &lt;span class=&quot;c&quot;&gt;# 변경 전&lt;/span&gt;
 listen_addresses &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'localhost'&lt;/span&gt;
 &lt;span class=&quot;c&quot;&gt;# 변경 후&lt;/span&gt;
 listen_addresses &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'*'&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# 변경 전&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#port = 5432&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# 변경 후(주석제거)&lt;/span&gt;
+port &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 5432
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&amp;gt; &lt;/span&gt;vi /home/postgres/pgsql/data/pg_hba.conf
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&amp;gt; &lt;/span&gt;vi /home/postgres/pgsql/data/pg_hba.conf
 
 &lt;span class=&quot;c&quot;&gt;# 보통은 특정 대역을 표기 예 : `192.168.0.0/24`&lt;/span&gt;
 &lt;span class=&quot;c&quot;&gt;# 추가 - 전체 접근 가능하도록 수정&lt;/span&gt;
@@ -294,11 +293,11 @@ host	all	all	0.0.0.0/0	password
   &lt;li&gt;변경 내역의 반영을 위하여 PostgreSQL 재기동 필요&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;db----&quot;&gt;DB, 사용자 추가 &amp;amp; 설정&lt;/h2&gt;
+&lt;h2 id=&quot;db-사용자-추가--설정&quot;&gt;DB, 사용자 추가 &amp;amp; 설정&lt;/h2&gt;
 
-&lt;h3 id=&quot;database---&quot;&gt;Database 생성 &amp;amp; 조회&lt;/h3&gt;
+&lt;h3 id=&quot;database-생성--조회&quot;&gt;Database 생성 &amp;amp; 조회&lt;/h3&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&amp;gt; &lt;/span&gt;su - postgres
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&amp;gt; &lt;/span&gt;su - postgres
 &lt;span class=&quot;gp&quot;&gt;$&amp;gt; &lt;/span&gt;/home/postgres/pgsql/bin/createdb &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;데이터베이스명]
 &lt;span class=&quot;gp&quot;&gt;$&amp;gt; &lt;/span&gt;/home/postgres/pgsql/bin/psql
 
@@ -323,9 +322,9 @@ CREATE DATABASE name
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;h3 id=&quot;section-9&quot;&gt;테이블 스페이스 생성&lt;/h3&gt;
+&lt;h3 id=&quot;테이블-스페이스-생성&quot;&gt;테이블 스페이스 생성&lt;/h3&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# linux에서 tablespace로 사용할 디렉터리 생성&lt;/span&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# linux에서 tablespace로 사용할 디렉터리 생성&lt;/span&gt;
 &lt;span class=&quot;gp&quot;&gt;$&amp;gt; &lt;/span&gt;mkdir /home/postgres/tablespace
 &lt;span class=&quot;gp&quot;&gt;$&amp;gt; &lt;/span&gt;/home/postgres/pgsql/bin/psql
 
@@ -337,9 +336,9 @@ CREATE DATABASE name
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;h3 id=&quot;section-10&quot;&gt;사용자 추가&lt;/h3&gt;
+&lt;h3 id=&quot;사용자-추가&quot;&gt;사용자 추가&lt;/h3&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# 사용자 추가&lt;/span&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# 사용자 추가&lt;/span&gt;
 &lt;span class=&quot;gp&quot;&gt;$&amp;gt; &lt;/span&gt;/home/postgres/pgsql/bin/createuser &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;아이디]
 
 &lt;span class=&quot;c&quot;&gt;# 비밀번호 변경&lt;/span&gt;
@@ -353,7 +352,7 @@ CREATE DATABASE name
 &lt;/div&gt;
 
 &lt;h2 id=&quot;backup--restore&quot;&gt;backup &amp;amp; restore&lt;/h2&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# 백업&lt;/span&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# 백업&lt;/span&gt;
 &lt;span class=&quot;gp&quot;&gt;$&amp;gt; &lt;/span&gt;/home/postgres/pgsql/bin/pg_dumpall -U postgres -f &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;백업 파일명]
 
 &lt;span class=&quot;c&quot;&gt;#복구&lt;/span&gt;
@@ -361,7 +360,7 @@ CREATE DATABASE name
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;h2 id=&quot;section-11&quot;&gt;참고 자료&lt;/h2&gt;
+&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://www.postgresql.org/download/linux/redhat/&quot;&gt;PosgreSQL Linux Downloads&lt;/a&gt;&lt;/p&gt;
 
@@ -371,20 +370,7 @@ CREATE DATABASE name
 
 &lt;p&gt;&lt;a href=&quot;https://serverfault.com/questions/785330/getting-too-many-open-files-error-for-postgres&quot;&gt;Getting Too many Open files error for Postgres&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;http://linux.systemv.pe.kr/%EC%9D%BD%EA%B8%B0%EC%A0%84%EC%9A%A9-postgresql-%ED%8A%9C%EB%8B%9D/&quot;&gt;읽기전용 POSTGRESQL 튜닝&lt;/a&gt;&lt;/p&gt;
-</content>
-<category term="CentOS" />
-<category term="postgresql" />
-<category term="install" />
-<summary>using yum or compile</summary>
-</entry>
-<entry>
-<title>[2017-07-03]단상 - 사내 정치</title>
-<link href="https://lahuman.github.io/20160703-phase/" rel="alternate" type="text/html" title="[2017-07-03]단상 - 사내 정치" />
-<published>2017-07-03T00:00:00+09:00</published>
-<updated>2017-07-03T00:00:00+09:00</updated>
-<id>https://lahuman.github.io/20160703-phase</id>
-<content type="html" xml:base="https://lahuman.github.io/20160703-phase/">&lt;h1 id=&quot;section&quot;&gt;팀장의 특강으로 사내 정치에 대하여 이야기 하다.&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&quot;http://linux.systemv.pe.kr/%EC%9D%BD%EA%B8%B0%EC%A0%84%EC%9A%A9-postgresql-%ED%8A%9C%EB%8B%9D/&quot;&gt;읽기전용 POSTGRESQL 튜닝&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><category term="CentOS" /><category term="postgresql" /><category term="install" /><summary type="html">using yum or compile</summary></entry><entry><title type="html">[2017-07-03]단상 - 사내 정치</title><link href="https://lahuman.github.io/20160703-phase/" rel="alternate" type="text/html" title="[2017-07-03]단상 - 사내 정치" /><published>2017-07-03T00:00:00+09:00</published><updated>2017-07-03T00:00:00+09:00</updated><id>https://lahuman.github.io/20160703-phase</id><content type="html" xml:base="https://lahuman.github.io/20160703-phase/">&lt;h1 id=&quot;팀장의-특강으로-사내-정치에-대하여-이야기-하다&quot;&gt;팀장의 특강으로 사내 정치에 대하여 이야기 하다.&lt;/h1&gt;
 
 &lt;p&gt;지금 팀에서 사내 정치를 하지 않았던 3명이 나갔다.&lt;br /&gt;&lt;/p&gt;
 
@@ -396,21 +382,9 @@ CREATE DATABASE name
 
 &lt;p&gt;&lt;strong&gt;중립&lt;/strong&gt;은 없다. 어디든 줄을 서야 하는 더러운 사내 정치&lt;br /&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;section-1&quot;&gt;내가 당하기 싫으면 남을 욕해야 한다는데 싫다 정말…&lt;/h2&gt;
+&lt;h2 id=&quot;내가-당하기-싫으면-남을-욕해야-한다는데-싫다-정말&quot;&gt;내가 당하기 싫으면 남을 욕해야 한다는데 싫다 정말…&lt;/h2&gt;
 
-&lt;h2 id=&quot;section-2&quot;&gt;내가 얼마나 더 버틸 수 있을지 모르겠다.&lt;/h2&gt;
-
-</content>
-<category term="단상" />
-<summary>이걸 해야하나? 망할놈의 세상…</summary>
-</entry>
-<entry>
-<title>[2017-06-29]단상 - 일정과 프로젝트 성공</title>
-<link href="https://lahuman.github.io/20160629-phase/" rel="alternate" type="text/html" title="[2017-06-29]단상 - 일정과 프로젝트 성공" />
-<published>2017-06-29T00:00:00+09:00</published>
-<updated>2017-06-29T00:00:00+09:00</updated>
-<id>https://lahuman.github.io/20160629-phase</id>
-<content type="html" xml:base="https://lahuman.github.io/20160629-phase/">&lt;h1 id=&quot;section&quot;&gt;보통 프로젝트가 망하는 이유는 일정에 있지 않다.&lt;/h1&gt;
+&lt;h2 id=&quot;내가-얼마나-더-버틸-수-있을지-모르겠다&quot;&gt;내가 얼마나 더 버틸 수 있을지 모르겠다.&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">이걸 해야하나? 망할놈의 세상...</summary></entry><entry><title type="html">[2017-06-29]단상 - 일정과 프로젝트 성공</title><link href="https://lahuman.github.io/20160629-phase/" rel="alternate" type="text/html" title="[2017-06-29]단상 - 일정과 프로젝트 성공" /><published>2017-06-29T00:00:00+09:00</published><updated>2017-06-29T00:00:00+09:00</updated><id>https://lahuman.github.io/20160629-phase</id><content type="html" xml:base="https://lahuman.github.io/20160629-phase/">&lt;h1 id=&quot;보통-프로젝트가-망하는-이유는-일정에-있지-않다&quot;&gt;보통 프로젝트가 망하는 이유는 일정에 있지 않다.&lt;/h1&gt;
 
 &lt;p&gt;&lt;strong&gt;물론 최소의 일정 조차 무시한 경우를 제외 하자&lt;/strong&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -420,19 +394,7 @@ CREATE DATABASE name
 
 &lt;p&gt;이때 급하게 만든 코드들은 운영하는 사람에게 넘어가는 단점이 있다.&lt;br /&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;section-1&quot;&gt;사연 없는 코드는 없다.&lt;/h2&gt;
-
-</content>
-<category term="단상" />
-<summary>일정이 짧다고 프로젝트가 망하지는 않는다.</summary>
-</entry>
-<entry>
-<title>[2017-06-28]단상 - 코드리뷰는 어렵다.</title>
-<link href="https://lahuman.github.io/20160628-phase/" rel="alternate" type="text/html" title="[2017-06-28]단상 - 코드리뷰는 어렵다." />
-<published>2017-06-28T00:00:00+09:00</published>
-<updated>2017-06-28T00:00:00+09:00</updated>
-<id>https://lahuman.github.io/20160628-phase</id>
-<content type="html" xml:base="https://lahuman.github.io/20160628-phase/">&lt;h1 id=&quot;section&quot;&gt;코드리뷰인지, 그냥 까기인지…&lt;/h1&gt;
+&lt;h2 id=&quot;사연-없는-코드는-없다&quot;&gt;사연 없는 코드는 없다.&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">일정이 짧다고 프로젝트가 망하지는 않는다.</summary></entry><entry><title type="html">[2017-06-28]단상 - 코드리뷰는 어렵다.</title><link href="https://lahuman.github.io/20160628-phase/" rel="alternate" type="text/html" title="[2017-06-28]단상 - 코드리뷰는 어렵다." /><published>2017-06-28T00:00:00+09:00</published><updated>2017-06-28T00:00:00+09:00</updated><id>https://lahuman.github.io/20160628-phase</id><content type="html" xml:base="https://lahuman.github.io/20160628-phase/">&lt;h1 id=&quot;코드리뷰인지-그냥-까기인지&quot;&gt;코드리뷰인지, 그냥 까기인지…&lt;/h1&gt;
 
 &lt;p&gt;코드 리뷰를 가지자고 해서 시간을 가졌는데, 좋은 의견이 오고 간게 아니라 왜 고치지 않았냐는 질문이 많았다.&lt;br /&gt;&lt;/p&gt;
 
@@ -440,19 +402,7 @@ CREATE DATABASE name
 
 &lt;p&gt;그래도 &lt;strong&gt;까임&lt;/strong&gt;을 당해서 기분이 나쁘긴 하다.&lt;/p&gt;
 
-&lt;h2 id=&quot;section-1&quot;&gt;리팩토링할 시간은 과연주어지는가?&lt;/h2&gt;
-
-</content>
-<category term="단상" />
-<summary>코드리뷰라 쓰고 까기라고 읽는다.</summary>
-</entry>
-<entry>
-<title>[2017-06-27]단상 - 일관성이 있어야 한다.</title>
-<link href="https://lahuman.github.io/20160627-phase/" rel="alternate" type="text/html" title="[2017-06-27]단상 - 일관성이 있어야 한다." />
-<published>2017-06-27T00:00:00+09:00</published>
-<updated>2017-06-27T00:00:00+09:00</updated>
-<id>https://lahuman.github.io/20160627-phase</id>
-<content type="html" xml:base="https://lahuman.github.io/20160627-phase/">&lt;h1 id=&quot;section&quot;&gt;일관성이 있어야 한다.&lt;/h1&gt;
+&lt;h2 id=&quot;리팩토링할-시간은-과연주어지는가&quot;&gt;리팩토링할 시간은 과연주어지는가?&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">코드리뷰라 쓰고 까기라고 읽는다.</summary></entry><entry><title type="html">[2017-06-27]단상 - 일관성이 있어야 한다.</title><link href="https://lahuman.github.io/20160627-phase/" rel="alternate" type="text/html" title="[2017-06-27]단상 - 일관성이 있어야 한다." /><published>2017-06-27T00:00:00+09:00</published><updated>2017-06-27T00:00:00+09:00</updated><id>https://lahuman.github.io/20160627-phase</id><content type="html" xml:base="https://lahuman.github.io/20160627-phase/">&lt;h1 id=&quot;일관성이-있어야-한다&quot;&gt;일관성이 있어야 한다.&lt;/h1&gt;
 
 &lt;p&gt;야구에서 심판의 스트라이크 존의 크기와 모양이 모두 다르지만 인정하는 이유는, 늘 한결같은 일관성이 있기 때문이다. &lt;br /&gt;
 &lt;strong&gt;물론 몇몇 심판의 스트라이크 존은 들쑥날쑥 하여, 혼이 담기지 않은 공은 볼이다 라는 웃긴 이야기도 있다&lt;/strong&gt; &lt;br /&gt;&lt;/p&gt;
@@ -461,19 +411,7 @@ CREATE DATABASE name
 
 &lt;p&gt;아이를 대하는 부모 역시 아이를 훈육 할때 일관성을 지켜야 하는데, 그러지 못할 경우 아이는 부모의 눈치를 보게 된다.&lt;br /&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;section-1&quot;&gt;일관성을 가지자!&lt;/h2&gt;
-
-</content>
-<category term="단상" />
-<summary>프로와 아마추어의 차이중 하나는 일관성이다.</summary>
-</entry>
-<entry>
-<title>[2017-06-23]Spring xml 설정으로  Swagger 사용 하기</title>
-<link href="https://lahuman.github.io/swagger_with_spring_use_xml_config-phase/" rel="alternate" type="text/html" title="[2017-06-23]Spring xml 설정으로  Swagger 사용 하기" />
-<published>2017-06-23T00:00:00+09:00</published>
-<updated>2017-06-23T00:00:00+09:00</updated>
-<id>https://lahuman.github.io/swagger_with_spring_use_xml_config-phase</id>
-<content type="html" xml:base="https://lahuman.github.io/swagger_with_spring_use_xml_config-phase/">&lt;h1 id=&quot;swagger-spring-xml----&quot;&gt;Swagger를 Spring xml 설정을 이용하여 사용 하기&lt;/h1&gt;
+&lt;h2 id=&quot;일관성을-가지자&quot;&gt;일관성을 가지자!&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">프로와 아마추어의 차이중 하나는 일관성이다.</summary></entry><entry><title type="html">[2017-06-23]Spring xml 설정으로 Swagger 사용 하기</title><link href="https://lahuman.github.io/swagger_with_spring_use_xml_config-phase/" rel="alternate" type="text/html" title="[2017-06-23]Spring xml 설정으로  Swagger 사용 하기" /><published>2017-06-23T00:00:00+09:00</published><updated>2017-06-23T00:00:00+09:00</updated><id>https://lahuman.github.io/swagger_with_spring_use_xml_config-phase</id><content type="html" xml:base="https://lahuman.github.io/swagger_with_spring_use_xml_config-phase/">&lt;h1 id=&quot;swagger를-spring-xml-설정을-이용하여-사용-하기&quot;&gt;Swagger를 Spring xml 설정을 이용하여 사용 하기&lt;/h1&gt;
 
 &lt;p&gt;함께 일하는 분에게 Swagger를 소개 받고, 우리 서비스에서 사용 해보기로 하였다.&lt;br /&gt;&lt;/p&gt;
 
@@ -481,56 +419,41 @@ CREATE DATABASE name
 
 &lt;p&gt;다음과 같이 간단한 방법으로 처리가 되었다.&lt;br /&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;maven--&quot;&gt;Maven 설정 추가&lt;/h2&gt;
+&lt;h2 id=&quot;maven-설정-추가&quot;&gt;Maven 설정 추가&lt;/h2&gt;
 
-&lt;p&gt;{% highlight xml %}
-&lt;!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger2 --&gt;&lt;/p&gt;
-&lt;dependency&gt;
-    &lt;groupid&gt;io.springfox&lt;/groupid&gt;
-    &lt;artifactid&gt;springfox-swagger2&lt;/artifactid&gt;
-    &lt;version&gt;2.7.0&lt;/version&gt;
-&lt;/dependency&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger2 --&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;io.springfox&lt;span class=&quot;nt&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;springfox-swagger2&lt;span class=&quot;nt&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;2.7.0&lt;span class=&quot;nt&quot;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
 
-&lt;!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger-ui --&gt;
-&lt;dependency&gt;
-    &lt;groupid&gt;io.springfox&lt;/groupid&gt;
-    &lt;artifactid&gt;springfox-swagger-ui&lt;/artifactid&gt;
-    &lt;version&gt;2.7.0&lt;/version&gt;
-&lt;/dependency&gt;
+&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger-ui --&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;io.springfox&lt;span class=&quot;nt&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;springfox-swagger-ui&lt;span class=&quot;nt&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;2.7.0&lt;span class=&quot;nt&quot;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
 
-&lt;!-- https://mvnrepository.com/artifact/com.fasterxml/classmate --&gt;
-&lt;dependency&gt;
-    &lt;groupid&gt;com.fasterxml&lt;/groupid&gt;
-    &lt;artifactid&gt;classmate&lt;/artifactid&gt;
-    &lt;version&gt;1.3.3&lt;/version&gt;
-&lt;/dependency&gt;
-&lt;p&gt;{% endhighlight %}&lt;/p&gt;
+&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- https://mvnrepository.com/artifact/com.fasterxml/classmate --&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;com.fasterxml&lt;span class=&quot;nt&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;classmate&lt;span class=&quot;nt&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;1.3.3&lt;span class=&quot;nt&quot;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;h2 id=&quot;spring-servlet-xml-&quot;&gt;Spring servlet xml설정 추가&lt;/h2&gt;
+&lt;h2 id=&quot;spring-servlet-xml설정-추가&quot;&gt;Spring servlet xml설정 추가&lt;/h2&gt;
 
-&lt;p&gt;{% highlight xml %}&lt;/p&gt;
-&lt;bean id=&quot;swagger2Config&quot; class=&quot;springfox.documentation.swagger2.configuration.Swagger2DocumentationConfiguration&quot;&gt;&lt;/bean&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;bean&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;swagger2Config&quot;&lt;/span&gt;
+		&lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;springfox.documentation.swagger2.configuration.Swagger2DocumentationConfiguration&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/bean&amp;gt;&lt;/span&gt;
 
-&lt;mvc:resources location=&quot;classpath:/META-INF/resources/&quot; mapping=&quot;swagger-ui.html&quot;&gt;&lt;/mvc:resources&gt;
-&lt;mvc:resources location=&quot;classpath:/META-INF/resources/webjars/&quot; mapping=&quot;/webjars/**&quot;&gt;&lt;/mvc:resources&gt;
-&lt;p&gt;{% endhighlight %}&lt;/p&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;mvc:resources&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;location=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;classpath:/META-INF/resources/&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;mapping=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;swagger-ui.html&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/mvc:resources&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;mvc:resources&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;location=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;classpath:/META-INF/resources/webjars/&quot;&lt;/span&gt;
+	&lt;span class=&quot;na&quot;&gt;mapping=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/webjars/**&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/mvc:resources&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;이후 &lt;strong&gt;http://localhost:8080/swagger-ui.html&lt;/strong&gt;으로 접속 할 경우 결과 화면을 볼 수 있다.&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;http://cofived.tistory.com/27&quot;&gt;참고&lt;/a&gt;&lt;/p&gt;
-</content>
-<category term="spring" />
-<category term="swagger" />
-<category term="setting" />
-<summary>설정에 별거 없다!</summary>
-</entry>
-<entry>
-<title>[2017-06-22]단상 - 고객은 결과물을 본 후에야 자신이 뭘 원했는지 안다.</title>
-<link href="https://lahuman.github.io/20160622-phase/" rel="alternate" type="text/html" title="[2017-06-22]단상 - 고객은 결과물을 본 후에야 자신이 뭘 원했는지 안다." />
-<published>2017-06-22T00:00:00+09:00</published>
-<updated>2017-06-22T00:00:00+09:00</updated>
-<id>https://lahuman.github.io/20160622-phase</id>
-<content type="html" xml:base="https://lahuman.github.io/20160622-phase/">&lt;h1 id=&quot;section&quot;&gt;실제 동작하는 프로토타입을 보아야 자신이 무엇을 원했는지를 안다.&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&quot;http://cofived.tistory.com/27&quot;&gt;참고&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><category term="spring" /><category term="swagger" /><category term="setting" /><summary type="html">설정에 별거 없다!</summary></entry><entry><title type="html">[2017-06-22]단상 - 고객은 결과물을 본 후에야 자신이 뭘 원했는지 안다.</title><link href="https://lahuman.github.io/20160622-phase/" rel="alternate" type="text/html" title="[2017-06-22]단상 - 고객은 결과물을 본 후에야 자신이 뭘 원했는지 안다." /><published>2017-06-22T00:00:00+09:00</published><updated>2017-06-22T00:00:00+09:00</updated><id>https://lahuman.github.io/20160622-phase</id><content type="html" xml:base="https://lahuman.github.io/20160622-phase/">&lt;h1 id=&quot;실제-동작하는-프로토타입을-보아야-자신이-무엇을-원했는지를-안다&quot;&gt;실제 동작하는 프로토타입을 보아야 자신이 무엇을 원했는지를 안다.&lt;/h1&gt;
 
 &lt;p&gt;&lt;strong&gt;30년간 개발자로 살면서 배운 것&lt;/strong&gt; 이라는 글에 내용중, 다음과 같은 내용이 있다. &lt;br /&gt;&lt;/p&gt;
 
@@ -547,19 +470,7 @@ CREATE DATABASE name
 
 &lt;p&gt;&lt;a href=&quot;http://thecodist.com/article/lessons_from_a_lifetime_of_being_a_programmer&quot;&gt;원본글&lt;/a&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://taegon.kim/archives/6546&quot;&gt;번역글&lt;/a&gt;&lt;/p&gt;
-
-</content>
-<category term="단상" />
-<summary>고객뿐 아니라 대부분의 사람이 그렇다.</summary>
-</entry>
-<entry>
-<title>[2017-06-21]단상 - 추억은 추억일때 가장 아름답다.</title>
-<link href="https://lahuman.github.io/20160621-phase/" rel="alternate" type="text/html" title="[2017-06-21]단상 - 추억은 추억일때 가장 아름답다." />
-<published>2017-06-21T00:00:00+09:00</published>
-<updated>2017-06-21T00:00:00+09:00</updated>
-<id>https://lahuman.github.io/20160621-phase</id>
-<content type="html" xml:base="https://lahuman.github.io/20160621-phase/">&lt;h1 id=&quot;section&quot;&gt;추억이 아름다운 이유는 때와 함께여서 이다.&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&quot;https://taegon.kim/archives/6546&quot;&gt;번역글&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><category term="단상" /><summary type="html">고객뿐 아니라 대부분의 사람이 그렇다.</summary></entry><entry><title type="html">[2017-06-21]단상 - 추억은 추억일때 가장 아름답다.</title><link href="https://lahuman.github.io/20160621-phase/" rel="alternate" type="text/html" title="[2017-06-21]단상 - 추억은 추억일때 가장 아름답다." /><published>2017-06-21T00:00:00+09:00</published><updated>2017-06-21T00:00:00+09:00</updated><id>https://lahuman.github.io/20160621-phase</id><content type="html" xml:base="https://lahuman.github.io/20160621-phase/">&lt;h1 id=&quot;추억이-아름다운-이유는-때와-함께여서-이다&quot;&gt;추억이 아름다운 이유는 때와 함께여서 이다.&lt;/h1&gt;
 
 &lt;p&gt;리니지1 이라는 게임을 고등학교때 처음 접한 이후 친구들과 많이 했었다.&lt;br /&gt;&lt;/p&gt;
 
@@ -567,25 +478,13 @@ CREATE DATABASE name
 
 &lt;p&gt;오랜만에 친구들과 함께 진행하기 위해 시작 하였지만…&lt;br /&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;section-1&quot;&gt;추억은 추억일때 가장 아름답다.&lt;/h2&gt;
+&lt;h2 id=&quot;추억은-추억일때-가장-아름답다&quot;&gt;추억은 추억일때 가장 아름답다.&lt;/h2&gt;
 
 &lt;p&gt;라는 명언이 생각 났다. &lt;br /&gt;&lt;/p&gt;
 
 &lt;p&gt;완성도가 떨어지거나, 퀄리티가 나쁜 것이 아니라 때와 함께가 아니기 때문에 즐겁지 않아다.&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;자동 사냥의 편리함도 좋고 빠른 이동 빠른 레벨업도 좋지만, 리니지를 함께 즐겼을 때 만큼 재미 있지는 않다.&lt;/p&gt;
-
-</content>
-<category term="단상" />
-<summary>리니지 M</summary>
-</entry>
-<entry>
-<title>[2017-06-19]리뷰 - 마이크로서비스 아키텍처 구축, 샘뉴먼</title>
-<link href="https://lahuman.github.io/20160619-phase/" rel="alternate" type="text/html" title="[2017-06-19]리뷰 - 마이크로서비스 아키텍처 구축, 샘뉴먼" />
-<published>2017-06-19T00:00:00+09:00</published>
-<updated>2017-06-19T00:00:00+09:00</updated>
-<id>https://lahuman.github.io/20160619-phase</id>
-<content type="html" xml:base="https://lahuman.github.io/20160619-phase/">&lt;h1 id=&quot;httpwwwhanbitcokrstorebookslookphppcodeb8584207882&quot;&gt;&lt;a href=&quot;http://www.hanbit.co.kr/store/books/look.php?p_code=B8584207882&quot;&gt;마이크로서비스 아키텍처 구축&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;자동 사냥의 편리함도 좋고 빠른 이동 빠른 레벨업도 좋지만, 리니지를 함께 즐겼을 때 만큼 재미 있지는 않다.&lt;/p&gt;</content><author><name></name></author><category term="단상" /><summary type="html">리니지 M</summary></entry><entry><title type="html">[2017-06-19]리뷰 - 마이크로서비스 아키텍처 구축, 샘뉴먼</title><link href="https://lahuman.github.io/20160619-phase/" rel="alternate" type="text/html" title="[2017-06-19]리뷰 - 마이크로서비스 아키텍처 구축, 샘뉴먼" /><published>2017-06-19T00:00:00+09:00</published><updated>2017-06-19T00:00:00+09:00</updated><id>https://lahuman.github.io/20160619-phase</id><content type="html" xml:base="https://lahuman.github.io/20160619-phase/">&lt;h1 id=&quot;마이크로서비스-아키텍처-구축&quot;&gt;&lt;a href=&quot;http://www.hanbit.co.kr/store/books/look.php?p_code=B8584207882&quot;&gt;마이크로서비스 아키텍처 구축&lt;/a&gt;&lt;/h1&gt;
 
 &lt;p&gt;책을 읽으면서 필자의 경험을 함께 공유하는 시간이었다.&lt;br /&gt;&lt;/p&gt;
 
@@ -595,30 +494,4 @@ CREATE DATABASE name
 
 &lt;p&gt;&lt;strong&gt;마이크로 서비스를 준비중이라면 꼭 읽어 봐야 할 책!&lt;/strong&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;kbd40kbd50&quot;&gt;평점 &lt;kbd&gt;4.0&lt;/kbd&gt;/5.0&lt;/h3&gt;
-
-</content>
-<category term="리뷰" />
-<summary>Building Microservices</summary>
-</entry>
-<entry>
-<title>[2017-06-13]단상 - 인간은 무의식의 습관적 동물이다.</title>
-<link href="https://lahuman.github.io/20160613-phase/" rel="alternate" type="text/html" title="[2017-06-13]단상 - 인간은 무의식의 습관적 동물이다." />
-<published>2017-06-13T00:00:00+09:00</published>
-<updated>2017-06-13T00:00:00+09:00</updated>
-<id>https://lahuman.github.io/20160613-phase</id>
-<content type="html" xml:base="https://lahuman.github.io/20160613-phase/">&lt;h1 id=&quot;section&quot;&gt;내가 변화하지 않는 것은 나의 무의식의 습관 때문이다.&lt;/h1&gt;
-
-&lt;p&gt;내가 좋은 글을 읽고, 변화하기 위해 노력을 해도 어느 순간 제자리로 돌아와 있을 때가 많다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;인간은 습관적 동물이라, 무의식 적으로 늘 하던 패턴으로 돌아가게 되기 때문이다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;새로운 습관을 만들기 위해서는 의식적으로 3개월 이상을 강제 해야 한다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://opentutorials.org/module/1942/11238&quot;&gt;습관의 원리에 대한 내용&lt;/a&gt;&lt;/p&gt;
-
-</content>
-<category term="단상" />
-<summary>새로운 무언가를 하기 위해서는 강제로 의식하자</summary>
-</entry>
-</feed>
+&lt;h3 id=&quot;평점-4050&quot;&gt;평점 &lt;kbd&gt;4.0&lt;/kbd&gt;/5.0&lt;/h3&gt;</content><author><name></name></author><category term="리뷰" /><summary type="html">Building Microservices</summary></entry></feed>
