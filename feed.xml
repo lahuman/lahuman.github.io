@@ -1,4 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.0">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2017-07-12T11:38:35+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">[2017-07-12]단상 - 오랜만에 단상 작성</title><link href="https://lahuman.github.io/20160712-phase/" rel="alternate" type="text/html" title="[2017-07-12]단상 - 오랜만에 단상 작성" /><published>2017-07-12T00:00:00+09:00</published><updated>2017-07-12T00:00:00+09:00</updated><id>https://lahuman.github.io/20160712-phase</id><content type="html" xml:base="https://lahuman.github.io/20160712-phase/">&lt;h1 id=&quot;컴퓨터를-포멧하고-나니-일상도-포멧이-되었다&quot;&gt;컴퓨터를 포멧하고 나니, 일상도 포멧이 되었다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.0">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2017-07-14T09:07:00+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">[2017-07-12]단상 - 잠이 보약이다.</title><link href="https://lahuman.github.io/20160714-phase/" rel="alternate" type="text/html" title="[2017-07-12]단상 - 잠이 보약이다." /><published>2017-07-14T00:00:00+09:00</published><updated>2017-07-14T00:00:00+09:00</updated><id>https://lahuman.github.io/20160714-phase</id><content type="html" xml:base="https://lahuman.github.io/20160714-phase/">&lt;h1 id=&quot;이번주-내내-야근과-약속으로-늦게-잤다&quot;&gt;이번주 내내 야근과 약속으로 늦게 잤다.&lt;/h1&gt;
+
+&lt;p&gt;졸리니 집중이 안되고, 머리가 멍 하다. &lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;이렇게 졸린데 일은 계속 떨어진다. &lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;억지로 오늘 하루도 보낸다. &lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;돈도-많이-써서-그지다-이제&quot;&gt;돈도 많이 써서 그지다 이제……&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">일찍 자야 일찍 일어난다.</summary></entry><entry><title type="html">[2017-07-12]단상 - 오랜만에 단상 작성</title><link href="https://lahuman.github.io/20160712-phase/" rel="alternate" type="text/html" title="[2017-07-12]단상 - 오랜만에 단상 작성" /><published>2017-07-12T00:00:00+09:00</published><updated>2017-07-12T00:00:00+09:00</updated><id>https://lahuman.github.io/20160712-phase</id><content type="html" xml:base="https://lahuman.github.io/20160712-phase/">&lt;h1 id=&quot;컴퓨터를-포멧하고-나니-일상도-포멧이-되었다&quot;&gt;컴퓨터를 포멧하고 나니, 일상도 포멧이 되었다.&lt;/h1&gt;
 
 &lt;p&gt;벌써 7월 12일이다. 이제 해야 할 것도 많아지고 올해의 벌려 놓은 일들을 마무리 해야한다. &lt;br /&gt;&lt;/p&gt;
 
@@ -484,14 +492,4 @@ CREATE DATABASE name
 
 &lt;p&gt;완성도가 떨어지거나, 퀄리티가 나쁜 것이 아니라 때와 함께가 아니기 때문에 즐겁지 않아다.&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;자동 사냥의 편리함도 좋고 빠른 이동 빠른 레벨업도 좋지만, 리니지를 함께 즐겼을 때 만큼 재미 있지는 않다.&lt;/p&gt;</content><author><name></name></author><category term="단상" /><summary type="html">리니지 M</summary></entry><entry><title type="html">[2017-06-19]리뷰 - 마이크로서비스 아키텍처 구축, 샘뉴먼</title><link href="https://lahuman.github.io/20160619-phase/" rel="alternate" type="text/html" title="[2017-06-19]리뷰 - 마이크로서비스 아키텍처 구축, 샘뉴먼" /><published>2017-06-19T00:00:00+09:00</published><updated>2017-06-19T00:00:00+09:00</updated><id>https://lahuman.github.io/20160619-phase</id><content type="html" xml:base="https://lahuman.github.io/20160619-phase/">&lt;h1 id=&quot;마이크로서비스-아키텍처-구축&quot;&gt;&lt;a href=&quot;http://www.hanbit.co.kr/store/books/look.php?p_code=B8584207882&quot;&gt;마이크로서비스 아키텍처 구축&lt;/a&gt;&lt;/h1&gt;
-
-&lt;p&gt;책을 읽으면서 필자의 경험을 함께 공유하는 시간이었다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;마이크로서비스를 찬양 하는 것이 아닌, 자신이 경험한 실수, 성공, 실패에 대하여 정리 되어 가볍게 읽기 좋았다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;추후 마이크로 서비스를 사용하게 되면 다시 읽어 봐야 할 책이다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;마이크로 서비스를 준비중이라면 꼭 읽어 봐야 할 책!&lt;/strong&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;평점-4050&quot;&gt;평점 &lt;kbd&gt;4.0&lt;/kbd&gt;/5.0&lt;/h3&gt;</content><author><name></name></author><category term="리뷰" /><summary type="html">Building Microservices</summary></entry></feed>
+&lt;p&gt;자동 사냥의 편리함도 좋고 빠른 이동 빠른 레벨업도 좋지만, 리니지를 함께 즐겼을 때 만큼 재미 있지는 않다.&lt;/p&gt;</content><author><name></name></author><category term="단상" /><summary type="html">리니지 M</summary></entry></feed>
