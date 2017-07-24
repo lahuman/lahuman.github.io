@@ -1,4 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.0">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2017-07-21T12:14:18+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">[2017-07-21]단상 - 결국 올 것이 오고있다.</title><link href="https://lahuman.github.io/20170721-phase/" rel="alternate" type="text/html" title="[2017-07-21]단상 - 결국 올 것이 오고있다." /><published>2017-07-21T00:00:00+09:00</published><updated>2017-07-21T00:00:00+09:00</updated><id>https://lahuman.github.io/20170721-phase</id><content type="html" xml:base="https://lahuman.github.io/20170721-phase/">&lt;h1 id=&quot;팀장과의-불화로-여러-팀원이-떠나고-나서-2개월이-흘렀다&quot;&gt;팀장과의 불화로 여러 팀원이 떠나고 나서 2개월이 흘렀다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.0">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2017-07-24T10:03:24+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">[2017-07-24]단상 - 긍정적인 사람이 되자</title><link href="https://lahuman.github.io/20170724-phase/" rel="alternate" type="text/html" title="[2017-07-24]단상 - 긍정적인 사람이 되자" /><published>2017-07-24T00:00:00+09:00</published><updated>2017-07-24T00:00:00+09:00</updated><id>https://lahuman.github.io/20170724-phase</id><content type="html" xml:base="https://lahuman.github.io/20170724-phase/">&lt;h1 id=&quot;긍정적이-되도록-노력하자&quot;&gt;긍정적이 되도록 노력하자.&lt;/h1&gt;
+
+&lt;p&gt;사실 의미가 있는지는 모르겠다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;다만, 나의 부정적인 감정이 전파되어 다른 사람도 부정적이 되지 않도록 하자&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;부정적인-시선-감정은-나만의-것으로-하는-걸로&quot;&gt;부정적인 시선, 감정은 나만의 것으로 하는 걸로~&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">긍정적으로 바뀌어 보자.</summary></entry><entry><title type="html">[2017-07-21]단상 - 결국 올 것이 오고있다.</title><link href="https://lahuman.github.io/20170721-phase/" rel="alternate" type="text/html" title="[2017-07-21]단상 - 결국 올 것이 오고있다." /><published>2017-07-21T00:00:00+09:00</published><updated>2017-07-21T00:00:00+09:00</updated><id>https://lahuman.github.io/20170721-phase</id><content type="html" xml:base="https://lahuman.github.io/20170721-phase/">&lt;h1 id=&quot;팀장과의-불화로-여러-팀원이-떠나고-나서-2개월이-흘렀다&quot;&gt;팀장과의 불화로 여러 팀원이 떠나고 나서 2개월이 흘렀다.&lt;/h1&gt;
 
 &lt;p&gt;그동안 발생하지 않았던, 문제들이 하나씩 터지고 있다.&lt;br /&gt;&lt;/p&gt;
 
@@ -464,13 +470,4 @@ CREATE DATABASE name
 
 &lt;p&gt;그래도 &lt;strong&gt;까임&lt;/strong&gt;을 당해서 기분이 나쁘긴 하다.&lt;/p&gt;
 
-&lt;h2 id=&quot;리팩토링할-시간은-과연주어지는가&quot;&gt;리팩토링할 시간은 과연주어지는가?&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">코드리뷰라 쓰고 까기라고 읽는다.</summary></entry><entry><title type="html">[2017-06-27]단상 - 일관성이 있어야 한다.</title><link href="https://lahuman.github.io/20160627-phase/" rel="alternate" type="text/html" title="[2017-06-27]단상 - 일관성이 있어야 한다." /><published>2017-06-27T00:00:00+09:00</published><updated>2017-06-27T00:00:00+09:00</updated><id>https://lahuman.github.io/20160627-phase</id><content type="html" xml:base="https://lahuman.github.io/20160627-phase/">&lt;h1 id=&quot;일관성이-있어야-한다&quot;&gt;일관성이 있어야 한다.&lt;/h1&gt;
-
-&lt;p&gt;야구에서 심판의 스트라이크 존의 크기와 모양이 모두 다르지만 인정하는 이유는, 늘 한결같은 일관성이 있기 때문이다. &lt;br /&gt;
-&lt;strong&gt;물론 몇몇 심판의 스트라이크 존은 들쑥날쑥 하여, 혼이 담기지 않은 공은 볼이다 라는 웃긴 이야기도 있다&lt;/strong&gt; &lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;마찬가지로 일관성 있는 일을 하기 위해 메뉴얼도 만들고, 지켜야하는 룰을 만들기도 한다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;아이를 대하는 부모 역시 아이를 훈육 할때 일관성을 지켜야 하는데, 그러지 못할 경우 아이는 부모의 눈치를 보게 된다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;일관성을-가지자&quot;&gt;일관성을 가지자!&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">프로와 아마추어의 차이중 하나는 일관성이다.</summary></entry></feed>
+&lt;h2 id=&quot;리팩토링할-시간은-과연주어지는가&quot;&gt;리팩토링할 시간은 과연주어지는가?&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">코드리뷰라 쓰고 까기라고 읽는다.</summary></entry></feed>
