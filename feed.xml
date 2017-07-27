@@ -1,4 +1,35 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.0">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2017-07-24T10:03:24+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">[2017-07-24]단상 - 긍정적인 사람이 되자</title><link href="https://lahuman.github.io/20170724-phase/" rel="alternate" type="text/html" title="[2017-07-24]단상 - 긍정적인 사람이 되자" /><published>2017-07-24T00:00:00+09:00</published><updated>2017-07-24T00:00:00+09:00</updated><id>https://lahuman.github.io/20170724-phase</id><content type="html" xml:base="https://lahuman.github.io/20170724-phase/">&lt;h1 id=&quot;긍정적이-되도록-노력하자&quot;&gt;긍정적이 되도록 노력하자.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.0">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2017-07-27T09:36:10+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">[2017-07-27] RxJava</title><link href="https://lahuman.github.io/20170727-phase/" rel="alternate" type="text/html" title="[2017-07-27] RxJava" /><published>2017-07-27T00:00:00+09:00</published><updated>2017-07-27T00:00:00+09:00</updated><id>https://lahuman.github.io/20170727-phase</id><content type="html" xml:base="https://lahuman.github.io/20170727-phase/">&lt;h1 id=&quot;msa-부터-rxjava-까지&quot;&gt;MSA 부터 RxJava 까지&lt;/h1&gt;
+
+&lt;p&gt;신기술은 계속 쏟아지고 있는데 그중 가장 핫 하다면 핫한 기술이 다음 두가지가 일까 한다. &lt;br /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;MSA(Micro Service Architecture)
+Martin Fowler 가 먼저 언급하였다고 전해지며,&lt;br /&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;일반적인 아키텍쳐인 모놀리식 스타일은 &lt;strong&gt;프로그램을 큰 덩어리로 구축&lt;/strong&gt;한다면, 아주 작은 부분을 변경하더라도 모두 빌드해서 다시 배포 해야 한다. &lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;최근 처럼 배포 주기가 짧다면 매우 비효율적이게 된다. 또한 프로그램이 점점 커지게 된다면 각 모듈의 구조를 변경 없이 유지하는 것은 매우 어렵다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;MSA는 &lt;strong&gt;작은 서비스의 결합을 통해 하나의 프로그램을 개발하는 방법&lt;/strong&gt;으로 각각의 서비스는 독립적인 비지니스 로직으로 구성되며, 오나전 자동화된 개발/배포환경에 의해 각각 독립적인 배포가 가능하다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;또한 최소한의 중심적인 관리 체계가 있으며 이 시스템은 각각 다른 프로그래밍 언어, 다른 데이터스토리지 기술로 작성하는 것이 가능하다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;RxJava
+반응형(Reactive) 프로그래밍이라고 불리며 기본 골격은 Observer pattern을 보면 된다.&lt;br /&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;여기에 함수형 프로그램방식으로 이전과 다르게 간결하게 구현 할수 있기 때문에 JAVA8 이후 많이 사용하게 되었다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;특히 &lt;strong&gt;MSA에서는 반응형 프로그램이 필수&lt;/strong&gt;가 된다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;참고&quot;&gt;참고&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://tkddlf59.github.io/2016/10/10/2016-10-10-msa1/&quot;&gt;MSA 란?&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://brunch.co.kr/@yudong/33&quot;&gt;RxJava&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="단상" /><summary type="html">대세는 Reactive 인듯...</summary></entry><entry><title type="html">[2017-07-24]단상 - 긍정적인 사람이 되자</title><link href="https://lahuman.github.io/20170724-phase/" rel="alternate" type="text/html" title="[2017-07-24]단상 - 긍정적인 사람이 되자" /><published>2017-07-24T00:00:00+09:00</published><updated>2017-07-24T00:00:00+09:00</updated><id>https://lahuman.github.io/20170724-phase</id><content type="html" xml:base="https://lahuman.github.io/20170724-phase/">&lt;h1 id=&quot;긍정적이-되도록-노력하자&quot;&gt;긍정적이 되도록 노력하자.&lt;/h1&gt;
 
 &lt;p&gt;사실 의미가 있는지는 모르겠다.&lt;br /&gt;&lt;/p&gt;
 
@@ -462,12 +493,4 @@ CREATE DATABASE name
 
 &lt;p&gt;이때 급하게 만든 코드들은 운영하는 사람에게 넘어가는 단점이 있다.&lt;br /&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;사연-없는-코드는-없다&quot;&gt;사연 없는 코드는 없다.&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">일정이 짧다고 프로젝트가 망하지는 않는다.</summary></entry><entry><title type="html">[2017-06-28]단상 - 코드리뷰는 어렵다.</title><link href="https://lahuman.github.io/20160628-phase/" rel="alternate" type="text/html" title="[2017-06-28]단상 - 코드리뷰는 어렵다." /><published>2017-06-28T00:00:00+09:00</published><updated>2017-06-28T00:00:00+09:00</updated><id>https://lahuman.github.io/20160628-phase</id><content type="html" xml:base="https://lahuman.github.io/20160628-phase/">&lt;h1 id=&quot;코드리뷰인지-그냥-까기인지&quot;&gt;코드리뷰인지, 그냥 까기인지…&lt;/h1&gt;
-
-&lt;p&gt;코드 리뷰를 가지자고 해서 시간을 가졌는데, 좋은 의견이 오고 간게 아니라 왜 고치지 않았냐는 질문이 많았다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;시간을 줘야 하지라는 대답을 하긴 했지만, 한편으로는 정말 시간이 없었을까? 라는 생각이 들었다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;그래도 &lt;strong&gt;까임&lt;/strong&gt;을 당해서 기분이 나쁘긴 하다.&lt;/p&gt;
-
-&lt;h2 id=&quot;리팩토링할-시간은-과연주어지는가&quot;&gt;리팩토링할 시간은 과연주어지는가?&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">코드리뷰라 쓰고 까기라고 읽는다.</summary></entry></feed>
+&lt;h2 id=&quot;사연-없는-코드는-없다&quot;&gt;사연 없는 코드는 없다.&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">일정이 짧다고 프로젝트가 망하지는 않는다.</summary></entry></feed>
