@@ -1,4 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.0">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2017-07-27T09:36:10+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">[2017-07-27] RxJava</title><link href="https://lahuman.github.io/20170727-phase/" rel="alternate" type="text/html" title="[2017-07-27] RxJava" /><published>2017-07-27T00:00:00+09:00</published><updated>2017-07-27T00:00:00+09:00</updated><id>https://lahuman.github.io/20170727-phase</id><content type="html" xml:base="https://lahuman.github.io/20170727-phase/">&lt;h1 id=&quot;msa-부터-rxjava-까지&quot;&gt;MSA 부터 RxJava 까지&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.0">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2017-07-28T13:36:58+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">[2017-07-28] 번아웃</title><link href="https://lahuman.github.io/20170728-phase/" rel="alternate" type="text/html" title="[2017-07-28] 번아웃" /><published>2017-07-28T00:00:00+09:00</published><updated>2017-07-28T00:00:00+09:00</updated><id>https://lahuman.github.io/20170728-phase</id><content type="html" xml:base="https://lahuman.github.io/20170728-phase/">&lt;h1 id=&quot;힘들게-일을-마치고-나면-찾아오는-번아웃&quot;&gt;힘들게 일을 마치고 나면 찾아오는 번아웃&lt;/h1&gt;
+
+&lt;p&gt;사람의 집중력과 참을성은 무한하지 않다. &lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;관리를 하지 못하면, 집중력과 참을성을 잃고 일을 하지 못하게 된다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;이런 번아웃 현상을 격지 않기 위해서는 관리 하자.&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;어떻게-관리-하지&quot;&gt;어떻게 관리 하지..&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">집중이 어려운 시간</summary></entry><entry><title type="html">[2017-07-27] RxJava</title><link href="https://lahuman.github.io/20170727-phase/" rel="alternate" type="text/html" title="[2017-07-27] RxJava" /><published>2017-07-27T00:00:00+09:00</published><updated>2017-07-27T00:00:00+09:00</updated><id>https://lahuman.github.io/20170727-phase</id><content type="html" xml:base="https://lahuman.github.io/20170727-phase/">&lt;h1 id=&quot;msa-부터-rxjava-까지&quot;&gt;MSA 부터 RxJava 까지&lt;/h1&gt;
 
 &lt;p&gt;신기술은 계속 쏟아지고 있는데 그중 가장 핫 하다면 핫한 기술이 다음 두가지가 일까 한다. &lt;br /&gt;&lt;/p&gt;
 
@@ -483,14 +491,4 @@ CREATE DATABASE name
 
 &lt;h2 id=&quot;내가-당하기-싫으면-남을-욕해야-한다는데-싫다-정말&quot;&gt;내가 당하기 싫으면 남을 욕해야 한다는데 싫다 정말…&lt;/h2&gt;
 
-&lt;h2 id=&quot;내가-얼마나-더-버틸-수-있을지-모르겠다&quot;&gt;내가 얼마나 더 버틸 수 있을지 모르겠다.&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">이걸 해야하나? 망할놈의 세상...</summary></entry><entry><title type="html">[2017-06-29]단상 - 일정과 프로젝트 성공</title><link href="https://lahuman.github.io/20160629-phase/" rel="alternate" type="text/html" title="[2017-06-29]단상 - 일정과 프로젝트 성공" /><published>2017-06-29T00:00:00+09:00</published><updated>2017-06-29T00:00:00+09:00</updated><id>https://lahuman.github.io/20160629-phase</id><content type="html" xml:base="https://lahuman.github.io/20160629-phase/">&lt;h1 id=&quot;보통-프로젝트가-망하는-이유는-일정에-있지-않다&quot;&gt;보통 프로젝트가 망하는 이유는 일정에 있지 않다.&lt;/h1&gt;
-
-&lt;p&gt;&lt;strong&gt;물론 최소의 일정 조차 무시한 경우를 제외 하자&lt;/strong&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;일반적으로 일정이 짧은 프로젝트가 망할 것이라고 생각 하지만, 그렇지는 않다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;명확한 업무 정의와 진행사항 관리만 잘 되어도 무리 없이 프로젝트를 완료 할 수 있다. &lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;이때 급하게 만든 코드들은 운영하는 사람에게 넘어가는 단점이 있다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;사연-없는-코드는-없다&quot;&gt;사연 없는 코드는 없다.&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">일정이 짧다고 프로젝트가 망하지는 않는다.</summary></entry></feed>
+&lt;h2 id=&quot;내가-얼마나-더-버틸-수-있을지-모르겠다&quot;&gt;내가 얼마나 더 버틸 수 있을지 모르겠다.&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">이걸 해야하나? 망할놈의 세상...</summary></entry></feed>
