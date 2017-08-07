@@ -1,4 +1,40 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.0">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2017-08-04T09:20:14+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">[2017-08-04] 잠을 못잔다.</title><link href="https://lahuman.github.io/20170804-phase/" rel="alternate" type="text/html" title="[2017-08-04] 잠을 못잔다." /><published>2017-08-04T00:00:00+09:00</published><updated>2017-08-04T00:00:00+09:00</updated><id>https://lahuman.github.io/20170804-phase</id><content type="html" xml:base="https://lahuman.github.io/20170804-phase/">&lt;h1 id=&quot;아이가-수시로-짜증이-난다고-한다&quot;&gt;아이가 수시로 짜증이 난다고 한다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.0">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2017-08-07T15:15:24+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">[2017-08-07] 데이터 베이스 개요와 설계 단계</title><link href="https://lahuman.github.io/20170807-phase/" rel="alternate" type="text/html" title="[2017-08-07] 데이터 베이스 개요와 설계 단계" /><published>2017-08-07T00:00:00+09:00</published><updated>2017-08-07T00:00:00+09:00</updated><id>https://lahuman.github.io/20170807-phase</id><content type="html" xml:base="https://lahuman.github.io/20170807-phase/">&lt;h1 id=&quot;데이터베이스-설계의-개요&quot;&gt;데이터베이스 설계의 개요&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;한 조직의 여러 응용 시스템을 다수의 사용자가 공용으로 사용하기 위해 통합, 저장된 운영 데이터 집합&lt;/strong&gt;이라고 정의 된다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;데이터 베이스의 목적은 데이터를 조직화하여 저장할 수 있는 명확한 체계를 설계하는 것이다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;데이터베이스 설계 과정은 사용자 요구사항을 분석 하여 개념적 데이터베이스 설계, 논리적 데이터베이스 설계, 물리적 데이터 베이스 설계의 단위로 진행된다.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;개념-단계&quot;&gt;개념 단계&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;사용자 요구의 구체화를 위한 ER 모델링을 적용하는 단계&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;논리-단계&quot;&gt;논리 단계&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;특정 DBMS를 사용하기 위한 논리적 구조와 스키마를 설계 하는 단계&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;물리-단계&quot;&gt;물리 단계&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;데이터가 DB에 저장되기 위한 저장 구조 기술&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;참조&quot;&gt;참조&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;방통 대학원 데이터베이스 수업&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="단상" /><summary type="html">데이터 베이스 공부중...</summary></entry><entry><title type="html">[2017-08-04] 잠을 못잔다.</title><link href="https://lahuman.github.io/20170804-phase/" rel="alternate" type="text/html" title="[2017-08-04] 잠을 못잔다." /><published>2017-08-04T00:00:00+09:00</published><updated>2017-08-04T00:00:00+09:00</updated><id>https://lahuman.github.io/20170804-phase</id><content type="html" xml:base="https://lahuman.github.io/20170804-phase/">&lt;h1 id=&quot;아이가-수시로-짜증이-난다고-한다&quot;&gt;아이가 수시로 짜증이 난다고 한다.&lt;/h1&gt;
 
 &lt;p&gt;밤마다 아이가 깨서 소리를 지르고 운다.&lt;br /&gt;&lt;/p&gt;
 
@@ -125,12 +161,4 @@ Martin Fowler 가 먼저 언급하였다고 전해지며,&lt;br /&gt;&lt;/li&gt;
 
 &lt;p&gt;잠시만 &lt;strong&gt;한 박자만 쉬었다 간다&lt;/strong&gt;고 생각 하자.&lt;br /&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;이것-또한-지나가리라&quot;&gt;이것 또한 지나가리라…&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">이것 또한 지나가리라...</summary></entry><entry><title type="html">[2017-07-14]단상 - 잠이 보약이다.</title><link href="https://lahuman.github.io/20160714-phase/" rel="alternate" type="text/html" title="[2017-07-14]단상 - 잠이 보약이다." /><published>2017-07-14T00:00:00+09:00</published><updated>2017-07-14T00:00:00+09:00</updated><id>https://lahuman.github.io/20160714-phase</id><content type="html" xml:base="https://lahuman.github.io/20160714-phase/">&lt;h1 id=&quot;이번주-내내-야근과-약속으로-늦게-잤다&quot;&gt;이번주 내내 야근과 약속으로 늦게 잤다.&lt;/h1&gt;
-
-&lt;p&gt;졸리니 집중이 안되고, 머리가 멍 하다. &lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;이렇게 졸린데 일은 계속 떨어진다. &lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;억지로 오늘 하루도 보낸다. &lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;돈도-많이-써서-그지다-이제&quot;&gt;돈도 많이 써서 그지다 이제……&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">일찍 자야 일찍 일어난다.</summary></entry></feed>
+&lt;h2 id=&quot;이것-또한-지나가리라&quot;&gt;이것 또한 지나가리라…&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">이것 또한 지나가리라...</summary></entry></feed>
