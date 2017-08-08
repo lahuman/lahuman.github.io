@@ -1,4 +1,26 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.0">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2017-08-07T15:15:24+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">[2017-08-07] 데이터 베이스 개요와 설계 단계</title><link href="https://lahuman.github.io/20170807-phase/" rel="alternate" type="text/html" title="[2017-08-07] 데이터 베이스 개요와 설계 단계" /><published>2017-08-07T00:00:00+09:00</published><updated>2017-08-07T00:00:00+09:00</updated><id>https://lahuman.github.io/20170807-phase</id><content type="html" xml:base="https://lahuman.github.io/20170807-phase/">&lt;h1 id=&quot;데이터베이스-설계의-개요&quot;&gt;데이터베이스 설계의 개요&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.0">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2017-08-08T14:27:53+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">[2017-08-08] 시작,계획,실행,체크,종료</title><link href="https://lahuman.github.io/20170808-phase/" rel="alternate" type="text/html" title="[2017-08-08] 시작,계획,실행,체크,종료" /><published>2017-08-07T00:00:00+09:00</published><updated>2017-08-07T00:00:00+09:00</updated><id>https://lahuman.github.io/20170808-phase</id><content type="html" xml:base="https://lahuman.github.io/20170808-phase/">&lt;h1 id=&quot;최소-실행-프로세스&quot;&gt;최소 실행 프로세스&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;시작 - 상급자 또는 동료에게 요청을 받고 진행&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;계획 - 필요한 리소스, 인력, 일정 등의 계획&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;실행 - 계획된 작업 진행&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;체크 - 계획 되로 업무가 진행되었는지 확인&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;종료 - 상급자 또는 동료에게 종료 확인&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;시작---계획---실행---체크---종료&quot;&gt;시작 -&amp;gt; (계획 &amp;lt;-&amp;gt; 실행 &amp;lt;-&amp;gt; 체크) -&amp;gt; 종료&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;계획, 실행, 체크&lt;/strong&gt;의 단계는 &lt;strong&gt;반복&lt;/strong&gt; 될수 있다.&lt;/p&gt;</content><author><name></name></author><category term="단상" /><summary type="html">IPECC 라는데 알아두자.</summary></entry><entry><title type="html">[2017-08-07] 데이터 베이스 개요와 설계 단계</title><link href="https://lahuman.github.io/20170807-phase/" rel="alternate" type="text/html" title="[2017-08-07] 데이터 베이스 개요와 설계 단계" /><published>2017-08-07T00:00:00+09:00</published><updated>2017-08-07T00:00:00+09:00</updated><id>https://lahuman.github.io/20170807-phase</id><content type="html" xml:base="https://lahuman.github.io/20170807-phase/">&lt;h1 id=&quot;데이터베이스-설계의-개요&quot;&gt;데이터베이스 설계의 개요&lt;/h1&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
@@ -151,14 +173,4 @@ Martin Fowler 가 먼저 언급하였다고 전해지며,&lt;br /&gt;&lt;/li&gt;
 
 &lt;p&gt;인생에 여유따위는 개나 줘버리라는 건가? &lt;br /&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;일도-중요하지만-삶과-가족이-먼저라고-생각한다&quot;&gt;일도 중요하지만 삶과 가족이 먼저라고 생각한다.&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">삶에서 가장 중요한 것이 무엇인지 다시 생각 하자.</summary></entry><entry><title type="html">[2017-07-17]단상 - 아무것도 안하지만, 격하게 더 아무것도 안하고 싶다.</title><link href="https://lahuman.github.io/20160717-phase/" rel="alternate" type="text/html" title="[2017-07-17]단상 - 아무것도 안하지만, 격하게 더 아무것도 안하고 싶다." /><published>2017-07-17T00:00:00+09:00</published><updated>2017-07-17T00:00:00+09:00</updated><id>https://lahuman.github.io/20160717-phase</id><content type="html" xml:base="https://lahuman.github.io/20160717-phase/">&lt;h1 id=&quot;갑자기-아무것도-하기-싫다&quot;&gt;갑자기 아무것도 하기 싫다.&lt;/h1&gt;
-
-&lt;p&gt;왜 사는지도 모르겠고, 나에게 정말 중요한 사람들에게 잘 해주지 못하는 것도 싫다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;특히 가족들과 함께 보내는 시간이 즐거워야 하는데 그렇지 못하는게 너무 싫다. &lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;내가 힘드니 아내도 힘들어지고 가족이 모두 힘들어 진다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;잠시만 &lt;strong&gt;한 박자만 쉬었다 간다&lt;/strong&gt;고 생각 하자.&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;이것-또한-지나가리라&quot;&gt;이것 또한 지나가리라…&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">이것 또한 지나가리라...</summary></entry></feed>
+&lt;h2 id=&quot;일도-중요하지만-삶과-가족이-먼저라고-생각한다&quot;&gt;일도 중요하지만 삶과 가족이 먼저라고 생각한다.&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">삶에서 가장 중요한 것이 무엇인지 다시 생각 하자.</summary></entry></feed>
