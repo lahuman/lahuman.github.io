@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.5.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2017-08-18T11:37:14+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">[2017-08-18] Jekyll가 Windows에서도 설치 된다.</title><link href="https://lahuman.github.io/jekyll_install_on_windows/" rel="alternate" type="text/html" title="[2017-08-18] Jekyll가 Windows에서도 설치 된다." /><published>2017-08-18T00:00:00+09:00</published><updated>2017-08-18T00:00:00+09:00</updated><id>https://lahuman.github.io/jekyll_install_on_windows</id><content type="html" xml:base="https://lahuman.github.io/jekyll_install_on_windows/">&lt;h1 id=&quot;jekyll-windows-설치&quot;&gt;Jekyll Windows 설치&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.5.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2017-08-18T12:05:41+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">[2017-08-18] Jekyll가 Windows에서도 설치 된다.</title><link href="https://lahuman.github.io/jekyll_install_on_windows/" rel="alternate" type="text/html" title="[2017-08-18] Jekyll가 Windows에서도 설치 된다." /><published>2017-08-18T00:00:00+09:00</published><updated>2017-08-18T00:00:00+09:00</updated><id>https://lahuman.github.io/jekyll_install_on_windows</id><content type="html" xml:base="https://lahuman.github.io/jekyll_install_on_windows/">&lt;h1 id=&quot;jekyll-windows-설치&quot;&gt;Jekyll Windows 설치&lt;/h1&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://jekyllrb.com/docs/windows/&quot;&gt;설치 가이드&lt;/a&gt;&lt;/p&gt;
 
@@ -40,7 +40,23 @@ jekyll 3.5.2 | Error:  jekyll-sitemap
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;h2 id=&quot;다시-홈페이지-업데이트를-하자&quot;&gt;다시 홈페이지 업데이트를 하자!&lt;/h2&gt;</content><category term="단상" /><summary type="html">올해 초만 해도 안되었는데...</summary></entry><entry><title type="html">[2017-08-08] 시작,계획,실행,체크,종료</title><link href="https://lahuman.github.io/20170808-phase/" rel="alternate" type="text/html" title="[2017-08-08] 시작,계획,실행,체크,종료" /><published>2017-08-07T00:00:00+09:00</published><updated>2017-08-07T00:00:00+09:00</updated><id>https://lahuman.github.io/20170808-phase</id><content type="html" xml:base="https://lahuman.github.io/20170808-phase/">&lt;h1 id=&quot;최소-실행-프로세스&quot;&gt;최소 실행 프로세스&lt;/h1&gt;
+&lt;h2 id=&quot;다시-홈페이지-업데이트를-하자&quot;&gt;다시 홈페이지 업데이트를 하자!&lt;/h2&gt;</content><category term="jekyll" /><category term="install" /><category term="windows" /><summary type="html">올해 초만 해도 안되었는데...</summary></entry><entry><title type="html">[2017-08-18] 배가 침몰하는게 보인다.</title><link href="https://lahuman.github.io/20170818-phase/" rel="alternate" type="text/html" title="[2017-08-18] 배가 침몰하는게 보인다." /><published>2017-08-18T00:00:00+09:00</published><updated>2017-08-18T00:00:00+09:00</updated><id>https://lahuman.github.io/20170818-phase</id><content type="html" xml:base="https://lahuman.github.io/20170818-phase/">&lt;h1 id=&quot;퇴사-하신분과-인계-받은-분은-있지만-업무-담당자는-없다&quot;&gt;퇴사 하신분과 인계 받은 분은 있지만 업무 담당자는 없다.&lt;/h1&gt;
+
+&lt;p&gt;인수 인계가 엉망으로 진행 되는 것이 보였지만, 이렇게 책임감 없게 일 처리를 할 줄은 몰랐다. &lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;DBA Roll을 인계 받은 분은 3주째 DISK 가 90%를 Over 했지만, 아무런 행동을 하지 않는다. &lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;더 대단한건 &lt;strong&gt;인계 받은게 없다고 자랑스럽게 이야기 한다&lt;/strong&gt; 는 것이다. &lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;부끄러움이 없는 것인지? 아니면 대단한 빽 때문인지.. &lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;초기 인계를 받을 수 없는 상황이면 명확하게 이야기 하고 다른 사람으로 대체를 요구 했어야 하는데 팀장 눈치 보느라 엉망으로 받아 놓고 이제 다른사람에게 넘기려고 한다. &lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;또 팀장은 이를 용인한다. &lt;strong&gt;그들만의 리그인가?&lt;/strong&gt; 공사를 구분 못하는 팀장과 일하는 건 힘들다. &lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;부끄러움을 모르는 사람이라는 건 알고 있었지만… 공사 구분조차 못하는 사람일 줄은 몰랐다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;결국-그-일은-힘없고-빽없고-묵묵히-일하는-사람의-것이-되었다&quot;&gt;결국 그 일은 힘없고 빽없고 묵묵히 일하는 사람의 것이 되었다.&lt;/h2&gt;</content><category term="단상" /><summary type="html">침몰하는 것을 보고 있을 수 없어 이야기 해보지만...</summary></entry><entry><title type="html">[2017-08-08] 시작,계획,실행,체크,종료</title><link href="https://lahuman.github.io/20170808-phase/" rel="alternate" type="text/html" title="[2017-08-08] 시작,계획,실행,체크,종료" /><published>2017-08-08T00:00:00+09:00</published><updated>2017-08-08T00:00:00+09:00</updated><id>https://lahuman.github.io/20170808-phase</id><content type="html" xml:base="https://lahuman.github.io/20170808-phase/">&lt;h1 id=&quot;최소-실행-프로세스&quot;&gt;최소 실행 프로세스&lt;/h1&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
@@ -171,22 +187,4 @@ Martin Fowler 가 먼저 언급하였다고 전해지며,&lt;br /&gt;&lt;/li&gt;
 
 &lt;p&gt;다만, 나의 부정적인 감정이 전파되어 다른 사람도 부정적이 되지 않도록 하자&lt;br /&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;부정적인-시선-감정은-나만의-것으로-하는-걸로&quot;&gt;부정적인 시선, 감정은 나만의 것으로 하는 걸로~&lt;/h2&gt;</content><category term="단상" /><summary type="html">긍정적으로 바뀌어 보자.</summary></entry><entry><title type="html">[2017-07-21]단상 - 결국 올 것이 오고있다.</title><link href="https://lahuman.github.io/20170721-phase/" rel="alternate" type="text/html" title="[2017-07-21]단상 - 결국 올 것이 오고있다." /><published>2017-07-21T00:00:00+09:00</published><updated>2017-07-21T00:00:00+09:00</updated><id>https://lahuman.github.io/20170721-phase</id><content type="html" xml:base="https://lahuman.github.io/20170721-phase/">&lt;h1 id=&quot;팀장과의-불화로-여러-팀원이-떠나고-나서-2개월이-흘렀다&quot;&gt;팀장과의 불화로 여러 팀원이 떠나고 나서 2개월이 흘렀다.&lt;/h1&gt;
-
-&lt;p&gt;그동안 발생하지 않았던, 문제들이 하나씩 터지고 있다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;물론 이런일은 어느정도 예상은 했었다. &lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;장애가 발생했을때, 결국 인수 인계를 받은 사람들은 많은 스트레스와 고생을 하였고, &lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;팀장은 뒤에서 뒷짐지고 유료툴을 이용해서 모니터링을 해야 한다는 이야기를 하고 있다. &lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;장애의 해결을 위해 진행되는 동안, 결국 고생은 남은 사람의 몫이었다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;이번 장애는 약 12시간 이상 진행되었다. 이에 대한 책임은 누가 져야 하는가?&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;인수인계를 제대로 받지 못한 인계자? &lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;팀원을 떠나보내고 나몰라라 자기만의 세상에 빠져있는 팀장? &lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;다만-이번일이-end가-아닌-and가-될-것이라는게-걱정이다&quot;&gt;다만, 이번일이 END가 아닌 AND가 될 것이라는게 걱정이다.&lt;/h2&gt;</content><category term="단상" /><summary type="html">팀 전체에 문제가 있다면, 이는 감독의 잘못이다.</summary></entry></feed>
+&lt;h2 id=&quot;부정적인-시선-감정은-나만의-것으로-하는-걸로&quot;&gt;부정적인 시선, 감정은 나만의 것으로 하는 걸로~&lt;/h2&gt;</content><category term="단상" /><summary type="html">긍정적으로 바뀌어 보자.</summary></entry></feed>
