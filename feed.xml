@@ -1,4 +1,22 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.5.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2017-08-18T12:05:41+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">[2017-08-18] Jekyll가 Windows에서도 설치 된다.</title><link href="https://lahuman.github.io/jekyll_install_on_windows/" rel="alternate" type="text/html" title="[2017-08-18] Jekyll가 Windows에서도 설치 된다." /><published>2017-08-18T00:00:00+09:00</published><updated>2017-08-18T00:00:00+09:00</updated><id>https://lahuman.github.io/jekyll_install_on_windows</id><content type="html" xml:base="https://lahuman.github.io/jekyll_install_on_windows/">&lt;h1 id=&quot;jekyll-windows-설치&quot;&gt;Jekyll Windows 설치&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.5.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2017-08-21T09:02:31+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">[2017-08-20] 퇴사의 큰 이유중 하나는 상사의 모습이다.</title><link href="https://lahuman.github.io/20170821-phase/" rel="alternate" type="text/html" title="[2017-08-20] 퇴사의 큰 이유중 하나는 상사의 모습이다." /><published>2017-08-20T00:00:00+09:00</published><updated>2017-08-20T00:00:00+09:00</updated><id>https://lahuman.github.io/20170821-phase</id><content type="html" xml:base="https://lahuman.github.io/20170821-phase/">&lt;h1 id=&quot;회사를-다니며-상급자를-바라보는-시점은-크게-두가지로-분류-된다&quot;&gt;회사를 다니며 상급자를 바라보는 시점은 크게 두가지로 분류 된다.&lt;/h1&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;저렇게 되진 말자&lt;/li&gt;
+  &lt;li&gt;많이 배우고, 뒷바침할 수 있는 사람이 되자.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;결과적으로 1번의 경우는 오랜 시간이 지나지 않아 퇴사를 하게 된다.&lt;br /&gt;
+다니고 싶은 회사를 만들고 싶다면, 우선 윗사람 부터 모범을 보여야 한다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;늘어질때로 늘어진 상급자나, 정치만 하는 상급자만 있는 회사라면 발전보단 퇴보를 하게 될것이다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;이런 생각을 가지고 있지만, 누군가는 이야기 했다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;자본 주의 시장에서 일을 열심히 하든지, 시간만 때우든지 나오는 급여가 같기 때문에 힘들 것입니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;틀린-말은-아니지만-슬프다&quot;&gt;틀린 말은 아니지만 슬프다.&lt;/h2&gt;</content><category term="단상" /><summary type="html">상급자처럼 변하는 자신을 받아 들일 수 없을 때 퇴사하게 된다.</summary></entry><entry><title type="html">[2017-08-18] Jekyll가 Windows에서도 설치 된다.</title><link href="https://lahuman.github.io/jekyll_install_on_windows/" rel="alternate" type="text/html" title="[2017-08-18] Jekyll가 Windows에서도 설치 된다." /><published>2017-08-18T00:00:00+09:00</published><updated>2017-08-18T00:00:00+09:00</updated><id>https://lahuman.github.io/jekyll_install_on_windows</id><content type="html" xml:base="https://lahuman.github.io/jekyll_install_on_windows/">&lt;h1 id=&quot;jekyll-windows-설치&quot;&gt;Jekyll Windows 설치&lt;/h1&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://jekyllrb.com/docs/windows/&quot;&gt;설치 가이드&lt;/a&gt;&lt;/p&gt;
 
@@ -181,10 +199,4 @@ Martin Fowler 가 먼저 언급하였다고 전해지며,&lt;br /&gt;&lt;/li&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://tkddlf59.github.io/2016/10/10/2016-10-10-msa1/&quot;&gt;MSA 란?&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://brunch.co.kr/@yudong/33&quot;&gt;RxJava&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="단상" /><summary type="html">대세는 Reactive 인듯...</summary></entry><entry><title type="html">[2017-07-24]단상 - 긍정적인 사람이 되자</title><link href="https://lahuman.github.io/20170724-phase/" rel="alternate" type="text/html" title="[2017-07-24]단상 - 긍정적인 사람이 되자" /><published>2017-07-24T00:00:00+09:00</published><updated>2017-07-24T00:00:00+09:00</updated><id>https://lahuman.github.io/20170724-phase</id><content type="html" xml:base="https://lahuman.github.io/20170724-phase/">&lt;h1 id=&quot;긍정적이-되도록-노력하자&quot;&gt;긍정적이 되도록 노력하자.&lt;/h1&gt;
-
-&lt;p&gt;사실 의미가 있는지는 모르겠다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;다만, 나의 부정적인 감정이 전파되어 다른 사람도 부정적이 되지 않도록 하자&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;부정적인-시선-감정은-나만의-것으로-하는-걸로&quot;&gt;부정적인 시선, 감정은 나만의 것으로 하는 걸로~&lt;/h2&gt;</content><category term="단상" /><summary type="html">긍정적으로 바뀌어 보자.</summary></entry></feed>
+&lt;/ul&gt;</content><category term="단상" /><summary type="html">대세는 Reactive 인듯...</summary></entry></feed>
