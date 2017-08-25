@@ -1,4 +1,22 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.5.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2017-08-24T08:47:35+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">[2017-08-24] 요즘 도통 잠을 못잔다.</title><link href="https://lahuman.github.io/20170824-phase/" rel="alternate" type="text/html" title="[2017-08-24] 요즘 도통 잠을 못잔다." /><published>2017-08-24T00:00:00+09:00</published><updated>2017-08-24T00:00:00+09:00</updated><id>https://lahuman.github.io/20170824-phase</id><content type="html" xml:base="https://lahuman.github.io/20170824-phase/">&lt;h1 id=&quot;새벽-3시쯤-잠에서-깨고-만다&quot;&gt;새벽 3시쯤 잠에서 깨고 만다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.5.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2017-08-25T18:30:00+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">[2017-08-25] 내가 만드는 산출물의 가격은 얼마일까?</title><link href="https://lahuman.github.io/20170825-phase/" rel="alternate" type="text/html" title="[2017-08-25] 내가 만드는 산출물의 가격은 얼마일까?" /><published>2017-08-25T00:00:00+09:00</published><updated>2017-08-25T00:00:00+09:00</updated><id>https://lahuman.github.io/20170825-phase</id><content type="html" xml:base="https://lahuman.github.io/20170825-phase/">&lt;h1 id=&quot;산출물의-가치&quot;&gt;산출물의 가치&lt;/h1&gt;
+
+&lt;p&gt;&lt;strong&gt;“너희가 일주일동안 만드는 문서의 가치는 얼마 일것 같으냐?”&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;함께 일하는 팀장분이 팀원에게 물은 질문이었다. &lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;문서 자체의 퀄리티는 낮지만, 내용면에서는 빠짐없이 채워 넣었기 때문에 자신이 있었다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;팀장 분이 다시 물었다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;“너 라면 그 문서를 얼마에 살꺼냐?”&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;사실 문서의 내용의 면에서는 자신 있었지만, 외적인 요소(꾸밈)은 자신이 없었다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;문서내의 폰트를 변경하고, 오탈자를 고치고 등의 작업이 필요하다는 것은 절실하게 느끼고 있었지만, 누구도 하고 싶어 하지 않는 일이 었다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;나도 어떤 물건을 살때 물건의 가치에 외적인 요소가 빠질 수 없다고 생각한다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;문서-작성도-열심히-하자&quot;&gt;문서 작성도 열심히 하자!&lt;/h2&gt;</content><category term="단상" /><summary type="html">내가 받는 급여보다 높은 가치가 있다고 생각한다.</summary></entry><entry><title type="html">[2017-08-24] 요즘 도통 잠을 못잔다.</title><link href="https://lahuman.github.io/20170824-phase/" rel="alternate" type="text/html" title="[2017-08-24] 요즘 도통 잠을 못잔다." /><published>2017-08-24T00:00:00+09:00</published><updated>2017-08-24T00:00:00+09:00</updated><id>https://lahuman.github.io/20170824-phase</id><content type="html" xml:base="https://lahuman.github.io/20170824-phase/">&lt;h1 id=&quot;새벽-3시쯤-잠에서-깨고-만다&quot;&gt;새벽 3시쯤 잠에서 깨고 만다.&lt;/h1&gt;
 
 &lt;p&gt;요즘 도통 잠을 깊게 자지 못하고, 새벽녘에 깨어 버린다.&lt;br /&gt;&lt;/p&gt;
 
@@ -182,12 +200,4 @@ jekyll 3.5.2 | Error:  jekyll-sitemap
 
 &lt;p&gt;하지만 내 글씨를 볼때 마다 화가 난다. &lt;br /&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;글씨를-잘-쓰거나-그림을-잘-그리는-사람이-부럽다&quot;&gt;글씨를 잘 쓰거나, 그림을 잘 그리는 사람이 부럽다.&lt;/h2&gt;</content><category term="단상" /><summary type="html">생각을 정리 할때 낙서 만큼 좋은게 없다.</summary></entry><entry><title type="html">[2017-07-31] 가족과 보낸 시간은 앞으로 나아갈 힘을 준다.</title><link href="https://lahuman.github.io/20170731-phase/" rel="alternate" type="text/html" title="[2017-07-31] 가족과 보낸 시간은 앞으로 나아갈 힘을 준다." /><published>2017-07-31T00:00:00+09:00</published><updated>2017-07-31T00:00:00+09:00</updated><id>https://lahuman.github.io/20170731-phase</id><content type="html" xml:base="https://lahuman.github.io/20170731-phase/">&lt;h1 id=&quot;가족과-함께-보낸-주말은-정신이-없다&quot;&gt;가족과 함께 보낸 주말은 정신이 없다.&lt;/h1&gt;
-
-&lt;p&gt;아이와 씨름을 하다보면 하루가 어떻게 지나가는지 모르게 지나간다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;다시 월요일이 되어 출근을 하게 되면 일에 집중할 수 있다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;아이와 함게 보내며 몰입을 하여서 그런거 같기도 하다 &lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;하지만-꼭-쉬어서-그런건-아니다&quot;&gt;하지만 꼭 쉬어서 그런건 아니다.&lt;/h2&gt;</content><category term="단상" /><summary type="html">꼭 쉬어서는 아니고 일하고 싶어진다.</summary></entry></feed>
+&lt;h2 id=&quot;글씨를-잘-쓰거나-그림을-잘-그리는-사람이-부럽다&quot;&gt;글씨를 잘 쓰거나, 그림을 잘 그리는 사람이 부럽다.&lt;/h2&gt;</content><category term="단상" /><summary type="html">생각을 정리 할때 낙서 만큼 좋은게 없다.</summary></entry></feed>
