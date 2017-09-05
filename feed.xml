@@ -1,4 +1,129 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.5.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2017-09-04T12:08:32+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">[2017-09-04] 자기 얼굴에 금칠 하는 건 하지 말자</title><link href="https://lahuman.github.io/20170904-phase/" rel="alternate" type="text/html" title="[2017-09-04] 자기 얼굴에 금칠 하는 건 하지 말자" /><published>2017-09-04T00:00:00+09:00</published><updated>2017-09-04T00:00:00+09:00</updated><id>https://lahuman.github.io/20170904-phase</id><content type="html" xml:base="https://lahuman.github.io/20170904-phase/">&lt;h1 id=&quot;본인이-잘났다고-큰소리-치고-다니는-분을-보면&quot;&gt;본인이 잘났다고 큰소리 치고 다니는 분을 보면…&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.5.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2017-09-05T15:07:22+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">[2017-09-05] PostgreSQL Replication</title><link href="https://lahuman.github.io/pg_replication/" rel="alternate" type="text/html" title="[2017-09-05] PostgreSQL Replication" /><published>2017-09-05T00:00:00+09:00</published><updated>2017-09-05T00:00:00+09:00</updated><id>https://lahuman.github.io/pg_replication</id><content type="html" xml:base="https://lahuman.github.io/pg_replication/">&lt;h1 id=&quot;postgresql-내장-기능을-이용한-복제-스탠바이-서버-구축&quot;&gt;PostgreSQL 내장 기능을 이용한 복제 스탠바이 서버 구축&lt;/h1&gt;
+
+&lt;h2 id=&quot;사전-지식&quot;&gt;사전 지식&lt;/h2&gt;
+
+&lt;h3 id=&quot;wal-write-ahead-log&quot;&gt;&lt;a href=&quot;https://ko.wikipedia.org/wiki/%EB%A1%9C%EA%B7%B8_%EC%84%A0%ED%96%89_%EA%B8%B0%EC%9E%85&quot;&gt;WAL-Write Ahead Log&lt;/a&gt;&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;마스터 서버에서 발생하는 모든 작업 로그 생성&lt;/li&gt;
+  &lt;li&gt;생성된 로그를 슬레이브 서버로 전달&lt;/li&gt;
+  &lt;li&gt;슬레이브 서버에서 받은 로그의 복원(재실행)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;위와 같은 동작으로 마스터 서버와 같은 스키마/데이터를 가지는 복제 서버를 생성한다.
+이 마스터 서버의 로그를 &lt;strong&gt;WAL&lt;/strong&gt; 이라고 하며, 로그 위치는 &lt;strong&gt;$PG_SQL/data/pg_xlog&lt;/strong&gt; 에 쌓인다.&lt;/p&gt;
+
+&lt;h3 id=&quot;wal-전달-방식&quot;&gt;WAL 전달 방식&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Log-Shipping 방식 : &lt;kbd&gt;pg_xlog&lt;/kbd&gt; 안의 WAL 파일 자체를 슬레이브 서버로 전달(File Copy)&lt;/li&gt;
+  &lt;li&gt;Streaming 방식 : WAL 파일 저장 여부와 관계 없이 로그의 내용을 슬레이브 서버로 전달(Streaming)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;log-shipping&quot;&gt;Log-Shipping&lt;/h4&gt;
+
+&lt;p&gt;마스터 서버에서 저장된 WAL 파일의 크기를 지정된 사이즈 많큼 채워야 슬레이브 서버로 전송, 채워지는 시간동안 마스터/슬레이브 서버의 데이터가 어긋남&lt;br /&gt;
+마스터 서버의 장애 발생시, WAL 파일을 다 채우지 못하여 전달되지 않을경우 데이터의 유실 있음&lt;/p&gt;
+
+&lt;h3 id=&quot;streaming&quot;&gt;Streaming&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Streaming 방식은 PostgreSQL 9.0 이상에서 사용이 가능하다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;두 서버 간의 네트워크 문제가 없다는 가정하에, 거의 실시간으로 동작(1초 미만의 작은 지연 발생 가능)&lt;br /&gt;
+슬레이브 서버의 긴 장애가 발생하여 문제가 생길 경우, 유실된 데이터 복구 방법은 &lt;strong&gt;슬레이브 서버를 처음부터 다시 구축&lt;/strong&gt; 해야한다.&lt;br /&gt;
+따라서 Streaming 방식을 사용하더라도, 이와 같은 문제를 피하기 위해서 Log-Shipping 방식을 적용해 놓는 것이 좋다.&lt;/p&gt;
+
+&lt;h2 id=&quot;streaming-replication-적용&quot;&gt;Streaming Replication 적용&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;https://lahuman.github.io/postgreesql_install/&quot;&gt;PostgreSQL 설치는 기존에 작성된 게시글 참조&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;kbd&gt;마스터&lt;/kbd&gt;와 &lt;kbd&gt;슬레이브&lt;/kbd&gt; 2대의 서버가 존재 하는 상테에서 진행 된다.&lt;br /&gt;
+실행 계정은 설치 할때 생성한 &lt;kbd&gt;postgres&lt;/kbd&gt; 이다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;복제-전용-유저-생성&quot;&gt;복제 전용 유저 생성&lt;/h3&gt;
+
+&lt;p&gt;Streaming 방식 적용을 위해 슬레이브 서버에서 마스터 서버에 접근할 Replication 전용 유저를 생성한다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;마스터-서버-설정&quot;&gt;마스터 서버 설정&lt;/h3&gt;
+&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ROLE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;repluser&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;WITH&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;REPLICATION&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;PASSWORD&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;''&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;LOGIN&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;방금 생성한 계정의 접근 권한을 설정하기 위해 &lt;kbd&gt;$PG_SQL/data/pg_hba.conf&lt;/kbd&gt; 파일에 다음을 추가 한다.&lt;br /&gt;
+&lt;strong&gt;원본 문서에서는 &lt;kbd&gt;md5&lt;/kbd&gt;로 되어 있으나 단순하게 trust로 변경&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;host    replication     repluser     192.168.0.0/32      trust
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;복제를 위한 &lt;kbd&gt;$PG_SQL/data/postgresql.conf&lt;/kbd&gt; 설정 변경&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;listen_addresses &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'*'&lt;/span&gt;  &lt;span class=&quot;c&quot;&gt;# 인증/권한 관리는 pg_hba.conf 파일에서 진행&lt;/span&gt;
+wal_level &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; hot_standby  &lt;span class=&quot;c&quot;&gt;# 대기 서버에 읽기전용 작업 가능&lt;/span&gt;
+max_wal_senders &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 2  &lt;span class=&quot;c&quot;&gt;# WAL 파일을 전송할 수 있는 최대 서버 수&lt;/span&gt;
+wal_keep_segments &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 32  &lt;span class=&quot;c&quot;&gt;# 마스터 서버 디렉토리에 보관할 최근 WAL 파일의 수&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;슬레이브-서버-설정&quot;&gt;슬레이브 서버 설정&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;마스터 서버 basebackup&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;kbd&gt;pg_basebackup&lt;/kbd&gt; 명령어를 이용하여 최초 백업을 진행 한다.&lt;br /&gt;
+이 명령은 마스터 서버의 &lt;kbd&gt;$PG_SQL/data&lt;/kbd&gt; 디렉토리를 통째로 슬레이브 서버의 &lt;kbd&gt;$PG_SQL/data&lt;/kbd&gt; 디렉토리로 복제/복원 하는 명령이다.&lt;br /&gt;
+&lt;strong&gt;이 명령을 실행하기 전에 슬레이브서버에 &lt;kbd&gt;$PG_SQL/data&lt;/kbd&gt;는 비어 있어야 한다.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$PG_SQL&lt;/span&gt;/bin/pg_basebackup -h &lt;span class=&quot;nv&quot;&gt;$MASTER_IP&lt;/span&gt; -D &lt;span class=&quot;nv&quot;&gt;$PG_SQL&lt;/span&gt;/data -U repluser -v -P --xlog-method&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;stream
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;설정 변경&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;kbd&gt;$PG_SQL/data/postgresql.conf&lt;/kbd&gt; 설정 변경&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;listen_addresses &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'*'&lt;/span&gt;  &lt;span class=&quot;c&quot;&gt;# 인증/권한 관리는 pg_hba.conf 파일에서 진행&lt;/span&gt;
+hot_standby &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; on  &lt;span class=&quot;c&quot;&gt;# 대기 서버에 읽기전용 작업 가능&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;kbd&gt;$PG_SQL/data/recovery.conf&lt;/kbd&gt; 파일을 추가 하고 다음의 내용을 작성한다.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;standby_mode &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; on
+primary_conninfo &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'host=MASTER_IP port=5432 user=repluser password=password'&lt;/span&gt;
+trigger_file &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'/path/of/triggerfile'&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# failover시 마스터 승격을 위한 트리거 파일&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;kbd&gt;primary_conninfo&lt;/kbd&gt; 옵션 정보로 마스터 서버에 접속해 실시간 WAL 파일을 전달 받는다. &lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;슬레이브 서버를 마스터 서버로 전환하는 방법은 두가지가 있는데, &lt;kbd&gt;pg_ctl promote&lt;/kbd&gt; 명령어를 이용하는 방법과 &lt;kbd&gt;recovery.conf&lt;/kbd&gt;파일의 &lt;kbd&gt;trigger_file&lt;/kbd&gt; 옵션을 이용하는 방법이다.&lt;br /&gt;
+단순하게 해당 경로에 파일이 생성되었을 때,(&lt;kbd&gt;touch&lt;/kbd&gt; 등으로) 스텐바이 서버가 새로운 마스터로 승격된다.&lt;br /&gt;
+&lt;strong&gt;슬레이브 서버를 마스터로 변경할때는 기존 마스터가 확실히가 다운된 상태인지 확인 해야 한다.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;failback&quot;&gt;Failback&lt;/h2&gt;
+
+&lt;p&gt;기본적으로 Failback을 위한 특별한 기능이 제공되지 않는다. 따라서 다음과 같은 단계를 거쳐야 한다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;마스터 서버 장애가 복구 되면 이 서버를 슬레이브 서버로 구축&lt;/li&gt;
+  &lt;li&gt;새 마스터 서버(기존 슬레이브)를 강제로 다운&lt;/li&gt;
+  &lt;li&gt;새로 구축된 슬레이브(구 마스터)를 마스터 서버로 승격&lt;/li&gt;
+  &lt;li&gt;슬레이브 서버 재 구축&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;이외의 방법은 &lt;a href=&quot;https://wiki.postgresql.org/wiki/Replication,_Clustering,_and_Connection_Pooling&quot;&gt;PostgreSQL Wiki의 한 페이지-Replication, Clustering, and Connection Pooling&lt;/a&gt;에서 볼 수 있다.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://qodot.github.io/post/postgresql-replication-%EA%B5%AC%EC%B6%95%ED%95%98%EA%B8%B0/&quot;&gt;PostgreSQL Replication 구축하기&lt;/a&gt; &lt;br /&gt;
+&lt;a href=&quot;http://linux.systemv.pe.kr/postgresql-replication-log-shipping&quot;&gt;PostgreSQL Replication – Log Shipping&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;http://linux.systemv.pe.kr/postgresql-9-x-replication-streaming-log&quot;&gt;Postgresql 9.x Replication – Streaming Log&lt;/a&gt;&lt;br /&gt;&lt;/p&gt;</content><category term="PostgreSQL" /><category term="HA구성" /><summary type="html">PostgreSQL에서 기본으롤 제공하는 Replication 설정</summary></entry><entry><title type="html">[2017-09-04] 자기 얼굴에 금칠 하는 건 하지 말자</title><link href="https://lahuman.github.io/20170904-phase/" rel="alternate" type="text/html" title="[2017-09-04] 자기 얼굴에 금칠 하는 건 하지 말자" /><published>2017-09-04T00:00:00+09:00</published><updated>2017-09-04T00:00:00+09:00</updated><id>https://lahuman.github.io/20170904-phase</id><content type="html" xml:base="https://lahuman.github.io/20170904-phase/">&lt;h1 id=&quot;본인이-잘났다고-큰소리-치고-다니는-분을-보면&quot;&gt;본인이 잘났다고 큰소리 치고 다니는 분을 보면…&lt;/h1&gt;
 
 &lt;p&gt;그냥 &lt;strong&gt;광대&lt;/strong&gt; 같이 느껴진다.&lt;br /&gt;&lt;/p&gt;
 
@@ -164,40 +289,4 @@ jekyll 3.5.2 | Error:  jekyll-sitemap
 
 &lt;h2 id=&quot;시작---계획---실행---체크---종료&quot;&gt;시작 -&amp;gt; (계획 &amp;lt;-&amp;gt; 실행 &amp;lt;-&amp;gt; 체크) -&amp;gt; 종료&lt;/h2&gt;
 
-&lt;p&gt;&lt;strong&gt;계획, 실행, 체크&lt;/strong&gt;의 단계는 &lt;strong&gt;반복&lt;/strong&gt; 될수 있다.&lt;/p&gt;</content><category term="단상" /><summary type="html">IPECC 라는데 알아두자.</summary></entry><entry><title type="html">[2017-08-07] 데이터 베이스 개요와 설계 단계</title><link href="https://lahuman.github.io/20170807-phase/" rel="alternate" type="text/html" title="[2017-08-07] 데이터 베이스 개요와 설계 단계" /><published>2017-08-07T00:00:00+09:00</published><updated>2017-08-07T00:00:00+09:00</updated><id>https://lahuman.github.io/20170807-phase</id><content type="html" xml:base="https://lahuman.github.io/20170807-phase/">&lt;h1 id=&quot;데이터베이스-설계의-개요&quot;&gt;데이터베이스 설계의 개요&lt;/h1&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;한 조직의 여러 응용 시스템을 다수의 사용자가 공용으로 사용하기 위해 통합, 저장된 운영 데이터 집합&lt;/strong&gt;이라고 정의 된다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;데이터 베이스의 목적은 데이터를 조직화하여 저장할 수 있는 명확한 체계를 설계하는 것이다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;데이터베이스 설계 과정은 사용자 요구사항을 분석 하여 개념적 데이터베이스 설계, 논리적 데이터베이스 설계, 물리적 데이터 베이스 설계의 단위로 진행된다.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;개념-단계&quot;&gt;개념 단계&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;사용자 요구의 구체화를 위한 ER 모델링을 적용하는 단계&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;논리-단계&quot;&gt;논리 단계&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;특정 DBMS를 사용하기 위한 논리적 구조와 스키마를 설계 하는 단계&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;물리-단계&quot;&gt;물리 단계&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;데이터가 DB에 저장되기 위한 저장 구조 기술&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;참조&quot;&gt;참조&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;방통 대학원 데이터베이스 수업&lt;/li&gt;
-&lt;/ul&gt;</content><category term="단상" /><summary type="html">데이터 베이스 공부중...</summary></entry></feed>
+&lt;p&gt;&lt;strong&gt;계획, 실행, 체크&lt;/strong&gt;의 단계는 &lt;strong&gt;반복&lt;/strong&gt; 될수 있다.&lt;/p&gt;</content><category term="단상" /><summary type="html">IPECC 라는데 알아두자.</summary></entry></feed>
