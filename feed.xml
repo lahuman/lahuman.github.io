@@ -1,4 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.5.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2017-09-11T14:30:23+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">[2017-09-11] VirtualBox 특정 가상머신 PORT를 HOST Port에 Forward 하기.</title><link href="https://lahuman.github.io/virtualbox_port_forwarding/" rel="alternate" type="text/html" title="[2017-09-11] VirtualBox 특정 가상머신 PORT를 HOST Port에 Forward 하기." /><published>2017-09-11T00:00:00+09:00</published><updated>2017-09-11T00:00:00+09:00</updated><id>https://lahuman.github.io/virtualbox_port_forwarding</id><content type="html" xml:base="https://lahuman.github.io/virtualbox_port_forwarding/">&lt;h1 id=&quot;virtualbox-특정-포트를-외부에서-접근하기&quot;&gt;VirtualBox 특정 포트를 외부에서 접근하기&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.5.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2017-09-12T11:56:38+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">[2017-09-12] 알고보면 지구는 티끌과 같은데…</title><link href="https://lahuman.github.io/20170912-phase/" rel="alternate" type="text/html" title="[2017-09-12] 알고보면 지구는 티끌과 같은데..." /><published>2017-09-12T00:00:00+09:00</published><updated>2017-09-12T00:00:00+09:00</updated><id>https://lahuman.github.io/20170912-phase</id><content type="html" xml:base="https://lahuman.github.io/20170912-phase/">&lt;h1 id=&quot;퇴근길에-유투브를-보았다&quot;&gt;퇴근길에 유투브를 보았다.&lt;/h1&gt;
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;//www.youtube.com/embed/DF1CB4x_XGQ&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;정말 세상이 작다는걸 느낀다.&lt;/p&gt;
+
+&lt;h2 id=&quot;뭐-그래도-나는-내일-전쟁을-하겠지만&quot;&gt;뭐.. 그래도 나는 내일 전쟁을 하겠지만…&lt;/h2&gt;</content><category term="단상" /><summary type="html">인생무상, 무상무념</summary></entry><entry><title type="html">[2017-09-11] VirtualBox 특정 가상머신 PORT를 HOST Port에 Forward 하기.</title><link href="https://lahuman.github.io/virtualbox_port_forwarding/" rel="alternate" type="text/html" title="[2017-09-11] VirtualBox 특정 가상머신 PORT를 HOST Port에 Forward 하기." /><published>2017-09-11T00:00:00+09:00</published><updated>2017-09-11T00:00:00+09:00</updated><id>https://lahuman.github.io/virtualbox_port_forwarding</id><content type="html" xml:base="https://lahuman.github.io/virtualbox_port_forwarding/">&lt;h1 id=&quot;virtualbox-특정-포트를-외부에서-접근하기&quot;&gt;VirtualBox 특정 포트를 외부에서 접근하기&lt;/h1&gt;
 
 &lt;p&gt;VirtualBox의 가상머신을 이용한 특정 서비스(SSH, DB, WEB, ETC)를 외부에 OPEN 하기 위한 가장 간단한 방법이다.&lt;br /&gt;&lt;/p&gt;
 
@@ -312,22 +318,4 @@ JSR-299 스펙에 의하면 javax.inject.Inject를 사용하는 것이 옳다고
 
 &lt;h2 id=&quot;참고-문헌&quot;&gt;참고 문헌&lt;/h2&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://stackoverflow.com/questions/7142622/what-is-the-difference-between-inject-and-autowired-in-spring-framework-which&quot;&gt;What is the difference between @Inject and @Autowired in Spring Framework? Which one to use under what condition?&lt;/a&gt;&lt;/p&gt;</content><category term="단상" /><summary type="html">책만 읽고 실무 경험이 없는 전문가</summary></entry><entry><title type="html">[2017-08-20] 퇴사의 큰 이유중 하나는 상사의 모습이다.</title><link href="https://lahuman.github.io/20170821-phase/" rel="alternate" type="text/html" title="[2017-08-20] 퇴사의 큰 이유중 하나는 상사의 모습이다." /><published>2017-08-20T00:00:00+09:00</published><updated>2017-08-20T00:00:00+09:00</updated><id>https://lahuman.github.io/20170821-phase</id><content type="html" xml:base="https://lahuman.github.io/20170821-phase/">&lt;h1 id=&quot;회사를-다니며-상급자를-바라보는-시점은-크게-두가지로-분류-된다&quot;&gt;회사를 다니며 상급자를 바라보는 시점은 크게 두가지로 분류 된다.&lt;/h1&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;저렇게 되진 말자&lt;/li&gt;
-  &lt;li&gt;많이 배우고, 뒷바침할 수 있는 사람이 되자.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;결과적으로 1번의 경우는 오랜 시간이 지나지 않아 퇴사를 하게 된다.&lt;br /&gt;
-다니고 싶은 회사를 만들고 싶다면, 우선 윗사람 부터 모범을 보여야 한다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;늘어질때로 늘어진 상급자나, 정치만 하는 상급자만 있는 회사라면 발전보단 퇴보를 하게 될것이다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;이런 생각을 가지고 있지만, 누군가는 이야기 했다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;자본 주의 시장에서 일을 열심히 하든지, 시간만 때우든지 나오는 급여가 같기 때문에 힘들 것입니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;틀린-말은-아니지만-슬프다&quot;&gt;틀린 말은 아니지만 슬프다.&lt;/h2&gt;</content><category term="단상" /><summary type="html">상급자처럼 변하는 자신을 받아 들일 수 없을 때 퇴사하게 된다.</summary></entry></feed>
+&lt;p&gt;&lt;a href=&quot;https://stackoverflow.com/questions/7142622/what-is-the-difference-between-inject-and-autowired-in-spring-framework-which&quot;&gt;What is the difference between @Inject and @Autowired in Spring Framework? Which one to use under what condition?&lt;/a&gt;&lt;/p&gt;</content><category term="단상" /><summary type="html">책만 읽고 실무 경험이 없는 전문가</summary></entry></feed>
