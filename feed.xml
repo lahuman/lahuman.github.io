@@ -1,4 +1,24 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.5.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2017-09-21T16:58:04+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">[2017-09-21] IntelliJ 를 사용하자</title><link href="https://lahuman.github.io/20170921-phase/" rel="alternate" type="text/html" title="[2017-09-21] IntelliJ 를 사용하자" /><published>2017-09-21T00:00:00+09:00</published><updated>2017-09-21T00:00:00+09:00</updated><id>https://lahuman.github.io/20170921-phase</id><content type="html" xml:base="https://lahuman.github.io/20170921-phase/">&lt;h1 id=&quot;intellij가-좋다고-하여-사용해보기를-몇번-시도를-했지만-늘-실패-하였다&quot;&gt;IntelliJ가 좋다고 하여 사용해보기를 몇번 시도를 했지만, 늘 실패 하였다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.5.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2017-09-25T11:50:18+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">[2017-09-25] 단어 빈도수 계산기</title><link href="https://lahuman.github.io/word_frequency_count/" rel="alternate" type="text/html" title="[2017-09-25] 단어 빈도수 계산기" /><published>2017-09-25T00:00:00+09:00</published><updated>2017-09-25T00:00:00+09:00</updated><id>https://lahuman.github.io/word_frequency_count</id><content type="html" xml:base="https://lahuman.github.io/word_frequency_count/">&lt;h1 id=&quot;단어-빈도수-계산기&quot;&gt;단어 빈도수 계산기&lt;/h1&gt;
+
+&lt;p&gt;아시는 분의 요청으로 제작한 단어 빈도수 계산기 입니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;주요-사항&quot;&gt;주요 사항&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;JAVA 1.8 이상 필요&lt;/li&gt;
+  &lt;li&gt;JAVA FX로 GUI 구현&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;iframe src=&quot;//www.slideshare.net/slideshow/embed_code/key/M5MaeZgJqfMHTM&quot; width=&quot;595&quot; height=&quot;485&quot; frameborder=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; scrolling=&quot;no&quot; style=&quot;border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&quot; allowfullscreen=&quot;&quot;&gt; &lt;/iframe&gt;
+&lt;div style=&quot;margin-bottom:5px&quot;&gt; &lt;strong&gt; &lt;a href=&quot;//www.slideshare.net/lahuman1/ss-80092441&quot; title=&quot;문자열 빈도 계산&quot; target=&quot;_blank&quot;&gt;문자열 빈도 계산&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&quot;https://www.slideshare.net/lahuman1&quot; target=&quot;_blank&quot;&gt;Daniel Lim&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;</content><category term="word" /><category term="frequency" /><category term="count" /><summary type="html">word frequency counter</summary></entry><entry><title type="html">[2017-09-22] 언제나 끝이 있다.</title><link href="https://lahuman.github.io/20170922-phase/" rel="alternate" type="text/html" title="[2017-09-22] 언제나 끝이 있다." /><published>2017-09-22T00:00:00+09:00</published><updated>2017-09-22T00:00:00+09:00</updated><id>https://lahuman.github.io/20170922-phase</id><content type="html" xml:base="https://lahuman.github.io/20170922-phase/">&lt;h1 id=&quot;모든-일에는-끝이-있다&quot;&gt;모든 일에는 끝이 있다.&lt;/h1&gt;
+
+&lt;p&gt;영원한게 없는것 처럼, 힘들 일에도 끝이 있고 &lt;a href=&quot;http://bbs.ruliweb.com/hobby/board/300075/read/29627449&quot;&gt;즐거운 일에도 끝이 있다.&lt;/a&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;대부분의 슬프고, 힘들고, 짜증나고, 화나고, 즐거운 모든 일들이 끝에 남는건 아쉬움이다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;//www.youtube.com/embed/3O1_3zBUKM8&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;h2 id=&quot;오늘도-아쉽지-않게-열심히-살자&quot;&gt;오늘도 아쉽지 않게 열심히 살자!&lt;/h2&gt;</content><category term="단상" /><summary type="html">만남, 여행, 일 그리고 인생</summary></entry><entry><title type="html">[2017-09-21] IntelliJ 를 사용하자</title><link href="https://lahuman.github.io/20170921-phase/" rel="alternate" type="text/html" title="[2017-09-21] IntelliJ 를 사용하자" /><published>2017-09-21T00:00:00+09:00</published><updated>2017-09-21T00:00:00+09:00</updated><id>https://lahuman.github.io/20170921-phase</id><content type="html" xml:base="https://lahuman.github.io/20170921-phase/">&lt;h1 id=&quot;intellij가-좋다고-하여-사용해보기를-몇번-시도를-했지만-늘-실패-하였다&quot;&gt;IntelliJ가 좋다고 하여 사용해보기를 몇번 시도를 했지만, 늘 실패 하였다.&lt;/h1&gt;
 
 &lt;p&gt;일단 유료이기도 하고, 무료 버젼에서는 WAS와의 연동으 지원 하지 않기에, 사용이 불편하였다.&lt;br /&gt;&lt;/p&gt;
 
@@ -8,7 +28,7 @@
 
 &lt;p&gt;다행이 인터넷에 &lt;a href=&quot;https://zeroturnaround.com/rebellabs/getting-started-with-intellij-idea-as-an-eclipse-user/4/&quot;&gt;Eclipse 사용자를 위한 IntelliJ 단축키&lt;/a&gt; 이미지가 있다.&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;이런건 가볍게 출력하여서 책상에 붙여 넣고 보면서 쓰다보면 손에 익을 꺼라 생각한다.&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;이런건 가볍게 출력하여서 책상에 붙여 놓고 쓰다보면 손에 익을 꺼라 생각한다.&lt;br /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;톰켓-설정-하기&quot;&gt;톰켓 설정 하기&lt;/h2&gt;
 
@@ -346,24 +366,4 @@ trigger_file &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot
 
 &lt;p&gt;&lt;a href=&quot;https://qodot.github.io/post/postgresql-replication-%EA%B5%AC%EC%B6%95%ED%95%98%EA%B8%B0/&quot;&gt;PostgreSQL Replication 구축하기&lt;/a&gt; &lt;br /&gt;
 &lt;a href=&quot;http://linux.systemv.pe.kr/postgresql-replication-log-shipping&quot;&gt;PostgreSQL Replication – Log Shipping&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&quot;http://linux.systemv.pe.kr/postgresql-9-x-replication-streaming-log&quot;&gt;Postgresql 9.x Replication – Streaming Log&lt;/a&gt;&lt;br /&gt;&lt;/p&gt;</content><category term="PostgreSQL" /><category term="HA구성" /><summary type="html">PostgreSQL에서 기본으로 제공하는 Replication 설정</summary></entry><entry><title type="html">[2017-09-04] 자기 얼굴에 금칠 하는 건 하지 말자</title><link href="https://lahuman.github.io/20170904-phase/" rel="alternate" type="text/html" title="[2017-09-04] 자기 얼굴에 금칠 하는 건 하지 말자" /><published>2017-09-04T00:00:00+09:00</published><updated>2017-09-04T00:00:00+09:00</updated><id>https://lahuman.github.io/20170904-phase</id><content type="html" xml:base="https://lahuman.github.io/20170904-phase/">&lt;h1 id=&quot;본인이-잘났다고-큰소리-치고-다니는-분을-보면&quot;&gt;본인이 잘났다고 큰소리 치고 다니는 분을 보면…&lt;/h1&gt;
-
-&lt;p&gt;그냥 &lt;strong&gt;광대&lt;/strong&gt; 같이 느껴진다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;정말 잘난 사람은 본인 스스로를 뽐내지 않아도 빛이 난다고…&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;존경받기 위해서는 남부터 존경 해야 한다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;나는 누구이건간에 사람의 권리를 짓밟는 사람은 절대로 존경하지 않는다. -랄프 잉거솔&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&quot;적어도-존경을-받고-싶으면-남을-무시해서는-안된다&quot;&gt;적어도 존경을 받고 싶으면 남을 무시해서는 안된다.&lt;/h3&gt;</content><category term="단상" /><summary type="html">광대 처럼 보인다.</summary></entry><entry><title type="html">[2017-08-28] 시험을 망쳤다.</title><link href="https://lahuman.github.io/20170828-phase/" rel="alternate" type="text/html" title="[2017-08-28] 시험을 망쳤다." /><published>2017-08-28T00:00:00+09:00</published><updated>2017-08-28T00:00:00+09:00</updated><id>https://lahuman.github.io/20170828-phase</id><content type="html" xml:base="https://lahuman.github.io/20170828-phase/">&lt;h1 id=&quot;그날까지-진행되는-스트레스가-크지-막상-지나고-나면-아무렇지-안다&quot;&gt;그날까지 진행되는 스트레스가 크지, 막상 지나고 나면 아무렇지 안다.&lt;/h1&gt;
-
-&lt;p&gt;시험은 그냥 지나가는 수단일 뿐이고, 떨어지면 다시 보면 된다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;다만, 열심히 준비를 하였는지에 따라 아쉬운 정도가 다르다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;떨어졌다고 좌절 하지말고 왜 떨어졌는지 체크하고 다시 준비 하자&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;모든-수험생-분들-화이팅&quot;&gt;모든 수험생 분들 화이팅!&lt;/h2&gt;</content><category term="단상" /><summary type="html">그래도 시원하다.</summary></entry></feed>
+&lt;a href=&quot;http://linux.systemv.pe.kr/postgresql-9-x-replication-streaming-log&quot;&gt;Postgresql 9.x Replication – Streaming Log&lt;/a&gt;&lt;br /&gt;&lt;/p&gt;</content><category term="PostgreSQL" /><category term="HA구성" /><summary type="html">PostgreSQL에서 기본으로 제공하는 Replication 설정</summary></entry></feed>
