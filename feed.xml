@@ -1,4 +1,16 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.5.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2017-09-28T11:02:06+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">[2017-09-28] 추석 연휴</title><link href="https://lahuman.github.io/20170928-phase/" rel="alternate" type="text/html" title="[2017-09-28] 추석 연휴" /><published>2017-09-28T00:00:00+09:00</published><updated>2017-09-28T00:00:00+09:00</updated><id>https://lahuman.github.io/20170928-phase</id><content type="html" xml:base="https://lahuman.github.io/20170928-phase/">&lt;h1 id=&quot;얼마나-알차게-보낼-수-있을까&quot;&gt;얼마나 알차게 보낼 수 있을까??&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.5.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2017-09-29T14:37:09+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">[2017-09-29] 존중</title><link href="https://lahuman.github.io/20170929-phase/" rel="alternate" type="text/html" title="[2017-09-29] 존중" /><published>2017-09-29T00:00:00+09:00</published><updated>2017-09-29T00:00:00+09:00</updated><id>https://lahuman.github.io/20170929-phase</id><content type="html" xml:base="https://lahuman.github.io/20170929-phase/">&lt;h1 id=&quot;2010년-직업-만족도에서-가장-영향일-미치는-것에-대한-플로리다-대학의-티머시-저지-교수의-연구-결과-존중이다&quot;&gt;2010년 직업 만족도에서 가장 영향일 미치는 것에 대한 플로리다 대학의 티머시 저지 교수의 연구 결과 존중이다.&lt;/h1&gt;
+
+&lt;h2 id=&quot;존중&quot;&gt;존중&lt;/h2&gt;
+
+&lt;p&gt;티머시 저지 교수는 86개의 연구를 살폈고, 1만 5천명의 직장인의 경험을 평가 했다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;연구 결과 직업 만족에서 급여 수준보다 더 높은 것이 있는 것을 알게 되었다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;그것은 &lt;kbd&gt;존중&lt;/kbd&gt;이었다. 사람들은 직장 동료 등에게 존중받는다는 느낌을 받을 때 직장 생활이 행복해 진다는 사실이다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;나를 존중해 주는 사람을 어떻게 싫어할 수 있겠는가??&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;당연한-이야기지만-존중받고-싶다면-존중해야-한다&quot;&gt;당연한 이야기지만, 존중받고 싶다면 존중해야 한다.&lt;/h2&gt;</content><category term="단상" /><summary type="html">직업 만족도에서 가장 영향을 미치는 것</summary></entry><entry><title type="html">[2017-09-28] 추석 연휴</title><link href="https://lahuman.github.io/20170928-phase/" rel="alternate" type="text/html" title="[2017-09-28] 추석 연휴" /><published>2017-09-28T00:00:00+09:00</published><updated>2017-09-28T00:00:00+09:00</updated><id>https://lahuman.github.io/20170928-phase</id><content type="html" xml:base="https://lahuman.github.io/20170928-phase/">&lt;h1 id=&quot;얼마나-알차게-보낼-수-있을까&quot;&gt;얼마나 알차게 보낼 수 있을까??&lt;/h1&gt;
 
 &lt;p&gt;기나긴 연휴 기간을 어떻게 보내야 할지 걱정이다. &lt;br /&gt;&lt;/p&gt;
 
@@ -177,77 +189,4 @@
 
 &lt;p&gt;정말 세상이 작다는걸 느낀다.&lt;/p&gt;
 
-&lt;h2 id=&quot;뭐-그래도-나는-내일-전쟁을-하겠지만&quot;&gt;뭐.. 그래도 나는 내일 전쟁을 하겠지만…&lt;/h2&gt;</content><category term="단상" /><summary type="html">인생무상, 무상무념</summary></entry><entry><title type="html">[2017-09-11] VirtualBox 특정 가상머신 PORT를 HOST Port에 Forward 하기.</title><link href="https://lahuman.github.io/virtualbox_port_forwarding/" rel="alternate" type="text/html" title="[2017-09-11] VirtualBox 특정 가상머신 PORT를 HOST Port에 Forward 하기." /><published>2017-09-11T00:00:00+09:00</published><updated>2017-09-11T00:00:00+09:00</updated><id>https://lahuman.github.io/virtualbox_port_forwarding</id><content type="html" xml:base="https://lahuman.github.io/virtualbox_port_forwarding/">&lt;h1 id=&quot;virtualbox-특정-포트를-외부에서-접근하기&quot;&gt;VirtualBox 특정 포트를 외부에서 접근하기&lt;/h1&gt;
-
-&lt;p&gt;VirtualBox의 가상머신을 이용한 특정 서비스(SSH, DB, WEB, ETC)를 외부에 OPEN 하기 위한 가장 간단한 방법이다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;우선 &lt;strong&gt;가상머신에 대한 설치 &amp;amp; 설정은 본 글에서는 제외&lt;/strong&gt; 한다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;서버-네트워크-설정-변경&quot;&gt;서버 네트워크 설정 변경&lt;/h2&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;가상 머신의 설정 정보를 클릭 한다.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;figure&gt;
-	&lt;img src=&quot;https://lahuman.github.io/assets/img/phase/01]container_sessting.png&quot; /&gt;
-	&lt;figcaption&gt;[그림 1] 가상 머신 설정 정보 확인&lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;네트워크의 어댑터 1의 타입을 &lt;strong&gt;NAT&lt;/strong&gt;로 변경 한다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;고급 설정&lt;/strong&gt;을 눌러 &lt;strong&gt;포트 포워딩(P)&lt;/strong&gt; 버튼을 클릭 한다.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;figure&gt;
-	&lt;img src=&quot;https://lahuman.github.io/assets/img/phase/02]network_setting.png&quot; /&gt;
-	&lt;figcaption&gt;[그림 2] 네트워크 &amp;gt; 어댑터 1 설정&lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;포트 포워딩 규칙을 설정한다.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;figure&gt;
-	&lt;img src=&quot;https://lahuman.github.io/assets/img/phase/03]portforward_info.png&quot; /&gt;
-	&lt;figcaption&gt;[그림 3] 포트 포워딩 규칙 설정&lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;호스트 IP는 다음 &lt;strong&gt;CMD 명령어&lt;/strong&gt;를 통해 확인 할 수 있다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;nv&quot;&gt;$&amp;gt;&lt;/span&gt; ipconfig
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;게스트 IP는 가상머신에서 다음 명령어를 이용하여 알수 있다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;nv&quot;&gt;$&amp;gt;&lt;/span&gt; ifconfig
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;figure&gt;
-  	&lt;img src=&quot;https://lahuman.github.io/assets/img/phase/04]ifconfig.png&quot; /&gt;
-  	&lt;figcaption&gt;[그림 3] 포트 포워딩 규칙 설정&lt;/figcaption&gt;
-  &lt;/figure&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;접속이 안된다면 확인 사항&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;우선 가상 머신의 IPTABLE 에 설정을 확인 해야 한다. 다음 명령어는 간단하게 방화벽을 내리는 명령어다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;nv&quot;&gt;$&amp;gt;&lt;/span&gt; service iptables stop
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;아주-간단하지만-유용하다&quot;&gt;아주 간단하지만 유용하다.&lt;/h3&gt;</content><category term="VirtualBox" /><category term="Port" /><category term="Forward" /><summary type="html">VirtualBox Port Forward</summary></entry></feed>
+&lt;h2 id=&quot;뭐-그래도-나는-내일-전쟁을-하겠지만&quot;&gt;뭐.. 그래도 나는 내일 전쟁을 하겠지만…&lt;/h2&gt;</content><category term="단상" /><summary type="html">인생무상, 무상무념</summary></entry></feed>
