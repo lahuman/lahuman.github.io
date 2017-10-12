@@ -1,4 +1,36 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.5.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2017-10-11T14:26:48+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">[2017-10-11] Vue.js 보는 중…</title><link href="https://lahuman.github.io/20171011-phase/" rel="alternate" type="text/html" title="[2017-10-11] Vue.js 보는 중..." /><published>2017-10-11T00:00:00+09:00</published><updated>2017-10-11T00:00:00+09:00</updated><id>https://lahuman.github.io/20171011-phase</id><content type="html" xml:base="https://lahuman.github.io/20171011-phase/">&lt;h1 id=&quot;vuejs-의-장점은-속도와-쉬운-사용&quot;&gt;Vue.js 의 장점은 속도와 쉬운 사용&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.5.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2017-10-12T15:14:02+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">[2017-10-12] 다른 위치의 DB 테이블 복사 기능 만들기</title><link href="https://lahuman.github.io/db-migration-tool/" rel="alternate" type="text/html" title="[2017-10-12] 다른 위치의 DB 테이블 복사 기능 만들기" /><published>2017-10-12T00:00:00+09:00</published><updated>2017-10-12T00:00:00+09:00</updated><id>https://lahuman.github.io/db-migration-tool</id><content type="html" xml:base="https://lahuman.github.io/db-migration-tool/">&lt;h1 id=&quot;데이터-베이스-테이블-복사-기능-만들기&quot;&gt;데이터 베이스 테이블 복사 기능 만들기&lt;/h1&gt;
+
+&lt;p&gt;DBeaver와 같은 DB TOOL을 사용하지 않고 다른 위치의 DB 간의 테이블 복제하는 프로그램이 필요하여 간단하게 만들었다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;프로그램은 아주 단순 한다. 원본 테이블의 Select Query와 타켓 테이블의 Insert Query를 기준으로 마이그레이션을 진행한다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;소스-보기&quot;&gt;&lt;a href=&quot;https://github.com/lahuman/DBTableCopy&quot;&gt;소스 보기&lt;/a&gt;&lt;/h2&gt;
+
+&lt;h3 id=&quot;준비-사항&quot;&gt;준비 사항&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Gradle&lt;/li&gt;
+  &lt;li&gt;JDK 1.8&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;사용법&quot;&gt;사용법&lt;/h3&gt;
+
+&lt;p&gt;lahuman.Migration 파일의 10번째 라인과 11번째 라인의 DB 접속 정보를 입력 한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;//Line 10~11
+Connection originalDB = DriverManager.getConnection(&quot;URL&quot;, &quot;ID&quot;, &quot;PW&quot;); //원본 DBMS
+Connection targetDB = DriverManager.getConnection(&quot;URL&quot;, &quot;ID&quot;, &quot;PW&quot;); //복제예정 DBMS
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;lahuman.Migration 파일의 13번째 라인의 SQL을 작성한다.
+이때 작성하는 SELECT SQL과 INSERT SQL의 Column 순서는 맞아야 한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;//LINE 13
+copyTableUsingSQL(originalDB, targetDB, &quot;select A, B, C from T1&quot;, &quot;insert into T2(A,B,C)values(?,?,?)&quot;);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;단순하게 만들어서 그런지 쉽게 사용할 수 있다.&lt;/p&gt;</content><category term="DB" /><category term="Migration" /><summary type="html">Table Migration on Two DB</summary></entry><entry><title type="html">[2017-10-11] Vue.js 보는 중…</title><link href="https://lahuman.github.io/20171011-phase/" rel="alternate" type="text/html" title="[2017-10-11] Vue.js 보는 중..." /><published>2017-10-11T00:00:00+09:00</published><updated>2017-10-11T00:00:00+09:00</updated><id>https://lahuman.github.io/20171011-phase</id><content type="html" xml:base="https://lahuman.github.io/20171011-phase/">&lt;h1 id=&quot;vuejs-의-장점은-속도와-쉬운-사용&quot;&gt;Vue.js 의 장점은 속도와 쉬운 사용&lt;/h1&gt;
 
 &lt;p&gt;기본적으로 &lt;a href=&quot;https://kr.vuejs.org/v2/guide/index.html&quot;&gt;메뉴얼의 한글화&lt;/a&gt;가 잘되어 있고, &lt;a href=&quot;https://kr.vuejs.org/v2/guide/comparison.html&quot;&gt;다른 라이브러리와 비교&lt;/a&gt;를 해본 내용도 있다.&lt;/p&gt;
 
@@ -156,18 +188,4 @@
 
 &lt;p&gt;구동은 &lt;kbd&gt;Alt&lt;/kbd&gt;+&lt;kbd&gt;Shift&lt;/kbd&gt;+&lt;kbd&gt;F10&lt;/kbd&gt;를 누르면 선택이 나오거나, 첫번째 그림에서 화살표 표시를 누르면 된다.&lt;/p&gt;
 
-&lt;h2 id=&quot;앞으로-몇일이나-쓸까&quot;&gt;앞으로 몇일이나 쓸까?&lt;/h2&gt;</content><category term="단상" /><summary type="html">IntelliJ 에서 톰켓 설정 하기</summary></entry><entry><title type="html">[2017-09-19] 믿음에 대하여…</title><link href="https://lahuman.github.io/20170919-phase/" rel="alternate" type="text/html" title="[2017-09-19] 믿음에 대하여..." /><published>2017-09-19T00:00:00+09:00</published><updated>2017-09-19T00:00:00+09:00</updated><id>https://lahuman.github.io/20170919-phase</id><content type="html" xml:base="https://lahuman.github.io/20170919-phase/">&lt;h1 id=&quot;함께-일하는-사람중에-신뢰-하는-사람이-얼마나-될까&quot;&gt;함께 일하는 사람중에 신뢰 하는 사람이 얼마나 될까?&lt;/h1&gt;
-
-&lt;p&gt;하나의 조직에서 함께 일을 하는 사람을 동료라고 한다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;보통 우리는 동료들과 일주일에 40시간 이상을 함께 한다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;가끔은 잠자는 시간을 제외하고 가족과 보내는 시간보다 동료와 보내는 시간이 많을때도 있다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;이렇게 중요한 동료의 신뢰를 받는 것은 중요하다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;신뢰를 받는 가장 기본적인 방법은 &lt;strong&gt;말과 행동&lt;/strong&gt; 이다. &lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;자신이 내뱉는 말을 잘 지키고, 업무 시간에 집중하는 모습을 보인다면 동료는 나를 신뢰 할수 있을 것이다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;그러니-말-조심-하자&quot;&gt;그러니 말 조심 하자.&lt;/h2&gt;</content><category term="단상" /><summary type="html">동료의 신뢰를 잃기는 쉬우나, 얻기는 힘들다.</summary></entry></feed>
+&lt;h2 id=&quot;앞으로-몇일이나-쓸까&quot;&gt;앞으로 몇일이나 쓸까?&lt;/h2&gt;</content><category term="단상" /><summary type="html">IntelliJ 에서 톰켓 설정 하기</summary></entry></feed>
