@@ -1,4 +1,18 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.5.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2017-10-16T11:37:05+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">[2017-10-16] 아디이어를 구현하는 능력</title><link href="https://lahuman.github.io/20171016-phase/" rel="alternate" type="text/html" title="[2017-10-16] 아디이어를 구현하는 능력" /><published>2017-10-16T00:00:00+09:00</published><updated>2017-10-16T00:00:00+09:00</updated><id>https://lahuman.github.io/20171016-phase</id><content type="html" xml:base="https://lahuman.github.io/20171016-phase/">&lt;h1 id=&quot;새로운-생각-또는-아이디어가-있으면-일단-그려-봐라&quot;&gt;새로운 생각 또는 아이디어가 있으면 일단 그려 봐라&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.5.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2017-10-17T16:38:29+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">[2017-10-17] 새로운 도전과 시련</title><link href="https://lahuman.github.io/20171017-phase/" rel="alternate" type="text/html" title="[2017-10-17] 새로운 도전과 시련" /><published>2017-10-17T00:00:00+09:00</published><updated>2017-10-17T00:00:00+09:00</updated><id>https://lahuman.github.io/20171017-phase</id><content type="html" xml:base="https://lahuman.github.io/20171017-phase/">&lt;h1 id=&quot;도전에는-늘-시련이-따른다&quot;&gt;도전에는 늘 시련이 따른다.&lt;/h1&gt;
+
+&lt;p&gt;한때 유명한 말이 있었다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://namu.wiki/w/%EC%95%84%ED%94%84%EB%8B%88%EA%B9%8C%20%EC%B2%AD%EC%B6%98%EC%9D%B4%EB%8B%A4&quot;&gt;“아프니까 청춘이다.”&lt;/a&gt;  라는 말로 많은 이슈를 뿌렸다&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;개인적으로 이말의 패러디가 더 와 닿는다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;kbd&gt;아프면 병신이지 개XX야!!&lt;/kbd&gt; &lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;시련&lt;/strong&gt;과 &lt;strong&gt;아픔&lt;/strong&gt;은 다르다. 얼마전 인터넷을 뜨겁게 달군 &lt;a href=&quot;https://www.clien.net/service/board/park/11257204&quot;&gt;개막장 스타트업&lt;/a&gt; 을 보고 나 역시 개막장을 경험했다고 느꼈다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;도전에 대한 시련은 이겨냄으로서 가치가 있지만 아픔은 그냥 안좋은거다. 아픔을 이겨냄으로서 얻는 것은 없다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;아프지-말자&quot;&gt;아프지 말자&lt;/h2&gt;</content><category term="단상" /><summary type="html">도전과 시련은 늘 한 쌍인듯...</summary></entry><entry><title type="html">[2017-10-16] 아디이어를 구현하는 능력</title><link href="https://lahuman.github.io/20171016-phase/" rel="alternate" type="text/html" title="[2017-10-16] 아디이어를 구현하는 능력" /><published>2017-10-16T00:00:00+09:00</published><updated>2017-10-16T00:00:00+09:00</updated><id>https://lahuman.github.io/20171016-phase</id><content type="html" xml:base="https://lahuman.github.io/20171016-phase/">&lt;h1 id=&quot;새로운-생각-또는-아이디어가-있으면-일단-그려-봐라&quot;&gt;새로운 생각 또는 아이디어가 있으면 일단 그려 봐라&lt;/h1&gt;
 
 &lt;p&gt;번뜩이는 아이디어 또는 만들고 싶은 것이 있다면 우선 프로토타입 구현을 추천한다.&lt;br /&gt;&lt;/p&gt;
 
@@ -133,16 +147,4 @@ copyTableUsingSQL(originalDB, targetDB, &quot;select A, B, C from T1&quot;, &quo
 
 &lt;p&gt;이후 &lt;kbd&gt;Ctrl + K&lt;/kbd&gt; 를 누르면 디랙토리를 추가 할 수 있다.&lt;/p&gt;
 
-&lt;h2 id=&quot;열심히-사용해보자&quot;&gt;열심히 사용해보자!!&lt;/h2&gt;</content><category term="IntelliJ" /><category term="VCS" /><summary type="html">IntelliJ 적응 삽질기</summary></entry><entry><title type="html">[2017-09-25] 단어 빈도수 계산기</title><link href="https://lahuman.github.io/word_frequency_count/" rel="alternate" type="text/html" title="[2017-09-25] 단어 빈도수 계산기" /><published>2017-09-25T00:00:00+09:00</published><updated>2017-09-25T00:00:00+09:00</updated><id>https://lahuman.github.io/word_frequency_count</id><content type="html" xml:base="https://lahuman.github.io/word_frequency_count/">&lt;h1 id=&quot;단어-빈도수-계산기&quot;&gt;단어 빈도수 계산기&lt;/h1&gt;
-
-&lt;p&gt;아시는 분의 요청으로 제작한 단어 빈도수 계산기 입니다.&lt;/p&gt;
-
-&lt;h3 id=&quot;주요-사항&quot;&gt;주요 사항&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;JAVA 1.8 이상 필요&lt;/li&gt;
-  &lt;li&gt;JAVA FX로 GUI 구현&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;iframe src=&quot;//www.slideshare.net/slideshow/embed_code/key/M5MaeZgJqfMHTM&quot; width=&quot;595&quot; height=&quot;485&quot; frameborder=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; scrolling=&quot;no&quot; style=&quot;border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&quot; allowfullscreen=&quot;&quot;&gt; &lt;/iframe&gt;
-&lt;div style=&quot;margin-bottom:5px&quot;&gt; &lt;strong&gt; &lt;a href=&quot;//www.slideshare.net/lahuman1/ss-80092441&quot; title=&quot;문자열 빈도 계산&quot; target=&quot;_blank&quot;&gt;문자열 빈도 계산&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&quot;https://www.slideshare.net/lahuman1&quot; target=&quot;_blank&quot;&gt;Daniel Lim&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;</content><category term="word" /><category term="frequency" /><category term="count" /><summary type="html">word frequency counter</summary></entry></feed>
+&lt;h2 id=&quot;열심히-사용해보자&quot;&gt;열심히 사용해보자!!&lt;/h2&gt;</content><category term="IntelliJ" /><category term="VCS" /><summary type="html">IntelliJ 적응 삽질기</summary></entry></feed>
