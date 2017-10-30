@@ -1,4 +1,26 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.5.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2017-10-27T17:18:43+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">[2017-10-27] 단상을 생각해놓고 적지 않으니 까먹는다.</title><link href="https://lahuman.github.io/20171027-phase/" rel="alternate" type="text/html" title="[2017-10-27] 단상을 생각해놓고 적지 않으니 까먹는다." /><published>2017-10-27T00:00:00+09:00</published><updated>2017-10-27T00:00:00+09:00</updated><id>https://lahuman.github.io/20171027-phase</id><content type="html" xml:base="https://lahuman.github.io/20171027-phase/">&lt;h1 id=&quot;아침에-일어나서-적을-내용을-생각해-두었는데&quot;&gt;아침에 일어나서 적을 내용을 생각해 두었는데…&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.5.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2017-10-30T17:48:58+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">[TIP] Cloudera 설치시 403 에러를 만나면 확인 해야할 사항</title><link href="https://lahuman.github.io/20171030-phase/" rel="alternate" type="text/html" title="[TIP] Cloudera 설치시 403 에러를 만나면 확인 해야할 사항" /><published>2017-10-30T00:00:00+09:00</published><updated>2017-10-30T00:00:00+09:00</updated><id>https://lahuman.github.io/20171030-phase</id><content type="html" xml:base="https://lahuman.github.io/20171030-phase/">&lt;h1 id=&quot;cloudera설치-중-다음과-같은-메시지를-만났다&quot;&gt;Cloudera설치 중 다음과 같은 메시지를 만났다.&lt;/h1&gt;
+
+&lt;p&gt;Cloudera 설치 중 몇몇 모듈에 대하여 403 오류가 발생하여 해당 로그를 따라가 보니 다음과 같은 경고가 있었다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;2017-10-30 16:51:51,833 WARN 1258521080@scm-web-0:com.cloudera.server.web.cmf.csrf.CsrfRefererInterceptor: Rejecting request originating from xx.xx.xx.xx for http://xx.xx.xx.xx:xxxx/cmf/express
+2017-10-30 16:56:58,834 WARN 1258521080@scm-web-0:com.cloudera.server.web.cmf.csrf.CsrfRefererInterceptor: Rejecting request originating from xx.xx.xx.xx for http://xx.xx.xx.xx:xxxx/cmf/add-hos
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;이는 csrf에서 거절 한것으로 Spring security 3.1 이하 버전은 Interceptor를 구현하여 사용하였다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;따라서 클라우데라 설치 디렉터리에서 다음을 찾아서 수정하면 쉽게 처리된다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cd /usr/share/cmf/webapp/WEB-INF/spring
+vim vim mvc-config.xml
+# 32 LINE
+&amp;lt;!--   &amp;lt;bean class=&quot;com.cloudera.server.web.cmf.csrf.CsrfRefererInterceptor&quot; /&amp;gt; --&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;이후 서비스를 재기동하면 문제없이 동작한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/cmf/add-hosts-wizard/scanhosts.json&quot;&gt;참조 URL&lt;/a&gt;&lt;/p&gt;</content><category term="TIP" /><summary type="html">특정 URL에서 오류가 난다.</summary></entry><entry><title type="html">[2017-10-27] 단상을 생각해놓고 적지 않으니 까먹는다.</title><link href="https://lahuman.github.io/20171027-phase/" rel="alternate" type="text/html" title="[2017-10-27] 단상을 생각해놓고 적지 않으니 까먹는다." /><published>2017-10-27T00:00:00+09:00</published><updated>2017-10-27T00:00:00+09:00</updated><id>https://lahuman.github.io/20171027-phase</id><content type="html" xml:base="https://lahuman.github.io/20171027-phase/">&lt;h1 id=&quot;아침에-일어나서-적을-내용을-생각해-두었는데&quot;&gt;아침에 일어나서 적을 내용을 생각해 두었는데…&lt;/h1&gt;
 
 &lt;p&gt;정신을 차리면 하루가 정말 빠르게 지나간다.&lt;br /&gt;&lt;/p&gt;
 
@@ -106,36 +128,4 @@
 
 &lt;p&gt;머신러닝을 수학에 대한 기초 지식 없이 시작하려다가 포기 하고 말았다.&lt;br /&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;기초를-탄탄이-하는것을-잊지-말자&quot;&gt;기초를 탄탄이 하는것을 잊지 말자&lt;/h2&gt;</content><category term="단상" /><summary type="html">기본을 탄탄히 넓은 눈으로 바라보기</summary></entry><entry><title type="html">[2017-10-12] 다른 위치의 DB 테이블 복사 기능 만들기</title><link href="https://lahuman.github.io/db-migration-tool/" rel="alternate" type="text/html" title="[2017-10-12] 다른 위치의 DB 테이블 복사 기능 만들기" /><published>2017-10-12T00:00:00+09:00</published><updated>2017-10-12T00:00:00+09:00</updated><id>https://lahuman.github.io/db-migration-tool</id><content type="html" xml:base="https://lahuman.github.io/db-migration-tool/">&lt;h1 id=&quot;데이터-베이스-테이블-복사-기능-만들기&quot;&gt;데이터 베이스 테이블 복사 기능 만들기&lt;/h1&gt;
-
-&lt;p&gt;DBeaver와 같은 DB TOOL을 사용하지 않고 다른 위치의 DB 간의 테이블 복제하는 프로그램이 필요하여 간단하게 만들었다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;프로그램은 아주 단순 한다. 원본 테이블의 Select Query와 타켓 테이블의 Insert Query를 기준으로 마이그레이션을 진행한다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;소스-보기&quot;&gt;&lt;a href=&quot;https://github.com/lahuman/DBTableCopy&quot;&gt;소스 보기&lt;/a&gt;&lt;/h2&gt;
-
-&lt;h3 id=&quot;준비-사항&quot;&gt;준비 사항&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Gradle&lt;/li&gt;
-  &lt;li&gt;JDK 1.8&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;사용법&quot;&gt;사용법&lt;/h3&gt;
-
-&lt;p&gt;lahuman.Migration 파일의 10번째 라인과 11번째 라인의 DB 접속 정보를 입력 한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;//Line 10~11
-Connection originalDB = DriverManager.getConnection(&quot;URL&quot;, &quot;ID&quot;, &quot;PW&quot;); //원본 DBMS
-Connection targetDB = DriverManager.getConnection(&quot;URL&quot;, &quot;ID&quot;, &quot;PW&quot;); //복제예정 DBMS
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;lahuman.Migration 파일의 13번째 라인의 SQL을 작성한다.
-이때 작성하는 SELECT SQL과 INSERT SQL의 Column 순서는 맞아야 한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;//LINE 13
-copyTableUsingSQL(originalDB, targetDB, &quot;select A, B, C from T1&quot;, &quot;insert into T2(A,B,C)values(?,?,?)&quot;);
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;단순하게 만들어서 그런지 쉽게 사용할 수 있다.&lt;/p&gt;</content><category term="DB" /><category term="Migration" /><summary type="html">Table Migration on Two DB</summary></entry></feed>
+&lt;h2 id=&quot;기초를-탄탄이-하는것을-잊지-말자&quot;&gt;기초를 탄탄이 하는것을 잊지 말자&lt;/h2&gt;</content><category term="단상" /><summary type="html">기본을 탄탄히 넓은 눈으로 바라보기</summary></entry></feed>
