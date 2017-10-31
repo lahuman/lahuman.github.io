@@ -1,4 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.5.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2017-10-30T17:59:21+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">[TIP] Cloudera 설치시 403 에러를 만나면 확인 해야할 사항</title><link href="https://lahuman.github.io/20171030-phase/" rel="alternate" type="text/html" title="[TIP] Cloudera 설치시 403 에러를 만나면 확인 해야할 사항" /><published>2017-10-30T00:00:00+09:00</published><updated>2017-10-30T00:00:00+09:00</updated><id>https://lahuman.github.io/20171030-phase</id><content type="html" xml:base="https://lahuman.github.io/20171030-phase/">&lt;h1 id=&quot;cloudera설치-중-다음과-같은-메시지를-만났다&quot;&gt;Cloudera설치 중 다음과 같은 메시지를 만났다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.5.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2017-10-31T09:00:26+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">내일 부터는 새팀으로 간다.</title><link href="https://lahuman.github.io/20171031-phase/" rel="alternate" type="text/html" title="내일 부터는 새팀으로 간다." /><published>2017-10-31T00:00:00+09:00</published><updated>2017-10-31T00:00:00+09:00</updated><id>https://lahuman.github.io/20171031-phase</id><content type="html" xml:base="https://lahuman.github.io/20171031-phase/">&lt;h1 id=&quot;지금-팀장과-업무-스타일이-많이-달라서-이야기가-많았다&quot;&gt;지금 팀장과 업무 스타일이 많이 달라서 이야기가 많았다.&lt;/h1&gt;
+
+&lt;p&gt;기본적으로는 팀장의 뜻을 따라서 열심히 일하려고 노력 하였으나, 팀원에 대한 존중과 배려라고는 없는 사람과 일하는 것은 정신 건강에도 좋지 않았다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;과거의 영광에서 벗어나지 못하고, 구시대적 발상으로 팀원들을 괴롭히는 사람으로만 보이는 팀장과 작별을 고한다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;새로운 팀에서 적응하고 열심히 하자.&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;1년-넘게-있으면서-많은-일이-있었다-잘있어라&quot;&gt;1년 넘게 있으면서 많은 일이 있었다. 잘있어라…&lt;/h2&gt;</content><category term="단상" /><summary type="html">결국 나가는 구나...</summary></entry><entry><title type="html">[TIP] Cloudera 설치시 403 에러를 만나면 확인 해야할 사항</title><link href="https://lahuman.github.io/20171030-phase/" rel="alternate" type="text/html" title="[TIP] Cloudera 설치시 403 에러를 만나면 확인 해야할 사항" /><published>2017-10-30T00:00:00+09:00</published><updated>2017-10-30T00:00:00+09:00</updated><id>https://lahuman.github.io/20171030-phase</id><content type="html" xml:base="https://lahuman.github.io/20171030-phase/">&lt;h1 id=&quot;cloudera설치-중-다음과-같은-메시지를-만났다&quot;&gt;Cloudera설치 중 다음과 같은 메시지를 만났다.&lt;/h1&gt;
 
 &lt;p&gt;Cloudera 설치 중 몇몇 모듈에 대하여 403 오류가 발생하여 해당 로그를 따라가 보니 다음과 같은 경고가 있었다.&lt;/p&gt;
 
@@ -120,12 +128,4 @@ vim vim mvc-config.xml
 
 &lt;p&gt;이를 한 개씩 처리하면 좋은 결과가 나온다.&lt;br /&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;이번엔-무엇을-만들어-볼까&quot;&gt;이번엔 무엇을 만들어 볼까?&lt;/h2&gt;</content><category term="단상" /><summary type="html">잘 만든 프로젝트</summary></entry><entry><title type="html">[2017-10-13] 새로운 기술의 범람에서 살아가는 법</title><link href="https://lahuman.github.io/20171013-phase/" rel="alternate" type="text/html" title="[2017-10-13] 새로운 기술의 범람에서 살아가는 법" /><published>2017-10-13T00:00:00+09:00</published><updated>2017-10-13T00:00:00+09:00</updated><id>https://lahuman.github.io/20171013-phase</id><content type="html" xml:base="https://lahuman.github.io/20171013-phase/">&lt;h1 id=&quot;새로운-기술이-범람한다&quot;&gt;새로운 기술이 범람한다.&lt;/h1&gt;
-
-&lt;p&gt;매일 새로운 기술이 나온다. 더 좋은 기법들이 나오고 이를 이용한 새로운 기술이 여러 방향으로 만들어진다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;이 기술을 따라가기 위해서는 기초가 탄탄히애야 한다. 기초 없이는 무척이나 어렵다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;머신러닝을 수학에 대한 기초 지식 없이 시작하려다가 포기 하고 말았다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;기초를-탄탄이-하는것을-잊지-말자&quot;&gt;기초를 탄탄이 하는것을 잊지 말자&lt;/h2&gt;</content><category term="단상" /><summary type="html">기본을 탄탄히 넓은 눈으로 바라보기</summary></entry></feed>
+&lt;h2 id=&quot;이번엔-무엇을-만들어-볼까&quot;&gt;이번엔 무엇을 만들어 볼까?&lt;/h2&gt;</content><category term="단상" /><summary type="html">잘 만든 프로젝트</summary></entry></feed>
