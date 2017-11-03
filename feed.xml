@@ -1,4 +1,108 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.5.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2017-11-02T11:34:02+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Sandbox를 이용한 Malware 테스트</title><link href="https://lahuman.github.io/20171102-phase/" rel="alternate" type="text/html" title="Sandbox를 이용한 Malware 테스트" /><published>2017-11-02T00:00:00+09:00</published><updated>2017-11-02T00:00:00+09:00</updated><id>https://lahuman.github.io/20171102-phase</id><content type="html" xml:base="https://lahuman.github.io/20171102-phase/">&lt;h1 id=&quot;새로운-팀의-진행되었던-업무에-대하여-리뷰를-받았다&quot;&gt;새로운 팀의 진행되었던 업무에 대하여 리뷰를 받았다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.5.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2017-11-03T11:23:07+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">[TIP]TOMCAT 설정</title><link href="https://lahuman.github.io/TOMCAT_SETTING/" rel="alternate" type="text/html" title="[TIP]TOMCAT 설정" /><published>2017-11-03T00:00:00+09:00</published><updated>2017-11-03T00:00:00+09:00</updated><id>https://lahuman.github.io/TOMCAT_SETTING</id><content type="html" xml:base="https://lahuman.github.io/TOMCAT_SETTING/">&lt;h1 id=&quot;tomcat-설정을-알아보자&quot;&gt;TOMCAT 설정을 알아보자&lt;/h1&gt;
+
+&lt;p&gt;TOMCAT은 JAVA WAS(Web Application  Server)에서 가장 많이 사용되고 있다.&lt;a href=&quot;https://plumbr.io/blog/java/most-popular-java-application-servers-2017-edition&quot;&gt;1&lt;/a&gt; &lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;많이 사용되는 이유는 OpenSource(무료)며,  많은 Committers의 참여로 주기적인 패치가 이루어지고 쉬운 설치 JAVA 언어와의 좋은 궁합 등이 있다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Tomcat을 운영에서 사용하기 위하여 몇 가지 설정 변경이 필요하다.&lt;/p&gt;
+
+&lt;h2 id=&quot;tomcat-logging&quot;&gt;Tomcat Logging&lt;/h2&gt;
+
+&lt;p&gt;Tomcat Logger는 JULI(Java Logging Implimentation)이라는 자체 구현체를 제공한다.&lt;br /&gt;
+기본적으로 Apache Commons Logging 기반으로 구현되어 있고(java.util.logging 사용)  extra 패키지를 통해 Log4j, logback 등으로 변경이 가능하다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;기본 설정은 $CATALINA_BASE/conf/logging.properties 파일을 로딩하여 적용한다.&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;logging-종류&quot;&gt;Logging 종류&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;JAVA Logging API : Application당 로깅 설정을 제어하기 위해 java.util.logging 기반의 구현체 JULI 사용 - localhost.yyyy-MM-dd.log 형식의 파일명을 가짐&lt;/li&gt;
+  &lt;li&gt;Servlets logging API : javax.servlet.ServletContext.log(…)를 통해 메시지를  때 사용 - manager.yyyy-MM.dd.log 형식의 파일명을 가짐&lt;/li&gt;
+  &lt;li&gt;Console : tomcat 운영시 출력되는 STDERR/STDOUT - catalina.out 형식의 파일명을 가짐&lt;/li&gt;
+  &lt;li&gt;Access Logging : AccessLogValve 또는 ExtendedAccessLogValve에서 생성되는 로그 - access_log.yyyy-MM-dd.txt 형식의 파일명을 가짐&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;sessing&quot;&gt;Sessing&lt;/h2&gt;
+&lt;p&gt;HTTP 세션을 생성 관리해주는 sessiong manager로 Context안에 설정이 안 되어 있는 경우 자동으로 기본 설정값에 의해 생성된다.(기본값 : org.apache.catalina.session.StandardManager)&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;Manager classname=&quot;org.apache.catalina.session.StandardManager&quot; /&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;h3 id=&quot;session-manager-종류&quot;&gt;Session Manager 종류&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;StandardMnager : 기본 설정. 한 개의 instance를 사용하는 경우만 적용 가능 - org.apache.catalina.session.StandardManager&lt;/li&gt;
+  &lt;li&gt;PersistentManager : 디스크 또는 DB에 세션을 Persist. 세션 스와핑과 장애 대처(fault tolerance) - org.apache.catalina.session.PersistenManager&lt;/li&gt;
+  &lt;li&gt;DeltaManager : All-to-All 방식 Session Replication 기능 구현 - org.apache.catalina.session.DeltaManager&lt;/li&gt;
+  &lt;li&gt;BackupManager : Primary-Secondary Sessiont Replication 기능을 구현 - org.apache.catalina.session.BackupManager
+&lt;a href=&quot;https://tomcat.apache.org/tomcat-8.5-doc/config/manager.html&quot;&gt;2&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;tomcat-clustering&quot;&gt;Tomcat Clustering&lt;/h2&gt;
+
+&lt;p&gt;Tomcat Clustering을 위해서는 $CATALINA_BASE/conf/server.xml의 &lt;Engine&gt; 또는 &lt;Host&gt; 에 다음과 같은 설정을 한다.&lt;/Host&gt;&lt;/Engine&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;Cluster className=&quot;org.apache.catalina.ha.tcp.SimpleTcpCluster&quot; /&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;아래는 설정 샘플&lt;a href=&quot;https://www.lesstif.com/pages/viewpage.action?pageId=46366798&quot;&gt;3&lt;/a&gt;이다.&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;Cluster className=&quot;org.apache.catalina.ha.tcp.SimpleTcpCluster&quot;
+                channelSendOptions=&quot;8&quot;&amp;gt;
+  &amp;lt;Manager className=&quot;org.apache.catalina.ha.session.DeltaManager&quot;
+          expireSessionsOnShutdown=&quot;false&quot;
+          notifyListenersOnReplication=&quot;true&quot;/&amp;gt;
+
+   &amp;lt;!-- 멀티캐스트 포트(45564) 필요에 따라 변경 --&amp;gt;
+ &amp;lt;Channel className=&quot;org.apache.catalina.tribes.group.GroupChannel&quot;&amp;gt;
+   &amp;lt;Membership className=&quot;org.apache.catalina.tribes.membership.McastService&quot;
+               address=&quot;228.0.0.4&quot;
+               port=&quot;45564&quot;
+               frequency=&quot;500&quot;
+               dropTime=&quot;3000&quot;/&amp;gt;
+   &amp;lt;!-- replication 메시지 수신 포트는 4000 - 4100 사이 --&amp;gt;
+   &amp;lt;Receiver className=&quot;org.apache.catalina.tribes.transport.nio.NioReceiver&quot;
+             address=&quot;auto&quot;
+             port=&quot;4000&quot;
+             autoBind=&quot;100&quot;
+             selectorTimeout=&quot;5000&quot;
+             maxThreads=&quot;6&quot;/&amp;gt;
+
+   &amp;lt;Sender className=&quot;org.apache.catalina.tribes.transport.ReplicationTransmitter&quot;&amp;gt;
+     &amp;lt;Transport className=&quot;org.apache.catalina.tribes.transport.nio.PooledParallelSender&quot;/&amp;gt;
+   &amp;lt;/Sender&amp;gt;
+   &amp;lt;Interceptor className=&quot;org.apache.catalina.tribes.group.interceptors.TcpFailureDetector&quot;/&amp;gt;
+   &amp;lt;Interceptor className=&quot;org.apache.catalina.tribes.group.interceptors.MessageDispatch15Interceptor&quot;/&amp;gt;
+ &amp;lt;/Channel&amp;gt;
+
+ &amp;lt;Valve className=&quot;org.apache.catalina.ha.tcp.ReplicationValve&quot;
+        filter=&quot;&quot;/&amp;gt;
+ &amp;lt;Valve className=&quot;org.apache.catalina.ha.session.JvmRouteBinderValve&quot;/&amp;gt;
+
+ &amp;lt;!-- war 를 하나에 반영하면 클러스터에 자동으로 배포되는 FarmWarDeployer 기능시에만 필요
+ &amp;lt;Deployer className=&quot;org.apache.catalina.ha.deploy.FarmWarDeployer&quot;
+           tempDir=&quot;/tmp/war-temp/&quot;
+           deployDir=&quot;/tmp/war-deploy/&quot;
+           watchDir=&quot;/tmp/war-listen/&quot;
+           watchEnabled=&quot;false&quot;/&amp;gt;
+   --&amp;gt;
+
+ &amp;lt;ClusterListener className=&quot;org.apache.catalina.ha.session.ClusterSessionListener&quot;/&amp;gt;
+&amp;lt;/Cluster&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;session-cluster&quot;&gt;session Cluster&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;DeltaManager : Small cluster&lt;/li&gt;
+  &lt;li&gt;BackupManager : Large cluster&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.slideshare.net/jieunsys/ss-56543446&quot;&gt;Enterprise 환경에서 Tomcat 운영하기&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://plumbr.io/blog/java/most-popular-java-application-servers-2017-edition&quot;&gt;2017년기준 JAVA 어플리케이션 서버 사용율&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://tomcat.apache.org/tomcat-8.5-doc/config/manager.html&quot;&gt;Tomcat8 기준 세션 설정&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.lesstif.com/pages/viewpage.action?pageId=46366798&quot;&gt;Tcomat 세션 클러스터링 설정&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;</content><category term="TOMCAT" /><summary type="html">몇몇 주요 설정을 알아보자</summary></entry><entry><title type="html">Sandbox를 이용한 Malware 테스트</title><link href="https://lahuman.github.io/20171102-phase/" rel="alternate" type="text/html" title="Sandbox를 이용한 Malware 테스트" /><published>2017-11-02T00:00:00+09:00</published><updated>2017-11-02T00:00:00+09:00</updated><id>https://lahuman.github.io/20171102-phase</id><content type="html" xml:base="https://lahuman.github.io/20171102-phase/">&lt;h1 id=&quot;새로운-팀의-진행되었던-업무에-대하여-리뷰를-받았다&quot;&gt;새로운 팀의 진행되었던 업무에 대하여 리뷰를 받았다.&lt;/h1&gt;
 
 &lt;p&gt;2명이 개발한 시스템이고, 생각보다 많은 기술들이 들어가 있었다.&lt;br /&gt;&lt;/p&gt;
 
@@ -98,32 +202,4 @@ vim vim mvc-config.xml
 
 &lt;p&gt;간접적인 경험은 직접적인 경험보다는 못하지만, 아무것도 하지 않은 것에 비하면 많은 것을 얻을 수 있다.&lt;br /&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;책을-많이-읽자&quot;&gt;책을 많이 읽자!&lt;/h2&gt;</content><category term="단상" /><summary type="html">책은 많은데 뭐부터 읽을까?</summary></entry><entry><title type="html">[2017-10-18] 일 잘하는 사람은 어떻게 문제를 해결하는가</title><link href="https://lahuman.github.io/20171018-phase/" rel="alternate" type="text/html" title="[2017-10-18] 일 잘하는 사람은 어떻게 문제를 해결하는가" /><published>2017-10-18T00:00:00+09:00</published><updated>2017-10-18T00:00:00+09:00</updated><id>https://lahuman.github.io/20171018-phase</id><content type="html" xml:base="https://lahuman.github.io/20171018-phase/">&lt;h1 id=&quot;일-잘하는-사람들은-어떻게-문제를-해결하는가&quot;&gt;&lt;a href=&quot;http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&amp;amp;mallGb=KOR&amp;amp;barcode=9791195675487&amp;amp;orderClick=LAV&amp;amp;Kc=&quot;&gt;일 잘하는 사람들은 어떻게 문제를 해결하는가&lt;/a&gt;&lt;/h1&gt;
-
-&lt;p&gt;책에서는 먼저 문제에 접근하는 방법에 대하여 이야기한다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;일반적으로 문제를 직면하면, 우리는 어떻게(&lt;kdb&gt;How&lt;/kdb&gt;) 해결할 것인가에 만 초점을 맞춘다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;이는 &lt;strong&gt;How 함정&lt;/strong&gt;이라고 책에서는 이야기한다. &lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;how-함정의-예&quot;&gt;How 함정의 예&lt;/h3&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;문제 발생 ==&amp;gt; 어떻게 처리 ==&amp;gt; 문제 재 발생 ==&amp;gt; 어떻게 처리 ==&amp;gt; 반복&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;따라서 문제가 발생하면 다음과 같이 접근하라고 책에서는 이야기한다 &lt;br /&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Where ==&amp;gt; Why ==&amp;gt; How&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;애초에 어디가 문제인가? (&lt;strong&gt;문제 규정&lt;/strong&gt;)&lt;/li&gt;
-  &lt;li&gt;문제가 일어난 원인은 무엇인가? (&lt;strong&gt;원인을 깊이 파고듦&lt;/strong&gt;)&lt;/li&gt;
-  &lt;li&gt;어떻게 대처하면 좋은가? (&lt;strong&gt;대책 고안&lt;/strong&gt;)&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;각 내용에 대한 예를 들면서 설명한다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;열심히-읽고-현실에-반영하여-보자&quot;&gt;열심히 읽고 현실에 반영하여 보자!&lt;/h2&gt;</content><category term="단상" /><summary type="html">도서 후기</summary></entry></feed>
+&lt;h2 id=&quot;책을-많이-읽자&quot;&gt;책을 많이 읽자!&lt;/h2&gt;</content><category term="단상" /><summary type="html">책은 많은데 뭐부터 읽을까?</summary></entry></feed>
