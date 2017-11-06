@@ -1,4 +1,16 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.5.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2017-11-03T11:23:07+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">[TIP]TOMCAT 설정</title><link href="https://lahuman.github.io/TOMCAT_SETTING/" rel="alternate" type="text/html" title="[TIP]TOMCAT 설정" /><published>2017-11-03T00:00:00+09:00</published><updated>2017-11-03T00:00:00+09:00</updated><id>https://lahuman.github.io/TOMCAT_SETTING</id><content type="html" xml:base="https://lahuman.github.io/TOMCAT_SETTING/">&lt;h1 id=&quot;tomcat-설정을-알아보자&quot;&gt;TOMCAT 설정을 알아보자&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.5.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2017-11-06T14:17:34+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">월요일 아침은 힘들어…</title><link href="https://lahuman.github.io/20171106-phase/" rel="alternate" type="text/html" title="월요일 아침은 힘들어..." /><published>2017-11-06T00:00:00+09:00</published><updated>2017-11-06T00:00:00+09:00</updated><id>https://lahuman.github.io/20171106-phase</id><content type="html" xml:base="https://lahuman.github.io/20171106-phase/">&lt;h1 id=&quot;매주-월요일에-겪는-몇가지-일들&quot;&gt;매주 월요일에 겪는 몇가지 일들&lt;/h1&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;배가 아프다.&lt;/li&gt;
+  &lt;li&gt;몽롱한 정신 상태&lt;/li&gt;
+  &lt;li&gt;진행하던 일 따라가기&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;주 원인은 &lt;strong&gt;1&lt;/strong&gt; 번 같다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;배가 아파 화장실을 들락날락 하니 집중도가 떨어지는 듯…&lt;/p&gt;
+
+&lt;h2 id=&quot;주말동안-안먹던-음식을-먹었나&quot;&gt;주말동안 안먹던 음식을 먹었나?&lt;/h2&gt;</content><category term="단상" /><summary type="html">매주를 시작하는 월요일은 날 힘들게 한다.</summary></entry><entry><title type="html">[TIP]TOMCAT 설정</title><link href="https://lahuman.github.io/TOMCAT_SETTING/" rel="alternate" type="text/html" title="[TIP]TOMCAT 설정" /><published>2017-11-03T00:00:00+09:00</published><updated>2017-11-03T00:00:00+09:00</updated><id>https://lahuman.github.io/TOMCAT_SETTING</id><content type="html" xml:base="https://lahuman.github.io/TOMCAT_SETTING/">&lt;h1 id=&quot;tomcat-설정을-알아보자&quot;&gt;TOMCAT 설정을 알아보자&lt;/h1&gt;
 
 &lt;p&gt;TOMCAT은 JAVA WAS(Web Application  Server)에서 가장 많이 사용되고 있다.&lt;a href=&quot;https://plumbr.io/blog/java/most-popular-java-application-servers-2017-edition&quot;&gt;1&lt;/a&gt; &lt;br /&gt;&lt;/p&gt;
 
@@ -194,12 +206,4 @@ vim vim mvc-config.xml
 
 &lt;p&gt;다음날이 되면 모두 잊어버리는.. 힘든 술자리가 정말 싫다.&lt;br /&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;나도-취하면-저러겠지&quot;&gt;나도 취하면 저러겠지…&lt;/h2&gt;</content><category term="단상" /><summary type="html">적당한 술은 기분 좋게 만들지만 과도한 술은 힘들게 만든다.</summary></entry><entry><title type="html">[2017-10-19] 읽어야 할 책들이 쌓이기 시작한다.</title><link href="https://lahuman.github.io/20171019-phase/" rel="alternate" type="text/html" title="[2017-10-19] 읽어야 할 책들이 쌓이기 시작한다." /><published>2017-10-19T00:00:00+09:00</published><updated>2017-10-19T00:00:00+09:00</updated><id>https://lahuman.github.io/20171019-phase</id><content type="html" xml:base="https://lahuman.github.io/20171019-phase/">&lt;h1 id=&quot;읽어야-할-책이-엄청-많다&quot;&gt;읽어야 할 책이 엄청 많다.&lt;/h1&gt;
-
-&lt;p&gt;시간을 두고 천천히 읽어야 할 책도 있고, 빠르게 읽고 바로 적용해봐야 하는 책도 있다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;책을 읽으면서 나는 많은 것을 간접적으로 배운다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;간접적인 경험은 직접적인 경험보다는 못하지만, 아무것도 하지 않은 것에 비하면 많은 것을 얻을 수 있다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;책을-많이-읽자&quot;&gt;책을 많이 읽자!&lt;/h2&gt;</content><category term="단상" /><summary type="html">책은 많은데 뭐부터 읽을까?</summary></entry></feed>
+&lt;h2 id=&quot;나도-취하면-저러겠지&quot;&gt;나도 취하면 저러겠지…&lt;/h2&gt;</content><category term="단상" /><summary type="html">적당한 술은 기분 좋게 만들지만 과도한 술은 힘들게 만든다.</summary></entry></feed>
