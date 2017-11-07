@@ -1,4 +1,54 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.5.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2017-11-06T14:17:34+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">월요일 아침은 힘들어…</title><link href="https://lahuman.github.io/20171106-phase/" rel="alternate" type="text/html" title="월요일 아침은 힘들어..." /><published>2017-11-06T00:00:00+09:00</published><updated>2017-11-06T00:00:00+09:00</updated><id>https://lahuman.github.io/20171106-phase</id><content type="html" xml:base="https://lahuman.github.io/20171106-phase/">&lt;h1 id=&quot;매주-월요일에-겪는-몇가지-일들&quot;&gt;매주 월요일에 겪는 몇가지 일들&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.5.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2017-11-07T11:21:40+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">MYSQL의 Storage Engines 에서 가장 많이 사용되는 MyISAM과 InnoDB 장/단점</title><link href="https://lahuman.github.io/Mysql_MyISAM_problem/" rel="alternate" type="text/html" title="MYSQL의 Storage Engines 에서 가장 많이 사용되는 MyISAM과 InnoDB 장/단점" /><published>2017-11-07T00:00:00+09:00</published><updated>2017-11-07T00:00:00+09:00</updated><id>https://lahuman.github.io/Mysql_MyISAM_problem</id><content type="html" xml:base="https://lahuman.github.io/Mysql_MyISAM_problem/">&lt;h1 id=&quot;myisma-vs-innodb&quot;&gt;MyISMA VS InnoDB&lt;/h1&gt;
+
+&lt;h2 id=&quot;1-myisma&quot;&gt;1. MyISMA&lt;/h2&gt;
+&lt;p&gt;MyISMA 의 특징은 non-transactional-safe(트랜잭션 기능 제공 안 함)와 데이터 모델 디자인이 단순하다는 것이다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;장점&quot;&gt;장점&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;단순한 디자인으로 인해 따라서 Select 작업 속도가 빠르고 많은 읽기 작업에 적합하다.&lt;/li&gt;
+  &lt;li&gt;Full-text 인덱싱이 가능하여 검색하고 하는 내용에 대한 복합 검색도 가능하다.&lt;/li&gt;
+  &lt;li&gt;테이블 단위로 물리 파일이 존재하여 백업 &amp;amp; 복구가 쉽다.
+    &lt;ol&gt;
+      &lt;li&gt;.frm - 테이블 정의 파일&lt;/li&gt;
+      &lt;li&gt;.MYD - 테이블 데이터 파일&lt;/li&gt;
+      &lt;li&gt;.MYI - 테이블 인덱스 파일&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;단점&quot;&gt;단점&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Table-Level Lock&lt;/strong&gt; 사용으로 쓰기 작업이 느리고 다음과 같은 문제가 있다.
+    &lt;ol&gt;
+      &lt;li&gt;SELECT (진행 중),  Update(대기 중) 일 경우에 &lt;strong&gt;해당 테이블에 대한 SELECT 작업도 함께 LOCK이 걸린다.&lt;/strong&gt;&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;데이터 무결성이 보장되지 않는다.&lt;/li&gt;
+  &lt;li&gt;트랜젝션 기능 제공 안 한다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;2-innodb&quot;&gt;2. InnoDB&lt;/h2&gt;
+&lt;p&gt;InnoDB는 트랜잭션 기능을 제공하고 Row-level locking, 외래 키 지원, 장애 복구 등의 다양한 기능을 지원한다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;장점-1&quot;&gt;장점&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Row-level Lock&lt;/strong&gt; 사용으로 변경 작업이 빠르고 해당 ROW를 제외한 동시 처리가 가능하다.&lt;/li&gt;
+  &lt;li&gt;데이터 무결성 보장한다.&lt;/li&gt;
+  &lt;li&gt;제약조건, 외래 키 생성, 동시성 제어 등 가능하다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;단점-1&quot;&gt;단점&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Full-text 인덱싱 불가능하다.&lt;/li&gt;
+  &lt;li&gt;MyISAM에 비해 시스템 자원을 많이 사용한다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;참조&quot;&gt;참조&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://ko.wikipedia.org/wiki/MyISAM&quot;&gt;MyISMA WIKI&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://ojava.tistory.com/25&quot;&gt;Mysql Storage Engine의 양대산맥! MyISAM vs InnoDB&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://dev.mysql.com/doc/refman/5.7/en/myisam-storage-engine.html&quot;&gt;15.2 The MyISAM Storage Engine&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="MYSQL" /><category term="Storage" /><summary type="html">MyISMA을 써야할 때와 쓰지 말아야 할때를 알아야 한다.</summary></entry><entry><title type="html">월요일 아침은 힘들어…</title><link href="https://lahuman.github.io/20171106-phase/" rel="alternate" type="text/html" title="월요일 아침은 힘들어..." /><published>2017-11-06T00:00:00+09:00</published><updated>2017-11-06T00:00:00+09:00</updated><id>https://lahuman.github.io/20171106-phase</id><content type="html" xml:base="https://lahuman.github.io/20171106-phase/">&lt;h1 id=&quot;매주-월요일에-겪는-몇가지-일들&quot;&gt;매주 월요일에 겪는 몇가지 일들&lt;/h1&gt;
 
 &lt;ol&gt;
   &lt;li&gt;배가 아프다.&lt;/li&gt;
@@ -198,12 +248,4 @@ vim vim mvc-config.xml
 
 &lt;p&gt;계속 망각하고 있다가 그 상황이 되면 생각이 난다. &lt;br /&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;로또나-되어라-좀&quot;&gt;로또나 되어라 좀!&lt;/h2&gt;</content><category term="단상" /><summary type="html">자꾸 잊는다.</summary></entry><entry><title type="html">[2017-10-20] 술은 사람을 피곤하게 만든다.</title><link href="https://lahuman.github.io/20171020-phase/" rel="alternate" type="text/html" title="[2017-10-20] 술은 사람을 피곤하게 만든다." /><published>2017-10-20T00:00:00+09:00</published><updated>2017-10-20T00:00:00+09:00</updated><id>https://lahuman.github.io/20171020-phase</id><content type="html" xml:base="https://lahuman.github.io/20171020-phase/">&lt;h1 id=&quot;술자리를-좋아하고-사람들과-이야기하는-것을-좋아하지만&quot;&gt;술자리를 좋아하고, 사람들과 이야기하는 것을 좋아하지만…&lt;/h1&gt;
-
-&lt;p&gt;과도하게 술을 드신 분과의 이야기는 힘들다. &lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;했던 이야기 또 하고, 소리치고 돌발행동 등…&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;다음날이 되면 모두 잊어버리는.. 힘든 술자리가 정말 싫다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;나도-취하면-저러겠지&quot;&gt;나도 취하면 저러겠지…&lt;/h2&gt;</content><category term="단상" /><summary type="html">적당한 술은 기분 좋게 만들지만 과도한 술은 힘들게 만든다.</summary></entry></feed>
+&lt;h2 id=&quot;로또나-되어라-좀&quot;&gt;로또나 되어라 좀!&lt;/h2&gt;</content><category term="단상" /><summary type="html">자꾸 잊는다.</summary></entry></feed>
