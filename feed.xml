@@ -1,4 +1,22 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.5.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2017-11-13T16:02:25+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Elasticsearch 모니터링 툴 HEAD, HQ 설치 하기</title><link href="https://lahuman.github.io/elasticsearch_head_hq_install/" rel="alternate" type="text/html" title="Elasticsearch 모니터링 툴 HEAD, HQ 설치 하기" /><published>2017-11-13T00:00:00+09:00</published><updated>2017-11-13T00:00:00+09:00</updated><id>https://lahuman.github.io/elasticsearch_head_hq_install</id><content type="html" xml:base="https://lahuman.github.io/elasticsearch_head_hq_install/">&lt;h1 id=&quot;elasticsearch-모니터링-툴-head-hq-설치-하기&quot;&gt;Elasticsearch 모니터링 툴 HEAD, HQ 설치 하기&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.5.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2017-11-14T12:00:47+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Elasticsearch 5.x에서 Elasticsearch HQ 의 Query 기능 사용 시 400 에러 해결</title><link href="https://lahuman.github.io/elasticsearch_HQ_Query_fields_update/" rel="alternate" type="text/html" title="Elasticsearch 5.x에서 Elasticsearch HQ 의 Query 기능 사용 시 400 에러 해결" /><published>2017-11-14T00:00:00+09:00</published><updated>2017-11-14T00:00:00+09:00</updated><id>https://lahuman.github.io/elasticsearch_HQ_Query_fields_update</id><content type="html" xml:base="https://lahuman.github.io/elasticsearch_HQ_Query_fields_update/">&lt;h2 id=&quot;elasticsearch-5x에서-elasticsearch-hq-의-query-기능-사용-시-400-에러-해결&quot;&gt;Elasticsearch 5.x에서 Elasticsearch HQ 의 Query 기능 사용 시 400 에러 해결&lt;/h2&gt;
+
+&lt;p&gt;어제 즐겁게 Elasticsearch HQ를 설치하고, 금일 Query를 이용하여 데이터를 조회하려고 했으나 계속 400 에러가 발생했다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;원인은 &lt;a href=&quot;https://github.com/elastic/kibana/issues/7541&quot;&gt;fields 가  stored_fields로 변경&lt;/a&gt;되면서 fileds를 파라미터로 넘길 경우 오류가 발생하였다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;간단하게 해결될 것 같아 fields의 이름을 stored_fields로 변경해보았더니, 결과는 나오지만 내가 넘긴 stored_fields의 값은 없이 처리가 되었다. &lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.elastic.co/guide/en/elasticsearch/reference/current/search-request-stored-fields.html&quot;&gt;Elasticsearch 의 문서를 확인하던 중 source filtering을 이용&lt;/a&gt;하라는 내용을 보고 이름을 다시 _source로 변경하고 나니 문제없이 데이터가 표출되었다.&lt;/p&gt;
+
+&lt;p&gt;수정을 하고 나서 기쁜 마음으로 &lt;a href=&quot;https://github.com/royrusso/elasticsearch-HQ/pull/301&quot;&gt;Pull Request&lt;/a&gt;를 날렸다.&lt;/p&gt;
+
+&lt;p&gt;도움이 되면 좋겠다.&lt;/p&gt;
+
+&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/elastic/kibana/issues/7541&quot;&gt;Rename fields parameter to stored_fields&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.elastic.co/guide/en/elasticsearch/reference/current/search-request-stored-fields.html&quot;&gt;Elasticsearch Reference [5.6] » Search APIs » Request Body Search » Fields&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;</content><category term="elasticsearch" /><summary type="html">fields 를 더 이상 사용할 수 없어 발생한 문제</summary></entry><entry><title type="html">Elasticsearch 모니터링 툴 HEAD, HQ 설치 하기</title><link href="https://lahuman.github.io/elasticsearch_head_hq_install/" rel="alternate" type="text/html" title="Elasticsearch 모니터링 툴 HEAD, HQ 설치 하기" /><published>2017-11-13T00:00:00+09:00</published><updated>2017-11-13T00:00:00+09:00</updated><id>https://lahuman.github.io/elasticsearch_head_hq_install</id><content type="html" xml:base="https://lahuman.github.io/elasticsearch_head_hq_install/">&lt;h1 id=&quot;elasticsearch-모니터링-툴-head-hq-설치-하기&quot;&gt;Elasticsearch 모니터링 툴 HEAD, HQ 설치 하기&lt;/h1&gt;
 &lt;p&gt;Elasticsearch의 모니터링을 위해서 가장 많이 사용하는 플러그인인 HEAD와 HQ가 5.x부터는 보안상의 이유로 Plugin 형식으로 제공되지 않는다.&lt;/p&gt;
 
 &lt;h2 id=&quot;elasticsearch-설정-변경&quot;&gt;elasticsearch 설정 변경&lt;/h2&gt;
@@ -378,26 +396,4 @@ elasticsearch.url: &quot;http://10.0.2.15:9200&quot;
 
 &lt;p&gt;새로운 팀에서 적응하고 열심히 하자.&lt;br /&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;1년-넘게-있으면서-많은-일이-있었다-잘-있어라&quot;&gt;1년 넘게 있으면서 많은 일이 있었다. 잘 있어라…&lt;/h2&gt;</content><category term="단상" /><summary type="html">결국 나가는 구나...</summary></entry><entry><title type="html">[TIP] Cloudera 설치시 403 에러를 만나면 확인 해야할 사항</title><link href="https://lahuman.github.io/20171030-phase/" rel="alternate" type="text/html" title="[TIP] Cloudera 설치시 403 에러를 만나면 확인 해야할 사항" /><published>2017-10-30T00:00:00+09:00</published><updated>2017-10-30T00:00:00+09:00</updated><id>https://lahuman.github.io/20171030-phase</id><content type="html" xml:base="https://lahuman.github.io/20171030-phase/">&lt;h1 id=&quot;cloudera설치-중-다음과-같은-메시지를-만났다&quot;&gt;Cloudera설치 중 다음과 같은 메시지를 만났다.&lt;/h1&gt;
-
-&lt;p&gt;Cloudera 설치 중 몇몇 모듈에 대하여 403 오류가 발생하여 해당 로그를 따라가 보니 다음과 같은 경고가 있었다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;2017-10-30 16:51:51,833 WARN 1258521080@scm-web-0:com.cloudera.server.web.cmf.csrf.CsrfRefererInterceptor: Rejecting request originating from xx.xx.xx.xx for http://xx.xx.xx.xx:xxxx/cmf/express-wizard/updateHostsState with referrer null
-2017-10-30 16:56:58,834 WARN 1258521080@scm-web-0:com.cloudera.server.web.cmf.csrf.CsrfRefererInterceptor: Rejecting request originating from xx.xx.xx.xx for http://xx.xx.xx.xx:xxxx/cmf/add-hosts-wizard/scanhosts.json with referrer null
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;이는 csrf에서 거절 한것으로 Spring security 3.1 이하 버전은 Interceptor를 구현하여 사용하였다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;따라서 클라우데라 설치 디렉터리에서 다음을 찾아서 수정하면 쉽게 처리된다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cd /usr/share/cmf/webapp/WEB-INF/spring
-vim vim mvc-config.xml
-# 32 LINE
-&amp;lt;!--   &amp;lt;bean class=&quot;com.cloudera.server.web.cmf.csrf.CsrfRefererInterceptor&quot; /&amp;gt; --&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;이후 서비스를 재기동하면 문제없이 동작한다.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;/cmf/add-hosts-wizard/scanhosts.json&quot;&gt;참조 URL&lt;/a&gt;&lt;/p&gt;</content><category term="TIP" /><summary type="html">특정 URL에서 오류가 난다.</summary></entry></feed>
+&lt;h2 id=&quot;1년-넘게-있으면서-많은-일이-있었다-잘-있어라&quot;&gt;1년 넘게 있으면서 많은 일이 있었다. 잘 있어라…&lt;/h2&gt;</content><category term="단상" /><summary type="html">결국 나가는 구나...</summary></entry></feed>
