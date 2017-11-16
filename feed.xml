@@ -1,4 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.5.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2017-11-15T15:56:36+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">크롤링은 Python 과 함께가 진리</title><link href="https://lahuman.github.io/20171115-phase/" rel="alternate" type="text/html" title="크롤링은 Python 과 함께가 진리" /><published>2017-11-15T00:00:00+09:00</published><updated>2017-11-15T00:00:00+09:00</updated><id>https://lahuman.github.io/20171115-phase</id><content type="html" xml:base="https://lahuman.github.io/20171115-phase/">&lt;h1 id=&quot;간단한-웹페이지-크롤링-기능이-필요-할때는-python을-사용해요&quot;&gt;간단한 웹페이지 크롤링 기능이 필요 할때는 Python을 사용해요&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.5.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2017-11-16T16:31:51+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">아침의 에너지가 사라졌다.</title><link href="https://lahuman.github.io/20171116-phase/" rel="alternate" type="text/html" title="아침의 에너지가 사라졌다." /><published>2017-11-16T00:00:00+09:00</published><updated>2017-11-16T00:00:00+09:00</updated><id>https://lahuman.github.io/20171116-phase</id><content type="html" xml:base="https://lahuman.github.io/20171116-phase/">&lt;h1 id=&quot;무엇을-할-것인지가-명확했는데-지금은&quot;&gt;무엇을 할 것인지가 명확했는데 지금은…&lt;/h1&gt;
+
+&lt;p&gt;머리속이 멍하다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;내가 무엇을 하는지 모르겠다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;그리고 졸리다…..&lt;/p&gt;
+
+&lt;h2 id=&quot;아오-피곤해&quot;&gt;아오 피곤해&lt;/h2&gt;</content><category term="단상" /><summary type="html">머리속이 멍하다...</summary></entry><entry><title type="html">크롤링은 Python 과 함께가 진리</title><link href="https://lahuman.github.io/20171115-phase/" rel="alternate" type="text/html" title="크롤링은 Python 과 함께가 진리" /><published>2017-11-15T00:00:00+09:00</published><updated>2017-11-15T00:00:00+09:00</updated><id>https://lahuman.github.io/20171115-phase</id><content type="html" xml:base="https://lahuman.github.io/20171115-phase/">&lt;h1 id=&quot;간단한-웹페이지-크롤링-기능이-필요-할때는-python을-사용해요&quot;&gt;간단한 웹페이지 크롤링 기능이 필요 할때는 Python을 사용해요&lt;/h1&gt;
 
 &lt;p&gt;Python에 크롤링 프레임워크로 &lt;a href=&quot;https://scrapy.org/&quot;&gt;scrapy&lt;/a&gt;가 있다. &lt;br /&gt;&lt;/p&gt;
 
@@ -386,14 +394,4 @@ elasticsearch.url: &quot;http://10.0.2.15:9200&quot;
 
 &lt;p&gt;&lt;a href=&quot;http://ask-leo.com/whats_the_difference_between_a_sandbox_and_a_virtual_machine.html&quot;&gt;참고 URL&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;괜찮아-잘될꺼야&quot;&gt;괜찮아 잘될꺼야!&lt;/h2&gt;</content><category term="단상" /><summary type="html">보안 파트에서는 많이 사용되는 기술인다.</summary></entry><entry><title type="html">새로운 시작은 늘 불안하다.</title><link href="https://lahuman.github.io/20171101-phase/" rel="alternate" type="text/html" title="새로운 시작은 늘 불안하다." /><published>2017-11-01T00:00:00+09:00</published><updated>2017-11-01T00:00:00+09:00</updated><id>https://lahuman.github.io/20171101-phase</id><content type="html" xml:base="https://lahuman.github.io/20171101-phase/">&lt;h1 id=&quot;일단-무엇을-할지에-대한-자세한-논의가-필요한-상태&quot;&gt;일단 무엇을 할지에 대한 자세한 논의가 필요한 상태!&lt;/h1&gt;
-
-&lt;p&gt;기본적으로 머신러닝을 한다는 이야기는 들었으나, 정확하게 무엇을 하는지는 모른다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;앞으로 어떻게 될지는 모르겠지만 열심히 해보면 무언가 결과가 나오겠지.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;40대가 다가오면서 많은 고민이 있다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;내가 잘하고 있는 것인지도 모르고 앞으로 얼마나 더 할 수 있을지도 모르겠다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;그냥 시간만 지나가는지도…&lt;/p&gt;</content><category term="단상" /><summary type="html">불안감은 빨리 떨처버리자!</summary></entry></feed>
+&lt;h2 id=&quot;괜찮아-잘될꺼야&quot;&gt;괜찮아 잘될꺼야!&lt;/h2&gt;</content><category term="단상" /><summary type="html">보안 파트에서는 많이 사용되는 기술인다.</summary></entry></feed>
