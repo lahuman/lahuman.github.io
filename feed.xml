@@ -1,4 +1,17 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.5.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2017-11-16T16:31:51+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">아침의 에너지가 사라졌다.</title><link href="https://lahuman.github.io/20171116-phase/" rel="alternate" type="text/html" title="아침의 에너지가 사라졌다." /><published>2017-11-16T00:00:00+09:00</published><updated>2017-11-16T00:00:00+09:00</updated><id>https://lahuman.github.io/20171116-phase</id><content type="html" xml:base="https://lahuman.github.io/20171116-phase/">&lt;h1 id=&quot;무엇을-할-것인지가-명확했는데-지금은&quot;&gt;무엇을 할 것인지가 명확했는데 지금은…&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.5.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2017-11-21T13:07:33+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">맥북 프로를 받다.</title><link href="https://lahuman.github.io/20171121-phase/" rel="alternate" type="text/html" title="맥북 프로를 받다." /><published>2017-11-21T00:00:00+09:00</published><updated>2017-11-21T00:00:00+09:00</updated><id>https://lahuman.github.io/20171121-phase</id><content type="html" xml:base="https://lahuman.github.io/20171121-phase/">&lt;h1 id=&quot;맥북-2014-mid를-받았다&quot;&gt;맥북 2014 MID를 받았다.&lt;/h1&gt;
+
+&lt;p&gt;우선 맥북을 쓸일이 생겨서 즐겁다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;맥북이 좋기 보다 남들이 많이 쓰니까 써버고 싶어서 구매한 적도 있으나, 금방 실증나서 팔아 버렸다.&lt;br /&gt;
+&lt;strong&gt;사실 가성비가 떨어져서 내 스타일은 아니었다&lt;/strong&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;회사 부장님이 쓰시다가, 윈도우 PC로 교체를 원해 내가 쓰던 노트북과 교환 하기로 하고 받았다&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;받고 보니 액정 코팅이 다 벗겨져서 실망 중이었는데, 다행이 해당 문제는 무상 AS가 되어 수리를 맡기었다.&amp;lt;br /.&lt;/p&gt;
+
+&lt;p&gt;회사에서 맥북을 쓰는 날이 오는구나!!!&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;간절히-원한건-아니고-그냥-한번-받아보고는-싶었다&quot;&gt;간절히 원한건 아니고 그냥 한번 받아보고는 싶었다&lt;/h2&gt;</content><category term="단상" /><summary type="html">남이 쓰던거긴 하지만, 회사에서 맥북을 받을 날이 오다니!!!</summary></entry><entry><title type="html">아침의 에너지가 사라졌다.</title><link href="https://lahuman.github.io/20171116-phase/" rel="alternate" type="text/html" title="아침의 에너지가 사라졌다." /><published>2017-11-16T00:00:00+09:00</published><updated>2017-11-16T00:00:00+09:00</updated><id>https://lahuman.github.io/20171116-phase</id><content type="html" xml:base="https://lahuman.github.io/20171116-phase/">&lt;h1 id=&quot;무엇을-할-것인지가-명확했는데-지금은&quot;&gt;무엇을 할 것인지가 명확했는데 지금은…&lt;/h1&gt;
 
 &lt;p&gt;머리속이 멍하다.&lt;br /&gt;&lt;/p&gt;
 
@@ -382,16 +395,4 @@ elasticsearch.url: &quot;http://10.0.2.15:9200&quot;
   &lt;li&gt;&lt;a href=&quot;https://plumbr.io/blog/java/most-popular-java-application-servers-2017-edition&quot;&gt;2017년기준 JAVA 어플리케이션 서버 사용율&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://tomcat.apache.org/tomcat-8.5-doc/config/manager.html&quot;&gt;Tomcat8 기준 세션 설정&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.lesstif.com/pages/viewpage.action?pageId=46366798&quot;&gt;Tcomat 세션 클러스터링 설정&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;</content><category term="TOMCAT" /><summary type="html">몇몇 주요 설정을 알아보자</summary></entry><entry><title type="html">Sandbox를 이용한 Malware 테스트</title><link href="https://lahuman.github.io/20171102-phase/" rel="alternate" type="text/html" title="Sandbox를 이용한 Malware 테스트" /><published>2017-11-02T00:00:00+09:00</published><updated>2017-11-02T00:00:00+09:00</updated><id>https://lahuman.github.io/20171102-phase</id><content type="html" xml:base="https://lahuman.github.io/20171102-phase/">&lt;h1 id=&quot;새로운-팀의-진행되었던-업무에-대하여-리뷰를-받았다&quot;&gt;새로운 팀의 진행되었던 업무에 대하여 리뷰를 받았다.&lt;/h1&gt;
-
-&lt;p&gt;2명이 개발한 시스템이고, 생각보다 많은 기술들이 들어가 있었다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;잘 알지 못하는 기술들을 많이 배우는 시간이었다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;Sandbox를 이용하여 악성 코드 판단을 하는 기술이 있다는 것을 어제 알게 되었다&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;앞으로 기대도 되고 걱정도 된다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://ask-leo.com/whats_the_difference_between_a_sandbox_and_a_virtual_machine.html&quot;&gt;참고 URL&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;괜찮아-잘될꺼야&quot;&gt;괜찮아 잘될꺼야!&lt;/h2&gt;</content><category term="단상" /><summary type="html">보안 파트에서는 많이 사용되는 기술인다.</summary></entry></feed>
+&lt;/ol&gt;</content><category term="TOMCAT" /><summary type="html">몇몇 주요 설정을 알아보자</summary></entry></feed>
