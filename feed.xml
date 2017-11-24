@@ -1,4 +1,74 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2017-11-23T10:03:37+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">이제 나도 맥 사용자!!!</title><link href="https://lahuman.github.io/20171123-phase/" rel="alternate" type="text/html" title="이제 나도 맥 사용자!!!" /><published>2017-11-23T00:00:00+09:00</published><updated>2017-11-23T00:00:00+09:00</updated><id>https://lahuman.github.io/20171123-phase</id><content type="html" xml:base="https://lahuman.github.io/20171123-phase/">&lt;h1 id=&quot;오늘부터-맥으로-업무를-시작-한다&quot;&gt;오늘부터 맥으로 업무를 시작 한다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2017-11-24T11:21:52+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Python에서 virualenv 과 virtualenvwrapper 설치하기</title><link href="https://lahuman.github.io/python_virualenv/" rel="alternate" type="text/html" title="Python에서 virualenv 과 virtualenvwrapper 설치하기" /><published>2017-11-24T00:00:00+09:00</published><updated>2017-11-24T00:00:00+09:00</updated><id>https://lahuman.github.io/python_virualenv</id><content type="html" xml:base="https://lahuman.github.io/python_virualenv/">&lt;h1 id=&quot;virualenv-와-virtualenvwrapper&quot;&gt;virualenv 와 virtualenvwrapper&lt;/h1&gt;
+
+&lt;h2 id=&quot;virualenv&quot;&gt;virualenv&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;여러개의 Python 프로젝트를 진행할때 의존성 문제를 해결 하기 위하여 가상환경을 구성하는 모듈 이다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;virtualenvwrapper&quot;&gt;virtualenvwrapper&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;virualenv 를 감싸서 쉽게 관리 하기 위한 모듈이다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;설치&quot;&gt;설치&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip install virtualenv virtualenvwrapper
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;virtualenvwrapper-설정&quot;&gt;virtualenvwrapper 설정&lt;/h2&gt;
+
+&lt;h3 id=&quot;bash_profile-에-설정&quot;&gt;~/.bash_profile 에 설정&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# Create a backup of your .bash_profile
+cp ~/.bash_profile ~/.bash_profile-org
+
+# Be careful with this command
+printf '\n%s\n%s\n%s' '# virtualenv' 'export WORKON_HOME=~/virtualenvs' \
+'source /usr/local/bin/virtualenvwrapper.sh' &amp;gt;&amp;gt; ~/.bash_profile
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;virtual-환경-사용&quot;&gt;virtual 환경 사용&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;source ~/.bash_profile
+
+mkdir -p $WORKON_HOME
+
+mkvirtualenv api
+
+# Exit the 'api' virtual environment
+deactivate
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;virtualenv-사용-팁&quot;&gt;virtualenv 사용 팁&lt;/h3&gt;
+
+&lt;p&gt;구성된 가상 환경 실행 방법&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;workon api
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;가상환경 종료 방법&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;deactivate
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;가상-환경에-설치된-모듈-정보-저장&quot;&gt;가상 환경에 설치된 모듈 정보 저장&lt;/h2&gt;
+
+&lt;p&gt;우서 requests 모듈을 설치 한다.&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip install requests
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;가상 환경에 필요한 모듈을 모두 설치 한 이후, 다음 명령으로 환경에 대한 정보를 저장한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip freeze &amp;gt; requirements.txt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;다른 곳에서 해당 환경에 대한 설치는 다음과 같다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip install -r requirements.txt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;http://exponential.io/blog/2015/02/10/install-virtualenv-and-virtualenvwrapper-on-mac-os-x/&quot;&gt;Install virtualenv and virtualenvwrapper on Mac OS X&lt;/a&gt;
+&lt;a href=&quot;http://docs.python-guide.org/en/latest/dev/virtualenvs/&quot;&gt;Pipenv &amp;amp; Virtual Environments&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><category term="python" /><summary type="html">python과 pip는 이미 설치되어 있는 상태에서 시작</summary></entry><entry><title type="html">이제 나도 맥 사용자!!!</title><link href="https://lahuman.github.io/20171123-phase/" rel="alternate" type="text/html" title="이제 나도 맥 사용자!!!" /><published>2017-11-23T00:00:00+09:00</published><updated>2017-11-23T00:00:00+09:00</updated><id>https://lahuman.github.io/20171123-phase</id><content type="html" xml:base="https://lahuman.github.io/20171123-phase/">&lt;h1 id=&quot;오늘부터-맥으로-업무를-시작-한다&quot;&gt;오늘부터 맥으로 업무를 시작 한다.&lt;/h1&gt;
 
 &lt;p&gt;오늘 해야 할 일도 해야하고 기존 노트북도 포멧 해서 정리 해야 한다.&lt;br /&gt;&lt;/p&gt;
 
@@ -222,54 +292,4 @@ elasticsearch.url: &quot;http://10.0.2.15:9200&quot;
 
 &lt;p&gt;역시 좋은 세상에 github에 이미 &lt;a href=&quot;https://github.com/ahmia/ahmia-crawler.git&quot;&gt;검색 봇을 구현한 사람&lt;/a&gt;이 있다.&lt;br /&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;감사합니다&quot;&gt;감사합니다.&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">첫번째 업무가 왔다.</summary></entry><entry><title type="html">MYSQL의 Storage Engines 에서 가장 많이 사용되는 MyISAM과 InnoDB 장/단점</title><link href="https://lahuman.github.io/Mysql_MyISAM_problem/" rel="alternate" type="text/html" title="MYSQL의 Storage Engines 에서 가장 많이 사용되는 MyISAM과 InnoDB 장/단점" /><published>2017-11-07T00:00:00+09:00</published><updated>2017-11-07T00:00:00+09:00</updated><id>https://lahuman.github.io/Mysql_MyISAM_problem</id><content type="html" xml:base="https://lahuman.github.io/Mysql_MyISAM_problem/">&lt;h1 id=&quot;myisma-vs-innodb&quot;&gt;MyISMA VS InnoDB&lt;/h1&gt;
-
-&lt;h2 id=&quot;1-myisma&quot;&gt;1. MyISMA&lt;/h2&gt;
-&lt;p&gt;MyISMA 의 특징은 non-transactional-safe(트랜잭션 기능 제공 안 함)와 데이터 모델 디자인이 단순하다는 것이다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;장점&quot;&gt;장점&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;단순한 디자인으로 인해 따라서 Select 작업 속도가 빠르고 많은 읽기 작업에 적합하다.&lt;/li&gt;
-  &lt;li&gt;Full-text 인덱싱이 가능하여 검색하고 하는 내용에 대한 복합 검색도 가능하다.&lt;/li&gt;
-  &lt;li&gt;테이블 단위로 물리 파일이 존재하여 백업 &amp;amp; 복구가 쉽다.
-    &lt;ol&gt;
-      &lt;li&gt;.frm - 테이블 정의 파일&lt;/li&gt;
-      &lt;li&gt;.MYD - 테이블 데이터 파일&lt;/li&gt;
-      &lt;li&gt;.MYI - 테이블 인덱스 파일&lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;단점&quot;&gt;단점&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Table-Level Lock&lt;/strong&gt; 사용으로 쓰기 작업이 느리고 다음과 같은 문제가 있다.
-    &lt;ol&gt;
-      &lt;li&gt;SELECT (진행 중),  Update(대기 중) 일 경우에 &lt;strong&gt;해당 테이블에 대한 SELECT 작업도 함께 LOCK이 걸린다.&lt;/strong&gt;&lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
-  &lt;li&gt;데이터 무결성이 보장되지 않는다.&lt;/li&gt;
-  &lt;li&gt;트랜젝션 기능 제공 안 한다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;2-innodb&quot;&gt;2. InnoDB&lt;/h2&gt;
-&lt;p&gt;InnoDB는 트랜잭션 기능을 제공하고 Row-level locking, 외래 키 지원, 장애 복구 등의 다양한 기능을 지원한다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;장점-1&quot;&gt;장점&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Row-level Lock&lt;/strong&gt; 사용으로 변경 작업이 빠르고 해당 ROW를 제외한 동시 처리가 가능하다.&lt;/li&gt;
-  &lt;li&gt;데이터 무결성 보장한다.&lt;/li&gt;
-  &lt;li&gt;제약조건, 외래 키 생성, 동시성 제어 등 가능하다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;단점-1&quot;&gt;단점&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Full-text 인덱싱 불가능하다.&lt;/li&gt;
-  &lt;li&gt;MyISAM에 비해 시스템 자원을 많이 사용한다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;참조&quot;&gt;참조&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://ko.wikipedia.org/wiki/MyISAM&quot;&gt;MyISMA WIKI&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://ojava.tistory.com/25&quot;&gt;Mysql Storage Engine의 양대산맥! MyISAM vs InnoDB&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://dev.mysql.com/doc/refman/5.7/en/myisam-storage-engine.html&quot;&gt;15.2 The MyISAM Storage Engine&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="MYSQL" /><category term="Storage" /><summary type="html">MyISMA을 써야할 때와 쓰지 말아야 할때를 알아야 한다.</summary></entry></feed>
+&lt;h2 id=&quot;감사합니다&quot;&gt;감사합니다.&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">첫번째 업무가 왔다.</summary></entry></feed>
