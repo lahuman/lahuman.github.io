@@ -1,4 +1,29 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2017-11-27T10:09:58+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">오늘은 맥 개발 환경 설정을 해보았다.</title><link href="https://lahuman.github.io/20171127-phase/" rel="alternate" type="text/html" title="오늘은 맥 개발 환경 설정을 해보았다." /><published>2017-11-27T00:00:00+09:00</published><updated>2017-11-27T00:00:00+09:00</updated><id>https://lahuman.github.io/20171127-phase</id><content type="html" xml:base="https://lahuman.github.io/20171127-phase/">&lt;h1 id=&quot;개인-성향은-아무것도-안깔고-쓰다가-필요하면-하나씩-깔아-보는-건데&quot;&gt;개인 성향은 아무것도 안깔고 쓰다가 필요하면 하나씩 깔아 보는 건데…&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2017-11-29T11:09:33+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Python 에서 Mysql DB Pool 선택시 유의사항</title><link href="https://lahuman.github.io/python_connection_pool/" rel="alternate" type="text/html" title="Python 에서 Mysql DB Pool 선택시 유의사항" /><published>2017-11-29T00:00:00+09:00</published><updated>2017-11-29T00:00:00+09:00</updated><id>https://lahuman.github.io/python_connection_pool</id><content type="html" xml:base="https://lahuman.github.io/python_connection_pool/">&lt;h1 id=&quot;python에서-mysql-db-pool을-테스트-해보았다&quot;&gt;Python에서 Mysql DB Pool을 테스트 해보았다.&lt;/h1&gt;
+
+&lt;p&gt;우선 테스트를 위해서 알아야할 기초 지식은 Porcess와 Thread 이다.
+&lt;br /&gt;
+기본적으로 Tomcat 서버는 하나의 Porcess에서 여러개의 Request를 thread 기반으로 처리 한다. 
+&lt;br /&gt;
+단순하게 하나의 Porcess에서 DB Pool을 사용한다고 생각 하면된다.
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;테스트는 다음 2개을 해보았다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://dev.mysql.com/downloads/connector/python/&quot;&gt;mysql-connector-python&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.sqlalchemy.org/&quot;&gt;SQLAlchemy&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;처음에는 mysql-connector-python 이 내가 정확하게 원하는 기능만을 담고 있어서 사용하기 위한 테스트를 진행 하였다.
+&lt;br /&gt;
+하지만 mysql-connector-python의 경우 pool 갯수 이상의 connection을 요구 할 경우 다음과 같은 오류가 발생 한다.&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mysql.connector.errors.PoolError: Failed getting connection&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; pool exhausted
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이후 검색을 통하여 SQLAlchemy 을 사용하면 되는 것을 확인하고 테스트 결과 원하는 처리가 되었다.&lt;/p&gt;
+
+&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://m.blog.naver.com/PostView.nhn?blogId=parkjy76&amp;amp;logNo=220794146424&amp;amp;proxyReferer=https%3A%2F%2Fwww.google.co.kr%2F&quot;&gt;connection pool&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><category term="python" /><category term="mysql" /><summary type="html">Mysql connector Pool은 이상하다.</summary></entry><entry><title type="html">오늘은 맥 개발 환경 설정을 해보았다.</title><link href="https://lahuman.github.io/20171127-phase/" rel="alternate" type="text/html" title="오늘은 맥 개발 환경 설정을 해보았다." /><published>2017-11-27T00:00:00+09:00</published><updated>2017-11-27T00:00:00+09:00</updated><id>https://lahuman.github.io/20171127-phase</id><content type="html" xml:base="https://lahuman.github.io/20171127-phase/">&lt;h1 id=&quot;개인-성향은-아무것도-안깔고-쓰다가-필요하면-하나씩-깔아-보는-건데&quot;&gt;개인 성향은 아무것도 안깔고 쓰다가 필요하면 하나씩 깔아 보는 건데…&lt;/h1&gt;
 
 &lt;p&gt;맥을 개발용으로 처음 쓰려고 하니, 뭐 부터 시작해야 하는지 몰라 일단 인터넷에서 검색한 개발 환경을 따라가 보았다.&lt;br /&gt;&lt;/p&gt;
 
@@ -199,101 +224,4 @@ grunt dist
   &lt;li&gt;&lt;a href=&quot;https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/#install-using-the-convenience-script&quot;&gt;Docker-ce install&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://github.com/nodesource/distributions&quot;&gt;Node.js install&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://gruntjs.com/getting-started&quot;&gt;GRUNT Getting started&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;</content><author><name></name></author><category term="elasticsearch" /><category term="kibana" /><summary type="html">5.x 부터는 보안상의 이슈로 플러그인에서 제외</summary></entry><entry><title type="html">Elasticsearch, Kibana 설치 &amp;amp; 설정</title><link href="https://lahuman.github.io/elasticsearch_kibana_install_setting/" rel="alternate" type="text/html" title="Elasticsearch, Kibana 설치 &amp; 설정" /><published>2017-11-09T00:00:00+09:00</published><updated>2017-11-09T00:00:00+09:00</updated><id>https://lahuman.github.io/elasticsearch_kibana_install_setting</id><content type="html" xml:base="https://lahuman.github.io/elasticsearch_kibana_install_setting/">&lt;h1 id=&quot;elasticsearch-kibana-설치--설정&quot;&gt;Elasticsearch, Kibana 설치 &amp;amp; 설정&lt;/h1&gt;
-&lt;p&gt;Elasticsearch는 분산형 RESTful 검색 및 분석 엔진입니다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;기본 개념
-    &lt;ol&gt;
-      &lt;li&gt;NRT(Near Realtime) - 검색 플랫폼&lt;/li&gt;
-      &lt;li&gt;클러스터 - 하나 이상의 노드(서버)가 모인것&lt;/li&gt;
-      &lt;li&gt;노드 - 클러스터에 포함된 단일 서버&lt;/li&gt;
-      &lt;li&gt;인덱스 - 비슷한 특성을 가진 문서 모음&lt;/li&gt;
-      &lt;li&gt;타입 - 색인에서 지정하는 유형&lt;/li&gt;
-      &lt;li&gt;도큐먼트 - 문서의 색인화의 기본단위&lt;/li&gt;
-      &lt;li&gt;샤드 &amp;amp; 리플리카&lt;/li&gt;
-    &lt;/ol&gt;
-    &lt;ul&gt;
-      &lt;li&gt;샤드 =&amp;gt; 색인을 조각으로 분할&lt;/li&gt;
-      &lt;li&gt;리플리카 =&amp;gt; 샤드의 복제&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;elasticsearch-설치&quot;&gt;Elasticsearch 설치&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;최소 사양-ORACLE JDK 8이상&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.elastic.co/guide/en/elasticsearch/reference/current/system-config.html&quot;&gt;기본 시스템 설정 처리&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.elastic.co/downloads/elasticsearch&quot;&gt;elasticsearch download&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;압축 해제
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tar -xvf elasticsearch-5.x.x.tar.gz
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;설정 변경
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;vim  $INSTALL_PATH/config/elasticsearch.yml
-# 외부 접속 IP로 변경
-network.host: {IP}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;실행
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$INSTALL_PATH/bin/elasticsearch
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;elasticsearch-api&quot;&gt;Elasticsearch API&lt;/h2&gt;
-&lt;h3 id=&quot;클러스터-상태-확인&quot;&gt;클러스터 상태 확인&lt;/h3&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl -XGET localhost:9200/{index 명}/_cat/health?v
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;h3 id=&quot;노드-목록-확인&quot;&gt;노드 목록 확인&lt;/h3&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl -XGET localhost:9200/{index 명}/_cat/nodes?v
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;h3 id=&quot;모든-index-나열&quot;&gt;모든 INDEX 나열&lt;/h3&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl -XGET localhost:9200/{index 명}/_cat/indices?v
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;h3 id=&quot;index-생성mappingsjson-샘플&quot;&gt;INDEX 생성(&lt;a href=&quot;https://github.com/ahmia/ahmia-index/blob/master/mappings.json&quot;&gt;mappings.json 샘플&lt;/a&gt;)&lt;/h3&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl -XPUT -i &quot;localhost:9200/{index 명}/&quot; -H 'Content-Type: application/json' -d &quot;{@./mappings.json}&quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;h3 id=&quot;index-field-확인&quot;&gt;INDEX FIELD 확인&lt;/h3&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl -XGET localhost:9200/{index 명}/_settings,_mappings?pretty
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;h3 id=&quot;index-삭제&quot;&gt;INDEX 삭제&lt;/h3&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl -XDELETE localhost:9200/{index 명} -H &quot;Accept: application/json&quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;kibans-설치&quot;&gt;Kibans 설치&lt;/h2&gt;
-&lt;ol&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.elastic.co/downloads/kibana&quot;&gt;Kibana download&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;압축 해제
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tar -xvf kibana-5.x.x-linux-x86_64.tar.gz
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;설정 변경
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;vim $INSTALL_PATH/config/kibana.yml
-# 변경내역
-# server.host 외부에서 접근하기 위하여 0.0.0.0 으로 설정
-server.host: &quot;0.0.0.0&quot;
-# elasticsearch url 설정
-elasticsearch.url: &quot;http://10.0.2.15:9200&quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;실행
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$INSTALL_PATH/bin/kibana
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;web 접속
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;http://ADDRESS:5601
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;INDEX Pattern 설정 후 결과 보기&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h3&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html?baymax=KR-ES-getting-started&amp;amp;elektra=landing-page&quot;&gt;Elasticsearch Reference&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.elastic.co/guide/kr/elasticsearch/reference/5.4/gs-basic-concepts.html&quot;&gt;Elasticsearch Reference 5.4 한글판&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;</content><author><name></name></author><category term="elasticsearch" /><category term="kibana" /><summary type="html">설치가 정말 쉽다. 압축만 풀면 끝! 설정은 잘 알아야 함</summary></entry></feed>
+&lt;/ol&gt;</content><author><name></name></author><category term="elasticsearch" /><category term="kibana" /><summary type="html">5.x 부터는 보안상의 이슈로 플러그인에서 제외</summary></entry></feed>
