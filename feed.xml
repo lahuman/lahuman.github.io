@@ -1,4 +1,94 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2017-11-30T11:43:33+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">내부 서비스만 가능한 PORT를 원격지 호출 가동하도록 변경</title><link href="https://lahuman.github.io/delegate_port_forward/" rel="alternate" type="text/html" title="내부 서비스만 가능한 PORT를 원격지 호출 가동하도록 변경" /><published>2017-11-30T00:00:00+09:00</published><updated>2017-11-30T00:00:00+09:00</updated><id>https://lahuman.github.io/delegate_port_forward</id><content type="html" xml:base="https://lahuman.github.io/delegate_port_forward/">&lt;h1 id=&quot;tor-proxy-포트-9050을-원격에서-접속-하는-방법&quot;&gt;Tor Proxy 포트 9050을 원격에서 접속 하는 방법&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2017-12-01T14:09:13+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Elasticdump 를 이용한 데이터 백업과 리스토어</title><link href="https://lahuman.github.io/elastic_dump/" rel="alternate" type="text/html" title="Elasticdump 를 이용한 데이터 백업과 리스토어 " /><published>2017-12-01T00:00:00+09:00</published><updated>2017-12-01T00:00:00+09:00</updated><id>https://lahuman.github.io/elastic_dump</id><content type="html" xml:base="https://lahuman.github.io/elastic_dump/">&lt;h1 id=&quot;elasticdump를-이용한-데이터-백업과-리스토어&quot;&gt;Elasticdump를 이용한 데이터 백업과 리스토어&lt;/h1&gt;
+
+&lt;p&gt;elasticsearch의 데이터를 다른 곳으로 이관 하는 작업을 해야 한다.
+&lt;br /&gt;
+이때 사용 가능한 프로그램이 &lt;a href=&quot;https://github.com/taskrabbit/elasticsearch-dump&quot;&gt;elasticdump&lt;/a&gt; 이다.
+&lt;br /&gt;
+elasticdump는 현재 3.3.1 버젼으로 Elasticsearch 5.x 버젼을 지원하고 있다.
+&lt;br /&gt;
+지금 사용하는 elasticsearch 버젼이 2.x여서 해당 버젼을 지원하는 elsticdump 2.4.2를 설치 해야 한다.&lt;/p&gt;
+
+&lt;h2 id=&quot;설치&quot;&gt;설치&lt;/h2&gt;
+
+&lt;p&gt;설치는 가이드에 나온 것과 같이 npm 을 설치 하고 elasticdump 모듈을 설치 해야 한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# npm은 설치 되어 있다고 가정 한다.
+npm install elasticdump
+
+# git 에서 코드 download
+git clone https://github.com/taskrabbit/elasticsearch-dump.git
+cd elasticsearch-dump
+# v2.4.2 으로 변경
+git checkout tags/v2.4.2
+# 버전 확인
+./bin/elasticdump --version
+2.4.2
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;데이터-백업&quot;&gt;데이터 백업&lt;/h2&gt;
+
+&lt;p&gt;백업되는 데이터 타입은 크게 3가지로 나누어 진다.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;analyzer&lt;/li&gt;
+  &lt;li&gt;mapping&lt;/li&gt;
+  &lt;li&gt;data&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;기본적으로 데이터를 넣기 위해서는 최소한의 데이터 맵핑이 있어야 한다.
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;elasticdump 는 Elasticsearch to Ealsticsearch 를 지원하며, File 로 저장 리스토어도 가능하다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# Copy an index from production to staging with analyzer and mapping:
+elasticdump \
+  --input=http://production.es.com:9200/my_index \
+  --output=http://staging.es.com:9200/my_index \
+  --type=analyzer
+elasticdump \
+  --input=http://production.es.com:9200/my_index \
+  --output=http://staging.es.com:9200/my_index \
+  --type=mapping
+elasticdump \
+  --input=http://production.es.com:9200/my_index \
+  --output=http://staging.es.com:9200/my_index \
+  --type=data
+
+# Backup index data to a file:
+elasticdump \
+  --input=http://production.es.com:9200/my_index \
+  --output=/data/my_index_mapping.json \
+  --type=mapping
+elasticdump \
+  --input=http://production.es.com:9200/my_index \
+  --output=/data/my_index.json \
+  --type=data
+
+# Backup and index to a gzip using stdout:
+elasticdump \
+  --input=http://production.es.com:9200/my_index \
+  --output=$ \
+  | gzip &amp;gt; /data/my_index.json.gz
+
+# Backup the results of a query to a file
+elasticdump \
+  --input=http://production.es.com:9200/my_index \
+  --output=query.json \
+  --searchBody '{&quot;query&quot;:{&quot;term&quot;:{&quot;username&quot;: &quot;admin&quot;}}}'
+
+# Copy a single shard data:
+elasticdump \
+  --input=http://es.com:9200/api \
+  --output=http://es.com:9200/api2 \
+  --params='{&quot;preference&quot; : &quot;_shards:0&quot;}'
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;searchBody를 이용하면 원하는 목록 가져올 수 있다.&lt;/p&gt;
+
+&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/taskrabbit/elasticsearch-dump&quot;&gt;elasticdump&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="elasticsearch" /><category term="elasticdump" /><summary type="html">Elasticsearch 백업 &amp; 리스토어</summary></entry><entry><title type="html">내부 서비스만 가능한 PORT를 원격지 호출 가능하도록 변경</title><link href="https://lahuman.github.io/delegate_port_forward/" rel="alternate" type="text/html" title="내부 서비스만 가능한 PORT를 원격지 호출 가능하도록 변경" /><published>2017-11-30T00:00:00+09:00</published><updated>2017-11-30T00:00:00+09:00</updated><id>https://lahuman.github.io/delegate_port_forward</id><content type="html" xml:base="https://lahuman.github.io/delegate_port_forward/">&lt;h1 id=&quot;tor-proxy-포트-9050을-원격에서-접속-하는-방법&quot;&gt;Tor Proxy 포트 9050을 원격에서 접속 하는 방법&lt;/h1&gt;
 
 &lt;p&gt;netstat 로 특정 포트를 확인 하면 2개의 IP:PORT가 표출 되는데, 첫번째 IP가 127.0.0.1 일 경우, 오직 로컬(localhost-loopback interface)에서만 접근 이 가능하다.&lt;/p&gt;
 
@@ -198,22 +288,4 @@ deactivate
 
 &lt;p&gt;금일 간단한 기능을 구현하는데 이해 하고 사용하는데까지 1시간이 채 안걸렸다.&lt;br /&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;툴만-잘써도-반은-먹고-들어가네&quot;&gt;툴만 잘써도 반은 먹고 들어가네&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">python with Scrapy</summary></entry><entry><title type="html">Elasticsearch 5.x에서 Elasticsearch HQ 의 Query 기능 사용 시 400 에러 해결</title><link href="https://lahuman.github.io/elasticsearch_HQ_Query_fields_update/" rel="alternate" type="text/html" title="Elasticsearch 5.x에서 Elasticsearch HQ 의 Query 기능 사용 시 400 에러 해결" /><published>2017-11-14T00:00:00+09:00</published><updated>2017-11-14T00:00:00+09:00</updated><id>https://lahuman.github.io/elasticsearch_HQ_Query_fields_update</id><content type="html" xml:base="https://lahuman.github.io/elasticsearch_HQ_Query_fields_update/">&lt;h2 id=&quot;elasticsearch-5x에서-elasticsearch-hq-의-query-기능-사용-시-400-에러-해결&quot;&gt;Elasticsearch 5.x에서 Elasticsearch HQ 의 Query 기능 사용 시 400 에러 해결&lt;/h2&gt;
-
-&lt;p&gt;어제 즐겁게 Elasticsearch HQ를 설치하고, 금일 Query를 이용하여 데이터를 조회하려고 했으나 계속 400 에러가 발생했다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;원인은 &lt;a href=&quot;https://github.com/elastic/kibana/issues/7541&quot;&gt;fields 가  stored_fields로 변경&lt;/a&gt;되면서 fileds를 파라미터로 넘길 경우 오류가 발생하였다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;간단하게 해결될 것 같아 fields의 이름을 stored_fields로 변경해보았더니, 결과는 나오지만 내가 넘긴 stored_fields의 값은 없이 처리가 되었다. &lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.elastic.co/guide/en/elasticsearch/reference/current/search-request-stored-fields.html&quot;&gt;Elasticsearch 의 문서를 확인하던 중 source filtering을 이용&lt;/a&gt;하라는 내용을 보고 이름을 다시 _source로 변경하고 나니 문제없이 데이터가 표출되었다.&lt;/p&gt;
-
-&lt;p&gt;수정을 하고 나서 기쁜 마음으로 &lt;a href=&quot;https://github.com/royrusso/elasticsearch-HQ/pull/301&quot;&gt;Pull Request&lt;/a&gt;를 날렸다.&lt;/p&gt;
-
-&lt;p&gt;도움이 되면 좋겠다.&lt;/p&gt;
-
-&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
-&lt;ol&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/elastic/kibana/issues/7541&quot;&gt;Rename fields parameter to stored_fields&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.elastic.co/guide/en/elasticsearch/reference/current/search-request-stored-fields.html&quot;&gt;Elasticsearch Reference [5.6] » Search APIs » Request Body Search » Fields&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;</content><author><name></name></author><category term="elasticsearch" /><summary type="html">fields 를 더 이상 사용할 수 없어 발생한 문제</summary></entry></feed>
+&lt;h2 id=&quot;툴만-잘써도-반은-먹고-들어가네&quot;&gt;툴만 잘써도 반은 먹고 들어가네&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">python with Scrapy</summary></entry></feed>
