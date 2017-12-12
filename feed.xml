@@ -1,4 +1,64 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2017-12-07T11:05:44+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Python 에서 DB Pool 사용하기</title><link href="https://lahuman.github.io/python_use_db_pool/" rel="alternate" type="text/html" title="Python 에서 DB Pool 사용하기" /><published>2017-12-07T00:00:00+09:00</published><updated>2017-12-07T00:00:00+09:00</updated><id>https://lahuman.github.io/python_use_db_pool</id><content type="html" xml:base="https://lahuman.github.io/python_use_db_pool/">&lt;h1 id=&quot;python-에서-db-pool-사용하기&quot;&gt;Python 에서 DB Pool 사용하기&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2017-12-12T18:03:58+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">tor, phantomJS를 Ubuntu에 설치</title><link href="https://lahuman.github.io/tor_phantomjs_install_on_ubuntu/" rel="alternate" type="text/html" title="tor, phantomJS를 Ubuntu에 설치" /><published>2017-12-12T00:00:00+09:00</published><updated>2017-12-12T00:00:00+09:00</updated><id>https://lahuman.github.io/tor_phantomjs_install_on_ubuntu</id><content type="html" xml:base="https://lahuman.github.io/tor_phantomjs_install_on_ubuntu/">&lt;h1 id=&quot;tor-phantomjs를-ubuntu에-설치&quot;&gt;tor, phantomJS를 Ubuntu에 설치&lt;/h1&gt;
+
+&lt;h2 id=&quot;tor-설치--서비스-기동&quot;&gt;tor 설치 &amp;amp; 서비스 기동&lt;/h2&gt;
+
+&lt;p&gt;tor 설치는 간단하게 apt-get을 이용하면 된다.&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# tor 설치
+sudo apt-get install tor
+# tor service 기동
+sudo service tor start
+# 기동 확인 9050 포트가 LISTEN되는지 확인
+netstat -anop | grep 9050
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;phantomjs-설치&quot;&gt;phantomJS 설치&lt;/h2&gt;
+&lt;p&gt;phantomJS는 pip로 설치가 되지 않는다.&lt;/p&gt;
+
+&lt;p&gt;우선 시스템에서 필요한 프로그램을 다음과 같이 설치 한다.&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 먼저 시스템을 최신 상태로 업데이트 한다.
+sudo apt-get update
+sudo apt-get install build-essential chrpath libssl-dev libxft-dev
+
+# PhantomJS 관련 필수 프로그램 설치
+sudo apt-get install libfreetype6 libfreetype6-dev
+sudo apt-get install libfontconfig1 libfontconfig1-dev
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이후, PhantomJS를 설치 한다.&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 특정 버젼 다운로드 &amp;amp; 압축 해제
+cd ~
+export PHANTOM_JS=&quot;phantomjs-2.1.1-linux-x86_64&quot;
+wget https://bitbucket.org/ariya/phantomjs/downloads/$PHANTOM_JS.tar.bz2
+sudo tar xvjf $PHANTOM_JS.tar.bz2
+
+# /usr/local/share 이하로 옮기고 실행 가능하도록 symlink 설정
+sudo mv $PHANTOM_JS /usr/local/share
+sudo ln -sf /usr/local/share/$PHANTOM_JS/bin/phantomjs /usr/local/bin
+
+# 확인
+phantomjs --version
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://gist.github.com/julionc/7476620&quot;&gt;How to install PhantomJS on Ubuntu&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="tor" /><category term="phantomJS" /><summary type="html">apt-get 과 함께면 참 쉽다!</summary></entry><entry><title type="html">Selenium 과 PhantomJS를 사용하는 환경에서 Close는 중요 하다.</title><link href="https://lahuman.github.io/20171208-phase/" rel="alternate" type="text/html" title="Selenium 과 PhantomJS를 사용하는 환경에서 Close는 중요 하다." /><published>2017-12-08T00:00:00+09:00</published><updated>2017-12-08T00:00:00+09:00</updated><id>https://lahuman.github.io/20171208-phase</id><content type="html" xml:base="https://lahuman.github.io/20171208-phase/">&lt;h1 id=&quot;selenium-과-phantomjs를-사용하는-환경에서-webdriverclose는-중요-하다&quot;&gt;Selenium 과 PhantomJS를 사용하는 환경에서 webdriver.close()는 중요 하다.&lt;/h1&gt;
+
+&lt;p&gt;오류가 발생하면서 종료 되었을때도 PhantomJS 프로세스는 종료 되지 않는다.&lt;/p&gt;
+
+&lt;p&gt;따라서 꼭 finally 처리로 닫아 줘야 한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;driver = webdriver.PhantomJS()
+try:
+  driver.get(URL)
+  # doing something
+finally:
+  driver.close()
+  driver.quit()
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;시작했다고-늘-함께-하진-않는구나&quot;&gt;시작했다고 늘 함께 하진 않는구나…&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">Python에서 만난 OOM</summary></entry><entry><title type="html">Python 에서 DB Pool 사용하기</title><link href="https://lahuman.github.io/python_use_db_pool/" rel="alternate" type="text/html" title="Python 에서 DB Pool 사용하기" /><published>2017-12-07T00:00:00+09:00</published><updated>2017-12-07T00:00:00+09:00</updated><id>https://lahuman.github.io/python_use_db_pool</id><content type="html" xml:base="https://lahuman.github.io/python_use_db_pool/">&lt;h1 id=&quot;python-에서-db-pool-사용하기&quot;&gt;Python 에서 DB Pool 사용하기&lt;/h1&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;데이터베이스와 애플리케이션을 효율적으로 연결하는 커넥션 플 라이브러리는 애플리케이션에서 필수 요소 입니다.
@@ -86,8 +146,10 @@ class Connector(Singleton):
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&quot;http://www.haruair.com/blog/1682&quot;&gt;SQLAlchemy 시작하기 – Part 1&lt;/a&gt;
-&lt;a href=&quot;http://preshing.com/20110920/the-python-with-statement-by-example/&quot;&gt;The Python “with” Statement by Example&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><category term="SQLAlchemy" /><category term="db pool" /><summary type="html">SQLAlchemy의 DB Pool 이용</summary></entry><entry><title type="html">Python을 이용하여 원격 서버에 로그 전송</title><link href="https://lahuman.github.io/syslog_write_python/" rel="alternate" type="text/html" title="Python을 이용하여 원격 서버에 로그 전송  " /><published>2017-12-02T00:00:00+09:00</published><updated>2017-12-02T00:00:00+09:00</updated><id>https://lahuman.github.io/syslog_write_python</id><content type="html" xml:base="https://lahuman.github.io/syslog_write_python/">&lt;h1 id=&quot;원격지-로그-전송&quot;&gt;원격지 로그 전송&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.haruair.com/blog/1682&quot;&gt;SQLAlchemy 시작하기 – Part 1&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://preshing.com/20110920/the-python-with-statement-by-example/&quot;&gt;The Python “with” Statement by Example&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><category term="SQLAlchemy" /><category term="db pool" /><summary type="html">SQLAlchemy의 DB Pool 이용</summary></entry><entry><title type="html">Python을 이용하여 원격 서버에 로그 전송</title><link href="https://lahuman.github.io/syslog_write_python/" rel="alternate" type="text/html" title="Python을 이용하여 원격 서버에 로그 전송  " /><published>2017-12-02T00:00:00+09:00</published><updated>2017-12-02T00:00:00+09:00</updated><id>https://lahuman.github.io/syslog_write_python</id><content type="html" xml:base="https://lahuman.github.io/syslog_write_python/">&lt;h1 id=&quot;원격지-로그-전송&quot;&gt;원격지 로그 전송&lt;/h1&gt;
 
 &lt;p&gt;Python으로 특정 원격지 서버에 로그 전송이 가능하다.
 &lt;br /&gt;&lt;/p&gt;
@@ -443,25 +505,4 @@ deactivate
 
 &lt;p&gt;귀찮은 일이 있긴 하지만, 새로운 시작을 하는 것은 언제나 즐겁다.&lt;br /&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;오늘도-활기-차게&quot;&gt;오늘도 활기 차게&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">맥을 잘 써보자</summary></entry><entry><title type="html">설계를 무엇으로 할까?</title><link href="https://lahuman.github.io/20171122-phase/" rel="alternate" type="text/html" title="설계를 무엇으로 할까?" /><published>2017-11-22T00:00:00+09:00</published><updated>2017-11-22T00:00:00+09:00</updated><id>https://lahuman.github.io/20171122-phase</id><content type="html" xml:base="https://lahuman.github.io/20171122-phase/">&lt;h1 id=&quot;어떻게-설계-해야-할까&quot;&gt;어떻게 설계 해야 할까?&lt;/h1&gt;
-
-&lt;p&gt;사공이 많으면 배가 산으로 간다고, 설계를 어떤 방식으로 할까에 대한 고민으로 하루를 보낸다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;이 고민이 앞으로 나에게 많은 도움이 되는 고민이었으면 좋겠다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;요즘 업무시간에 집중이 잘 안되는데 재미가 없어서 그런걸까?&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;재미재미오재미&quot;&gt;재미재미오재미&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">요구사항에 대한 명세가 끝났다.</summary></entry><entry><title type="html">맥북 프로를 받다.</title><link href="https://lahuman.github.io/20171121-phase/" rel="alternate" type="text/html" title="맥북 프로를 받다." /><published>2017-11-21T00:00:00+09:00</published><updated>2017-11-21T00:00:00+09:00</updated><id>https://lahuman.github.io/20171121-phase</id><content type="html" xml:base="https://lahuman.github.io/20171121-phase/">&lt;h1 id=&quot;맥북-2014-mid를-받았다&quot;&gt;맥북 2014 MID를 받았다.&lt;/h1&gt;
-
-&lt;p&gt;우선 맥북을 쓸일이 생겨서 즐겁다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;맥북이 좋기 보다 남들이 많이 쓰니까 써버고 싶어서 구매한 적도 있으나, 금방 실증나서 팔아 버렸다.&lt;br /&gt;
-&lt;strong&gt;사실 가성비가 떨어져서 내 스타일은 아니었다&lt;/strong&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;회사 부장님이 쓰시다가, 윈도우 PC로 교체를 원해 내가 쓰던 노트북과 교환 하기로 하고 받았다&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;받고 보니 액정 코팅이 다 벗겨져서 실망 중이었는데, 다행이 해당 문제는 무상 AS가 되어 수리를 맡기었다.&amp;lt;br /.&lt;/p&gt;
-
-&lt;p&gt;회사에서 맥북을 쓰는 날이 오는구나!!!&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;간절히-원한건-아니고-그냥-한번-받아보고는-싶었다&quot;&gt;간절히 원한건 아니고 그냥 한번 받아보고는 싶었다&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">남이 쓰던거긴 하지만, 회사에서 맥북을 받을 날이 오다니!!!</summary></entry></feed>
+&lt;h2 id=&quot;오늘도-활기-차게&quot;&gt;오늘도 활기 차게&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">맥을 잘 써보자</summary></entry></feed>
