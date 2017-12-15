@@ -1,4 +1,26 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2017-12-14T10:43:35+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Python 에서 멀티 스레드를 사용하기 보다 멀티 프로세스를 사용하자.</title><link href="https://lahuman.github.io/20171214-python_thread_process/" rel="alternate" type="text/html" title="Python 에서 멀티 스레드를 사용하기 보다 멀티 프로세스를 사용하자." /><published>2017-12-13T00:00:00+09:00</published><updated>2017-12-13T00:00:00+09:00</updated><id>https://lahuman.github.io/20171214-python_thread_process</id><content type="html" xml:base="https://lahuman.github.io/20171214-python_thread_process/">&lt;h1 id=&quot;파이선의-스레드에는-약간의-제약이-있다&quot;&gt;파이선의 스레드에는 약간의 제약이 있다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2017-12-15T17:28:42+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">VMWARE를 이용한 보안 프로그램 회피 방법</title><link href="https://lahuman.github.io/avoid_security_program/" rel="alternate" type="text/html" title="VMWARE를 이용한 보안 프로그램 회피 방법" /><published>2017-12-15T00:00:00+09:00</published><updated>2017-12-15T00:00:00+09:00</updated><id>https://lahuman.github.io/avoid_security_program</id><content type="html" xml:base="https://lahuman.github.io/avoid_security_program/">&lt;h1 id=&quot;vmware를-이용한-보안-프로그램-회피-방법&quot;&gt;VMWARE를 이용한 보안 프로그램 회피 방법&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;대부분으 보안 프로그램은 Agent를 설치 하고 해당 프로그램으로 감시를 한다.
+Agent 프로그램을 VMWARE에 설치 하고 속이는 방법을 사용해보자&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;VMWARE 가상환경에 WINDOWS OS와 보안 Agent 프로그램을 설치 한다.&lt;/li&gt;
+  &lt;li&gt;가상 환경의 MAC ADDRESS를 호스트 OS와 동일하게 설정 한다.&lt;a href=&quot;https://pubs.vmware.com/workstation-9/index.jsp?topic=%2Fcom.vmware.ws.using.doc%2FGUID-5C55C285-79B0-404F-95A5-87F64C41E3DC.html&quot;&gt;1&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;가상 환경의 IP를 호스트 OS와 동일 하게 설정 한다.&lt;/li&gt;
+  &lt;li&gt;가상 환경의 네트워크 설정을 Bridged Adapters 로 설정한다.&lt;a href=&quot;https://www.vmware.com/support/ws5/doc/ws_net_configurations_changing_bridged_windows.html&quot;&gt;2&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;이렇게 하면 외부에서 들어오는 보안 Agent 통신이 가상환경으로 넘어간다.
+호스트는 가상환경만 켜두면 감시 없이 인터넷이 된다.&lt;/p&gt;
+
+&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;https://pubs.vmware.com/workstation-9/index.jsp?topic=%2Fcom.vmware.ws.using.doc%2FGUID-5C55C285-79B0-404F-95A5-87F64C41E3DC.html&quot;&gt;Change the MAC Address for a Virtual Machine&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.vmware.com/support/ws5/doc/ws_net_configurations_changing_bridged_windows.html&quot;&gt; Configuring Bridged Networking Options on a Windows Host &lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;</content><author><name></name></author><category term="security" /><category term="avoid" /><summary type="html">자세한 이미지는 생략한다.</summary></entry><entry><title type="html">Python 에서 멀티 스레드를 사용하기 보다 멀티 프로세스를 사용하자.</title><link href="https://lahuman.github.io/python_thread_process/" rel="alternate" type="text/html" title="Python 에서 멀티 스레드를 사용하기 보다 멀티 프로세스를 사용하자." /><published>2017-12-14T00:00:00+09:00</published><updated>2017-12-14T00:00:00+09:00</updated><id>https://lahuman.github.io/python_thread_process</id><content type="html" xml:base="https://lahuman.github.io/python_thread_process/">&lt;h1 id=&quot;파이선의-스레드에는-약간의-제약이-있다&quot;&gt;파이선의 스레드에는 약간의 제약이 있다.&lt;/h1&gt;
 
 &lt;p&gt;파이썬은 내부적으로 전역 인터프리터 록(Global Interpreter Lock, GIL)을 사용한다. 이것은 시스템 하나에서 스레드 하나만 실행되도록 제한한다.&lt;/p&gt;
 
@@ -439,14 +461,4 @@ ADMIN=Email.address
 &lt;p&gt;이후 검색을 통하여 SQLAlchemy 을 사용하면 되는 것을 확인하고 테스트 결과 원하는 처리가 되었다.&lt;/p&gt;
 
 &lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&quot;https://m.blog.naver.com/PostView.nhn?blogId=parkjy76&amp;amp;logNo=220794146424&amp;amp;proxyReferer=https%3A%2F%2Fwww.google.co.kr%2F&quot;&gt;connection pool&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><category term="python" /><category term="mysql" /><summary type="html">Mysql connector Pool은 이상하다.</summary></entry><entry><title type="html">오늘은 맥 개발 환경 설정을 해보았다.</title><link href="https://lahuman.github.io/20171127-phase/" rel="alternate" type="text/html" title="오늘은 맥 개발 환경 설정을 해보았다." /><published>2017-11-27T00:00:00+09:00</published><updated>2017-11-27T00:00:00+09:00</updated><id>https://lahuman.github.io/20171127-phase</id><content type="html" xml:base="https://lahuman.github.io/20171127-phase/">&lt;h1 id=&quot;개인-성향은-아무것도-안깔고-쓰다가-필요하면-하나씩-깔아-보는-건데&quot;&gt;개인 성향은 아무것도 안깔고 쓰다가 필요하면 하나씩 깔아 보는 건데…&lt;/h1&gt;
-
-&lt;p&gt;맥을 개발용으로 처음 쓰려고 하니, 뭐 부터 시작해야 하는지 몰라 일단 인터넷에서 검색한 개발 환경을 따라가 보았다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;다른건 모르겠고, vim 화면이 이뻐졌다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;일단 열심히 써보자!&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://subicura.com/2017/11/22/mac-os-development-environment-setup.html&quot;&gt;본격 macOS에 개발 환경 구축하기&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><category term="단상" /><summary type="html">새로운 프로그램을 잔뜩 깔아 버림</summary></entry></feed>
+&lt;p&gt;&lt;a href=&quot;https://m.blog.naver.com/PostView.nhn?blogId=parkjy76&amp;amp;logNo=220794146424&amp;amp;proxyReferer=https%3A%2F%2Fwww.google.co.kr%2F&quot;&gt;connection pool&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><category term="python" /><category term="mysql" /><summary type="html">Mysql connector Pool은 이상하다.</summary></entry></feed>
