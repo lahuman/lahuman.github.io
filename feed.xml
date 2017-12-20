@@ -1,4 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2017-12-15T17:28:42+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">VMWARE를 이용한 보안 프로그램 회피 방법</title><link href="https://lahuman.github.io/avoid_security_program/" rel="alternate" type="text/html" title="VMWARE를 이용한 보안 프로그램 회피 방법" /><published>2017-12-15T00:00:00+09:00</published><updated>2017-12-15T00:00:00+09:00</updated><id>https://lahuman.github.io/avoid_security_program</id><content type="html" xml:base="https://lahuman.github.io/avoid_security_program/">&lt;h1 id=&quot;vmware를-이용한-보안-프로그램-회피-방법&quot;&gt;VMWARE를 이용한 보안 프로그램 회피 방법&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2017-12-20T16:15:46+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">한달만에 자바 웹 개발</title><link href="https://lahuman.github.io/20171220-phase/" rel="alternate" type="text/html" title="한달만에 자바 웹 개발" /><published>2017-12-20T00:00:00+09:00</published><updated>2017-12-20T00:00:00+09:00</updated><id>https://lahuman.github.io/20171220-phase</id><content type="html" xml:base="https://lahuman.github.io/20171220-phase/">&lt;h1 id=&quot;수집된-데이터-표출은-자바로&quot;&gt;수집된 데이터 표출은 자바로&lt;/h1&gt;
+
+&lt;p&gt;한동안 파이썬을 이용하여 데이터 수집을 구현 하였다.&lt;/p&gt;
+
+&lt;p&gt;다른 언어를 사용한는 재미도 있고, 생각보다 많은 시간이 투자 되었다.&lt;/p&gt;
+
+&lt;p&gt;오늘부터는 10년 넘게 해오던 자바로 웹 개발을 한다.&lt;/p&gt;
+
+&lt;h2 id=&quot;어떤-기술을-써볼까나&quot;&gt;어떤 기술을 써볼까나?&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">한달동안 파이썬 맛좀 봤다.</summary></entry><entry><title type="html">VMWARE를 이용한 보안 프로그램 회피 방법</title><link href="https://lahuman.github.io/avoid_security_program/" rel="alternate" type="text/html" title="VMWARE를 이용한 보안 프로그램 회피 방법" /><published>2017-12-15T00:00:00+09:00</published><updated>2017-12-15T00:00:00+09:00</updated><id>https://lahuman.github.io/avoid_security_program</id><content type="html" xml:base="https://lahuman.github.io/avoid_security_program/">&lt;h1 id=&quot;vmware를-이용한-보안-프로그램-회피-방법&quot;&gt;VMWARE를 이용한 보안 프로그램 회피 방법&lt;/h1&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;대부분으 보안 프로그램은 Agent를 설치 하고 해당 프로그램으로 감시를 한다.
@@ -30,7 +38,7 @@ Agent 프로그램을 VMWARE에 설치 하고 속이는 방법을 사용해보�
 
 &lt;p&gt;&lt;strong&gt;단 프로세스 객체를 생성하고 실행하는 코드는 반드시 __main__ 만 실행하는 코드 안에 적어야 한다.&lt;/strong&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;자-지금까지-한거-고치자&quot;&gt;자 지금까지 한거 고치자..&lt;/h2&gt;</content><author><name></name></author><category term="Python" /><category term="Thread" /><summary type="html">Global Interpreter Lock, GIL 로 인한 제한</summary></entry><entry><title type="html">졸리나 넘나</title><link href="https://lahuman.github.io/20171213-phase/" rel="alternate" type="text/html" title="졸리나 넘나" /><published>2017-12-13T00:00:00+09:00</published><updated>2017-12-13T00:00:00+09:00</updated><id>https://lahuman.github.io/20171213-phase</id><content type="html" xml:base="https://lahuman.github.io/20171213-phase/">&lt;h1 id=&quot;새벽-3시까지-뒤척거리며-잠을-잘-못잤다&quot;&gt;새벽 3시까지 뒤척거리며 잠을 잘 못잤다.&lt;/h1&gt;
+&lt;h2 id=&quot;자-지금까지-한거-고치자&quot;&gt;자 지금까지 한거 고치자..&lt;/h2&gt;</content><author><name></name></author><category term="Python" /><category term="Thread" /><summary type="html">Global Interpreter Lock, GIL 로 인한 제한</summary></entry><entry><title type="html">졸리다 넘나</title><link href="https://lahuman.github.io/20171213-phase/" rel="alternate" type="text/html" title="졸리다 넘나" /><published>2017-12-13T00:00:00+09:00</published><updated>2017-12-13T00:00:00+09:00</updated><id>https://lahuman.github.io/20171213-phase</id><content type="html" xml:base="https://lahuman.github.io/20171213-phase/">&lt;h1 id=&quot;새벽-3시까지-뒤척거리며-잠을-잘-못잤다&quot;&gt;새벽 3시까지 뒤척거리며 잠을 잘 못잤다.&lt;/h1&gt;
 
 &lt;p&gt;논문도 써야 하고 회사 일도 이번달까지 Prototype 작성해야 하고…&lt;/p&gt;
 
@@ -436,29 +444,4 @@ ADMIN=Email.address
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://superuser.com/questions/423563/convert-http-requests-to-socks5&quot;&gt;Convert HTTP requests to SOCKS5&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;http://www.delegate.org/delegate/&quot;&gt;DeleGate Support Site&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="delegate" /><category term="port forward" /><summary type="html">Port forward 프로그램</summary></entry><entry><title type="html">Python 에서 Mysql DB Pool 선택시 유의사항</title><link href="https://lahuman.github.io/python_connection_pool/" rel="alternate" type="text/html" title="Python 에서 Mysql DB Pool 선택시 유의사항" /><published>2017-11-29T00:00:00+09:00</published><updated>2017-11-29T00:00:00+09:00</updated><id>https://lahuman.github.io/python_connection_pool</id><content type="html" xml:base="https://lahuman.github.io/python_connection_pool/">&lt;h1 id=&quot;python에서-mysql-db-pool을-테스트-해보았다&quot;&gt;Python에서 Mysql DB Pool을 테스트 해보았다.&lt;/h1&gt;
-
-&lt;p&gt;우선 테스트를 위해서 알아야할 기초 지식은 Porcess와 Thread 이다.
-&lt;br /&gt;
-기본적으로 Tomcat 서버는 하나의 Porcess에서 여러개의 Request를 thread 기반으로 처리 한다. 
-&lt;br /&gt;
-단순하게 하나의 Porcess에서 DB Pool을 사용한다고 생각 하면된다.
-&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;테스트는 다음 2개을 해보았다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://dev.mysql.com/downloads/connector/python/&quot;&gt;mysql-connector-python&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.sqlalchemy.org/&quot;&gt;SQLAlchemy&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;처음에는 mysql-connector-python 이 내가 정확하게 원하는 기능만을 담고 있어서 사용하기 위한 테스트를 진행 하였다.
-&lt;br /&gt;
-하지만 mysql-connector-python의 경우 pool 갯수 이상의 connection을 요구 할 경우 다음과 같은 오류가 발생 한다.&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mysql.connector.errors.PoolError: Failed getting connection&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; pool exhausted
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;이후 검색을 통하여 SQLAlchemy 을 사용하면 되는 것을 확인하고 테스트 결과 원하는 처리가 되었다.&lt;/p&gt;
-
-&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&quot;https://m.blog.naver.com/PostView.nhn?blogId=parkjy76&amp;amp;logNo=220794146424&amp;amp;proxyReferer=https%3A%2F%2Fwww.google.co.kr%2F&quot;&gt;connection pool&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><category term="python" /><category term="mysql" /><summary type="html">Mysql connector Pool은 이상하다.</summary></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><category term="delegate" /><category term="port forward" /><summary type="html">Port forward 프로그램</summary></entry></feed>
