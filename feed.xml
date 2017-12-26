@@ -1,4 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2017-12-21T16:37:54+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Intellij에서 JDK 9과 Lombok 1.16.18을 사용하면 이상동작 해결 방법</title><link href="https://lahuman.github.io/lombok_and_jdk9_with_intellij/" rel="alternate" type="text/html" title="Intellij에서 JDK 9과 Lombok 1.16.18을  사용하면 이상동작 해결 방법" /><published>2017-12-21T00:00:00+09:00</published><updated>2017-12-21T00:00:00+09:00</updated><id>https://lahuman.github.io/lombok_and_jdk9_with_intellij</id><content type="html" xml:base="https://lahuman.github.io/lombok_and_jdk9_with_intellij/">&lt;h1 id=&quot;intellij에서-jdk-9과-lombok-11618을--사용하면-이상동작-해결-방법&quot;&gt;Intellij에서 JDK 9과 Lombok 1.16.18을  사용하면 이상동작 해결 방법&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2017-12-26T10:45:00+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">크리스마스의 악몽</title><link href="https://lahuman.github.io/20171226-phase/" rel="alternate" type="text/html" title="크리스마스의 악몽" /><published>2017-12-26T00:00:00+09:00</published><updated>2017-12-26T00:00:00+09:00</updated><id>https://lahuman.github.io/20171226-phase</id><content type="html" xml:base="https://lahuman.github.io/20171226-phase/">&lt;h1 id=&quot;올해-동현이는-많이-다친다&quot;&gt;올해 동현이는 많이 다친다.&lt;/h1&gt;
+
+&lt;p&gt;크리스마스 이브에 계단에서 뒤로 넘어저 머리에 상처가 난 동현이를 안고 119 구급차를 타고 응급실로 갔다.&lt;/p&gt;
+
+&lt;p&gt;다행이 큰 이상은 없고 1cm 정도만 찢어졌다.&lt;/p&gt;
+
+&lt;p&gt;너무 놀라고 힘든 크리스마스가 지나고 다시 평소와 같은 하루가 시작 된다.&lt;/p&gt;
+
+&lt;h3 id=&quot;하지만-아직도-놀라고-있다&quot;&gt;하지만 아직도 놀라고 있다.&lt;/h3&gt;</content><author><name></name></author><category term="단상" /><summary type="html">피봤다</summary></entry><entry><title type="html">Intellij에서 JDK 9과 Lombok 1.16.18을 사용하면 이상동작 해결 방법</title><link href="https://lahuman.github.io/lombok_and_jdk9_with_intellij/" rel="alternate" type="text/html" title="Intellij에서 JDK 9과 Lombok 1.16.18을  사용하면 이상동작 해결 방법" /><published>2017-12-21T00:00:00+09:00</published><updated>2017-12-21T00:00:00+09:00</updated><id>https://lahuman.github.io/lombok_and_jdk9_with_intellij</id><content type="html" xml:base="https://lahuman.github.io/lombok_and_jdk9_with_intellij/">&lt;h1 id=&quot;intellij에서-jdk-9과-lombok-11618을--사용하면-이상동작-해결-방법&quot;&gt;Intellij에서 JDK 9과 Lombok 1.16.18을  사용하면 이상동작 해결 방법&lt;/h1&gt;
 
 &lt;p&gt;오늘 나의 시간을 가장 많이 빼앗어간 어이 없는 Lombok 오류였다.&lt;/p&gt;
 
@@ -258,152 +266,4 @@ logger.info(&quot;Test Message&quot;)
 
 &lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://stackoverflow.com/questions/3968669/how-to-configure-logging-to-syslog-in-python&quot;&gt;How to configure logging to syslog in Python?&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><category term="python" /><category term="log" /><summary type="html">원격 서버로 로그 전송</summary></entry><entry><title type="html">Elasticdump 를 이용한 데이터 백업과 리스토어</title><link href="https://lahuman.github.io/elastic_dump/" rel="alternate" type="text/html" title="Elasticdump 를 이용한 데이터 백업과 리스토어 " /><published>2017-12-01T00:00:00+09:00</published><updated>2017-12-01T00:00:00+09:00</updated><id>https://lahuman.github.io/elastic_dump</id><content type="html" xml:base="https://lahuman.github.io/elastic_dump/">&lt;h1 id=&quot;elasticdump를-이용한-데이터-백업과-리스토어&quot;&gt;Elasticdump를 이용한 데이터 백업과 리스토어&lt;/h1&gt;
-
-&lt;p&gt;elasticsearch의 데이터를 다른 곳으로 이관 하는 작업을 해야 한다.
-&lt;br /&gt;
-이때 사용 가능한 프로그램이 &lt;a href=&quot;https://github.com/taskrabbit/elasticsearch-dump&quot;&gt;elasticdump&lt;/a&gt; 이다.
-&lt;br /&gt;
-elasticdump는 현재 3.3.1 버젼으로 Elasticsearch 5.x 버젼을 지원하고 있다.
-&lt;br /&gt;
-지금 사용하는 elasticsearch 버젼이 2.x여서 해당 버젼을 지원하는 elsticdump 2.4.2를 설치 해야 한다.&lt;/p&gt;
-
-&lt;h2 id=&quot;설치&quot;&gt;설치&lt;/h2&gt;
-
-&lt;p&gt;설치는 가이드에 나온 것과 같이 npm 을 설치 하고 elasticdump 모듈을 설치 해야 한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# npm은 설치 되어 있다고 가정 한다.
-npm install elasticdump
-
-# git 에서 코드 download
-git clone https://github.com/taskrabbit/elasticsearch-dump.git
-cd elasticsearch-dump
-# v2.4.2 으로 변경
-git checkout tags/v2.4.2
-# 버전 확인
-./bin/elasticdump --version
-2.4.2
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;데이터-백업&quot;&gt;데이터 백업&lt;/h2&gt;
-
-&lt;p&gt;백업되는 데이터 타입은 크게 3가지로 나누어 진다.&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;analyzer&lt;/li&gt;
-  &lt;li&gt;mapping&lt;/li&gt;
-  &lt;li&gt;data&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;기본적으로 데이터를 넣기 위해서는 최소한의 데이터 맵핑이 있어야 한다.
-&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;elasticdump 는 Elasticsearch to Ealsticsearch 를 지원하며, File 로 저장 리스토어도 가능하다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# Copy an index from production to staging with analyzer and mapping:
-elasticdump \
-  --input=http://production.es.com:9200/my_index \
-  --output=http://staging.es.com:9200/my_index \
-  --type=analyzer
-elasticdump \
-  --input=http://production.es.com:9200/my_index \
-  --output=http://staging.es.com:9200/my_index \
-  --type=mapping
-elasticdump \
-  --input=http://production.es.com:9200/my_index \
-  --output=http://staging.es.com:9200/my_index \
-  --type=data
-
-# Backup index data to a file:
-elasticdump \
-  --input=http://production.es.com:9200/my_index \
-  --output=/data/my_index_mapping.json \
-  --type=mapping
-elasticdump \
-  --input=http://production.es.com:9200/my_index \
-  --output=/data/my_index.json \
-  --type=data
-
-# Backup and index to a gzip using stdout:
-elasticdump \
-  --input=http://production.es.com:9200/my_index \
-  --output=$ \
-  | gzip &amp;gt; /data/my_index.json.gz
-
-# Backup the results of a query to a file
-elasticdump \
-  --input=http://production.es.com:9200/my_index \
-  --output=query.json \
-  --searchBody '{&quot;query&quot;:{&quot;term&quot;:{&quot;username&quot;: &quot;admin&quot;}}}'
-
-# Copy a single shard data:
-elasticdump \
-  --input=http://es.com:9200/api \
-  --output=http://es.com:9200/api2 \
-  --params='{&quot;preference&quot; : &quot;_shards:0&quot;}'
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;searchBody를 이용하면 원하는 목록 가져올 수 있다.&lt;/p&gt;
-
-&lt;h2 id=&quot;20171207-테스트-결과-추가&quot;&gt;2017.12.07 테스트 결과 추가&lt;/h2&gt;
-
-&lt;h2 id=&quot;원본데이터를-파일로-저장&quot;&gt;원본데이터를 파일로 저장&lt;/h2&gt;
-
-&lt;h3 id=&quot;1-원본-데이터-매핑-저장&quot;&gt;1. 원본 데이터 매핑 저장&lt;/h3&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;./elasticdump \
---input=http://10.10.10.202:9200 \
---input-index=elastic_data/elastic_data \
---output=elastic_data_mapping.json \
---type=mapping
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;2-원본-데이터-백업&quot;&gt;2. 원본 데이터 백업&lt;/h3&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;sample로 searchBody를 이용하여 1분 동안의 데이터만 가져오도록 함&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;./elasticdump \
---input=http://10.10.10.202:9200 \
---input-index=elastic_data/elastic_data \
---output=elastic_data.json \
---type=data \
---searchBody '{
-  &quot;query&quot;:{
-      &quot;range&quot;:{
-      &quot;log_dttm&quot;:{
-          &quot;gte&quot;:&quot;2017-11-01T00:00:00&quot;,
-            &quot;lte&quot;:&quot;2017-11-01T00:00:59&quot;
-        }
-        }
-    }
-}'
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;파일로-저장된-데이터를-서버에-저장&quot;&gt;파일로 저장된 데이터를 서버에 저장&lt;/h2&gt;
-
-&lt;h3 id=&quot;1-인덱스-추가--데이터-형식-저장&quot;&gt;1. 인덱스 추가 &amp;amp; 데이터 형식 저장&lt;/h3&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;./elasticdump \
---input=elastic_data_mapping.json \
---output=http://10.10.10.180:9201/elastic_data \
---type=mapping
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;2-데이터-import-처리&quot;&gt;2. 데이터 import 처리&lt;/h3&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;이미 등록된 데이터를 다시 등록 할 경우 _version 의 값이 +1 처리 된다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;./elasticdump \
---input=elastic_data.json \
---output=http://10.10.10.180:9201/elastic_data \
---type=data
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/taskrabbit/elasticsearch-dump&quot;&gt;elasticdump&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="elasticsearch" /><category term="elasticdump" /><summary type="html">Elasticsearch 백업 &amp; 리스토어</summary></entry></feed>
+&lt;p&gt;&lt;a href=&quot;https://stackoverflow.com/questions/3968669/how-to-configure-logging-to-syslog-in-python&quot;&gt;How to configure logging to syslog in Python?&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><category term="python" /><category term="log" /><summary type="html">원격 서버로 로그 전송</summary></entry></feed>
