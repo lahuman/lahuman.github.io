@@ -1,4 +1,35 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2017-12-26T10:45:00+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">크리스마스의 악몽</title><link href="https://lahuman.github.io/20171226-phase/" rel="alternate" type="text/html" title="크리스마스의 악몽" /><published>2017-12-26T00:00:00+09:00</published><updated>2017-12-26T00:00:00+09:00</updated><id>https://lahuman.github.io/20171226-phase</id><content type="html" xml:base="https://lahuman.github.io/20171226-phase/">&lt;h1 id=&quot;올해-동현이는-많이-다친다&quot;&gt;올해 동현이는 많이 다친다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2017-12-27T13:38:47+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Spring MVC Controller 에서 @PathVariable에 name을 빼먹으면 오류가 났다.</title><link href="https://lahuman.github.io/20171227-phase/" rel="alternate" type="text/html" title="Spring MVC Controller 에서 @PathVariable에 name을 빼먹으면 오류가 났다." /><published>2017-12-27T00:00:00+09:00</published><updated>2017-12-27T00:00:00+09:00</updated><id>https://lahuman.github.io/20171227-phase</id><content type="html" xml:base="https://lahuman.github.io/20171227-phase/">&lt;h1 id=&quot;이전에-사용하던-방식으로-처리-했는데-uri-템플릿-변수가-누락-되었다는-오류-발생&quot;&gt;이전에 사용하던 방식으로 처리 했는데 URI 템플릿 변수가 누락 되었다는 오류 발생&lt;/h1&gt;
+
+&lt;p&gt;3개월 전만에도 문제 없었던 Spring MVC 코드 인데 무엇을 잘못한 것인지 오류가 났다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;코드&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  @RequestMapping(value = &quot;/{id}&quot;, method = RequestMethod.GET)
+    public DknetInfoResDTO view(@NonNull @PathVariable Long seq){
+        DknetInfo dknetInfo = dknetService.getDknetInfo(seq);
+        return modelMapper.map(dknetInfo, DknetInfoResDTO.class);
+    }
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;오류 내용&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Whitelabel Error Page
+
+This application has no explicit mapping for /error, so you are seeing this as a fallback.
+Wed Dec 27 13:28:56 KST 2017
+There was an unexpected error (type=Internal Server Error, status=500).
+Missing URI template variable 'seq' for method parameter of type Long
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;원인은 PathVariable에 id 와 파라메터에 변수 값 seq를 혼합해서 사용하였기 때문이다.&lt;/p&gt;
+
+&lt;p&gt;쉬운데 놓치는 일이 너무 많다.&lt;/p&gt;
+
+&lt;h3 id=&quot;영어만-잘해도-반은-먹고-갈텐데&quot;&gt;영어만 잘해도 반은 먹고 갈텐데…&lt;/h3&gt;</content><author><name></name></author><category term="단상" /><summary type="html">Missing URI template variable for method parameter of type</summary></entry><entry><title type="html">크리스마스의 악몽</title><link href="https://lahuman.github.io/20171226-phase/" rel="alternate" type="text/html" title="크리스마스의 악몽" /><published>2017-12-26T00:00:00+09:00</published><updated>2017-12-26T00:00:00+09:00</updated><id>https://lahuman.github.io/20171226-phase</id><content type="html" xml:base="https://lahuman.github.io/20171226-phase/">&lt;h1 id=&quot;올해-동현이는-많이-다친다&quot;&gt;올해 동현이는 많이 다친다.&lt;/h1&gt;
 
 &lt;p&gt;크리스마스 이브에 계단에서 뒤로 넘어저 머리에 상처가 난 동현이를 안고 119 구급차를 타고 응급실로 갔다.&lt;/p&gt;
 
@@ -221,49 +252,4 @@ class Connector(Singleton):
 
 &lt;p&gt;&lt;a href=&quot;http://www.haruair.com/blog/1682&quot;&gt;SQLAlchemy 시작하기 – Part 1&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;http://preshing.com/20110920/the-python-with-statement-by-example/&quot;&gt;The Python “with” Statement by Example&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><category term="SQLAlchemy" /><category term="db pool" /><summary type="html">SQLAlchemy의 DB Pool 이용</summary></entry><entry><title type="html">Python을 이용하여 원격 서버에 로그 전송</title><link href="https://lahuman.github.io/syslog_write_python/" rel="alternate" type="text/html" title="Python을 이용하여 원격 서버에 로그 전송  " /><published>2017-12-02T00:00:00+09:00</published><updated>2017-12-02T00:00:00+09:00</updated><id>https://lahuman.github.io/syslog_write_python</id><content type="html" xml:base="https://lahuman.github.io/syslog_write_python/">&lt;h1 id=&quot;원격지-로그-전송&quot;&gt;원격지 로그 전송&lt;/h1&gt;
-
-&lt;p&gt;Python으로 특정 원격지 서버에 로그 전송이 가능하다.
-&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;먼저 rsyslog에서 해당 통신이 가능하도록 설정을 변경 해야 한다.
-&lt;br /&gt;&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;vim /etc/rsyslog.conf
-
-# UDP 514 포트로 통신 가능하도록 다음 2 LINE 주석 제거
-$ModLoad imudp
-$UDPServerRun 514
-
-# 로그타입과 저장 위치 설정
-local3.*        /var/log/my-logfile
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;이후 rsyslog에 대한 서비스를 재기동 한다.&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo service rsyslog restart
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;마지막으로 Python 소스는 다음과 같다.&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# -*- coding: utf-8 -*-
-import logging
-import logging.handlers
-
-logger = logging.getLogger('myLogger')
-logger.setLevel(logging.INFO)
-
-#add handler to the logger
-handler = logging.handlers.SysLogHandler(address = ('SERVER_IP',514), facility=logging.handlers.SysLogHandler.LOG_LOCAL3)
-
-#add formatter to the handler
-formatter = logging.Formatter('Python: { &quot;loggerName&quot;:&quot;%(name)s&quot;, &quot;asciTime&quot;:&quot;%(asctime)s&quot;, &quot;pathName&quot;:&quot;%(pathname)s&quot;, &quot;logRecordCreationTime&quot;:&quot;%(created)f&quot;, &quot;functionName&quot;:&quot;%(funcName)s&quot;, &quot;levelNo&quot;:&quot;%(levelno)s&quot;, &quot;lineNo&quot;:&quot;%(lineno)d&quot;, &quot;time&quot;:&quot;%(msecs)d&quot;, &quot;levelName&quot;:&quot;%(levelname)s&quot;, &quot;message&quot;:&quot;%(message)s&quot;}')
-
-handler.formatter = formatter
-logger.addHandler(handler)
-
-logger.info(&quot;Test Message&quot;)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;해당 소스를 실행하면 /var/log/my-logfile 파일에 로그가 쌓이는 것을 확인 할 수 있다.&lt;/p&gt;
-
-&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://stackoverflow.com/questions/3968669/how-to-configure-logging-to-syslog-in-python&quot;&gt;How to configure logging to syslog in Python?&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><category term="python" /><category term="log" /><summary type="html">원격 서버로 로그 전송</summary></entry></feed>
+&lt;p&gt;&lt;a href=&quot;http://preshing.com/20110920/the-python-with-statement-by-example/&quot;&gt;The Python “with” Statement by Example&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><category term="SQLAlchemy" /><category term="db pool" /><summary type="html">SQLAlchemy의 DB Pool 이용</summary></entry></feed>
