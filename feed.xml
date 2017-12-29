@@ -1,4 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2017-12-27T13:38:47+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Spring MVC Controller 에서 @PathVariable에 name을 빼먹으면 오류가 났다.</title><link href="https://lahuman.github.io/20171227-phase/" rel="alternate" type="text/html" title="Spring MVC Controller 에서 @PathVariable에 name을 빼먹으면 오류가 났다." /><published>2017-12-27T00:00:00+09:00</published><updated>2017-12-27T00:00:00+09:00</updated><id>https://lahuman.github.io/20171227-phase</id><content type="html" xml:base="https://lahuman.github.io/20171227-phase/">&lt;h1 id=&quot;이전에-사용하던-방식으로-처리-했는데-uri-템플릿-변수가-누락-되었다는-오류-발생&quot;&gt;이전에 사용하던 방식으로 처리 했는데 URI 템플릿 변수가 누락 되었다는 오류 발생&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2017-12-29T18:09:51+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">아듀 2017년</title><link href="https://lahuman.github.io/20171229-phase/" rel="alternate" type="text/html" title="아듀 2017년" /><published>2017-12-29T00:00:00+09:00</published><updated>2017-12-29T00:00:00+09:00</updated><id>https://lahuman.github.io/20171229-phase</id><content type="html" xml:base="https://lahuman.github.io/20171229-phase/">&lt;h1 id=&quot;내년은-판교에서-시작한다&quot;&gt;내년은 판교에서 시작한다.&lt;/h1&gt;
+
+&lt;p&gt;&lt;strong&gt;근면, 성실, 실력&lt;/strong&gt; 잊지 말고 나를 더욱 다듬자!&lt;/p&gt;
+
+&lt;p&gt;내년에는 판교에서 새로운 시작을 한다.&lt;/p&gt;
+
+&lt;p&gt;더욱 열심히 하자!!&lt;/p&gt;</content><author><name></name></author><category term="단상" /><summary type="html">내년은 판교에서 시작 한다.</summary></entry><entry><title type="html">Spring MVC Controller 에서 @PathVariable에 name을 빼먹으면 오류가 났다.</title><link href="https://lahuman.github.io/20171227-phase/" rel="alternate" type="text/html" title="Spring MVC Controller 에서 @PathVariable에 name을 빼먹으면 오류가 났다." /><published>2017-12-27T00:00:00+09:00</published><updated>2017-12-27T00:00:00+09:00</updated><id>https://lahuman.github.io/20171227-phase</id><content type="html" xml:base="https://lahuman.github.io/20171227-phase/">&lt;h1 id=&quot;이전에-사용하던-방식으로-처리-했는데-uri-템플릿-변수가-누락-되었다는-오류-발생&quot;&gt;이전에 사용하던 방식으로 처리 했는데 URI 템플릿 변수가 누락 되었다는 오류 발생&lt;/h1&gt;
 
 &lt;p&gt;3개월 전만에도 문제 없었던 Spring MVC 코드 인데 무엇을 잘못한 것인지 오류가 났다.&lt;/p&gt;
 
@@ -161,95 +167,4 @@ finally:
     pass
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h2 id=&quot;시작했다고-늘-함께-하진-않는구나&quot;&gt;시작했다고 늘 함께 하진 않는구나…&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">Python에서 만난 OOM</summary></entry><entry><title type="html">Python 에서 DB Pool 사용하기</title><link href="https://lahuman.github.io/python_use_db_pool/" rel="alternate" type="text/html" title="Python 에서 DB Pool 사용하기" /><published>2017-12-07T00:00:00+09:00</published><updated>2017-12-07T00:00:00+09:00</updated><id>https://lahuman.github.io/python_use_db_pool</id><content type="html" xml:base="https://lahuman.github.io/python_use_db_pool/">&lt;h1 id=&quot;python-에서-db-pool-사용하기&quot;&gt;Python 에서 DB Pool 사용하기&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;데이터베이스와 애플리케이션을 효율적으로 연결하는 커넥션 플 라이브러리는 애플리케이션에서 필수 요소 입니다.
-일반적인 프로그램에서 데이터베이스에 연결(Connection 객체를 얻는 작업)은 많은 시간이 소요 됩니다.
-따라서 Connection을 미리 생성시켜 저장소에 저장 했다가 프로그램에서 요청이 있으면 저장소에서 꺼내 제공하면 시간과 리소스를 절약 할 수 있습니다. 이러한 기법을 Connection Pool이라 합니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Python 에서 사용할수 있는 MariaDB Connection Pool은 몇가지가 있다.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Oracle Mysql Pool(mysql 5.5 이상 설치시 사용 가능)&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.sqlalchemy.org/&quot;&gt;SQLAlchemy&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/LuciferJack/python-mysql-pool&quot;&gt;python-mysql-pool&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;이중 Oracle 에서 제공되는 Pool을 테스트 진행시 Pool 개수 이상을 요구 시, 대기 없이 다음과 같은 오류가 발생한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mysql.connector.errors.PoolError: Failed getting connection; pool exhausted
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;때문에 SQLAlchemy는 Python에 대한 SQL 툴킷과 객체 관계 매퍼를 사용하여 구현 하였다.&lt;/p&gt;
-
-&lt;p&gt;우선 JAVA 7의 try-with-resources과 같은 기능이 Python의 &lt;strong&gt;with&lt;/strong&gt; 로 있다.&lt;/p&gt;
-
-&lt;p&gt;따라서 &lt;strong&gt;with&lt;/strong&gt; 를 이용해서 처리 할수 있는 DB에 대한 connection을 얻고 닫는 것을 다음처럼 자동화 할 수 있다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# _Session
-with _Session(config['MARIADB']['MARIADB_CONNECT_INFO']) as s:
-    onion_count = s.query(OnionsInfo).count()
-return onion_count
-
-#Connection
-with Connector(config['MARIADB']['MARIADB_CONNECT_INFO']) as con:
-    onion_count = con.execute(&quot;select count(*) from onions_info&quot;).fetchall()[0]
-return onion_count
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;&lt;strong&gt;session 의 경우 SQLAlchemy와 곂치기 때문에 _를 이용함&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;with 절을 이용해 with 절이 시작 할때 &lt;strong&gt;enter&lt;/strong&gt; 가 호출 되고, 종료 될때 &lt;strong&gt;exit&lt;/strong&gt; 가 호출 되어 connection을 시작 하고 종료 한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-class _Session(Singleton):
-    session = None
-
-    def __init__(self, connect_info=None):
-        global engine
-        if engine is None:
-            engine = sqlalchemy.create_engine(
-                connect_info, pool_size=5,
-                max_overflow=5, pool_recycle=500)
-            Session.configure(bind=engine)
-
-    def __enter__(self):
-        self.session = Session()
-        print &quot;enter = &quot; + str(self.session)
-        return self.session
-
-    def __exit__(self, exc_type, exc_val, exc_tb):
-        if exc_type is not None:
-            self.session.rollback()
-            print &quot;rollback()&quot; + str(self.session)
-        else:
-            self.session.commit()
-
-        print &quot;close() : &quot; + str(self.session)
-        self.session.close_all()
-
-
-class Connector(Singleton):
-    con = None
-
-    def __init__(self, connect_info=None):
-        global engine
-        if engine is None:
-            engine = sqlalchemy.create_engine(
-                connect_info, pool_size=5,
-                max_overflow=5, pool_recycle=500)
-
-    def __enter__(self):
-        self.conn = engine.connect()
-        return self.conn
-
-    def __exit__(self, exc_type, exc_val, exc_tb):
-        self.conn.close();
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://www.haruair.com/blog/1682&quot;&gt;SQLAlchemy 시작하기 – Part 1&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://preshing.com/20110920/the-python-with-statement-by-example/&quot;&gt;The Python “with” Statement by Example&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><category term="SQLAlchemy" /><category term="db pool" /><summary type="html">SQLAlchemy의 DB Pool 이용</summary></entry></feed>
+&lt;h2 id=&quot;시작했다고-늘-함께-하진-않는구나&quot;&gt;시작했다고 늘 함께 하진 않는구나…&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">Python에서 만난 OOM</summary></entry></feed>
