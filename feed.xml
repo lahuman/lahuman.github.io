@@ -1,4 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-01-03T18:02:06+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Elastic Search 하나의 서버에서 여러 노드 구동시 설정</title><link href="https://lahuman.github.io/es_one_server_multi_node/" rel="alternate" type="text/html" title="Elastic Search 하나의 서버에서 여러 노드 구동시 설정" /><published>2018-01-03T00:00:00+09:00</published><updated>2018-01-03T00:00:00+09:00</updated><id>https://lahuman.github.io/es_one_server_multi_node</id><content type="html" xml:base="https://lahuman.github.io/es_one_server_multi_node/">&lt;h1 id=&quot;elastic-search-하나의-서버에서-여러-노드-구동시-설정&quot;&gt;Elastic Search 하나의 서버에서 여러 노드 구동시 설정&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-01-05T13:22:35+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">3일 연속 새벽에 들어갔더니…</title><link href="https://lahuman.github.io/20180105-phase/" rel="alternate" type="text/html" title="3일 연속 새벽에 들어갔더니..." /><published>2018-01-05T00:00:00+09:00</published><updated>2018-01-05T00:00:00+09:00</updated><id>https://lahuman.github.io/20180105-phase</id><content type="html" xml:base="https://lahuman.github.io/20180105-phase/">&lt;h1 id=&quot;체력적으로-3일만-야근했더니-너무-피곤하다&quot;&gt;체력적으로 3일만 야근했더니 너무 피곤하다.&lt;/h1&gt;
+
+&lt;p&gt;늙은걸까? 운동 부족일까?&lt;/p&gt;
+
+&lt;p&gt;확실한건 업무 능률도 떨어진다는 거다.&lt;/p&gt;</content><author><name></name></author><category term="단상" /><summary type="html">자려는데 코피가 난다.</summary></entry><entry><title type="html">Elastic Search 하나의 서버에서 여러 노드 구동시 설정</title><link href="https://lahuman.github.io/es_one_server_multi_node/" rel="alternate" type="text/html" title="Elastic Search 하나의 서버에서 여러 노드 구동시 설정" /><published>2018-01-03T00:00:00+09:00</published><updated>2018-01-03T00:00:00+09:00</updated><id>https://lahuman.github.io/es_one_server_multi_node</id><content type="html" xml:base="https://lahuman.github.io/es_one_server_multi_node/">&lt;h1 id=&quot;elastic-search-하나의-서버에서-여러-노드-구동시-설정&quot;&gt;Elastic Search 하나의 서버에서 여러 노드 구동시 설정&lt;/h1&gt;
 
 &lt;p&gt;Elastic Search(이하 ES)에서 노드의 메모리는 서버의 메모리의 반(half)을 할당하는 것이 좋다고 한다.&lt;/p&gt;
 
@@ -128,49 +132,4 @@ Agent 프로그램을 VMWARE에 설치 하고 속이는 방법을 사용해보�
 
 &lt;p&gt;뭔가 할 일이 많다.&lt;/p&gt;
 
-&lt;h2 id=&quot;졸리다-넘나&quot;&gt;졸리다 넘나..&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">잠을 잘 못잠</summary></entry><entry><title type="html">tor, phantomJS를 Ubuntu에 설치</title><link href="https://lahuman.github.io/tor_phantomjs_install_on_ubuntu/" rel="alternate" type="text/html" title="tor, phantomJS를 Ubuntu에 설치" /><published>2017-12-12T00:00:00+09:00</published><updated>2017-12-12T00:00:00+09:00</updated><id>https://lahuman.github.io/tor_phantomjs_install_on_ubuntu</id><content type="html" xml:base="https://lahuman.github.io/tor_phantomjs_install_on_ubuntu/">&lt;h1 id=&quot;tor-phantomjs를-ubuntu에-설치&quot;&gt;tor, phantomJS를 Ubuntu에 설치&lt;/h1&gt;
-
-&lt;h2 id=&quot;tor-설치--서비스-기동&quot;&gt;tor 설치 &amp;amp; 서비스 기동&lt;/h2&gt;
-
-&lt;p&gt;tor 설치는 간단하게 apt-get을 이용하면 된다.&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# tor 설치
-sudo apt-get install tor
-# tor service 기동
-sudo service tor start
-# 기동 확인 9050 포트가 LISTEN되는지 확인
-netstat -anop | grep 9050
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;phantomjs-설치&quot;&gt;phantomJS 설치&lt;/h2&gt;
-&lt;p&gt;phantomJS는 pip로 설치가 되지 않는다.&lt;/p&gt;
-
-&lt;p&gt;우선 시스템에서 필요한 프로그램을 다음과 같이 설치 한다.&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 먼저 시스템을 최신 상태로 업데이트 한다.
-sudo apt-get update
-sudo apt-get install build-essential chrpath libssl-dev libxft-dev
-
-# PhantomJS 관련 필수 프로그램 설치
-sudo apt-get install libfreetype6 libfreetype6-dev
-sudo apt-get install libfontconfig1 libfontconfig1-dev
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;이후, PhantomJS를 설치 한다.&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 특정 버젼 다운로드 &amp;amp; 압축 해제
-cd ~
-export PHANTOM_JS=&quot;phantomjs-2.1.1-linux-x86_64&quot;
-wget https://bitbucket.org/ariya/phantomjs/downloads/$PHANTOM_JS.tar.bz2
-sudo tar xvjf $PHANTOM_JS.tar.bz2
-
-# /usr/local/share 이하로 옮기고 실행 가능하도록 symlink 설정
-sudo mv $PHANTOM_JS /usr/local/share
-sudo ln -sf /usr/local/share/$PHANTOM_JS/bin/phantomjs /usr/local/bin
-
-# 확인
-phantomjs --version
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://gist.github.com/julionc/7476620&quot;&gt;How to install PhantomJS on Ubuntu&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="tor" /><category term="phantomJS" /><summary type="html">apt-get 과 함께면 참 쉽다!</summary></entry></feed>
+&lt;h2 id=&quot;졸리다-넘나&quot;&gt;졸리다 넘나..&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">잠을 잘 못잠</summary></entry></feed>
