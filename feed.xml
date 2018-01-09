@@ -1,4 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-01-05T13:22:35+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">3일 연속 새벽에 들어갔더니…</title><link href="https://lahuman.github.io/20180105-phase/" rel="alternate" type="text/html" title="3일 연속 새벽에 들어갔더니..." /><published>2018-01-05T00:00:00+09:00</published><updated>2018-01-05T00:00:00+09:00</updated><id>https://lahuman.github.io/20180105-phase</id><content type="html" xml:base="https://lahuman.github.io/20180105-phase/">&lt;h1 id=&quot;체력적으로-3일만-야근했더니-너무-피곤하다&quot;&gt;체력적으로 3일만 야근했더니 너무 피곤하다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-01-09T17:15:34+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">새벽 4시면 잠이 깬다.</title><link href="https://lahuman.github.io/20180109-phase/" rel="alternate" type="text/html" title="새벽 4시면 잠이 깬다." /><published>2018-01-09T00:00:00+09:00</published><updated>2018-01-09T00:00:00+09:00</updated><id>https://lahuman.github.io/20180109-phase</id><content type="html" xml:base="https://lahuman.github.io/20180109-phase/">&lt;h1 id=&quot;새벽-4시면-어김없이-잠이-깬다&quot;&gt;새벽 4시면 어김없이 잠이 깬다.&lt;/h1&gt;
+
+&lt;p&gt;왜 깨는지는 모르겠지만, 잠이 깨었다가 다시 잔다.&lt;/p&gt;
+
+&lt;p&gt;피곤하다.. 눈이 너무 건조하다.&lt;/p&gt;</content><author><name></name></author><category term="단상" /><summary type="html">잠이 깨었다가 다시 잔다.</summary></entry><entry><title type="html">3일 연속 새벽에 들어갔더니…</title><link href="https://lahuman.github.io/20180105-phase/" rel="alternate" type="text/html" title="3일 연속 새벽에 들어갔더니..." /><published>2018-01-05T00:00:00+09:00</published><updated>2018-01-05T00:00:00+09:00</updated><id>https://lahuman.github.io/20180105-phase</id><content type="html" xml:base="https://lahuman.github.io/20180105-phase/">&lt;h1 id=&quot;체력적으로-3일만-야근했더니-너무-피곤하다&quot;&gt;체력적으로 3일만 야근했더니 너무 피곤하다.&lt;/h1&gt;
 
 &lt;p&gt;늙은걸까? 운동 부족일까?&lt;/p&gt;
 
@@ -126,10 +130,4 @@ Agent 프로그램을 VMWARE에 설치 하고 속이는 방법을 사용해보�
 
 &lt;p&gt;&lt;strong&gt;단 프로세스 객체를 생성하고 실행하는 코드는 반드시 __main__ 만 실행하는 코드 안에 적어야 한다.&lt;/strong&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;자-지금까지-한거-고치자&quot;&gt;자 지금까지 한거 고치자..&lt;/h2&gt;</content><author><name></name></author><category term="Python" /><category term="Thread" /><summary type="html">Global Interpreter Lock, GIL 로 인한 제한</summary></entry><entry><title type="html">졸리다 넘나</title><link href="https://lahuman.github.io/20171213-phase/" rel="alternate" type="text/html" title="졸리다 넘나" /><published>2017-12-13T00:00:00+09:00</published><updated>2017-12-13T00:00:00+09:00</updated><id>https://lahuman.github.io/20171213-phase</id><content type="html" xml:base="https://lahuman.github.io/20171213-phase/">&lt;h1 id=&quot;새벽-3시까지-뒤척거리며-잠을-잘-못잤다&quot;&gt;새벽 3시까지 뒤척거리며 잠을 잘 못잤다.&lt;/h1&gt;
-
-&lt;p&gt;논문도 써야 하고 회사 일도 이번달까지 Prototype 작성해야 하고…&lt;/p&gt;
-
-&lt;p&gt;뭔가 할 일이 많다.&lt;/p&gt;
-
-&lt;h2 id=&quot;졸리다-넘나&quot;&gt;졸리다 넘나..&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">잠을 잘 못잠</summary></entry></feed>
+&lt;h2 id=&quot;자-지금까지-한거-고치자&quot;&gt;자 지금까지 한거 고치자..&lt;/h2&gt;</content><author><name></name></author><category term="Python" /><category term="Thread" /><summary type="html">Global Interpreter Lock, GIL 로 인한 제한</summary></entry></feed>
