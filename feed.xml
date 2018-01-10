@@ -1,4 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-01-09T17:15:34+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">새벽 4시면 잠이 깬다.</title><link href="https://lahuman.github.io/20180109-phase/" rel="alternate" type="text/html" title="새벽 4시면 잠이 깬다." /><published>2018-01-09T00:00:00+09:00</published><updated>2018-01-09T00:00:00+09:00</updated><id>https://lahuman.github.io/20180109-phase</id><content type="html" xml:base="https://lahuman.github.io/20180109-phase/">&lt;h1 id=&quot;새벽-4시면-어김없이-잠이-깬다&quot;&gt;새벽 4시면 어김없이 잠이 깬다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-01-10T16:03:10+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">올해 안에 Doc4SM 사이트 OPEN과 오픈소스화 하자!!</title><link href="https://lahuman.github.io/20180110-phase/" rel="alternate" type="text/html" title="올해 안에 Doc4SM 사이트 OPEN과 오픈소스화 하자!!" /><published>2018-01-10T00:00:00+09:00</published><updated>2018-01-10T00:00:00+09:00</updated><id>https://lahuman.github.io/20180110-phase</id><content type="html" xml:base="https://lahuman.github.io/20180110-phase/">&lt;h1 id=&quot;개인-프로젝트-중에서-유일하게-팔린-doc4sm&quot;&gt;개인 프로젝트 중에서 유일하게 팔린 Doc4SM&lt;/h1&gt;
+
+&lt;p&gt;1군데 납품되고(감사하게도) 존재 자체가 너무 미미한 개인 사이트였다.&lt;/p&gt;
+
+&lt;p&gt;몇일동안 열어 두기도 했었지만, 지금은 다 날려 먹고 없다.&lt;/p&gt;
+
+&lt;p&gt;소스는 가지고 있으니 차근 차근 준비해서 올해 오픈소스화 하는 것이 목표다.&lt;/p&gt;
+
+&lt;h2 id=&quot;화이팅-아자-아자&quot;&gt;화이팅! 아자 아자!&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">오픈소스화는 작년에 할려다가 실패 한거지만....</summary></entry><entry><title type="html">새벽 4시면 잠이 깬다.</title><link href="https://lahuman.github.io/20180109-phase/" rel="alternate" type="text/html" title="새벽 4시면 잠이 깬다." /><published>2018-01-09T00:00:00+09:00</published><updated>2018-01-09T00:00:00+09:00</updated><id>https://lahuman.github.io/20180109-phase</id><content type="html" xml:base="https://lahuman.github.io/20180109-phase/">&lt;h1 id=&quot;새벽-4시면-어김없이-잠이-깬다&quot;&gt;새벽 4시면 어김없이 잠이 깬다.&lt;/h1&gt;
 
 &lt;p&gt;왜 깨는지는 모르겠지만, 잠이 깨었다가 다시 잔다.&lt;/p&gt;
 
@@ -120,14 +128,4 @@ Agent 프로그램을 VMWARE에 설치 하고 속이는 방법을 사용해보�
 &lt;ol&gt;
   &lt;li&gt;&lt;a href=&quot;https://pubs.vmware.com/workstation-9/index.jsp?topic=%2Fcom.vmware.ws.using.doc%2FGUID-5C55C285-79B0-404F-95A5-87F64C41E3DC.html&quot;&gt;Change the MAC Address for a Virtual Machine&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.vmware.com/support/ws5/doc/ws_net_configurations_changing_bridged_windows.html&quot;&gt; Configuring Bridged Networking Options on a Windows Host &lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;</content><author><name></name></author><category term="security" /><category term="avoid" /><summary type="html">자세한 이미지는 생략한다.</summary></entry><entry><title type="html">Python 에서 멀티 스레드를 사용하기 보다 멀티 프로세스를 사용하자.</title><link href="https://lahuman.github.io/python_thread_process/" rel="alternate" type="text/html" title="Python 에서 멀티 스레드를 사용하기 보다 멀티 프로세스를 사용하자." /><published>2017-12-14T00:00:00+09:00</published><updated>2017-12-14T00:00:00+09:00</updated><id>https://lahuman.github.io/python_thread_process</id><content type="html" xml:base="https://lahuman.github.io/python_thread_process/">&lt;h1 id=&quot;파이선의-스레드에는-약간의-제약이-있다&quot;&gt;파이선의 스레드에는 약간의 제약이 있다.&lt;/h1&gt;
-
-&lt;p&gt;파이썬은 내부적으로 전역 인터프리터 록(Global Interpreter Lock, GIL)을 사용한다. 이것은 시스템 하나에서 스레드 하나만 실행되도록 제한한다.&lt;/p&gt;
-
-&lt;p&gt;따라서 파이썬 쓰래드는 여러개의 코어를 활용하지 못하고 하나의 코어에서만 실행된다.&lt;/p&gt;
-
-&lt;p&gt;대신에 여러개의 코어를 활용할 수 있는 multiprocessing 모듈을 제공한다.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;단 프로세스 객체를 생성하고 실행하는 코드는 반드시 __main__ 만 실행하는 코드 안에 적어야 한다.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;자-지금까지-한거-고치자&quot;&gt;자 지금까지 한거 고치자..&lt;/h2&gt;</content><author><name></name></author><category term="Python" /><category term="Thread" /><summary type="html">Global Interpreter Lock, GIL 로 인한 제한</summary></entry></feed>
+&lt;/ol&gt;</content><author><name></name></author><category term="security" /><category term="avoid" /><summary type="html">자세한 이미지는 생략한다.</summary></entry></feed>
