@@ -1,4 +1,127 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-01-10T16:03:10+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">올해 안에 Doc4SM 사이트 OPEN과 오픈소스화 하자!!</title><link href="https://lahuman.github.io/20180110-phase/" rel="alternate" type="text/html" title="올해 안에 Doc4SM 사이트 OPEN과 오픈소스화 하자!!" /><published>2018-01-10T00:00:00+09:00</published><updated>2018-01-10T00:00:00+09:00</updated><id>https://lahuman.github.io/20180110-phase</id><content type="html" xml:base="https://lahuman.github.io/20180110-phase/">&lt;h1 id=&quot;개인-프로젝트-중에서-유일하게-팔린-doc4sm&quot;&gt;개인 프로젝트 중에서 유일하게 팔린 Doc4SM&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-01-11T11:28:35+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">MariaDB를 binary tar.gz 파일로 설치 하자</title><link href="https://lahuman.github.io/mariadb_install_with_tar.gz/" rel="alternate" type="text/html" title="MariaDB를 binary tar.gz 파일로 설치 하자" /><published>2018-01-11T00:00:00+09:00</published><updated>2018-01-11T00:00:00+09:00</updated><id>https://lahuman.github.io/mariadb_install_with_tar.gz</id><content type="html" xml:base="https://lahuman.github.io/mariadb_install_with_tar.gz/">&lt;h1 id=&quot;mariadb를-binary-targz-파일로-설치-하자&quot;&gt;MariaDB를 binary tar.gz 파일로 설치 하자&lt;/h1&gt;
+
+&lt;p&gt;일반적으로 설치 방법은 다음과 같이 3개의 방법이 있다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;패키지 관리 명령어를 이용한 설치
+    &lt;ul&gt;
+      &lt;li&gt;데비안 계열의 &lt;strong&gt;apt-get&lt;/strong&gt;&lt;/li&gt;
+      &lt;li&gt;레드햇 계열의 &lt;strong&gt;yum&lt;/strong&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;배포 파일을 이용한 설치
+    &lt;ul&gt;
+      &lt;li&gt;데비안 계열의 &lt;strong&gt;.deb&lt;/strong&gt;&lt;/li&gt;
+      &lt;li&gt;레드햇 계열의 &lt;strong&gt;.rpm&lt;/strong&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;바이너리 파일을 이용한 설치
+    &lt;ul&gt;
+      &lt;li&gt;실행파일로 &lt;strong&gt;tar.gz&lt;/strong&gt; 형태 제공&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;물론 모든 프로그램이 상위 3가지 버젼을 제공하지는 않는다.&lt;/p&gt;
+
+&lt;p&gt;오늘 정리할 내용은 이중 바이너리 파일을 이용한 설치이다.&lt;/p&gt;
+
+&lt;p&gt;먼저 바이너리 파일을 이용한 설치의 경우 설치 &amp;amp; 삭제가 쉽다는 장점이 있다.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;압축을 풀어서 놓은 디렉토리가 설치 위치가 된다.&lt;/li&gt;
+  &lt;li&gt;해당 디렉토리를 삭제하면 끝!&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;하지만 다음과 같은 단점도 있다.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;의존성있는 라이브러리 설치 따로 진행 해야한다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;설치-환경&quot;&gt;설치 환경&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;OS : Ubuntu 16.04.3 LTS&lt;/li&gt;
+  &lt;li&gt;Mariadb Version : 10.2.12&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;mariadb-binary-download&quot;&gt;Mariadb Binary Download&lt;/h2&gt;
+
+&lt;p&gt;Mariadb Binary Download URL : https://downloads.mariadb.com/MariaDB/mariadb-10.2.12/bintar-linux-x86_64/&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;mariadb-10.2.12-linux-x86_64.tar.gz&lt;/strong&gt; 파일을 다운 받는다.&lt;/p&gt;
+
+&lt;h2 id=&quot;설치-진행&quot;&gt;설치 진행&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://mariadb.com/kb/en/library/installing-mariadb-binary-tarballs/&quot;&gt;참고 자료 1&lt;/a&gt;를 참고 하여 설치를 진행 한다.
+&lt;strong&gt;설치는 root 계정으로 한다.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;groupadd mysql
+useradd -g mysql mysql
+cd /usr/local
+tar -zxvpf /path-to/mariadb-VERSION-OS.tar.gz
+ln -s mariadb-VERSION-OS mysql
+cd mysql
+./scripts/mysql_install_db --user=mysql
+chown -R root .
+chown -R mysql data
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;MariaDB 의존성 프로그램 설치&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get install libaio1 libaio-dev
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;설정&quot;&gt;설정&lt;/h2&gt;
+
+&lt;p&gt;설치가 완료 되면 설정을 진행 한다.&lt;/p&gt;
+
+&lt;p&gt;설정을 하기 전에 my.cnf 파일을 정해야 한다.&lt;/p&gt;
+
+&lt;p&gt;mariadb 압축 해제된 디렉토리를 보면 support-files 디렉토리가 있다.&lt;/p&gt;
+
+&lt;p&gt;그 안을 보면 다음과 같은 설정 파일 들이 있다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;my-huge.cnf&lt;/li&gt;
+  &lt;li&gt;my-innodb-heavy-4G.cnf&lt;/li&gt;
+  &lt;li&gt;my-large.cnf&lt;/li&gt;
+  &lt;li&gt;my-medium.cnf&lt;/li&gt;
+  &lt;li&gt;my-small.cnf&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;사용하려는 환경에 맞는 cnf파일을 mysql 디렉토리로 my.cnf 이름으로 변경하여 복사한다.&lt;/p&gt;
+
+&lt;p&gt;이후 다음 명령어를 실행한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;./scripts/mysql_install_db --user=mysql --default-file=my.cnf
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;실행&quot;&gt;실행&lt;/h2&gt;
+
+&lt;p&gt;설정이 완료 되면 이제 MariaDB를 실행 할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;실행 명령어&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;./bin/mysqld_safe --datadir='./data' &amp;amp;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;실행 이후, 가장 먼저 root의 비밀번호를 설정한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; ./bin/mysqladmin -u root password 'New Password'
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;접속-테스트&quot;&gt;접속 테스트&lt;/h2&gt;
+
+&lt;p&gt;접속 테스트 명령은 다음과 같다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; ./bin/mysql/ -uroot -p
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://mariadb.com/kb/en/library/installing-mariadb-binary-tarballs/&quot;&gt;Installing MariaDB Binary Tarballs&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="mariadb" /><category term="install" /><summary type="html">설치는 별거 없다.</summary></entry><entry><title type="html">올해 안에 Doc4SM 사이트 OPEN과 오픈소스화 하자!!</title><link href="https://lahuman.github.io/20180110-phase/" rel="alternate" type="text/html" title="올해 안에 Doc4SM 사이트 OPEN과 오픈소스화 하자!!" /><published>2018-01-10T00:00:00+09:00</published><updated>2018-01-10T00:00:00+09:00</updated><id>https://lahuman.github.io/20180110-phase</id><content type="html" xml:base="https://lahuman.github.io/20180110-phase/">&lt;h1 id=&quot;개인-프로젝트-중에서-유일하게-팔린-doc4sm&quot;&gt;개인 프로젝트 중에서 유일하게 팔린 Doc4SM&lt;/h1&gt;
 
 &lt;p&gt;1군데 납품되고(감사하게도) 존재 자체가 너무 미미한 개인 사이트였다.&lt;/p&gt;
 
@@ -106,26 +229,4 @@ Missing URI template variable 'seq' for method parameter of type Long
 
 &lt;p&gt;오늘부터는 10년 넘게 해오던 자바로 웹 개발을 한다.&lt;/p&gt;
 
-&lt;h2 id=&quot;어떤-기술을-써볼까나&quot;&gt;어떤 기술을 써볼까나?&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">한달동안 파이썬 맛좀 봤다.</summary></entry><entry><title type="html">VMWARE를 이용한 보안 프로그램 회피 방법</title><link href="https://lahuman.github.io/avoid_security_program/" rel="alternate" type="text/html" title="VMWARE를 이용한 보안 프로그램 회피 방법" /><published>2017-12-15T00:00:00+09:00</published><updated>2017-12-15T00:00:00+09:00</updated><id>https://lahuman.github.io/avoid_security_program</id><content type="html" xml:base="https://lahuman.github.io/avoid_security_program/">&lt;h1 id=&quot;vmware를-이용한-보안-프로그램-회피-방법&quot;&gt;VMWARE를 이용한 보안 프로그램 회피 방법&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;대부분으 보안 프로그램은 Agent를 설치 하고 해당 프로그램으로 감시를 한다.
-Agent 프로그램을 VMWARE에 설치 하고 속이는 방법을 사용해보자&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;VMWARE 가상환경에 WINDOWS OS와 보안 Agent 프로그램을 설치 한다.&lt;/li&gt;
-  &lt;li&gt;가상 환경의 MAC ADDRESS를 호스트 OS와 동일하게 설정 한다.&lt;a href=&quot;https://pubs.vmware.com/workstation-9/index.jsp?topic=%2Fcom.vmware.ws.using.doc%2FGUID-5C55C285-79B0-404F-95A5-87F64C41E3DC.html&quot;&gt;1&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;가상 환경의 IP를 호스트 OS와 동일 하게 설정 한다.&lt;/li&gt;
-  &lt;li&gt;가상 환경의 네트워크 설정을 Bridged Adapters 로 설정한다.&lt;a href=&quot;https://www.vmware.com/support/ws5/doc/ws_net_configurations_changing_bridged_windows.html&quot;&gt;2&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;이렇게 하면 외부에서 들어오는 보안 Agent 통신이 가상환경으로 넘어간다.
-호스트는 가상환경만 켜두면 감시 없이 인터넷이 된다.&lt;/p&gt;
-
-&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;&lt;a href=&quot;https://pubs.vmware.com/workstation-9/index.jsp?topic=%2Fcom.vmware.ws.using.doc%2FGUID-5C55C285-79B0-404F-95A5-87F64C41E3DC.html&quot;&gt;Change the MAC Address for a Virtual Machine&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.vmware.com/support/ws5/doc/ws_net_configurations_changing_bridged_windows.html&quot;&gt; Configuring Bridged Networking Options on a Windows Host &lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;</content><author><name></name></author><category term="security" /><category term="avoid" /><summary type="html">자세한 이미지는 생략한다.</summary></entry></feed>
+&lt;h2 id=&quot;어떤-기술을-써볼까나&quot;&gt;어떤 기술을 써볼까나?&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">한달동안 파이썬 맛좀 봤다.</summary></entry></feed>
