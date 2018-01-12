@@ -1,4 +1,27 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-01-11T11:28:35+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">MariaDB를 binary tar.gz 파일로 설치 하자</title><link href="https://lahuman.github.io/mariadb_install_with_tar.gz/" rel="alternate" type="text/html" title="MariaDB를 binary tar.gz 파일로 설치 하자" /><published>2018-01-11T00:00:00+09:00</published><updated>2018-01-11T00:00:00+09:00</updated><id>https://lahuman.github.io/mariadb_install_with_tar.gz</id><content type="html" xml:base="https://lahuman.github.io/mariadb_install_with_tar.gz/">&lt;h1 id=&quot;mariadb를-binary-targz-파일로-설치-하자&quot;&gt;MariaDB를 binary tar.gz 파일로 설치 하자&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-01-12T17:32:08+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Eclipse와 JDK9에서 @PostConstruct 어노테이션 오류</title><link href="https://lahuman.github.io/JDK9_eclipse_PostConstruct_error/" rel="alternate" type="text/html" title="Eclipse와 JDK9에서 @PostConstruct 어노테이션 오류" /><published>2018-01-12T00:00:00+09:00</published><updated>2018-01-12T00:00:00+09:00</updated><id>https://lahuman.github.io/JDK9_eclipse_PostConstruct_error</id><content type="html" xml:base="https://lahuman.github.io/JDK9_eclipse_PostConstruct_error/">&lt;h1 id=&quot;eclipse와-jdk9에서-postconstruct-어노테이션-오류&quot;&gt;Eclipse와 JDK9에서 @PostConstruct 어노테이션 오류&lt;/h1&gt;
+
+&lt;p&gt;오랜만에 Eclipse를 띄어서 이전 프로젝트를 확인 하는데 @PostConstruct 어노테이션을 찾을 수 없다는 오류가 보였다.&lt;/p&gt;
+
+&lt;p&gt;따로 변경한 것은 JDK 버젼을 8에서 9로 업그레이드 한거 말곤 없었다.&lt;/p&gt;
+
+&lt;p&gt;검색을 해보니 해당 문제에 대한 해결책이 있었다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;eclipse.ini&lt;/strong&gt; 파일에 &lt;strong&gt;–add-modules=java.se.ee&lt;/strong&gt; 옵션을 추가 하면 된다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;-vmargs
+--add-modules=java.se.ee
+-Dosgi.requiredJavaVersion=1.8
+-Xms256m
+-Xmx1024m
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;JDK9이 아직 안정화가 안된건지, 여러 모듈에서 오류가 발생한다.&lt;/p&gt;
+
+&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://bugs.eclipse.org/bugs/show_bug.cgi?id=493761&quot;&gt;Platform won’t launch on Java 9-ea builds (InjectionException: NoClassDefFoundError: javax/annotation/PostConstruct)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="JDK9" /><category term="Eclipse" /><summary type="html">결국 JDK9와 Eclipse의 콜라보 오류</summary></entry><entry><title type="html">MariaDB를 binary tar.gz 파일로 설치 하자</title><link href="https://lahuman.github.io/mariadb_install_with_tar.gz/" rel="alternate" type="text/html" title="MariaDB를 binary tar.gz 파일로 설치 하자" /><published>2018-01-11T00:00:00+09:00</published><updated>2018-01-11T00:00:00+09:00</updated><id>https://lahuman.github.io/mariadb_install_with_tar.gz</id><content type="html" xml:base="https://lahuman.github.io/mariadb_install_with_tar.gz/">&lt;h1 id=&quot;mariadb를-binary-targz-파일로-설치-하자&quot;&gt;MariaDB를 binary tar.gz 파일로 설치 하자&lt;/h1&gt;
 
 &lt;p&gt;일반적으로 설치 방법은 다음과 같이 3개의 방법이 있다.&lt;/p&gt;
 
@@ -221,12 +244,4 @@ Missing URI template variable 'seq' for method parameter of type Long
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://github.com/rzwitserloot/lombok/issues/1472#issuecomment-339578781&quot;&gt;Java 9 Annotation Processing Broken &lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://projectlombok.org/download-edge&quot;&gt;Lombok Edge Version Download&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="jdk9" /><category term="lombok" /><category term="intellij" /><summary type="html">최신버젼은 해롭다. 정신건강에...</summary></entry><entry><title type="html">한달만에 자바 웹 개발</title><link href="https://lahuman.github.io/20171220-phase/" rel="alternate" type="text/html" title="한달만에 자바 웹 개발" /><published>2017-12-20T00:00:00+09:00</published><updated>2017-12-20T00:00:00+09:00</updated><id>https://lahuman.github.io/20171220-phase</id><content type="html" xml:base="https://lahuman.github.io/20171220-phase/">&lt;h1 id=&quot;수집된-데이터-표출은-자바로&quot;&gt;수집된 데이터 표출은 자바로&lt;/h1&gt;
-
-&lt;p&gt;한동안 파이썬을 이용하여 데이터 수집을 구현 하였다.&lt;/p&gt;
-
-&lt;p&gt;다른 언어를 사용한는 재미도 있고, 생각보다 많은 시간이 투자 되었다.&lt;/p&gt;
-
-&lt;p&gt;오늘부터는 10년 넘게 해오던 자바로 웹 개발을 한다.&lt;/p&gt;
-
-&lt;h2 id=&quot;어떤-기술을-써볼까나&quot;&gt;어떤 기술을 써볼까나?&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">한달동안 파이썬 맛좀 봤다.</summary></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><category term="jdk9" /><category term="lombok" /><category term="intellij" /><summary type="html">최신버젼은 해롭다. 정신건강에...</summary></entry></feed>
