@@ -1,4 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-01-12T17:32:08+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Eclipse와 JDK9에서 @PostConstruct 어노테이션 오류</title><link href="https://lahuman.github.io/JDK9_eclipse_PostConstruct_error/" rel="alternate" type="text/html" title="Eclipse와 JDK9에서 @PostConstruct 어노테이션 오류" /><published>2018-01-12T00:00:00+09:00</published><updated>2018-01-12T00:00:00+09:00</updated><id>https://lahuman.github.io/JDK9_eclipse_PostConstruct_error</id><content type="html" xml:base="https://lahuman.github.io/JDK9_eclipse_PostConstruct_error/">&lt;h1 id=&quot;eclipse와-jdk9에서-postconstruct-어노테이션-오류&quot;&gt;Eclipse와 JDK9에서 @PostConstruct 어노테이션 오류&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-01-16T17:23:29+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Doc4SM WEB OPEN</title><link href="https://lahuman.github.io/20180116-phase-copy/" rel="alternate" type="text/html" title="Doc4SM WEB OPEN" /><published>2018-01-16T00:00:00+09:00</published><updated>2018-01-16T00:00:00+09:00</updated><id>https://lahuman.github.io/20180116-phase%20copy</id><content type="html" xml:base="https://lahuman.github.io/20180116-phase-copy/">&lt;h1 id=&quot;개인-프로젝트인데-손이-많이-가겠다&quot;&gt;개인 프로젝트인데.. 손이 많이 가겠다.&lt;/h1&gt;
+
+&lt;p&gt;기존 소스가 너무 엉망이다. 급급하게 만들어둔 티가 많이 난다.&lt;/p&gt;
+
+&lt;p&gt;오픈소스화 하려면 손이 많이 가겠다…&lt;/p&gt;
+
+&lt;h2 id=&quot;접속-정보&quot;&gt;&lt;a href=&quot;http://lahuman.iptime.org:9025/admin/main.do&quot;&gt;접속 정보&lt;/a&gt;&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">열긴 했는데... 오픈소스로 하려면 다 엎어야 할듯....</summary></entry><entry><title type="html">Eclipse와 JDK9에서 @PostConstruct 어노테이션 오류</title><link href="https://lahuman.github.io/JDK9_eclipse_PostConstruct_error/" rel="alternate" type="text/html" title="Eclipse와 JDK9에서 @PostConstruct 어노테이션 오류" /><published>2018-01-12T00:00:00+09:00</published><updated>2018-01-12T00:00:00+09:00</updated><id>https://lahuman.github.io/JDK9_eclipse_PostConstruct_error</id><content type="html" xml:base="https://lahuman.github.io/JDK9_eclipse_PostConstruct_error/">&lt;h1 id=&quot;eclipse와-jdk9에서-postconstruct-어노테이션-오류&quot;&gt;Eclipse와 JDK9에서 @PostConstruct 어노테이션 오류&lt;/h1&gt;
 
 &lt;p&gt;오랜만에 Eclipse를 띄어서 이전 프로젝트를 확인 하는데 @PostConstruct 어노테이션을 찾을 수 없다는 오류가 보였다.&lt;/p&gt;
 
@@ -230,18 +236,4 @@ Missing URI template variable 'seq' for method parameter of type Long
 
 &lt;p&gt;너무 놀라고 힘든 크리스마스가 지나고 다시 평소와 같은 하루가 시작 된다.&lt;/p&gt;
 
-&lt;h3 id=&quot;하지만-아직도-놀라고-있다&quot;&gt;하지만 아직도 놀라고 있다.&lt;/h3&gt;</content><author><name></name></author><category term="단상" /><summary type="html">피봤다</summary></entry><entry><title type="html">Intellij에서 JDK 9과 Lombok 1.16.18을 사용하면 이상동작 해결 방법</title><link href="https://lahuman.github.io/lombok_and_jdk9_with_intellij/" rel="alternate" type="text/html" title="Intellij에서 JDK 9과 Lombok 1.16.18을  사용하면 이상동작 해결 방법" /><published>2017-12-21T00:00:00+09:00</published><updated>2017-12-21T00:00:00+09:00</updated><id>https://lahuman.github.io/lombok_and_jdk9_with_intellij</id><content type="html" xml:base="https://lahuman.github.io/lombok_and_jdk9_with_intellij/">&lt;h1 id=&quot;intellij에서-jdk-9과-lombok-11618을--사용하면-이상동작-해결-방법&quot;&gt;Intellij에서 JDK 9과 Lombok 1.16.18을  사용하면 이상동작 해결 방법&lt;/h1&gt;
-
-&lt;p&gt;오늘 나의 시간을 가장 많이 빼앗어간 어이 없는 Lombok 오류였다.&lt;/p&gt;
-
-&lt;p&gt;Lombok을 JDK 9와 문제 없이 이용하려면 일반 버젼의 Lombok을 설치 하면안되고 &lt;a href=&quot;https://projectlombok.org/download-edge&quot;&gt;Lombok Edge&lt;/a&gt; 을 사용해야 한다.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://lahuman.jabsiri.co.kr/124&quot;&gt;Lombok의 기본적인 설치 및 사용법&lt;/a&gt;은 블로그 글을 보면된다.&lt;/p&gt;
-
-&lt;p&gt;오늘은 정말 최신 기술을 한번 써보겠다고 고생하였다.&lt;/p&gt;
-
-&lt;h3 id=&quot;참고-주소&quot;&gt;참고 주소&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/rzwitserloot/lombok/issues/1472#issuecomment-339578781&quot;&gt;Java 9 Annotation Processing Broken &lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://projectlombok.org/download-edge&quot;&gt;Lombok Edge Version Download&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="jdk9" /><category term="lombok" /><category term="intellij" /><summary type="html">최신버젼은 해롭다. 정신건강에...</summary></entry></feed>
+&lt;h3 id=&quot;하지만-아직도-놀라고-있다&quot;&gt;하지만 아직도 놀라고 있다.&lt;/h3&gt;</content><author><name></name></author><category term="단상" /><summary type="html">피봤다</summary></entry></feed>
