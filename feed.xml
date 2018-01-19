@@ -1,4 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-01-17T16:13:08+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">[2018-01-17] Doc4SM</title><link href="https://lahuman.github.io/doc4sm/" rel="alternate" type="text/html" title="[2018-01-17] Doc4SM" /><published>2018-01-17T00:00:00+09:00</published><updated>2018-01-17T00:00:00+09:00</updated><id>https://lahuman.github.io/doc4sm</id><content type="html" xml:base="https://lahuman.github.io/doc4sm/">&lt;h1 id=&quot;doc4sm&quot;&gt;Doc4SM&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-01-19T09:07:40+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">글쓰기는 어려워…</title><link href="https://lahuman.github.io/20180119-phase/" rel="alternate" type="text/html" title="글쓰기는 어려워..." /><published>2018-01-19T00:00:00+09:00</published><updated>2018-01-19T00:00:00+09:00</updated><id>https://lahuman.github.io/20180119-phase</id><content type="html" xml:base="https://lahuman.github.io/20180119-phase/">&lt;h1 id=&quot;작성중인-논문을-교수님에게-리뷰를-받았다&quot;&gt;작성중인 논문을 교수님에게 리뷰를 받았다.&lt;/h1&gt;
+
+&lt;p&gt;고칠 내용이 너무 많았다. 또한 내용에 균형이 엉망이라는 이야기를 들었다.&lt;/p&gt;
+
+&lt;p&gt;그림, 표에 대한 폰트 크기 사이즈 등등… 생각지도 못한 지적을 많이 받아서 조금 기운이 빠졌다.&lt;/p&gt;
+
+&lt;p&gt;글을 쓰는 일이 쉽지 않다는 것은 알고 있었다.&lt;/p&gt;
+
+&lt;p&gt;천천히 다시 해보자!&lt;/p&gt;</content><author><name></name></author><category term="단상" /><summary type="html">글을 잘 쓰기 위해서는 형식, 균형이 중요하다.</summary></entry><entry><title type="html">[2018-01-17] Doc4SM</title><link href="https://lahuman.github.io/doc4sm/" rel="alternate" type="text/html" title="[2018-01-17] Doc4SM" /><published>2018-01-17T00:00:00+09:00</published><updated>2018-01-17T00:00:00+09:00</updated><id>https://lahuman.github.io/doc4sm</id><content type="html" xml:base="https://lahuman.github.io/doc4sm/">&lt;h1 id=&quot;doc4sm&quot;&gt;Doc4SM&lt;/h1&gt;
 
 &lt;p&gt;Doc4SM은 ITIL 기반으로 IT 서비스를 프로세스화 하여 관리하는 시스템 입니다. 고객의 서비스 요청에 대한 관리 및 통계 등 종합적인 정보를 제공합니다.&lt;/p&gt;
 
@@ -253,35 +261,4 @@ ES_PATH_CONF=/path/to/my/config ./bin/elasticsearch
 
 &lt;p&gt;내년에는 판교에서 새로운 시작을 한다.&lt;/p&gt;
 
-&lt;p&gt;더욱 열심히 하자!!&lt;/p&gt;</content><author><name></name></author><category term="단상" /><summary type="html">내년은 판교에서 시작 한다.</summary></entry><entry><title type="html">Spring MVC Controller 에서 @PathVariable에 name을 빼먹으면 오류가 났다.</title><link href="https://lahuman.github.io/20171227-phase/" rel="alternate" type="text/html" title="Spring MVC Controller 에서 @PathVariable에 name을 빼먹으면 오류가 났다." /><published>2017-12-27T00:00:00+09:00</published><updated>2017-12-27T00:00:00+09:00</updated><id>https://lahuman.github.io/20171227-phase</id><content type="html" xml:base="https://lahuman.github.io/20171227-phase/">&lt;h1 id=&quot;이전에-사용하던-방식으로-처리-했는데-uri-템플릿-변수가-누락-되었다는-오류-발생&quot;&gt;이전에 사용하던 방식으로 처리 했는데 URI 템플릿 변수가 누락 되었다는 오류 발생&lt;/h1&gt;
-
-&lt;p&gt;3개월 전만에도 문제 없었던 Spring MVC 코드 인데 무엇을 잘못한 것인지 오류가 났다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;코드&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  @RequestMapping(value = &quot;/{id}&quot;, method = RequestMethod.GET)
-    public DknetInfoResDTO view(@NonNull @PathVariable Long seq){
-        DknetInfo dknetInfo = dknetService.getDknetInfo(seq);
-        return modelMapper.map(dknetInfo, DknetInfoResDTO.class);
-    }
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;오류 내용&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Whitelabel Error Page
-
-This application has no explicit mapping for /error, so you are seeing this as a fallback.
-Wed Dec 27 13:28:56 KST 2017
-There was an unexpected error (type=Internal Server Error, status=500).
-Missing URI template variable 'seq' for method parameter of type Long
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;원인은 PathVariable에 id 와 파라메터에 변수 값 seq를 혼합해서 사용하였기 때문이다.&lt;/p&gt;
-
-&lt;p&gt;쉬운데 놓치는 일이 너무 많다.&lt;/p&gt;
-
-&lt;h3 id=&quot;영어만-잘해도-반은-먹고-갈텐데&quot;&gt;영어만 잘해도 반은 먹고 갈텐데…&lt;/h3&gt;</content><author><name></name></author><category term="단상" /><summary type="html">Missing URI template variable for method parameter of type</summary></entry></feed>
+&lt;p&gt;더욱 열심히 하자!!&lt;/p&gt;</content><author><name></name></author><category term="단상" /><summary type="html">내년은 판교에서 시작 한다.</summary></entry></feed>
