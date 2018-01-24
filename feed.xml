@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-01-24T16:34:29+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">AES Encription 테스트</title><link href="https://lahuman.github.io/AES_encription/" rel="alternate" type="text/html" title="AES Encription 테스트" /><published>2018-01-24T00:00:00+09:00</published><updated>2018-01-24T00:00:00+09:00</updated><id>https://lahuman.github.io/AES_encription</id><content type="html" xml:base="https://lahuman.github.io/AES_encription/">&lt;h1 id=&quot;python과-java에서-사용가능한-aes-암복호화-모듈-개발&quot;&gt;Python과 Java에서 사용가능한 AES 암/복호화 모듈 개발&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-01-24T16:45:04+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">AES Encription 테스트</title><link href="https://lahuman.github.io/AES_encription/" rel="alternate" type="text/html" title="AES Encription 테스트" /><published>2018-01-24T00:00:00+09:00</published><updated>2018-01-24T00:00:00+09:00</updated><id>https://lahuman.github.io/AES_encription</id><content type="html" xml:base="https://lahuman.github.io/AES_encription/">&lt;h1 id=&quot;python과-java에서-사용가능한-aes-암복호화-모듈-개발&quot;&gt;Python과 Java에서 사용가능한 AES 암/복호화 모듈 개발&lt;/h1&gt;
 
 &lt;p&gt;엔진 단은 Python으로 되어 있고, WEB은 JAVA로 되어 있는 프로젝트에서 AES 256기반의 암/복호화 처리를 한다.&lt;/p&gt;
 
@@ -72,6 +72,9 @@ public class Test {
 
         System.out.println(&quot;Input string: &quot; + beforeCipher);
 
+        SecretKey keyspec = new SecretKeySpec(key.getBytes(&quot;UTF-8&quot;), &quot;AES&quot;);
+        AlgorithmParameterSpec ivspec = new IvParameterSpec(iv.getBytes(&quot;UTF-8&quot;));
+
         //Encription
         Cipher cipher = Cipher.getInstance(&quot;AES/CBC/NoPadding&quot;);
         cipher.init(Cipher.ENCRYPT_MODE, keyspec, ivspec);
@@ -113,7 +116,7 @@ Decipher string: [abcd]
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;Java와 Python의 암호화된 결과는 다르지만, 복호화를 할 경우 같은 값이 나온다. 자바의 경우 Arrays.fill( plaintext, (byte) 1 ); 코드를 추가하여 빈값 특수 문자가 표출되는 것을 차단 한다.&lt;/p&gt;
+  &lt;p&gt;자바의 경우 Arrays.fill( plaintext, (byte) fillChar ); 코드를 추가하여 Python 과 같은 동작을 하도록 처리 한다.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
