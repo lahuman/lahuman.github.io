@@ -1,4 +1,121 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-01-22T17:05:45+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">판교 생활 시작</title><link href="https://lahuman.github.io/20180122-phase/" rel="alternate" type="text/html" title="판교 생활 시작" /><published>2018-01-22T00:00:00+09:00</published><updated>2018-01-22T00:00:00+09:00</updated><id>https://lahuman.github.io/20180122-phase</id><content type="html" xml:base="https://lahuman.github.io/20180122-phase/">&lt;h1 id=&quot;거의-2년간의-정자역-근무를-마치고-판교에서의-첫날이다&quot;&gt;거의 2년간의 정자역 근무를 마치고, 판교에서의 첫날이다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-01-24T14:09:42+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">AES Encription 테스트</title><link href="https://lahuman.github.io/AES_encription/" rel="alternate" type="text/html" title="AES Encription 테스트" /><published>2018-01-24T00:00:00+09:00</published><updated>2018-01-24T00:00:00+09:00</updated><id>https://lahuman.github.io/AES_encription</id><content type="html" xml:base="https://lahuman.github.io/AES_encription/">&lt;h1 id=&quot;python과-java에서-사용가능한-aes-암복호화-모듈-개발&quot;&gt;Python과 Java에서 사용가능한 AES 암/복호화 모듈 개발&lt;/h1&gt;
+
+&lt;p&gt;엔진 단은 Python으로 되어 있고, WEB은 JAVA로 되어 있는 프로젝트에서 AES 256기반의 암/복호화 처리를 한다.&lt;/p&gt;
+
+&lt;p&gt;단순하게 KEY와 SALT만 마춰주면 된다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# Python Source
+from Crypto.Cipher import AES
+import base64
+import hashlib
+
+BS = AES.block_size
+pad = lambda s: s + (BS - len(s) % BS) * chr(BS - len(s) % BS)
+unpad = lambda s : s[0:-ord(s[-1])]
+
+if __name__ == '__main__':
+    key = 'Wu4hpITrFb02n9vWdlWzpXYAkmaX1RXL'
+    iv = 'EWt02NzAn8BIVDse'
+
+    beforeCipher = 'abcd'
+
+    print 'Input string: ' + beforeCipher
+
+    cipher = AES.new(key, AES.MODE_CBC, IV=iv)
+    beforeCipher = pad(beforeCipher)
+    afterCipher = base64.b64encode(cipher.encrypt(beforeCipher))
+
+    print 'Cipher string: ' + afterCipher
+
+    cipher = AES.new(key, AES.MODE_CBC, IV=iv)
+    deciphed = cipher.decrypt(base64.b64decode(afterCipher))
+    deciphed = unpad(deciphed)
+    print 'Deciphed string: [' + deciphed +']'
+
+    print hashlib.sha256(iv + beforeCipher).hexdigest()
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;결과&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Input string: abcd
+Cipher string: t9As1Pe+ChW6pzbUeW8MxQ==
+Deciphed string: [abcd]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# JAVA Source
+import org.junit.Assert;
+
+import javax.crypto.*;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
+import java.io.UnsupportedEncodingException;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.AlgorithmParameterSpec;
+import java.util.Arrays;
+import java.util.Base64;
+
+import static org.hamcrest.Matchers.is;
+
+
+public class Test {
+
+    @org.junit.Test
+    public void test() throws UnsupportedEncodingException, NoSuchPaddingException, NoSuchAlgorithmException, InvalidAlgorithmParameterException, InvalidKeyException, BadPaddingException, IllegalBlockSizeException {
+        String key = &quot;Wu4hpITrFb02n9vWdlWzpXYAkmaX1RXL&quot;;
+        String iv = &quot;EWt02NzAn8BIVDse&quot;;
+
+        String beforeCipher = &quot;abcd&quot;;
+
+
+        System.out.println(&quot;Input string: &quot; + beforeCipher);
+
+        SecretKey keyspec = new SecretKeySpec(key.getBytes(&quot;UTF-8&quot;), &quot;AES&quot;);
+        AlgorithmParameterSpec ivspec = new IvParameterSpec(iv.getBytes(&quot;UTF-8&quot;));
+
+        Cipher cipher = Cipher.getInstance(&quot;AES/CBC/NoPadding&quot;);
+        cipher.init(Cipher.ENCRYPT_MODE, keyspec, ivspec);
+        int blockSize = cipher.getBlockSize();
+        byte[] dataBytes = beforeCipher.getBytes(&quot;UTF-8&quot;);
+        int plaintextLength = dataBytes.length;
+        if (plaintextLength % blockSize != 0) {
+            plaintextLength = plaintextLength + (blockSize - (plaintextLength % blockSize));
+        }
+
+        byte[] plaintext = new byte[plaintextLength];
+        Arrays.fill( plaintext, (byte) 1 );
+        System.arraycopy(dataBytes, 0, plaintext, 0, dataBytes.length);
+        byte[] cipherBytes = cipher.doFinal(plaintext);
+        String afterCiphered = new String(Base64.getEncoder().encodeToString(cipherBytes));
+        System.out.println(&quot;Cipher string: &quot; + afterCiphered);
+        cipher = Cipher.getInstance(&quot;AES/CBC/NoPadding&quot;);
+        cipher.init(Cipher.DECRYPT_MODE, keyspec, ivspec);
+
+        byte[] base64decoded = Base64.getDecoder().decode(afterCiphered.getBytes(&quot;UTF-8&quot;));
+        String origin = new String(cipher.doFinal(base64decoded), &quot;UTF-8&quot;);
+
+        System.out.println(&quot;Decipher string: [&quot; + origin + &quot;]&quot;);
+
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;결과&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Input string: abcd
+Cipher string: O8DCfdaFoNwXfcY6irvt4w==
+Decipher string: [abcd]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Java와 Python의 암호화된 결과는 다르지만, 복호화를 할 경우 같은 값이 나온다. 자바의 경우 Arrays.fill( plaintext, (byte) 1 ); 코드를 추가하여 빈값 특수 문자가 표출되는 것을 차단 한다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://bcllemon.github.io/2015/10/29/2015/python-java-aes/&quot;&gt;Python Java AES &lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><category term="AES" /><category term="JAVA" /><category term="Python" /><summary type="html">JAVA, Python 호환 되는 AES Encription/Decription 개발</summary></entry><entry><title type="html">판교 생활 시작</title><link href="https://lahuman.github.io/20180122-phase/" rel="alternate" type="text/html" title="판교 생활 시작" /><published>2018-01-22T00:00:00+09:00</published><updated>2018-01-22T00:00:00+09:00</updated><id>https://lahuman.github.io/20180122-phase</id><content type="html" xml:base="https://lahuman.github.io/20180122-phase/">&lt;h1 id=&quot;거의-2년간의-정자역-근무를-마치고-판교에서의-첫날이다&quot;&gt;거의 2년간의 정자역 근무를 마치고, 판교에서의 첫날이다.&lt;/h1&gt;
 
 &lt;p&gt;지금 회사에 입사하고 2년간 정자역에서만 근무 하다가, 이번 조직 개편으로 판교에서 생활을 시작한다.&lt;/p&gt;
 
@@ -238,29 +355,4 @@ chown -R mysql data
 
 &lt;p&gt;늙은걸까? 운동 부족일까?&lt;/p&gt;
 
-&lt;p&gt;확실한건 업무 능률도 떨어진다는 거다.&lt;/p&gt;</content><author><name></name></author><category term="단상" /><summary type="html">자려는데 코피가 난다.</summary></entry><entry><title type="html">Elastic Search 하나의 서버에서 여러 노드 구동시 설정</title><link href="https://lahuman.github.io/es_one_server_multi_node/" rel="alternate" type="text/html" title="Elastic Search 하나의 서버에서 여러 노드 구동시 설정" /><published>2018-01-03T00:00:00+09:00</published><updated>2018-01-03T00:00:00+09:00</updated><id>https://lahuman.github.io/es_one_server_multi_node</id><content type="html" xml:base="https://lahuman.github.io/es_one_server_multi_node/">&lt;h1 id=&quot;elastic-search-하나의-서버에서-여러-노드-구동시-설정&quot;&gt;Elastic Search 하나의 서버에서 여러 노드 구동시 설정&lt;/h1&gt;
-
-&lt;p&gt;Elastic Search(이하 ES)에서 노드의 메모리는 서버의 메모리의 반(half)을 할당하는 것이 좋다고 한다.&lt;/p&gt;
-
-&lt;p&gt;다만 서버의 메모리가 큰 경우(128GB 이상) 32GB만 할당한 노드를 2개를 띄우는 것을 추천 한다.&lt;a href=&quot;https://www.elastic.co/kr/blog/performance-considerations-elasticsearch-indexing&quot;&gt;1,2&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;이때 일반적으로 ES를 여러개를 설치 하는 것이 아니라 설정 파일만 교체 하여 서버를 기동 하는 방식을 사용 한다.
-** 설정 파일만 변경하는 것도 있는데 이는 동작 하지 않는다.**&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# ES_PATH_CONF 설정으로 elasticsearch.yml 파일이 있는 위치를 설정 한다.
-ES_PATH_CONF=/path/to/my/config ./bin/elasticsearch
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;http://wishgone.tistory.com/entry/%EC%97%98%EB%9D%BC%EC%8A%A4%ED%8B%B1%EC%84%9C%EC%B9%98-elasticsearch-%EB%A9%94%EB%AA%A8%EB%A6%AC-%EA%B4%80%EB%A0%A8-%EA%B3%B5%EC%8B%9D-%ED%99%88%ED%94%BC-%EB%B2%88%EC%97%AD&quot;&gt;엘라스틱서치 ( elasticsearch ) 메모리 관련 (공식 홈피 번역)&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://www.elastic.co/kr/blog/performance-considerations-elasticsearch-indexing&quot;&gt;Elasticsearch 인덱싱에 대한 성능 고려 사항&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://www.elastic.co/guide/en/elasticsearch/reference/current/settings.html&quot;&gt;Configuring Elasticsearch&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="elasticsearch" /><summary type="html">설정 파일 디렉토리만 추가 하면 된다.</summary></entry></feed>
+&lt;p&gt;확실한건 업무 능률도 떨어진다는 거다.&lt;/p&gt;</content><author><name></name></author><category term="단상" /><summary type="html">자려는데 코피가 난다.</summary></entry></feed>
