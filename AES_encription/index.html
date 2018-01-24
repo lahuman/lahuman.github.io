@@ -65,31 +65,34 @@ public class Test {
 
         System.out.println("Input string: " + beforeCipher);
 
-        SecretKey keyspec = new SecretKeySpec(key.getBytes("UTF-8"), "AES");
-        AlgorithmParameterSpec ivspec = new IvParameterSpec(iv.getBytes("UTF-8"));
-
+        //Encription
         Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding");
         cipher.init(Cipher.ENCRYPT_MODE, keyspec, ivspec);
         int blockSize = cipher.getBlockSize();
         byte[] dataBytes = beforeCipher.getBytes("UTF-8");
+
+        //find fillChar &amp; fill
         int plaintextLength = dataBytes.length;
+        int fillChar = ((blockSize - (plaintextLength % blockSize)));
         if (plaintextLength % blockSize != 0) {
             plaintextLength = plaintextLength + (blockSize - (plaintextLength % blockSize));
         }
-
         byte[] plaintext = new byte[plaintextLength];
-        Arrays.fill( plaintext, (byte) 1 );
+        Arrays.fill(plaintext, (byte) fillChar);
         System.arraycopy(dataBytes, 0, plaintext, 0, dataBytes.length);
+
         byte[] cipherBytes = cipher.doFinal(plaintext);
         String afterCiphered = new String(Base64.getEncoder().encodeToString(cipherBytes));
         System.out.println("Cipher string: " + afterCiphered);
+
+        //Decription
         cipher = Cipher.getInstance("AES/CBC/NoPadding");
         cipher.init(Cipher.DECRYPT_MODE, keyspec, ivspec);
-
         byte[] base64decoded = Base64.getDecoder().decode(afterCiphered.getBytes("UTF-8"));
-        String origin = new String(cipher.doFinal(base64decoded), "UTF-8");
-
-        System.out.println("Decipher string: [" + origin + "]");
+        byte[] aesdecode = cipher.doFinal(base64decoded);
+        byte[] origin = new byte[aesdecode.length - (aesdecode[aesdecode.length - 1])];
+        System.arraycopy(aesdecode, 0, origin, 0, origin.length);
+        System.out.println("Decipher string: [" + new String(origin, "UTF-8") + "]");
 
     }
 }

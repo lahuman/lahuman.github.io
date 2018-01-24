@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-01-24T14:09:42+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">AES Encription 테스트</title><link href="https://lahuman.github.io/AES_encription/" rel="alternate" type="text/html" title="AES Encription 테스트" /><published>2018-01-24T00:00:00+09:00</published><updated>2018-01-24T00:00:00+09:00</updated><id>https://lahuman.github.io/AES_encription</id><content type="html" xml:base="https://lahuman.github.io/AES_encription/">&lt;h1 id=&quot;python과-java에서-사용가능한-aes-암복호화-모듈-개발&quot;&gt;Python과 Java에서 사용가능한 AES 암/복호화 모듈 개발&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-01-24T16:34:29+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">AES Encription 테스트</title><link href="https://lahuman.github.io/AES_encription/" rel="alternate" type="text/html" title="AES Encription 테스트" /><published>2018-01-24T00:00:00+09:00</published><updated>2018-01-24T00:00:00+09:00</updated><id>https://lahuman.github.io/AES_encription</id><content type="html" xml:base="https://lahuman.github.io/AES_encription/">&lt;h1 id=&quot;python과-java에서-사용가능한-aes-암복호화-모듈-개발&quot;&gt;Python과 Java에서 사용가능한 AES 암/복호화 모듈 개발&lt;/h1&gt;
 
 &lt;p&gt;엔진 단은 Python으로 되어 있고, WEB은 JAVA로 되어 있는 프로젝트에서 AES 256기반의 암/복호화 처리를 한다.&lt;/p&gt;
 
@@ -72,31 +72,34 @@ public class Test {
 
         System.out.println(&quot;Input string: &quot; + beforeCipher);
 
-        SecretKey keyspec = new SecretKeySpec(key.getBytes(&quot;UTF-8&quot;), &quot;AES&quot;);
-        AlgorithmParameterSpec ivspec = new IvParameterSpec(iv.getBytes(&quot;UTF-8&quot;));
-
+        //Encription
         Cipher cipher = Cipher.getInstance(&quot;AES/CBC/NoPadding&quot;);
         cipher.init(Cipher.ENCRYPT_MODE, keyspec, ivspec);
         int blockSize = cipher.getBlockSize();
         byte[] dataBytes = beforeCipher.getBytes(&quot;UTF-8&quot;);
+
+        //find fillChar &amp;amp; fill
         int plaintextLength = dataBytes.length;
+        int fillChar = ((blockSize - (plaintextLength % blockSize)));
         if (plaintextLength % blockSize != 0) {
             plaintextLength = plaintextLength + (blockSize - (plaintextLength % blockSize));
         }
-
         byte[] plaintext = new byte[plaintextLength];
-        Arrays.fill( plaintext, (byte) 1 );
+        Arrays.fill(plaintext, (byte) fillChar);
         System.arraycopy(dataBytes, 0, plaintext, 0, dataBytes.length);
+
         byte[] cipherBytes = cipher.doFinal(plaintext);
         String afterCiphered = new String(Base64.getEncoder().encodeToString(cipherBytes));
         System.out.println(&quot;Cipher string: &quot; + afterCiphered);
+
+        //Decription
         cipher = Cipher.getInstance(&quot;AES/CBC/NoPadding&quot;);
         cipher.init(Cipher.DECRYPT_MODE, keyspec, ivspec);
-
         byte[] base64decoded = Base64.getDecoder().decode(afterCiphered.getBytes(&quot;UTF-8&quot;));
-        String origin = new String(cipher.doFinal(base64decoded), &quot;UTF-8&quot;);
-
-        System.out.println(&quot;Decipher string: [&quot; + origin + &quot;]&quot;);
+        byte[] aesdecode = cipher.doFinal(base64decoded);
+        byte[] origin = new byte[aesdecode.length - (aesdecode[aesdecode.length - 1])];
+        System.arraycopy(aesdecode, 0, origin, 0, origin.length);
+        System.out.println(&quot;Decipher string: [&quot; + new String(origin, &quot;UTF-8&quot;) + &quot;]&quot;);
 
     }
 }
