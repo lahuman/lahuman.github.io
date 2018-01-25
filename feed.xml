@@ -1,4 +1,18 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-01-24T17:27:39+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">AES Encryption/Decryption 테스트</title><link href="https://lahuman.github.io/AES_python-java/" rel="alternate" type="text/html" title="AES Encryption/Decryption 테스트" /><published>2018-01-24T00:00:00+09:00</published><updated>2018-01-24T00:00:00+09:00</updated><id>https://lahuman.github.io/AES_python-java</id><content type="html" xml:base="https://lahuman.github.io/AES_python-java/">&lt;h1 id=&quot;python과-java에서-사용가능한-aes-암복호화-모듈-개발&quot;&gt;Python과 Java에서 사용가능한 AES 암/복호화 모듈 개발&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-01-25T13:42:20+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">담당자 찾기 놀이가 시작되었다.</title><link href="https://lahuman.github.io/20180125-phase/" rel="alternate" type="text/html" title="담당자 찾기 놀이가 시작되었다." /><published>2018-01-25T00:00:00+09:00</published><updated>2018-01-25T00:00:00+09:00</updated><id>https://lahuman.github.io/20180125-phase</id><content type="html" xml:base="https://lahuman.github.io/20180125-phase/">&lt;h1 id=&quot;업무를-할때-담당자-또는-책임자-찾기가-어렵다&quot;&gt;업무를 할때 담당자 또는 책임자 찾기가 어렵다.&lt;/h1&gt;
+
+&lt;p&gt;팀내에서 업무 담당자 찾기가 어렵다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;A 업무를 하고 있지만 자신은 담당자가 아닌 K씨&lt;/li&gt;
+  &lt;li&gt;업무 중요도로 A 업무를 지원하지만 담당자가 아닌 J씨&lt;/li&gt;
+  &lt;li&gt;B 업무를 하기 때문에 자기는 B일 밖에 모른다는 H씨&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;기본적으로는 A 일은 크게 B 업무도 포함하고 있다.&lt;/p&gt;
+
+&lt;p&gt;꼭 위에서 누군가가 너가 담당자라고 지정해주어야 업무 담당자가 생긴다.&lt;/p&gt;
+
+&lt;p&gt;왜 그렇게 일할까?&lt;/p&gt;</content><author><name></name></author><category term="단상" /><summary type="html">서로 담당자가 아니라고 한다.</summary></entry><entry><title type="html">AES Encryption/Decryption 테스트</title><link href="https://lahuman.github.io/AES_python-java/" rel="alternate" type="text/html" title="AES Encryption/Decryption 테스트" /><published>2018-01-24T00:00:00+09:00</published><updated>2018-01-24T00:00:00+09:00</updated><id>https://lahuman.github.io/AES_python-java</id><content type="html" xml:base="https://lahuman.github.io/AES_python-java/">&lt;h1 id=&quot;python과-java에서-사용가능한-aes-암복호화-모듈-개발&quot;&gt;Python과 Java에서 사용가능한 AES 암/복호화 모듈 개발&lt;/h1&gt;
 
 &lt;p&gt;엔진 단은 Python으로 되어 있고, WEB은 JAVA로 되어 있는 프로젝트에서 AES 256기반의 암/복호화 처리를 한다.&lt;/p&gt;
 
@@ -357,8 +371,4 @@ chown -R mysql data
 
 &lt;p&gt;왜 깨는지는 모르겠지만, 잠이 깨었다가 다시 잔다.&lt;/p&gt;
 
-&lt;p&gt;피곤하다.. 눈이 너무 건조하다.&lt;/p&gt;</content><author><name></name></author><category term="단상" /><summary type="html">잠이 깨었다가 다시 잔다.</summary></entry><entry><title type="html">3일 연속 새벽에 들어갔더니…</title><link href="https://lahuman.github.io/20180105-phase/" rel="alternate" type="text/html" title="3일 연속 새벽에 들어갔더니..." /><published>2018-01-05T00:00:00+09:00</published><updated>2018-01-05T00:00:00+09:00</updated><id>https://lahuman.github.io/20180105-phase</id><content type="html" xml:base="https://lahuman.github.io/20180105-phase/">&lt;h1 id=&quot;체력적으로-3일만-야근했더니-너무-피곤하다&quot;&gt;체력적으로 3일만 야근했더니 너무 피곤하다.&lt;/h1&gt;
-
-&lt;p&gt;늙은걸까? 운동 부족일까?&lt;/p&gt;
-
-&lt;p&gt;확실한건 업무 능률도 떨어진다는 거다.&lt;/p&gt;</content><author><name></name></author><category term="단상" /><summary type="html">자려는데 코피가 난다.</summary></entry></feed>
+&lt;p&gt;피곤하다.. 눈이 너무 건조하다.&lt;/p&gt;</content><author><name></name></author><category term="단상" /><summary type="html">잠이 깨었다가 다시 잔다.</summary></entry></feed>
