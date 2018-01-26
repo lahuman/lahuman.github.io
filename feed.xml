@@ -1,84 +1,74 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-01-26T09:47:22+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">LZW encoding algorithm</title><link href="https://lahuman.github.io/LZW_encoding_algorithm/" rel="alternate" type="text/html" title="LZW encoding algorithm" /><published>2018-01-26T00:00:00+09:00</published><updated>2018-01-26T00:00:00+09:00</updated><id>https://lahuman.github.io/LZW_encoding_algorithm</id><content type="html" xml:base="https://lahuman.github.io/LZW_encoding_algorithm/">&lt;h1 id=&quot;lzw-encoding-algorithm&quot;&gt;LZW encoding algorithm&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-01-26T09:52:55+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">LZW encoding algorithm</title><link href="https://lahuman.github.io/LZW_encoding_algorithm/" rel="alternate" type="text/html" title="LZW encoding algorithm" /><published>2018-01-26T00:00:00+09:00</published><updated>2018-01-26T00:00:00+09:00</updated><id>https://lahuman.github.io/LZW_encoding_algorithm</id><content type="html" xml:base="https://lahuman.github.io/LZW_encoding_algorithm/">&lt;h1 id=&quot;lzw-encoding-algorithm&quot;&gt;LZW encoding algorithm&lt;/h1&gt;
 
 &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;//www.youtube.com/embed/rZ-JRCPv_O8&quot; frameborder=&quot;0&quot; allow=&quot;autoplay; encrypted-media&quot;&gt;&lt;/iframe&gt;
 
-&lt;p&gt;LZW encoding algorithm&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;at the start, the dictionary contains all possible individual charactrs. and P is empty&lt;/li&gt;
-  &lt;li&gt;C = next character in the charstream&lt;/li&gt;
-  &lt;li&gt;si the string P+C present in the dictionary?
+&lt;h2 id=&quot;lzw-encoding-algorithm-1&quot;&gt;LZW encoding algorithm&lt;/h2&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;1. at the start, the dictionary contains all possible individual charactrs. and P is empty
+2. C = next character in the charstream
+3. si the string P+C present in the dictionary?
   a) if it is, 
-   P = P + C (extend P with C);&lt;/li&gt;
-&lt;/ol&gt;
+      P = P + C (extend P with C);
 
-&lt;p&gt;b)if not,
+  b)if not,
       i. output the code word which denotes P to the codestream;
       ii. add the string P+C to the dictionary
-      iii. P=C(P now contanis only the character C)&lt;/p&gt;
+      iii. P=C(P now contanis only the character C)
 
-&lt;ol&gt;
-  &lt;li&gt;At the start the dictionary contains all possible charstream.&lt;/li&gt;
-  &lt;li&gt;cW = the first code word.&lt;/li&gt;
-  &lt;li&gt;output the string.cW to the charstream.&lt;/li&gt;
-  &lt;li&gt;pW = cW&lt;/li&gt;
-  &lt;li&gt;cW = next code word.&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;is the String.cW present in the dictionary?
- if it is, 
-     a) ouput the string.cW to the charstream;
-     b) P := string.pW;
-     c) C := the first character of the string.cW
-     d) add the string P+C to the dictionary;&lt;/p&gt;
 
-    &lt;p&gt;if not, 
-     a) P = string.pW;
-     b) C = the first character of the string.pW;
-     c) ouput the string P+C to the charstream and add it to the dictionary (now it corresponds to the cW)&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Are there more code words in the codestream?
- a) if yes, go back to step  4;
- b) if not, End&lt;/li&gt;
-&lt;/ol&gt;
+1. At the start the dictionary contains all possible charstream.
+2. cW = the first code word.
+3. output the string.cW to the charstream.
+4. pW = cW
+5. cW = next code word.
+6. is the String.cW present in the dictionary?
+    if it is, 
+        a) ouput the string.cW to the charstream;
+        b) P := string.pW;
+        c) C := the first character of the string.cW
+        d) add the string P+C to the dictionary;
 
-&lt;p&gt;LZW 인코딩 알고리즘&lt;/p&gt;
+    if not, 
+        a) P = string.pW;
+        b) C = the first character of the string.pW;
+        c) ouput the string P+C to the charstream and add it to the dictionary (now it corresponds to the cW)
+7. Are there more code words in the codestream?
+    a) if yes, go back to step  4;
+    b) if not, End
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;ol&gt;
-  &lt;li&gt;처음에는 사전에 가능한 모든 개인 문자가 들어 있습니다. P는 비어 있습니다.&lt;/li&gt;
-  &lt;li&gt;C = charstream의 다음 문자&lt;/li&gt;
-  &lt;li&gt;사전에 P + C 문자열이 있습니까?
+&lt;h2 id=&quot;lzw-인코딩-알고리즘&quot;&gt;LZW 인코딩 알고리즘&lt;/h2&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;1. 처음에는 사전에 가능한 모든 개인 문자가 들어 있습니다. P는 비어 있습니다.
+2. C = charstream의 다음 문자
+3. 사전에 P + C 문자열이 있습니까?
   a) 그렇다면,
-   P = P + C (C와 P 연장);&lt;/li&gt;
-&lt;/ol&gt;
+      P = P + C (C와 P 연장);
 
-&lt;p&gt;b) 그렇지 않다면,
+  b) 그렇지 않다면,
       i. P를 코드 워드에 출력하고;
       ii. 사전에 문자열 P + C를 추가합니다.
-      iii. P = C (이제 P는 문자 C 만 사용)&lt;/p&gt;
+      iii. P = C (이제 P는 문자 C 만 사용)
 
-&lt;ol&gt;
-  &lt;li&gt;처음에는 사전에 가능한 모든 charstream이 들어 있습니다.&lt;/li&gt;
-  &lt;li&gt;cW = 첫 번째 코드 워드.&lt;/li&gt;
-  &lt;li&gt;string.cW를 charstream으로 출력하십시오.&lt;/li&gt;
-  &lt;li&gt;pW = cW&lt;/li&gt;
-  &lt;li&gt;cW = 다음 코드 워드.&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;사전에 String.cW가 있습니까?
- 그렇다면,
-     a) string.cW를 charstream에 출력한다.
-     b) P : = string.pW;
-     c) C : = string.cW의 첫 번째 문자
-     d) P + C 문자열을 사전에 추가합니다.&lt;/p&gt;
 
-    &lt;p&gt;그렇지 않다면,
-     a) P = 문자열 .pW;
-     b) C = 문자열의 첫 번째 문자 .pW;
-     c) 문자열 P + C를 charstream에 놓고 사전에 추가합니다 (이제는 cW에 해당함)&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;코드 스트림에 더 많은 코드 단어가 있습니까?
- a) 그렇다면 4 단계로 되돌아갑니다.
- b) 그렇지 않다면, 끝&lt;/li&gt;
-&lt;/ol&gt;</content><author><name></name></author><category term="단상" /><summary type="html">그림으로 쉽게 설명 되어있다.</summary></entry><entry><title type="html">담당자 찾기 놀이가 시작되었다.</title><link href="https://lahuman.github.io/20180125-phase/" rel="alternate" type="text/html" title="담당자 찾기 놀이가 시작되었다." /><published>2018-01-25T00:00:00+09:00</published><updated>2018-01-25T00:00:00+09:00</updated><id>https://lahuman.github.io/20180125-phase</id><content type="html" xml:base="https://lahuman.github.io/20180125-phase/">&lt;h1 id=&quot;업무를-할때-담당자-또는-책임자-찾기가-어렵다&quot;&gt;업무를 할때 담당자 또는 책임자 찾기가 어렵다.&lt;/h1&gt;
+1. 처음에는 사전에 가능한 모든 charstream이 들어 있습니다.
+2. cW = 첫 번째 코드 워드.
+3. string.cW를 charstream으로 출력하십시오.
+4. pW = cW
+5. cW = 다음 코드 워드.
+6. 사전에 String.cW가 있습니까?
+    그렇다면,
+        a) string.cW를 charstream에 출력한다.
+        b) P : = string.pW;
+        c) C : = string.cW의 첫 번째 문자
+        d) P + C 문자열을 사전에 추가합니다.
+
+    그렇지 않다면,
+        a) P = 문자열 .pW;
+        b) C = 문자열의 첫 번째 문자 .pW;
+        c) 문자열 P + C를 charstream에 놓고 사전에 추가합니다 (이제는 cW에 해당함)
+7. 코드 스트림에 더 많은 코드 단어가 있습니까?
+    a) 그렇다면 4 단계로 되돌아갑니다.
+    b) 그렇지 않다면, 끝
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="단상" /><summary type="html">그림으로 쉽게 설명 되어있다.</summary></entry><entry><title type="html">담당자 찾기 놀이가 시작되었다.</title><link href="https://lahuman.github.io/20180125-phase/" rel="alternate" type="text/html" title="담당자 찾기 놀이가 시작되었다." /><published>2018-01-25T00:00:00+09:00</published><updated>2018-01-25T00:00:00+09:00</updated><id>https://lahuman.github.io/20180125-phase</id><content type="html" xml:base="https://lahuman.github.io/20180125-phase/">&lt;h1 id=&quot;업무를-할때-담당자-또는-책임자-찾기가-어렵다&quot;&gt;업무를 할때 담당자 또는 책임자 찾기가 어렵다.&lt;/h1&gt;
 
 &lt;p&gt;팀내에서 업무 담당자 찾기가 어렵다.&lt;/p&gt;
 
