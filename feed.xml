@@ -1,4 +1,16 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-01-26T09:52:55+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">LZW encoding algorithm</title><link href="https://lahuman.github.io/LZW_encoding_algorithm/" rel="alternate" type="text/html" title="LZW encoding algorithm" /><published>2018-01-26T00:00:00+09:00</published><updated>2018-01-26T00:00:00+09:00</updated><id>https://lahuman.github.io/LZW_encoding_algorithm</id><content type="html" xml:base="https://lahuman.github.io/LZW_encoding_algorithm/">&lt;h1 id=&quot;lzw-encoding-algorithm&quot;&gt;LZW encoding algorithm&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-01-29T11:04:45+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">밤새 물이 새는 소리에 잠을 설쳤다.</title><link href="https://lahuman.github.io/20180129-phase/" rel="alternate" type="text/html" title="밤새 물이 새는 소리에 잠을 설쳤다." /><published>2018-01-29T00:00:00+09:00</published><updated>2018-01-29T00:00:00+09:00</updated><id>https://lahuman.github.io/20180129-phase</id><content type="html" xml:base="https://lahuman.github.io/20180129-phase/">&lt;h1 id=&quot;밤새도록-벽에서-물새는-소리가-들린다&quot;&gt;밤새도록 벽에서 물새는 소리가 들린다.&lt;/h1&gt;
+
+&lt;p&gt;밤 11시경 자려고 누었는데 똑똑 물방울 떨어지는 소리가 벽에서 들려왔다.&lt;/p&gt;
+
+&lt;p&gt;불을 켜고 물소리를 따라 가보니, 싱크대 선반에서 물이 떨어지고 있었다.&lt;/p&gt;
+
+&lt;p&gt;아파트 관리실에 전화하고 30분 정도 기다리니, 9층에서 물이 샌거라고 알려주셨다.&lt;/p&gt;
+
+&lt;p&gt;보상 받을 것이 있으면 직접 올라가서 보상 받으시라고…&lt;/p&gt;
+
+&lt;p&gt;아파트 관리소에서 보험을 들어 두면 안되나? 9층에 직접 가서 이야기 하는것도 불편하고…&lt;/p&gt;
+
+&lt;h2 id=&quot;아파트가-다-좋지는-않네&quot;&gt;아파트가 다 좋지는 않네&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">9층에서 동파로 물이 센다.</summary></entry><entry><title type="html">LZW encoding algorithm</title><link href="https://lahuman.github.io/LZW_encoding_algorithm/" rel="alternate" type="text/html" title="LZW encoding algorithm" /><published>2018-01-26T00:00:00+09:00</published><updated>2018-01-26T00:00:00+09:00</updated><id>https://lahuman.github.io/LZW_encoding_algorithm</id><content type="html" xml:base="https://lahuman.github.io/LZW_encoding_algorithm/">&lt;h1 id=&quot;lzw-encoding-algorithm&quot;&gt;LZW encoding algorithm&lt;/h1&gt;
 
 &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;//www.youtube.com/embed/rZ-JRCPv_O8&quot; frameborder=&quot;0&quot; allow=&quot;autoplay; encrypted-media&quot;&gt;&lt;/iframe&gt;
 
@@ -429,12 +441,4 @@ chown -R mysql data
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://mariadb.com/kb/en/library/installing-mariadb-binary-tarballs/&quot;&gt;Installing MariaDB Binary Tarballs&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="mariadb" /><category term="install" /><summary type="html">설치는 별거 없다.</summary></entry><entry><title type="html">올해 안에 Doc4SM 사이트 OPEN과 오픈소스화 하자!!</title><link href="https://lahuman.github.io/20180110-phase/" rel="alternate" type="text/html" title="올해 안에 Doc4SM 사이트 OPEN과 오픈소스화 하자!!" /><published>2018-01-10T00:00:00+09:00</published><updated>2018-01-10T00:00:00+09:00</updated><id>https://lahuman.github.io/20180110-phase</id><content type="html" xml:base="https://lahuman.github.io/20180110-phase/">&lt;h1 id=&quot;개인-프로젝트-중에서-유일하게-팔린-doc4sm&quot;&gt;개인 프로젝트 중에서 유일하게 팔린 Doc4SM&lt;/h1&gt;
-
-&lt;p&gt;1군데 납품되고(감사하게도) 존재 자체가 너무 미미한 개인 사이트였다.&lt;/p&gt;
-
-&lt;p&gt;몇일동안 열어 두기도 했었지만, 지금은 다 날려 먹고 없다.&lt;/p&gt;
-
-&lt;p&gt;소스는 가지고 있으니 차근 차근 준비해서 올해 오픈소스화 하는 것이 목표다.&lt;/p&gt;
-
-&lt;h2 id=&quot;화이팅-아자-아자&quot;&gt;화이팅! 아자 아자!&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">오픈소스화는 작년에 할려다가 실패 한거지만....</summary></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><category term="mariadb" /><category term="install" /><summary type="html">설치는 별거 없다.</summary></entry></feed>
