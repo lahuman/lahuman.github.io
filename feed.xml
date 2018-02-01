@@ -1,4 +1,19 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-01-31T13:59:05+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">삼성 안드로이드 기기에서 블루투스 키보드 연결시 UI에 레이아웃 표출 안함 설정</title><link href="https://lahuman.github.io/android_samsung_keboard_layout_remove/" rel="alternate" type="text/html" title="삼성 안드로이드 기기에서 블루투스 키보드 연결시 UI에 레이아웃 표출 안함 설정" /><published>2018-01-31T00:00:00+09:00</published><updated>2018-01-31T00:00:00+09:00</updated><id>https://lahuman.github.io/android_samsung_keboard_layout_remove</id><content type="html" xml:base="https://lahuman.github.io/android_samsung_keboard_layout_remove/">&lt;h1 id=&quot;삼성-안드로이드-기기에서-블루투스-키보드-연결시-ui에-레이아웃-표출-안함-설정&quot;&gt;삼성 안드로이드 기기에서 블루투스 키보드 연결시 UI에 레이아웃 표출 안함 설정&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-02-01T14:40:28+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">JPA에서 Entity에서 Enum을 사용할 경우 getInt 에러 발생시</title><link href="https://lahuman.github.io/jpa_enum_getInt_error/" rel="alternate" type="text/html" title="JPA에서 Entity에서 Enum을 사용할 경우 getInt 에러 발생시" /><published>2018-02-01T00:00:00+09:00</published><updated>2018-02-01T00:00:00+09:00</updated><id>https://lahuman.github.io/jpa_enum_getInt_error</id><content type="html" xml:base="https://lahuman.github.io/jpa_enum_getInt_error/">&lt;h1 id=&quot;jpa에서-entity에서-enum을-사용할-경우-getint-에러-발생시&quot;&gt;JPA에서 Entity에서 Enum을 사용할 경우 getInt 에러 발생시&lt;/h1&gt;
+
+&lt;p&gt;JPA Entity에서 Enum 타입을 사용할 경우 다음 어노테이션을 처리해야 String 타입으로 받을수 있다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;@Entity
+@Getter
+@Setter
+public class Person{
+	@Enumerated(EnumType.STRING) // 없을 경우 INT 형식으로 Return
+    private Yn useYn;
+}
+
+public enum Yn {
+  Y,N
+} 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="JPA" /><category term="ENUM" /><summary type="html">Enum의 실제 데이터는 INT 다.</summary></entry><entry><title type="html">삼성 안드로이드 기기에서 블루투스 키보드 연결시 UI에 레이아웃 표출 안함 설정</title><link href="https://lahuman.github.io/android_samsung_keboard_layout_remove/" rel="alternate" type="text/html" title="삼성 안드로이드 기기에서 블루투스 키보드 연결시 UI에 레이아웃 표출 안함 설정" /><published>2018-01-31T00:00:00+09:00</published><updated>2018-01-31T00:00:00+09:00</updated><id>https://lahuman.github.io/android_samsung_keboard_layout_remove</id><content type="html" xml:base="https://lahuman.github.io/android_samsung_keboard_layout_remove/">&lt;h1 id=&quot;삼성-안드로이드-기기에서-블루투스-키보드-연결시-ui에-레이아웃-표출-안함-설정&quot;&gt;삼성 안드로이드 기기에서 블루투스 키보드 연결시 UI에 레이아웃 표출 안함 설정&lt;/h1&gt;
 
 &lt;ol&gt;
   &lt;li&gt;설정 아이콘 클릭&lt;/li&gt;
@@ -305,27 +320,4 @@ Decipher string: [abcd]
 
 &lt;p&gt;오픈소스화 하려면 손이 많이 가겠다…&lt;/p&gt;
 
-&lt;h2 id=&quot;접속-정보&quot;&gt;&lt;a href=&quot;http://lahuman.iptime.org:9025/admin/main.do&quot;&gt;접속 정보&lt;/a&gt;&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">열긴 했는데... 오픈소스로 하려면 다 엎어야 할듯....</summary></entry><entry><title type="html">Eclipse와 JDK9에서 @PostConstruct 어노테이션 오류</title><link href="https://lahuman.github.io/JDK9_eclipse_PostConstruct_error/" rel="alternate" type="text/html" title="Eclipse와 JDK9에서 @PostConstruct 어노테이션 오류" /><published>2018-01-12T00:00:00+09:00</published><updated>2018-01-12T00:00:00+09:00</updated><id>https://lahuman.github.io/JDK9_eclipse_PostConstruct_error</id><content type="html" xml:base="https://lahuman.github.io/JDK9_eclipse_PostConstruct_error/">&lt;h1 id=&quot;eclipse와-jdk9에서-postconstruct-어노테이션-오류&quot;&gt;Eclipse와 JDK9에서 @PostConstruct 어노테이션 오류&lt;/h1&gt;
-
-&lt;p&gt;오랜만에 Eclipse를 띄어서 이전 프로젝트를 확인 하는데 @PostConstruct 어노테이션을 찾을 수 없다는 오류가 보였다.&lt;/p&gt;
-
-&lt;p&gt;따로 변경한 것은 JDK 버젼을 8에서 9로 업그레이드 한거 말곤 없었다.&lt;/p&gt;
-
-&lt;p&gt;검색을 해보니 해당 문제에 대한 해결책이 있었다.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;eclipse.ini&lt;/strong&gt; 파일에 &lt;strong&gt;–add-modules=java.se.ee&lt;/strong&gt; 옵션을 추가 하면 된다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;-vmargs
---add-modules=java.se.ee
--Dosgi.requiredJavaVersion=1.8
--Xms256m
--Xmx1024m
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;JDK9이 아직 안정화가 안된건지, 여러 모듈에서 오류가 발생한다.&lt;/p&gt;
-
-&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://bugs.eclipse.org/bugs/show_bug.cgi?id=493761&quot;&gt;Platform won’t launch on Java 9-ea builds (InjectionException: NoClassDefFoundError: javax/annotation/PostConstruct)&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="JDK9" /><category term="Eclipse" /><summary type="html">결국 JDK9와 Eclipse의 콜라보 오류</summary></entry></feed>
+&lt;h2 id=&quot;접속-정보&quot;&gt;&lt;a href=&quot;http://lahuman.iptime.org:9025/admin/main.do&quot;&gt;접속 정보&lt;/a&gt;&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">열긴 했는데... 오픈소스로 하려면 다 엎어야 할듯....</summary></entry></feed>
