@@ -1,4 +1,19 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-02-01T14:40:28+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">JPA에서 Entity에서 Enum을 사용할 경우 getInt 에러 발생시</title><link href="https://lahuman.github.io/jpa_enum_getInt_error/" rel="alternate" type="text/html" title="JPA에서 Entity에서 Enum을 사용할 경우 getInt 에러 발생시" /><published>2018-02-01T00:00:00+09:00</published><updated>2018-02-01T00:00:00+09:00</updated><id>https://lahuman.github.io/jpa_enum_getInt_error</id><content type="html" xml:base="https://lahuman.github.io/jpa_enum_getInt_error/">&lt;h1 id=&quot;jpa에서-entity에서-enum을-사용할-경우-getint-에러-발생시&quot;&gt;JPA에서 Entity에서 Enum을 사용할 경우 getInt 에러 발생시&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-02-02T16:53:29+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Linux에서 디스크의 사용량(%) 기준으로 체크 하는 명령어</title><link href="https://lahuman.github.io/linux_disk_check/" rel="alternate" type="text/html" title="Linux에서 디스크의 사용량(%) 기준으로 체크 하는 명령어" /><published>2018-02-02T00:00:00+09:00</published><updated>2018-02-02T00:00:00+09:00</updated><id>https://lahuman.github.io/linux_disk_check</id><content type="html" xml:base="https://lahuman.github.io/linux_disk_check/">&lt;h1 id=&quot;linux에서-디스크의-사용량-기준으로-체크-하는-명령어&quot;&gt;Linux에서 디스크의 사용량(%) 기준으로 체크 하는 명령어&lt;/h1&gt;
+
+&lt;p&gt;df 명령어로 사용중인 디스크 양을 체크 하는 명령어를 간단하게 작성하였다.&lt;/p&gt;
+
+&lt;p&gt;t 옵션의 의미는 File System Type이며 ext4 파일 시스템일 경우 결과를 출력 하도록 하였다.&lt;/p&gt;
+
+&lt;p&gt;결과에서는 해더와 % 기호를 제외하고 표출한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;df -ht ext4 | awk '{ if (NR!=1) {print $1, substr($5, 1, length($5)-1)} }'
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;결과 :&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/dev/sda1 52
+/dev/sdb1 37
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="linux" /><summary type="html">df + awk 명령어로 처리</summary></entry><entry><title type="html">JPA에서 Entity에서 Enum을 사용할 경우 getInt 에러 발생시</title><link href="https://lahuman.github.io/jpa_enum_getInt_error/" rel="alternate" type="text/html" title="JPA에서 Entity에서 Enum을 사용할 경우 getInt 에러 발생시" /><published>2018-02-01T00:00:00+09:00</published><updated>2018-02-01T00:00:00+09:00</updated><id>https://lahuman.github.io/jpa_enum_getInt_error</id><content type="html" xml:base="https://lahuman.github.io/jpa_enum_getInt_error/">&lt;h1 id=&quot;jpa에서-entity에서-enum을-사용할-경우-getint-에러-발생시&quot;&gt;JPA에서 Entity에서 Enum을 사용할 경우 getInt 에러 발생시&lt;/h1&gt;
 
 &lt;p&gt;JPA Entity에서 Enum 타입을 사용할 경우 다음 어노테이션을 처리해야 String 타입으로 받을수 있다.&lt;/p&gt;
 
@@ -6,12 +21,12 @@
 @Getter
 @Setter
 public class Person{
-	@Enumerated(EnumType.STRING) // 없을 경우 INT 형식으로 Return
+    @Enumerated(EnumType.STRING) // 없을 경우 INT 형식으로 Return
     private Yn useYn;
 }
 
 public enum Yn {
-  Y,N
+    Y,N
 } 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="JPA" /><category term="ENUM" /><summary type="html">Enum의 실제 데이터는 INT 다.</summary></entry><entry><title type="html">삼성 안드로이드 기기에서 블루투스 키보드 연결시 UI에 레이아웃 표출 안함 설정</title><link href="https://lahuman.github.io/android_samsung_keboard_layout_remove/" rel="alternate" type="text/html" title="삼성 안드로이드 기기에서 블루투스 키보드 연결시 UI에 레이아웃 표출 안함 설정" /><published>2018-01-31T00:00:00+09:00</published><updated>2018-01-31T00:00:00+09:00</updated><id>https://lahuman.github.io/android_samsung_keboard_layout_remove</id><content type="html" xml:base="https://lahuman.github.io/android_samsung_keboard_layout_remove/">&lt;h1 id=&quot;삼성-안드로이드-기기에서-블루투스-키보드-연결시-ui에-레이아웃-표출-안함-설정&quot;&gt;삼성 안드로이드 기기에서 블루투스 키보드 연결시 UI에 레이아웃 표출 안함 설정&lt;/h1&gt;
 
@@ -314,10 +329,4 @@ Decipher string: [abcd]
 
 &lt;h2 id=&quot;license&quot;&gt;License&lt;/h2&gt;
 
-&lt;p&gt;This project is licensed under the GPL License - see the &lt;a href=&quot;https://en.wikipedia.org/wiki/GNU_General_Public_License&quot;&gt;WIKI-LICENSE&lt;/a&gt; file for details&lt;/p&gt;</content><author><name></name></author><category term="DB" /><category term="Migration" /><summary type="html">use github</summary></entry><entry><title type="html">Doc4SM WEB OPEN</title><link href="https://lahuman.github.io/20180116-phase-copy/" rel="alternate" type="text/html" title="Doc4SM WEB OPEN" /><published>2018-01-16T00:00:00+09:00</published><updated>2018-01-16T00:00:00+09:00</updated><id>https://lahuman.github.io/20180116-phase%20copy</id><content type="html" xml:base="https://lahuman.github.io/20180116-phase-copy/">&lt;h1 id=&quot;개인-프로젝트인데-손이-많이-가겠다&quot;&gt;개인 프로젝트인데.. 손이 많이 가겠다.&lt;/h1&gt;
-
-&lt;p&gt;기존 소스가 너무 엉망이다. 급급하게 만들어둔 티가 많이 난다.&lt;/p&gt;
-
-&lt;p&gt;오픈소스화 하려면 손이 많이 가겠다…&lt;/p&gt;
-
-&lt;h2 id=&quot;접속-정보&quot;&gt;&lt;a href=&quot;http://lahuman.iptime.org:9025/admin/main.do&quot;&gt;접속 정보&lt;/a&gt;&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">열긴 했는데... 오픈소스로 하려면 다 엎어야 할듯....</summary></entry></feed>
+&lt;p&gt;This project is licensed under the GPL License - see the &lt;a href=&quot;https://en.wikipedia.org/wiki/GNU_General_Public_License&quot;&gt;WIKI-LICENSE&lt;/a&gt; file for details&lt;/p&gt;</content><author><name></name></author><category term="DB" /><category term="Migration" /><summary type="html">use github</summary></entry></feed>
