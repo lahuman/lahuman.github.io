@@ -1,4 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-02-02T16:53:29+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Linux에서 디스크의 사용량(%) 기준으로 체크 하는 명령어</title><link href="https://lahuman.github.io/linux_disk_check/" rel="alternate" type="text/html" title="Linux에서 디스크의 사용량(%) 기준으로 체크 하는 명령어" /><published>2018-02-02T00:00:00+09:00</published><updated>2018-02-02T00:00:00+09:00</updated><id>https://lahuman.github.io/linux_disk_check</id><content type="html" xml:base="https://lahuman.github.io/linux_disk_check/">&lt;h1 id=&quot;linux에서-디스크의-사용량-기준으로-체크-하는-명령어&quot;&gt;Linux에서 디스크의 사용량(%) 기준으로 체크 하는 명령어&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-02-05T09:30:47+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">게을러 지고 있다.</title><link href="https://lahuman.github.io/20180205-phase/" rel="alternate" type="text/html" title="게을러 지고 있다." /><published>2018-02-05T00:00:00+09:00</published><updated>2018-02-05T00:00:00+09:00</updated><id>https://lahuman.github.io/20180205-phase</id><content type="html" xml:base="https://lahuman.github.io/20180205-phase/">&lt;h1 id=&quot;게으르다-게으르다-게으르다&quot;&gt;게으르다 게으르다 게으르다.&lt;/h1&gt;
+
+&lt;p&gt;아묵것도 하고 싶지 않다. 한 1년만 어디에 짱박혀서 아무것도 안하고 쉬고 싶다.&lt;/p&gt;
+
+&lt;p&gt;갑자기 팽팽하던 실이 끊어진듯, 모든게 의미 없게 느껴진다.&lt;/p&gt;
+
+&lt;h2 id=&quot;잠잠하던-지랄병이-도졌나&quot;&gt;잠잠하던 지랄병이 도졌나.&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">해야 할 일이 있는데 하기가 싫다.</summary></entry><entry><title type="html">Linux에서 디스크의 사용량(%) 기준으로 체크 하는 명령어</title><link href="https://lahuman.github.io/linux_disk_check/" rel="alternate" type="text/html" title="Linux에서 디스크의 사용량(%) 기준으로 체크 하는 명령어" /><published>2018-02-02T00:00:00+09:00</published><updated>2018-02-02T00:00:00+09:00</updated><id>https://lahuman.github.io/linux_disk_check</id><content type="html" xml:base="https://lahuman.github.io/linux_disk_check/">&lt;h1 id=&quot;linux에서-디스크의-사용량-기준으로-체크-하는-명령어&quot;&gt;Linux에서 디스크의 사용량(%) 기준으로 체크 하는 명령어&lt;/h1&gt;
 
 &lt;p&gt;df 명령어로 사용중인 디스크 양을 체크 하는 명령어를 간단하게 작성하였다.&lt;/p&gt;
 
@@ -273,60 +279,4 @@ Decipher string: [abcd]
 
 &lt;p&gt;글을 쓰는 일이 쉽지 않다는 것은 알고 있었다.&lt;/p&gt;
 
-&lt;p&gt;천천히 다시 해보자!&lt;/p&gt;</content><author><name></name></author><category term="단상" /><summary type="html">글을 잘 쓰기 위해서는 형식, 균형이 중요하다.</summary></entry><entry><title type="html">[2018-01-17] Doc4SM</title><link href="https://lahuman.github.io/doc4sm/" rel="alternate" type="text/html" title="[2018-01-17] Doc4SM" /><published>2018-01-17T00:00:00+09:00</published><updated>2018-01-17T00:00:00+09:00</updated><id>https://lahuman.github.io/doc4sm</id><content type="html" xml:base="https://lahuman.github.io/doc4sm/">&lt;h1 id=&quot;doc4sm&quot;&gt;Doc4SM&lt;/h1&gt;
-
-&lt;p&gt;Doc4SM은 ITIL 기반으로 IT 서비스를 프로세스화 하여 관리하는 시스템 입니다. 고객의 서비스 요청에 대한 관리 및 통계 등 종합적인 정보를 제공합니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;소스-보기&quot;&gt;&lt;a href=&quot;https://github.com/lahuman/Doc4SM&quot;&gt;소스 보기&lt;/a&gt;&lt;/h2&gt;
-
-&lt;h2 id=&quot;기능-설명&quot;&gt;기능 설명&lt;/h2&gt;
-
-&lt;h3 id=&quot;1-업무-관리&quot;&gt;1. 업무 관리&lt;/h3&gt;
-
-&lt;p&gt;사용자 및 담당자가 쉽게 서비스에 대한 요청을 등록하고, 할당된 업무, 처리중인 업무, 완료된 업무에 대하여 관리 하는 기능을 제공 합니다.&lt;/p&gt;
-
-&lt;h3 id=&quot;2-표준화된-방법론-활용&quot;&gt;2. 표준화된 방법론 활용&lt;/h3&gt;
-
-&lt;p&gt;한국정보통신기술협회에서 제공하는 TTAS.KO-10.0256(정보시스템 구성 및 변경관리 지침)과 TTAS_KO-10&lt;em&gt;0261&lt;/em&gt;(서비스데스크 운영관리 지침)의 표준 방법론을 활용합니다.&lt;/p&gt;
-
-&lt;h3 id=&quot;3-최적화된-시스템-구축&quot;&gt;3. 최적화된 시스템 구축&lt;/h3&gt;
-
-&lt;p&gt;CMDB 설계/구현을 지원 하며, 인프라 관리, 외부업체관리 등 유지관리에서 필요한 최적화된 시스템 환경을 제공합니다.&lt;/p&gt;
-
-&lt;h3 id=&quot;4-산출물-자동-생성&quot;&gt;4. 산출물 자동 생성&lt;/h3&gt;
-
-&lt;p&gt;한국정보통신기술협회(TTAS) 에서 제공하는 상위 지침의 산출물 생성을 지원 하며, 기타 유지관리에 필요한 산출물의 생성 기능을 제공합니다.&lt;/p&gt;
-
-&lt;h3 id=&quot;5-통계-제공&quot;&gt;5. 통계 제공&lt;/h3&gt;
-
-&lt;p&gt;완료된 업무의 기간별로 간트 차트, 업무통계, 서비스 별 통계, 태그 클라우드 등의 통계기능을 제공합니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;환경&quot;&gt;환경&lt;/h2&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;JAVA 1.8 이상&lt;/li&gt;
-  &lt;li&gt;MAVEN&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;설치&quot;&gt;설치&lt;/h2&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Maven install&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mvn clean install
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;target/doc4sm.war 파일을 Tomcat/webapps 로 이동&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;demo-site&quot;&gt;DEMO SITE&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://14.55.235.194:9025&quot;&gt;DOC4SM DEMO&lt;/a&gt; - 계정&amp;amp;비번 : admin&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;license&quot;&gt;License&lt;/h2&gt;
-
-&lt;p&gt;This project is licensed under the GPL License - see the &lt;a href=&quot;https://en.wikipedia.org/wiki/GNU_General_Public_License&quot;&gt;WIKI-LICENSE&lt;/a&gt; file for details&lt;/p&gt;</content><author><name></name></author><category term="DB" /><category term="Migration" /><summary type="html">use github</summary></entry></feed>
+&lt;p&gt;천천히 다시 해보자!&lt;/p&gt;</content><author><name></name></author><category term="단상" /><summary type="html">글을 잘 쓰기 위해서는 형식, 균형이 중요하다.</summary></entry></feed>
