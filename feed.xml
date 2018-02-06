@@ -1,4 +1,192 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-02-05T09:30:47+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">게을러 지고 있다.</title><link href="https://lahuman.github.io/20180205-phase/" rel="alternate" type="text/html" title="게을러 지고 있다." /><published>2018-02-05T00:00:00+09:00</published><updated>2018-02-05T00:00:00+09:00</updated><id>https://lahuman.github.io/20180205-phase</id><content type="html" xml:base="https://lahuman.github.io/20180205-phase/">&lt;h1 id=&quot;게으르다-게으르다-게으르다&quot;&gt;게으르다 게으르다 게으르다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-02-06T14:48:03+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Python] File Random access</title><link href="https://lahuman.github.io/python_file_seek/" rel="alternate" type="text/html" title="Python] File Random access" /><published>2018-02-06T00:00:00+09:00</published><updated>2018-02-06T00:00:00+09:00</updated><id>https://lahuman.github.io/python_file_seek</id><content type="html" xml:base="https://lahuman.github.io/python_file_seek/">&lt;h1 id=&quot;python-대용량-파일-처리&quot;&gt;Python] 대용량 파일 처리&lt;/h1&gt;
+
+&lt;p&gt;파이썬에서 큰 파일(200MB)에 대하여 3가지 정규식을 기준으로 데이터를 추출 할 경우 다음과 같은 코드를 작성 할 수 있다.&lt;/p&gt;
+
+&lt;h3 id=&quot;코드-1&quot;&gt;코드 1&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# -*-coding:utf-8-*-
+import re
+import time
+
+
+def get_result(pattern, content):
+    return pattern.findall(content)
+
+
+def append_data(name, pattern, content):
+    result = get_result(pattern, content)
+    if result:
+        dic[name] = result
+
+
+if name == 'main':
+    start = time.time()
+    patterns = dict() 
+    patterns['patternA'] = re.compile(
+        r'SESSION: (\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}):(\d+)-:angry:\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}):(\d+)\((.+?)\),\s',
+        re.I)
+    patterns['patternB'] = re.compile(r&quot;(?:\d\`){4}\w{6}\`\d{4}\`\d{8}\`(?:\d{2}\:){2}\d{2}\`&quot;, re.I)
+    patterns['patternC'] = re.compile(r&quot;devname\=\S+\s(?:device_id|devid)\=\S+\s(?:log_id|logid)\=\S+\stype\=\S+\s&quot;,
+                                       re.I)
+
+    dic = dict() # RESULT DATA
+
+    with open('log-sample/500000.log', 'r') as log:
+        for content in log:
+            for name, pattern in patterns.iteritems():
+                append_data(name, pattern, content)
+
+    end = time.time() - start  # end에 코드가 구동된 시간 저장
+
+    print (dic[&quot;patternA&quot;][0][0])
+    print (&quot; END TIME : [&quot; + str(end) + &quot;]&quot;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;결과는 각 정규식 별로 다르게 나온다.
+1번 정규식은 4초, 2번 정규식은 6초, 3번 정규식은 8초 정도로 3개를 한번에 위의 코드같이 처리 할 경우 &lt;strong&gt;평균 16초&lt;/strong&gt;의 시간이 걸린다.&lt;/p&gt;
+
+&lt;h3 id=&quot;코드-2&quot;&gt;코드 2&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# -*-coding:utf-8-*-
+import re
+import time
+from multiprocessing import Pool
+
+
+def get_result(pattern, content):
+    return pattern.findall(content)
+
+
+def append_data(dic, pattern, content):
+    result = get_result(pattern, content)
+    if result:
+        dic.append(result)
+
+
+def processing(pattern):
+    dic = []
+    with open('log-sample/500000.log', 'r') as log:
+        for content in log:
+            append_data(dic, pattern, content)
+    print (len(dic))
+
+
+if name == '__main__':
+    start = time.time()
+    patterns = [] 
+    patterns.append(re.compile(
+        r'SESSION: (\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}):(\d+)-&amp;gt;(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}):(\d+)\((.+?)\),\s',
+        re.I))
+    patterns.append(re.compile(r&quot;(?:\d\`){4}\w{6}\`\d{4}\`\d{8}\`(?:\d{2}\:){2}\d{2}\`&quot;, re.I))
+    patterns.append(re.compile(r&quot;devname\=\S+\s(?:device_id|devid)\=\S+\s(?:log_id|logid)\=\S+\stype\=\S+\s&quot;,
+                                       re.I))
+
+    pool = Pool(processes=4)
+    pool.map(processing, patterns)
+
+    end = time.time() - start  # end에 코드가 구동된 시간 저장
+    print (&quot;END TIME : [&quot; + str(end) + &quot;]&quot;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;두번째 코드는 각 패턴별로 multiprocessing을 이용하여 실행하는 코드 이다.&lt;/p&gt;
+
+&lt;p&gt;이 경우 결과시간은 &lt;strong&gt;평균 10초&lt;/strong&gt;의 시간이 걸린다.&lt;/p&gt;
+
+&lt;h3 id=&quot;코드-3&quot;&gt;코드 3&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# -*-coding:utf-8-*-
+import re
+import time
+import os
+from multiprocessing import Pool
+
+
+def get_result(pattern, content):
+    return pattern.findall(content)
+
+
+def append_data(dic, pattern, content):
+    result = get_result(pattern, content)
+    if result:
+        dic.append(result)
+
+
+filename = 'log-sample/500000.log'
+
+
+def processing(args):
+
+    pattern = args[0]
+    position = args[1]
+    reple_dic = args[2]
+    start_offset = args[3]
+    end_line = args[4]
+
+    dic = []
+    line_cnt = 0
+    with open(filename, 'r') as log:
+        log.seek(start_offset)
+        for content in log:
+            append_data(dic, pattern, content)
+            line_cnt += 1
+            if line_cnt == end_line:
+                break;
+
+    # TODO use Dic
+
+    print (len(dic))
+
+def to_list(*args):
+    return list(args)
+
+if name == '__main__':
+    start = time.time()
+
+    # Read in the file once and build a list of line offsets
+    line_offset = []
+    offset = 0
+    with open(filename, 'r') as file:
+        for line in file:
+            line_offset.append(offset)
+            offset += len(line)
+
+    print &quot;file Line Count : &quot;+ str(len(line_offset))
+
+    patterns = [] 
+ 
+    patterns.append(to_list(re.compile(
+        r'SESSION: (\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}):(\d+)-&amp;gt;(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}):(\d+)\((.+?)\),\s',
+        re.I), &quot;0,1,2,3,4&quot;, dict(), 0, 250000))
+    patterns.append(to_list(re.compile(
+        r'SESSION: (\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}):(\d+)-&amp;gt;(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}):(\d+)\((.+?)\),\s',
+        re.I), &quot;0,1,2,3,4&quot;, dict(), line_offset[250000], 250000))
+
+    patterns.append(to_list(re.compile(r&quot;(?:\d\`){4}\w{6}\`\d{4}\`\d{8}\`(?:\d{2}\:){2}\d{2}\`&quot;, re.I), &quot;0,1,2,3,4&quot;, dict(), 0, 250000))
+    patterns.append(to_list(re.compile(r&quot;(?:\d\`){4}\w{6}\`\d{4}\`\d{8}\`(?:\d{2}\:){2}\d{2}\`&quot;, re.I), &quot;0,1,2,3,4&quot;, dict(), line_offset[250000], 250000))
+
+    patterns.append(to_list(re.compile(r&quot;devname\=\S+\s(?:device_id|devid)\=\S+\s(?:log_id|logid)\=\S+\stype\=\S+\s&quot;, re.I), &quot;0,1,2,3,4&quot;, dict(), 0, 250000))
+    patterns.append(to_list(re.compile(r&quot;devname\=\S+\s(?:device_id|devid)\=\S+\s(?:log_id|logid)\=\S+\stype\=\S+\s&quot;, re.I), &quot;0,1,2,3,4&quot;, dict(), line_offset[250000], 250000))
+
+    pool = Pool(processes=8)
+    pool.map(processing, patterns)
+
+    end = time.time() - start  # end에 코드가 구동된 시간 저장
+    print (&quot;END TIME : [&quot; + str(end) + &quot;]&quot;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;파일에 대하여 특정 ROW 부터 처리 하도록 병령 처리를 하면 3번 코드와 같은 형식으로 나온다.&lt;/p&gt;
+
+&lt;p&gt;이 경우 실행시간은 &lt;strong&gt;평균 5초&lt;/strong&gt; 가 된다.&lt;/p&gt;
+
+&lt;p&gt;큰 파일에 대한 처리는 결국 file.seek를 이용하여 파일을 쪼개어 병렬로 처리 하는게 가장 빠른 방식 같다.&lt;/p&gt;
+
+&lt;h2 id=&quot;참고-문서&quot;&gt;참고 문서&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/620367/how-to-jump-to-a-particular-line-in-a-huge-text-file&quot;&gt;File Line Offset save&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.regexprn.com/2008/11/read-random-line-in-large-file-in.html&quot;&gt;File random line Read&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://python.omics.wiki/multiprocessing_map/multiprocessing_partial_function_multiple_arguments&quot;&gt;Pool.map - Multiple arguments&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/15489091/python-converting-args-to-list&quot;&gt;Python converting args to list&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="python" /><summary type="html">대용량 파일 처리시 병령 &amp; 랜덤 접근을 이용한 빠른 처리</summary></entry><entry><title type="html">게을러 지고 있다.</title><link href="https://lahuman.github.io/20180205-phase/" rel="alternate" type="text/html" title="게을러 지고 있다." /><published>2018-02-05T00:00:00+09:00</published><updated>2018-02-05T00:00:00+09:00</updated><id>https://lahuman.github.io/20180205-phase</id><content type="html" xml:base="https://lahuman.github.io/20180205-phase/">&lt;h1 id=&quot;게으르다-게으르다-게으르다&quot;&gt;게으르다 게으르다 게으르다.&lt;/h1&gt;
 
 &lt;p&gt;아묵것도 하고 싶지 않다. 한 1년만 어디에 짱박혀서 아무것도 안하고 쉬고 싶다.&lt;/p&gt;
 
@@ -271,12 +459,4 @@ Decipher string: [abcd]
 
 &lt;p&gt;장점은 아직까진 모르겠다. 다만, 많은 개발자들이 있는 곳이니 모임이 많은거 같다.&lt;/p&gt;
 
-&lt;p&gt;다음에는 참여해보자!&lt;/p&gt;</content><author><name></name></author><category term="단상" /><summary type="html">오늘부터 판교에서 근무 한다.</summary></entry><entry><title type="html">글쓰기는 어려워…</title><link href="https://lahuman.github.io/20180119-phase/" rel="alternate" type="text/html" title="글쓰기는 어려워..." /><published>2018-01-19T00:00:00+09:00</published><updated>2018-01-19T00:00:00+09:00</updated><id>https://lahuman.github.io/20180119-phase</id><content type="html" xml:base="https://lahuman.github.io/20180119-phase/">&lt;h1 id=&quot;작성중인-논문을-교수님에게-리뷰를-받았다&quot;&gt;작성중인 논문을 교수님에게 리뷰를 받았다.&lt;/h1&gt;
-
-&lt;p&gt;고칠 내용이 너무 많았다. 또한 내용에 균형이 엉망이라는 이야기를 들었다.&lt;/p&gt;
-
-&lt;p&gt;그림, 표에 대한 폰트 크기 사이즈 등등… 생각지도 못한 지적을 많이 받아서 조금 기운이 빠졌다.&lt;/p&gt;
-
-&lt;p&gt;글을 쓰는 일이 쉽지 않다는 것은 알고 있었다.&lt;/p&gt;
-
-&lt;p&gt;천천히 다시 해보자!&lt;/p&gt;</content><author><name></name></author><category term="단상" /><summary type="html">글을 잘 쓰기 위해서는 형식, 균형이 중요하다.</summary></entry></feed>
+&lt;p&gt;다음에는 참여해보자!&lt;/p&gt;</content><author><name></name></author><category term="단상" /><summary type="html">오늘부터 판교에서 근무 한다.</summary></entry></feed>
