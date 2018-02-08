@@ -1,4 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-02-06T14:48:03+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Python] File Random access</title><link href="https://lahuman.github.io/python_file_seek/" rel="alternate" type="text/html" title="Python] File Random access" /><published>2018-02-06T00:00:00+09:00</published><updated>2018-02-06T00:00:00+09:00</updated><id>https://lahuman.github.io/python_file_seek</id><content type="html" xml:base="https://lahuman.github.io/python_file_seek/">&lt;h1 id=&quot;python-대용량-파일-처리&quot;&gt;Python] 대용량 파일 처리&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-02-08T13:37:54+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">이번주 토요일이 시험이다.</title><link href="https://lahuman.github.io/20180208-phase/" rel="alternate" type="text/html" title="이번주 토요일이 시험이다." /><published>2018-02-08T00:00:00+09:00</published><updated>2018-02-08T00:00:00+09:00</updated><id>https://lahuman.github.io/20180208-phase</id><content type="html" xml:base="https://lahuman.github.io/20180208-phase/">&lt;h1 id=&quot;시험은-정말-싫다&quot;&gt;시험은 정말 싫다.&lt;/h1&gt;
+&lt;p&gt;내가 아는 것을 명확하게 서술하고 다른 사람에게 설명할 수 있어야 한다.&lt;/p&gt;
+
+&lt;p&gt;사실 그게 생각보다 많이 어렵다.&lt;/p&gt;
+
+&lt;p&gt;시험은 특히 서술형 시험은 그래서 어렵다.&lt;/p&gt;
+
+&lt;p&gt;이번 주 토요일은 시험이다. 시험공부를 많이 못하기도 하였고… 집중이 안된다.&lt;/p&gt;
+
+&lt;p&gt;큰일이다.&lt;/p&gt;
+
+&lt;h2 id=&quot;이미-한번-떨어진건-안비밀&quot;&gt;이미 한번 떨어진건 안비밀..&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">시험은 늘 싫다.</summary></entry><entry><title type="html">Python] File Random access</title><link href="https://lahuman.github.io/python_file_seek/" rel="alternate" type="text/html" title="Python] File Random access" /><published>2018-02-06T00:00:00+09:00</published><updated>2018-02-06T00:00:00+09:00</updated><id>https://lahuman.github.io/python_file_seek</id><content type="html" xml:base="https://lahuman.github.io/python_file_seek/">&lt;h1 id=&quot;python-대용량-파일-처리&quot;&gt;Python] 대용량 파일 처리&lt;/h1&gt;
 
 &lt;p&gt;파이썬에서 큰 파일(200MB)에 대하여 3가지 정규식을 기준으로 데이터를 추출 할 경우 다음과 같은 코드를 작성 할 수 있다.&lt;/p&gt;
 
@@ -451,12 +462,4 @@ Decipher string: [abcd]
 
 &lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
 
-&lt;p&gt;&lt;a href=&quot;http://bcllemon.github.io/2015/10/29/2015/python-java-aes/&quot;&gt;Python Java AES &lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><category term="AES" /><category term="JAVA" /><category term="Python" /><summary type="html">JAVA, Python 호환 되는 AES Encryption/Decryption 개발</summary></entry><entry><title type="html">판교 생활 시작</title><link href="https://lahuman.github.io/20180122-phase/" rel="alternate" type="text/html" title="판교 생활 시작" /><published>2018-01-22T00:00:00+09:00</published><updated>2018-01-22T00:00:00+09:00</updated><id>https://lahuman.github.io/20180122-phase</id><content type="html" xml:base="https://lahuman.github.io/20180122-phase/">&lt;h1 id=&quot;거의-2년간의-정자역-근무를-마치고-판교에서의-첫날이다&quot;&gt;거의 2년간의 정자역 근무를 마치고, 판교에서의 첫날이다.&lt;/h1&gt;
-
-&lt;p&gt;지금 회사에 입사하고 2년간 정자역에서만 근무 하다가, 이번 조직 개편으로 판교에서 생활을 시작한다.&lt;/p&gt;
-
-&lt;p&gt;단점은 역에서 많이 멀다는 것이다.&lt;/p&gt;
-
-&lt;p&gt;장점은 아직까진 모르겠다. 다만, 많은 개발자들이 있는 곳이니 모임이 많은거 같다.&lt;/p&gt;
-
-&lt;p&gt;다음에는 참여해보자!&lt;/p&gt;</content><author><name></name></author><category term="단상" /><summary type="html">오늘부터 판교에서 근무 한다.</summary></entry></feed>
+&lt;p&gt;&lt;a href=&quot;http://bcllemon.github.io/2015/10/29/2015/python-java-aes/&quot;&gt;Python Java AES &lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><category term="AES" /><category term="JAVA" /><category term="Python" /><summary type="html">JAVA, Python 호환 되는 AES Encryption/Decryption 개발</summary></entry></feed>
