@@ -1,4 +1,30 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-02-13T10:19:59+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">신기한 Elasticsearch의 세계</title><link href="https://lahuman.github.io/20180213-phase/" rel="alternate" type="text/html" title="신기한 Elasticsearch의 세계" /><published>2018-02-13T00:00:00+09:00</published><updated>2018-02-13T00:00:00+09:00</updated><id>https://lahuman.github.io/20180213-phase</id><content type="html" xml:base="https://lahuman.github.io/20180213-phase/">&lt;h1 id=&quot;아주-핫한-elasticsearch를-쓰고-있다&quot;&gt;아주 핫한 Elasticsearch를 쓰고 있다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-02-14T14:05:38+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">딸 아이와 일상 에피소드 몇가지</title><link href="https://lahuman.github.io/20180214-phase/" rel="alternate" type="text/html" title="딸 아이와 일상 에피소드 몇가지" /><published>2018-02-14T00:00:00+09:00</published><updated>2018-02-14T00:00:00+09:00</updated><id>https://lahuman.github.io/20180214-phase</id><content type="html" xml:base="https://lahuman.github.io/20180214-phase/">&lt;h1 id=&quot;딸-아이와-일상-에피소드-몇가지&quot;&gt;딸 아이와 일상 에피소드 몇가지&lt;/h1&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;큰 응가를 싸면 꼭 엄마 아빠에게 보여준다.
+너무 자랑스러운지 가끔은 사진을 찍으라고 시킨다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;유치원에서 집으로 오는 길에 편의점에서 발을 멈추고 큰 츄파츕스 모양의 사탕을 얻었을때, 행복한 미소를 지으며 즐거워 하는 모습이 너무 좋다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;잠을 잘때 엄마만 안고 자면서 내가 둘째의 옆에 누우면 자기 옆으로 오라고 끌고 간다.
+그러며 자기전에 물어본다.
+“아빠, 이불속에 발쏙 넣었어?”
+얼마전 티비에서 방송한 요괴워치(만화)에서 발을 내놓고 자면 잡아가는 에피소드를 보고 많이 놀랬나보다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;둘째는 맛있는건 절대로 누나에게 양보안하고 그자리에서 다 먹는데, 채윤이는 아껴 먹는다고 자기의 보물상자에 넣어 두었다가 먹는다.
+그러면 둘째가가 누나에게 가서
+“나두! 나두!” 라고 하며 달라고 조른다.
+그럼 착하게도 나눠 먹는다.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;보고만 있어도 웃음 짓게 만들어주는 아이인 채윤이가 늘 건강하고 행복했으면 좋겠다.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;건강하고-행복하게-자라다오&quot;&gt;건강하고 행복하게 자라다오&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">일상 애피소드</summary></entry><entry><title type="html">신기한 Elasticsearch의 세계</title><link href="https://lahuman.github.io/20180213-phase/" rel="alternate" type="text/html" title="신기한 Elasticsearch의 세계" /><published>2018-02-13T00:00:00+09:00</published><updated>2018-02-13T00:00:00+09:00</updated><id>https://lahuman.github.io/20180213-phase</id><content type="html" xml:base="https://lahuman.github.io/20180213-phase/">&lt;h1 id=&quot;아주-핫한-elasticsearch를-쓰고-있다&quot;&gt;아주 핫한 Elasticsearch를 쓰고 있다.&lt;/h1&gt;
 
 &lt;p&gt;특정 IP의 range에 대하여 조회를 하려고 할때 사용하는 것은 &lt;strong&gt;wildcard&lt;/strong&gt;를 이용하면 SQL의 LIKE 검색과 같은 효과를 볼수 있다.&lt;/p&gt;
 
@@ -309,74 +335,4 @@ public enum Yn {
 
 &lt;p&gt;아파트 관리소에서 보험을 들어 두면 안되나? 9층에 직접 가서 이야기 하는것도 불편하고…&lt;/p&gt;
 
-&lt;h2 id=&quot;아파트가-다-좋지는-않네&quot;&gt;아파트가 다 좋지는 않네&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">9층에서 동파로 물이 샌다.</summary></entry><entry><title type="html">LZW encoding algorithm</title><link href="https://lahuman.github.io/LZW_encoding_algorithm/" rel="alternate" type="text/html" title="LZW encoding algorithm" /><published>2018-01-26T00:00:00+09:00</published><updated>2018-01-26T00:00:00+09:00</updated><id>https://lahuman.github.io/LZW_encoding_algorithm</id><content type="html" xml:base="https://lahuman.github.io/LZW_encoding_algorithm/">&lt;h1 id=&quot;lzw-encoding-algorithm&quot;&gt;LZW encoding algorithm&lt;/h1&gt;
-
-&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;//www.youtube.com/embed/rZ-JRCPv_O8&quot; frameborder=&quot;0&quot; allow=&quot;autoplay; encrypted-media&quot;&gt;&lt;/iframe&gt;
-
-&lt;h2 id=&quot;lzw-encoding-algorithm-1&quot;&gt;LZW encoding algorithm&lt;/h2&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;1. at the start, the dictionary contains all possible individual charactrs. and P is empty
-2. C = next character in the charstream
-3. si the string P+C present in the dictionary?
-  a) if it is, 
-      P = P + C (extend P with C);
-
-  b)if not,
-      i. output the code word which denotes P to the codestream;
-      ii. add the string P+C to the dictionary
-      iii. P=C(P now contanis only the character C)
-
-
-1. At the start the dictionary contains all possible charstream.
-2. cW = the first code word.
-3. output the string.cW to the charstream.
-4. pW = cW
-5. cW = next code word.
-6. is the String.cW present in the dictionary?
-    if it is, 
-        a) ouput the string.cW to the charstream;
-        b) P := string.pW;
-        c) C := the first character of the string.cW
-        d) add the string P+C to the dictionary;
-
-    if not, 
-        a) P = string.pW;
-        b) C = the first character of the string.pW;
-        c) ouput the string P+C to the charstream and add it to the dictionary (now it corresponds to the cW)
-7. Are there more code words in the codestream?
-    a) if yes, go back to step  4;
-    b) if not, End
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;lzw-인코딩-알고리즘&quot;&gt;LZW 인코딩 알고리즘&lt;/h2&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;1. 처음에는 사전에 가능한 모든 개인 문자가 들어 있습니다. P는 비어 있습니다.
-2. C = charstream의 다음 문자
-3. 사전에 P + C 문자열이 있습니까?
-  a) 그렇다면,
-      P = P + C (C와 P 연장);
-
-  b) 그렇지 않다면,
-      i. P를 코드 워드에 출력하고;
-      ii. 사전에 문자열 P + C를 추가합니다.
-      iii. P = C (이제 P는 문자 C 만 사용)
-
-
-1. 처음에는 사전에 가능한 모든 charstream이 들어 있습니다.
-2. cW = 첫 번째 코드 워드.
-3. string.cW를 charstream으로 출력하십시오.
-4. pW = cW
-5. cW = 다음 코드 워드.
-6. 사전에 String.cW가 있습니까?
-    그렇다면,
-        a) string.cW를 charstream에 출력한다.
-        b) P : = string.pW;
-        c) C : = string.cW의 첫 번째 문자
-        d) P + C 문자열을 사전에 추가합니다.
-
-    그렇지 않다면,
-        a) P = 문자열 .pW;
-        b) C = 문자열의 첫 번째 문자 .pW;
-        c) 문자열 P + C를 charstream에 놓고 사전에 추가합니다 (이제는 cW에 해당함)
-7. 코드 스트림에 더 많은 코드 단어가 있습니까?
-    a) 그렇다면 4 단계로 되돌아갑니다.
-    b) 그렇지 않다면, 끝
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="단상" /><summary type="html">그림으로 쉽게 설명 되어있다.</summary></entry></feed>
+&lt;h2 id=&quot;아파트가-다-좋지는-않네&quot;&gt;아파트가 다 좋지는 않네&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">9층에서 동파로 물이 샌다.</summary></entry></feed>
