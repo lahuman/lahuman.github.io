@@ -1,4 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-02-14T14:05:38+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">딸 아이와 일상 에피소드 몇가지</title><link href="https://lahuman.github.io/20180214-phase/" rel="alternate" type="text/html" title="딸 아이와 일상 에피소드 몇가지" /><published>2018-02-14T00:00:00+09:00</published><updated>2018-02-14T00:00:00+09:00</updated><id>https://lahuman.github.io/20180214-phase</id><content type="html" xml:base="https://lahuman.github.io/20180214-phase/">&lt;h1 id=&quot;딸-아이와-일상-에피소드-몇가지&quot;&gt;딸 아이와 일상 에피소드 몇가지&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-02-19T13:40:00+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">귀가 너무 팔랑된다.</title><link href="https://lahuman.github.io/20180219-phase/" rel="alternate" type="text/html" title="귀가 너무 팔랑된다." /><published>2018-02-19T00:00:00+09:00</published><updated>2018-02-19T00:00:00+09:00</updated><id>https://lahuman.github.io/20180219-phase</id><content type="html" xml:base="https://lahuman.github.io/20180219-phase/">&lt;h1 id=&quot;남의-이야기를-들으면-그-이야기를-믿는다&quot;&gt;남의 이야기를 들으면 그 이야기를 믿는다.&lt;/h1&gt;
+
+&lt;p&gt;남의 이야기를 들으면 그사람 이야기에 나를 대입하게 된다.&lt;/p&gt;
+
+&lt;p&gt;차라리 듣지 말자.&lt;/p&gt;</content><author><name></name></author><category term="단상" /><summary type="html">내 귀가 너무 팔랑되서 문제야...</summary></entry><entry><title type="html">딸 아이와 일상 에피소드 몇가지</title><link href="https://lahuman.github.io/20180214-phase/" rel="alternate" type="text/html" title="딸 아이와 일상 에피소드 몇가지" /><published>2018-02-14T00:00:00+09:00</published><updated>2018-02-14T00:00:00+09:00</updated><id>https://lahuman.github.io/20180214-phase</id><content type="html" xml:base="https://lahuman.github.io/20180214-phase/">&lt;h1 id=&quot;딸-아이와-일상-에피소드-몇가지&quot;&gt;딸 아이와 일상 에피소드 몇가지&lt;/h1&gt;
 
 &lt;ol&gt;
   &lt;li&gt;
@@ -24,7 +28,7 @@
 
 &lt;p&gt;&lt;strong&gt;보고만 있어도 웃음 짓게 만들어주는 아이인 채윤이가 늘 건강하고 행복했으면 좋겠다.&lt;/strong&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;건강하고-행복하게-자라다오&quot;&gt;건강하고 행복하게 자라다오&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">일상 애피소드</summary></entry><entry><title type="html">신기한 Elasticsearch의 세계</title><link href="https://lahuman.github.io/20180213-phase/" rel="alternate" type="text/html" title="신기한 Elasticsearch의 세계" /><published>2018-02-13T00:00:00+09:00</published><updated>2018-02-13T00:00:00+09:00</updated><id>https://lahuman.github.io/20180213-phase</id><content type="html" xml:base="https://lahuman.github.io/20180213-phase/">&lt;h1 id=&quot;아주-핫한-elasticsearch를-쓰고-있다&quot;&gt;아주 핫한 Elasticsearch를 쓰고 있다.&lt;/h1&gt;
+&lt;h2 id=&quot;건강하고-행복하게-자라다오&quot;&gt;건강하고 행복하게 자라다오&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">일상 에피소드</summary></entry><entry><title type="html">신기한 Elasticsearch의 세계</title><link href="https://lahuman.github.io/20180213-phase/" rel="alternate" type="text/html" title="신기한 Elasticsearch의 세계" /><published>2018-02-13T00:00:00+09:00</published><updated>2018-02-13T00:00:00+09:00</updated><id>https://lahuman.github.io/20180213-phase</id><content type="html" xml:base="https://lahuman.github.io/20180213-phase/">&lt;h1 id=&quot;아주-핫한-elasticsearch를-쓰고-있다&quot;&gt;아주 핫한 Elasticsearch를 쓰고 있다.&lt;/h1&gt;
 
 &lt;p&gt;특정 IP의 range에 대하여 조회를 하려고 할때 사용하는 것은 &lt;strong&gt;wildcard&lt;/strong&gt;를 이용하면 SQL의 LIKE 검색과 같은 효과를 볼수 있다.&lt;/p&gt;
 
@@ -323,16 +327,4 @@ public enum Yn {
 &lt;figure&gt;
 	&lt;img src=&quot;http://imgur.com/gN2rp0C&quot; /&gt;
 	&lt;figcaption&gt;가상 키보드 표기 안함 처리&lt;/figcaption&gt;
-&lt;/figure&gt;</content><author><name></name></author><category term="단상" /><summary type="html">찾지 못해서 그냥 쓰다가 오늘 찾았다.</summary></entry><entry><title type="html">밤새 물이 새는 소리에 잠을 설쳤다.</title><link href="https://lahuman.github.io/20180129-phase/" rel="alternate" type="text/html" title="밤새 물이 새는 소리에 잠을 설쳤다." /><published>2018-01-29T00:00:00+09:00</published><updated>2018-01-29T00:00:00+09:00</updated><id>https://lahuman.github.io/20180129-phase</id><content type="html" xml:base="https://lahuman.github.io/20180129-phase/">&lt;h1 id=&quot;밤새도록-벽에서-물새는-소리가-들린다&quot;&gt;밤새도록 벽에서 물새는 소리가 들린다.&lt;/h1&gt;
-
-&lt;p&gt;밤 11시경 자려고 누었는데 똑똑 물방울 떨어지는 소리가 벽에서 들려왔다.&lt;/p&gt;
-
-&lt;p&gt;불을 켜고 물소리를 따라 가보니, 싱크대 선반에서 물이 떨어지고 있었다.&lt;/p&gt;
-
-&lt;p&gt;아파트 관리실에 전화하고 30분 정도 기다리니, 9층에서 물이 샌거라고 알려주셨다.&lt;/p&gt;
-
-&lt;p&gt;보상 받을 것이 있으면 직접 올라가서 보상 받으시라고…&lt;/p&gt;
-
-&lt;p&gt;아파트 관리소에서 보험을 들어 두면 안되나? 9층에 직접 가서 이야기 하는것도 불편하고…&lt;/p&gt;
-
-&lt;h2 id=&quot;아파트가-다-좋지는-않네&quot;&gt;아파트가 다 좋지는 않네&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">9층에서 동파로 물이 샌다.</summary></entry></feed>
+&lt;/figure&gt;</content><author><name></name></author><category term="단상" /><summary type="html">찾지 못해서 그냥 쓰다가 오늘 찾았다.</summary></entry></feed>
