@@ -1,4 +1,25 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-02-20T13:35:50+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Python의 LIST 형식을 DICTIONARY 형식으로 변경 하는 방법</title><link href="https://lahuman.github.io/python_list2dict/" rel="alternate" type="text/html" title="Python의 LIST 형식을  DICTIONARY 형식으로 변경 하는 방법" /><published>2018-02-20T00:00:00+09:00</published><updated>2018-02-20T00:00:00+09:00</updated><id>https://lahuman.github.io/python_list2dict</id><content type="html" xml:base="https://lahuman.github.io/python_list2dict/">&lt;h1 id=&quot;python의-list-형식을--dictionary-형식으로-변경-하는-방법&quot;&gt;Python의 LIST 형식을  DICTIONARY 형식으로 변경 하는 방법&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-02-21T12:58:47+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Python] 두 리스트에서 차이나는 값만 가져오기</title><link href="https://lahuman.github.io/python_list-list/" rel="alternate" type="text/html" title="Python] 두 리스트에서 차이나는 값만 가져오기" /><published>2018-02-21T00:00:00+09:00</published><updated>2018-02-21T00:00:00+09:00</updated><id>https://lahuman.github.io/python_list-list</id><content type="html" xml:base="https://lahuman.github.io/python_list-list/">&lt;h1 id=&quot;python에서-두-리스트에서-차이나는-값만-가져오기&quot;&gt;Python에서 두 리스트에서 차이나는 값만 가져오기&lt;/h1&gt;
+
+&lt;p&gt;다음과 같은 리스트가 있을때,&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;temp1 = ['One', 'Two', 'Three', 'Four']
+temp2 = ['One', 'Two']
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;temp1 - temp2 와 같은 결과를 원한다면 다음의 방법을 사용한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;In [5]: list(set(temp1) - set(temp2))
+Out[5]: ['Four', 'Three']
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;또는 다음과 같은 방식으로 처리 할 수 있다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;set.intersection(another_set)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;출처&quot;&gt;출처&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/3462143/get-difference-between-two-lists&quot;&gt;Get difference between two lists&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="Python" /><category term="TIP" /><summary type="html">더하기는 많이 하지만 빼기는 별로 안하지</summary></entry><entry><title type="html">Python의 LIST 형식을 DICTIONARY 형식으로 변경 하는 방법</title><link href="https://lahuman.github.io/python_list2dict/" rel="alternate" type="text/html" title="Python의 LIST 형식을  DICTIONARY 형식으로 변경 하는 방법" /><published>2018-02-20T00:00:00+09:00</published><updated>2018-02-20T00:00:00+09:00</updated><id>https://lahuman.github.io/python_list2dict</id><content type="html" xml:base="https://lahuman.github.io/python_list2dict/">&lt;h1 id=&quot;python의-list-형식을--dictionary-형식으로-변경-하는-방법&quot;&gt;Python의 LIST 형식을  DICTIONARY 형식으로 변경 하는 방법&lt;/h1&gt;
 
 &lt;p&gt;리스트의 데이터를 중복을 제거하고 나중에 해당 값이 있는지 확인하기 위한 dict형식으로 변경하는 간단한 코드&lt;/p&gt;
 
@@ -17,7 +38,7 @@ print(mset)
 
 &lt;h2 id=&quot;출처&quot;&gt;출처&lt;/h2&gt;
 &lt;ul&gt;
-  &lt;li&gt;[How do I convert a list into a dictionary in python?](https://www.quora.com/How-do-I-convert-a-list-into-a-dictionary-in-python]&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.quora.com/How-do-I-convert-a-list-into-a-dictionary-in-python&quot;&gt;How do I convert a list into a dictionary in python?&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</content><author><name></name></author><category term="Python" /><category term="TIP" /><summary type="html">쉽고 값에 대한 고민 할 필요 없어 좋다.</summary></entry><entry><title type="html">귀가 너무 팔랑된다.</title><link href="https://lahuman.github.io/20180219-phase/" rel="alternate" type="text/html" title="귀가 너무 팔랑된다." /><published>2018-02-19T00:00:00+09:00</published><updated>2018-02-19T00:00:00+09:00</updated><id>https://lahuman.github.io/20180219-phase</id><content type="html" xml:base="https://lahuman.github.io/20180219-phase/">&lt;h1 id=&quot;남의-이야기를-들으면-그-이야기를-믿는다&quot;&gt;남의 이야기를 들으면 그 이야기를 믿는다.&lt;/h1&gt;
 
 &lt;p&gt;남의 이야기를 들으면 그사람 이야기에 나를 대입하게 된다.&lt;/p&gt;
@@ -320,19 +341,4 @@ if name == '__main__':
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/dev/sda1 52
 /dev/sdb1 37
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="linux" /><summary type="html">df + awk 명령어로 처리</summary></entry><entry><title type="html">JPA에서 Entity에서 Enum을 사용할 경우 getInt 에러 발생시</title><link href="https://lahuman.github.io/jpa_enum_getInt_error/" rel="alternate" type="text/html" title="JPA에서 Entity에서 Enum을 사용할 경우 getInt 에러 발생시" /><published>2018-02-01T00:00:00+09:00</published><updated>2018-02-01T00:00:00+09:00</updated><id>https://lahuman.github.io/jpa_enum_getInt_error</id><content type="html" xml:base="https://lahuman.github.io/jpa_enum_getInt_error/">&lt;h1 id=&quot;jpa에서-entity에서-enum을-사용할-경우-getint-에러-발생시&quot;&gt;JPA에서 Entity에서 Enum을 사용할 경우 getInt 에러 발생시&lt;/h1&gt;
-
-&lt;p&gt;JPA Entity에서 Enum 타입을 사용할 경우 다음 어노테이션을 처리해야 String 타입으로 받을수 있다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;@Entity
-@Getter
-@Setter
-public class Person{
-    @Enumerated(EnumType.STRING) // 없을 경우 INT 형식으로 Return
-    private Yn useYn;
-}
-
-public enum Yn {
-    Y,N
-} 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="JPA" /><category term="ENUM" /><summary type="html">Enum의 실제 데이터는 INT 다.</summary></entry></feed>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="linux" /><summary type="html">df + awk 명령어로 처리</summary></entry></feed>
