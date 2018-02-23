@@ -1,4 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-02-21T12:58:47+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Python] 두 리스트에서 차이나는 값만 가져오기</title><link href="https://lahuman.github.io/python_list-list/" rel="alternate" type="text/html" title="Python] 두 리스트에서 차이나는 값만 가져오기" /><published>2018-02-21T00:00:00+09:00</published><updated>2018-02-21T00:00:00+09:00</updated><id>https://lahuman.github.io/python_list-list</id><content type="html" xml:base="https://lahuman.github.io/python_list-list/">&lt;h1 id=&quot;python에서-두-리스트에서-차이나는-값만-가져오기&quot;&gt;Python에서 두 리스트에서 차이나는 값만 가져오기&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-02-23T13:01:18+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">나는 행복한 사람 이다.</title><link href="https://lahuman.github.io/20180223-phase/" rel="alternate" type="text/html" title="나는 행복한 사람 이다." /><published>2018-02-23T00:00:00+09:00</published><updated>2018-02-23T00:00:00+09:00</updated><id>https://lahuman.github.io/20180223-phase</id><content type="html" xml:base="https://lahuman.github.io/20180223-phase/">&lt;h1 id=&quot;어제는-정말-오랜만에-좋아하는-사람들과-많은-이야기를-했다&quot;&gt;어제는 정말 오랜만에 좋아하는 사람들과 많은 이야기를 했다.&lt;/h1&gt;
+
+&lt;p&gt;사는 이야기, 지난 이야기, 앞으로의 이야기, 동료 이야기 등등등… 정말 오랜만에 눈치 안보고 수다를 떨었다.&lt;/p&gt;
+
+&lt;p&gt;오늘 아침에는 정말 오랜만에 행복하다는 생각을 했다.&lt;/p&gt;
+
+&lt;p&gt;내가 좋아 하는 사람들이 나를 좋아해주고, 함께 이야기를 하고 동감하고 나누고 이해하고..&lt;/p&gt;
+
+&lt;h2 id=&quot;즐겁다&quot;&gt;즐겁다!&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">투덜되는 소리를 들어줄 동료도 있고, 늘 응원해주는 아내도 있고.</summary></entry><entry><title type="html">Python] 두 리스트에서 차이나는 값만 가져오기</title><link href="https://lahuman.github.io/python_list-list/" rel="alternate" type="text/html" title="Python] 두 리스트에서 차이나는 값만 가져오기" /><published>2018-02-21T00:00:00+09:00</published><updated>2018-02-21T00:00:00+09:00</updated><id>https://lahuman.github.io/python_list-list</id><content type="html" xml:base="https://lahuman.github.io/python_list-list/">&lt;h1 id=&quot;python에서-두-리스트에서-차이나는-값만-가져오기&quot;&gt;Python에서 두 리스트에서 차이나는 값만 가져오기&lt;/h1&gt;
 
 &lt;p&gt;다음과 같은 리스트가 있을때,&lt;/p&gt;
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;temp1 = ['One', 'Two', 'Three', 'Four']
@@ -326,19 +334,4 @@ if name == '__main__':
 
 &lt;p&gt;갑자기 팽팽하던 실이 끊어진듯, 모든게 의미 없게 느껴진다.&lt;/p&gt;
 
-&lt;h2 id=&quot;잠잠하던-지랄병이-도졌나&quot;&gt;잠잠하던 지랄병이 도졌나.&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">해야 할 일이 있는데 하기가 싫다.</summary></entry><entry><title type="html">Linux에서 디스크의 사용량(%) 기준으로 체크 하는 명령어</title><link href="https://lahuman.github.io/linux_disk_check/" rel="alternate" type="text/html" title="Linux에서 디스크의 사용량(%) 기준으로 체크 하는 명령어" /><published>2018-02-02T00:00:00+09:00</published><updated>2018-02-02T00:00:00+09:00</updated><id>https://lahuman.github.io/linux_disk_check</id><content type="html" xml:base="https://lahuman.github.io/linux_disk_check/">&lt;h1 id=&quot;linux에서-디스크의-사용량-기준으로-체크-하는-명령어&quot;&gt;Linux에서 디스크의 사용량(%) 기준으로 체크 하는 명령어&lt;/h1&gt;
-
-&lt;p&gt;df 명령어로 사용중인 디스크 양을 체크 하는 명령어를 간단하게 작성하였다.&lt;/p&gt;
-
-&lt;p&gt;t 옵션의 의미는 File System Type이며 ext4 파일 시스템일 경우 결과를 출력 하도록 하였다.&lt;/p&gt;
-
-&lt;p&gt;결과에서는 해더와 % 기호를 제외하고 표출한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;df -ht ext4 | awk '{ if (NR!=1) {print $1, substr($5, 1, length($5)-1)} }'
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;결과 :&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/dev/sda1 52
-/dev/sdb1 37
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="linux" /><summary type="html">df + awk 명령어로 처리</summary></entry></feed>
+&lt;h2 id=&quot;잠잠하던-지랄병이-도졌나&quot;&gt;잠잠하던 지랄병이 도졌나.&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">해야 할 일이 있는데 하기가 싫다.</summary></entry></feed>
