@@ -1,4 +1,21 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-02-23T13:01:18+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">나는 행복한 사람 이다.</title><link href="https://lahuman.github.io/20180223-phase/" rel="alternate" type="text/html" title="나는 행복한 사람 이다." /><published>2018-02-23T00:00:00+09:00</published><updated>2018-02-23T00:00:00+09:00</updated><id>https://lahuman.github.io/20180223-phase</id><content type="html" xml:base="https://lahuman.github.io/20180223-phase/">&lt;h1 id=&quot;어제는-정말-오랜만에-좋아하는-사람들과-많은-이야기를-했다&quot;&gt;어제는 정말 오랜만에 좋아하는 사람들과 많은 이야기를 했다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-02-26T17:49:24+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Python] string 을 json.loads로 객체화 할때 유의점</title><link href="https://lahuman.github.io/python_string_json_loads/" rel="alternate" type="text/html" title="Python] string 을 json.loads로 객체화 할때 유의점" /><published>2018-02-26T00:00:00+09:00</published><updated>2018-02-26T00:00:00+09:00</updated><id>https://lahuman.github.io/python_string_json_loads</id><content type="html" xml:base="https://lahuman.github.io/python_string_json_loads/">&lt;h1 id=&quot;python-string-을-jsonloads로-객체화-할때-유의점&quot;&gt;Python] string 을 json.loads로 객체화 할때 유의점&lt;/h1&gt;
+
+&lt;p&gt;문자열 JSON 형식을 파일로 저장 하고, 해당 파일을 다시 객체화 할때 다음과 같이 사용한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# File a.json
+{
+	&quot;a&quot;:&quot;A&quot;,
+	&quot;b&quot;:&quot;\&quot;B\&quot;
+} 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# Phton Code
+with open('a.json') as f:
+	data = json.loads(str(f.read()).encode(&quot;string-escape&quot;).replace('\\\\&quot;', '\\&quot;'))
+	... # 처리
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;마지막에 .replace(‘\\”’, ‘\”’) 처리를 하지 않으면, ValueError: Expecting , delimiter: line 1 column … 같은 오류가 발생한다.&lt;/p&gt;</content><author><name></name></author><category term="Python" /><category term="TIP" /><summary type="html">더블 쿼테이션 오류로 하루를 날릴뻔..</summary></entry><entry><title type="html">나는 행복한 사람 이다.</title><link href="https://lahuman.github.io/20180223-phase/" rel="alternate" type="text/html" title="나는 행복한 사람 이다." /><published>2018-02-23T00:00:00+09:00</published><updated>2018-02-23T00:00:00+09:00</updated><id>https://lahuman.github.io/20180223-phase</id><content type="html" xml:base="https://lahuman.github.io/20180223-phase/">&lt;h1 id=&quot;어제는-정말-오랜만에-좋아하는-사람들과-많은-이야기를-했다&quot;&gt;어제는 정말 오랜만에 좋아하는 사람들과 많은 이야기를 했다.&lt;/h1&gt;
 
 &lt;p&gt;사는 이야기, 지난 이야기, 앞으로의 이야기, 동료 이야기 등등등… 정말 오랜만에 눈치 안보고 수다를 떨었다.&lt;/p&gt;
 
@@ -328,10 +345,4 @@ if name == '__main__':
   &lt;li&gt;&lt;a href=&quot;http://www.regexprn.com/2008/11/read-random-line-in-large-file-in.html&quot;&gt;File random line Read&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;http://python.omics.wiki/multiprocessing_map/multiprocessing_partial_function_multiple_arguments&quot;&gt;Pool.map - Multiple arguments&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/15489091/python-converting-args-to-list&quot;&gt;Python converting args to list&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="python" /><summary type="html">대용량 파일 처리시 병령 &amp; 랜덤 접근을 이용한 빠른 처리</summary></entry><entry><title type="html">게을러 지고 있다.</title><link href="https://lahuman.github.io/20180205-phase/" rel="alternate" type="text/html" title="게을러 지고 있다." /><published>2018-02-05T00:00:00+09:00</published><updated>2018-02-05T00:00:00+09:00</updated><id>https://lahuman.github.io/20180205-phase</id><content type="html" xml:base="https://lahuman.github.io/20180205-phase/">&lt;h1 id=&quot;게으르다-게으르다-게으르다&quot;&gt;게으르다 게으르다 게으르다.&lt;/h1&gt;
-
-&lt;p&gt;아묵것도 하고 싶지 않다. 한 1년만 어디에 짱박혀서 아무것도 안하고 쉬고 싶다.&lt;/p&gt;
-
-&lt;p&gt;갑자기 팽팽하던 실이 끊어진듯, 모든게 의미 없게 느껴진다.&lt;/p&gt;
-
-&lt;h2 id=&quot;잠잠하던-지랄병이-도졌나&quot;&gt;잠잠하던 지랄병이 도졌나.&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">해야 할 일이 있는데 하기가 싫다.</summary></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><category term="python" /><summary type="html">대용량 파일 처리시 병령 &amp; 랜덤 접근을 이용한 빠른 처리</summary></entry></feed>
