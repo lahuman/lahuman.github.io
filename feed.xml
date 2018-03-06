@@ -1,4 +1,18 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-03-05T15:07:06+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">연휴동안 가족 여행으로 너무 즐거운 시간을 보냈다.</title><link href="https://lahuman.github.io/20180305-phase/" rel="alternate" type="text/html" title="연휴동안 가족 여행으로 너무 즐거운 시간을 보냈다." /><published>2018-03-05T00:00:00+09:00</published><updated>2018-03-05T00:00:00+09:00</updated><id>https://lahuman.github.io/20180305-phase</id><content type="html" xml:base="https://lahuman.github.io/20180305-phase/">&lt;h1 id=&quot;즐거웠던-가족-여행&quot;&gt;즐거웠던 가족 여행&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-03-06T13:08:05+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">아이가 크는 속도는 생각의 속도 보다 빠르다.</title><link href="https://lahuman.github.io/20180306-phase/" rel="alternate" type="text/html" title="아이가 크는 속도는 생각의 속도 보다 빠르다." /><published>2018-03-06T00:00:00+09:00</published><updated>2018-03-06T00:00:00+09:00</updated><id>https://lahuman.github.io/20180306-phase</id><content type="html" xml:base="https://lahuman.github.io/20180306-phase/">&lt;h1 id=&quot;아이가-크고-고민도-늘고&quot;&gt;아이가 크고 고민도 늘고…&lt;/h1&gt;
+
+&lt;p&gt;아이가 크는 속도는 내가 생각하는 속도보다 많이 빠르다.&lt;/p&gt;
+
+&lt;p&gt;엉금엉금 기어다니던 아이가 어느새 걸음마를 시작하고, 뛰고, 높은 곳으로 오르고, 말하고 훌쩍 커버렸다.&lt;/p&gt;
+
+&lt;p&gt;아이가 크면서 아쉬운건 같이 보내는 시간이 짧다는 생각을 많이 한다.&lt;/p&gt;
+
+&lt;p&gt;함께 무엇을 하려고 하면 시간에 쫓기여 급하게 하고 만다.&lt;/p&gt;
+
+&lt;p&gt;같이 하루 종일 바다가에서 일광욕을 하고, 기차여행도 하고 느긋한 인생을 보여 주고 싶은데 내 욕심에 쉽지 않다.&lt;/p&gt;
+
+&lt;p&gt;많은 것을 보여주고 경험하게 해주고 싶은 나의 욕심에 아이를 윽박지르며 억지로 끌고 다니는건 아닌지 하는 생각이 든다.&lt;/p&gt;
+
+&lt;h2 id=&quot;사랑한다-사랑한다-사랑한다&quot;&gt;사랑한다. 사랑한다. 사랑한다.&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">언제 이렇게 컷는지....</summary></entry><entry><title type="html">연휴동안 가족 여행으로 너무 즐거운 시간을 보냈다.</title><link href="https://lahuman.github.io/20180305-phase/" rel="alternate" type="text/html" title="연휴동안 가족 여행으로 너무 즐거운 시간을 보냈다." /><published>2018-03-05T00:00:00+09:00</published><updated>2018-03-05T00:00:00+09:00</updated><id>https://lahuman.github.io/20180305-phase</id><content type="html" xml:base="https://lahuman.github.io/20180305-phase/">&lt;h1 id=&quot;즐거웠던-가족-여행&quot;&gt;즐거웠던 가족 여행&lt;/h1&gt;
 
 &lt;h2 id=&quot;첫날&quot;&gt;첫날&lt;/h2&gt;
 
@@ -170,18 +184,4 @@ print(mset)
 &lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://iju707.gitbooks.io/elasticsearch/content/_executing_searches.html&quot;&gt;ES 번역 문서&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="단상" /><summary type="html">Query를 짜는게 쉽지 않아.</summary></entry><entry><title type="html">신기한 정규식의 세계</title><link href="https://lahuman.github.io/20180212-phase/" rel="alternate" type="text/html" title="신기한 정규식의 세계" /><published>2018-02-12T00:00:00+09:00</published><updated>2018-02-12T00:00:00+09:00</updated><id>https://lahuman.github.io/20180212-phase</id><content type="html" xml:base="https://lahuman.github.io/20180212-phase/">&lt;h1 id=&quot;정규식을-안써본-사람은-있어도-한번만-써본-사람은-없을-듯&quot;&gt;정규식을 안써본 사람은 있어도, 한번만 써본 사람은 없을 듯…&lt;/h1&gt;
-
-&lt;p&gt;어떤 작업의 결과가 특정한 패턴(방화벽 로그 같은)을 지닌다면 해당 패턴을 가지고 결과를 저장하는 프로그램을 보통은 파서 또는 정규화라는 명명을 가진다.&lt;/p&gt;
-
-&lt;p&gt;이때 많이 사용하는 것중 하나가 정규식이다. 정규식의 장점으로는 대부분의 개발 언어를 지원한다.&lt;/p&gt;
-
-&lt;p&gt;정규식은 그룹 묶기, 양의 지정, 매칭 여부 리턴 등 다양한 결과를 받을수 있다.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://regex101.com&quot;&gt;정규식 테스트 추천 사이트&lt;/a&gt;에서 테스트를 하면 쉽게 처리 할 수 있다.&lt;/p&gt;
-
-&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://ko.wikipedia.org/wiki/%EC%A0%95%EA%B7%9C_%ED%91%9C%ED%98%84%EC%8B%9D&quot;&gt;정규 표현식&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://regex101.com&quot;&gt;정규식 테스트 추천 사이트&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="단상" /><summary type="html">정규식 자체도 하나의 언어 같다.</summary></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><category term="단상" /><summary type="html">Query를 짜는게 쉽지 않아.</summary></entry></feed>
