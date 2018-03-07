@@ -1,4 +1,27 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-03-06T13:08:05+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">아이가 크는 속도는 생각의 속도 보다 빠르다.</title><link href="https://lahuman.github.io/20180306-phase/" rel="alternate" type="text/html" title="아이가 크는 속도는 생각의 속도 보다 빠르다." /><published>2018-03-06T00:00:00+09:00</published><updated>2018-03-06T00:00:00+09:00</updated><id>https://lahuman.github.io/20180306-phase</id><content type="html" xml:base="https://lahuman.github.io/20180306-phase/">&lt;h1 id=&quot;아이가-크고-고민도-늘고&quot;&gt;아이가 크고 고민도 늘고…&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-03-07T11:01:06+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Python에서 class 선언시 object를 꼭 상속 받자</title><link href="https://lahuman.github.io/python_object/" rel="alternate" type="text/html" title="Python에서 class 선언시 object를 꼭 상속 받자" /><published>2018-03-07T00:00:00+09:00</published><updated>2018-03-07T00:00:00+09:00</updated><id>https://lahuman.github.io/python_object</id><content type="html" xml:base="https://lahuman.github.io/python_object/">&lt;h1 id=&quot;python에서-class-선언시-object를-꼭-상속-받자&quot;&gt;Python에서 class 선언시 object를 꼭 상속 받자&lt;/h1&gt;
+
+&lt;p&gt;python은 전역 객체를 선언할 경우 해당 클래스를 메모리에 올리는 초기 작업에서 실행 된다.
+예를 들어 다음과 같은 코드에서 # 1, # 2 순서로 실행된다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import lahuman
+
+class test(object):
+	a = lahuman.A() # 1 : 
+
+	def b(self):
+		pass
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;main python&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import test # 1
+
+if __name__ == '__main__':
+    t = test()
+    t.b() # 2
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;또한 test 클래스가 object를 상속 받지 않을 경우 객체 생성시 object를 상속 받지 않으면 객체생성시 &lt;strong&gt;new&lt;/strong&gt; 메소드가 호출되지 않는다.&lt;/p&gt;</content><author><name></name></author><category term="python" /><summary type="html">object를 상속 받지 않으면 __new__ 메소드 호출이 안된다.</summary></entry><entry><title type="html">아이가 크는 속도는 생각의 속도 보다 빠르다.</title><link href="https://lahuman.github.io/20180306-phase/" rel="alternate" type="text/html" title="아이가 크는 속도는 생각의 속도 보다 빠르다." /><published>2018-03-06T00:00:00+09:00</published><updated>2018-03-06T00:00:00+09:00</updated><id>https://lahuman.github.io/20180306-phase</id><content type="html" xml:base="https://lahuman.github.io/20180306-phase/">&lt;h1 id=&quot;아이가-크고-고민도-늘고&quot;&gt;아이가 크고 고민도 늘고…&lt;/h1&gt;
 
 &lt;p&gt;아이가 크는 속도는 내가 생각하는 속도보다 많이 빠르다.&lt;/p&gt;
 
@@ -146,42 +169,4 @@ print(mset)
 
 &lt;p&gt;&lt;strong&gt;보고만 있어도 웃음 짓게 만들어주는 아이인 채윤이가 늘 건강하고 행복했으면 좋겠다.&lt;/strong&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;건강하고-행복하게-자라다오&quot;&gt;건강하고 행복하게 자라다오&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">일상 에피소드</summary></entry><entry><title type="html">신기한 Elasticsearch의 세계</title><link href="https://lahuman.github.io/20180213-phase/" rel="alternate" type="text/html" title="신기한 Elasticsearch의 세계" /><published>2018-02-13T00:00:00+09:00</published><updated>2018-02-13T00:00:00+09:00</updated><id>https://lahuman.github.io/20180213-phase</id><content type="html" xml:base="https://lahuman.github.io/20180213-phase/">&lt;h1 id=&quot;아주-핫한-elasticsearch를-쓰고-있다&quot;&gt;아주 핫한 Elasticsearch를 쓰고 있다.&lt;/h1&gt;
-
-&lt;p&gt;특정 IP의 range에 대하여 조회를 하려고 할때 사용하는 것은 &lt;strong&gt;wildcard&lt;/strong&gt;를 이용하면 SQL의 LIKE 검색과 같은 효과를 볼수 있다.&lt;/p&gt;
-
-&lt;p&gt;결과에 대하여 기타 작업을 하기 위해서는 추가 작업이 필요하다.&lt;/p&gt;
-
-&lt;p&gt;다음 예제는 /32를 제외하고 가져온 후, 겨로가를 distinct하는 Query이다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl -XGET 'localhost:9200/iprange/_search?pretty' -H 'Content-Type: application/json' -d'
-{
-   &quot;query&quot;:{
-      &quot;bool&quot;:{
-         &quot;must_not&quot;:[
-            {
-               &quot;wildcard&quot;:{
-                  &quot;range&quot;:{
-                     &quot;value&quot;:&quot;*/32&quot;
-                  }
-               }
-            }
-         ]
-      }
-   },
-   &quot;aggs&quot;:{
-      &quot;uniq_gender&quot;:{
-         &quot;terms&quot;:{
-            &quot;field&quot;:&quot;range&quot;,
-            &quot;size&quot;:10000
-         }
-      }
-   }
-}
-'
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://iju707.gitbooks.io/elasticsearch/content/_executing_searches.html&quot;&gt;ES 번역 문서&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="단상" /><summary type="html">Query를 짜는게 쉽지 않아.</summary></entry></feed>
+&lt;h2 id=&quot;건강하고-행복하게-자라다오&quot;&gt;건강하고 행복하게 자라다오&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">일상 에피소드</summary></entry></feed>
