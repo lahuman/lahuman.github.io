@@ -1,4 +1,14 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-03-14T20:44:46+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">모든 것을 색인하는 _all option</title><link href="https://lahuman.github.io/elastic_events_all_option/" rel="alternate" type="text/html" title="모든 것을 색인하는 _all option" /><published>2018-03-13T00:00:00+09:00</published><updated>2018-03-13T00:00:00+09:00</updated><id>https://lahuman.github.io/elastic_events_all_option</id><content type="html" xml:base="https://lahuman.github.io/elastic_events_all_option/">&lt;h1 id=&quot;색인-전체-크기를-줄이고-더-빠르게-색인을-생성하기-위해-_all-option을-꺼두자&quot;&gt;색인 전체 크기를 줄이고 더 빠르게 색인을 생성하기 위해 _all option을 꺼두자&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-03-19T18:24:04+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">오늘을 즐겁게 살자</title><link href="https://lahuman.github.io/20180319-phase/" rel="alternate" type="text/html" title="오늘을 즐겁게 살자" /><published>2018-03-19T00:00:00+09:00</published><updated>2018-03-19T00:00:00+09:00</updated><id>https://lahuman.github.io/20180319-phase</id><content type="html" xml:base="https://lahuman.github.io/20180319-phase/">&lt;h1 id=&quot;명확하게-내가-해야-할-일을-하자&quot;&gt;명확하게 내가 해야 할 일을 하자&lt;/h1&gt;
+
+&lt;p&gt;지금 내가 해야 하는 하나의 일에 집중하자.&lt;/p&gt;
+
+&lt;p&gt;아이와 함께라면 &lt;strong&gt;즐겁게 아이와 놀자.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;아내와 함께라면 &lt;strong&gt;아내와 많이 이야기 하고 행복하자.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;회사 동료와 함께라면 &lt;strong&gt;열심히 일하자!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;오늘도-열심히&quot;&gt;오늘도 열심히!!&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">내가 지금 무엇을 해야 하는지 가끔씩 길을 잃을때가 있다.</summary></entry><entry><title type="html">모든 것을 색인하는 _all option</title><link href="https://lahuman.github.io/elastic_events_all_option/" rel="alternate" type="text/html" title="모든 것을 색인하는 _all option" /><published>2018-03-13T00:00:00+09:00</published><updated>2018-03-13T00:00:00+09:00</updated><id>https://lahuman.github.io/elastic_events_all_option</id><content type="html" xml:base="https://lahuman.github.io/elastic_events_all_option/">&lt;h1 id=&quot;색인-전체-크기를-줄이고-더-빠르게-색인을-생성하기-위해-_all-option을-꺼두자&quot;&gt;색인 전체 크기를 줄이고 더 빠르게 색인을 생성하기 위해 _all option을 꺼두자&lt;/h1&gt;
 
 &lt;p&gt;_source는 모든 것을 저장하고, _all은 모든 것을 색인한다.&lt;/p&gt;
 
@@ -179,24 +189,4 @@ Out[5]: ['Four', 'Three']
 &lt;h2 id=&quot;출처&quot;&gt;출처&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/3462143/get-difference-between-two-lists&quot;&gt;Get difference between two lists&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="Python" /><category term="TIP" /><summary type="html">더하기는 많이 하지만 빼기는 별로 안하지</summary></entry><entry><title type="html">Python의 LIST 형식을 DICTIONARY 형식으로 변경 하는 방법</title><link href="https://lahuman.github.io/python_list2dict/" rel="alternate" type="text/html" title="Python의 LIST 형식을  DICTIONARY 형식으로 변경 하는 방법" /><published>2018-02-20T00:00:00+09:00</published><updated>2018-02-20T00:00:00+09:00</updated><id>https://lahuman.github.io/python_list2dict</id><content type="html" xml:base="https://lahuman.github.io/python_list2dict/">&lt;h1 id=&quot;python의-list-형식을--dictionary-형식으로-변경-하는-방법&quot;&gt;Python의 LIST 형식을  DICTIONARY 형식으로 변경 하는 방법&lt;/h1&gt;
-
-&lt;p&gt;리스트의 데이터를 중복을 제거하고 나중에 해당 값이 있는지 확인하기 위한 dict형식으로 변경하는 간단한 코드&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import collections
- 
-mset = collections.Counter(['a', 'b', 'c', 'a', 'b', 'b'])
-print(mset)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;결과는 다음과 같다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Counter({'b': 3, 'a': 2, 'c': 1})
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;중복도 쉽게 제거하고 값에 대한 고민을 하지 않아도 된다.&lt;/p&gt;
-
-&lt;h2 id=&quot;출처&quot;&gt;출처&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.quora.com/How-do-I-convert-a-list-into-a-dictionary-in-python&quot;&gt;How do I convert a list into a dictionary in python?&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="Python" /><category term="TIP" /><summary type="html">쉽고 값에 대한 고민 할 필요 없어 좋다.</summary></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><category term="Python" /><category term="TIP" /><summary type="html">더하기는 많이 하지만 빼기는 별로 안하지</summary></entry></feed>
