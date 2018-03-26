@@ -1,4 +1,13 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-03-19T18:24:04+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">오늘을 즐겁게 살자</title><link href="https://lahuman.github.io/20180319-phase/" rel="alternate" type="text/html" title="오늘을 즐겁게 살자" /><published>2018-03-19T00:00:00+09:00</published><updated>2018-03-19T00:00:00+09:00</updated><id>https://lahuman.github.io/20180319-phase</id><content type="html" xml:base="https://lahuman.github.io/20180319-phase/">&lt;h1 id=&quot;명확하게-내가-해야-할-일을-하자&quot;&gt;명확하게 내가 해야 할 일을 하자&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-03-26T16:47:14+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">요즘 내가 하는 일은…</title><link href="https://lahuman.github.io/20180326-phase/" rel="alternate" type="text/html" title="요즘 내가 하는 일은..." /><published>2018-03-26T00:00:00+09:00</published><updated>2018-03-26T00:00:00+09:00</updated><id>https://lahuman.github.io/20180326-phase</id><content type="html" xml:base="https://lahuman.github.io/20180326-phase/">&lt;h1 id=&quot;요즘-나는-해야-하는-일을-하고-있다&quot;&gt;요즘 나는 해야 하는 일을 하고 있다.&lt;/h1&gt;
+
+&lt;p&gt;처음 접해보는 언어와 플랫폼을 가지고 4월 말까지 개발을 완료 해야 한다.&lt;/p&gt;
+
+&lt;p&gt;자신이 없지만, 해야 하는 일이다. 
+일을 시작하던 20대 중반에는 늘 이런 일뿐이었는데 경험이 많아지니 안하던 일은 하고 싶어 하지 않는다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;스트레스를 받을 때, 사람은 성장할 수 있는 기회를 얻은 것&lt;/strong&gt;이라고 한다.&lt;/p&gt;
+
+&lt;h2 id=&quot;이것을-발판-삼아-성장하자&quot;&gt;이것을 발판 삼아 성장하자!&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">잘하는 일, 할 수 있는 일, 해야 하는 일</summary></entry><entry><title type="html">오늘을 즐겁게 살자</title><link href="https://lahuman.github.io/20180319-phase/" rel="alternate" type="text/html" title="오늘을 즐겁게 살자" /><published>2018-03-19T00:00:00+09:00</published><updated>2018-03-19T00:00:00+09:00</updated><id>https://lahuman.github.io/20180319-phase</id><content type="html" xml:base="https://lahuman.github.io/20180319-phase/">&lt;h1 id=&quot;명확하게-내가-해야-할-일을-하자&quot;&gt;명확하게 내가 해야 할 일을 하자&lt;/h1&gt;
 
 &lt;p&gt;지금 내가 해야 하는 하나의 일에 집중하자.&lt;/p&gt;
 
@@ -168,25 +177,4 @@ with open('a.json') as f:
 
 &lt;p&gt;내가 좋아 하는 사람들이 나를 좋아해주고, 함께 이야기를 하고 동감하고 나누고 이해하고..&lt;/p&gt;
 
-&lt;h2 id=&quot;즐겁다&quot;&gt;즐겁다!&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">투덜되는 소리를 들어줄 동료도 있고, 늘 응원해주는 아내도 있고.</summary></entry><entry><title type="html">Python] 두 리스트에서 차이나는 값만 가져오기</title><link href="https://lahuman.github.io/python_list-list/" rel="alternate" type="text/html" title="Python] 두 리스트에서 차이나는 값만 가져오기" /><published>2018-02-21T00:00:00+09:00</published><updated>2018-02-21T00:00:00+09:00</updated><id>https://lahuman.github.io/python_list-list</id><content type="html" xml:base="https://lahuman.github.io/python_list-list/">&lt;h1 id=&quot;python에서-두-리스트에서-차이나는-값만-가져오기&quot;&gt;Python에서 두 리스트에서 차이나는 값만 가져오기&lt;/h1&gt;
-
-&lt;p&gt;다음과 같은 리스트가 있을때,&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;temp1 = ['One', 'Two', 'Three', 'Four']
-temp2 = ['One', 'Two']
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;temp1 - temp2 와 같은 결과를 원한다면 다음의 방법을 사용한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;In [5]: list(set(temp1) - set(temp2))
-Out[5]: ['Four', 'Three']
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;또는 다음과 같은 방식으로 처리 할 수 있다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;set.intersection(another_set)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;출처&quot;&gt;출처&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/3462143/get-difference-between-two-lists&quot;&gt;Get difference between two lists&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="Python" /><category term="TIP" /><summary type="html">더하기는 많이 하지만 빼기는 별로 안하지</summary></entry></feed>
+&lt;h2 id=&quot;즐겁다&quot;&gt;즐겁다!&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">투덜되는 소리를 들어줄 동료도 있고, 늘 응원해주는 아내도 있고.</summary></entry></feed>
