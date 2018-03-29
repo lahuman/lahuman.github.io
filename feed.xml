@@ -1,4 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-03-26T16:47:14+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">요즘 내가 하는 일은…</title><link href="https://lahuman.github.io/20180326-phase/" rel="alternate" type="text/html" title="요즘 내가 하는 일은..." /><published>2018-03-26T00:00:00+09:00</published><updated>2018-03-26T00:00:00+09:00</updated><id>https://lahuman.github.io/20180326-phase</id><content type="html" xml:base="https://lahuman.github.io/20180326-phase/">&lt;h1 id=&quot;요즘-나는-해야-하는-일을-하고-있다&quot;&gt;요즘 나는 해야 하는 일을 하고 있다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-03-29T17:25:37+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">글을 쓴다는게 쉽지 않구나…</title><link href="https://lahuman.github.io/20180329-phase/" rel="alternate" type="text/html" title="글을 쓴다는게 쉽지 않구나..." /><published>2018-03-29T00:00:00+09:00</published><updated>2018-03-29T00:00:00+09:00</updated><id>https://lahuman.github.io/20180329-phase</id><content type="html" xml:base="https://lahuman.github.io/20180329-phase/">&lt;h1 id=&quot;글을-잘-쓰는-사람은-대단하다&quot;&gt;글을 잘 쓰는 사람은 대단하다.&lt;/h1&gt;
+
+&lt;p&gt;남에게 설명을 할수 있는것도 정확히 알아야 한다.&lt;/p&gt;
+
+&lt;p&gt;하지만 내가 잘 안다고 해서 그것을 글로 표현하는건 별게의 문제 같다.&lt;/p&gt;
+
+&lt;p&gt;대화로는 상대가 이해를 못했으면 다른 방향으로 설명을 하지만 글은 단방향이기 때문에 누구나 알아 보기 쉽게 써야 한다.&lt;/p&gt;
+
+&lt;p&gt;##어렵다 어려워…&lt;/p&gt;</content><author><name></name></author><category term="단상" /><summary type="html">내가 쓴글인데 뭔소린지 모르겠다.</summary></entry><entry><title type="html">요즘 내가 하는 일은…</title><link href="https://lahuman.github.io/20180326-phase/" rel="alternate" type="text/html" title="요즘 내가 하는 일은..." /><published>2018-03-26T00:00:00+09:00</published><updated>2018-03-26T00:00:00+09:00</updated><id>https://lahuman.github.io/20180326-phase</id><content type="html" xml:base="https://lahuman.github.io/20180326-phase/">&lt;h1 id=&quot;요즘-나는-해야-하는-일을-하고-있다&quot;&gt;요즘 나는 해야 하는 일을 하고 있다.&lt;/h1&gt;
 
 &lt;p&gt;처음 접해보는 언어와 플랫폼을 가지고 4월 말까지 개발을 완료 해야 한다.&lt;/p&gt;
 
@@ -169,12 +177,4 @@ with open('a.json') as f:
 	... # 처리
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;마지막에 .replace(‘\\”’, ‘\”’) 처리를 하지 않으면, ValueError: Expecting , delimiter: line 1 column … 같은 오류가 발생한다.&lt;/p&gt;</content><author><name></name></author><category term="Python" /><category term="TIP" /><summary type="html">더블 쿼테이션 오류로 하루를 날릴뻔..</summary></entry><entry><title type="html">나는 행복한 사람 이다.</title><link href="https://lahuman.github.io/20180223-phase/" rel="alternate" type="text/html" title="나는 행복한 사람 이다." /><published>2018-02-23T00:00:00+09:00</published><updated>2018-02-23T00:00:00+09:00</updated><id>https://lahuman.github.io/20180223-phase</id><content type="html" xml:base="https://lahuman.github.io/20180223-phase/">&lt;h1 id=&quot;어제는-정말-오랜만에-좋아하는-사람들과-많은-이야기를-했다&quot;&gt;어제는 정말 오랜만에 좋아하는 사람들과 많은 이야기를 했다.&lt;/h1&gt;
-
-&lt;p&gt;사는 이야기, 지난 이야기, 앞으로의 이야기, 동료 이야기 등등등… 정말 오랜만에 눈치 안보고 수다를 떨었다.&lt;/p&gt;
-
-&lt;p&gt;오늘 아침에는 정말 오랜만에 행복하다는 생각을 했다.&lt;/p&gt;
-
-&lt;p&gt;내가 좋아 하는 사람들이 나를 좋아해주고, 함께 이야기를 하고 동감하고 나누고 이해하고..&lt;/p&gt;
-
-&lt;h2 id=&quot;즐겁다&quot;&gt;즐겁다!&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">투덜되는 소리를 들어줄 동료도 있고, 늘 응원해주는 아내도 있고.</summary></entry></feed>
+&lt;p&gt;마지막에 .replace(‘\\”’, ‘\”’) 처리를 하지 않으면, ValueError: Expecting , delimiter: line 1 column … 같은 오류가 발생한다.&lt;/p&gt;</content><author><name></name></author><category term="Python" /><category term="TIP" /><summary type="html">더블 쿼테이션 오류로 하루를 날릴뻔..</summary></entry></feed>
