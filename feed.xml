@@ -1,4 +1,43 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-03-29T17:25:37+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">글을 쓴다는게 쉽지 않구나…</title><link href="https://lahuman.github.io/20180329-phase/" rel="alternate" type="text/html" title="글을 쓴다는게 쉽지 않구나..." /><published>2018-03-29T00:00:00+09:00</published><updated>2018-03-29T00:00:00+09:00</updated><id>https://lahuman.github.io/20180329-phase</id><content type="html" xml:base="https://lahuman.github.io/20180329-phase/">&lt;h1 id=&quot;글을-잘-쓰는-사람은-대단하다&quot;&gt;글을 잘 쓰는 사람은 대단하다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-03-30T19:04:39+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Python] unzip with file rename</title><link href="https://lahuman.github.io/python_unzip_file_rename/" rel="alternate" type="text/html" title="Python] unzip with file rename" /><published>2018-03-30T00:00:00+09:00</published><updated>2018-03-30T00:00:00+09:00</updated><id>https://lahuman.github.io/python_unzip_file_rename</id><content type="html" xml:base="https://lahuman.github.io/python_unzip_file_rename/">&lt;h1 id=&quot;파이썬을-이용한-압축-해제와-동시에-파일-이름-변경&quot;&gt;파이썬을 이용한 압축 해제와 동시에 파일 이름 변경&lt;/h1&gt;
+
+&lt;p&gt;특정 사이트에서 대량의 압축된 파일을 받아 하나의 디렉터리에 풀어야 하는 미션이 떨어졌다.&lt;/p&gt;
+
+&lt;p&gt;문제는 같은 파일 명이 중복으로 발생할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;이에 대한 해결책으로 다음 2개의 방법으로 고민했다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;파일 압축 해제 후 MV 명령어로 이름 변경&lt;/li&gt;
+  &lt;li&gt;압축을 해제할 때 PATH를 줄 수 있는가?&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;1번의 방법은 누구나 쉽게 할 수 있을 것 같았다.&lt;/p&gt;
+
+&lt;p&gt;2번의 경우 가능 한지 조차 몰라서 Python에서 압축 관련 모듈인 &lt;a href=&quot;https://docs.python.org/2/library/zipfile.html&quot;&gt;ZipFile&lt;/a&gt;을 살펴보았다.&lt;/p&gt;
+
+&lt;p&gt;내용을 확인 결과 압축 파일에서 하나의 파일을 읽을 수 있는 read리는 function이 있다.&lt;/p&gt;
+
+&lt;p&gt;이를 이용해 다음과 같이 처리하였다&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;with ZipFile(&quot;filename.zip&quot;) as zf:
+    
+    file_list = map(lambda x: &quot;/&quot; + str(uuid.uuid4()), zf.filelist) # 파일 개수만큼 uuid를 생성
+    idx = 0
+    for zip_file in zf.namelist():  # 루프를 돌며 하나의 파일을 가져옴
+        target_path = zip_save_path + file_list[idx]  # 저장되는 파일 위치
+        with open(target_path, &quot;wb&quot;) as f:  # 저장되는 파일을 쓰기 모드로 오픈
+            f.write(zf.read(zip_file, pwd=self.password))  # 압축된 파일을 읽어서 타깃 파일로 저장
+
+        idx += 1 # 다음 uuid 선택
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;파일은 내가 원하는 위치에 uuid 값으로 저장된다.&lt;/p&gt;
+
+&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.python.org/2/library/zipfile.html&quot;&gt;ZipFile&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="python" /><category term="unzip" /><category term="rename" /><summary type="html">압축을 해제 하면서 원하는 파일 이름으로 해제 하자</summary></entry><entry><title type="html">글을 쓴다는게 쉽지 않구나…</title><link href="https://lahuman.github.io/20180329-phase/" rel="alternate" type="text/html" title="글을 쓴다는게 쉽지 않구나..." /><published>2018-03-29T00:00:00+09:00</published><updated>2018-03-29T00:00:00+09:00</updated><id>https://lahuman.github.io/20180329-phase</id><content type="html" xml:base="https://lahuman.github.io/20180329-phase/">&lt;h1 id=&quot;글을-잘-쓰는-사람은-대단하다&quot;&gt;글을 잘 쓰는 사람은 대단하다.&lt;/h1&gt;
 
 &lt;p&gt;남에게 설명을 할수 있는것도 정확히 알아야 한다.&lt;/p&gt;
 
@@ -160,21 +199,4 @@ if __name__ == '__main__':
 
 &lt;p&gt;요즘 로멘스 소설책 읽는 것에 빠져서 살고 있다.&lt;/p&gt;
 
-&lt;h2 id=&quot;행복하자&quot;&gt;행복하자&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">이천으로 가족 여행 계획 중~</summary></entry><entry><title type="html">Python] string 을 json.loads로 객체화 할때 유의점</title><link href="https://lahuman.github.io/python_string_json_loads/" rel="alternate" type="text/html" title="Python] string 을 json.loads로 객체화 할때 유의점" /><published>2018-02-26T00:00:00+09:00</published><updated>2018-02-26T00:00:00+09:00</updated><id>https://lahuman.github.io/python_string_json_loads</id><content type="html" xml:base="https://lahuman.github.io/python_string_json_loads/">&lt;h1 id=&quot;python-string-을-jsonloads로-객체화-할때-유의점&quot;&gt;Python] string 을 json.loads로 객체화 할때 유의점&lt;/h1&gt;
-
-&lt;p&gt;문자열 JSON 형식을 파일로 저장 하고, 해당 파일을 다시 객체화 할때 다음과 같이 사용한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# File a.json
-{
-	&quot;a&quot;:&quot;A&quot;,
-	&quot;b&quot;:&quot;\&quot;B\&quot;
-} 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# Phton Code
-with open('a.json') as f:
-	data = json.loads(str(f.read()).encode(&quot;string-escape&quot;).replace('\\\\&quot;', '\\&quot;'))
-	... # 처리
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;마지막에 .replace(‘\\”’, ‘\”’) 처리를 하지 않으면, ValueError: Expecting , delimiter: line 1 column … 같은 오류가 발생한다.&lt;/p&gt;</content><author><name></name></author><category term="Python" /><category term="TIP" /><summary type="html">더블 쿼테이션 오류로 하루를 날릴뻔..</summary></entry></feed>
+&lt;h2 id=&quot;행복하자&quot;&gt;행복하자&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">이천으로 가족 여행 계획 중~</summary></entry></feed>
