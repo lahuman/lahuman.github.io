@@ -1,4 +1,35 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-04-02T11:04:30+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">SHELL] 디렉토리 구조 출력</title><link href="https://lahuman.github.io/shell_show_directory_structure/" rel="alternate" type="text/html" title="SHELL] 디렉토리 구조 출력" /><published>2018-04-02T00:00:00+09:00</published><updated>2018-04-02T00:00:00+09:00</updated><id>https://lahuman.github.io/shell_show_directory_structure</id><content type="html" xml:base="https://lahuman.github.io/shell_show_directory_structure/">&lt;h1 id=&quot;특정-디렉토리에서-구조를-출력-하는-방법&quot;&gt;특정 디렉토리에서 구조를 출력 하는 방법&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-04-02T11:07:56+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">SHELL] 디렉토리 구조 출력</title><link href="https://lahuman.github.io/shell_show_directory_structure/" rel="alternate" type="text/html" title="SHELL] 디렉토리 구조 출력" /><published>2018-04-02T00:00:00+09:00</published><updated>2018-04-02T00:00:00+09:00</updated><id>https://lahuman.github.io/shell_show_directory_structure</id><content type="html" xml:base="https://lahuman.github.io/shell_show_directory_structure/">&lt;h1 id=&quot;특정-디렉토리에서-구조를-출력-하는-방법&quot;&gt;특정 디렉토리에서 구조를 출력 하는 방법&lt;/h1&gt;
+
+&lt;p&gt;디렉토리의 구조를 출력 하는 방법은 2가지가 있다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.computerhope.com/unix/tree.htm&quot;&gt;Tree&lt;/a&gt; 모듈을 설치 한다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;tree 명령어는 많은 옵션을 제공하고 널리 사용되는 모듈이다.&lt;/p&gt;
+
+&lt;p&gt;다만 쉬운 설치를 위해서 인터넷이 되어야 한다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Command 를 이용한 출력&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;find . -type d | sed -e &quot;s/[^-][^\/]*\//  |/g&quot; -e &quot;s/|\([^ ]\)/|-\1/&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;설치가 필요 없고 단순하게 철력이 가능하다. 
+다만, 옵션이 없기 때문에 COMMAND를 조합 해야 한다.
+예를 들어 abc 디렉토리를 제외 하고 싶다면 다음과 같은 명령어를 실행 해야 한다.&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;find . -type d | grep -v abc | sed -e &quot;s/[^-][^\/]*\//  |/g&quot; -e &quot;s/|\([^ ]\)/|-\1/&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;일회성으로 쓰기 좋다!&lt;/p&gt;
+
+&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.computerhope.com/unix/tree.htm&quot;&gt;Tree Command&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://askubuntu.com/questions/431251/how-to-print-the-directory-tree-in-terminal&quot;&gt;How to print the directory tree in terminal&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="python" /><category term="unzip" /><category term="rename" /><summary type="html">show directory structure</summary></entry><entry><title type="html">SHELL] 디렉토리 구조 출력</title><link href="https://lahuman.github.io/bash_tree/" rel="alternate" type="text/html" title="SHELL] 디렉토리 구조 출력" /><published>2018-04-02T00:00:00+09:00</published><updated>2018-04-02T00:00:00+09:00</updated><id>https://lahuman.github.io/bash_tree</id><content type="html" xml:base="https://lahuman.github.io/bash_tree/">&lt;h1 id=&quot;특정-디렉토리에서-구조를-출력-하는-방법&quot;&gt;특정 디렉토리에서 구조를 출력 하는 방법&lt;/h1&gt;
 
 &lt;p&gt;디렉토리의 구조를 출력 하는 방법은 2가지가 있다.&lt;/p&gt;
 
@@ -192,32 +223,4 @@ if __name__ == '__main__':
 
 &lt;p&gt;많은 것을 보여주고 경험하게 해주고 싶은 나의 욕심에 아이를 윽박지르며 억지로 끌고 다니는건 아닌지 하는 생각이 든다.&lt;/p&gt;
 
-&lt;h2 id=&quot;사랑한다-사랑한다-사랑한다&quot;&gt;사랑한다. 사랑한다. 사랑한다.&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">언제 이렇게 컷는지....</summary></entry><entry><title type="html">연휴동안 가족 여행으로 너무 즐거운 시간을 보냈다.</title><link href="https://lahuman.github.io/20180305-phase/" rel="alternate" type="text/html" title="연휴동안 가족 여행으로 너무 즐거운 시간을 보냈다." /><published>2018-03-05T00:00:00+09:00</published><updated>2018-03-05T00:00:00+09:00</updated><id>https://lahuman.github.io/20180305-phase</id><content type="html" xml:base="https://lahuman.github.io/20180305-phase/">&lt;h1 id=&quot;즐거웠던-가족-여행&quot;&gt;즐거웠던 가족 여행&lt;/h1&gt;
-
-&lt;h2 id=&quot;첫날&quot;&gt;첫날&lt;/h2&gt;
-
-&lt;p&gt;집에서 점심을 먹고 천천히 돼지 박물관으로 떠났다.&lt;/p&gt;
-
-&lt;p&gt;가는 길은 막히지 않고 좋았다. 돼지 박물관이 외각에 있어서 근처에서 조금 해매고 말았다.&lt;/p&gt;
-
-&lt;p&gt;돼지 박물관 자체는 크게 볼꺼리는 없었다. 주위사람에게 추천할만한 장소는 아닌거 같다.&lt;/p&gt;
-
-&lt;p&gt;저녁으로 수요미식회(?)에 나온 임금님밥상이라는 쌀밥집을 갔다. 저녁은 조금 비쌌지만, 맛있게 먹었다.&lt;/p&gt;
-
-&lt;p&gt;팬션에 도착해서 티비를 보다 아이들과 잠이 들었다.&lt;/p&gt;
-
-&lt;h2 id=&quot;둘째날&quot;&gt;둘째날&lt;/h2&gt;
-
-&lt;p&gt;아침 8시경에 일어나서 아이들과 티비를 보다가 9시가 조금 넘어서 팬션에서 제공되는 아침을 먹었다.&lt;/p&gt;
-
-&lt;p&gt;아침을 먹는둥 마는둥 하고 아이들은 정원에서 뛰어 놀았다. 나중에 여유가 생기면 정원이 있는 집을 가지고 싶다.&lt;/p&gt;
-
-&lt;p&gt;먼저 에버랜드 근처에 있는 삼성화재 자동차 박물관을 갔다.&lt;/p&gt;
-
-&lt;p&gt;둘째가 자동차라면 자다가도 벌떡 일어나는지라, 가보았는데 입장료가 상당히 비쌌다.(성인 6천원 아동 5천원)&lt;/p&gt;
-
-&lt;p&gt;하지만 입장료가 아깝지 않게 잘되어 있다.&lt;/p&gt;
-
-&lt;p&gt;이후 에버랜드에 가서 채윤이는 놀이기구를 게속 타고 다녔다. 아주 즐거워해서 나도 행복하다.&lt;/p&gt;
-
-&lt;h3 id=&quot;다음-가족여행을-기획-하고-있다&quot;&gt;다음 가족여행을 기획 하고 있다.&lt;/h3&gt;</content><author><name></name></author><category term="단상" /><summary type="html">돼지박물관, 이천 쌀밥집, 자동차 박물관, 에버랜드</summary></entry></feed>
+&lt;h2 id=&quot;사랑한다-사랑한다-사랑한다&quot;&gt;사랑한다. 사랑한다. 사랑한다.&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">언제 이렇게 컷는지....</summary></entry></feed>
