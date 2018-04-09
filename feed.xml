@@ -1,4 +1,14 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-04-02T11:07:56+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">SHELL] 디렉토리 구조 출력</title><link href="https://lahuman.github.io/shell_show_directory_structure/" rel="alternate" type="text/html" title="SHELL] 디렉토리 구조 출력" /><published>2018-04-02T00:00:00+09:00</published><updated>2018-04-02T00:00:00+09:00</updated><id>https://lahuman.github.io/shell_show_directory_structure</id><content type="html" xml:base="https://lahuman.github.io/shell_show_directory_structure/">&lt;h1 id=&quot;특정-디렉토리에서-구조를-출력-하는-방법&quot;&gt;특정 디렉토리에서 구조를 출력 하는 방법&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-04-09T14:48:24+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">오늘 날씨가 너무 좋다.</title><link href="https://lahuman.github.io/20180609-phase/" rel="alternate" type="text/html" title="오늘 날씨가 너무 좋다." /><published>2018-04-09T00:00:00+09:00</published><updated>2018-04-09T00:00:00+09:00</updated><id>https://lahuman.github.io/20180609-phase</id><content type="html" xml:base="https://lahuman.github.io/20180609-phase/">&lt;h1 id=&quot;봄바람이-불고-날씨가-좋다&quot;&gt;봄바람이 불고 날씨가 좋다.&lt;/h1&gt;
+
+&lt;p&gt;약간 쌀쌀 하긴 하지만 오랜만에 미세 먼지 없이 좋은 날이다.&lt;/p&gt;
+
+&lt;p&gt;오늘 같이 날도 좋고 벚꽃이 만발한날은 아이들과 함께 봄 나들이 가고 싶다.&lt;/p&gt;
+
+&lt;p&gt;주말동안 아이들과 아내가 1박 2일로 여행을 갔다.&lt;/p&gt;
+
+&lt;p&gt;아이 없는 주말은 많이 외로웠다.&lt;/p&gt;
+
+&lt;h2 id=&quot;늙으니-놀아주는-사람도-없구나&quot;&gt;늙으니 놀아주는 사람도 없구나…&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">봄날씨에 아이들과 꽃놀이 가고 싶다.</summary></entry><entry><title type="html">SHELL] 디렉토리 구조 출력</title><link href="https://lahuman.github.io/shell_show_directory_structure/" rel="alternate" type="text/html" title="SHELL] 디렉토리 구조 출력" /><published>2018-04-02T00:00:00+09:00</published><updated>2018-04-02T00:00:00+09:00</updated><id>https://lahuman.github.io/shell_show_directory_structure</id><content type="html" xml:base="https://lahuman.github.io/shell_show_directory_structure/">&lt;h1 id=&quot;특정-디렉토리에서-구조를-출력-하는-방법&quot;&gt;특정 디렉토리에서 구조를 출력 하는 방법&lt;/h1&gt;
 
 &lt;p&gt;디렉토리의 구조를 출력 하는 방법은 2가지가 있다.&lt;/p&gt;
 
@@ -209,18 +219,4 @@ if __name__ == '__main__':
     t.b() # 2
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;또한 test 클래스가 object를 상속 받지 않을 경우 객체 생성시 object를 상속 받지 않으면 객체생성시 &lt;strong&gt;new&lt;/strong&gt; 메소드가 호출되지 않는다.&lt;/p&gt;</content><author><name></name></author><category term="python" /><summary type="html">object를 상속 받지 않으면 __new__ 메소드 호출이 안된다.</summary></entry><entry><title type="html">아이가 크는 속도는 생각의 속도 보다 빠르다.</title><link href="https://lahuman.github.io/20180306-phase/" rel="alternate" type="text/html" title="아이가 크는 속도는 생각의 속도 보다 빠르다." /><published>2018-03-06T00:00:00+09:00</published><updated>2018-03-06T00:00:00+09:00</updated><id>https://lahuman.github.io/20180306-phase</id><content type="html" xml:base="https://lahuman.github.io/20180306-phase/">&lt;h1 id=&quot;아이가-크고-고민도-늘고&quot;&gt;아이가 크고 고민도 늘고…&lt;/h1&gt;
-
-&lt;p&gt;아이가 크는 속도는 내가 생각하는 속도보다 많이 빠르다.&lt;/p&gt;
-
-&lt;p&gt;엉금엉금 기어다니던 아이가 어느새 걸음마를 시작하고, 뛰고, 높은 곳으로 오르고, 말하고 훌쩍 커버렸다.&lt;/p&gt;
-
-&lt;p&gt;아이가 크면서 아쉬운건 같이 보내는 시간이 짧다는 생각을 많이 한다.&lt;/p&gt;
-
-&lt;p&gt;함께 무엇을 하려고 하면 시간에 쫓기여 급하게 하고 만다.&lt;/p&gt;
-
-&lt;p&gt;같이 하루 종일 바다가에서 일광욕을 하고, 기차여행도 하고 느긋한 인생을 보여 주고 싶은데 내 욕심에 쉽지 않다.&lt;/p&gt;
-
-&lt;p&gt;많은 것을 보여주고 경험하게 해주고 싶은 나의 욕심에 아이를 윽박지르며 억지로 끌고 다니는건 아닌지 하는 생각이 든다.&lt;/p&gt;
-
-&lt;h2 id=&quot;사랑한다-사랑한다-사랑한다&quot;&gt;사랑한다. 사랑한다. 사랑한다.&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">언제 이렇게 컷는지....</summary></entry></feed>
+&lt;p&gt;또한 test 클래스가 object를 상속 받지 않을 경우 객체 생성시 object를 상속 받지 않으면 객체생성시 &lt;strong&gt;new&lt;/strong&gt; 메소드가 호출되지 않는다.&lt;/p&gt;</content><author><name></name></author><category term="python" /><summary type="html">object를 상속 받지 않으면 __new__ 메소드 호출이 안된다.</summary></entry></feed>
