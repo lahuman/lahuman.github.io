@@ -1,4 +1,21 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-04-09T14:48:24+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">오늘 날씨가 너무 좋다.</title><link href="https://lahuman.github.io/20180609-phase/" rel="alternate" type="text/html" title="오늘 날씨가 너무 좋다." /><published>2018-04-09T00:00:00+09:00</published><updated>2018-04-09T00:00:00+09:00</updated><id>https://lahuman.github.io/20180609-phase</id><content type="html" xml:base="https://lahuman.github.io/20180609-phase/">&lt;h1 id=&quot;봄바람이-불고-날씨가-좋다&quot;&gt;봄바람이 불고 날씨가 좋다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-04-10T14:59:46+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">REDIS-CLUSTER CMD에서 requirepass 설정</title><link href="https://lahuman.github.io/REDIS-CLI-PASSWORD/" rel="alternate" type="text/html" title="REDIS-CLUSTER CMD에서 requirepass 설정" /><published>2018-04-10T00:00:00+09:00</published><updated>2018-04-10T00:00:00+09:00</updated><id>https://lahuman.github.io/REDIS-CLI-PASSWORD</id><content type="html" xml:base="https://lahuman.github.io/REDIS-CLI-PASSWORD/">&lt;h1 id=&quot;이미-기동된-redis에서-pass-설정하기&quot;&gt;이미 기동된 REDIS에서 PASS 설정하기&lt;/h1&gt;
+
+&lt;p&gt;REDIS 초기 버젼에서 requirepass 를 설정할 경우 REDIS Cluster가 제대로 올라오지 않는다.&lt;/p&gt;
+
+&lt;p&gt;어쩔수 없이 PASSWORD를 제외하고 기동후 CMD 명령어를 이용해서 비밀 번호를 설정한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$&amp;gt; ./redis-cli -c -h $HOST -p $PORT
+config set requirepass p@ss$12E45
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;위의 명령어는 동작중인 REDIS(포트별)에서 모두 설정하여야 한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;중요한 것은 REDIS를 재기동 할때 마다 위의 명령을 실행하여야 한다.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;참고&quot;&gt;참고&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/7537905/redis-set-a-password-for-redis&quot;&gt;redis: set a password for redis&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="REDIS" /><summary type="html">REDIS-CLI 명령어에서 설정하는 방법</summary></entry><entry><title type="html">오늘 날씨가 너무 좋다.</title><link href="https://lahuman.github.io/20180409-phase/" rel="alternate" type="text/html" title="오늘 날씨가 너무 좋다." /><published>2018-04-09T00:00:00+09:00</published><updated>2018-04-09T00:00:00+09:00</updated><id>https://lahuman.github.io/20180409-phase</id><content type="html" xml:base="https://lahuman.github.io/20180409-phase/">&lt;h1 id=&quot;봄바람이-불고-날씨가-좋다&quot;&gt;봄바람이 불고 날씨가 좋다.&lt;/h1&gt;
 
 &lt;p&gt;약간 쌀쌀 하긴 하지만 오랜만에 미세 먼지 없이 좋은 날이다.&lt;/p&gt;
 
@@ -196,27 +213,4 @@ GET my_index/_search
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$./bin/kibana plugin --install elastic/sense
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;이후 Kibana를 시작하면 된다.&lt;/p&gt;</content><author><name></name></author><category term="elastic" /><category term="sense" /><summary type="html">kibana에 플러그인으로 제공되는 sense가 제일 좋더라</summary></entry><entry><title type="html">Python에서 class 선언시 object를 꼭 상속 받자</title><link href="https://lahuman.github.io/python_object/" rel="alternate" type="text/html" title="Python에서 class 선언시 object를 꼭 상속 받자" /><published>2018-03-07T00:00:00+09:00</published><updated>2018-03-07T00:00:00+09:00</updated><id>https://lahuman.github.io/python_object</id><content type="html" xml:base="https://lahuman.github.io/python_object/">&lt;h1 id=&quot;python에서-class-선언시-object를-꼭-상속-받자&quot;&gt;Python에서 class 선언시 object를 꼭 상속 받자&lt;/h1&gt;
-
-&lt;p&gt;python은 전역 객체를 선언할 경우 해당 클래스를 메모리에 올리는 초기 작업에서 실행 된다.
-예를 들어 다음과 같은 코드에서 # 1, # 2 순서로 실행된다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import lahuman
-
-class test(object):
-	a = lahuman.A() # 1 : 
-
-	def b(self):
-		pass
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;main python&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import test # 1
-
-if __name__ == '__main__':
-    t = test()
-    t.b() # 2
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;또한 test 클래스가 object를 상속 받지 않을 경우 객체 생성시 object를 상속 받지 않으면 객체생성시 &lt;strong&gt;new&lt;/strong&gt; 메소드가 호출되지 않는다.&lt;/p&gt;</content><author><name></name></author><category term="python" /><summary type="html">object를 상속 받지 않으면 __new__ 메소드 호출이 안된다.</summary></entry></feed>
+&lt;p&gt;이후 Kibana를 시작하면 된다.&lt;/p&gt;</content><author><name></name></author><category term="elastic" /><category term="sense" /><summary type="html">kibana에 플러그인으로 제공되는 sense가 제일 좋더라</summary></entry></feed>
