@@ -1,4 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-04-10T14:59:46+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">REDIS-CLUSTER CMD에서 requirepass 설정</title><link href="https://lahuman.github.io/REDIS-CLI-PASSWORD/" rel="alternate" type="text/html" title="REDIS-CLUSTER CMD에서 requirepass 설정" /><published>2018-04-10T00:00:00+09:00</published><updated>2018-04-10T00:00:00+09:00</updated><id>https://lahuman.github.io/REDIS-CLI-PASSWORD</id><content type="html" xml:base="https://lahuman.github.io/REDIS-CLI-PASSWORD/">&lt;h1 id=&quot;이미-기동된-redis에서-pass-설정하기&quot;&gt;이미 기동된 REDIS에서 PASS 설정하기&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-04-12T14:34:29+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">요즘 즐겨 듣는 팝송</title><link href="https://lahuman.github.io/20180412-phase/" rel="alternate" type="text/html" title="요즘 즐겨 듣는 팝송" /><published>2018-04-12T00:00:00+09:00</published><updated>2018-04-12T00:00:00+09:00</updated><id>https://lahuman.github.io/20180412-phase</id><content type="html" xml:base="https://lahuman.github.io/20180412-phase/">&lt;h1 id=&quot;havana&quot;&gt;HAVANA&lt;/h1&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;www.youtube.com/embed/HCjNJDNzw8Y&quot; frameborder=&quot;0&quot; allow=&quot;autoplay; encrypted-media&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;h1 id=&quot;meant-to-be&quot;&gt;Meant to Be&lt;/h1&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;www.youtube.com/embed/1_O84Zl3TJY&quot; frameborder=&quot;0&quot; allow=&quot;autoplay; encrypted-media&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;h1 id=&quot;어딘가-여행을-가고-싶은-노래다&quot;&gt;어딘가 여행을 가고 싶은 노래다.&lt;/h1&gt;</content><author><name></name></author><category term="단상" /><summary type="html">가사는 잘 모르지만 멜로디가 좋다.</summary></entry><entry><title type="html">REDIS-CLUSTER CMD에서 requirepass 설정</title><link href="https://lahuman.github.io/REDIS-CLI-PASSWORD/" rel="alternate" type="text/html" title="REDIS-CLUSTER CMD에서 requirepass 설정" /><published>2018-04-10T00:00:00+09:00</published><updated>2018-04-10T00:00:00+09:00</updated><id>https://lahuman.github.io/REDIS-CLI-PASSWORD</id><content type="html" xml:base="https://lahuman.github.io/REDIS-CLI-PASSWORD/">&lt;h1 id=&quot;이미-기동된-redis에서-pass-설정하기&quot;&gt;이미 기동된 REDIS에서 PASS 설정하기&lt;/h1&gt;
 
 &lt;p&gt;REDIS 초기 버젼에서 requirepass 를 설정할 경우 REDIS Cluster가 제대로 올라오지 않는다.&lt;/p&gt;
 
@@ -200,17 +206,4 @@ GET my_index/_search
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.elastic.co/guide/en/elasticsearch/reference/2.4/mapping-all-field.html&quot;&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="elastic" /><category term="sense" /><summary type="html">elastic에서 기본적으로 모든 것을 색인한다.</summary></entry><entry><title type="html">Elastic Query 작성 툴 추천</title><link href="https://lahuman.github.io/elastic_query/" rel="alternate" type="text/html" title="Elastic Query 작성 툴 추천" /><published>2018-03-12T00:00:00+09:00</published><updated>2018-03-12T00:00:00+09:00</updated><id>https://lahuman.github.io/elastic_query</id><content type="html" xml:base="https://lahuman.github.io/elastic_query/">&lt;h1 id=&quot;mac에서-elastic-query작성-툴-추천&quot;&gt;Mac에서 Elastic Query작성 툴 추천&lt;/h1&gt;
-
-&lt;p&gt;처음 사용한 툴은 &lt;a href=&quot;https://mmattozzi.github.io/cocoa-rest-client/&quot;&gt;Coco Rest Client&lt;/a&gt;이다.&lt;/p&gt;
-
-&lt;p&gt;기본적인 기능은 Postman과 같다고 생각 하면된다. 이를 이용해서 elastic query를 작성하는것은 2% 부족하다.&lt;/p&gt;
-
-&lt;p&gt;2%를 채워줄만한 툴이 바로 kibana의 플러그인으로 제공되는 &lt;a href=&quot;https://www.elastic.co/guide/en/sense/current/installing.html&quot;&gt;Sense&lt;/a&gt;이다.&lt;/p&gt;
-
-&lt;p&gt;4.2 이상의 kibana가 설치 되어 있으면 다음 명령으로 설치 할 수 있다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$./bin/kibana plugin --install elastic/sense
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;이후 Kibana를 시작하면 된다.&lt;/p&gt;</content><author><name></name></author><category term="elastic" /><category term="sense" /><summary type="html">kibana에 플러그인으로 제공되는 sense가 제일 좋더라</summary></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><category term="elastic" /><category term="sense" /><summary type="html">elastic에서 기본적으로 모든 것을 색인한다.</summary></entry></feed>
