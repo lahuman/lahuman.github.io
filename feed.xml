@@ -1,4 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-04-12T14:42:42+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">요즘 즐겨 듣는 팝송</title><link href="https://lahuman.github.io/20180412-phase/" rel="alternate" type="text/html" title="요즘 즐겨 듣는 팝송" /><published>2018-04-12T00:00:00+09:00</published><updated>2018-04-12T00:00:00+09:00</updated><id>https://lahuman.github.io/20180412-phase</id><content type="html" xml:base="https://lahuman.github.io/20180412-phase/">&lt;h1 id=&quot;havana&quot;&gt;HAVANA&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-04-16T09:52:09+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">머피의 월요일의 시작</title><link href="https://lahuman.github.io/20180416-phase/" rel="alternate" type="text/html" title="머피의 월요일의 시작" /><published>2018-04-16T00:00:00+09:00</published><updated>2018-04-16T00:00:00+09:00</updated><id>https://lahuman.github.io/20180416-phase</id><content type="html" xml:base="https://lahuman.github.io/20180416-phase/">&lt;h1 id=&quot;아침-버스를-무려-30분이나-기다렸다-탔다&quot;&gt;아침 버스를 무려 30분이나 기다렸다 탔다.&lt;/h1&gt;
+
+&lt;p&gt;사로고 인하여 늦게 도착한 버스를 차고 출근하니 당연하게 지각이다.&lt;/p&gt;
+
+&lt;p&gt;아침에 팀장이 해달라고 요청한 개똥같은 일이 들어오고.. 월요일 시작이 안좋다.&lt;/p&gt;</content><author><name></name></author><category term="단상" /><summary type="html">출근 버스는 사로고 늦고, 아침부터 일은 개똥같이 들어온다.</summary></entry><entry><title type="html">요즘 즐겨 듣는 팝송</title><link href="https://lahuman.github.io/20180412-phase/" rel="alternate" type="text/html" title="요즘 즐겨 듣는 팝송" /><published>2018-04-12T00:00:00+09:00</published><updated>2018-04-12T00:00:00+09:00</updated><id>https://lahuman.github.io/20180412-phase</id><content type="html" xml:base="https://lahuman.github.io/20180412-phase/">&lt;h1 id=&quot;havana&quot;&gt;HAVANA&lt;/h1&gt;
 &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;//www.youtube.com/embed/HCjNJDNzw8Y&quot; frameborder=&quot;0&quot; allow=&quot;autoplay; encrypted-media&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
 
 &lt;h1 id=&quot;meant-to-be&quot;&gt;Meant to Be&lt;/h1&gt;
@@ -159,51 +163,4 @@ config set requirepass p@ss$12E45
 
 &lt;p&gt;회사 동료와 함께라면 &lt;strong&gt;열심히 일하자!&lt;/strong&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;오늘도-열심히&quot;&gt;오늘도 열심히!!&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">내가 지금 무엇을 해야 하는지 가끔씩 길을 잃을때가 있다.</summary></entry><entry><title type="html">모든 것을 색인하는 _all option</title><link href="https://lahuman.github.io/elastic_events_all_option/" rel="alternate" type="text/html" title="모든 것을 색인하는 _all option" /><published>2018-03-13T00:00:00+09:00</published><updated>2018-03-13T00:00:00+09:00</updated><id>https://lahuman.github.io/elastic_events_all_option</id><content type="html" xml:base="https://lahuman.github.io/elastic_events_all_option/">&lt;h1 id=&quot;색인-전체-크기를-줄이고-더-빠르게-색인을-생성하기-위해-_all-option을-꺼두자&quot;&gt;색인 전체 크기를 줄이고 더 빠르게 색인을 생성하기 위해 _all option을 꺼두자&lt;/h1&gt;
-
-&lt;p&gt;_source는 모든 것을 저장하고, _all은 모든 것을 색인한다.&lt;/p&gt;
-
-&lt;p&gt;따라서 필드 이름 없이 검색을 하면 _all로 설정된 필드를 검색하여 반환한다.&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;PUT my_index/user/1 
-{
-  &quot;first_name&quot;:    &quot;John&quot;,
-  &quot;last_name&quot;:     &quot;Smith&quot;,
-  &quot;date_of_birth&quot;: &quot;1970-10-24&quot;
-}
-
-GET my_index/_search
-{
-  &quot;query&quot;: {
-    &quot;match&quot;: {
-      &quot;_all&quot;: &quot;john smith 1970&quot;
-    }
-  }
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;위와 같이 값을 넣고 검색을 하면 결과로 넣었던 데이터가 출력 된다.&lt;/p&gt;
-
-&lt;p&gt;만약 항상 특정 필드만 검색하려면 _all의 옵션을 false로 설정할수 있다.&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;PUT my_index
-{
-  &quot;mappings&quot;: {
-    &quot;type_1&quot;: { 
-      &quot;properties&quot;: {...}
-    },
-    &quot;type_2&quot;: { 
-      &quot;_all&quot;: {
-        &quot;enabled&quot;: false
-      },
-      &quot;properties&quot;: {...}
-    }
-  }
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;위와 같이 type_2에 _all enabled를 false로 준다면 특정 필드에 설정 할 수 있다.&lt;/p&gt;
-
-&lt;p&gt;이렇게 하면 색인 전체 크기가 줄어 들고, 더 빠르게 색인을 생성한다.&lt;/p&gt;
-
-&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.elastic.co/guide/en/elasticsearch/reference/2.4/mapping-all-field.html&quot;&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="elastic" /><category term="sense" /><summary type="html">elastic에서 기본적으로 모든 것을 색인한다.</summary></entry></feed>
+&lt;h2 id=&quot;오늘도-열심히&quot;&gt;오늘도 열심히!!&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">내가 지금 무엇을 해야 하는지 가끔씩 길을 잃을때가 있다.</summary></entry></feed>
