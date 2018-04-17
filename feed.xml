@@ -1,4 +1,58 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-04-16T09:52:09+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">머피의 월요일의 시작</title><link href="https://lahuman.github.io/20180416-phase/" rel="alternate" type="text/html" title="머피의 월요일의 시작" /><published>2018-04-16T00:00:00+09:00</published><updated>2018-04-16T00:00:00+09:00</updated><id>https://lahuman.github.io/20180416-phase</id><content type="html" xml:base="https://lahuman.github.io/20180416-phase/">&lt;h1 id=&quot;아침-버스를-무려-30분이나-기다렸다-탔다&quot;&gt;아침 버스를 무려 30분이나 기다렸다 탔다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-04-17T13:35:59+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">QRadar SDK Module 교체</title><link href="https://lahuman.github.io/qradar_app_sdk_module_change/" rel="alternate" type="text/html" title="QRadar SDK Module 교체" /><published>2018-04-17T00:00:00+09:00</published><updated>2018-04-17T00:00:00+09:00</updated><id>https://lahuman.github.io/qradar_app_sdk_module_change</id><content type="html" xml:base="https://lahuman.github.io/qradar_app_sdk_module_change/">&lt;h1 id=&quot;qradar-sdk를-ubuntu-16x에서-사용하기-위한-모듈-교체-작업&quot;&gt;QRadar SDK를 Ubuntu 16.x에서 사용하기 위한 모듈 교체 작업&lt;/h1&gt;
+
+&lt;p&gt;먼저 &lt;a href=&quot;https://www.ibm.com/support/knowledgecenter/en/SS42VS_7.3.0/com.ibm.appfw.doc/t_appframework_SDKinstall.html&quot;&gt;QRadar SDK&lt;/a&gt;를 받아야 한다.&lt;/p&gt;
+
+&lt;p&gt;설치는 간단하게 압축을 해제 하고 install.sh 을 실행하면된다.&lt;/p&gt;
+
+&lt;p&gt;설치 하고 나서 이후 의존성 문제로 &lt;strong&gt;qradar_app_creator&lt;/strong&gt; 명령어를 실행하면 오류가 발생한다.&lt;/p&gt;
+
+&lt;p&gt;Python 버젼은 2.7.9 이상이라고 되어 있지만 기본적으로 2.7.15가 설치 되어 있다. 상위 버젼이면 호환성에 문제가 없을 것이라 생각했지만, 모듈 오류가 많이 발생하므로 2.7.9를 설치하자&lt;/p&gt;
+
+&lt;p&gt;Python 설치에 필요한 모듈을 함께 설치 한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get install python-pip python-dev
+sudo apt-get install build-essential
+sudo apt-get install libreadline-gplv2-dev libncursesw5-dev libssl-dev libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev
+
+wget https://www.python.org/ftp/python/2.7.9/Python-2.7.9.tgz
+tar -xvf Python-2.7.9.tgz
+cd Python-2.7.9/
+ ./configure --enable-unicode=ucs4  # 추후 pycrypto 모듈 관련 오류 발생을 예방하기 위해 --enable-unicode=ucs4  처리를 한다.
+make
+sudo make install
+sudo shutdown now -r
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;qradar_app_creator&lt;/strong&gt; 명령어를 입력하면 몇개의 모듈이 해당 시스템을 지원하지 않는다는 메시지를 확인 할수 있다.&lt;/p&gt;
+
+&lt;p&gt;관련해서 pip download 를 이용해 해당 모듈을 수동으로 교체 한다.&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip download cffi==1.11.5
+sudo cp cffi-1.11.5-cp27-cp27mu-manylinux1_x86_64.whl /usr/local/etc/QRadarAppSDK/src_packages/
+
+pip download cryptography==1.8.1
+sudo cp cryptography-1.8.1.tar.gz /usr/local/etc/QRadarAppSDK/src_packages/
+
+pip download pycrypto==2.6.1
+sudo cp pycrypto-2.6.1.tar.gz /usr/local/etc/QRadarAppSDK/src_packages/
+
+# 더 있을 경우 pip download를 이용해서 받아 /usr/local/etc/QRadarAppSDK/src_packages/로 옮긴다.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;마지막으로 실행 스크립트에서 교체된 모듈의 이름을 변경한다.&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo vi /usr/local/bin/qradar_app_creator
+
+# 모듈 명을 바뀐 파일로 변경하면 된다.
+&quot;|cffi-1.11.5-cp27-cp27mu-manylinux1_x86_64.whl|cffi-1.11.5-cp27-cp27mu-manylinux1_x86_64.whl|cffi-1.11.5-cp27-cp27mu-manylinux1_x86_64.whl|cffi-1.11.5-cp27-cp27mu-manylinux1_x86_64.whl|workspace&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;모듈 교체는 어려운 작업은 아니지만, 하나한 확인해야 하므로 손이 많이 간다.&lt;/p&gt;
+
+&lt;h2 id=&quot;참고-주소&quot;&gt;참고 주소&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.ibm.com/support/knowledgecenter/en/SS42VS_7.3.0/com.ibm.appfw.doc/t_appframework_SDKinstall.html&quot;&gt;QRadar Installing the SDK&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://communities.intel.com/thread/96384&quot;&gt;Python Install&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="QRadar" /><category term="ubuntu" /><summary type="html">Ubuntu 16.x 에서 QRradar SDK 사용하기</summary></entry><entry><title type="html">머피의 월요일의 시작</title><link href="https://lahuman.github.io/20180416-phase/" rel="alternate" type="text/html" title="머피의 월요일의 시작" /><published>2018-04-16T00:00:00+09:00</published><updated>2018-04-16T00:00:00+09:00</updated><id>https://lahuman.github.io/20180416-phase</id><content type="html" xml:base="https://lahuman.github.io/20180416-phase/">&lt;h1 id=&quot;아침-버스를-무려-30분이나-기다렸다-탔다&quot;&gt;아침 버스를 무려 30분이나 기다렸다 탔다.&lt;/h1&gt;
 
 &lt;p&gt;사로고 인하여 늦게 도착한 버스를 차고 출근하니 당연하게 지각이다.&lt;/p&gt;
 
@@ -153,14 +207,4 @@ config set requirepass p@ss$12E45
 
 &lt;p&gt;&lt;strong&gt;스트레스를 받을 때, 사람은 성장할 수 있는 기회를 얻은 것&lt;/strong&gt;이라고 한다.&lt;/p&gt;
 
-&lt;h2 id=&quot;이것을-발판-삼아-성장하자&quot;&gt;이것을 발판 삼아 성장하자!&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">잘하는 일, 할 수 있는 일, 해야 하는 일</summary></entry><entry><title type="html">오늘을 즐겁게 살자</title><link href="https://lahuman.github.io/20180319-phase/" rel="alternate" type="text/html" title="오늘을 즐겁게 살자" /><published>2018-03-19T00:00:00+09:00</published><updated>2018-03-19T00:00:00+09:00</updated><id>https://lahuman.github.io/20180319-phase</id><content type="html" xml:base="https://lahuman.github.io/20180319-phase/">&lt;h1 id=&quot;명확하게-내가-해야-할-일을-하자&quot;&gt;명확하게 내가 해야 할 일을 하자&lt;/h1&gt;
-
-&lt;p&gt;지금 내가 해야 하는 하나의 일에 집중하자.&lt;/p&gt;
-
-&lt;p&gt;아이와 함께라면 &lt;strong&gt;즐겁게 아이와 놀자.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;아내와 함께라면 &lt;strong&gt;아내와 많이 이야기 하고 행복하자.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;회사 동료와 함께라면 &lt;strong&gt;열심히 일하자!&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;오늘도-열심히&quot;&gt;오늘도 열심히!!&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">내가 지금 무엇을 해야 하는지 가끔씩 길을 잃을때가 있다.</summary></entry></feed>
+&lt;h2 id=&quot;이것을-발판-삼아-성장하자&quot;&gt;이것을 발판 삼아 성장하자!&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">잘하는 일, 할 수 있는 일, 해야 하는 일</summary></entry></feed>
