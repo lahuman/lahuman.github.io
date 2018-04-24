@@ -1,4 +1,38 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-04-17T13:35:59+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">QRadar SDK Module 교체</title><link href="https://lahuman.github.io/qradar_app_sdk_module_change/" rel="alternate" type="text/html" title="QRadar SDK Module 교체" /><published>2018-04-17T00:00:00+09:00</published><updated>2018-04-17T00:00:00+09:00</updated><id>https://lahuman.github.io/qradar_app_sdk_module_change</id><content type="html" xml:base="https://lahuman.github.io/qradar_app_sdk_module_change/">&lt;h1 id=&quot;qradar-sdk를-ubuntu-16x에서-사용하기-위한-모듈-교체-작업&quot;&gt;QRadar SDK를 Ubuntu 16.x에서 사용하기 위한 모듈 교체 작업&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-04-24T14:26:14+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">개발 수준에 대한 단상</title><link href="https://lahuman.github.io/20180424-phase/" rel="alternate" type="text/html" title="개발 수준에 대한 단상" /><published>2018-04-24T00:00:00+09:00</published><updated>2018-04-24T00:00:00+09:00</updated><id>https://lahuman.github.io/20180424-phase</id><content type="html" xml:base="https://lahuman.github.io/20180424-phase/">&lt;h1 id=&quot;쿠팡에-다니시는-배성혁님이-코틀린-세션에서-하신-말씀&quot;&gt;쿠팡에 다니시는 배성혁님이 코틀린 세션에서 하신 말씀!&lt;/h1&gt;
+
+&lt;p&gt;아쉽게도 올해 KSUG참석은 하지 못하였고, 다녀오신 분들이 SNS에 올리는 내용만 주어 담고 있다.&lt;/p&gt;
+
+&lt;p&gt;오늘 본 짧은 내용은 개발 수준에 대한 내용이었다. 경영진과 개발팀 간의 간격이 좁혀지긴 사실 어려울 것으로 생각된다.&lt;/p&gt;
+
+&lt;p&gt;하지만 &lt;strong&gt;팀이 무엇인지에 대한 고찰&lt;/strong&gt;과 &lt;strong&gt;나에 대한 고찰&lt;/strong&gt;을 하게 된 글귀다.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;남에게 시키는 것과 나도 함께 이끄는 것 그 한 끗 차가 큰 변화를 만들 것이다.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;쿠팡-배성혁님-글귀&quot;&gt;쿠팡 배성혁님 글귀&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;개발 조직은 
+최하위 개발자에게 
+수준을 맞춰줘야 한다.
+
+경영진은
+최상위 인재에게
+수준을 맞춘다.
+
+‘그래서 잘 안된다’
+
+팀이 무엇인지
+잘 표현한 말인 듯
+
+남에게 시키는 것과
+나도 함께 이끄는 것
+그 한 끗 차가 큰 변화를 만들 것이다.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="단상" /><summary type="html">개발팀에서의 수준과 경영진에서의 수준은 다르다.</summary></entry><entry><title type="html">QRadar SDK Module 교체</title><link href="https://lahuman.github.io/qradar_app_sdk_module_change/" rel="alternate" type="text/html" title="QRadar SDK Module 교체" /><published>2018-04-17T00:00:00+09:00</published><updated>2018-04-17T00:00:00+09:00</updated><id>https://lahuman.github.io/qradar_app_sdk_module_change</id><content type="html" xml:base="https://lahuman.github.io/qradar_app_sdk_module_change/">&lt;h1 id=&quot;qradar-sdk를-ubuntu-16x에서-사용하기-위한-모듈-교체-작업&quot;&gt;QRadar SDK를 Ubuntu 16.x에서 사용하기 위한 모듈 교체 작업&lt;/h1&gt;
 
 &lt;p&gt;먼저 &lt;a href=&quot;https://www.ibm.com/support/knowledgecenter/en/SS42VS_7.3.0/com.ibm.appfw.doc/t_appframework_SDKinstall.html&quot;&gt;QRadar SDK&lt;/a&gt;를 받아야 한다.&lt;/p&gt;
 
@@ -54,7 +88,7 @@ sudo cp pycrypto-2.6.1.tar.gz /usr/local/etc/QRadarAppSDK/src_packages/
   &lt;li&gt;&lt;a href=&quot;https://communities.intel.com/thread/96384&quot;&gt;Python Install&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</content><author><name></name></author><category term="QRadar" /><category term="ubuntu" /><summary type="html">Ubuntu 16.x 에서 QRradar SDK 사용하기</summary></entry><entry><title type="html">머피의 월요일의 시작</title><link href="https://lahuman.github.io/20180416-phase/" rel="alternate" type="text/html" title="머피의 월요일의 시작" /><published>2018-04-16T00:00:00+09:00</published><updated>2018-04-16T00:00:00+09:00</updated><id>https://lahuman.github.io/20180416-phase</id><content type="html" xml:base="https://lahuman.github.io/20180416-phase/">&lt;h1 id=&quot;아침-버스를-무려-30분이나-기다렸다-탔다&quot;&gt;아침 버스를 무려 30분이나 기다렸다 탔다.&lt;/h1&gt;
 
-&lt;p&gt;사로고 인하여 늦게 도착한 버스를 차고 출근하니 당연하게 지각이다.&lt;/p&gt;
+&lt;p&gt;사고로 인하여 늦게 도착한 버스를 차고 출근하니 당연하게 지각이다.&lt;/p&gt;
 
 &lt;p&gt;아침에 팀장이 해달라고 요청한 개똥같은 일이 들어오고.. 월요일 시작이 안좋다.&lt;/p&gt;</content><author><name></name></author><category term="단상" /><summary type="html">출근 버스는 사로고 늦고, 아침부터 일은 개똥같이 들어온다.</summary></entry><entry><title type="html">요즘 즐겨 듣는 팝송</title><link href="https://lahuman.github.io/20180412-phase/" rel="alternate" type="text/html" title="요즘 즐겨 듣는 팝송" /><published>2018-04-12T00:00:00+09:00</published><updated>2018-04-12T00:00:00+09:00</updated><id>https://lahuman.github.io/20180412-phase</id><content type="html" xml:base="https://lahuman.github.io/20180412-phase/">&lt;h1 id=&quot;havana&quot;&gt;HAVANA&lt;/h1&gt;
 &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;//www.youtube.com/embed/HCjNJDNzw8Y&quot; frameborder=&quot;0&quot; allow=&quot;autoplay; encrypted-media&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
@@ -198,13 +232,4 @@ config set requirepass p@ss$12E45
 
 &lt;p&gt;대화로는 상대가 이해를 못했으면 다른 방향으로 설명을 하지만 글은 단방향이기 때문에 누구나 알아 보기 쉽게 써야 한다.&lt;/p&gt;
 
-&lt;p&gt;##어렵다 어려워…&lt;/p&gt;</content><author><name></name></author><category term="단상" /><summary type="html">내가 쓴글인데 뭔소린지 모르겠다.</summary></entry><entry><title type="html">요즘 내가 하는 일은…</title><link href="https://lahuman.github.io/20180326-phase/" rel="alternate" type="text/html" title="요즘 내가 하는 일은..." /><published>2018-03-26T00:00:00+09:00</published><updated>2018-03-26T00:00:00+09:00</updated><id>https://lahuman.github.io/20180326-phase</id><content type="html" xml:base="https://lahuman.github.io/20180326-phase/">&lt;h1 id=&quot;요즘-나는-해야-하는-일을-하고-있다&quot;&gt;요즘 나는 해야 하는 일을 하고 있다.&lt;/h1&gt;
-
-&lt;p&gt;처음 접해보는 언어와 플랫폼을 가지고 4월 말까지 개발을 완료 해야 한다.&lt;/p&gt;
-
-&lt;p&gt;자신이 없지만, 해야 하는 일이다. 
-일을 시작하던 20대 중반에는 늘 이런 일뿐이었는데 경험이 많아지니 안하던 일은 하고 싶어 하지 않는다.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;스트레스를 받을 때, 사람은 성장할 수 있는 기회를 얻은 것&lt;/strong&gt;이라고 한다.&lt;/p&gt;
-
-&lt;h2 id=&quot;이것을-발판-삼아-성장하자&quot;&gt;이것을 발판 삼아 성장하자!&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">잘하는 일, 할 수 있는 일, 해야 하는 일</summary></entry></feed>
+&lt;p&gt;##어렵다 어려워…&lt;/p&gt;</content><author><name></name></author><category term="단상" /><summary type="html">내가 쓴글인데 뭔소린지 모르겠다.</summary></entry></feed>
