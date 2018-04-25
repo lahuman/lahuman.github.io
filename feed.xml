@@ -1,4 +1,25 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-04-24T14:26:14+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">개발 수준에 대한 단상</title><link href="https://lahuman.github.io/20180424-phase/" rel="alternate" type="text/html" title="개발 수준에 대한 단상" /><published>2018-04-24T00:00:00+09:00</published><updated>2018-04-24T00:00:00+09:00</updated><id>https://lahuman.github.io/20180424-phase</id><content type="html" xml:base="https://lahuman.github.io/20180424-phase/">&lt;h1 id=&quot;쿠팡에-다니시는-배성혁님이-코틀린-세션에서-하신-말씀&quot;&gt;쿠팡에 다니시는 배성혁님이 코틀린 세션에서 하신 말씀!&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-04-25T16:54:45+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">내가 변해야 남도 변한다.</title><link href="https://lahuman.github.io/20180425-phase/" rel="alternate" type="text/html" title="내가 변해야 남도 변한다." /><published>2018-04-25T00:00:00+09:00</published><updated>2018-04-25T00:00:00+09:00</updated><id>https://lahuman.github.io/20180425-phase</id><content type="html" xml:base="https://lahuman.github.io/20180425-phase/">&lt;h1 id=&quot;다른-사람이-변하기를-원한다면-나부터-변하자&quot;&gt;다른 사람이 변하기를 원한다면, 나부터 변하자&lt;/h1&gt;
+
+&lt;p&gt;요즘 가지는 고민은 &lt;strong&gt;어떻게 효율적으로 협업 할 것인가?&lt;/strong&gt; 이다.&lt;/p&gt;
+
+&lt;p&gt;개인의 자존감, 성취도, 특성 등 여러 가지 요소로 팀원 각자가 원하는 바가 다르다.&lt;/p&gt;
+
+&lt;p&gt;그러던 중 팀원이 좋은 방향으로 변하기를 원하는 나를 보게 되었다.&lt;/p&gt;
+
+&lt;p&gt;이런 물음에 주변 지인이 나에게 답변을 주었다.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;당신이 변하지 않으면, 남도 변하지 않습니다. 당신이 변하면 남도 변합니다.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;변화를 원하신 다면, 먼저 변하세요.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;많은 깨닳음이 있는 답변이었다.&lt;/p&gt;</content><author><name></name></author><category term="단상" /><summary type="html">다른 사람이 변하기를 원한다면, 나부터 변하자</summary></entry><entry><title type="html">개발 수준에 대한 단상</title><link href="https://lahuman.github.io/20180424-phase/" rel="alternate" type="text/html" title="개발 수준에 대한 단상" /><published>2018-04-24T00:00:00+09:00</published><updated>2018-04-24T00:00:00+09:00</updated><id>https://lahuman.github.io/20180424-phase</id><content type="html" xml:base="https://lahuman.github.io/20180424-phase/">&lt;h1 id=&quot;쿠팡에-다니시는-배성혁님이-코틀린-세션에서-하신-말씀&quot;&gt;쿠팡에 다니시는 배성혁님이 코틀린 세션에서 하신 말씀!&lt;/h1&gt;
 
 &lt;p&gt;아쉽게도 올해 KSUG참석은 하지 못하였고, 다녀오신 분들이 SNS에 올리는 내용만 주어 담고 있다.&lt;/p&gt;
 
@@ -224,12 +245,4 @@ config set requirepass p@ss$12E45
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://docs.python.org/2/library/zipfile.html&quot;&gt;ZipFile&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="python" /><category term="unzip" /><category term="rename" /><summary type="html">압축을 해제 하면서 원하는 파일 이름으로 해제 하자</summary></entry><entry><title type="html">글을 쓴다는게 쉽지 않구나…</title><link href="https://lahuman.github.io/20180329-phase/" rel="alternate" type="text/html" title="글을 쓴다는게 쉽지 않구나..." /><published>2018-03-29T00:00:00+09:00</published><updated>2018-03-29T00:00:00+09:00</updated><id>https://lahuman.github.io/20180329-phase</id><content type="html" xml:base="https://lahuman.github.io/20180329-phase/">&lt;h1 id=&quot;글을-잘-쓰는-사람은-대단하다&quot;&gt;글을 잘 쓰는 사람은 대단하다.&lt;/h1&gt;
-
-&lt;p&gt;남에게 설명을 할수 있는것도 정확히 알아야 한다.&lt;/p&gt;
-
-&lt;p&gt;하지만 내가 잘 안다고 해서 그것을 글로 표현하는건 별게의 문제 같다.&lt;/p&gt;
-
-&lt;p&gt;대화로는 상대가 이해를 못했으면 다른 방향으로 설명을 하지만 글은 단방향이기 때문에 누구나 알아 보기 쉽게 써야 한다.&lt;/p&gt;
-
-&lt;p&gt;##어렵다 어려워…&lt;/p&gt;</content><author><name></name></author><category term="단상" /><summary type="html">내가 쓴글인데 뭔소린지 모르겠다.</summary></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><category term="python" /><category term="unzip" /><category term="rename" /><summary type="html">압축을 해제 하면서 원하는 파일 이름으로 해제 하자</summary></entry></feed>
