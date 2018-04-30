@@ -1,4 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-04-27T17:44:21+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">VirtualBox Net network 사용하기</title><link href="https://lahuman.github.io/VirtualBox_NAT_network/" rel="alternate" type="text/html" title="VirtualBox Net network 사용하기" /><published>2018-04-27T00:00:00+09:00</published><updated>2018-04-27T00:00:00+09:00</updated><id>https://lahuman.github.io/VirtualBox_NAT_network</id><content type="html" xml:base="https://lahuman.github.io/VirtualBox_NAT_network/">&lt;h1 id=&quot;virtualbox-net-network-사용하기&quot;&gt;VirtualBox Net network 사용하기&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-04-30T14:35:57+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">월요일 그리고 Elasticsearch 머신 러닝</title><link href="https://lahuman.github.io/20180430-phase/" rel="alternate" type="text/html" title="월요일 그리고 Elasticsearch 머신 러닝" /><published>2018-04-30T00:00:00+09:00</published><updated>2018-04-30T00:00:00+09:00</updated><id>https://lahuman.github.io/20180430-phase</id><content type="html" xml:base="https://lahuman.github.io/20180430-phase/">&lt;h1 id=&quot;elasticsearch를-통한-머신-러닝에-대한-내용이-정리-된-링크비디오&quot;&gt;Elasticsearch를 통한 머신 러닝에 대한 내용이 정리 된 링크(비디오)&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.elastic.co/kr/webinars/event-logs-in-elasticsearch-and-machine-learning&quot;&gt;Elasticsearch 머신 러닝을 이용한 Web Access 로그 분석&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.elastic.co/kr/videos/machine-learning-for-elasticsearch-with-softbank&quot;&gt;소프트뱅크 Machine Learning 활용 사례&lt;/a&gt; - 현재 나온 머신러닝 레퍼런스 중 가장 자세한 사례입니다. 회사 배경설명, 도입 배경설명, 목표, 활용 방안, 결과, 보완이 필요한 점까지 상세하게 설명이 되어 있는 고객 발표 사례이니 꼭 처음부터 끝까지 다 봐주셨으면 합니다. 일본 고객 사례를 한국어로 더빙하였습니다.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.elastic.co/elasticon/conf/2018/sf/the-path-to-intelligent-operation-with-netapp-oncommand-insight&quot;&gt;Netapp 고객 사례&lt;/a&gt; - OnCommand Insight(하이브리드 IT 인프라를 위한 모니터링 제품) 솔루션이 Elastic을 도입하여 어플리케이션, 시스템, 네트워크 및 스토리지 등 다양한 데이터를 분석하고 Machine Learning을 이용해 이상징후 탐지까지 활용한 사례입니다.&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="단상" /><summary type="html">Elasticsearch Machine Learning</summary></entry><entry><title type="html">VirtualBox Net network 사용하기</title><link href="https://lahuman.github.io/VirtualBox_NAT_network/" rel="alternate" type="text/html" title="VirtualBox Net network 사용하기" /><published>2018-04-27T00:00:00+09:00</published><updated>2018-04-27T00:00:00+09:00</updated><id>https://lahuman.github.io/VirtualBox_NAT_network</id><content type="html" xml:base="https://lahuman.github.io/VirtualBox_NAT_network/">&lt;h1 id=&quot;virtualbox-net-network-사용하기&quot;&gt;VirtualBox Net network 사용하기&lt;/h1&gt;
 
 &lt;p&gt;가상 환경에서 &lt;strong&gt;설정 &amp;gt; 네트워크 &amp;gt; NET 네트워크&lt;/strong&gt; 를 선택하면 이름이 없다는 오류가 난다.
 VirtualBox의 &lt;strong&gt;환경설정 &amp;gt; 네트워크 &amp;gt; 추가 &amp;gt; 이름 설정&lt;/strong&gt; 을 한후, 가상 환경에서 &lt;strong&gt;설정 &amp;gt; 네트워크 &amp;gt; NET 네트워크&lt;/strong&gt; 를 선택하면 이름을 선택할 수 있다.&lt;/p&gt;
@@ -191,37 +197,6 @@ config set requirepass p@ss$12E45
 &lt;p&gt;아이 없는 주말은 많이 외로웠다.&lt;/p&gt;
 
 &lt;h2 id=&quot;늙으니-놀아주는-사람도-없구나&quot;&gt;늙으니 놀아주는 사람도 없구나…&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">봄날씨에 아이들과 꽃놀이 가고 싶다.</summary></entry><entry><title type="html">SHELL] 디렉토리 구조 출력</title><link href="https://lahuman.github.io/shell_show_directory_structure/" rel="alternate" type="text/html" title="SHELL] 디렉토리 구조 출력" /><published>2018-04-02T00:00:00+09:00</published><updated>2018-04-02T00:00:00+09:00</updated><id>https://lahuman.github.io/shell_show_directory_structure</id><content type="html" xml:base="https://lahuman.github.io/shell_show_directory_structure/">&lt;h1 id=&quot;특정-디렉토리에서-구조를-출력-하는-방법&quot;&gt;특정 디렉토리에서 구조를 출력 하는 방법&lt;/h1&gt;
-
-&lt;p&gt;디렉토리의 구조를 출력 하는 방법은 2가지가 있다.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.computerhope.com/unix/tree.htm&quot;&gt;Tree&lt;/a&gt; 모듈을 설치 한다.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;tree 명령어는 많은 옵션을 제공하고 널리 사용되는 모듈이다.&lt;/p&gt;
-
-&lt;p&gt;다만 쉬운 설치를 위해서 인터넷이 되어야 한다.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Command 를 이용한 출력&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;find . -type d | sed -e &quot;s/[^-][^\/]*\//  |/g&quot; -e &quot;s/|\([^ ]\)/|-\1/&quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;설치가 필요 없고 단순하게 철력이 가능하다. 
-다만, 옵션이 없기 때문에 COMMAND를 조합 해야 한다.
-예를 들어 abc 디렉토리를 제외 하고 싶다면 다음과 같은 명령어를 실행 해야 한다.&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;find . -type d | grep -v abc | sed -e &quot;s/[^-][^\/]*\//  |/g&quot; -e &quot;s/|\([^ ]\)/|-\1/&quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;일회성으로 쓰기 좋다!&lt;/p&gt;
-
-&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.computerhope.com/unix/tree.htm&quot;&gt;Tree Command&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://askubuntu.com/questions/431251/how-to-print-the-directory-tree-in-terminal&quot;&gt;How to print the directory tree in terminal&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="python" /><category term="unzip" /><category term="rename" /><summary type="html">show directory structure</summary></entry><entry><title type="html">SHELL] 디렉토리 구조 출력</title><link href="https://lahuman.github.io/bash_tree/" rel="alternate" type="text/html" title="SHELL] 디렉토리 구조 출력" /><published>2018-04-02T00:00:00+09:00</published><updated>2018-04-02T00:00:00+09:00</updated><id>https://lahuman.github.io/bash_tree</id><content type="html" xml:base="https://lahuman.github.io/bash_tree/">&lt;h1 id=&quot;특정-디렉토리에서-구조를-출력-하는-방법&quot;&gt;특정 디렉토리에서 구조를 출력 하는 방법&lt;/h1&gt;
 
 &lt;p&gt;디렉토리의 구조를 출력 하는 방법은 2가지가 있다.&lt;/p&gt;
 
