@@ -1,4 +1,124 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-04-30T14:35:57+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">월요일 그리고 Elasticsearch 머신 러닝</title><link href="https://lahuman.github.io/20180430-phase/" rel="alternate" type="text/html" title="월요일 그리고 Elasticsearch 머신 러닝" /><published>2018-04-30T00:00:00+09:00</published><updated>2018-04-30T00:00:00+09:00</updated><id>https://lahuman.github.io/20180430-phase</id><content type="html" xml:base="https://lahuman.github.io/20180430-phase/">&lt;h1 id=&quot;elasticsearch를-통한-머신-러닝에-대한-내용이-정리-된-링크비디오&quot;&gt;Elasticsearch를 통한 머신 러닝에 대한 내용이 정리 된 링크(비디오)&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-05-10T15:57:58+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Centos 7.5에서 Python Multiprocess 좀비프로세스 문제</title><link href="https://lahuman.github.io/Centos7.5_python_multiprocess/" rel="alternate" type="text/html" title="Centos 7.5에서 Python Multiprocess 좀비프로세스 문제" /><published>2018-05-10T00:00:00+09:00</published><updated>2018-05-10T00:00:00+09:00</updated><id>https://lahuman.github.io/Centos7.5_python_multiprocess</id><content type="html" xml:base="https://lahuman.github.io/Centos7.5_python_multiprocess/">&lt;h1 id=&quot;centos-75에서-python-multiprocess-좀비-프로세스-문제&quot;&gt;CentOS 7.5에서 Python MultiProcess 좀비 프로세스 문제&lt;/h1&gt;
+
+&lt;h2 id=&quot;환경-정보&quot;&gt;환경 정보&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;OS : CentOS 7.5&lt;/li&gt;
+  &lt;li&gt;Language : Python 2.7.5&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;현상&quot;&gt;현상&lt;/h2&gt;
+&lt;p&gt;프로그램에서 불규칙적으로 Multiprocess가 종료 되지 않고 남아 있음.
+kill -9 {PID} 로 Multiprocess를 종료 시키면, 종료 시점으로 새로운 프로세스가 생성되며 실행 시간은 00:00 으로 변경없이 유지됨.&lt;/p&gt;
+
+&lt;h2 id=&quot;문제점&quot;&gt;문제점&lt;/h2&gt;
+&lt;p&gt;Multiprocess는 Memory 자원을 반환 하지 않고 계속 점유 되는 문제 발생&lt;/p&gt;
+
+&lt;h2 id=&quot;코드-샘플&quot;&gt;코드 샘플&lt;/h2&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;from multiprocessing import Pool
+
+def processing(arge):
+    while True:
+        print arge
+        time.sleep(10)
+
+if __name__ == '__main__':
+    while True:
+        try:
+            pool = Pool(processes=2)
+
+            results = pool.map(processing, [1,2,3,4,5,6,7,8,9])
+            pool.close()
+            pool.join()
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;임시-해결책&quot;&gt;임시 해결책&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;발등에 떨어진 불을 끄기 위한 임시 해결책 입니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;특정 시간 이상 좀비 프로세스로 돌고 있을 경우 강제로 kill 하는 프로그램 작성&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/usr/bin/python&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#-*- coding: utf-8 -*-&lt;/span&gt;
+
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;sys&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;sys&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getdefaultencoding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+&lt;span class=&quot;nb&quot;&gt;reload&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;sys&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;setdefaultencoding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'utf-8'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;sys&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getdefaultencoding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+
+
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;os&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;time&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;datetime&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;commands&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;re&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# python_path &amp;amp; name&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;python_path&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dirname&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;realpath&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;__file__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;python_name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;basename&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;realpath&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;__file__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# sleep&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#time_sleep_set	= 'day'	# time.sleep(day)&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#time_sleep_set	= 'min'	# time.sleep(min)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;time_sleep_set&lt;/span&gt;	&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'sec'&lt;/span&gt;	&lt;span class=&quot;c&quot;&gt;# time.sleep(sec)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;time_sleep_int&lt;/span&gt;	&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;
+
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
+
+	&lt;span class=&quot;n&quot;&gt;chk_kill_time&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;  &lt;span class=&quot;c&quot;&gt;#minutes&lt;/span&gt;
+
+	&lt;span class=&quot;n&quot;&gt;chk_proc_list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Process Name'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+
+	&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;chk_proc&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;chk_proc_list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+
+		&lt;span class=&quot;n&quot;&gt;pid_list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;commands&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getoutput&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;ps -eo pid,ppid,lstart,command | grep &quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;chk_proc&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot; | grep -v grep&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+		&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pid_list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;''&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+
+			&lt;span class=&quot;n&quot;&gt;time_chk&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;datetime&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;datetime&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;now&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;datetime&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;timedelta&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;minutes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;chk_kill_time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+			&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pid_time_cmd&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pid_list&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+				&lt;span class=&quot;n&quot;&gt;re_dst_str&lt;/span&gt;	&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pid_time_cmd&lt;/span&gt;
+
+				&lt;span class=&quot;n&quot;&gt;re_pattern&lt;/span&gt;	&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;r'^\s*(\d+)\s+(\d+)\s+(?:\w+)\s+(\w+)\s+(\d{1,2})\s+(\d\d):(\d\d):(\d\d)\s+(\d{4})\s+(.*)'&lt;/span&gt;
+				&lt;span class=&quot;n&quot;&gt;re_compile&lt;/span&gt;	&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;re&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;compile&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;re_pattern&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;re&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;I&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+				&lt;span class=&quot;n&quot;&gt;re_findall&lt;/span&gt;	&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;re_compile&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;findall&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;re_dst_str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+				&lt;span class=&quot;n&quot;&gt;re_findlen&lt;/span&gt;	&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;re_findall&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+				&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;re_findlen&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+
+
+					&lt;span class=&quot;n&quot;&gt;pid&lt;/span&gt;	&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;re_findall&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+					&lt;span class=&quot;n&quot;&gt;ppid&lt;/span&gt;	&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;re_findall&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+					&lt;span class=&quot;n&quot;&gt;time_m&lt;/span&gt;	&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;re_findall&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+					&lt;span class=&quot;n&quot;&gt;time_d&lt;/span&gt;	&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;re_findall&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+					&lt;span class=&quot;n&quot;&gt;time_h&lt;/span&gt;	&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;re_findall&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+					&lt;span class=&quot;n&quot;&gt;time_i&lt;/span&gt;	&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;re_findall&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+					&lt;span class=&quot;n&quot;&gt;time_s&lt;/span&gt;	&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;re_findall&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+					&lt;span class=&quot;n&quot;&gt;time_y&lt;/span&gt;	&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;re_findall&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+					&lt;span class=&quot;n&quot;&gt;cmd&lt;/span&gt;	&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;re_findall&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+
+					&lt;span class=&quot;n&quot;&gt;time_j&lt;/span&gt;	&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;time_y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'-'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;time_m&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'-'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;time_d&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;' '&lt;/span&gt;
+					&lt;span class=&quot;n&quot;&gt;time_j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;time_h&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;':'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;time_i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;':'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;time_s&lt;/span&gt;
+					&lt;span class=&quot;n&quot;&gt;time_j&lt;/span&gt;	&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;datetime&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;datetime&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;strptime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;time_j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Y-&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;b-&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;d &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;H:&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;M:&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;S'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+					&lt;span class=&quot;c&quot;&gt;# if ( ppid == '1' ): continue&lt;/span&gt;
+					&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;time_j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;time_chk&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+						&lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;system&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'kill -9 '&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pid&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;__name__&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'__main__'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+	&lt;span class=&quot;c&quot;&gt;# while True:&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;os-python-module-등의-환경적인-원인이-있을-수-있다고-생각은-하고-있다-추가적으로-python-version을-올리는-것에-대하여-고민-중이다&quot;&gt;OS, Python, Module 등의 환경적인 원인이 있을 수 있다고 생각은 하고 있다. 추가적으로 Python version을 올리는 것에 대하여 고민 중이다.&lt;/h2&gt;</content><author><name></name></author><category term="centos" /><category term="multiprocess" /><summary type="html">죽여도 살아난다.</summary></entry><entry><title type="html">월요일 그리고 Elasticsearch 머신 러닝</title><link href="https://lahuman.github.io/20180430-phase/" rel="alternate" type="text/html" title="월요일 그리고 Elasticsearch 머신 러닝" /><published>2018-04-30T00:00:00+09:00</published><updated>2018-04-30T00:00:00+09:00</updated><id>https://lahuman.github.io/20180430-phase</id><content type="html" xml:base="https://lahuman.github.io/20180430-phase/">&lt;h1 id=&quot;elasticsearch를-통한-머신-러닝에-대한-내용이-정리-된-링크비디오&quot;&gt;Elasticsearch를 통한 머신 러닝에 대한 내용이 정리 된 링크(비디오)&lt;/h1&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.elastic.co/kr/webinars/event-logs-in-elasticsearch-and-machine-learning&quot;&gt;Elasticsearch 머신 러닝을 이용한 Web Access 로그 분석&lt;/a&gt;&lt;/li&gt;
@@ -50,7 +170,7 @@ $ sudo /etc/init.d/networking restart
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://printf.kr/archives/285&quot;&gt;Virtualbox 네트워크 종류와 설정 방법&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;http://blog.hkwon.me/virtualbox-hoseuteu-jeonyong-eodaebteo-seoljeong-2/&quot;&gt;VirtualBox 호스트 전용 어댑터 설정&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="단상" /><summary type="html">가상환경끼리 통신 가능하게 만들기</summary></entry><entry><title type="html">내가 변해야 남도 변한다.</title><link href="https://lahuman.github.io/20180425-phase/" rel="alternate" type="text/html" title="내가 변해야 남도 변한다." /><published>2018-04-25T00:00:00+09:00</published><updated>2018-04-25T00:00:00+09:00</updated><id>https://lahuman.github.io/20180425-phase</id><content type="html" xml:base="https://lahuman.github.io/20180425-phase/">&lt;h1 id=&quot;다른-사람이-변하기를-원한다면-나부터-변하자&quot;&gt;다른 사람이 변하기를 원한다면, 나부터 변하자&lt;/h1&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="virtualbox" /><summary type="html">가상환경끼리 통신 가능하게 만들기</summary></entry><entry><title type="html">내가 변해야 남도 변한다.</title><link href="https://lahuman.github.io/20180425-phase/" rel="alternate" type="text/html" title="내가 변해야 남도 변한다." /><published>2018-04-25T00:00:00+09:00</published><updated>2018-04-25T00:00:00+09:00</updated><id>https://lahuman.github.io/20180425-phase</id><content type="html" xml:base="https://lahuman.github.io/20180425-phase/">&lt;h1 id=&quot;다른-사람이-변하기를-원한다면-나부터-변하자&quot;&gt;다른 사람이 변하기를 원한다면, 나부터 변하자&lt;/h1&gt;
 
 &lt;p&gt;요즘 가지는 고민은 &lt;strong&gt;어떻게 효율적으로 협업 할 것인가?&lt;/strong&gt; 이다.&lt;/p&gt;
 
@@ -196,35 +316,4 @@ config set requirepass p@ss$12E45
 
 &lt;p&gt;아이 없는 주말은 많이 외로웠다.&lt;/p&gt;
 
-&lt;h2 id=&quot;늙으니-놀아주는-사람도-없구나&quot;&gt;늙으니 놀아주는 사람도 없구나…&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">봄날씨에 아이들과 꽃놀이 가고 싶다.</summary></entry><entry><title type="html">SHELL] 디렉토리 구조 출력</title><link href="https://lahuman.github.io/shell_show_directory_structure/" rel="alternate" type="text/html" title="SHELL] 디렉토리 구조 출력" /><published>2018-04-02T00:00:00+09:00</published><updated>2018-04-02T00:00:00+09:00</updated><id>https://lahuman.github.io/shell_show_directory_structure</id><content type="html" xml:base="https://lahuman.github.io/shell_show_directory_structure/">&lt;h1 id=&quot;특정-디렉토리에서-구조를-출력-하는-방법&quot;&gt;특정 디렉토리에서 구조를 출력 하는 방법&lt;/h1&gt;
-
-&lt;p&gt;디렉토리의 구조를 출력 하는 방법은 2가지가 있다.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.computerhope.com/unix/tree.htm&quot;&gt;Tree&lt;/a&gt; 모듈을 설치 한다.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;tree 명령어는 많은 옵션을 제공하고 널리 사용되는 모듈이다.&lt;/p&gt;
-
-&lt;p&gt;다만 쉬운 설치를 위해서 인터넷이 되어야 한다.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Command 를 이용한 출력&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;find . -type d | sed -e &quot;s/[^-][^\/]*\//  |/g&quot; -e &quot;s/|\([^ ]\)/|-\1/&quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;설치가 필요 없고 단순하게 철력이 가능하다. 
-다만, 옵션이 없기 때문에 COMMAND를 조합 해야 한다.
-예를 들어 abc 디렉토리를 제외 하고 싶다면 다음과 같은 명령어를 실행 해야 한다.&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;find . -type d | grep -v abc | sed -e &quot;s/[^-][^\/]*\//  |/g&quot; -e &quot;s/|\([^ ]\)/|-\1/&quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;일회성으로 쓰기 좋다!&lt;/p&gt;
-
-&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.computerhope.com/unix/tree.htm&quot;&gt;Tree Command&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://askubuntu.com/questions/431251/how-to-print-the-directory-tree-in-terminal&quot;&gt;How to print the directory tree in terminal&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="python" /><category term="unzip" /><category term="rename" /><summary type="html">show directory structure</summary></entry></feed>
+&lt;h2 id=&quot;늙으니-놀아주는-사람도-없구나&quot;&gt;늙으니 놀아주는 사람도 없구나…&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">봄날씨에 아이들과 꽃놀이 가고 싶다.</summary></entry></feed>
