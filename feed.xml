@@ -1,4 +1,17 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-05-10T15:57:58+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Centos 7.5에서 Python Multiprocess 좀비프로세스 문제</title><link href="https://lahuman.github.io/Centos7.5_python_multiprocess/" rel="alternate" type="text/html" title="Centos 7.5에서 Python Multiprocess 좀비프로세스 문제" /><published>2018-05-10T00:00:00+09:00</published><updated>2018-05-10T00:00:00+09:00</updated><id>https://lahuman.github.io/Centos7.5_python_multiprocess</id><content type="html" xml:base="https://lahuman.github.io/Centos7.5_python_multiprocess/">&lt;h1 id=&quot;centos-75에서-python-multiprocess-좀비-프로세스-문제&quot;&gt;CentOS 7.5에서 Python MultiProcess 좀비 프로세스 문제&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-05-15T17:38:06+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">신경 끄기의 기술</title><link href="https://lahuman.github.io/20180515-phase/" rel="alternate" type="text/html" title="신경 끄기의 기술" /><published>2018-05-15T00:00:00+09:00</published><updated>2018-05-15T00:00:00+09:00</updated><id>https://lahuman.github.io/20180515-phase</id><content type="html" xml:base="https://lahuman.github.io/20180515-phase/">&lt;h1 id=&quot;신경-끄기의-기술&quot;&gt;신경 끄기의 기술&lt;/h1&gt;
+
+&lt;p&gt;신경 끄기의 기술, 마크 맨슨의 책을 읽고 있다.&lt;/p&gt;
+
+&lt;p&gt;포기 해야 할 일(몸짱 되기와 같은)은 신경 쓰지 말고 정말 중요한 것만 신경 쓰라는 내용이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;읽으면서 내가 너무 힘들게 사는건 아닌가?&lt;/strong&gt; 라는 생각을 했다.&lt;/p&gt;
+
+&lt;p&gt;난 특별하지 않다. 평범하다 그것을 받아 들이고, 내게 주어진 일 중 중요한 일에 더 집중하자.&lt;/p&gt;
+
+&lt;h2 id=&quot;참조&quot;&gt;참조&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.yes24.com/24/goods/54233937&quot;&gt;신경 끄기의 기술&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="단상" /><summary type="html">마크 맨슨의 책</summary></entry><entry><title type="html">Centos 7.5에서 Python Multiprocess 좀비프로세스 문제</title><link href="https://lahuman.github.io/Centos7.5_python_multiprocess/" rel="alternate" type="text/html" title="Centos 7.5에서 Python Multiprocess 좀비프로세스 문제" /><published>2018-05-10T00:00:00+09:00</published><updated>2018-05-10T00:00:00+09:00</updated><id>https://lahuman.github.io/Centos7.5_python_multiprocess</id><content type="html" xml:base="https://lahuman.github.io/Centos7.5_python_multiprocess/">&lt;h1 id=&quot;centos-75에서-python-multiprocess-좀비-프로세스-문제&quot;&gt;CentOS 7.5에서 Python MultiProcess 좀비 프로세스 문제&lt;/h1&gt;
 
 &lt;h2 id=&quot;환경-정보&quot;&gt;환경 정보&lt;/h2&gt;
 &lt;ul&gt;
@@ -306,14 +319,4 @@ config set requirepass p@ss$12E45
 &lt;h3 id=&quot;참고&quot;&gt;참고&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/7537905/redis-set-a-password-for-redis&quot;&gt;redis: set a password for redis&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="REDIS" /><summary type="html">REDIS-CLI 명령어에서 설정하는 방법</summary></entry><entry><title type="html">오늘 날씨가 너무 좋다.</title><link href="https://lahuman.github.io/20180409-phase/" rel="alternate" type="text/html" title="오늘 날씨가 너무 좋다." /><published>2018-04-09T00:00:00+09:00</published><updated>2018-04-09T00:00:00+09:00</updated><id>https://lahuman.github.io/20180409-phase</id><content type="html" xml:base="https://lahuman.github.io/20180409-phase/">&lt;h1 id=&quot;봄바람이-불고-날씨가-좋다&quot;&gt;봄바람이 불고 날씨가 좋다.&lt;/h1&gt;
-
-&lt;p&gt;약간 쌀쌀 하긴 하지만 오랜만에 미세 먼지 없이 좋은 날이다.&lt;/p&gt;
-
-&lt;p&gt;오늘 같이 날도 좋고 벚꽃이 만발한날은 아이들과 함께 봄 나들이 가고 싶다.&lt;/p&gt;
-
-&lt;p&gt;주말동안 아이들과 아내가 1박 2일로 여행을 갔다.&lt;/p&gt;
-
-&lt;p&gt;아이 없는 주말은 많이 외로웠다.&lt;/p&gt;
-
-&lt;h2 id=&quot;늙으니-놀아주는-사람도-없구나&quot;&gt;늙으니 놀아주는 사람도 없구나…&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">봄날씨에 아이들과 꽃놀이 가고 싶다.</summary></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><category term="REDIS" /><summary type="html">REDIS-CLI 명령어에서 설정하는 방법</summary></entry></feed>
