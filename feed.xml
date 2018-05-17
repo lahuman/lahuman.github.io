@@ -1,4 +1,103 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-05-15T17:38:06+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">신경 끄기의 기술</title><link href="https://lahuman.github.io/20180515-phase/" rel="alternate" type="text/html" title="신경 끄기의 기술" /><published>2018-05-15T00:00:00+09:00</published><updated>2018-05-15T00:00:00+09:00</updated><id>https://lahuman.github.io/20180515-phase</id><content type="html" xml:base="https://lahuman.github.io/20180515-phase/">&lt;h1 id=&quot;신경-끄기의-기술&quot;&gt;신경 끄기의 기술&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-05-17T14:58:20+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Python]paramiko 모듈에서 su 명령어로 계정 전환</title><link href="https://lahuman.github.io/python_paramiko_sudo/" rel="alternate" type="text/html" title="Python]paramiko 모듈에서 su 명령어로 계정 전환" /><published>2018-05-17T00:00:00+09:00</published><updated>2018-05-17T00:00:00+09:00</updated><id>https://lahuman.github.io/python_paramiko_sudo</id><content type="html" xml:base="https://lahuman.github.io/python_paramiko_sudo/">&lt;h1 id=&quot;pythonparamiko-모듈에서-su-명령어로-계정-전환&quot;&gt;Python]paramiko 모듈에서 su 명령어로 계정 전환&lt;/h1&gt;
+
+&lt;p&gt;python에서 ssh에 연결 후 command를 실행하기 위해 사용하는 &lt;a href=&quot;http://www.paramiko.org/&quot;&gt;paramiko&lt;/a&gt; 모듈에서 간단하게 command를 실행하는 코드는 다음과 같다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import paramiko
+
+ssh_client = paramiko.SSHClient()
+ssh_client.set_missing_host_key_policy(paramiko.AutoAddPolicy()) # host keys 관련 설정
+ssh_client.connect('127.0.0.1', username='lahuman', password='pass')
+
+stdin, stdout, stderr = ssh_client.exec_command('ls')
+stdin.flush()
+time.sleep(1)
+print stdout.read()
+
+## 결과
+lahuman
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.ssh.com/ssh/host-key&quot;&gt;host kyes&lt;/a&gt; 관련 설정은 ssh로 다른 서버로 접근시, key 값을 저장할 지에 대한 처리 이다. paramiko.AutoAddPolicy() 로 설정시 자동으로 yes 처리 된다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;ssh_client.exec_command(cmd)&lt;/strong&gt;를 이용할 경우 매 명령어 마다 새로운 세션이 부여되어, 다른 계정으로 전환 후 작업을 진행 할 수 없다.&lt;/p&gt;
+
+&lt;p&gt;하나의 세션에서 작업을 연속되게 진행하고 싶다면 &lt;strong&gt;channel = ssh_client.invoke_shell()&lt;/strong&gt;를 이용하면 된다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import paramiko
+
+def main():
+    ssh_client = None
+    recv_size = 9999
+    try:
+		ssh_client = paramiko.SSHClient()
+		ssh_client.set_missing_host_key_policy(paramiko.AutoAddPolicy()) # host keys 관련 설정
+		ssh_client.connect('127.0.0.1', username='lahuman', password='pass')
+
+        channel = ssh_client.invoke_shell()
+        channel.send('su -\n')
+        outdata, errdata = waitStrems(channel)
+        print outdata
+
+        channel.send('pass\n')
+        outdata, errdata = waitStrems(channel)
+        print outdata
+
+        channel.send('whoami\n')
+        outdata, errdata = waitStrems(channel)
+        print outdata
+
+    finally:
+        if ssh_client is not None:
+            ssh_client.close()
+
+
+def waitStrems(chan):
+    time.sleep(1)
+    outdata=errdata = &quot;&quot;
+
+    while chan.recv_ready():
+        outdata += chan.recv(1000)
+    while chan.recv_stderr_ready():
+        errdata += chan.recv_stderr(1000)
+
+    return outdata, errdata
+
+if __name__ == &quot;__main__&quot;:
+    main()
+
+
+## 결과
+Last login: Thu May 17 01:34:37 2018 from 10.0.2.2
+su -
+[lahuman@localhost ~]$ su -
+Password: 
+
+Last login: Thu May 17 01:35:10 EDT 2018
+[root@localhost ~]# 
+whoami
+root
+[root@localhost ~]# 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;세션을 유지한 상태로 명령어를 실행하기 위해서는 channel을 가져오고 channel을 계속 유지 해야 한다.&lt;/p&gt;
+
+&lt;p&gt;각 명령의 결과가 문제 없이 종료 되었는지는&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; while chan.recv_ready():
+        outdata += chan.recv(1000)
+    while chan.recv_stderr_ready():
+        errdata += chan.recv_stderr(1000)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;를 통해서 확인 한다.&lt;/p&gt;
+
+&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.paramiko.org/&quot;&gt;paramiko&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.ssh.com/ssh/host-key&quot;&gt;host kyes&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="python" /><category term="paramiko" /><summary type="html">하나의 ssh 세션에서 작업 하기</summary></entry><entry><title type="html">신경 끄기의 기술</title><link href="https://lahuman.github.io/20180515-phase/" rel="alternate" type="text/html" title="신경 끄기의 기술" /><published>2018-05-15T00:00:00+09:00</published><updated>2018-05-15T00:00:00+09:00</updated><id>https://lahuman.github.io/20180515-phase</id><content type="html" xml:base="https://lahuman.github.io/20180515-phase/">&lt;h1 id=&quot;신경-끄기의-기술&quot;&gt;신경 끄기의 기술&lt;/h1&gt;
 
 &lt;p&gt;신경 끄기의 기술, 마크 맨슨의 책을 읽고 있다.&lt;/p&gt;
 
@@ -302,21 +401,4 @@ sudo cp pycrypto-2.6.1.tar.gz /usr/local/etc/QRadarAppSDK/src_packages/
 &lt;h1 id=&quot;meant-to-be&quot;&gt;Meant to Be&lt;/h1&gt;
 &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;//www.youtube.com/embed/1_O84Zl3TJY&quot; frameborder=&quot;0&quot; allow=&quot;autoplay; encrypted-media&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
 
-&lt;h1 id=&quot;어딘가-여행을-가고-싶은-노래다&quot;&gt;어딘가 여행을 가고 싶은 노래다.&lt;/h1&gt;</content><author><name></name></author><category term="단상" /><summary type="html">가사는 잘 모르지만 멜로디가 좋다.</summary></entry><entry><title type="html">REDIS-CLUSTER CMD에서 requirepass 설정</title><link href="https://lahuman.github.io/REDIS-CLI-PASSWORD/" rel="alternate" type="text/html" title="REDIS-CLUSTER CMD에서 requirepass 설정" /><published>2018-04-10T00:00:00+09:00</published><updated>2018-04-10T00:00:00+09:00</updated><id>https://lahuman.github.io/REDIS-CLI-PASSWORD</id><content type="html" xml:base="https://lahuman.github.io/REDIS-CLI-PASSWORD/">&lt;h1 id=&quot;이미-기동된-redis에서-pass-설정하기&quot;&gt;이미 기동된 REDIS에서 PASS 설정하기&lt;/h1&gt;
-
-&lt;p&gt;REDIS 초기 버젼에서 requirepass 를 설정할 경우 REDIS Cluster가 제대로 올라오지 않는다.&lt;/p&gt;
-
-&lt;p&gt;어쩔수 없이 PASSWORD를 제외하고 기동후 CMD 명령어를 이용해서 비밀 번호를 설정한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$&amp;gt; ./redis-cli -c -h $HOST -p $PORT
-config set requirepass p@ss$12E45
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;위의 명령어는 동작중인 REDIS(포트별)에서 모두 설정하여야 한다.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;중요한 것은 REDIS를 재기동 할때 마다 위의 명령을 실행하여야 한다.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;참고&quot;&gt;참고&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/7537905/redis-set-a-password-for-redis&quot;&gt;redis: set a password for redis&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="REDIS" /><summary type="html">REDIS-CLI 명령어에서 설정하는 방법</summary></entry></feed>
+&lt;h1 id=&quot;어딘가-여행을-가고-싶은-노래다&quot;&gt;어딘가 여행을 가고 싶은 노래다.&lt;/h1&gt;</content><author><name></name></author><category term="단상" /><summary type="html">가사는 잘 모르지만 멜로디가 좋다.</summary></entry></feed>
