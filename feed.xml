@@ -1,4 +1,14 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-05-18T10:10:42+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Python]paramiko 모듈에서 su 명령어로 계정 전환</title><link href="https://lahuman.github.io/python_paramiko_sudo/" rel="alternate" type="text/html" title="Python]paramiko 모듈에서 su 명령어로 계정 전환" /><published>2018-05-17T00:00:00+09:00</published><updated>2018-05-17T00:00:00+09:00</updated><id>https://lahuman.github.io/python_paramiko_sudo</id><content type="html" xml:base="https://lahuman.github.io/python_paramiko_sudo/">&lt;h1 id=&quot;pythonparamiko-모듈에서-su-명령어로-계정-전환&quot;&gt;Python]paramiko 모듈에서 su 명령어로 계정 전환&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-05-25T12:48:08+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">사랑한다는 말보다 일하라</title><link href="https://lahuman.github.io/20180525/" rel="alternate" type="text/html" title="사랑한다는 말보다 일하라" /><published>2018-05-25T00:00:00+09:00</published><updated>2018-05-25T00:00:00+09:00</updated><id>https://lahuman.github.io/20180525</id><content type="html" xml:base="https://lahuman.github.io/20180525/">&lt;h1 id=&quot;백마디-말보다-한가지-일해주는게-좋다&quot;&gt;백마디 말보다 한가지 일해주는게 좋다.&lt;/h1&gt;
+
+&lt;p&gt;아내가 나에게 자주 하는 말이다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;사랑해?? 사랑하면 나를 위해 일해줘! 말로만 하는 사랑 말고 내일을 도와 주고 함께 해줘!&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;가사로 힘든 아내를 위해 지금 오징어 얼굴로 웃어 주기 보다, 설겆이와 청소를 하자!&lt;/p&gt;
+
+&lt;h2 id=&quot;사랑받는-남편이-되자&quot;&gt;사랑받는 남편이 되자&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">정수연 여사의 말씀</summary></entry><entry><title type="html">Python]paramiko 모듈에서 su 명령어로 계정 전환</title><link href="https://lahuman.github.io/python_paramiko_sudo/" rel="alternate" type="text/html" title="Python]paramiko 모듈에서 su 명령어로 계정 전환" /><published>2018-05-17T00:00:00+09:00</published><updated>2018-05-17T00:00:00+09:00</updated><id>https://lahuman.github.io/python_paramiko_sudo</id><content type="html" xml:base="https://lahuman.github.io/python_paramiko_sudo/">&lt;h1 id=&quot;pythonparamiko-모듈에서-su-명령어로-계정-전환&quot;&gt;Python]paramiko 모듈에서 su 명령어로 계정 전환&lt;/h1&gt;
 
 &lt;p&gt;python에서 ssh에 연결 후 command를 실행하기 위해 사용하는 &lt;a href=&quot;http://www.paramiko.org/&quot;&gt;paramiko&lt;/a&gt; 모듈에서 간단하게 command를 실행하는 코드는 다음과 같다.&lt;/p&gt;
 
@@ -395,10 +405,4 @@ sudo cp pycrypto-2.6.1.tar.gz /usr/local/etc/QRadarAppSDK/src_packages/
 
 &lt;p&gt;사고로 인하여 늦게 도착한 버스를 차고 출근하니 당연하게 지각이다.&lt;/p&gt;
 
-&lt;p&gt;아침에 팀장이 해달라고 요청한 개똥같은 일이 들어오고.. 월요일 시작이 안좋다.&lt;/p&gt;</content><author><name></name></author><category term="단상" /><summary type="html">출근 버스는 사로고 늦고, 아침부터 일은 개똥같이 들어온다.</summary></entry><entry><title type="html">요즘 즐겨 듣는 팝송</title><link href="https://lahuman.github.io/20180412-phase/" rel="alternate" type="text/html" title="요즘 즐겨 듣는 팝송" /><published>2018-04-12T00:00:00+09:00</published><updated>2018-04-12T00:00:00+09:00</updated><id>https://lahuman.github.io/20180412-phase</id><content type="html" xml:base="https://lahuman.github.io/20180412-phase/">&lt;h1 id=&quot;havana&quot;&gt;HAVANA&lt;/h1&gt;
-&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;//www.youtube.com/embed/HCjNJDNzw8Y&quot; frameborder=&quot;0&quot; allow=&quot;autoplay; encrypted-media&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
-
-&lt;h1 id=&quot;meant-to-be&quot;&gt;Meant to Be&lt;/h1&gt;
-&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;//www.youtube.com/embed/1_O84Zl3TJY&quot; frameborder=&quot;0&quot; allow=&quot;autoplay; encrypted-media&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
-
-&lt;h1 id=&quot;어딘가-여행을-가고-싶은-노래다&quot;&gt;어딘가 여행을 가고 싶은 노래다.&lt;/h1&gt;</content><author><name></name></author><category term="단상" /><summary type="html">가사는 잘 모르지만 멜로디가 좋다.</summary></entry></feed>
+&lt;p&gt;아침에 팀장이 해달라고 요청한 개똥같은 일이 들어오고.. 월요일 시작이 안좋다.&lt;/p&gt;</content><author><name></name></author><category term="단상" /><summary type="html">출근 버스는 사로고 늦고, 아침부터 일은 개똥같이 들어온다.</summary></entry></feed>
