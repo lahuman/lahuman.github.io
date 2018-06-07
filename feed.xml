@@ -1,4 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-05-28T14:43:03+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">MongoDB]설치와 권한 설정</title><link href="https://lahuman.github.io/mongodb_install_auth/" rel="alternate" type="text/html" title="MongoDB]설치와 권한 설정" /><published>2018-05-28T00:00:00+09:00</published><updated>2018-05-28T00:00:00+09:00</updated><id>https://lahuman.github.io/mongodb_install_auth</id><content type="html" xml:base="https://lahuman.github.io/mongodb_install_auth/">&lt;h1 id=&quot;mongodb-설치--권한-설정&quot;&gt;MongoDB] 설치 &amp;amp; 권한 설정&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-06-07T16:09:25+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">바쁘게 살고 있는 나에게 정말 필요할까?</title><link href="https://lahuman.github.io/20180607-phase/" rel="alternate" type="text/html" title="바쁘게 살고 있는 나에게 정말 필요할까?" /><published>2018-06-07T00:00:00+09:00</published><updated>2018-06-07T00:00:00+09:00</updated><id>https://lahuman.github.io/20180607-phase</id><content type="html" xml:base="https://lahuman.github.io/20180607-phase/">&lt;h1 id=&quot;난-욕심이-많다&quot;&gt;난 욕심이 많다.&lt;/h1&gt;
+
+&lt;p&gt;그래서 정말 힘들다. 욕심을 다 채우지도 못하는 일도 종종 있다.&lt;/p&gt;
+
+&lt;p&gt;다만, 살아가면서 느낀 확실한 건! 멈추지 않으면 진행중이라는 거다.&lt;/p&gt;
+
+&lt;p&gt;남이 아무리 실패라고 안된다고 하더라도 내가 멈추지 않으면 아직 끝난게 아니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;가끔은-내가-왜이러나-싶을때도-있다&quot;&gt;가끔은 내가 왜이러나 싶을때도 있다.&lt;/h3&gt;</content><author><name></name></author><category term="단상" /><summary type="html">욕심은 많고 능력은 없고... 몸만 고생 중</summary></entry><entry><title type="html">MongoDB]설치와 권한 설정</title><link href="https://lahuman.github.io/mongodb_install_auth/" rel="alternate" type="text/html" title="MongoDB]설치와 권한 설정" /><published>2018-05-28T00:00:00+09:00</published><updated>2018-05-28T00:00:00+09:00</updated><id>https://lahuman.github.io/mongodb_install_auth</id><content type="html" xml:base="https://lahuman.github.io/mongodb_install_auth/">&lt;h1 id=&quot;mongodb-설치--권한-설정&quot;&gt;MongoDB] 설치 &amp;amp; 권한 설정&lt;/h1&gt;
 
 &lt;p&gt;CentOS 7에서 MongoDB를 설치하고 권한을 설정하여 권한이 없는 사용자는 조회/등록/수정/삭제 기능을 사용하지 못하게 한다.
 MongoDB는 3.6 버젼 기준으로 설명한다.&lt;/p&gt;
@@ -477,58 +485,4 @@ $ sudo /etc/init.d/networking restart
 남에게 시키는 것과
 나도 함께 이끄는 것
 그 한 끗 차가 큰 변화를 만들 것이다.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="단상" /><summary type="html">개발팀에서의 수준과 경영진에서의 수준은 다르다.</summary></entry><entry><title type="html">QRadar SDK Module 교체</title><link href="https://lahuman.github.io/qradar_app_sdk_module_change/" rel="alternate" type="text/html" title="QRadar SDK Module 교체" /><published>2018-04-17T00:00:00+09:00</published><updated>2018-04-17T00:00:00+09:00</updated><id>https://lahuman.github.io/qradar_app_sdk_module_change</id><content type="html" xml:base="https://lahuman.github.io/qradar_app_sdk_module_change/">&lt;h1 id=&quot;qradar-sdk를-ubuntu-16x에서-사용하기-위한-모듈-교체-작업&quot;&gt;QRadar SDK를 Ubuntu 16.x에서 사용하기 위한 모듈 교체 작업&lt;/h1&gt;
-
-&lt;p&gt;먼저 &lt;a href=&quot;https://www.ibm.com/support/knowledgecenter/en/SS42VS_7.3.0/com.ibm.appfw.doc/t_appframework_SDKinstall.html&quot;&gt;QRadar SDK&lt;/a&gt;를 받아야 한다.&lt;/p&gt;
-
-&lt;p&gt;설치는 간단하게 압축을 해제 하고 install.sh 을 실행하면된다.&lt;/p&gt;
-
-&lt;p&gt;설치 하고 나서 이후 의존성 문제로 &lt;strong&gt;qradar_app_creator&lt;/strong&gt; 명령어를 실행하면 오류가 발생한다.&lt;/p&gt;
-
-&lt;p&gt;Python 버젼은 2.7.9 이상이라고 되어 있지만 기본적으로 2.7.15가 설치 되어 있다. 상위 버젼이면 호환성에 문제가 없을 것이라 생각했지만, 모듈 오류가 많이 발생하므로 2.7.9를 설치하자&lt;/p&gt;
-
-&lt;p&gt;Python 설치에 필요한 모듈을 함께 설치 한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get install python-pip python-dev
-sudo apt-get install build-essential
-sudo apt-get install libreadline-gplv2-dev libncursesw5-dev libssl-dev libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev
-
-wget https://www.python.org/ftp/python/2.7.9/Python-2.7.9.tgz
-tar -xvf Python-2.7.9.tgz
-cd Python-2.7.9/
- ./configure --enable-unicode=ucs4  # 추후 pycrypto 모듈 관련 오류 발생을 예방하기 위해 --enable-unicode=ucs4  처리를 한다.
-make
-sudo make install
-sudo shutdown now -r
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;qradar_app_creator&lt;/strong&gt; 명령어를 입력하면 몇개의 모듈이 해당 시스템을 지원하지 않는다는 메시지를 확인 할수 있다.&lt;/p&gt;
-
-&lt;p&gt;관련해서 pip download 를 이용해 해당 모듈을 수동으로 교체 한다.&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip download cffi==1.11.5
-sudo cp cffi-1.11.5-cp27-cp27mu-manylinux1_x86_64.whl /usr/local/etc/QRadarAppSDK/src_packages/
-
-pip download cryptography==1.8.1
-sudo cp cryptography-1.8.1.tar.gz /usr/local/etc/QRadarAppSDK/src_packages/
-
-pip download pycrypto==2.6.1
-sudo cp pycrypto-2.6.1.tar.gz /usr/local/etc/QRadarAppSDK/src_packages/
-
-# 더 있을 경우 pip download를 이용해서 받아 /usr/local/etc/QRadarAppSDK/src_packages/로 옮긴다.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;마지막으로 실행 스크립트에서 교체된 모듈의 이름을 변경한다.&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo vi /usr/local/bin/qradar_app_creator
-
-# 모듈 명을 바뀐 파일로 변경하면 된다.
-&quot;|cffi-1.11.5-cp27-cp27mu-manylinux1_x86_64.whl|cffi-1.11.5-cp27-cp27mu-manylinux1_x86_64.whl|cffi-1.11.5-cp27-cp27mu-manylinux1_x86_64.whl|cffi-1.11.5-cp27-cp27mu-manylinux1_x86_64.whl|workspace&quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;모듈 교체는 어려운 작업은 아니지만, 하나한 확인해야 하므로 손이 많이 간다.&lt;/p&gt;
-
-&lt;h2 id=&quot;참고-주소&quot;&gt;참고 주소&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.ibm.com/support/knowledgecenter/en/SS42VS_7.3.0/com.ibm.appfw.doc/t_appframework_SDKinstall.html&quot;&gt;QRadar Installing the SDK&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://communities.intel.com/thread/96384&quot;&gt;Python Install&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="QRadar" /><category term="ubuntu" /><summary type="html">Ubuntu 16.x 에서 QRradar SDK 사용하기</summary></entry></feed>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="단상" /><summary type="html">개발팀에서의 수준과 경영진에서의 수준은 다르다.</summary></entry></feed>
