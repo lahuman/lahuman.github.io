@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-06-07T16:09:25+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">바쁘게 살고 있는 나에게 정말 필요할까?</title><link href="https://lahuman.github.io/20180607-phase/" rel="alternate" type="text/html" title="바쁘게 살고 있는 나에게 정말 필요할까?" /><published>2018-06-07T00:00:00+09:00</published><updated>2018-06-07T00:00:00+09:00</updated><id>https://lahuman.github.io/20180607-phase</id><content type="html" xml:base="https://lahuman.github.io/20180607-phase/">&lt;h1 id=&quot;난-욕심이-많다&quot;&gt;난 욕심이 많다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-06-11T10:33:12+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">이번주 수요일은 투표하는 날!</title><link href="https://lahuman.github.io/20180611-phase/" rel="alternate" type="text/html" title="이번주 수요일은 투표하는 날!" /><published>2018-06-11T00:00:00+09:00</published><updated>2018-06-11T00:00:00+09:00</updated><id>https://lahuman.github.io/20180611-phase</id><content type="html" xml:base="https://lahuman.github.io/20180611-phase/">&lt;h1 id=&quot;아직까지-투표-안한적이-없다&quot;&gt;아직까지 투표 안한적이 없다.&lt;/h1&gt;
+
+&lt;h1 id=&quot;소중한-내표를-꼭-행사-하자&quot;&gt;소중한 내표를 꼭 행사 하자!&lt;/h1&gt;</content><author><name></name></author><category term="단상" /><summary type="html">소중한 내 표를 행사하자!</summary></entry><entry><title type="html">바쁘게 살고 있는 나에게 정말 필요할까?</title><link href="https://lahuman.github.io/20180607-phase/" rel="alternate" type="text/html" title="바쁘게 살고 있는 나에게 정말 필요할까?" /><published>2018-06-07T00:00:00+09:00</published><updated>2018-06-07T00:00:00+09:00</updated><id>https://lahuman.github.io/20180607-phase</id><content type="html" xml:base="https://lahuman.github.io/20180607-phase/">&lt;h1 id=&quot;난-욕심이-많다&quot;&gt;난 욕심이 많다.&lt;/h1&gt;
 
 &lt;p&gt;그래서 정말 힘들다. 욕심을 다 채우지도 못하는 일도 종종 있다.&lt;/p&gt;
 
@@ -451,38 +453,4 @@ $ sudo /etc/init.d/networking restart
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;많은 깨닳음이 있는 답변이었다.&lt;/p&gt;</content><author><name></name></author><category term="단상" /><summary type="html">다른 사람이 변하기를 원한다면, 나부터 변하자</summary></entry><entry><title type="html">개발 수준에 대한 단상</title><link href="https://lahuman.github.io/20180424-phase/" rel="alternate" type="text/html" title="개발 수준에 대한 단상" /><published>2018-04-24T00:00:00+09:00</published><updated>2018-04-24T00:00:00+09:00</updated><id>https://lahuman.github.io/20180424-phase</id><content type="html" xml:base="https://lahuman.github.io/20180424-phase/">&lt;h1 id=&quot;쿠팡에-다니시는-배성혁님이-코틀린-세션에서-하신-말씀&quot;&gt;쿠팡에 다니시는 배성혁님이 코틀린 세션에서 하신 말씀!&lt;/h1&gt;
-
-&lt;p&gt;아쉽게도 올해 KSUG참석은 하지 못하였고, 다녀오신 분들이 SNS에 올리는 내용만 주어 담고 있다.&lt;/p&gt;
-
-&lt;p&gt;오늘 본 짧은 내용은 개발 수준에 대한 내용이었다. 경영진과 개발팀 간의 간격이 좁혀지긴 사실 어려울 것으로 생각된다.&lt;/p&gt;
-
-&lt;p&gt;하지만 &lt;strong&gt;팀이 무엇인지에 대한 고찰&lt;/strong&gt;과 &lt;strong&gt;나에 대한 고찰&lt;/strong&gt;을 하게 된 글귀다.&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;남에게 시키는 것과 나도 함께 이끄는 것 그 한 끗 차가 큰 변화를 만들 것이다.&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h2 id=&quot;쿠팡-배성혁님-글귀&quot;&gt;쿠팡 배성혁님 글귀&lt;/h2&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;개발 조직은 
-최하위 개발자에게 
-수준을 맞춰줘야 한다.
-
-경영진은
-최상위 인재에게
-수준을 맞춘다.
-
-‘그래서 잘 안된다’
-
-팀이 무엇인지
-잘 표현한 말인 듯
-
-남에게 시키는 것과
-나도 함께 이끄는 것
-그 한 끗 차가 큰 변화를 만들 것이다.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="단상" /><summary type="html">개발팀에서의 수준과 경영진에서의 수준은 다르다.</summary></entry></feed>
+&lt;p&gt;많은 깨닳음이 있는 답변이었다.&lt;/p&gt;</content><author><name></name></author><category term="단상" /><summary type="html">다른 사람이 변하기를 원한다면, 나부터 변하자</summary></entry></feed>
