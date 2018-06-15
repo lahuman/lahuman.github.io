@@ -1,4 +1,18 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-06-11T10:33:12+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">이번주 수요일은 투표하는 날!</title><link href="https://lahuman.github.io/20180611-phase/" rel="alternate" type="text/html" title="이번주 수요일은 투표하는 날!" /><published>2018-06-11T00:00:00+09:00</published><updated>2018-06-11T00:00:00+09:00</updated><id>https://lahuman.github.io/20180611-phase</id><content type="html" xml:base="https://lahuman.github.io/20180611-phase/">&lt;h1 id=&quot;아직까지-투표-안한적이-없다&quot;&gt;아직까지 투표 안한적이 없다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-06-15T17:14:17+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">아들의 태세 전환이 예술이다.</title><link href="https://lahuman.github.io/20180615-phase/" rel="alternate" type="text/html" title="아들의 태세 전환이 예술이다." /><published>2018-06-15T00:00:00+09:00</published><updated>2018-06-15T00:00:00+09:00</updated><id>https://lahuman.github.io/20180615-phase</id><content type="html" xml:base="https://lahuman.github.io/20180615-phase/">&lt;h1 id=&quot;아침에-출근-하려는데-아들이-일어났다&quot;&gt;아침에 출근 하려는데 아들이 일어났다.&lt;/h1&gt;
+
+&lt;p&gt;동현 : “아빠 회사 가지 마요”&lt;/p&gt;
+
+&lt;p&gt;나 : “아빠가 회사에 가야 돈을 벌어서 우리 동현이 맛난 것도 사주고, 유치원도 보내지.”&lt;/p&gt;
+
+&lt;p&gt;동현 : “자동차도??”&lt;/p&gt;
+
+&lt;p&gt;나 : “그럼~ 동현이 자동차 사줄라면 아빠가 더 열심히 일해야해.”&lt;/p&gt;
+
+&lt;p&gt;동현 : “아빠 안녕~”&lt;/p&gt;
+
+&lt;p&gt;나 : “응? ㅋㅋㅋㅋㅋ”&lt;/p&gt;
+
+&lt;p&gt;요즘 부쩍 애교도 많아지고 말도 많이 하는 귀염둥이 아들.&lt;/p&gt;</content><author><name></name></author><category term="단상" /><summary type="html">귀염둥이</summary></entry><entry><title type="html">이번주 수요일은 투표하는 날!</title><link href="https://lahuman.github.io/20180611-phase/" rel="alternate" type="text/html" title="이번주 수요일은 투표하는 날!" /><published>2018-06-11T00:00:00+09:00</published><updated>2018-06-11T00:00:00+09:00</updated><id>https://lahuman.github.io/20180611-phase</id><content type="html" xml:base="https://lahuman.github.io/20180611-phase/">&lt;h1 id=&quot;아직까지-투표-안한적이-없다&quot;&gt;아직까지 투표 안한적이 없다.&lt;/h1&gt;
 
 &lt;h1 id=&quot;소중한-내표를-꼭-행사-하자&quot;&gt;소중한 내표를 꼭 행사 하자!&lt;/h1&gt;</content><author><name></name></author><category term="단상" /><summary type="html">소중한 내 표를 행사하자!</summary></entry><entry><title type="html">바쁘게 살고 있는 나에게 정말 필요할까?</title><link href="https://lahuman.github.io/20180607-phase/" rel="alternate" type="text/html" title="바쁘게 살고 있는 나에게 정말 필요할까?" /><published>2018-06-07T00:00:00+09:00</published><updated>2018-06-07T00:00:00+09:00</updated><id>https://lahuman.github.io/20180607-phase</id><content type="html" xml:base="https://lahuman.github.io/20180607-phase/">&lt;h1 id=&quot;난-욕심이-많다&quot;&gt;난 욕심이 많다.&lt;/h1&gt;
 
@@ -432,25 +446,4 @@ $ sudo /etc/init.d/networking restart
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://printf.kr/archives/285&quot;&gt;Virtualbox 네트워크 종류와 설정 방법&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;http://blog.hkwon.me/virtualbox-hoseuteu-jeonyong-eodaebteo-seoljeong-2/&quot;&gt;VirtualBox 호스트 전용 어댑터 설정&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="virtualbox" /><summary type="html">가상환경끼리 통신 가능하게 만들기</summary></entry><entry><title type="html">내가 변해야 남도 변한다.</title><link href="https://lahuman.github.io/20180425-phase/" rel="alternate" type="text/html" title="내가 변해야 남도 변한다." /><published>2018-04-25T00:00:00+09:00</published><updated>2018-04-25T00:00:00+09:00</updated><id>https://lahuman.github.io/20180425-phase</id><content type="html" xml:base="https://lahuman.github.io/20180425-phase/">&lt;h1 id=&quot;다른-사람이-변하기를-원한다면-나부터-변하자&quot;&gt;다른 사람이 변하기를 원한다면, 나부터 변하자&lt;/h1&gt;
-
-&lt;p&gt;요즘 가지는 고민은 &lt;strong&gt;어떻게 효율적으로 협업 할 것인가?&lt;/strong&gt; 이다.&lt;/p&gt;
-
-&lt;p&gt;개인의 자존감, 성취도, 특성 등 여러 가지 요소로 팀원 각자가 원하는 바가 다르다.&lt;/p&gt;
-
-&lt;p&gt;그러던 중 팀원이 좋은 방향으로 변하기를 원하는 나를 보게 되었다.&lt;/p&gt;
-
-&lt;p&gt;이런 물음에 주변 지인이 나에게 답변을 주었다.&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;당신이 변하지 않으면, 남도 변하지 않습니다. 당신이 변하면 남도 변합니다.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;변화를 원하신 다면, 먼저 변하세요.&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;많은 깨닳음이 있는 답변이었다.&lt;/p&gt;</content><author><name></name></author><category term="단상" /><summary type="html">다른 사람이 변하기를 원한다면, 나부터 변하자</summary></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><category term="virtualbox" /><summary type="html">가상환경끼리 통신 가능하게 만들기</summary></entry></feed>
