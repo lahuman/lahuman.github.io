@@ -1,4 +1,14 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-06-15T17:14:17+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">아들의 태세 전환이 예술이다.</title><link href="https://lahuman.github.io/20180615-phase/" rel="alternate" type="text/html" title="아들의 태세 전환이 예술이다." /><published>2018-06-15T00:00:00+09:00</published><updated>2018-06-15T00:00:00+09:00</updated><id>https://lahuman.github.io/20180615-phase</id><content type="html" xml:base="https://lahuman.github.io/20180615-phase/">&lt;h1 id=&quot;아침에-출근-하려는데-아들이-일어났다&quot;&gt;아침에 출근 하려는데 아들이 일어났다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-06-18T08:44:35+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">월요일 이번주의 시작은 매우 피곤</title><link href="https://lahuman.github.io/20180618-phase/" rel="alternate" type="text/html" title="월요일 이번주의 시작은 매우 피곤" /><published>2018-06-18T00:00:00+09:00</published><updated>2018-06-18T00:00:00+09:00</updated><id>https://lahuman.github.io/20180618-phase</id><content type="html" xml:base="https://lahuman.github.io/20180618-phase/">&lt;h1 id=&quot;월요일은-피곤해&quot;&gt;월요일은 피곤해&lt;/h1&gt;
+
+&lt;p&gt;오늘은 주말동안 일이 많아서 더욱 피곤하다.&lt;/p&gt;
+
+&lt;p&gt;금요일에 시작한 워크샵은 토요일 새벽에 빠져나와 새벽 3시쯤 집에서 잠이 들었고,&lt;/p&gt;
+
+&lt;p&gt;토요일에는 하는 일 없이 동네에서 돌아다니고 저녁에 잠깐 불꽃놀이 하니 하루가 끝났고,&lt;/p&gt;
+
+&lt;p&gt;일요일에는 채윤이 자전거 가르쳐 준다고 30분 따라 다녔더니 허리부터 안아픈 곳이 없다.&lt;/p&gt;
+
+&lt;h2 id=&quot;오늘은-해야할-일을-정리-하고-진행-하자-화이팅&quot;&gt;오늘은 해야할 일을 정리 하고 진행 하자! 화이팅&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">피곤하다, 피곤해</summary></entry><entry><title type="html">아들의 태세 전환이 예술이다.</title><link href="https://lahuman.github.io/20180615-phase/" rel="alternate" type="text/html" title="아들의 태세 전환이 예술이다." /><published>2018-06-15T00:00:00+09:00</published><updated>2018-06-15T00:00:00+09:00</updated><id>https://lahuman.github.io/20180615-phase</id><content type="html" xml:base="https://lahuman.github.io/20180615-phase/">&lt;h1 id=&quot;아침에-출근-하려는데-아들이-일어났다&quot;&gt;아침에 출근 하려는데 아들이 일어났다.&lt;/h1&gt;
 
 &lt;p&gt;동현 : “아빠 회사 가지 마요”&lt;/p&gt;
 
@@ -400,50 +410,4 @@ if __name__ == '__main__':
   &lt;li&gt;&lt;a href=&quot;https://www.elastic.co/kr/webinars/event-logs-in-elasticsearch-and-machine-learning&quot;&gt;Elasticsearch 머신 러닝을 이용한 Web Access 로그 분석&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.elastic.co/kr/videos/machine-learning-for-elasticsearch-with-softbank&quot;&gt;소프트뱅크 Machine Learning 활용 사례&lt;/a&gt; - 현재 나온 머신러닝 레퍼런스 중 가장 자세한 사례입니다. 회사 배경설명, 도입 배경설명, 목표, 활용 방안, 결과, 보완이 필요한 점까지 상세하게 설명이 되어 있는 고객 발표 사례이니 꼭 처음부터 끝까지 다 봐주셨으면 합니다. 일본 고객 사례를 한국어로 더빙하였습니다.&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.elastic.co/elasticon/conf/2018/sf/the-path-to-intelligent-operation-with-netapp-oncommand-insight&quot;&gt;Netapp 고객 사례&lt;/a&gt; - OnCommand Insight(하이브리드 IT 인프라를 위한 모니터링 제품) 솔루션이 Elastic을 도입하여 어플리케이션, 시스템, 네트워크 및 스토리지 등 다양한 데이터를 분석하고 Machine Learning을 이용해 이상징후 탐지까지 활용한 사례입니다.&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="단상" /><summary type="html">Elasticsearch Machine Learning</summary></entry><entry><title type="html">VirtualBox Net network 사용하기</title><link href="https://lahuman.github.io/VirtualBox_NAT_network/" rel="alternate" type="text/html" title="VirtualBox Net network 사용하기" /><published>2018-04-27T00:00:00+09:00</published><updated>2018-04-27T00:00:00+09:00</updated><id>https://lahuman.github.io/VirtualBox_NAT_network</id><content type="html" xml:base="https://lahuman.github.io/VirtualBox_NAT_network/">&lt;h1 id=&quot;virtualbox-net-network-사용하기&quot;&gt;VirtualBox Net network 사용하기&lt;/h1&gt;
-
-&lt;p&gt;가상 환경에서 &lt;strong&gt;설정 &amp;gt; 네트워크 &amp;gt; NET 네트워크&lt;/strong&gt; 를 선택하면 이름이 없다는 오류가 난다.
-VirtualBox의 &lt;strong&gt;환경설정 &amp;gt; 네트워크 &amp;gt; 추가 &amp;gt; 이름 설정&lt;/strong&gt; 을 한후, 가상 환경에서 &lt;strong&gt;설정 &amp;gt; 네트워크 &amp;gt; NET 네트워크&lt;/strong&gt; 를 선택하면 이름을 선택할 수 있다.&lt;/p&gt;
-
-&lt;p&gt;추가적으로 위와 같이 설정을 하면 호스트에서 가상으로 접근이 되지 않는다.&lt;/p&gt;
-
-&lt;p&gt;가상 환경의 설정에서 2번째 네트워크를 추가 하고 &lt;strong&gt;호스트 전용 어댑터&lt;/strong&gt;를 선택한다.
-ifconfig 명령어로 호스트의 가상 IP 대역을 확인하고, 다음 명령어를 이용하여 가상서버의 호스트 전용 네트워크를 설정한다.
-호스트의 IP 값이 192.168.53.100 일 경우 다음과 같이 설정한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ sudo vi /etc/network/interfaces
-# This file describes the network interfaces available on your system
-# and how to activate them. For more information, see interfaces(5).
-
-source /etc/network/interfaces.d/*
-
-# The loopback network interface
-auto lo  
-iface lo inet loopback
-
-# The primary network interface
-auto enp0s3  
-iface enp0s3 inet dhcp
-
-# The host-only network interface 신규로 추가
-auto enp0s8  
-iface enp0s8 inet static  
-address 192.168.53.200  
-netmask 255.255.255.0  
-network 192.168.53.0  
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;이후 네트워크를 다음의 명령어로 재시작 한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ sudo systemctl restart networking
-or  
-$ sudo /etc/init.d/networking restart
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;참고 자료를 확인하면 자세한 그림과 설명이 되어 있다.&lt;/p&gt;
-
-&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://printf.kr/archives/285&quot;&gt;Virtualbox 네트워크 종류와 설정 방법&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://blog.hkwon.me/virtualbox-hoseuteu-jeonyong-eodaebteo-seoljeong-2/&quot;&gt;VirtualBox 호스트 전용 어댑터 설정&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="virtualbox" /><summary type="html">가상환경끼리 통신 가능하게 만들기</summary></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><category term="단상" /><summary type="html">Elasticsearch Machine Learning</summary></entry></feed>
