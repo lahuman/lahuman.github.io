@@ -1,4 +1,47 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-06-18T08:44:35+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">월요일 이번주의 시작은 매우 피곤</title><link href="https://lahuman.github.io/20180618-phase/" rel="alternate" type="text/html" title="월요일 이번주의 시작은 매우 피곤" /><published>2018-06-18T00:00:00+09:00</published><updated>2018-06-18T00:00:00+09:00</updated><id>https://lahuman.github.io/20180618-phase</id><content type="html" xml:base="https://lahuman.github.io/20180618-phase/">&lt;h1 id=&quot;월요일은-피곤해&quot;&gt;월요일은 피곤해&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-06-22T10:52:49+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">D3] TEXT 태그에 대한 CSS</title><link href="https://lahuman.github.io/d3_text_css/" rel="alternate" type="text/html" title="D3] TEXT 태그에 대한 CSS" /><published>2018-06-22T00:00:00+09:00</published><updated>2018-06-22T00:00:00+09:00</updated><id>https://lahuman.github.io/d3_text_css</id><content type="html" xml:base="https://lahuman.github.io/d3_text_css/">&lt;h1 id=&quot;d3를-이용한-그래프에-표기되는-text에-대한-css-정보&quot;&gt;D3를 이용한 그래프에 표기되는 TEXT에 대한 CSS 정보&lt;/h1&gt;
+
+&lt;h2 id=&quot;text의-출력-위치-조절&quot;&gt;TEXT의 출력 위치 조절&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://developer.mozilla.org/ko/docs/Web/CSS/white-space&quot;&gt;d3 svg text alignment (v3)&lt;/a&gt;를 보면 정리가 잘되어 있다.&lt;/p&gt;
+
+&lt;p&gt;기본적으로 시작점부터 오른쪽으로 텍스트가 출력되는데, &lt;strong&gt;text-anchor&lt;/strong&gt;에 값을 &lt;strong&gt;middle&lt;/strong&gt;, &lt;strong&gt;end&lt;/strong&gt;로 변경하여 조절 가능하다&lt;/p&gt;
+
+&lt;p&gt;기본 값은 &lt;strong&gt;start&lt;/strong&gt; 이다.&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nodeg.append(&quot;text&quot;)
+        .style(&quot;font-size&quot;, &quot;0.85em&quot;)
+        .attr(&quot;text-anchor&quot;, &quot;middle&quot;)
+        .attr(&quot;fill&quot;, parent.atomTextColor)
+        .style(&quot;pointer-events&quot;, &quot;none&quot;)
+        .style(&quot;color&quot;, &quot;#222&quot;)
+        .text(function(d) {
+            return d.text;
+        });
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;text-multiline-출력&quot;&gt;TEXT Multiline 출력&lt;/h2&gt;
+&lt;p&gt;D3를 이용한 그래프에서 일반적으로 상요되는 TEXT 테그는 &lt;br /&gt;과 \n이 동작하지 않는다.&lt;/p&gt;
+
+&lt;p&gt;하지만 &lt;strong&gt;white-space&lt;/strong&gt;에 &lt;strong&gt;pre&lt;/strong&gt; 스타일을 주게 되면 개행문자(\n)가 동작 한다.&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nodeg.append(&quot;text&quot;)
+            .attr('y', function(d) {return +30;})
+            .attr(&quot;dy&quot;, &quot;.35em&quot;)
+            .attr(&quot;class&quot;, &quot;atomsText&quot;)
+            .style(&quot;white-space&quot;, &quot;pre&quot;)
+            .style(&quot;font-size&quot;, &quot;0.85em&quot;)
+            .attr(&quot;text-anchor&quot;, &quot;middle&quot;)
+            .attr(&quot;fill&quot;, parent.atomTextColor)
+            .style(&quot;pointer-events&quot;, &quot;none&quot;)
+            .style(&quot;color&quot;, &quot;#222&quot;)
+            .text(function(d) {
+                return d.desc.replace(/&amp;lt;br&amp;gt;/gi,&quot;\n&quot;);
+            });
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/ko/docs/Web/CSS/white-space&quot;&gt;white-space&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/ko/docs/Web/CSS/white-space&quot;&gt;d3 svg text alignment (v3)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/lahuman/d3-molecule&quot;&gt;d3-molecule&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;</content><author><name></name></author><category term="d3" /><category term="text" /><category term="css" /><summary type="html">피곤하다, 피곤해</summary></entry><entry><title type="html">월요일 이번주의 시작은 매우 피곤</title><link href="https://lahuman.github.io/20180618-phase/" rel="alternate" type="text/html" title="월요일 이번주의 시작은 매우 피곤" /><published>2018-06-18T00:00:00+09:00</published><updated>2018-06-18T00:00:00+09:00</updated><id>https://lahuman.github.io/20180618-phase</id><content type="html" xml:base="https://lahuman.github.io/20180618-phase/">&lt;h1 id=&quot;월요일은-피곤해&quot;&gt;월요일은 피곤해&lt;/h1&gt;
 
 &lt;p&gt;오늘은 주말동안 일이 많아서 더욱 피곤하다.&lt;/p&gt;
 
@@ -404,10 +447,4 @@ if __name__ == '__main__':
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h2 id=&quot;os-python-module-등의-환경적인-원인이-있을-수-있다고-생각은-하고-있다-추가적으로-python-version을-올리는-것에-대하여-고민-중이다&quot;&gt;OS, Python, Module 등의 환경적인 원인이 있을 수 있다고 생각은 하고 있다. 추가적으로 Python version을 올리는 것에 대하여 고민 중이다.&lt;/h2&gt;</content><author><name></name></author><category term="centos" /><category term="multiprocess" /><summary type="html">죽여도 살아난다.</summary></entry><entry><title type="html">월요일 그리고 Elasticsearch 머신 러닝</title><link href="https://lahuman.github.io/20180430-phase/" rel="alternate" type="text/html" title="월요일 그리고 Elasticsearch 머신 러닝" /><published>2018-04-30T00:00:00+09:00</published><updated>2018-04-30T00:00:00+09:00</updated><id>https://lahuman.github.io/20180430-phase</id><content type="html" xml:base="https://lahuman.github.io/20180430-phase/">&lt;h1 id=&quot;elasticsearch를-통한-머신-러닝에-대한-내용이-정리-된-링크비디오&quot;&gt;Elasticsearch를 통한 머신 러닝에 대한 내용이 정리 된 링크(비디오)&lt;/h1&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.elastic.co/kr/webinars/event-logs-in-elasticsearch-and-machine-learning&quot;&gt;Elasticsearch 머신 러닝을 이용한 Web Access 로그 분석&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.elastic.co/kr/videos/machine-learning-for-elasticsearch-with-softbank&quot;&gt;소프트뱅크 Machine Learning 활용 사례&lt;/a&gt; - 현재 나온 머신러닝 레퍼런스 중 가장 자세한 사례입니다. 회사 배경설명, 도입 배경설명, 목표, 활용 방안, 결과, 보완이 필요한 점까지 상세하게 설명이 되어 있는 고객 발표 사례이니 꼭 처음부터 끝까지 다 봐주셨으면 합니다. 일본 고객 사례를 한국어로 더빙하였습니다.&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.elastic.co/elasticon/conf/2018/sf/the-path-to-intelligent-operation-with-netapp-oncommand-insight&quot;&gt;Netapp 고객 사례&lt;/a&gt; - OnCommand Insight(하이브리드 IT 인프라를 위한 모니터링 제품) 솔루션이 Elastic을 도입하여 어플리케이션, 시스템, 네트워크 및 스토리지 등 다양한 데이터를 분석하고 Machine Learning을 이용해 이상징후 탐지까지 활용한 사례입니다.&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="단상" /><summary type="html">Elasticsearch Machine Learning</summary></entry></feed>
+&lt;h2 id=&quot;os-python-module-등의-환경적인-원인이-있을-수-있다고-생각은-하고-있다-추가적으로-python-version을-올리는-것에-대하여-고민-중이다&quot;&gt;OS, Python, Module 등의 환경적인 원인이 있을 수 있다고 생각은 하고 있다. 추가적으로 Python version을 올리는 것에 대하여 고민 중이다.&lt;/h2&gt;</content><author><name></name></author><category term="centos" /><category term="multiprocess" /><summary type="html">죽여도 살아난다.</summary></entry></feed>
