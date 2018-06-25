@@ -1,4 +1,50 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-06-22T10:53:41+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">D3] TEXT 태그에 대한 CSS</title><link href="https://lahuman.github.io/d3_text_css/" rel="alternate" type="text/html" title="D3] TEXT 태그에 대한 CSS" /><published>2018-06-22T00:00:00+09:00</published><updated>2018-06-22T00:00:00+09:00</updated><id>https://lahuman.github.io/d3_text_css</id><content type="html" xml:base="https://lahuman.github.io/d3_text_css/">&lt;h1 id=&quot;d3를-이용한-그래프에-표기되는-text에-대한-css-정보&quot;&gt;D3를 이용한 그래프에 표기되는 TEXT에 대한 CSS 정보&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-06-25T12:51:17+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">D3] TEXT 태그를 wraping하여 라벨 나누기</title><link href="https://lahuman.github.io/d3_wrapping_long_labels/" rel="alternate" type="text/html" title="D3] TEXT 태그를 wraping하여 라벨 나누기" /><published>2018-06-25T00:00:00+09:00</published><updated>2018-06-25T00:00:00+09:00</updated><id>https://lahuman.github.io/d3_wrapping_long_labels</id><content type="html" xml:base="https://lahuman.github.io/d3_wrapping_long_labels/">&lt;h1 id=&quot;d3에서-긴-텍스트에-대한-처리&quot;&gt;D3에서 긴 텍스트에 대한 처리&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://lahuman.github.io/d3_text_css/&quot;&gt;이전 포스팅&lt;/a&gt;의 텍스트 줄바꿈 처리는 모든 브라우져에서 동작 하지 않는다.
+확인 해본 결과 &lt;a href=&quot;https://www.mozilla.org/ko/firefox/new/&quot;&gt;Firefox&lt;/a&gt;에서는 동작 하지만, 많이 사용되는 &lt;a href=&quot;https://www.google.co.kr/chrome/index.htm&quot;&gt;Chrome&lt;/a&gt;에서는 동작 하지 않는다.&lt;/p&gt;
+
+&lt;p&gt;모든 브라우져에서 동작하기 위한 코드를 찾아본 결과 &lt;a href=&quot;https://bl.ocks.org/mbostock/7555321&quot;&gt;Wrapping Long Labels&lt;/a&gt;을 발견 할 수 있었다.&lt;/p&gt;
+
+&lt;p&gt;위의 코드에서 wrap을 해주는 매소드에 보면 text 태그 하단에 들어가는 &lt;strong&gt;tspan&lt;/strong&gt;이라는 태그를 발견 하였는데, 이를 이용하여 여러 라인 처리를 하는 것을 확인했다.
+이를 활용하면 긴 문장에 대한 여러 방법으로 처리가 가능 하다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function wrap(text, width) {
+  text.each(function() {
+    var text = d3.select(this),
+        words = text.text().split(/\s+/).reverse(),
+        word,
+        line = [],
+        lineNumber = 0,
+        lineHeight = 1.1, // ems
+        y = text.attr(&quot;y&quot;),
+        dy = parseFloat(text.attr(&quot;dy&quot;)),
+        tspan = text.text(null).append(&quot;tspan&quot;).attr(&quot;x&quot;, 0).attr(&quot;y&quot;, y).attr(&quot;dy&quot;, dy + &quot;em&quot;);
+    while (word = words.pop()) {
+      line.push(word);
+      tspan.text(line.join(&quot; &quot;));
+      if (tspan.node().getComputedTextLength() &amp;gt; width) {
+        line.pop();
+        tspan.text(line.join(&quot; &quot;));
+        line = [word];
+        tspan = text.append(&quot;tspan&quot;).attr(&quot;x&quot;, 0).attr(&quot;y&quot;, y).attr(&quot;dy&quot;, ++lineNumber * lineHeight + dy + &quot;em&quot;).text(word);
+      }
+    }
+  });
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://tutorials.jenkov.com/svg/tspan-element.html&quot;&gt;SVG tspan element&lt;/a&gt;을 보면 tspan 요소는 SVG에서 여러 텍스트를 그리는데 사용되는 테그로 설명 된다.
+해당 태그를 이용하면 첨부된 소스를 사용하지 않고도 여러 라인의 문자열 처리가 가능하다.&lt;/p&gt;
+
+&lt;h2 id=&quot;라이선스-관련&quot;&gt;라이선스 관련&lt;/h2&gt;
+
+&lt;p&gt;Released under the &lt;a href=&quot;https://opensource.org/licenses/GPL-3.0&quot;&gt;GNU General Public License, version 3&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;https://bl.ocks.org/mbostock/7555321&quot;&gt;Wrapping Long Labels&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://tutorials.jenkov.com/svg/tspan-element.html&quot;&gt;SVG tspan element&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;</content><author><name></name></author><category term="d3" /><category term="tspan" /><category term="wrapping" /><summary type="html">모든 브라우져에서 동작 한다.</summary></entry><entry><title type="html">D3] TEXT 태그에 대한 CSS</title><link href="https://lahuman.github.io/d3_text_css/" rel="alternate" type="text/html" title="D3] TEXT 태그에 대한 CSS" /><published>2018-06-22T00:00:00+09:00</published><updated>2018-06-22T00:00:00+09:00</updated><id>https://lahuman.github.io/d3_text_css</id><content type="html" xml:base="https://lahuman.github.io/d3_text_css/">&lt;h1 id=&quot;d3를-이용한-그래프에-표기되는-text에-대한-css-정보&quot;&gt;D3를 이용한 그래프에 표기되는 TEXT에 대한 CSS 정보&lt;/h1&gt;
 
 &lt;h2 id=&quot;text의-출력-위치-조절&quot;&gt;TEXT의 출력 위치 조절&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&quot;https://developer.mozilla.org/ko/docs/Web/CSS/white-space&quot;&gt;d3 svg text alignment (v3)&lt;/a&gt;를 보면 정리가 잘되어 있다.&lt;/p&gt;
@@ -46,7 +92,7 @@
   &lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/ko/docs/Web/CSS/white-space&quot;&gt;white-space&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/ko/docs/Web/CSS/white-space&quot;&gt;d3 svg text alignment (v3)&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://github.com/lahuman/d3-molecule&quot;&gt;d3-molecule&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;</content><author><name></name></author><category term="d3" /><category term="text" /><category term="css" /><summary type="html">피곤하다, 피곤해</summary></entry><entry><title type="html">월요일 이번주의 시작은 매우 피곤</title><link href="https://lahuman.github.io/20180618-phase/" rel="alternate" type="text/html" title="월요일 이번주의 시작은 매우 피곤" /><published>2018-06-18T00:00:00+09:00</published><updated>2018-06-18T00:00:00+09:00</updated><id>https://lahuman.github.io/20180618-phase</id><content type="html" xml:base="https://lahuman.github.io/20180618-phase/">&lt;h1 id=&quot;월요일은-피곤해&quot;&gt;월요일은 피곤해&lt;/h1&gt;
+&lt;/ol&gt;</content><author><name></name></author><category term="d3" /><category term="text" /><category term="css" /><summary type="html">FireFox에서는 잘되는데 Chrome에선 안되네....</summary></entry><entry><title type="html">월요일 이번주의 시작은 매우 피곤</title><link href="https://lahuman.github.io/20180618-phase/" rel="alternate" type="text/html" title="월요일 이번주의 시작은 매우 피곤" /><published>2018-06-18T00:00:00+09:00</published><updated>2018-06-18T00:00:00+09:00</updated><id>https://lahuman.github.io/20180618-phase</id><content type="html" xml:base="https://lahuman.github.io/20180618-phase/">&lt;h1 id=&quot;월요일은-피곤해&quot;&gt;월요일은 피곤해&lt;/h1&gt;
 
 &lt;p&gt;오늘은 주말동안 일이 많아서 더욱 피곤하다.&lt;/p&gt;
 
@@ -332,124 +378,4 @@ root
 &lt;h2 id=&quot;참조&quot;&gt;참조&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;http://www.yes24.com/24/goods/54233937&quot;&gt;신경 끄기의 기술&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="단상" /><summary type="html">마크 맨슨의 책</summary></entry><entry><title type="html">Centos 7.5에서 Python Multiprocess 좀비프로세스 문제</title><link href="https://lahuman.github.io/Centos7.5_python_multiprocess/" rel="alternate" type="text/html" title="Centos 7.5에서 Python Multiprocess 좀비프로세스 문제" /><published>2018-05-10T00:00:00+09:00</published><updated>2018-05-10T00:00:00+09:00</updated><id>https://lahuman.github.io/Centos7.5_python_multiprocess</id><content type="html" xml:base="https://lahuman.github.io/Centos7.5_python_multiprocess/">&lt;h1 id=&quot;centos-75에서-python-multiprocess-좀비-프로세스-문제&quot;&gt;CentOS 7.5에서 Python MultiProcess 좀비 프로세스 문제&lt;/h1&gt;
-
-&lt;h2 id=&quot;환경-정보&quot;&gt;환경 정보&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;OS : CentOS 7.5&lt;/li&gt;
-  &lt;li&gt;Language : Python 2.7.5&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;현상&quot;&gt;현상&lt;/h2&gt;
-&lt;p&gt;프로그램에서 불규칙적으로 Multiprocess가 종료 되지 않고 남아 있음.
-kill -9 {PID} 로 Multiprocess를 종료 시키면, 종료 시점으로 새로운 프로세스가 생성되며 실행 시간은 00:00 으로 변경없이 유지됨.&lt;/p&gt;
-
-&lt;h2 id=&quot;문제점&quot;&gt;문제점&lt;/h2&gt;
-&lt;p&gt;Multiprocess는 Memory 자원을 반환 하지 않고 계속 점유 되는 문제 발생&lt;/p&gt;
-
-&lt;h2 id=&quot;코드-샘플&quot;&gt;코드 샘플&lt;/h2&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;from multiprocessing import Pool
-
-def processing(arge):
-    while True:
-        print arge
-        time.sleep(10)
-
-if __name__ == '__main__':
-    while True:
-        try:
-            pool = Pool(processes=2)
-
-            results = pool.map(processing, [1,2,3,4,5,6,7,8,9])
-            pool.close()
-            pool.join()
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;임시-해결책&quot;&gt;임시 해결책&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;발등에 떨어진 불을 끄기 위한 임시 해결책 입니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;특정 시간 이상 좀비 프로세스로 돌고 있을 경우 강제로 kill 하는 프로그램 작성&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/usr/bin/python&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#-*- coding: utf-8 -*-&lt;/span&gt;
-
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;sys&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;sys&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getdefaultencoding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-
-&lt;span class=&quot;nb&quot;&gt;reload&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;sys&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;setdefaultencoding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'utf-8'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;sys&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getdefaultencoding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-
-
-
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;os&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;time&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;datetime&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;commands&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;re&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;# python_path &amp;amp; name&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;python_path&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dirname&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;realpath&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;__file__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;python_name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;basename&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;realpath&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;__file__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;# sleep&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#time_sleep_set	= 'day'	# time.sleep(day)&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#time_sleep_set	= 'min'	# time.sleep(min)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;time_sleep_set&lt;/span&gt;	&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'sec'&lt;/span&gt;	&lt;span class=&quot;c&quot;&gt;# time.sleep(sec)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;time_sleep_int&lt;/span&gt;	&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;
-
-
-&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
-
-	&lt;span class=&quot;n&quot;&gt;chk_kill_time&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;  &lt;span class=&quot;c&quot;&gt;#minutes&lt;/span&gt;
-
-	&lt;span class=&quot;n&quot;&gt;chk_proc_list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Process Name'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-
-	&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;chk_proc&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;chk_proc_list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-
-		&lt;span class=&quot;n&quot;&gt;pid_list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;commands&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getoutput&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;ps -eo pid,ppid,lstart,command | grep &quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;chk_proc&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot; | grep -v grep&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-		&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pid_list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;''&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-
-			&lt;span class=&quot;n&quot;&gt;time_chk&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;datetime&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;datetime&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;now&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;datetime&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;timedelta&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;minutes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;chk_kill_time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-			&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pid_time_cmd&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pid_list&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-				&lt;span class=&quot;n&quot;&gt;re_dst_str&lt;/span&gt;	&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pid_time_cmd&lt;/span&gt;
-
-				&lt;span class=&quot;n&quot;&gt;re_pattern&lt;/span&gt;	&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;r'^\s*(\d+)\s+(\d+)\s+(?:\w+)\s+(\w+)\s+(\d{1,2})\s+(\d\d):(\d\d):(\d\d)\s+(\d{4})\s+(.*)'&lt;/span&gt;
-				&lt;span class=&quot;n&quot;&gt;re_compile&lt;/span&gt;	&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;re&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;compile&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;re_pattern&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;re&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;I&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-				&lt;span class=&quot;n&quot;&gt;re_findall&lt;/span&gt;	&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;re_compile&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;findall&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;re_dst_str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-				&lt;span class=&quot;n&quot;&gt;re_findlen&lt;/span&gt;	&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;re_findall&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-				&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;re_findlen&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-
-
-					&lt;span class=&quot;n&quot;&gt;pid&lt;/span&gt;	&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;re_findall&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-					&lt;span class=&quot;n&quot;&gt;ppid&lt;/span&gt;	&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;re_findall&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-					&lt;span class=&quot;n&quot;&gt;time_m&lt;/span&gt;	&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;re_findall&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-					&lt;span class=&quot;n&quot;&gt;time_d&lt;/span&gt;	&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;re_findall&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-					&lt;span class=&quot;n&quot;&gt;time_h&lt;/span&gt;	&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;re_findall&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-					&lt;span class=&quot;n&quot;&gt;time_i&lt;/span&gt;	&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;re_findall&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-					&lt;span class=&quot;n&quot;&gt;time_s&lt;/span&gt;	&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;re_findall&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-					&lt;span class=&quot;n&quot;&gt;time_y&lt;/span&gt;	&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;re_findall&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-					&lt;span class=&quot;n&quot;&gt;cmd&lt;/span&gt;	&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;re_findall&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-
-					&lt;span class=&quot;n&quot;&gt;time_j&lt;/span&gt;	&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;time_y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'-'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;time_m&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'-'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;time_d&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;' '&lt;/span&gt;
-					&lt;span class=&quot;n&quot;&gt;time_j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;time_h&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;':'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;time_i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;':'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;time_s&lt;/span&gt;
-					&lt;span class=&quot;n&quot;&gt;time_j&lt;/span&gt;	&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;datetime&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;datetime&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;strptime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;time_j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Y-&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;b-&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;d &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;H:&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;M:&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;S'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-					&lt;span class=&quot;c&quot;&gt;# if ( ppid == '1' ): continue&lt;/span&gt;
-					&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;time_j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;time_chk&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-						&lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;system&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'kill -9 '&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pid&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-
-&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;__name__&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'__main__'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-	&lt;span class=&quot;c&quot;&gt;# while True:&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;os-python-module-등의-환경적인-원인이-있을-수-있다고-생각은-하고-있다-추가적으로-python-version을-올리는-것에-대하여-고민-중이다&quot;&gt;OS, Python, Module 등의 환경적인 원인이 있을 수 있다고 생각은 하고 있다. 추가적으로 Python version을 올리는 것에 대하여 고민 중이다.&lt;/h2&gt;</content><author><name></name></author><category term="centos" /><category term="multiprocess" /><summary type="html">죽여도 살아난다.</summary></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><category term="단상" /><summary type="html">마크 맨슨의 책</summary></entry></feed>
