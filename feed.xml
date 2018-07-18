@@ -1,4 +1,30 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-07-18T13:07:48+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">D3] TEXT 태그를 wraping하여 라벨 나누기</title><link href="https://lahuman.github.io/d3_wrapping_long_labels/" rel="alternate" type="text/html" title="D3] TEXT 태그를 wraping하여 라벨 나누기" /><published>2018-06-25T00:00:00+09:00</published><updated>2018-06-25T00:00:00+09:00</updated><id>https://lahuman.github.io/d3_wrapping_long_labels</id><content type="html" xml:base="https://lahuman.github.io/d3_wrapping_long_labels/">&lt;h1 id=&quot;d3에서-긴-텍스트에-대한-처리&quot;&gt;D3에서 긴 텍스트에 대한 처리&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-07-18T13:18:30+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">MAC 초기 설정 하기</title><link href="https://lahuman.github.io/mac_setting/" rel="alternate" type="text/html" title="MAC 초기 설정 하기" /><published>2018-07-18T00:00:00+09:00</published><updated>2018-07-18T00:00:00+09:00</updated><id>https://lahuman.github.io/mac_setting</id><content type="html" xml:base="https://lahuman.github.io/mac_setting/">&lt;h1 id=&quot;mac-포멧과-초기-설정-하기&quot;&gt;MAC 포멧과 초기 설정 하기&lt;/h1&gt;
+
+&lt;h2 id=&quot;mac-포멧시-주의-사항&quot;&gt;MAC 포멧시 주의 사항&lt;/h2&gt;
+&lt;p&gt;MAC 부팅시 command + R을 눌러서 디스크를 모두 포멧하고 설치를 진행하였을 경우,
+“APFS 설치에 대해 사전 시동 볼륨을 생성할 수 없습니다.” 라는 오류를 만난다면 다음과 같이 처리 해야 한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;인터넷 복구 모드(부팅시 option + command + r)로 부팅하여 MAC OS 재설치&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;인터넷 복구 모드로 진입하면 지구본이 빙글빙글 돌면서 시작한다.&lt;/p&gt;
+
+&lt;h2 id=&quot;개발-환경-설정하기&quot;&gt;개발 환경 설정하기&lt;/h2&gt;
+
+&lt;h3 id=&quot;iterm2-설치--zsh설정&quot;&gt;iterm2 설치 &amp;amp; zsh설정&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://subicura.com/2017/11/22/mac-os-development-environment-setup.html&quot;&gt;본격 macOS에 개발 환경 구축하기&lt;/a&gt;를 따라서 하면 된다.&lt;/p&gt;
+
+&lt;h3 id=&quot;추가-프로그램-설치&quot;&gt;추가 프로그램 설치&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;http://redutan.github.io/2015/09/25/osx-program-for-dev&quot;&gt;OS X - Java 개발자를 위한 프로그램 설치&lt;/a&gt;를 따라 하면 된다.
+필요한 프로그램이 있으면 추가로 설치 해야 한다.&lt;/p&gt;
+
+&lt;h3 id=&quot;세-손가락-드래그-켜기&quot;&gt;세 손가락 드래그 켜기&lt;/h3&gt;
+&lt;p&gt;개인적으로 좋아하는 기능이다. 
+&lt;a href=&quot;https://support.apple.com/ko-kr/ht204609&quot;&gt;Force Touch 트랙패드에서 ‘세 손가락 드래그’ 켜기&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://subicura.com/2017/11/22/mac-os-development-environment-setup.html&quot;&gt;본격 macOS에 개발 환경 구축하기&lt;/a&gt;
+&lt;a href=&quot;http://redutan.github.io/2015/09/25/osx-program-for-dev&quot;&gt;OS X - Java 개발자를 위한 프로그램 설치&lt;/a&gt;
+&lt;a href=&quot;https://support.apple.com/ko-kr/ht204609&quot;&gt;Force Touch 트랙패드에서 ‘세 손가락 드래그’ 켜기&lt;/a&gt;&lt;/p&gt;</content><category term="mac" /><category term="setting" /><summary type="html">MAC 포멧시 오류도 나고 개발 환경 셋팅시 참고할 만한 사이트 모음</summary></entry><entry><title type="html">D3] TEXT 태그를 wraping하여 라벨 나누기</title><link href="https://lahuman.github.io/d3_wrapping_long_labels/" rel="alternate" type="text/html" title="D3] TEXT 태그를 wraping하여 라벨 나누기" /><published>2018-06-25T00:00:00+09:00</published><updated>2018-06-25T00:00:00+09:00</updated><id>https://lahuman.github.io/d3_wrapping_long_labels</id><content type="html" xml:base="https://lahuman.github.io/d3_wrapping_long_labels/">&lt;h1 id=&quot;d3에서-긴-텍스트에-대한-처리&quot;&gt;D3에서 긴 텍스트에 대한 처리&lt;/h1&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://lahuman.github.io/d3_text_css/&quot;&gt;이전 포스팅&lt;/a&gt;의 텍스트 줄바꿈 처리는 모든 브라우져에서 동작 하지 않는다.
 확인 해본 결과 &lt;a href=&quot;https://www.mozilla.org/ko/firefox/new/&quot;&gt;Firefox&lt;/a&gt;에서는 동작 하지만, 많이 사용되는 &lt;a href=&quot;https://www.google.co.kr/chrome/index.htm&quot;&gt;Chrome&lt;/a&gt;에서는 동작 하지 않는다.&lt;/p&gt;
@@ -45,7 +71,7 @@
 &lt;ol&gt;
   &lt;li&gt;&lt;a href=&quot;https://bl.ocks.org/mbostock/7555321&quot;&gt;Wrapping Long Labels&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;http://tutorials.jenkov.com/svg/tspan-element.html&quot;&gt;SVG tspan element&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;</content><category term="d3" /><category term="tspan" /><category term="wrapping" /><summary type="html">모든 브라우져에서 동작 한다.</summary></entry><entry><title type="html">D3] TEXT 태그에 대한 CSS</title><link href="https://lahuman.github.io/d3_text_css/" rel="alternate" type="text/html" title="D3] TEXT 태그에 대한 CSS" /><published>2018-06-22T00:00:00+09:00</published><updated>2018-06-22T00:00:00+09:00</updated><id>https://lahuman.github.io/d3_text_css</id><content type="html" xml:base="https://lahuman.github.io/d3_text_css/">&lt;h1 id=&quot;d3를-이용한-그래프에-표기되는-text에-대한-css-정보&quot;&gt;D3를 이용한 그래프에 표기되는 TEXT에 대한 CSS 정보&lt;/h1&gt;
+&lt;/ol&gt;</content><category term="d3" /><category term="tspan" /><category term="wrapping" /><summary type="html">모든 브라우져에서 동작한다.</summary></entry><entry><title type="html">D3] TEXT 태그에 대한 CSS</title><link href="https://lahuman.github.io/d3_text_css/" rel="alternate" type="text/html" title="D3] TEXT 태그에 대한 CSS" /><published>2018-06-22T00:00:00+09:00</published><updated>2018-06-22T00:00:00+09:00</updated><id>https://lahuman.github.io/d3_text_css</id><content type="html" xml:base="https://lahuman.github.io/d3_text_css/">&lt;h1 id=&quot;d3를-이용한-그래프에-표기되는-text에-대한-css-정보&quot;&gt;D3를 이용한 그래프에 표기되는 TEXT에 대한 CSS 정보&lt;/h1&gt;
 
 &lt;h2 id=&quot;text의-출력-위치-조절&quot;&gt;TEXT의 출력 위치 조절&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&quot;https://developer.mozilla.org/ko/docs/Web/CSS/white-space&quot;&gt;d3 svg text alignment (v3)&lt;/a&gt;를 보면 정리가 잘되어 있다.&lt;/p&gt;
@@ -382,17 +408,4 @@ root
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;http://www.paramiko.org/&quot;&gt;paramiko&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.ssh.com/ssh/host-key&quot;&gt;host kyes&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="python" /><category term="paramiko" /><summary type="html">하나의 ssh 세션에서 작업 하기</summary></entry><entry><title type="html">신경 끄기의 기술</title><link href="https://lahuman.github.io/20180515-phase/" rel="alternate" type="text/html" title="신경 끄기의 기술" /><published>2018-05-15T00:00:00+09:00</published><updated>2018-05-15T00:00:00+09:00</updated><id>https://lahuman.github.io/20180515-phase</id><content type="html" xml:base="https://lahuman.github.io/20180515-phase/">&lt;h1 id=&quot;신경-끄기의-기술&quot;&gt;신경 끄기의 기술&lt;/h1&gt;
-
-&lt;p&gt;신경 끄기의 기술, 마크 맨슨의 책을 읽고 있다.&lt;/p&gt;
-
-&lt;p&gt;포기 해야 할 일(몸짱 되기와 같은)은 신경 쓰지 말고 정말 중요한 것만 신경 쓰라는 내용이다.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;읽으면서 내가 너무 힘들게 사는건 아닌가?&lt;/strong&gt; 라는 생각을 했다.&lt;/p&gt;
-
-&lt;p&gt;난 특별하지 않다. 평범하다 그것을 받아 들이고, 내게 주어진 일 중 중요한 일에 더 집중하자.&lt;/p&gt;
-
-&lt;h2 id=&quot;참조&quot;&gt;참조&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.yes24.com/24/goods/54233937&quot;&gt;신경 끄기의 기술&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="단상" /><summary type="html">마크 맨슨의 책</summary></entry></feed>
+&lt;/ul&gt;</content><category term="python" /><category term="paramiko" /><summary type="html">하나의 ssh 세션에서 작업 하기</summary></entry></feed>
