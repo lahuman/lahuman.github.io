@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-06-25T12:51:17+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">D3] TEXT 태그를 wraping하여 라벨 나누기</title><link href="https://lahuman.github.io/d3_wrapping_long_labels/" rel="alternate" type="text/html" title="D3] TEXT 태그를 wraping하여 라벨 나누기" /><published>2018-06-25T00:00:00+09:00</published><updated>2018-06-25T00:00:00+09:00</updated><id>https://lahuman.github.io/d3_wrapping_long_labels</id><content type="html" xml:base="https://lahuman.github.io/d3_wrapping_long_labels/">&lt;h1 id=&quot;d3에서-긴-텍스트에-대한-처리&quot;&gt;D3에서 긴 텍스트에 대한 처리&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-07-18T12:58:37+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">D3] TEXT 태그를 wraping하여 라벨 나누기</title><link href="https://lahuman.github.io/d3_wrapping_long_labels/" rel="alternate" type="text/html" title="D3] TEXT 태그를 wraping하여 라벨 나누기" /><published>2018-06-25T00:00:00+09:00</published><updated>2018-06-25T00:00:00+09:00</updated><id>https://lahuman.github.io/d3_wrapping_long_labels</id><content type="html" xml:base="https://lahuman.github.io/d3_wrapping_long_labels/">&lt;h1 id=&quot;d3에서-긴-텍스트에-대한-처리&quot;&gt;D3에서 긴 텍스트에 대한 처리&lt;/h1&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://lahuman.github.io/d3_text_css/&quot;&gt;이전 포스팅&lt;/a&gt;의 텍스트 줄바꿈 처리는 모든 브라우져에서 동작 하지 않는다.
 확인 해본 결과 &lt;a href=&quot;https://www.mozilla.org/ko/firefox/new/&quot;&gt;Firefox&lt;/a&gt;에서는 동작 하지만, 많이 사용되는 &lt;a href=&quot;https://www.google.co.kr/chrome/index.htm&quot;&gt;Chrome&lt;/a&gt;에서는 동작 하지 않는다.&lt;/p&gt;
@@ -8,7 +8,7 @@
 &lt;p&gt;위의 코드에서 wrap을 해주는 매소드에 보면 text 태그 하단에 들어가는 &lt;strong&gt;tspan&lt;/strong&gt;이라는 태그를 발견 하였는데, 이를 이용하여 여러 라인 처리를 하는 것을 확인했다.
 이를 활용하면 긴 문장에 대한 여러 방법으로 처리가 가능 하다.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function wrap(text, width) {
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function wrap(text, width) {
   text.each(function() {
     var text = d3.select(this),
         words = text.text().split(/\s+/).reverse(),
@@ -31,7 +31,8 @@
     }
   });
 }
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;&lt;a href=&quot;http://tutorials.jenkov.com/svg/tspan-element.html&quot;&gt;SVG tspan element&lt;/a&gt;을 보면 tspan 요소는 SVG에서 여러 텍스트를 그리는데 사용되는 테그로 설명 된다.
 해당 태그를 이용하면 첨부된 소스를 사용하지 않고도 여러 라인의 문자열 처리가 가능하다.&lt;/p&gt;
@@ -44,7 +45,7 @@
 &lt;ol&gt;
   &lt;li&gt;&lt;a href=&quot;https://bl.ocks.org/mbostock/7555321&quot;&gt;Wrapping Long Labels&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;http://tutorials.jenkov.com/svg/tspan-element.html&quot;&gt;SVG tspan element&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;</content><author><name></name></author><category term="d3" /><category term="tspan" /><category term="wrapping" /><summary type="html">모든 브라우져에서 동작 한다.</summary></entry><entry><title type="html">D3] TEXT 태그에 대한 CSS</title><link href="https://lahuman.github.io/d3_text_css/" rel="alternate" type="text/html" title="D3] TEXT 태그에 대한 CSS" /><published>2018-06-22T00:00:00+09:00</published><updated>2018-06-22T00:00:00+09:00</updated><id>https://lahuman.github.io/d3_text_css</id><content type="html" xml:base="https://lahuman.github.io/d3_text_css/">&lt;h1 id=&quot;d3를-이용한-그래프에-표기되는-text에-대한-css-정보&quot;&gt;D3를 이용한 그래프에 표기되는 TEXT에 대한 CSS 정보&lt;/h1&gt;
+&lt;/ol&gt;</content><category term="d3" /><category term="tspan" /><category term="wrapping" /><summary type="html">모든 브라우져에서 동작 한다.</summary></entry><entry><title type="html">D3] TEXT 태그에 대한 CSS</title><link href="https://lahuman.github.io/d3_text_css/" rel="alternate" type="text/html" title="D3] TEXT 태그에 대한 CSS" /><published>2018-06-22T00:00:00+09:00</published><updated>2018-06-22T00:00:00+09:00</updated><id>https://lahuman.github.io/d3_text_css</id><content type="html" xml:base="https://lahuman.github.io/d3_text_css/">&lt;h1 id=&quot;d3를-이용한-그래프에-표기되는-text에-대한-css-정보&quot;&gt;D3를 이용한 그래프에 표기되는 TEXT에 대한 CSS 정보&lt;/h1&gt;
 
 &lt;h2 id=&quot;text의-출력-위치-조절&quot;&gt;TEXT의 출력 위치 조절&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&quot;https://developer.mozilla.org/ko/docs/Web/CSS/white-space&quot;&gt;d3 svg text alignment (v3)&lt;/a&gt;를 보면 정리가 잘되어 있다.&lt;/p&gt;
@@ -52,7 +53,7 @@
 &lt;p&gt;기본적으로 시작점부터 오른쪽으로 텍스트가 출력되는데, &lt;strong&gt;text-anchor&lt;/strong&gt;에 값을 &lt;strong&gt;middle&lt;/strong&gt;, &lt;strong&gt;end&lt;/strong&gt;로 변경하여 조절 가능하다&lt;/p&gt;
 
 &lt;p&gt;기본 값은 &lt;strong&gt;start&lt;/strong&gt; 이다.&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nodeg.append(&quot;text&quot;)
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nodeg.append(&quot;text&quot;)
         .style(&quot;font-size&quot;, &quot;0.85em&quot;)
         .attr(&quot;text-anchor&quot;, &quot;middle&quot;)
         .attr(&quot;fill&quot;, parent.atomTextColor)
@@ -61,13 +62,14 @@
         .text(function(d) {
             return d.text;
         });
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;h2 id=&quot;text-multiline-출력&quot;&gt;TEXT Multiline 출력&lt;/h2&gt;
 &lt;p&gt;D3를 이용한 그래프에서 일반적으로 상요되는 TEXT 테그는 &lt;br /&gt;과 \n이 동작하지 않는다.&lt;/p&gt;
 
 &lt;p&gt;하지만 &lt;strong&gt;white-space&lt;/strong&gt;에 &lt;strong&gt;pre&lt;/strong&gt; 스타일을 주게 되면 개행문자(\n)가 동작 한다.&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nodeg.append(&quot;text&quot;)
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nodeg.append(&quot;text&quot;)
             .attr('y', function(d) {return +30;})
             .attr(&quot;dy&quot;, &quot;.35em&quot;)
             .attr(&quot;class&quot;, &quot;atomsText&quot;)
@@ -80,7 +82,8 @@
             .text(function(d) {
                 return d.desc.replace(/&amp;lt;br&amp;gt;/gi,&quot;\n&quot;);
             });
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;h2 id=&quot;d3-라이선스-관련&quot;&gt;D3 라이선스 관련&lt;/h2&gt;
 &lt;p&gt;D3는 BSD 라이선스를 따르고, D3를 이용하여 만든 차트들은 각각의 라이선스를 가지고 있다.
@@ -92,7 +95,7 @@
   &lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/ko/docs/Web/CSS/white-space&quot;&gt;white-space&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/ko/docs/Web/CSS/white-space&quot;&gt;d3 svg text alignment (v3)&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://github.com/lahuman/d3-molecule&quot;&gt;d3-molecule&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;</content><author><name></name></author><category term="d3" /><category term="text" /><category term="css" /><summary type="html">FireFox에서는 잘되는데 Chrome에선 안되네....</summary></entry><entry><title type="html">월요일 이번주의 시작은 매우 피곤</title><link href="https://lahuman.github.io/20180618-phase/" rel="alternate" type="text/html" title="월요일 이번주의 시작은 매우 피곤" /><published>2018-06-18T00:00:00+09:00</published><updated>2018-06-18T00:00:00+09:00</updated><id>https://lahuman.github.io/20180618-phase</id><content type="html" xml:base="https://lahuman.github.io/20180618-phase/">&lt;h1 id=&quot;월요일은-피곤해&quot;&gt;월요일은 피곤해&lt;/h1&gt;
+&lt;/ol&gt;</content><category term="d3" /><category term="text" /><category term="css" /><summary type="html">FireFox에서는 잘되는데 Chrome에선 안되네....</summary></entry><entry><title type="html">월요일 이번주의 시작은 매우 피곤</title><link href="https://lahuman.github.io/20180618-phase/" rel="alternate" type="text/html" title="월요일 이번주의 시작은 매우 피곤" /><published>2018-06-18T00:00:00+09:00</published><updated>2018-06-18T00:00:00+09:00</updated><id>https://lahuman.github.io/20180618-phase</id><content type="html" xml:base="https://lahuman.github.io/20180618-phase/">&lt;h1 id=&quot;월요일은-피곤해&quot;&gt;월요일은 피곤해&lt;/h1&gt;
 
 &lt;p&gt;오늘은 주말동안 일이 많아서 더욱 피곤하다.&lt;/p&gt;
 
@@ -102,7 +105,7 @@
 
 &lt;p&gt;일요일에는 채윤이 자전거 가르쳐 준다고 30분 따라 다녔더니 허리부터 안아픈 곳이 없다.&lt;/p&gt;
 
-&lt;h2 id=&quot;오늘은-해야할-일을-정리-하고-진행-하자-화이팅&quot;&gt;오늘은 해야할 일을 정리 하고 진행 하자! 화이팅&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">피곤하다, 피곤해</summary></entry><entry><title type="html">아들의 태세 전환이 예술이다.</title><link href="https://lahuman.github.io/20180615-phase/" rel="alternate" type="text/html" title="아들의 태세 전환이 예술이다." /><published>2018-06-15T00:00:00+09:00</published><updated>2018-06-15T00:00:00+09:00</updated><id>https://lahuman.github.io/20180615-phase</id><content type="html" xml:base="https://lahuman.github.io/20180615-phase/">&lt;h1 id=&quot;아침에-출근-하려는데-아들이-일어났다&quot;&gt;아침에 출근 하려는데 아들이 일어났다.&lt;/h1&gt;
+&lt;h2 id=&quot;오늘은-해야할-일을-정리-하고-진행-하자-화이팅&quot;&gt;오늘은 해야할 일을 정리 하고 진행 하자! 화이팅&lt;/h2&gt;</content><category term="단상" /><summary type="html">피곤하다, 피곤해</summary></entry><entry><title type="html">아들의 태세 전환이 예술이다.</title><link href="https://lahuman.github.io/20180615-phase/" rel="alternate" type="text/html" title="아들의 태세 전환이 예술이다." /><published>2018-06-15T00:00:00+09:00</published><updated>2018-06-15T00:00:00+09:00</updated><id>https://lahuman.github.io/20180615-phase</id><content type="html" xml:base="https://lahuman.github.io/20180615-phase/">&lt;h1 id=&quot;아침에-출근-하려는데-아들이-일어났다&quot;&gt;아침에 출근 하려는데 아들이 일어났다.&lt;/h1&gt;
 
 &lt;p&gt;동현 : “아빠 회사 가지 마요”&lt;/p&gt;
 
@@ -116,9 +119,9 @@
 
 &lt;p&gt;나 : “응? ㅋㅋㅋㅋㅋ”&lt;/p&gt;
 
-&lt;p&gt;요즘 부쩍 애교도 많아지고 말도 많이 하는 귀염둥이 아들.&lt;/p&gt;</content><author><name></name></author><category term="단상" /><summary type="html">귀염둥이</summary></entry><entry><title type="html">이번주 수요일은 투표하는 날!</title><link href="https://lahuman.github.io/20180611-phase/" rel="alternate" type="text/html" title="이번주 수요일은 투표하는 날!" /><published>2018-06-11T00:00:00+09:00</published><updated>2018-06-11T00:00:00+09:00</updated><id>https://lahuman.github.io/20180611-phase</id><content type="html" xml:base="https://lahuman.github.io/20180611-phase/">&lt;h1 id=&quot;아직까지-투표-안한적이-없다&quot;&gt;아직까지 투표 안한적이 없다.&lt;/h1&gt;
+&lt;p&gt;요즘 부쩍 애교도 많아지고 말도 많이 하는 귀염둥이 아들.&lt;/p&gt;</content><category term="단상" /><summary type="html">귀염둥이</summary></entry><entry><title type="html">이번주 수요일은 투표하는 날!</title><link href="https://lahuman.github.io/20180611-phase/" rel="alternate" type="text/html" title="이번주 수요일은 투표하는 날!" /><published>2018-06-11T00:00:00+09:00</published><updated>2018-06-11T00:00:00+09:00</updated><id>https://lahuman.github.io/20180611-phase</id><content type="html" xml:base="https://lahuman.github.io/20180611-phase/">&lt;h1 id=&quot;아직까지-투표-안한적이-없다&quot;&gt;아직까지 투표 안한적이 없다.&lt;/h1&gt;
 
-&lt;h1 id=&quot;소중한-내표를-꼭-행사-하자&quot;&gt;소중한 내표를 꼭 행사 하자!&lt;/h1&gt;</content><author><name></name></author><category term="단상" /><summary type="html">소중한 내 표를 행사하자!</summary></entry><entry><title type="html">바쁘게 살고 있는 나에게 정말 필요할까?</title><link href="https://lahuman.github.io/20180607-phase/" rel="alternate" type="text/html" title="바쁘게 살고 있는 나에게 정말 필요할까?" /><published>2018-06-07T00:00:00+09:00</published><updated>2018-06-07T00:00:00+09:00</updated><id>https://lahuman.github.io/20180607-phase</id><content type="html" xml:base="https://lahuman.github.io/20180607-phase/">&lt;h1 id=&quot;난-욕심이-많다&quot;&gt;난 욕심이 많다.&lt;/h1&gt;
+&lt;h1 id=&quot;소중한-내표를-꼭-행사-하자&quot;&gt;소중한 내표를 꼭 행사 하자!&lt;/h1&gt;</content><category term="단상" /><summary type="html">소중한 내 표를 행사하자!</summary></entry><entry><title type="html">바쁘게 살고 있는 나에게 정말 필요할까?</title><link href="https://lahuman.github.io/20180607-phase/" rel="alternate" type="text/html" title="바쁘게 살고 있는 나에게 정말 필요할까?" /><published>2018-06-07T00:00:00+09:00</published><updated>2018-06-07T00:00:00+09:00</updated><id>https://lahuman.github.io/20180607-phase</id><content type="html" xml:base="https://lahuman.github.io/20180607-phase/">&lt;h1 id=&quot;난-욕심이-많다&quot;&gt;난 욕심이 많다.&lt;/h1&gt;
 
 &lt;p&gt;그래서 정말 힘들다. 욕심을 다 채우지도 못하는 일도 종종 있다.&lt;/p&gt;
 
@@ -126,7 +129,7 @@
 
 &lt;p&gt;남이 아무리 실패라고 안된다고 하더라도 내가 멈추지 않으면 아직 끝난게 아니다.&lt;/p&gt;
 
-&lt;h3 id=&quot;가끔은-내가-왜이러나-싶을때도-있다&quot;&gt;가끔은 내가 왜이러나 싶을때도 있다.&lt;/h3&gt;</content><author><name></name></author><category term="단상" /><summary type="html">욕심은 많고 능력은 없고... 몸만 고생 중</summary></entry><entry><title type="html">MongoDB]설치와 권한 설정</title><link href="https://lahuman.github.io/mongodb_install_auth/" rel="alternate" type="text/html" title="MongoDB]설치와 권한 설정" /><published>2018-05-28T00:00:00+09:00</published><updated>2018-05-28T00:00:00+09:00</updated><id>https://lahuman.github.io/mongodb_install_auth</id><content type="html" xml:base="https://lahuman.github.io/mongodb_install_auth/">&lt;h1 id=&quot;mongodb-설치--권한-설정&quot;&gt;MongoDB] 설치 &amp;amp; 권한 설정&lt;/h1&gt;
+&lt;h3 id=&quot;가끔은-내가-왜이러나-싶을때도-있다&quot;&gt;가끔은 내가 왜이러나 싶을때도 있다.&lt;/h3&gt;</content><category term="단상" /><summary type="html">욕심은 많고 능력은 없고... 몸만 고생 중</summary></entry><entry><title type="html">MongoDB]설치와 권한 설정</title><link href="https://lahuman.github.io/mongodb_install_auth/" rel="alternate" type="text/html" title="MongoDB]설치와 권한 설정" /><published>2018-05-28T00:00:00+09:00</published><updated>2018-05-28T00:00:00+09:00</updated><id>https://lahuman.github.io/mongodb_install_auth</id><content type="html" xml:base="https://lahuman.github.io/mongodb_install_auth/">&lt;h1 id=&quot;mongodb-설치--권한-설정&quot;&gt;MongoDB] 설치 &amp;amp; 권한 설정&lt;/h1&gt;
 
 &lt;p&gt;CentOS 7에서 MongoDB를 설치하고 권한을 설정하여 권한이 없는 사용자는 조회/등록/수정/삭제 기능을 사용하지 못하게 한다.
 MongoDB는 3.6 버젼 기준으로 설명한다.&lt;/p&gt;
@@ -135,46 +138,52 @@ MongoDB는 3.6 버젼 기준으로 설명한다.&lt;/p&gt;
 
 &lt;p&gt;먼저 &lt;strong&gt;/etc/yum.repos.d/mongodb-org-3.6.repo&lt;/strong&gt; 파일을 생성하고 다음 내역을 추가 한다.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[mongodb-org-3.6]
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[mongodb-org-3.6]
 name=MongoDB Repository
 baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/3.6/x86_64/
 gpgcheck=1
 enabled=1
 gpgkey=https://www.mongodb.org/static/pgp/server-3.6.asc
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;h2 id=&quot;2-mongodb-설치&quot;&gt;2. MongoDB 설치&lt;/h2&gt;
 
 &lt;p&gt;MongoDB 패키지 설치를 진행 한다.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo yum install -y mongodb-org
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo yum install -y mongodb-org
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;설치가 완료 되면 mongod 프로세스를 시작한다.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo service mongod start
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo service mongod start
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;프로세스에 대한 정지 명령어는 다음과 같다.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo service mongod stop
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo service mongod stop
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;만약 MongoDB를 삭제 하려면, mongod 프로세스를 정지 하고 mongodb 패키지를 삭제 한다.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo yum erase $(rpm -qa | grep mongodb-org)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo yum erase $(rpm -qa | grep mongodb-org)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;설치가 완료 되었으면 설치된 MongoDB로 접속 하여 테스트를 진행 한다.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mongo --host 127.0.0.1:27017
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mongo --host 127.0.0.1:27017
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;h2 id=&quot;3-mongodb-사용자-추가&quot;&gt;3. MongoDB 사용자 추가&lt;/h2&gt;
 
 &lt;p&gt;먼저 admin 권한을 설정한다.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;use admin
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;use admin
 db.createUser(
   {
     user: &quot;myUserAdmin&quot;,
@@ -182,11 +191,12 @@ db.createUser(
     roles: [ { role: &quot;userAdminAnyDatabase&quot;, db: &quot;admin&quot; } ]
   }
 )
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;MongoDB 서비스를 재시작 하고, 접속시 로그인을 해보자&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 접속시 ID/PW 작성
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 접속시 ID/PW 작성
 mongo --port 27017 -u &quot;myUserAdmin&quot; -p &quot;abc123&quot; --authenticationDatabase &quot;admin&quot;
 
 # 접속후 Login
@@ -204,7 +214,8 @@ db.createUser(
              { role: &quot;read&quot;, db: &quot;reporting&quot; } ]
   }
 )
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;하지만 아직까지는 Login을 하지 않아도 조회/등록등의 기능이 가능하다.&lt;/p&gt;
 
@@ -212,18 +223,20 @@ db.createUser(
 
 &lt;p&gt;&lt;strong&gt;/etc/mongod.conf&lt;/strong&gt; 설정 파일에서 다음 항목을 수정한다.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;security:
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;security:
     authorization: &quot;enabled&quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;MongoDB 서비스를 재기동 하고 접속 테스트를 한다.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo service mongod restart
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo service mongod restart
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;로그인 이후에 데이터 조회나 등록을 하려고 하면 권한이 없다는 메시지가 표출 된다.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mongo --port 27017
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mongo --port 27017
 
 &amp;gt; db.test.insert( {x:1, y:1} )
 WriteResult({
@@ -249,14 +262,15 @@ WriteResult({ &quot;nInserted&quot; : 1 })
 &amp;gt; db.test.find( {} )
 { &quot;_id&quot; : ObjectId(&quot;5b0b8c26efefcbe94ba75c29&quot;), &quot;x&quot; : 1, &quot;y&quot; : 1 }
 { &quot;_id&quot; : ObjectId(&quot;5b0b8d6753b23794e42015e9&quot;), &quot;x&quot; : 1, &quot;y&quot; : 1 }
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://docs.mongodb.com/manual/tutorial/install-mongodb-on-red-hat/&quot;&gt;Install MongoDB Community Edition on Red Hat Enterprise or CentOS Linux&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://docs.mongodb.com/manual/tutorial/enable-authentication/&quot;&gt;Enable Auth&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://medium.com/mongoaudit/how-to-enable-authentication-on-mongodb-b9e8a924efac&quot;&gt;How to Enable Authentication on MongoDB&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="mongodb" /><category term="install" /><category term="auth" /><summary type="html">Centos 7에서 설치 후 권한 설정 하기</summary></entry><entry><title type="html">사랑한다는 말보다 일하라</title><link href="https://lahuman.github.io/20180525/" rel="alternate" type="text/html" title="사랑한다는 말보다 일하라" /><published>2018-05-25T00:00:00+09:00</published><updated>2018-05-25T00:00:00+09:00</updated><id>https://lahuman.github.io/20180525</id><content type="html" xml:base="https://lahuman.github.io/20180525/">&lt;h1 id=&quot;백마디-말보다-한가지-일해주는게-좋다&quot;&gt;백마디 말보다 한가지 일해주는게 좋다.&lt;/h1&gt;
+&lt;/ul&gt;</content><category term="mongodb" /><category term="install" /><category term="auth" /><summary type="html">Centos 7에서 설치 후 권한 설정 하기</summary></entry><entry><title type="html">사랑한다는 말보다 일하라</title><link href="https://lahuman.github.io/20180525/" rel="alternate" type="text/html" title="사랑한다는 말보다 일하라" /><published>2018-05-25T00:00:00+09:00</published><updated>2018-05-25T00:00:00+09:00</updated><id>https://lahuman.github.io/20180525</id><content type="html" xml:base="https://lahuman.github.io/20180525/">&lt;h1 id=&quot;백마디-말보다-한가지-일해주는게-좋다&quot;&gt;백마디 말보다 한가지 일해주는게 좋다.&lt;/h1&gt;
 
 &lt;p&gt;아내가 나에게 자주 하는 말이다.&lt;/p&gt;
 
@@ -266,11 +280,11 @@ WriteResult({ &quot;nInserted&quot; : 1 })
 
 &lt;p&gt;가사로 힘든 아내를 위해 지금 오징어 얼굴로 웃어 주기 보다, 설겆이와 청소를 하자!&lt;/p&gt;
 
-&lt;h2 id=&quot;사랑받는-남편이-되자&quot;&gt;사랑받는 남편이 되자&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><summary type="html">정수연 여사의 말씀</summary></entry><entry><title type="html">Python]paramiko 모듈에서 su 명령어로 계정 전환</title><link href="https://lahuman.github.io/python_paramiko_sudo/" rel="alternate" type="text/html" title="Python]paramiko 모듈에서 su 명령어로 계정 전환" /><published>2018-05-17T00:00:00+09:00</published><updated>2018-05-17T00:00:00+09:00</updated><id>https://lahuman.github.io/python_paramiko_sudo</id><content type="html" xml:base="https://lahuman.github.io/python_paramiko_sudo/">&lt;h1 id=&quot;pythonparamiko-모듈에서-su-명령어로-계정-전환&quot;&gt;Python]paramiko 모듈에서 su 명령어로 계정 전환&lt;/h1&gt;
+&lt;h2 id=&quot;사랑받는-남편이-되자&quot;&gt;사랑받는 남편이 되자&lt;/h2&gt;</content><category term="단상" /><summary type="html">정수연 여사의 말씀</summary></entry><entry><title type="html">Python]paramiko 모듈에서 su 명령어로 계정 전환</title><link href="https://lahuman.github.io/python_paramiko_sudo/" rel="alternate" type="text/html" title="Python]paramiko 모듈에서 su 명령어로 계정 전환" /><published>2018-05-17T00:00:00+09:00</published><updated>2018-05-17T00:00:00+09:00</updated><id>https://lahuman.github.io/python_paramiko_sudo</id><content type="html" xml:base="https://lahuman.github.io/python_paramiko_sudo/">&lt;h1 id=&quot;pythonparamiko-모듈에서-su-명령어로-계정-전환&quot;&gt;Python]paramiko 모듈에서 su 명령어로 계정 전환&lt;/h1&gt;
 
 &lt;p&gt;python에서 ssh에 연결 후 command를 실행하기 위해 사용하는 &lt;a href=&quot;http://www.paramiko.org/&quot;&gt;paramiko&lt;/a&gt; 모듈에서 간단하게 command를 실행하는 코드는 다음과 같다.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import paramiko
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import paramiko
 
 ssh_client = paramiko.SSHClient()
 ssh_client.set_missing_host_key_policy(paramiko.AutoAddPolicy()) # host keys 관련 설정
@@ -283,7 +297,8 @@ print stdout.read()
 
 ## 결과
 lahuman
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.ssh.com/ssh/host-key&quot;&gt;host kyes&lt;/a&gt; 관련 설정은 ssh로 다른 서버로 접근시, key 값을 저장할 지에 대한 처리 이다. paramiko.AutoAddPolicy() 로 설정시 자동으로 yes 처리 된다.&lt;/li&gt;
@@ -293,7 +308,7 @@ lahuman
 
 &lt;p&gt;하나의 세션에서 작업을 연속되게 진행하고 싶다면 &lt;strong&gt;channel = ssh_client.invoke_shell()&lt;/strong&gt;를 이용하면 된다.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import paramiko
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import paramiko
 
 def main():
     ssh_client = None
@@ -347,17 +362,19 @@ Last login: Thu May 17 01:35:10 EDT 2018
 whoami
 root
 [root@localhost ~]# 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;세션을 유지한 상태로 명령어를 실행하기 위해서는 channel을 가져오고 channel을 계속 유지 해야 한다.&lt;/p&gt;
 
 &lt;p&gt;각 명령의 결과가 문제 없이 종료 되었는지는&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; while chan.recv_ready():
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; while chan.recv_ready():
         outdata += chan.recv(1000)
     while chan.recv_stderr_ready():
         errdata += chan.recv_stderr(1000)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;를 통해서 확인 한다.&lt;/p&gt;
 
@@ -365,7 +382,7 @@ root
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;http://www.paramiko.org/&quot;&gt;paramiko&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.ssh.com/ssh/host-key&quot;&gt;host kyes&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="python" /><category term="paramiko" /><summary type="html">하나의 ssh 세션에서 작업 하기</summary></entry><entry><title type="html">신경 끄기의 기술</title><link href="https://lahuman.github.io/20180515-phase/" rel="alternate" type="text/html" title="신경 끄기의 기술" /><published>2018-05-15T00:00:00+09:00</published><updated>2018-05-15T00:00:00+09:00</updated><id>https://lahuman.github.io/20180515-phase</id><content type="html" xml:base="https://lahuman.github.io/20180515-phase/">&lt;h1 id=&quot;신경-끄기의-기술&quot;&gt;신경 끄기의 기술&lt;/h1&gt;
+&lt;/ul&gt;</content><category term="python" /><category term="paramiko" /><summary type="html">하나의 ssh 세션에서 작업 하기</summary></entry><entry><title type="html">신경 끄기의 기술</title><link href="https://lahuman.github.io/20180515-phase/" rel="alternate" type="text/html" title="신경 끄기의 기술" /><published>2018-05-15T00:00:00+09:00</published><updated>2018-05-15T00:00:00+09:00</updated><id>https://lahuman.github.io/20180515-phase</id><content type="html" xml:base="https://lahuman.github.io/20180515-phase/">&lt;h1 id=&quot;신경-끄기의-기술&quot;&gt;신경 끄기의 기술&lt;/h1&gt;
 
 &lt;p&gt;신경 끄기의 기술, 마크 맨슨의 책을 읽고 있다.&lt;/p&gt;
 
@@ -378,4 +395,4 @@ root
 &lt;h2 id=&quot;참조&quot;&gt;참조&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;http://www.yes24.com/24/goods/54233937&quot;&gt;신경 끄기의 기술&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="단상" /><summary type="html">마크 맨슨의 책</summary></entry></feed>
+&lt;/ul&gt;</content><category term="단상" /><summary type="html">마크 맨슨의 책</summary></entry></feed>
