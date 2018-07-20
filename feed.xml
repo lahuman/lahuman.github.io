@@ -1,4 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-07-19T08:36:06+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">배아프다…….</title><link href="https://lahuman.github.io/20180719-phase/" rel="alternate" type="text/html" title="배아프다......." /><published>2018-07-19T00:00:00+09:00</published><updated>2018-07-19T00:00:00+09:00</updated><id>https://lahuman.github.io/20180719-phase</id><content type="html" xml:base="https://lahuman.github.io/20180719-phase/">&lt;h1 id=&quot;배아퍼&quot;&gt;배아퍼…&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-07-20T14:38:09+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">시간이 지날 수록 꾀만 생긴다.</title><link href="https://lahuman.github.io/20180720-phase/" rel="alternate" type="text/html" title="시간이 지날 수록 꾀만 생긴다." /><published>2018-07-20T00:00:00+09:00</published><updated>2018-07-20T00:00:00+09:00</updated><id>https://lahuman.github.io/20180720-phase</id><content type="html" xml:base="https://lahuman.github.io/20180720-phase/">&lt;h1 id=&quot;하라는-일은-요리-조리-쉽게-처리-하고-멍하니-있는다&quot;&gt;하라는 일은 요리 조리 쉽게 처리 하고 멍하니 있는다.&lt;/h1&gt;
+
+&lt;p&gt;뭔가 목표점이 명확하지 않은 날들이다.&lt;/p&gt;
+
+&lt;p&gt;번아웃일수도 있을꺼 같다.&lt;/p&gt;</content><category term="단상" /><summary type="html">뭔가 재미난 걸 만들고 싶은데....</summary></entry><entry><title type="html">배아프다…….</title><link href="https://lahuman.github.io/20180719-phase/" rel="alternate" type="text/html" title="배아프다......." /><published>2018-07-19T00:00:00+09:00</published><updated>2018-07-19T00:00:00+09:00</updated><id>https://lahuman.github.io/20180719-phase</id><content type="html" xml:base="https://lahuman.github.io/20180719-phase/">&lt;h1 id=&quot;배아퍼&quot;&gt;배아퍼…&lt;/h1&gt;
 
 &lt;p&gt;늙어서 소화능력이 떨어진건지…&lt;/p&gt;
 
@@ -314,14 +318,4 @@ WriteResult({ &quot;nInserted&quot; : 1 })
   &lt;li&gt;&lt;a href=&quot;https://docs.mongodb.com/manual/tutorial/install-mongodb-on-red-hat/&quot;&gt;Install MongoDB Community Edition on Red Hat Enterprise or CentOS Linux&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://docs.mongodb.com/manual/tutorial/enable-authentication/&quot;&gt;Enable Auth&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://medium.com/mongoaudit/how-to-enable-authentication-on-mongodb-b9e8a924efac&quot;&gt;How to Enable Authentication on MongoDB&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="mongodb" /><category term="install" /><category term="auth" /><summary type="html">Centos 7에서 설치 후 권한 설정 하기</summary></entry><entry><title type="html">사랑한다는 말보다 일하라</title><link href="https://lahuman.github.io/20180525/" rel="alternate" type="text/html" title="사랑한다는 말보다 일하라" /><published>2018-05-25T00:00:00+09:00</published><updated>2018-05-25T00:00:00+09:00</updated><id>https://lahuman.github.io/20180525</id><content type="html" xml:base="https://lahuman.github.io/20180525/">&lt;h1 id=&quot;백마디-말보다-한가지-일해주는게-좋다&quot;&gt;백마디 말보다 한가지 일해주는게 좋다.&lt;/h1&gt;
-
-&lt;p&gt;아내가 나에게 자주 하는 말이다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;사랑해?? 사랑하면 나를 위해 일해줘! 말로만 하는 사랑 말고 내일을 도와 주고 함께 해줘!&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;가사로 힘든 아내를 위해 지금 오징어 얼굴로 웃어 주기 보다, 설겆이와 청소를 하자!&lt;/p&gt;
-
-&lt;h2 id=&quot;사랑받는-남편이-되자&quot;&gt;사랑받는 남편이 되자&lt;/h2&gt;</content><category term="단상" /><summary type="html">정수연 여사의 말씀</summary></entry></feed>
+&lt;/ul&gt;</content><category term="mongodb" /><category term="install" /><category term="auth" /><summary type="html">Centos 7에서 설치 후 권한 설정 하기</summary></entry></feed>
