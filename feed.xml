@@ -1,4 +1,14 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-07-20T14:47:06+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">시간이 지날 수록 꾀만 생긴다.</title><link href="https://lahuman.github.io/20180720-phase/" rel="alternate" type="text/html" title="시간이 지날 수록 꾀만 생긴다." /><published>2018-07-20T00:00:00+09:00</published><updated>2018-07-20T00:00:00+09:00</updated><id>https://lahuman.github.io/20180720-phase</id><content type="html" xml:base="https://lahuman.github.io/20180720-phase/">&lt;h1 id=&quot;하라는-일은-요리-조리-쉽게-처리-하고-멍하니-있는다&quot;&gt;하라는 일은 요리 조리 쉽게 처리 하고 멍하니 있는다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-07-23T09:28:45+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">개인 프로젝트를 진행해보자!!!</title><link href="https://lahuman.github.io/20180723-phase/" rel="alternate" type="text/html" title="개인 프로젝트를 진행해보자!!!" /><published>2018-07-23T00:00:00+09:00</published><updated>2018-07-23T00:00:00+09:00</updated><id>https://lahuman.github.io/20180723-phase</id><content type="html" xml:base="https://lahuman.github.io/20180723-phase/">&lt;h1 id=&quot;다른-사람에게-받은-평가를-통해-발전할-수-있을까&quot;&gt;다른 사람에게 받은 평가를 통해 발전할 수 있을까???&lt;/h1&gt;
+
+&lt;p&gt;몇가지 평가를 통해서 동료를 평가한다.&lt;/p&gt;
+
+&lt;p&gt;시간이 지나서 다시 평가 하면 동료가 어떻게 변했는지 알수 있지 않을까?&lt;/p&gt;
+
+&lt;p&gt;사람의 첫인상과 마지막 인상은 다르니까..&lt;/p&gt;
+
+&lt;p&gt;재미있을 듯 한데, 혼자 하기엔 조금 큰 프로젝트가 될 듯…&lt;/p&gt;
+
+&lt;h2 id=&quot;천천히-해보자&quot;&gt;천천히 해보자&lt;/h2&gt;</content><category term="단상" /><summary type="html">동료를 무기명으로 평가하는 시스템을 만들면 재미 있지 않을까??</summary></entry><entry><title type="html">시간이 지날 수록 꾀만 생긴다.</title><link href="https://lahuman.github.io/20180720-phase/" rel="alternate" type="text/html" title="시간이 지날 수록 꾀만 생긴다." /><published>2018-07-20T00:00:00+09:00</published><updated>2018-07-20T00:00:00+09:00</updated><id>https://lahuman.github.io/20180720-phase</id><content type="html" xml:base="https://lahuman.github.io/20180720-phase/">&lt;h1 id=&quot;하라는-일은-요리-조리-쉽게-처리-하고-멍하니-있는다&quot;&gt;하라는 일은 요리 조리 쉽게 처리 하고 멍하니 있는다.&lt;/h1&gt;
 
 &lt;p&gt;뭔가 목표점이 명확하지 않은 날들이다.&lt;/p&gt;
 
@@ -187,145 +197,4 @@
 
 &lt;p&gt;남이 아무리 실패라고 안된다고 하더라도 내가 멈추지 않으면 아직 끝난게 아니다.&lt;/p&gt;
 
-&lt;h3 id=&quot;가끔은-내가-왜이러나-싶을때도-있다&quot;&gt;가끔은 내가 왜이러나 싶을때도 있다.&lt;/h3&gt;</content><category term="단상" /><summary type="html">욕심은 많고 능력은 없고... 몸만 고생 중</summary></entry><entry><title type="html">MongoDB]설치와 권한 설정</title><link href="https://lahuman.github.io/mongodb_install_auth/" rel="alternate" type="text/html" title="MongoDB]설치와 권한 설정" /><published>2018-05-28T00:00:00+09:00</published><updated>2018-05-28T00:00:00+09:00</updated><id>https://lahuman.github.io/mongodb_install_auth</id><content type="html" xml:base="https://lahuman.github.io/mongodb_install_auth/">&lt;h1 id=&quot;mongodb-설치--권한-설정&quot;&gt;MongoDB] 설치 &amp;amp; 권한 설정&lt;/h1&gt;
-
-&lt;p&gt;CentOS 7에서 MongoDB를 설치하고 권한을 설정하여 권한이 없는 사용자는 조회/등록/수정/삭제 기능을 사용하지 못하게 한다.
-MongoDB는 3.6 버젼 기준으로 설명한다.&lt;/p&gt;
-
-&lt;h2 id=&quot;1-패키지-매니저에-mongodb-추가&quot;&gt;1. 패키지 매니저에 MongoDB 추가&lt;/h2&gt;
-
-&lt;p&gt;먼저 &lt;strong&gt;/etc/yum.repos.d/mongodb-org-3.6.repo&lt;/strong&gt; 파일을 생성하고 다음 내역을 추가 한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[mongodb-org-3.6]
-name=MongoDB Repository
-baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/3.6/x86_64/
-gpgcheck=1
-enabled=1
-gpgkey=https://www.mongodb.org/static/pgp/server-3.6.asc
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&quot;2-mongodb-설치&quot;&gt;2. MongoDB 설치&lt;/h2&gt;
-
-&lt;p&gt;MongoDB 패키지 설치를 진행 한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo yum install -y mongodb-org
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;설치가 완료 되면 mongod 프로세스를 시작한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo service mongod start
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;프로세스에 대한 정지 명령어는 다음과 같다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo service mongod stop
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;만약 MongoDB를 삭제 하려면, mongod 프로세스를 정지 하고 mongodb 패키지를 삭제 한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo yum erase $(rpm -qa | grep mongodb-org)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;설치가 완료 되었으면 설치된 MongoDB로 접속 하여 테스트를 진행 한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mongo --host 127.0.0.1:27017
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&quot;3-mongodb-사용자-추가&quot;&gt;3. MongoDB 사용자 추가&lt;/h2&gt;
-
-&lt;p&gt;먼저 admin 권한을 설정한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;use admin
-db.createUser(
-  {
-    user: &quot;myUserAdmin&quot;,
-    pwd: &quot;abc123&quot;,
-    roles: [ { role: &quot;userAdminAnyDatabase&quot;, db: &quot;admin&quot; } ]
-  }
-)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;MongoDB 서비스를 재시작 하고, 접속시 로그인을 해보자&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 접속시 ID/PW 작성
-mongo --port 27017 -u &quot;myUserAdmin&quot; -p &quot;abc123&quot; --authenticationDatabase &quot;admin&quot;
-
-# 접속후 Login
-mongo --port 27017
-use admin
-db.auth(&quot;myUserAdmin&quot;, &quot;abc123&quot; )
-
-# 계정 추가
-use test
-db.createUser(
-  {
-    user: &quot;myTester&quot;,
-    pwd: &quot;xyz123&quot;,
-    roles: [ { role: &quot;readWrite&quot;, db: &quot;test&quot; },
-             { role: &quot;read&quot;, db: &quot;reporting&quot; } ]
-  }
-)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;하지만 아직까지는 Login을 하지 않아도 조회/등록등의 기능이 가능하다.&lt;/p&gt;
-
-&lt;h2 id=&quot;4-mongodb-권한-설정&quot;&gt;4. MongoDB 권한 설정&lt;/h2&gt;
-
-&lt;p&gt;&lt;strong&gt;/etc/mongod.conf&lt;/strong&gt; 설정 파일에서 다음 항목을 수정한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;security:
-    authorization: &quot;enabled&quot;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;MongoDB 서비스를 재기동 하고 접속 테스트를 한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo service mongod restart
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;로그인 이후에 데이터 조회나 등록을 하려고 하면 권한이 없다는 메시지가 표출 된다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mongo --port 27017
-
-&amp;gt; db.test.insert( {x:1, y:1} )
-WriteResult({
-	&quot;writeError&quot; : {
-		&quot;code&quot; : 13,
-		&quot;errmsg&quot; : &quot;not authorized on test to execute command { insert: \&quot;test\&quot;, ordered: true, $db: \&quot;test\&quot; }&quot;
-	}
-})
-&amp;gt; db.test.find( {} )
-Error: error: {
-	&quot;ok&quot; : 0,
-	&quot;errmsg&quot; : &quot;not authorized on test to execute command { find: \&quot;test\&quot;, filter: {}, $db: \&quot;test\&quot; }&quot;,
-	&quot;code&quot; : 13,
-	&quot;codeName&quot; : &quot;Unauthorized&quot;
-}
-# 로그인 진행
-&amp;gt; db.auth('myTester', 'xyz123')
-1
-&amp;gt; db.test.find( {} )
-{ &quot;_id&quot; : ObjectId(&quot;5b0b8c26efefcbe94ba75c29&quot;), &quot;x&quot; : 1, &quot;y&quot; : 1 }
-&amp;gt; db.test.insert( {x:1, y:1} )
-WriteResult({ &quot;nInserted&quot; : 1 })
-&amp;gt; db.test.find( {} )
-{ &quot;_id&quot; : ObjectId(&quot;5b0b8c26efefcbe94ba75c29&quot;), &quot;x&quot; : 1, &quot;y&quot; : 1 }
-{ &quot;_id&quot; : ObjectId(&quot;5b0b8d6753b23794e42015e9&quot;), &quot;x&quot; : 1, &quot;y&quot; : 1 }
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://docs.mongodb.com/manual/tutorial/install-mongodb-on-red-hat/&quot;&gt;Install MongoDB Community Edition on Red Hat Enterprise or CentOS Linux&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://docs.mongodb.com/manual/tutorial/enable-authentication/&quot;&gt;Enable Auth&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://medium.com/mongoaudit/how-to-enable-authentication-on-mongodb-b9e8a924efac&quot;&gt;How to Enable Authentication on MongoDB&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="mongodb" /><category term="install" /><category term="auth" /><summary type="html">Centos 7에서 설치 후 권한 설정 하기</summary></entry></feed>
+&lt;h3 id=&quot;가끔은-내가-왜이러나-싶을때도-있다&quot;&gt;가끔은 내가 왜이러나 싶을때도 있다.&lt;/h3&gt;</content><category term="단상" /><summary type="html">욕심은 많고 능력은 없고... 몸만 고생 중</summary></entry></feed>
