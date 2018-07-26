@@ -1,4 +1,32 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-07-26T08:57:07+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">딸아이가 물었다.</title><link href="https://lahuman.github.io/20180726-phase/" rel="alternate" type="text/html" title="딸아이가 물었다." /><published>2018-07-26T00:00:00+09:00</published><updated>2018-07-26T00:00:00+09:00</updated><id>https://lahuman.github.io/20180726-phase</id><content type="html" xml:base="https://lahuman.github.io/20180726-phase/">&lt;h1 id=&quot;아이에게-다리털은-다리에서-머리카락이-나오는-것으로-보인다&quot;&gt;아이에게 다리털은 다리에서 머리카락이 나오는 것으로 보인다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-07-26T13:19:28+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">mysql] max_allowed_packet 관련 오류</title><link href="https://lahuman.github.io/mysql_max_allowed_packet/" rel="alternate" type="text/html" title="mysql] max_allowed_packet 관련 오류" /><published>2018-07-26T00:00:00+09:00</published><updated>2018-07-26T00:00:00+09:00</updated><id>https://lahuman.github.io/mysql_max_allowed_packet</id><content type="html" xml:base="https://lahuman.github.io/mysql_max_allowed_packet/">&lt;h1 id=&quot;mysql-max_allowed_packet-관련-오류&quot;&gt;mysql] max_allowed_packet 관련 오류&lt;/h1&gt;
+
+&lt;p&gt;max_allowed_packet에 대한 설명은 다음과 같다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;통신 패킷은 MySQL 서버로 전송되는 단일 SQL 문, 클라이언트로 전송되는 단일 행 또는 마스터 복제본 서버에서 슬레이브로 전송되는 바이너리 로그 이벤트입니다.
+MySQL 8.0 서버 또는 클라이언트에서 전송할 수 있는 가장 큰 패킷은 1GB입니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;패킷이라고 나오지만 실제 통신에서 전달되는 크기이다.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;이 값은 기본이 16M으로 되어 있으나, 대용량 처리로 인하여 값을 변경해야 할 수 있다.
+변경은 my.cnf의 설정에서 다음을 변경하면 된다.(128M로 변경 샘플)&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[mysqld]
+max_allowed_packet=128M
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;변경 내역을 반영하려면, 서버를 재기동하거나 다음의 명령어로 재기동 없이 반영 가능하다.&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# mysql 설치 위치
+
+&amp;gt; ./bin/mysqladmin -h 127.0.0.1 -u root -p reload
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://dev.mysql.com/doc/refman/8.0/en/packet-too-large.html&quot;&gt;B.5.2.9 Packet Too Large&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="mariadb" /><category term="max_allowed_packet" /><category term="error" /><summary type="html">Got packet bigger then 'max_allowed_packet' bytes</summary></entry><entry><title type="html">딸아이가 물었다.</title><link href="https://lahuman.github.io/20180726-phase/" rel="alternate" type="text/html" title="딸아이가 물었다." /><published>2018-07-26T00:00:00+09:00</published><updated>2018-07-26T00:00:00+09:00</updated><id>https://lahuman.github.io/20180726-phase</id><content type="html" xml:base="https://lahuman.github.io/20180726-phase/">&lt;h1 id=&quot;아이에게-다리털은-다리에서-머리카락이-나오는-것으로-보인다&quot;&gt;아이에게 다리털은 다리에서 머리카락이 나오는 것으로 보인다.&lt;/h1&gt;
 
 &lt;p&gt;어제 저녁에 딸아이가 내 다리를 보더니 심각하게 물었다.&lt;/p&gt;
 
@@ -195,14 +223,4 @@
   &lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/ko/docs/Web/CSS/white-space&quot;&gt;white-space&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/ko/docs/Web/CSS/white-space&quot;&gt;d3 svg text alignment (v3)&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://github.com/lahuman/d3-molecule&quot;&gt;d3-molecule&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;</content><category term="d3" /><category term="text" /><category term="css" /><summary type="html">FireFox에서는 잘되는데 Chrome에선 안되네....</summary></entry><entry><title type="html">월요일 이번주의 시작은 매우 피곤</title><link href="https://lahuman.github.io/20180618-phase/" rel="alternate" type="text/html" title="월요일 이번주의 시작은 매우 피곤" /><published>2018-06-18T00:00:00+09:00</published><updated>2018-06-18T00:00:00+09:00</updated><id>https://lahuman.github.io/20180618-phase</id><content type="html" xml:base="https://lahuman.github.io/20180618-phase/">&lt;h1 id=&quot;월요일은-피곤해&quot;&gt;월요일은 피곤해&lt;/h1&gt;
-
-&lt;p&gt;오늘은 주말동안 일이 많아서 더욱 피곤하다.&lt;/p&gt;
-
-&lt;p&gt;금요일에 시작한 워크샵은 토요일 새벽에 빠져나와 새벽 3시쯤 집에서 잠이 들었고,&lt;/p&gt;
-
-&lt;p&gt;토요일에는 하는 일 없이 동네에서 돌아다니고 저녁에 잠깐 불꽃놀이 하니 하루가 끝났고,&lt;/p&gt;
-
-&lt;p&gt;일요일에는 채윤이 자전거 가르쳐 준다고 30분 따라 다녔더니 허리부터 안아픈 곳이 없다.&lt;/p&gt;
-
-&lt;h2 id=&quot;오늘은-해야할-일을-정리-하고-진행-하자-화이팅&quot;&gt;오늘은 해야할 일을 정리 하고 진행 하자! 화이팅&lt;/h2&gt;</content><category term="단상" /><summary type="html">피곤하다, 피곤해</summary></entry></feed>
+&lt;/ol&gt;</content><category term="d3" /><category term="text" /><category term="css" /><summary type="html">FireFox에서는 잘되는데 Chrome에선 안되네....</summary></entry></feed>
