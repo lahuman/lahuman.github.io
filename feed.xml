@@ -1,4 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-07-26T13:19:28+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">mysql] max_allowed_packet 관련 오류</title><link href="https://lahuman.github.io/mysql_max_allowed_packet/" rel="alternate" type="text/html" title="mysql] max_allowed_packet 관련 오류" /><published>2018-07-26T00:00:00+09:00</published><updated>2018-07-26T00:00:00+09:00</updated><id>https://lahuman.github.io/mysql_max_allowed_packet</id><content type="html" xml:base="https://lahuman.github.io/mysql_max_allowed_packet/">&lt;h1 id=&quot;mysql-max_allowed_packet-관련-오류&quot;&gt;mysql] max_allowed_packet 관련 오류&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-07-27T17:37:34+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">CUTE 논문 준비를 해야 하는데 생각 보다 어렵다.</title><link href="https://lahuman.github.io/20180727-phase/" rel="alternate" type="text/html" title="CUTE 논문 준비를 해야 하는데 생각 보다 어렵다." /><published>2018-07-27T00:00:00+09:00</published><updated>2018-07-27T00:00:00+09:00</updated><id>https://lahuman.github.io/20180727-phase</id><content type="html" xml:base="https://lahuman.github.io/20180727-phase/">&lt;h1 id=&quot;일단-기존-졸업-논문을-6장-양식에-맞게-요약-하는-작업을-하는-중이다&quot;&gt;일단 기존 졸업 논문을 6장 양식에 맞게 요약 하는 작업을 하는 중이다.&lt;/h1&gt;
+
+&lt;p&gt;요약이라 금방 할꺼라 자신 했다. 이미 내용은 달달 외우고 있다.&lt;/p&gt;
+
+&lt;p&gt;근데 안된다.. 2줄을 요약하고 진행이 안된다.&lt;/p&gt;
+
+&lt;p&gt;하아.. 글쓰는게 제일 어렵다.&lt;/p&gt;
+
+&lt;h2 id=&quot;난-또-왜-한다고-했을까&quot;&gt;난 또 왜 한다고 했을까?&lt;/h2&gt;</content><category term="단상" /><summary type="html">흠... 이미 내용을 요약만 하면 되는데 그게 잘 안되네.... 끙</summary></entry><entry><title type="html">mysql] max_allowed_packet 관련 오류</title><link href="https://lahuman.github.io/mysql_max_allowed_packet/" rel="alternate" type="text/html" title="mysql] max_allowed_packet 관련 오류" /><published>2018-07-26T00:00:00+09:00</published><updated>2018-07-26T00:00:00+09:00</updated><id>https://lahuman.github.io/mysql_max_allowed_packet</id><content type="html" xml:base="https://lahuman.github.io/mysql_max_allowed_packet/">&lt;h1 id=&quot;mysql-max_allowed_packet-관련-오류&quot;&gt;mysql] max_allowed_packet 관련 오류&lt;/h1&gt;
 
 &lt;p&gt;max_allowed_packet에 대한 설명은 다음과 같다.&lt;/p&gt;
 
@@ -173,54 +181,4 @@ max_allowed_packet=128M
 &lt;ol&gt;
   &lt;li&gt;&lt;a href=&quot;https://bl.ocks.org/mbostock/7555321&quot;&gt;Wrapping Long Labels&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;http://tutorials.jenkov.com/svg/tspan-element.html&quot;&gt;SVG tspan element&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;</content><category term="d3" /><category term="tspan" /><category term="wrapping" /><summary type="html">모든 브라우져에서 동작한다.</summary></entry><entry><title type="html">D3] TEXT 태그에 대한 CSS</title><link href="https://lahuman.github.io/d3_text_css/" rel="alternate" type="text/html" title="D3] TEXT 태그에 대한 CSS" /><published>2018-06-22T00:00:00+09:00</published><updated>2018-06-22T00:00:00+09:00</updated><id>https://lahuman.github.io/d3_text_css</id><content type="html" xml:base="https://lahuman.github.io/d3_text_css/">&lt;h1 id=&quot;d3를-이용한-그래프에-표기되는-text에-대한-css-정보&quot;&gt;D3를 이용한 그래프에 표기되는 TEXT에 대한 CSS 정보&lt;/h1&gt;
-
-&lt;h2 id=&quot;text의-출력-위치-조절&quot;&gt;TEXT의 출력 위치 조절&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&quot;https://developer.mozilla.org/ko/docs/Web/CSS/white-space&quot;&gt;d3 svg text alignment (v3)&lt;/a&gt;를 보면 정리가 잘되어 있다.&lt;/p&gt;
-
-&lt;p&gt;기본적으로 시작점부터 오른쪽으로 텍스트가 출력되는데, &lt;strong&gt;text-anchor&lt;/strong&gt;에 값을 &lt;strong&gt;middle&lt;/strong&gt;, &lt;strong&gt;end&lt;/strong&gt;로 변경하여 조절 가능하다&lt;/p&gt;
-
-&lt;p&gt;기본 값은 &lt;strong&gt;start&lt;/strong&gt; 이다.&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nodeg.append(&quot;text&quot;)
-        .style(&quot;font-size&quot;, &quot;0.85em&quot;)
-        .attr(&quot;text-anchor&quot;, &quot;middle&quot;)
-        .attr(&quot;fill&quot;, parent.atomTextColor)
-        .style(&quot;pointer-events&quot;, &quot;none&quot;)
-        .style(&quot;color&quot;, &quot;#222&quot;)
-        .text(function(d) {
-            return d.text;
-        });
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&quot;text-multiline-출력&quot;&gt;TEXT Multiline 출력&lt;/h2&gt;
-&lt;p&gt;D3를 이용한 그래프에서 일반적으로 상요되는 TEXT 테그는 &lt;br /&gt;과 \n이 동작하지 않는다.&lt;/p&gt;
-
-&lt;p&gt;하지만 &lt;strong&gt;white-space&lt;/strong&gt;에 &lt;strong&gt;pre&lt;/strong&gt; 스타일을 주게 되면 개행문자(\n)가 동작 한다.&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nodeg.append(&quot;text&quot;)
-            .attr('y', function(d) {return +30;})
-            .attr(&quot;dy&quot;, &quot;.35em&quot;)
-            .attr(&quot;class&quot;, &quot;atomsText&quot;)
-            .style(&quot;white-space&quot;, &quot;pre&quot;)
-            .style(&quot;font-size&quot;, &quot;0.85em&quot;)
-            .attr(&quot;text-anchor&quot;, &quot;middle&quot;)
-            .attr(&quot;fill&quot;, parent.atomTextColor)
-            .style(&quot;pointer-events&quot;, &quot;none&quot;)
-            .style(&quot;color&quot;, &quot;#222&quot;)
-            .text(function(d) {
-                return d.desc.replace(/&amp;lt;br&amp;gt;/gi,&quot;\n&quot;);
-            });
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&quot;d3-라이선스-관련&quot;&gt;D3 라이선스 관련&lt;/h2&gt;
-&lt;p&gt;D3는 BSD 라이선스를 따르고, D3를 이용하여 만든 차트들은 각각의 라이선스를 가지고 있다.
-대부분은 GNU GPL v2,v3를 따르지만 몇몇 차트나 플러그인은 MIT, BSD, 라이선스가 없는 경우가 있다.
-체크를 잘하여 사용하자.&lt;/p&gt;
-
-&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
-&lt;ol&gt;
-  &lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/ko/docs/Web/CSS/white-space&quot;&gt;white-space&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/ko/docs/Web/CSS/white-space&quot;&gt;d3 svg text alignment (v3)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/lahuman/d3-molecule&quot;&gt;d3-molecule&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;</content><category term="d3" /><category term="text" /><category term="css" /><summary type="html">FireFox에서는 잘되는데 Chrome에선 안되네....</summary></entry></feed>
+&lt;/ol&gt;</content><category term="d3" /><category term="tspan" /><category term="wrapping" /><summary type="html">모든 브라우져에서 동작한다.</summary></entry></feed>
