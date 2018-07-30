@@ -1,4 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-07-27T17:37:34+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">CUTE 논문 준비를 해야 하는데 생각 보다 어렵다.</title><link href="https://lahuman.github.io/20180727-phase/" rel="alternate" type="text/html" title="CUTE 논문 준비를 해야 하는데 생각 보다 어렵다." /><published>2018-07-27T00:00:00+09:00</published><updated>2018-07-27T00:00:00+09:00</updated><id>https://lahuman.github.io/20180727-phase</id><content type="html" xml:base="https://lahuman.github.io/20180727-phase/">&lt;h1 id=&quot;일단-기존-졸업-논문을-6장-양식에-맞게-요약-하는-작업을-하는-중이다&quot;&gt;일단 기존 졸업 논문을 6장 양식에 맞게 요약 하는 작업을 하는 중이다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-07-30T10:51:42+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">아이에게 져주는 연습을 하자.</title><link href="https://lahuman.github.io/20180730-phase/" rel="alternate" type="text/html" title="아이에게 져주는 연습을 하자." /><published>2018-07-30T00:00:00+09:00</published><updated>2018-07-30T00:00:00+09:00</updated><id>https://lahuman.github.io/20180730-phase</id><content type="html" xml:base="https://lahuman.github.io/20180730-phase/">&lt;h1 id=&quot;아이와-놀이는-쉽지-않다&quot;&gt;아이와 놀이는 쉽지 않다.&lt;/h1&gt;
+
+&lt;p&gt;너무 쉽게 져줘도 안되고, 화를 내도 안된다.&lt;/p&gt;
+
+&lt;p&gt;아이는 절제가 어려워 장난을 치다가도 화를 낸다.&lt;/p&gt;
+
+&lt;p&gt;난 어른이지만…. 같이 화를 낸다.&lt;/p&gt;
+
+&lt;h2 id=&quot;어른아이&quot;&gt;어른아이&lt;/h2&gt;</content><category term="단상" /><summary type="html">사랑한다면 져주자.</summary></entry><entry><title type="html">CUTE 논문 준비를 해야 하는데 생각 보다 어렵다.</title><link href="https://lahuman.github.io/20180727-phase/" rel="alternate" type="text/html" title="CUTE 논문 준비를 해야 하는데 생각 보다 어렵다." /><published>2018-07-27T00:00:00+09:00</published><updated>2018-07-27T00:00:00+09:00</updated><id>https://lahuman.github.io/20180727-phase</id><content type="html" xml:base="https://lahuman.github.io/20180727-phase/">&lt;h1 id=&quot;일단-기존-졸업-논문을-6장-양식에-맞게-요약-하는-작업을-하는-중이다&quot;&gt;일단 기존 졸업 논문을 6장 양식에 맞게 요약 하는 작업을 하는 중이다.&lt;/h1&gt;
 
 &lt;p&gt;요약이라 금방 할꺼라 자신 했다. 이미 내용은 달달 외우고 있다.&lt;/p&gt;
 
@@ -134,51 +142,4 @@ max_allowed_packet=128M
   &lt;li&gt;&lt;a href=&quot;https://subicura.com/2017/11/22/mac-os-development-environment-setup.html&quot;&gt;본격 macOS에 개발 환경 구축하기&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;http://redutan.github.io/2015/09/25/osx-program-for-dev&quot;&gt;OS X - Java 개발자를 위한 프로그램 설치&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://support.apple.com/ko-kr/ht204609&quot;&gt;Force Touch 트랙패드에서 ‘세 손가락 드래그’ 켜기&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="mac" /><category term="setting" /><summary type="html">MAC 포멧시 오류도 나고 개발 환경 셋팅시 참고할 만한 사이트 모음</summary></entry><entry><title type="html">D3] TEXT 태그를 wraping하여 라벨 나누기</title><link href="https://lahuman.github.io/d3_wrapping_long_labels/" rel="alternate" type="text/html" title="D3] TEXT 태그를 wraping하여 라벨 나누기" /><published>2018-06-25T00:00:00+09:00</published><updated>2018-06-25T00:00:00+09:00</updated><id>https://lahuman.github.io/d3_wrapping_long_labels</id><content type="html" xml:base="https://lahuman.github.io/d3_wrapping_long_labels/">&lt;h1 id=&quot;d3에서-긴-텍스트에-대한-처리&quot;&gt;D3에서 긴 텍스트에 대한 처리&lt;/h1&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://lahuman.github.io/d3_text_css/&quot;&gt;이전 포스팅&lt;/a&gt;의 텍스트 줄바꿈 처리는 모든 브라우져에서 동작 하지 않는다.
-확인 해본 결과 &lt;a href=&quot;https://www.mozilla.org/ko/firefox/new/&quot;&gt;Firefox&lt;/a&gt;에서는 동작 하지만, 많이 사용되는 &lt;a href=&quot;https://www.google.co.kr/chrome/index.htm&quot;&gt;Chrome&lt;/a&gt;에서는 동작 하지 않는다.&lt;/p&gt;
-
-&lt;p&gt;모든 브라우져에서 동작하기 위한 코드를 찾아본 결과 &lt;a href=&quot;https://bl.ocks.org/mbostock/7555321&quot;&gt;Wrapping Long Labels&lt;/a&gt;을 발견 할 수 있었다.&lt;/p&gt;
-
-&lt;p&gt;위의 코드에서 wrap을 해주는 매소드에 보면 text 태그 하단에 들어가는 &lt;strong&gt;tspan&lt;/strong&gt;이라는 태그를 발견 하였는데, 이를 이용하여 여러 라인 처리를 하는 것을 확인했다.
-이를 활용하면 긴 문장에 대한 여러 방법으로 처리가 가능 하다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function wrap(text, width) {
-  text.each(function() {
-    var text = d3.select(this),
-        words = text.text().split(/\s+/).reverse(),
-        word,
-        line = [],
-        lineNumber = 0,
-        lineHeight = 1.1, // ems
-        y = text.attr(&quot;y&quot;),
-        dy = parseFloat(text.attr(&quot;dy&quot;)),
-        tspan = text.text(null).append(&quot;tspan&quot;).attr(&quot;x&quot;, 0).attr(&quot;y&quot;, y).attr(&quot;dy&quot;, dy + &quot;em&quot;);
-    while (word = words.pop()) {
-      line.push(word);
-      tspan.text(line.join(&quot; &quot;));
-      if (tspan.node().getComputedTextLength() &amp;gt; width) {
-        line.pop();
-        tspan.text(line.join(&quot; &quot;));
-        line = [word];
-        tspan = text.append(&quot;tspan&quot;).attr(&quot;x&quot;, 0).attr(&quot;y&quot;, y).attr(&quot;dy&quot;, ++lineNumber * lineHeight + dy + &quot;em&quot;).text(word);
-      }
-    }
-  });
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://tutorials.jenkov.com/svg/tspan-element.html&quot;&gt;SVG tspan element&lt;/a&gt;을 보면 tspan 요소는 SVG에서 여러 텍스트를 그리는데 사용되는 테그로 설명 된다.
-해당 태그를 이용하면 첨부된 소스를 사용하지 않고도 여러 라인의 문자열 처리가 가능하다.&lt;/p&gt;
-
-&lt;h2 id=&quot;라이선스-관련&quot;&gt;라이선스 관련&lt;/h2&gt;
-
-&lt;p&gt;Released under the &lt;a href=&quot;https://opensource.org/licenses/GPL-3.0&quot;&gt;GNU General Public License, version 3&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
-&lt;ol&gt;
-  &lt;li&gt;&lt;a href=&quot;https://bl.ocks.org/mbostock/7555321&quot;&gt;Wrapping Long Labels&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://tutorials.jenkov.com/svg/tspan-element.html&quot;&gt;SVG tspan element&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;</content><category term="d3" /><category term="tspan" /><category term="wrapping" /><summary type="html">모든 브라우져에서 동작한다.</summary></entry></feed>
+&lt;/ul&gt;</content><category term="mac" /><category term="setting" /><summary type="html">MAC 포멧시 오류도 나고 개발 환경 셋팅시 참고할 만한 사이트 모음</summary></entry></feed>
