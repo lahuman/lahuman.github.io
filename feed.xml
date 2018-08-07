@@ -1,4 +1,37 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-08-02T10:51:06+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">시간이 없다는 핑계는 게으른 사람만 가진다.</title><link href="https://lahuman.github.io/20180802-phase/" rel="alternate" type="text/html" title="시간이 없다는 핑계는 게으른 사람만 가진다." /><published>2018-08-02T00:00:00+09:00</published><updated>2018-08-02T00:00:00+09:00</updated><id>https://lahuman.github.io/20180802-phase</id><content type="html" xml:base="https://lahuman.github.io/20180802-phase/">&lt;h1 id=&quot;누가-했다는-말인데-마음에-와닿는다&quot;&gt;누가 했다는 말인데 마음에 와닿는다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-08-07T11:39:44+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Elasticsearch 2.x 버젼에서 index 이하의 특정 type만 삭제 하는 기능</title><link href="https://lahuman.github.io/elasticsearch_2.x_type_remove/" rel="alternate" type="text/html" title="Elasticsearch 2.x 버젼에서 index 이하의 특정 type만 삭제 하는 기능 " /><published>2018-08-07T00:00:00+09:00</published><updated>2018-08-07T00:00:00+09:00</updated><id>https://lahuman.github.io/elasticsearch_2.x_type_remove</id><content type="html" xml:base="https://lahuman.github.io/elasticsearch_2.x_type_remove/">&lt;h1 id=&quot;es_2x_type_remove&quot;&gt;&lt;a href=&quot;https://github.com/lahuman/es_2x_type_remove&quot;&gt;es_2x_type_remove&lt;/a&gt;&lt;/h1&gt;
+
+&lt;p&gt;Elasticsearch 2.x 버젼에서 index 이하의 특정 type만 삭제 하는 기능으로 단순하게 bulk를 이용하여 삭제한다.&lt;br /&gt;
+~&lt;del&gt;es 2.x 에서는 type만 삭제하는 기능이 제공 되지 않는다.&lt;/del&gt;~&lt;/p&gt;
+
+&lt;h2 id=&quot;언어-및-환경&quot;&gt;언어 및 환경&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Python 2.7.x&lt;/li&gt;
+  &lt;li&gt;Linux 환경에서 동작&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;실행-방법&quot;&gt;실행 방법&lt;/h2&gt;
+
+&lt;p&gt;runner.sh 에서 index와 type를 수정 한다.&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 13 Line
+curl -s -XPOST localhost:9200/index/type/_bulk --data-binary &quot;@id_list.json&quot; &amp;gt; /dev/null
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;EsDeleteByType.py 에서 index와 type를 수정한다.&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 7~8 Line
+ES_INDEX = &quot;index&quot;
+ES_TYPE = &quot;type&quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;실행&quot;&gt;실행&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;./runner.sh
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;license&quot;&gt;License&lt;/h2&gt;
+
+&lt;p&gt;This project is licensed under the GPL License - see the &lt;a href=&quot;https://en.wikipedia.org/wiki/GNU_General_Public_License&quot;&gt;WIKI-LICENSE&lt;/a&gt; file for details&lt;/p&gt;</content><category term="elasticsearch" /><category term="type" /><category term="remove" /><summary type="html">es_2x_type_remove</summary></entry><entry><title type="html">시간이 없다는 핑계는 게으른 사람만 가진다.</title><link href="https://lahuman.github.io/20180802-phase/" rel="alternate" type="text/html" title="시간이 없다는 핑계는 게으른 사람만 가진다." /><published>2018-08-02T00:00:00+09:00</published><updated>2018-08-02T00:00:00+09:00</updated><id>https://lahuman.github.io/20180802-phase</id><content type="html" xml:base="https://lahuman.github.io/20180802-phase/">&lt;h1 id=&quot;누가-했다는-말인데-마음에-와닿는다&quot;&gt;누가 했다는 말인데 마음에 와닿는다.&lt;/h1&gt;
 
 &lt;p&gt;요즘 시간이 없는게 아니라, 게으른게 문제였던가보다.&lt;/p&gt;
 
@@ -98,18 +131,4 @@ max_allowed_packet=128M
 
 &lt;p&gt;재미있을 듯 한데, 혼자 하기엔 조금 큰 프로젝트가 될 듯…&lt;/p&gt;
 
-&lt;h2 id=&quot;천천히-해보자&quot;&gt;천천히 해보자&lt;/h2&gt;</content><category term="단상" /><summary type="html">동료를 무기명으로 평가하는 시스템을 만들면 재미 있지 않을까??</summary></entry><entry><title type="html">시간이 지날 수록 꾀만 생긴다.</title><link href="https://lahuman.github.io/20180720-phase/" rel="alternate" type="text/html" title="시간이 지날 수록 꾀만 생긴다." /><published>2018-07-20T00:00:00+09:00</published><updated>2018-07-20T00:00:00+09:00</updated><id>https://lahuman.github.io/20180720-phase</id><content type="html" xml:base="https://lahuman.github.io/20180720-phase/">&lt;h1 id=&quot;하라는-일은-요리-조리-쉽게-처리-하고-멍하니-있는다&quot;&gt;하라는 일은 요리 조리 쉽게 처리 하고 멍하니 있는다.&lt;/h1&gt;
-
-&lt;p&gt;뭔가 목표점이 명확하지 않은 날들이다.&lt;/p&gt;
-
-&lt;p&gt;번아웃일수도 있을꺼 같다.&lt;/p&gt;
-
-&lt;p&gt;장염으로 아픈데, 앞으로 계속 재발 할수 있다는 이야기를 들었다.&lt;/p&gt;
-
-&lt;p&gt;늙어서 그런거라고…&lt;/p&gt;
-
-&lt;p&gt;운동하라는데 귀찮다….&lt;/p&gt;
-
-&lt;p&gt;왜 뭐든 흥미와 재미가 없는 시점이 있자나… 지금이 그때인듯…..&lt;/p&gt;
-
-&lt;p&gt;#귀찮아&lt;/p&gt;</content><category term="단상" /><summary type="html">뭔가 재미난 걸 만들고 싶은데....</summary></entry></feed>
+&lt;h2 id=&quot;천천히-해보자&quot;&gt;천천히 해보자&lt;/h2&gt;</content><category term="단상" /><summary type="html">동료를 무기명으로 평가하는 시스템을 만들면 재미 있지 않을까??</summary></entry></feed>
