@@ -1,4 +1,44 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-08-07T11:39:44+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Elasticsearch 2.x 버젼에서 index 이하의 특정 type만 삭제 하는 기능</title><link href="https://lahuman.github.io/elasticsearch_2.x_type_remove/" rel="alternate" type="text/html" title="Elasticsearch 2.x 버젼에서 index 이하의 특정 type만 삭제 하는 기능 " /><published>2018-08-07T00:00:00+09:00</published><updated>2018-08-07T00:00:00+09:00</updated><id>https://lahuman.github.io/elasticsearch_2.x_type_remove</id><content type="html" xml:base="https://lahuman.github.io/elasticsearch_2.x_type_remove/">&lt;h1 id=&quot;es_2x_type_remove&quot;&gt;&lt;a href=&quot;https://github.com/lahuman/es_2x_type_remove&quot;&gt;es_2x_type_remove&lt;/a&gt;&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-08-08T10:39:48+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">반고흐의 그림을 다운로드 하는 프로그램</title><link href="https://lahuman.github.io/vangoghrmuseum_crawling/" rel="alternate" type="text/html" title="반고흐의 그림을 다운로드 하는 프로그램" /><published>2018-08-08T00:00:00+09:00</published><updated>2018-08-08T00:00:00+09:00</updated><id>https://lahuman.github.io/vangoghrmuseum_crawling</id><content type="html" xml:base="https://lahuman.github.io/vangoghrmuseum_crawling/">&lt;h1 id=&quot;vangoghrmuseum_crawling&quot;&gt;&lt;a href=&quot;https://github.com/lahuman/vangoghrmuseum_crawling&quot;&gt;vangoghrmuseum_crawling&lt;/a&gt;&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://ppss.kr/archives/170443&quot;&gt;고흐의 그림 1,000점을 무료로 다운받을 수 있는 오픈컬처닷컴&lt;/a&gt; 라는 글을 보고 해당 사이트에 가보니 그림이 참 많았다.&lt;/p&gt;
+
+&lt;p&gt;하지만 아쉬운 부분은 이미지를 하나씩만 다운로드를 지원하지 않았다.
+~&lt;del&gt;어쩌면 당연한 걸지도&lt;/del&gt;~&lt;/p&gt;
+
+&lt;p&gt;그래서 간단하게 다운로드 하는 크롤러를 개발했다.&lt;/p&gt;
+
+&lt;h2 id=&quot;언어-및-환경&quot;&gt;언어 및 환경&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Python 2.7.x&lt;/li&gt;
+  &lt;li&gt;Linux 환경에서 동작&lt;/li&gt;
+  &lt;li&gt;requirements.txt 설치&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;설정&quot;&gt;설정&lt;/h2&gt;
+&lt;p&gt;index.py 에서 다른 이미지를 다운로드 하고 싶다면, 9 라인의 URL을 수정 해야 한다.
+현재는 반고흐의 모든 이미지를 받도록 설정 되어 있다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 9 LINE
+LIST_URL = BASE_URL+'/en/search/collection?q=&amp;amp;artist=Vincent%20van%20Gogh&amp;amp;pagesize=996'
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;실행&quot;&gt;실행&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python index.py
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;참고-사이트&quot;&gt;참고 사이트&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://ppss.kr/archives/170443&quot;&gt;고흐의 그림 1,000점을 무료로 다운받을 수 있는 오픈컬처닷컴&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://medium.com/@mjhans83/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9C%BC%EB%A1%9C-%ED%81%AC%EB%A1%A4%EB%A7%81-%ED%95%98%EA%B8%B0-908e78ee09e0&quot;&gt;파이썬으로 크롤링 하기
+&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/22676/how-do-i-download-a-file-over-http-using-python&quot;&gt;How do I download a file over HTTP using Python?&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;license&quot;&gt;License&lt;/h2&gt;
+
+&lt;p&gt;This project is licensed under the GPL License - see the &lt;a href=&quot;https://en.wikipedia.org/wiki/GNU_General_Public_License&quot;&gt;WIKI-LICENSE&lt;/a&gt; file for details&lt;/p&gt;</content><category term="vangoghr" /><category term="crawling" /><summary type="html">vangoghrmuseum_crawling</summary></entry><entry><title type="html">Elasticsearch 2.x 버젼에서 index 이하의 특정 type만 삭제 하는 기능</title><link href="https://lahuman.github.io/elasticsearch_2.x_type_remove/" rel="alternate" type="text/html" title="Elasticsearch 2.x 버젼에서 index 이하의 특정 type만 삭제 하는 기능" /><published>2018-08-07T00:00:00+09:00</published><updated>2018-08-07T00:00:00+09:00</updated><id>https://lahuman.github.io/elasticsearch_2.x_type_remove</id><content type="html" xml:base="https://lahuman.github.io/elasticsearch_2.x_type_remove/">&lt;h1 id=&quot;es_2x_type_remove&quot;&gt;&lt;a href=&quot;https://github.com/lahuman/es_2x_type_remove&quot;&gt;es_2x_type_remove&lt;/a&gt;&lt;/h1&gt;
 
 &lt;p&gt;Elasticsearch 2.x 버젼에서 index 이하의 특정 type만 삭제 하는 기능으로 단순하게 bulk를 이용하여 삭제한다.&lt;br /&gt;
 ~&lt;del&gt;es 2.x 에서는 type만 삭제하는 기능이 제공 되지 않는다.&lt;/del&gt;~&lt;/p&gt;
@@ -9,7 +49,7 @@
   &lt;li&gt;Linux 환경에서 동작&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;실행-방법&quot;&gt;실행 방법&lt;/h2&gt;
+&lt;h2 id=&quot;설정&quot;&gt;설정&lt;/h2&gt;
 
 &lt;p&gt;runner.sh 에서 index와 type를 수정 한다.&lt;/p&gt;
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 13 Line
@@ -121,14 +161,4 @@ max_allowed_packet=128M
 
 &lt;p&gt;게으르니까…&lt;/p&gt;
 
-&lt;h2 id=&quot;퍼스트-팔로워가-되기-위하여-많이-노력하였는데-요즘은-느리다&quot;&gt;퍼스트 팔로워가 되기 위하여 많이 노력하였는데 요즘은.. 느리다.&lt;/h2&gt;</content><category term="단상" /><summary type="html">좋다. 내가 알고 싶은걸 이미 알려주시니!!!</summary></entry><entry><title type="html">개인 프로젝트를 진행해보자!!!</title><link href="https://lahuman.github.io/20180723-phase/" rel="alternate" type="text/html" title="개인 프로젝트를 진행해보자!!!" /><published>2018-07-23T00:00:00+09:00</published><updated>2018-07-23T00:00:00+09:00</updated><id>https://lahuman.github.io/20180723-phase</id><content type="html" xml:base="https://lahuman.github.io/20180723-phase/">&lt;h1 id=&quot;다른-사람에게-받은-평가를-통해-발전할-수-있을까&quot;&gt;다른 사람에게 받은 평가를 통해 발전할 수 있을까???&lt;/h1&gt;
-
-&lt;p&gt;몇가지 평가를 통해서 동료를 평가한다.&lt;/p&gt;
-
-&lt;p&gt;시간이 지나서 다시 평가 하면 동료가 어떻게 변했는지 알수 있지 않을까?&lt;/p&gt;
-
-&lt;p&gt;사람의 첫인상과 마지막 인상은 다르니까..&lt;/p&gt;
-
-&lt;p&gt;재미있을 듯 한데, 혼자 하기엔 조금 큰 프로젝트가 될 듯…&lt;/p&gt;
-
-&lt;h2 id=&quot;천천히-해보자&quot;&gt;천천히 해보자&lt;/h2&gt;</content><category term="단상" /><summary type="html">동료를 무기명으로 평가하는 시스템을 만들면 재미 있지 않을까??</summary></entry></feed>
+&lt;h2 id=&quot;퍼스트-팔로워가-되기-위하여-많이-노력하였는데-요즘은-느리다&quot;&gt;퍼스트 팔로워가 되기 위하여 많이 노력하였는데 요즘은.. 느리다.&lt;/h2&gt;</content><category term="단상" /><summary type="html">좋다. 내가 알고 싶은걸 이미 알려주시니!!!</summary></entry></feed>
