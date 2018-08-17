@@ -1,4 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-08-13T17:53:48+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">주말동안 잘 놀았다</title><link href="https://lahuman.github.io/20180813-phase/" rel="alternate" type="text/html" title="주말동안 잘 놀았다" /><published>2018-08-13T00:00:00+09:00</published><updated>2018-08-13T00:00:00+09:00</updated><id>https://lahuman.github.io/20180813-phase</id><content type="html" xml:base="https://lahuman.github.io/20180813-phase/">&lt;h1 id=&quot;주말동안-잘-놀았다&quot;&gt;주말동안 잘 놀았다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-08-17T11:18:42+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">갑자기 금요일이네??</title><link href="https://lahuman.github.io/20180817-phase/" rel="alternate" type="text/html" title="갑자기 금요일이네??" /><published>2018-08-17T00:00:00+09:00</published><updated>2018-08-17T00:00:00+09:00</updated><id>https://lahuman.github.io/20180817-phase</id><content type="html" xml:base="https://lahuman.github.io/20180817-phase/">&lt;h1 id=&quot;광복절815이-있긴-했는데-나머지-날들은-어디-갔지&quot;&gt;광복절(8/15)이 있긴 했는데, 나머지 날들은 어디 갔지??&lt;/h1&gt;
+
+&lt;p&gt;월요일에 힘차게 시작하자를 외치고 정신을 차리니 모든 날들이 지나갔다.&lt;/p&gt;
+
+&lt;p&gt;응??&lt;/p&gt;
+
+&lt;p&gt;갑자기 금요일!!&lt;/p&gt;
+
+&lt;p&gt;#아놔&lt;/p&gt;</content><category term="단상" /><summary type="html">뭐 한일도 없이 금요일이 되었다.</summary></entry><entry><title type="html">주말동안 잘 놀았다</title><link href="https://lahuman.github.io/20180813-phase/" rel="alternate" type="text/html" title="주말동안 잘 놀았다" /><published>2018-08-13T00:00:00+09:00</published><updated>2018-08-13T00:00:00+09:00</updated><id>https://lahuman.github.io/20180813-phase</id><content type="html" xml:base="https://lahuman.github.io/20180813-phase/">&lt;h1 id=&quot;주말동안-잘-놀았다&quot;&gt;주말동안 잘 놀았다.&lt;/h1&gt;
 
 &lt;p&gt;한일 없이 주말동안 잘 쉬었다.&lt;/p&gt;
 
@@ -147,18 +155,4 @@ max_allowed_packet=128M
 &lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://dev.mysql.com/doc/refman/8.0/en/packet-too-large.html&quot;&gt;B.5.2.9 Packet Too Large&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="mariadb" /><category term="max_allowed_packet" /><category term="error" /><summary type="html">Got packet bigger then 'max_allowed_packet' bytes</summary></entry><entry><title type="html">딸아이가 물었다.</title><link href="https://lahuman.github.io/20180726-phase/" rel="alternate" type="text/html" title="딸아이가 물었다." /><published>2018-07-26T00:00:00+09:00</published><updated>2018-07-26T00:00:00+09:00</updated><id>https://lahuman.github.io/20180726-phase</id><content type="html" xml:base="https://lahuman.github.io/20180726-phase/">&lt;h1 id=&quot;아이에게-다리털은-다리에서-머리카락이-나오는-것으로-보인다&quot;&gt;아이에게 다리털은 다리에서 머리카락이 나오는 것으로 보인다.&lt;/h1&gt;
-
-&lt;p&gt;어제 저녁에 딸아이가 내 다리를 보더니 심각하게 물었다.&lt;/p&gt;
-
-&lt;p&gt;채윤 : “아빠! 왜 아빠 다리에서는 머리카락이 나와??”&lt;/p&gt;
-
-&lt;p&gt;난 잠시 질문을 이해하지 못하였고, 잠시 침묵이 흐르고 이해를 하였다.&lt;/p&gt;
-
-&lt;p&gt;나 : “채윤아 이건 다리 털이야. 머리카락은 아니고 다리에서 털이 나는 거야.”&lt;/p&gt;
-
-&lt;p&gt;채윤 : “왜?”&lt;/p&gt;
-
-&lt;p&gt;왜지? 일반적으로 털이 나는 곳은 몸의 중요한 부분이거나 외부의 환경으로부터 몸을 보호하기 위한 것이라고 알고 있다.&lt;/p&gt;
-
-&lt;p&gt;지금은 과거의 잔재 같은거랄까??&lt;/p&gt;</content><category term="단상" /><summary type="html">아빠 다리에서 왜 머리카락이 나와?</summary></entry></feed>
+&lt;/ul&gt;</content><category term="mariadb" /><category term="max_allowed_packet" /><category term="error" /><summary type="html">Got packet bigger then 'max_allowed_packet' bytes</summary></entry></feed>
