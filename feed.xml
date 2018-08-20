@@ -1,4 +1,13 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-08-17T11:18:42+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">갑자기 금요일이네??</title><link href="https://lahuman.github.io/20180817-phase/" rel="alternate" type="text/html" title="갑자기 금요일이네??" /><published>2018-08-17T00:00:00+09:00</published><updated>2018-08-17T00:00:00+09:00</updated><id>https://lahuman.github.io/20180817-phase</id><content type="html" xml:base="https://lahuman.github.io/20180817-phase/">&lt;h1 id=&quot;광복절815이-있긴-했는데-나머지-날들은-어디-갔지&quot;&gt;광복절(8/15)이 있긴 했는데, 나머지 날들은 어디 갔지??&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-08-20T09:11:09+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">주말동안 푹 쉬었다.</title><link href="https://lahuman.github.io/20180820-phase/" rel="alternate" type="text/html" title="주말동안 푹 쉬었다." /><published>2018-08-20T00:00:00+09:00</published><updated>2018-08-20T00:00:00+09:00</updated><id>https://lahuman.github.io/20180820-phase</id><content type="html" xml:base="https://lahuman.github.io/20180820-phase/">&lt;h1 id=&quot;일주일의-시작-열심히-하자&quot;&gt;일주일의 시작! 열심히 하자&lt;/h1&gt;
+
+&lt;p&gt;이번주에 해야할 일은 다음과 같다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Mongo Auth 설정&lt;/li&gt;
+  &lt;li&gt;Cute 논문 작성&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;열심히-하자&quot;&gt;열심히 하자&lt;/h2&gt;</content><category term="단상" /><summary type="html">쉬다보니 좋더라</summary></entry><entry><title type="html">갑자기 금요일이네??</title><link href="https://lahuman.github.io/20180817-phase/" rel="alternate" type="text/html" title="갑자기 금요일이네??" /><published>2018-08-17T00:00:00+09:00</published><updated>2018-08-17T00:00:00+09:00</updated><id>https://lahuman.github.io/20180817-phase</id><content type="html" xml:base="https://lahuman.github.io/20180817-phase/">&lt;h1 id=&quot;광복절815이-있긴-했는데-나머지-날들은-어디-갔지&quot;&gt;광복절(8/15)이 있긴 했는데, 나머지 날들은 어디 갔지??&lt;/h1&gt;
 
 &lt;p&gt;월요일에 힘차게 시작하자를 외치고 정신을 차리니 모든 날들이 지나갔다.&lt;/p&gt;
 
@@ -127,32 +136,4 @@ ES_TYPE = &quot;type&quot;
 
 &lt;p&gt;하아.. 글쓰는게 제일 어렵다.&lt;/p&gt;
 
-&lt;h2 id=&quot;난-또-왜-한다고-했을까&quot;&gt;난 또 왜 한다고 했을까?&lt;/h2&gt;</content><category term="단상" /><summary type="html">흠... 이미 내용을 요약만 하면 되는데 그게 잘 안되네.... 끙</summary></entry><entry><title type="html">mysql] max_allowed_packet 관련 오류</title><link href="https://lahuman.github.io/mysql_max_allowed_packet/" rel="alternate" type="text/html" title="mysql] max_allowed_packet 관련 오류" /><published>2018-07-26T00:00:00+09:00</published><updated>2018-07-26T00:00:00+09:00</updated><id>https://lahuman.github.io/mysql_max_allowed_packet</id><content type="html" xml:base="https://lahuman.github.io/mysql_max_allowed_packet/">&lt;h1 id=&quot;mysql-max_allowed_packet-관련-오류&quot;&gt;mysql] max_allowed_packet 관련 오류&lt;/h1&gt;
-
-&lt;p&gt;max_allowed_packet에 대한 설명은 다음과 같다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;통신 패킷은 MySQL 서버로 전송되는 단일 SQL 문, 클라이언트로 전송되는 단일 행 또는 마스터 복제본 서버에서 슬레이브로 전송되는 바이너리 로그 이벤트입니다.
-MySQL 8.0 서버 또는 클라이언트에서 전송할 수 있는 가장 큰 패킷은 1GB입니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;strong&gt;패킷이라고 나오지만 실제 통신에서 전달되는 크기이다.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;이 값은 기본이 16M으로 되어 있으나, 대용량 처리로 인하여 값을 변경해야 할 수 있다.
-변경은 my.cnf의 설정에서 다음을 변경하면 된다.(128M로 변경 샘플)&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[mysqld]
-max_allowed_packet=128M
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;변경 내역을 반영하려면, 서버를 재기동하거나 다음의 명령어로 재기동 없이 반영 가능하다.&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# mysql 설치 위치
-
-&amp;gt; ./bin/mysqladmin -h 127.0.0.1 -u root -p reload
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://dev.mysql.com/doc/refman/8.0/en/packet-too-large.html&quot;&gt;B.5.2.9 Packet Too Large&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="mariadb" /><category term="max_allowed_packet" /><category term="error" /><summary type="html">Got packet bigger then 'max_allowed_packet' bytes</summary></entry></feed>
+&lt;h2 id=&quot;난-또-왜-한다고-했을까&quot;&gt;난 또 왜 한다고 했을까?&lt;/h2&gt;</content><category term="단상" /><summary type="html">흠... 이미 내용을 요약만 하면 되는데 그게 잘 안되네.... 끙</summary></entry></feed>
