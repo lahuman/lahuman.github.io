@@ -6,7 +6,7 @@ replication:
   replSetName: &lt;replicaSetName&gt;
 net:
    bindIp: localhost,&lt;ip address&gt;
-</code></pre></div> <p>Server-A(20001), Server-B(20002), Server-C(20003, Server-D(20004)의 설정파일에 security: keyFile: 이 모두 설정되어야 한다. Server-F(mongos)는 실행시 option으로 처리 한다.</p> <p>재기동 옵션 A~D, F</p> <div class="highlighter-rouge"><pre class="highlight"><code>/usr/bin/mongod --config /etc/mongod_repl1.conf
+</code></pre></div> <p>Server-A(20001), Server-B(20002), Server-C(20003), Server-D(20004)의 설정파일에 security: keyFile: 이 모두 설정되어야 한다. Server-F(mongos)는 실행시 option으로 처리 한다.</p> <p>재기동 옵션 A~D, F</p> <div class="highlighter-rouge"><pre class="highlight"><code>/usr/bin/mongod --config /etc/mongod_repl1.conf
 /usr/bin/mongod --config /etc/mongod_repl2.conf
 /usr/bin/mongod --config /etc/mongod_repl3_arbiter.conf
 /usr/bin/mongod --config /etc/mongod_repl4_config.conf --configsvr
