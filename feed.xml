@@ -1,4 +1,33 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-08-20T17:57:23+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">MongoDB 3.2.20 Authentication Setting</title><link href="https://lahuman.github.io/mongodb_authentication_setting/" rel="alternate" type="text/html" title="MongoDB 3.2.20 Authentication Setting" /><published>2018-08-20T00:00:00+09:00</published><updated>2018-08-20T00:00:00+09:00</updated><id>https://lahuman.github.io/mongodb_authentication_setting</id><content type="html" xml:base="https://lahuman.github.io/mongodb_authentication_setting/">&lt;h1 id=&quot;mongodb-3220-authentication-setting&quot;&gt;MongoDB 3.2.20 Authentication Setting&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-08-21T17:57:26+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">업무 진행 프로세스 정리</title><link href="https://lahuman.github.io/workflow/" rel="alternate" type="text/html" title="업무 진행 프로세스 정리" /><published>2018-08-21T00:00:00+09:00</published><updated>2018-08-21T00:00:00+09:00</updated><id>https://lahuman.github.io/workflow</id><content type="html" xml:base="https://lahuman.github.io/workflow/">&lt;h1 id=&quot;업무-프로세스-정리&quot;&gt;업무 프로세스 정리&lt;/h1&gt;
+
+&lt;figure&gt;
+    
+    &lt;a href=&quot;https://lahuman.github.io/assets/img/phase/workflow.png&quot;&gt;&lt;img src=&quot;https://lahuman.github.io/assets/img/phase/workflow.png&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;
+    
+    &lt;figcaption&gt;Workflow&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;처리 업무가 발생시 요구사항을 정리 합니다.&lt;/li&gt;
+  &lt;li&gt;정리된 요구 사항을 기반으로 업무 담당자를 지정 합니다.&lt;/li&gt;
+  &lt;li&gt;업무 담당자는 업무 파악 후 일정을 공유 합니다.
+    &lt;ul&gt;
+      &lt;li&gt;일정은 2주 이상 소요될 경우 WBS 형식의 일정 계획을 수립 공유&lt;/li&gt;
+      &lt;li&gt;1주 이내 처리 예정의 경우 완료 시점만 표기&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;처리 완료시 검수 요청합니다.
+    &lt;ul&gt;
+      &lt;li&gt;검수 요청은 팀장 또는 요구사항 작성자&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;검수시 재처리가 필요 할 경우 &lt;strong&gt;3&lt;/strong&gt;으로 이동 합니다.&lt;/li&gt;
+  &lt;li&gt;검수 완료시 해당 업무에 대한 종료 처리 합니다.
+    &lt;ul&gt;
+      &lt;li&gt;종료 처리는 검수자가 결정&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;</content><category term="단상" /><summary type="html">상세하면 더 상세하겠지만 대충 이정도 아닐까??</summary></entry><entry><title type="html">MongoDB 3.2.20 Authentication Setting</title><link href="https://lahuman.github.io/mongodb_authentication_setting/" rel="alternate" type="text/html" title="MongoDB 3.2.20 Authentication Setting" /><published>2018-08-20T00:00:00+09:00</published><updated>2018-08-20T00:00:00+09:00</updated><id>https://lahuman.github.io/mongodb_authentication_setting</id><content type="html" xml:base="https://lahuman.github.io/mongodb_authentication_setting/">&lt;h1 id=&quot;mongodb-3220-authentication-setting&quot;&gt;MongoDB 3.2.20 Authentication Setting&lt;/h1&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;MongoDB 3.2.20 버젼으로 진행된다. 설치와 cluster가 완료 되었다는 가정하에 진행이 된다. 또한 ElasticSearch와 MongoDB는 &lt;a href=&quot;https://github.com/mongodb-labs/mongo-connector&quot;&gt;mongo-connect&lt;/a&gt;를 이용하여 연결 되어 있다.&lt;/p&gt;
@@ -45,14 +74,14 @@ net:
 &lt;/div&gt;
 
 &lt;p&gt;Server-A(20001), Server-B(20002), Server-C(20003), Server-D(20004)의 설정파일에 security: keyFile: 이 모두 설정되어야 한다.
-Server-F(mongos)는 실행시 option으로 처리 한다.&lt;/p&gt;
+Server-F(10001)는 실행시 option으로 처리 한다.&lt;/p&gt;
 
 &lt;p&gt;재기동 옵션 A~D, F&lt;/p&gt;
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/usr/bin/mongod --config /etc/mongod_repl1.conf
 /usr/bin/mongod --config /etc/mongod_repl2.conf
 /usr/bin/mongod --config /etc/mongod_repl3_arbiter.conf
 /usr/bin/mongod --config /etc/mongod_repl4_config.conf --configsvr
-usr/bin/mongos --configdb localhost:20004 --port 10001 --fork --logpath /var/lib/mongodb/mongod_mongos.log --chunkSize 1 --keyFile /etc/m_key
+/usr/bin/mongos --configdb localhost:20004 --port 10001 --fork --logpath /var/lib/mongodb/mongod_mongos.log --chunkSize 1 --keyFile /etc/m_key
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
@@ -66,7 +95,7 @@ usr/bin/mongos --configdb localhost:20004 --port 10001 --fork --logpath /var/lib
 &lt;ol&gt;
   &lt;li&gt;mongos 설정
 ~~~
-$&amp;gt; mongo –port 20001&lt;/li&gt;
+$&amp;gt; mongo –port 10001&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;blockquote&gt;
@@ -253,12 +282,4 @@ ES_TYPE = &quot;type&quot;
 
 &lt;p&gt;귀찮아 귀찮아 귀찮아……&lt;/p&gt;
 
-&lt;p&gt;아무것도 하기 싫다… 이러면 안되는데…&lt;/p&gt;</content><category term="단상" /><summary type="html">다 귀찮아.....</summary></entry><entry><title type="html">아이에게 져주는 연습을 하자.</title><link href="https://lahuman.github.io/20180730-phase/" rel="alternate" type="text/html" title="아이에게 져주는 연습을 하자." /><published>2018-07-30T00:00:00+09:00</published><updated>2018-07-30T00:00:00+09:00</updated><id>https://lahuman.github.io/20180730-phase</id><content type="html" xml:base="https://lahuman.github.io/20180730-phase/">&lt;h1 id=&quot;아이와-놀이는-쉽지-않다&quot;&gt;아이와 놀이는 쉽지 않다.&lt;/h1&gt;
-
-&lt;p&gt;너무 쉽게 져줘도 안되고, 화를 내도 안된다.&lt;/p&gt;
-
-&lt;p&gt;아이는 절제가 어려워 장난을 치다가도 화를 낸다.&lt;/p&gt;
-
-&lt;p&gt;난 어른이지만…. 같이 화를 낸다.&lt;/p&gt;
-
-&lt;h2 id=&quot;어른아이&quot;&gt;어른아이&lt;/h2&gt;</content><category term="단상" /><summary type="html">사랑한다면 져주자.</summary></entry></feed>
+&lt;p&gt;아무것도 하기 싫다… 이러면 안되는데…&lt;/p&gt;</content><category term="단상" /><summary type="html">다 귀찮아.....</summary></entry></feed>
