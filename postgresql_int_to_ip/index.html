@@ -6,6 +6,7 @@ as $$
 begin
     if intVal &lt; 0 then
       return QUERY SELECT ('0.0.0.0'::inet + ((2147483649+intVal)::bigint+2147483647::bigint))::text;
+      -- return QUERY SELECT '0.0.0.0'::inet + ( 'x' || to_hex(intVal))::bit(32)::bigint
     else
       return QUERY SELECT ('0.0.0.0'::inet + intVal)::text;
     end if;
