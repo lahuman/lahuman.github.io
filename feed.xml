@@ -1,40 +1,41 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-09-07T13:43:29+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">SpringBoot에서 websocket 사용하기</title><link href="https://lahuman.github.io/spring_websocket/" rel="alternate" type="text/html" title="SpringBoot에서 websocket 사용하기" /><published>2018-09-07T00:00:00+09:00</published><updated>2018-09-07T00:00:00+09:00</updated><id>https://lahuman.github.io/spring_websocket</id><content type="html" xml:base="https://lahuman.github.io/spring_websocket/">&lt;h1 id=&quot;springboot에서-websocket-사용하기&quot;&gt;SpringBoot에서 Websocket 사용하기&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-09-07T13:48:34+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">SpringBoot에서 websocket 사용하기</title><link href="https://lahuman.github.io/spring_websocket/" rel="alternate" type="text/html" title="SpringBoot에서 websocket 사용하기" /><published>2018-09-07T00:00:00+09:00</published><updated>2018-09-07T00:00:00+09:00</updated><id>https://lahuman.github.io/spring_websocket</id><content type="html" xml:base="https://lahuman.github.io/spring_websocket/">&lt;h1 id=&quot;springboot에서-websocket-사용하기&quot;&gt;SpringBoot에서 Websocket 사용하기&lt;/h1&gt;
 
 &lt;h2 id=&quot;websocket-이란&quot;&gt;Websocket 이란?&lt;/h2&gt;
 &lt;blockquote&gt;
-  &lt;p&gt;서버와 클라이언트 사이에 양방향 통신 채널을 구축 할 수있는 통신 프로토콜이다.
-동작 방식은 먼저 HTTP 통신을 연결하고 이후 Upgrade 헤더를 보내 양방향 연결로 업그레이드 한다.
-Websocket은 최신 브라우져에서는 대부분 지원한다.&lt;/p&gt;
+  &lt;p&gt;서버와 클라이언트 사이에 양방향 통신 채널을 구축할 수 있는 통신 프로토콜이다.
+동작 방식은 먼저 HTTP 통신을 연결하고 이후 Upgrade 헤더를 보내 양방향 연결로 업그레이드한다.
+Websocket은 최신 브라우저에서는 대부분 지원한다.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;전체 소스는 참고 내역에 있는 소스를 확인하면 된다.&lt;/p&gt;
+&lt;p&gt;전체 소스는 참고 내역에 있는 &lt;a href=&quot;https://github.com/callicoder/spring-boot-websocket-chat-demo&quot;&gt;소스&lt;/a&gt;를 확인하면 된다.&lt;/p&gt;
 
 &lt;p&gt;주요 설정은 다음과 같다.&lt;/p&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;WebSocket Configuration
-~~~
-package com.example.websocketdemo.config;&lt;/li&gt;
+  &lt;li&gt;WebSocket Configuration&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;import org.springframework.context.annotation.Configuration;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;package com.example.websocketdemo.config;
+
+import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.simp.config.MessageBrokerRegistry;
-import org.springframework.web.socket.config.annotation.*;&lt;/p&gt;
+import org.springframework.web.socket.config.annotation.*;
 
-&lt;p&gt;@Configuration
+@Configuration
 @EnableWebSocketMessageBroker
-public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {&lt;/p&gt;
+public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;@Override
-public void registerStompEndpoints(StompEndpointRegistry registry) {
-    registry.addEndpoint(&quot;/ws&quot;).withSockJS();
+    @Override
+    public void registerStompEndpoints(StompEndpointRegistry registry) {
+        registry.addEndpoint(&quot;/ws&quot;).withSockJS();
+    }
+
+    @Override
+    public void configureMessageBroker(MessageBrokerRegistry registry) {
+        registry.setApplicationDestinationPrefixes(&quot;/app&quot;);
+        registry.enableSimpleBroker(&quot;/topic&quot;);
+    }
 }
-
-@Override
-public void configureMessageBroker(MessageBrokerRegistry registry) {
-    registry.setApplicationDestinationPrefixes(&quot;/app&quot;);
-    registry.enableSimpleBroker(&quot;/topic&quot;);
-} } ~~~
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
@@ -51,7 +52,10 @@ STOMP가 필요 한 이유는 websocket은 통신 프로토콜이지 특정 주�
 첫번째 라인에서 정의된 &lt;kbd&gt;/app&lt;/kbd&gt;로 시작하는 메시지만 메시지 헨들러로 라우팅한다고 정의한다.
 두번째 라인에서 정의된 &lt;kbd&gt;/topic&lt;/kbd&gt;로 시작하는 주제를 가진 메시지를 핸들러로 라우팅하여 해당 주제에 가입한 모든 클라이언트에게 메시지를 방송한다.&lt;/p&gt;
 
-&lt;p&gt;다음은 &lt;kbd&gt;ChatController&lt;/kbd&gt; 을 살펴 본다.&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;ChatController&lt;/li&gt;
+&lt;/ol&gt;
+
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;package com.example.websocketdemo.controller;
 
 import com.example.websocketdemo.model.ChatMessage;
@@ -85,7 +89,11 @@ public class ChatController {
 
 &lt;p&gt;&lt;kbd&gt;@MessageMapping&lt;/kbd&gt;는 클라이언트에서 보내는 메시지를 매핑한다. 호출 되는 주소는 &lt;kbd&gt;/app/chart.addUer&lt;/kbd&gt;, &lt;kbd&gt;/app/chat.sendMessage&lt;/kbd&gt;가 된다.&lt;/p&gt;
 
-&lt;p&gt;javascript 에서 실제 사용은 main.js와 같이 사용한다.&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;main.js&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;javascript 에서 실제 사용은 다음 같이 사용한다.&lt;/p&gt;
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function connect(event) {
     username = document.querySelector('#name').value.trim();
 
