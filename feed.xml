@@ -1,4 +1,18 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-09-07T13:48:34+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">SpringBoot에서 websocket 사용하기</title><link href="https://lahuman.github.io/spring_websocket/" rel="alternate" type="text/html" title="SpringBoot에서 websocket 사용하기" /><published>2018-09-07T00:00:00+09:00</published><updated>2018-09-07T00:00:00+09:00</updated><id>https://lahuman.github.io/spring_websocket</id><content type="html" xml:base="https://lahuman.github.io/spring_websocket/">&lt;h1 id=&quot;springboot에서-websocket-사용하기&quot;&gt;SpringBoot에서 Websocket 사용하기&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-09-12T11:34:17+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">진상을 대하는 방법에 대하여</title><link href="https://lahuman.github.io/20180912-phase/" rel="alternate" type="text/html" title="진상을 대하는 방법에 대하여" /><published>2018-09-12T00:00:00+09:00</published><updated>2018-09-12T00:00:00+09:00</updated><id>https://lahuman.github.io/20180912-phase</id><content type="html" xml:base="https://lahuman.github.io/20180912-phase/">&lt;h1 id=&quot;개인적으로-사람이-가장-중요하다고-생각한다&quot;&gt;개인적으로 사람이 가장 중요하다고 생각한다.&lt;/h1&gt;
+
+&lt;p&gt;계획을 짜고, 일을 하고, 결과를 공유하는 모든 일을 함께 해나가는 동료가 중요하다고 생각한다.&lt;/p&gt;
+
+&lt;p&gt;얼마 전에 어느 분이 물었다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;진상인 사람을 만나면 어떻게 할 것이냐고?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;예전이라면 누가 이길지 싸워 보자고 덤빌 수도 있겠지만, 지금은 그냥 일로만 대한다.&lt;/p&gt;
+
+&lt;p&gt;최대한 감정 없이 대하고 이야기하는 부분은 문서화해서 확인받고 처리한다.&lt;/p&gt;
+
+&lt;h2 id=&quot;조금-피곤하지만-확실한-해결책이라-생각한다&quot;&gt;조금 피곤하지만 확실한 해결책이라 생각한다.&lt;/h2&gt;</content><category term="단상" /><summary type="html">얼마전에 받은 질문 중 하나</summary></entry><entry><title type="html">SpringBoot에서 websocket 사용하기</title><link href="https://lahuman.github.io/spring_websocket/" rel="alternate" type="text/html" title="SpringBoot에서 websocket 사용하기" /><published>2018-09-07T00:00:00+09:00</published><updated>2018-09-07T00:00:00+09:00</updated><id>https://lahuman.github.io/spring_websocket</id><content type="html" xml:base="https://lahuman.github.io/spring_websocket/">&lt;h1 id=&quot;springboot에서-websocket-사용하기&quot;&gt;SpringBoot에서 Websocket 사용하기&lt;/h1&gt;
 
 &lt;h2 id=&quot;websocket-이란&quot;&gt;Websocket 이란?&lt;/h2&gt;
 &lt;blockquote&gt;
@@ -11,9 +25,7 @@ Websocket은 최신 브라우저에서는 대부분 지원한다.&lt;/p&gt;
 
 &lt;p&gt;주요 설정은 다음과 같다.&lt;/p&gt;
 
-&lt;ol&gt;
-  &lt;li&gt;WebSocket Configuration&lt;/li&gt;
-&lt;/ol&gt;
+&lt;h2 id=&quot;1-websocket-configuration&quot;&gt;1. WebSocket Configuration&lt;/h2&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;package com.example.websocketdemo.config;
 
@@ -52,9 +64,7 @@ STOMP가 필요 한 이유는 websocket은 통신 프로토콜이지 특정 주�
 첫번째 라인에서 정의된 &lt;kbd&gt;/app&lt;/kbd&gt;로 시작하는 메시지만 메시지 헨들러로 라우팅한다고 정의한다.
 두번째 라인에서 정의된 &lt;kbd&gt;/topic&lt;/kbd&gt;로 시작하는 주제를 가진 메시지를 핸들러로 라우팅하여 해당 주제에 가입한 모든 클라이언트에게 메시지를 방송한다.&lt;/p&gt;
 
-&lt;ol&gt;
-  &lt;li&gt;ChatController&lt;/li&gt;
-&lt;/ol&gt;
+&lt;h2 id=&quot;2-chatcontroller&quot;&gt;2. ChatController&lt;/h2&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;package com.example.websocketdemo.controller;
 
@@ -89,9 +99,7 @@ public class ChatController {
 
 &lt;p&gt;&lt;kbd&gt;@MessageMapping&lt;/kbd&gt;는 클라이언트에서 보내는 메시지를 매핑한다. 호출 되는 주소는 &lt;kbd&gt;/app/chart.addUer&lt;/kbd&gt;, &lt;kbd&gt;/app/chat.sendMessage&lt;/kbd&gt;가 된다.&lt;/p&gt;
 
-&lt;ol&gt;
-  &lt;li&gt;main.js&lt;/li&gt;
-&lt;/ol&gt;
+&lt;h2 id=&quot;3-mainjs&quot;&gt;3. main.js&lt;/h2&gt;
 
 &lt;p&gt;javascript 에서 실제 사용은 다음 같이 사용한다.&lt;/p&gt;
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function connect(event) {
@@ -478,12 +486,4 @@ mongos&amp;gt; db.test.find({})
 
 &lt;p&gt;갑자기 금요일!!&lt;/p&gt;
 
-&lt;p&gt;#아놔&lt;/p&gt;</content><category term="단상" /><summary type="html">뭐 한일도 없이 금요일이 되었다.</summary></entry><entry><title type="html">주말동안 잘 놀았다</title><link href="https://lahuman.github.io/20180813-phase/" rel="alternate" type="text/html" title="주말동안 잘 놀았다" /><published>2018-08-13T00:00:00+09:00</published><updated>2018-08-13T00:00:00+09:00</updated><id>https://lahuman.github.io/20180813-phase</id><content type="html" xml:base="https://lahuman.github.io/20180813-phase/">&lt;h1 id=&quot;주말동안-잘-놀았다&quot;&gt;주말동안 잘 놀았다.&lt;/h1&gt;
-
-&lt;p&gt;한일 없이 주말동안 잘 쉬었다.&lt;/p&gt;
-
-&lt;p&gt;휴우~&lt;/p&gt;
-
-&lt;p&gt;힘차게 한주를 시작 하자&lt;/p&gt;
-
-&lt;p&gt;#아자아자&lt;/p&gt;</content><category term="단상" /><summary type="html">아주 집에서 널부러져 있었네</summary></entry></feed>
+&lt;p&gt;#아놔&lt;/p&gt;</content><category term="단상" /><summary type="html">뭐 한일도 없이 금요일이 되었다.</summary></entry></feed>
