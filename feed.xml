@@ -1,4 +1,19 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-09-20T12:08:18+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">출근 하면서 생각난 아이디어</title><link href="https://lahuman.github.io/20180920-phase2/" rel="alternate" type="text/html" title="출근 하면서 생각난 아이디어" /><published>2018-09-20T00:00:00+09:00</published><updated>2018-09-20T00:00:00+09:00</updated><id>https://lahuman.github.io/20180920-phase2</id><content type="html" xml:base="https://lahuman.github.io/20180920-phase2/">&lt;h1 id=&quot;로그-데이터-정규화를-머신러닝을-통해-할-수-없을까&quot;&gt;로그 데이터 정규화를 머신러닝을 통해 할 수 없을까??&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-09-27T19:01:13+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">추석이 지나갔다.</title><link href="https://lahuman.github.io/20180927-phase/" rel="alternate" type="text/html" title="추석이 지나갔다." /><published>2018-09-27T00:00:00+09:00</published><updated>2018-09-27T00:00:00+09:00</updated><id>https://lahuman.github.io/20180927-phase</id><content type="html" xml:base="https://lahuman.github.io/20180927-phase/">&lt;h1 id=&quot;긴-연휴동안-쉬는게-쉬는게-아니었다&quot;&gt;긴 연휴동안 쉬는게 쉬는게 아니었다.&lt;/h1&gt;
+
+&lt;p&gt;긴 연휴동안 푹 쉬기를 바랬는데, 원하는데로 되지 않았다.&lt;/p&gt;
+
+&lt;p&gt;생각처럼 모든일이 풀리진 않겠지만 아내와 나는 많은 에너지를 쏟고 번아웃이 되었다.&lt;/p&gt;
+
+&lt;p&gt;오늘은 휴가를 낸 첫번째 날로 그냥 집에서 푹 쉬었다.&lt;/p&gt;
+
+&lt;p&gt;아이들은 어린이 집과 유치원에 보내고 나와 아내는 도서관에서 개인적인 일을 보았다.&lt;/p&gt;
+
+&lt;p&gt;나는 CentOS7을 가상머신에 설치 하였다.&lt;/p&gt;
+
+&lt;p&gt;중간에 페퍼민트 라는 OS와 칼리 리눅스를 진행하였지만 둘다 가상머신에서 설치중 오류로 실패 했다.
+찾으려면 원인을 찾겠지만 귀찮아서 늘 사용하던 CentOS로 설치 했다.&lt;/p&gt;
+
+&lt;h2 id=&quot;이번주는-내내-힘들겠다&quot;&gt;이번주는 내내 힘들겠다.&lt;/h2&gt;</content><category term="단상" /><summary type="html">긴 연휴가 지나고 나와 아내는 번아웃이 되었다.</summary></entry><entry><title type="html">출근 하면서 생각난 아이디어</title><link href="https://lahuman.github.io/20180920-phase2/" rel="alternate" type="text/html" title="출근 하면서 생각난 아이디어" /><published>2018-09-20T00:00:00+09:00</published><updated>2018-09-20T00:00:00+09:00</updated><id>https://lahuman.github.io/20180920-phase2</id><content type="html" xml:base="https://lahuman.github.io/20180920-phase2/">&lt;h1 id=&quot;로그-데이터-정규화를-머신러닝을-통해-할-수-없을까&quot;&gt;로그 데이터 정규화를 머신러닝을 통해 할 수 없을까??&lt;/h1&gt;
 
 &lt;p&gt;보안 장비 로그는 장비 제작사에서 지정한 형식을 가지고 있다. 따라서 원격관제와 같이 여러 고객사의 보안을 관리하기 위해서는 각 고객사의 장비와 장비의 로그를 정규화라는 작업을 통해 하나의 동일한 형태로 변경해야 한다. 
 (추가로 장비의 펌웨어 버전에 따라 로그 형태가 다를 수 있다)&lt;/p&gt;
@@ -74,29 +89,28 @@ Websocket은 최신 브라우저에서는 대부분 지원한다.&lt;/p&gt;
 
 &lt;h2 id=&quot;1-websocket-configuration&quot;&gt;1. WebSocket Configuration&lt;/h2&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;package com.example.websocketdemo.config;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;example&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;websocketdemo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 
-import org.springframework.context.annotation.Configuration;
-import org.springframework.messaging.simp.config.MessageBrokerRegistry;
-import org.springframework.web.socket.config.annotation.*;
+&lt;span class=&quot;n&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;org&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;springframework&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;annotation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Configuration&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;org&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;springframework&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;messaging&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;simp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;MessageBrokerRegistry&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;org&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;springframework&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;web&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;socket&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;annotation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.*;&lt;/span&gt;
 
-@Configuration
-@EnableWebSocketMessageBroker
-public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
+&lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Configuration&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;EnableWebSocketMessageBroker&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;WebSocketConfig&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;WebSocketMessageBrokerConfigurer&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
 
-    @Override
-    public void registerStompEndpoints(StompEndpointRegistry registry) {
-        registry.addEndpoint(&quot;/ws&quot;).withSockJS();
-    }
+    &lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Override&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;registerStompEndpoints&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;StompEndpointRegistry&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;registry&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;registry&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;addEndpoint&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;/ws&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;withSockJS&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 
-    @Override
-    public void configureMessageBroker(MessageBrokerRegistry registry) {
-        registry.setApplicationDestinationPrefixes(&quot;/app&quot;);
-        registry.enableSimpleBroker(&quot;/topic&quot;);
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+    &lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Override&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;configureMessageBroker&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;MessageBrokerRegistry&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;registry&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;registry&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;setApplicationDestinationPrefixes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;/app&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;registry&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;enableSimpleBroker&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;/topic&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;kbd&gt;@EnableWebSocketMessageBroker&lt;/kbd&gt; 은 websocket 서버를 사용한다는 설정이다.
 또한 &lt;kbd&gt;WebSocketMessageBrokerConfigure&lt;/kbd&gt;를 상속 받아 몇몇 메소드를 구현하여 websocket 연결 속성을 설정한다.
@@ -113,43 +127,42 @@ STOMP가 필요 한 이유는 websocket은 통신 프로토콜이지 특정 주�
 
 &lt;h2 id=&quot;2-chatcontroller&quot;&gt;2. ChatController&lt;/h2&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;package com.example.websocketdemo.controller;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;example&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;websocketdemo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;controller&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 
-import com.example.websocketdemo.model.ChatMessage;
-import org.springframework.messaging.handler.annotation.MessageMapping;
-import org.springframework.messaging.handler.annotation.Payload;
-import org.springframework.messaging.handler.annotation.SendTo;
-import org.springframework.messaging.simp.SimpMessageHeaderAccessor;
-import org.springframework.stereotype.Controller;
+&lt;span class=&quot;n&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;example&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;websocketdemo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ChatMessage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;org&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;springframework&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;messaging&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;handler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;annotation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;MessageMapping&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;org&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;springframework&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;messaging&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;handler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;annotation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Payload&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;org&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;springframework&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;messaging&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;handler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;annotation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SendTo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;org&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;springframework&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;messaging&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;simp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SimpMessageHeaderAccessor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;org&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;springframework&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stereotype&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Controller&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 
-@Controller
-public class ChatController {
+&lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Controller&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ChatController&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
 
-    @MessageMapping(&quot;/chat.sendMessage&quot;)
-    @SendTo(&quot;/topic/public&quot;)
-    public ChatMessage sendMessage(@Payload ChatMessage chatMessage) {
-        return chatMessage;
-    }
+    &lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;MessageMapping&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;/chat.sendMessage&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SendTo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;/topic/public&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ChatMessage&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sendMessage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(@&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Payload&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ChatMessage&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;chatMessage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;chatMessage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 
-    @MessageMapping(&quot;/chat.addUser&quot;)
-    @SendTo(&quot;/topic/public&quot;)
-    public ChatMessage addUser(@Payload ChatMessage chatMessage, 
-                               SimpMessageHeaderAccessor headerAccessor) {
-        // Add username in web socket session
-        headerAccessor.getSessionAttributes().put(&quot;username&quot;, chatMessage.getSender());
-        return chatMessage;
-    }
+    &lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;MessageMapping&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;/chat.addUser&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SendTo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;/topic/public&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ChatMessage&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;addUser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(@&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Payload&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ChatMessage&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;chatMessage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+                               &lt;span class=&quot;n&quot;&gt;SimpMessageHeaderAccessor&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;headerAccessor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;//&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Add&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;username&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;web&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;socket&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;session&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;headerAccessor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getSessionAttributes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;put&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;username&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;chatMessage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getSender&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;chatMessage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;kbd&gt;@MessageMapping&lt;/kbd&gt;는 클라이언트에서 보내는 메시지를 매핑한다. 호출 되는 주소는 &lt;kbd&gt;/app/chart.addUer&lt;/kbd&gt;, &lt;kbd&gt;/app/chat.sendMessage&lt;/kbd&gt;가 된다.&lt;/p&gt;
 
 &lt;h2 id=&quot;3-mainjs&quot;&gt;3. main.js&lt;/h2&gt;
 
 &lt;p&gt;javascript 에서 실제 사용은 다음 같이 사용한다.&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function connect(event) {
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function connect(event) {
     username = document.querySelector('#name').value.trim();
 
     if(username) {
@@ -178,8 +191,7 @@ function onConnected() {
 }
 
 .... 중략
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;kbd&gt;connect&lt;/kbd&gt;를 통해 클라이언트는 websocket을 연결 합니다.
 연결에 성공하면 &lt;kbd&gt;/topic/public&lt;/kbd&gt; 주제에 가입하여 메시지를 주고 받습니다.&lt;/p&gt;
@@ -224,7 +236,7 @@ function onConnected() {
 
 &lt;p&gt;프로그램은 다음과 같다.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# -*- coding: utf-8 -*
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# -*- coding: utf-8 -*
 import psycopg2
 import csv
 import time
@@ -269,89 +281,6 @@ def use_pagination():
 if __name__ == &quot;__main__&quot;:
     use_pagination()
 
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;파이썬을 이용하면 참 쉽줘~&lt;/p&gt;</content><category term="postgresql" /><category term="python" /><category term="csv" /><summary type="html">페이징 처리까지 포함 하여</summary></entry><entry><title type="html">Postgresql] INT4 convert IP 처리</title><link href="https://lahuman.github.io/postgresql_int_to_ip/" rel="alternate" type="text/html" title="Postgresql] INT4 convert IP 처리" /><published>2018-08-23T00:00:00+09:00</published><updated>2018-08-23T00:00:00+09:00</updated><id>https://lahuman.github.io/postgresql_int_to_ip</id><content type="html" xml:base="https://lahuman.github.io/postgresql_int_to_ip/">&lt;h1 id=&quot;int4-형식으로-저장된-ip-값을-function을-이용하여-처리-하기&quot;&gt;INT4 형식으로 저장된 IP 값을 Function을 이용하여 처리 하기&lt;/h1&gt;
-
-&lt;p&gt;IP를 postgresql에 저장을 할때 문자열로 저장을 하기도 하지만, &lt;a href=&quot;https://www.postgresql.org/docs/9.1/static/datatype-net-types.html&quot;&gt;Network Address Types&lt;/a&gt;으로 제공도 된다.&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Name&lt;/th&gt;
-      &lt;th&gt;Storage Size&lt;/th&gt;
-      &lt;th&gt;Description&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;cidr&lt;/td&gt;
-      &lt;td&gt;7 or 19 bytes&lt;/td&gt;
-      &lt;td&gt;IPv4 and IPv6 networks&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;inet&lt;/td&gt;
-      &lt;td&gt;7 or 19 bytes&lt;/td&gt;
-      &lt;td&gt;IPv4 and IPv6 hosts and networks&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;macaddr&lt;/td&gt;
-      &lt;td&gt;6 bytes&lt;/td&gt;
-      &lt;td&gt;MAC addresses&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;또한 다른 방식으로는 int8로 저장이 되기도 한다.&lt;/p&gt;
-
-&lt;p&gt;문제는 int4 형식으로 저장되었을 경우이다.&lt;/p&gt;
-
-&lt;p&gt;이 경우에는 음수값에 대하여 IP 형식으로 표출하기 위해서는 int4보다 큰 양수 형식으로 변환하여 표시 해야 한다.&lt;/p&gt;
-
-&lt;p&gt;간단하게 function을 이용하여 만들어 보았다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;create or replace function int2ip(intVal integer)
-returns TABLE(
-    ipVal text
-)
-as $$
-begin
-    if intVal &amp;lt; 0 then
-      return QUERY SELECT ('0.0.0.0'::inet + ((2147483649+intVal)::bigint+2147483647::bigint))::text;
-      -- return QUERY SELECT '0.0.0.0'::inet + ( 'x' || to_hex(intVal))::bit(32)::bigint
-    else
-      return QUERY SELECT ('0.0.0.0'::inet + intVal)::text;
-    end if;
-    
-end; $$
-language 'plpgsql';
-
-
--- 211.115.106.210
-select int2ip(-747410734);
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;결과&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;int2ip&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;211.115.106.210/32&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;http://rextester.com/l/postgresql_online_compiler&quot;&gt;postgresql을 설치 하지 않고도 온라인에서 간단하게 테스트 하는 사이트&lt;/a&gt;&lt;/strong&gt;를 이용하였다..&lt;/p&gt;
-
-&lt;h2 id=&quot;참고-사이트&quot;&gt;참고 사이트&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://rextester.com/l/postgresql_online_compiler&quot;&gt;compile postgresql online&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.postgresql.org/docs/9.1/static/datatype-net-types.html&quot;&gt;Network Address Types&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="postgresql" /><category term="ip" /><summary type="html">INT4 형식으로 저장된 IP 값을 Function을 이용하여 처리 하기</summary></entry></feed>
+&lt;p&gt;파이썬을 이용하면 참 쉽줘~&lt;/p&gt;</content><category term="postgresql" /><category term="python" /><category term="csv" /><summary type="html">페이징 처리까지 포함 하여</summary></entry></feed>
