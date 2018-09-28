@@ -1,4 +1,45 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-09-28T20:13:41+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Python3.7 설치와 몇가지 새로운 사실 &amp;amp; pip install 시 SSL 오류 처리</title><link href="https://lahuman.github.io/python_3.7_pip_ssl_error/" rel="alternate" type="text/html" title="Python3.7 설치와 몇가지 새로운 사실 &amp; pip install 시 SSL 오류 처리" /><published>2018-09-28T00:00:00+09:00</published><updated>2018-09-28T00:00:00+09:00</updated><id>https://lahuman.github.io/python_3.7_pip_ssl_error</id><content type="html" xml:base="https://lahuman.github.io/python_3.7_pip_ssl_error/">&lt;h1 id=&quot;python37-설치와-새로-알게된-몇가지-사실&quot;&gt;Python3.7 설치와 새로 알게된 몇가지 사실&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-09-29T04:25:03+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Excel]문장으로 길찾기</title><link href="https://lahuman.github.io/excel_word_map/" rel="alternate" type="text/html" title="Excel]문장으로 길찾기" /><published>2018-09-29T00:00:00+09:00</published><updated>2018-09-29T00:00:00+09:00</updated><id>https://lahuman.github.io/excel_word_map</id><content type="html" xml:base="https://lahuman.github.io/excel_word_map/">&lt;h1 id=&quot;excel을-이용한-문장-길찾기-게임-만들기&quot;&gt;Excel을 이용한 문장 길찾기 게임 만들기&lt;/h1&gt;
+
+&lt;p&gt;아내가 일일이 손으로 문장 길찾기 게임을 만들고 있는 것을 보았다.&lt;/p&gt;
+
+&lt;p&gt;간단하게 프로그램으로 만들어 주기로 했는데 곰곰히 생각해보니 Excel 이면 충분할 것같아서 만들어 보았다.&lt;/p&gt;
+
+&lt;figure&gt;
+    
+    &lt;a href=&quot;https://lahuman.github.io/assets/img/post_img/word_map.png&quot;&gt;&lt;img src=&quot;https://lahuman.github.io/assets/img/post_img/word_map.png&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;
+    
+    &lt;figcaption&gt;문장 길찾기&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;VBA를 이용하여 다음과 같은 모듈을 만들었다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;10진수 한글의 유니코드 범위를 입력 받아 한글 문자열로 반환 한다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;VBA 코드는 다음과 같다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Function getKoreaWord(src As Long) As String
+Dim uCode As String
+uCode = Hex(src)
+getKoreaWord = ChrW(&quot;&amp;amp;H&quot; &amp;amp; uCode)
+End Function
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;한글의 유니코드 범위는 44032~57263 임으로 다음과 같이 사용한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;=getKoreaWord(RANDBETWEEN(44032,57263))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;실제 실행 파일은 다음에서 다운 받을 수 있다. 다만 VBA가 포함되어 있어서 xlsm 형식의 파일이다.&lt;/p&gt;
+
+&lt;div&gt;&lt;a href=&quot;https://lahuman.github.io/assets/project/etc/word_map.xlsm&quot; class=&quot;btn btn-info&quot;&gt;word map excel DOWN&lt;/a&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;http://blog.naver.com/PostView.nhn?blogId=dowahn&amp;amp;logNo=220985326303&quot;&gt;[엑셀VBA]유니코드를 일반 문자열로 변환시켜주는 VBA 사용자 함수&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;</content><category term="excel" /><category term="word" /><category term="map" /><summary type="html">이게 원하는게 맞는지는 모르겠다.</summary></entry><entry><title type="html">Python3.7 설치와 몇가지 새로운 사실 &amp;amp; pip install 시 SSL 오류 처리</title><link href="https://lahuman.github.io/python_3.7_pip_ssl_error/" rel="alternate" type="text/html" title="Python3.7 설치와 몇가지 새로운 사실 &amp; pip install 시 SSL 오류 처리" /><published>2018-09-28T00:00:00+09:00</published><updated>2018-09-28T00:00:00+09:00</updated><id>https://lahuman.github.io/python_3.7_pip_ssl_error</id><content type="html" xml:base="https://lahuman.github.io/python_3.7_pip_ssl_error/">&lt;h1 id=&quot;python37-설치와-새로-알게된-몇가지-사실&quot;&gt;Python3.7 설치와 새로 알게된 몇가지 사실&lt;/h1&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;Python3.7을 설치 하고 가상환경을 설정하는 것을 테스트 해보았다. 
@@ -60,7 +101,7 @@ $&amp;gt; yum install openssl opennssl-devel
 $&amp;gt; python install cmmand
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h2 id=&quot;참조-정보&quot;&gt;참조 정보&lt;/h2&gt;
+&lt;h2 id=&quot;참조-자료&quot;&gt;참조 자료&lt;/h2&gt;
 
 &lt;ol&gt;
   &lt;li&gt;&lt;a href=&quot;https://tecadmin.net/install-python-3-7-on-centos/&quot;&gt;How to Install Python 3.7.0 on CentOS/RHEL 7/6 &amp;amp; Fedora 28-23&lt;/a&gt;&lt;/li&gt;
@@ -292,13 +333,4 @@ function onConnected() {
   &lt;li&gt;&lt;a href=&quot;https://github.com/callicoder/spring-boot-websocket-chat-demo&quot;&gt;callicoder/spring-boot-websocket-chat-demo&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.callicoder.com/spring-boot-websocket-chat-example/&quot;&gt;Building a chat application with Spring Boot and WebSocket&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://d2.naver.com/helloworld/1336&quot;&gt;WebSocket과 Socket.io&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="websocket" /><summary type="html">어떤 일로 websocket을 확인해야 하는데, 실제로 사용해보기는 처음이다.</summary></entry><entry><title type="html">이번주는 내내 바쁘다.</title><link href="https://lahuman.github.io/20180905-phase/" rel="alternate" type="text/html" title="이번주는 내내 바쁘다." /><published>2018-09-05T00:00:00+09:00</published><updated>2018-09-05T00:00:00+09:00</updated><id>https://lahuman.github.io/20180905-phase</id><content type="html" xml:base="https://lahuman.github.io/20180905-phase/">&lt;h1 id=&quot;하나의-인연을-끊고-다시-준비-중&quot;&gt;하나의 인연을 끊고 다시 준비 중…&lt;/h1&gt;
-
-&lt;p&gt;사람도 만나고 이야기 되던 것도 정리하고, 많은 일들이 있었다.&lt;/p&gt;
-
-&lt;p&gt;중요한 건 회사 일도 많이 있었다. MongoDB와 씨름 하느라 이번주 2일간 정신이 없었다.&lt;/p&gt;
-
-&lt;p&gt;또 인연이 아닌 것을 흘려 보내기도 하였다.
-사람의 욕심은 끊이 없기에, 또한 내 깜냥이 이 정도라는 것을 느끼는 일이었다.&lt;/p&gt;
-
-&lt;p&gt;#그러하다&lt;/p&gt;</content><category term="단상" /><summary type="html">MongoDB와 씨름하느라 많이 바쁘다.</summary></entry></feed>
+&lt;/ul&gt;</content><category term="websocket" /><summary type="html">어떤 일로 websocket을 확인해야 하는데, 실제로 사용해보기는 처음이다.</summary></entry></feed>
