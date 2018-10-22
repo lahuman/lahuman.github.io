@@ -1,4 +1,14 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-10-18T16:48:00+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">급박한 납품으로 4일동안 매일 야근</title><link href="https://lahuman.github.io/20181018-phase/" rel="alternate" type="text/html" title="급박한 납품으로 4일동안 매일 야근" /><published>2018-10-18T00:00:00+09:00</published><updated>2018-10-18T00:00:00+09:00</updated><id>https://lahuman.github.io/20181018-phase</id><content type="html" xml:base="https://lahuman.github.io/20181018-phase/">&lt;h1 id=&quot;농x-프로젝트의-종료시점이-다가오면서-급박한-요청으로-야근을-했다&quot;&gt;농X 프로젝트의 종료시점이 다가오면서 급박한 요청으로 야근을 했다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-10-22T13:58:59+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Redis 버젼이 벌써 5.0이 나왔구나…</title><link href="https://lahuman.github.io/20181022-phase/" rel="alternate" type="text/html" title="Redis 버젼이 벌써 5.0이 나왔구나..." /><published>2018-10-22T00:00:00+09:00</published><updated>2018-10-22T00:00:00+09:00</updated><id>https://lahuman.github.io/20181022-phase</id><content type="html" xml:base="https://lahuman.github.io/20181022-phase/">&lt;h1 id=&quot;오랜만에-캐쉬-서버-구축을-위하여-redis를-설치하기-위해-확인해보니&quot;&gt;오랜만에 캐쉬 서버 구축을 위하여 REDIS를 설치하기 위해 확인해보니…&lt;/h1&gt;
+
+&lt;p&gt;버젼이 5.0이 최근 안정화 버젼이었다.&lt;/p&gt;
+
+&lt;p&gt;정말 나빼곤 모두 버젼업을 한다.&lt;/p&gt;
+
+&lt;p&gt;Spring, Java, Reids 등등… 세상이 변하고 그 변화를 따라가지 못하는 상품은 도태된다.&lt;/p&gt;
+
+&lt;p&gt;나도 결국 사회에서 원하는 상품중 하나이므로… 토태되지 않게 계속 업그레이드 되어야 한다.&lt;/p&gt;
+
+&lt;h2 id=&quot;하면되지-까이꺼&quot;&gt;하면되지 까이꺼!!!&lt;/h2&gt;</content><category term="단상" /><summary type="html">나 빼고 온 세상이 업그레이드 중이다.</summary></entry><entry><title type="html">급박한 납품으로 4일동안 매일 야근</title><link href="https://lahuman.github.io/20181018-phase/" rel="alternate" type="text/html" title="급박한 납품으로 4일동안 매일 야근" /><published>2018-10-18T00:00:00+09:00</published><updated>2018-10-18T00:00:00+09:00</updated><id>https://lahuman.github.io/20181018-phase</id><content type="html" xml:base="https://lahuman.github.io/20181018-phase/">&lt;h1 id=&quot;농x-프로젝트의-종료시점이-다가오면서-급박한-요청으로-야근을-했다&quot;&gt;농X 프로젝트의 종료시점이 다가오면서 급박한 요청으로 야근을 했다.&lt;/h1&gt;
 
 &lt;p&gt;4일째 빡시게 야근을 하여서 급한 불을 껏다.&lt;/p&gt;
 
@@ -243,25 +253,4 @@ $&amp;gt; python install cmmand
 &lt;p&gt;중간에 페퍼민트 라는 OS와 칼리 리눅스를 진행하였지만 둘다 가상머신에서 설치중 오류로 실패 했다.
 찾으려면 원인을 찾겠지만 귀찮아서 늘 사용하던 CentOS로 설치 했다.&lt;/p&gt;
 
-&lt;h2 id=&quot;이번주는-내내-힘들겠다&quot;&gt;이번주는 내내 힘들겠다.&lt;/h2&gt;</content><category term="단상" /><summary type="html">긴 연휴가 지나고 나와 아내는 번아웃이 되었다.</summary></entry><entry><title type="html">출근 하면서 생각난 아이디어</title><link href="https://lahuman.github.io/20180920-phase2/" rel="alternate" type="text/html" title="출근 하면서 생각난 아이디어" /><published>2018-09-20T00:00:00+09:00</published><updated>2018-09-20T00:00:00+09:00</updated><id>https://lahuman.github.io/20180920-phase2</id><content type="html" xml:base="https://lahuman.github.io/20180920-phase2/">&lt;h1 id=&quot;로그-데이터-정규화를-머신러닝을-통해-할-수-없을까&quot;&gt;로그 데이터 정규화를 머신러닝을 통해 할 수 없을까??&lt;/h1&gt;
-
-&lt;p&gt;보안 장비 로그는 장비 제작사에서 지정한 형식을 가지고 있다. 따라서 원격관제와 같이 여러 고객사의 보안을 관리하기 위해서는 각 고객사의 장비와 장비의 로그를 정규화라는 작업을 통해 하나의 동일한 형태로 변경해야 한다. 
-(추가로 장비의 펌웨어 버전에 따라 로그 형태가 다를 수 있다)&lt;/p&gt;
-
-&lt;p&gt;로그 형태는 기본적인 값인 아이피와 포트 정보를 포함하고 있으며 추가적으로 payload나 url, domain, time 등의 광범위한 내역을 담고 있다.&lt;/p&gt;
-
-&lt;p&gt;정규화는 이 중 꼭 필요한 값을 동일한 형태로 만들기 위해 일반적으로 정규식을 이용한다.&lt;/p&gt;
-
-&lt;p&gt;이때 크게 2가지 문제가 있다.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;정규식을 작성 시 로그 형태 분석 실수로 처리가 제외되는 로그가 발생한다. (인적 실수)&lt;/li&gt;
-  &lt;li&gt;장비의 펌웨어 업데이트 또는 교체로 로그 형태 변화로 인한 로그 유실이 발생한다.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;이에 대한 해결을 지금까지는 사람이 모니터링하여 처리하였다.&lt;/p&gt;
-
-&lt;p&gt;유입되는 로그의 정규화 부분을 머신러닝으로 처리할 수 있다면 상당한 비용의 절감을 이룰 수 있다.&lt;/p&gt;
-
-&lt;h2 id=&quot;뻘글&quot;&gt;뻘글&lt;/h2&gt;
-&lt;h2 id=&quot;정규식-짜다가&quot;&gt;정규식 짜다가&lt;/h2&gt;</content><category term="단상" /><summary type="html">일이 많아 몸이 피곤하니, 꼼수만 생각나는건가?</summary></entry></feed>
+&lt;h2 id=&quot;이번주는-내내-힘들겠다&quot;&gt;이번주는 내내 힘들겠다.&lt;/h2&gt;</content><category term="단상" /><summary type="html">긴 연휴가 지나고 나와 아내는 번아웃이 되었다.</summary></entry></feed>
