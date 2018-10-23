@@ -1,4 +1,25 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-10-22T18:15:21+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Redis 버젼이 벌써 5.0이 나왔구나…</title><link href="https://lahuman.github.io/20181022-phase/" rel="alternate" type="text/html" title="Redis 버젼이 벌써 5.0이 나왔구나..." /><published>2018-10-22T00:00:00+09:00</published><updated>2018-10-22T00:00:00+09:00</updated><id>https://lahuman.github.io/20181022-phase</id><content type="html" xml:base="https://lahuman.github.io/20181022-phase/">&lt;h1 id=&quot;오랜만에-캐쉬-서버-구축을-위하여-redis를-설치하기-위해-확인해보니&quot;&gt;오랜만에 캐쉬 서버 구축을 위하여 REDIS를 설치하기 위해 확인해보니…&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-10-23T11:58:46+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">php]apache2에서 python 실행시 (getpwuid(): uid not found) 발생</title><link href="https://lahuman.github.io/php_getpwuid()_uid_not_found_xx/" rel="alternate" type="text/html" title="php]apache2에서 python 실행시 (getpwuid(): uid not found) 발생" /><published>2018-10-23T00:00:00+09:00</published><updated>2018-10-23T00:00:00+09:00</updated><id>https://lahuman.github.io/php_getpwuid()_uid_not_found_xx</id><content type="html" xml:base="https://lahuman.github.io/php_getpwuid()_uid_not_found_xx/">&lt;h1 id=&quot;phpapache2에서-python-실행시-getpwuid-uid-not-found-발생&quot;&gt;php]apache2에서 python 실행시 (getpwuid(): uid not found) 발생&lt;/h1&gt;
+
+&lt;p&gt;에러 로그를 확인하면 python에서 다음과 같은 오류가 발생하였다고 표시된다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;KeyError: 'getpwuid(): uid not found: xx' 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;에러의 원인은 python을 실행될 때 site를 기본적으로 로드하는 되는 것으로 보입니다.
+따라서 PYTHONUSERBASE 환경변수를 apache에서 설정하면 실행이 됩니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;vi /etc/apache2/envvars
+
+# 아래 내용 추가
+export PYTHONUSERBASE=/usr/lib/python2.7/dist-packages
+# (해당 디렉토리는 서버에 따라 다를 수 있습니다.)
+
+# 서비스 재기동
+service apache2 restart
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;이건-함께-일하는-동료분이-찾아주심&quot;&gt;이건 함께 일하는 동료분이 찾아주심&lt;/h2&gt;
+&lt;h2 id=&quot;인터넷에도-안나와&quot;&gt;인터넷에도 안나와!&lt;/h2&gt;</content><category term="php" /><category term="getpwuid" /><summary type="html">php에서 python 실행시만 발생한다.</summary></entry><entry><title type="html">Redis 버젼이 벌써 5.0이 나왔구나…</title><link href="https://lahuman.github.io/20181022-phase/" rel="alternate" type="text/html" title="Redis 버젼이 벌써 5.0이 나왔구나..." /><published>2018-10-22T00:00:00+09:00</published><updated>2018-10-22T00:00:00+09:00</updated><id>https://lahuman.github.io/20181022-phase</id><content type="html" xml:base="https://lahuman.github.io/20181022-phase/">&lt;h1 id=&quot;오랜만에-캐쉬-서버-구축을-위하여-redis를-설치하기-위해-확인해보니&quot;&gt;오랜만에 캐쉬 서버 구축을 위하여 REDIS를 설치하기 위해 확인해보니…&lt;/h1&gt;
 
 &lt;p&gt;버젼이 5.0이 최근 안정화 버젼이었다.&lt;/p&gt;
 
@@ -238,19 +259,4 @@ $&amp;gt; python install cmmand
 &lt;ol&gt;
   &lt;li&gt;&lt;a href=&quot;https://obsproject.com/ko&quot;&gt;OBS&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://play.google.com/store/apps/details?id=com.duapps.recorder&amp;amp;hl=ko&quot;&gt;DU Recorder-Android app&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;</content><category term="단상" /><summary type="html">개인 방송이 인기라 나도 한번 해보자 하고 비공개로 몇개 찍어 보았다.</summary></entry><entry><title type="html">추석이 지나갔다.</title><link href="https://lahuman.github.io/20180927-phase/" rel="alternate" type="text/html" title="추석이 지나갔다." /><published>2018-09-27T00:00:00+09:00</published><updated>2018-09-27T00:00:00+09:00</updated><id>https://lahuman.github.io/20180927-phase</id><content type="html" xml:base="https://lahuman.github.io/20180927-phase/">&lt;h1 id=&quot;긴-연휴동안-쉬는게-쉬는게-아니었다&quot;&gt;긴 연휴동안 쉬는게 쉬는게 아니었다.&lt;/h1&gt;
-
-&lt;p&gt;긴 연휴동안 푹 쉬기를 바랬는데, 원하는데로 되지 않았다.&lt;/p&gt;
-
-&lt;p&gt;생각처럼 모든일이 풀리진 않겠지만 아내와 나는 많은 에너지를 쏟고 번아웃이 되었다.&lt;/p&gt;
-
-&lt;p&gt;오늘은 휴가를 낸 첫번째 날로 그냥 집에서 푹 쉬었다.&lt;/p&gt;
-
-&lt;p&gt;아이들은 어린이 집과 유치원에 보내고 나와 아내는 도서관에서 개인적인 일을 보았다.&lt;/p&gt;
-
-&lt;p&gt;나는 CentOS7을 가상머신에 설치 하였다.&lt;/p&gt;
-
-&lt;p&gt;중간에 페퍼민트 라는 OS와 칼리 리눅스를 진행하였지만 둘다 가상머신에서 설치중 오류로 실패 했다.
-찾으려면 원인을 찾겠지만 귀찮아서 늘 사용하던 CentOS로 설치 했다.&lt;/p&gt;
-
-&lt;h2 id=&quot;이번주는-내내-힘들겠다&quot;&gt;이번주는 내내 힘들겠다.&lt;/h2&gt;</content><category term="단상" /><summary type="html">긴 연휴가 지나고 나와 아내는 번아웃이 되었다.</summary></entry></feed>
+&lt;/ol&gt;</content><category term="단상" /><summary type="html">개인 방송이 인기라 나도 한번 해보자 하고 비공개로 몇개 찍어 보았다.</summary></entry></feed>
