@@ -1,4 +1,37 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-11-06T17:03:59+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">인포섹에서의 마지막 업무들이 정리되어 간다.</title><link href="https://lahuman.github.io/20181106-phase/" rel="alternate" type="text/html" title="인포섹에서의 마지막 업무들이 정리되어 간다." /><published>2018-11-06T00:00:00+09:00</published><updated>2018-11-06T00:00:00+09:00</updated><id>https://lahuman.github.io/20181106-phase</id><content type="html" xml:base="https://lahuman.github.io/20181106-phase/">&lt;h1 id=&quot;정말-정신없이-일했다&quot;&gt;정말 정신없이 일했다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-11-07T17:59:38+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Elasticsearch에서 Hot, Warm 구조를 이용하는 경우 얻는 이득은??</title><link href="https://lahuman.github.io/elasticsearch_hot_warm/" rel="alternate" type="text/html" title="Elasticsearch에서 Hot, Warm 구조를 이용하는 경우 얻는 이득은??" /><published>2018-11-07T00:00:00+09:00</published><updated>2018-11-07T00:00:00+09:00</updated><id>https://lahuman.github.io/elasticsearch_hot_warm</id><content type="html" xml:base="https://lahuman.github.io/elasticsearch_hot_warm/">&lt;h1 id=&quot;elasticsearch-hot-warm-구조의-잇점은-무엇인가&quot;&gt;Elasticsearch Hot, Warm 구조의 잇점은 무엇인가??&lt;/h1&gt;
+
+&lt;p&gt;Elasticsearch 5.X 부터는 3가지 종류의 노드가 있다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Master Node : 클러스터 관리 및 상태 처리에만 책임이 있는 노드&lt;/li&gt;
+  &lt;li&gt;Hot Node : 빈번하게 호출되거나 자주 쿼리 하는 최신 인덱스&lt;/li&gt;
+  &lt;li&gt;Warm Node : 자주 호출되지 않는 읽기 전용의 대용량의 인덱스를 처리&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;테스트 환경으로 Master/Hot/Warm 노드를 클러스터링으로 구성하여서 몇가지 테스트를 해보았다.&lt;/p&gt;
+
+&lt;p&gt;테스트 1. 샘플 데이터 등록
+테스트 2. 특정 index를 warm으로 변경 후 데이터 변경(수정, 삭제, 등록)&lt;/p&gt;
+
+&lt;p&gt;테스트 결과 모두 이상 없이 동작하고 양쪽 노드에 균등하게 데이터도 분배 되었다.&lt;/p&gt;
+
+&lt;p&gt;동작이 기존에 구성하였던 것과 차이가 없게 느껴졌다.
+(성능 테스트는 하지는 않았습니다.)&lt;/p&gt;
+
+&lt;h2 id=&quot;hot은-ssd로-warm은-hdd로-구성하고-클러스터링을-구성하여-운영하여도-문제가-없는-것일까&quot;&gt;Hot은 SSD로, Warm은 HDD로 구성하고 클러스터링을 구성하여 운영하여도 문제가 없는 것일까??&lt;/h2&gt;
+
+&lt;p&gt;Hot과 Warm의 차이를 모르겠다. 실제 어떻게 동작하는건지… 성능 테스트까지 해봐야 하는건가?&lt;/p&gt;
+
+&lt;p&gt;Index 기반으로 Hot과 Warm을 구분해야 하는건 아닐까??&lt;/p&gt;
+
+&lt;p&gt;이런건 누구에게 물어봐야 할까?&lt;/p&gt;
+
+&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.elastic.co/blog/hot-warm-architecture-in-elasticsearch-5-x&quot;&gt;“Hot-Warm” Architecture in Elasticsearch 5.x&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://cyuu.tistory.com/entry/Elasticsearch-Hot-Warm-Architecture&quot;&gt;Elasticsearch Hot Warm Architecture&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="elasticsearch" /><summary type="html">일단 보기에는 동작의 차이가 나지 않는다.</summary></entry><entry><title type="html">인포섹에서의 마지막 업무들이 정리되어 간다.</title><link href="https://lahuman.github.io/20181106-phase/" rel="alternate" type="text/html" title="인포섹에서의 마지막 업무들이 정리되어 간다." /><published>2018-11-06T00:00:00+09:00</published><updated>2018-11-06T00:00:00+09:00</updated><id>https://lahuman.github.io/20181106-phase</id><content type="html" xml:base="https://lahuman.github.io/20181106-phase/">&lt;h1 id=&quot;정말-정신없이-일했다&quot;&gt;정말 정신없이 일했다.&lt;/h1&gt;
 
 &lt;p&gt;마무리가 더 어려운거 같다.&lt;/p&gt;
 
@@ -157,45 +190,4 @@ service apache2 restart
   &lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h2 id=&quot;즐거운-10월을-시작하자&quot;&gt;즐거운 10월을 시작하자!!&lt;/h2&gt;</content><category term="단상" /><summary type="html">9월은 정말 정신 없이 바뻤다.</summary></entry><entry><title type="html">Excel]문장으로 길찾기</title><link href="https://lahuman.github.io/excel_word_map/" rel="alternate" type="text/html" title="Excel]문장으로 길찾기" /><published>2018-09-29T00:00:00+09:00</published><updated>2018-09-29T00:00:00+09:00</updated><id>https://lahuman.github.io/excel_word_map</id><content type="html" xml:base="https://lahuman.github.io/excel_word_map/">&lt;h1 id=&quot;excel을-이용한-문장-길찾기-게임-만들기&quot;&gt;Excel을 이용한 문장 길찾기 게임 만들기&lt;/h1&gt;
-
-&lt;p&gt;아내가 일일이 손으로 문장 길찾기 게임을 만들고 있는 것을 보았다.&lt;/p&gt;
-
-&lt;p&gt;간단하게 프로그램으로 만들어 주기로 했는데 곰곰히 생각해보니 Excel 이면 충분할 것같아서 만들어 보았다.&lt;/p&gt;
-
-&lt;figure&gt;
-    
-    &lt;a href=&quot;https://lahuman.github.io/assets/img/post_img/word_map.png&quot;&gt;&lt;img src=&quot;https://lahuman.github.io/assets/img/post_img/word_map.png&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;
-    
-    &lt;figcaption&gt;문장 길찾기&lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;VBA를 이용하여 다음과 같은 모듈을 만들었다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;10진수 한글의 유니코드 범위를 입력 받아 한글 문자열로 반환 한다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;VBA 코드는 다음과 같다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Function getKoreaWord(src As Long) As String
-Dim uCode As String
-uCode = Hex(src)
-getKoreaWord = ChrW(&quot;&amp;amp;H&quot; &amp;amp; uCode)
-End Function
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;한글의 유니코드 범위는 44032~57263 임으로 다음과 같이 사용한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;=getKoreaWord(RANDBETWEEN(44032,57263))
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;실제 실행 파일은 다음에서 다운 받을 수 있다. 다만 VBA가 포함되어 있어서 xlsm 형식의 파일이다.&lt;/p&gt;
-
-&lt;div&gt;&lt;a href=&quot;https://lahuman.github.io/assets/project/etc/word_map.xlsm&quot; class=&quot;btn btn-info&quot;&gt;word map excel DOWN&lt;/a&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;&lt;a href=&quot;http://blog.naver.com/PostView.nhn?blogId=dowahn&amp;amp;logNo=220985326303&quot;&gt;[엑셀VBA]유니코드를 일반 문자열로 변환시켜주는 VBA 사용자 함수&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;</content><category term="excel" /><category term="word" /><category term="map" /><summary type="html">이게 원하는게 맞는지는 모르겠다.</summary></entry></feed>
+&lt;h2 id=&quot;즐거운-10월을-시작하자&quot;&gt;즐거운 10월을 시작하자!!&lt;/h2&gt;</content><category term="단상" /><summary type="html">9월은 정말 정신 없이 바뻤다.</summary></entry></feed>
