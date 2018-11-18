@@ -1,4 +1,17 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-11-08T17:36:54+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">팀 평가를 낮게 드려도 될까요?</title><link href="https://lahuman.github.io/20181108-phase/" rel="alternate" type="text/html" title="팀 평가를 낮게 드려도 될까요?" /><published>2018-11-08T00:00:00+09:00</published><updated>2018-11-08T00:00:00+09:00</updated><id>https://lahuman.github.io/20181108-phase</id><content type="html" xml:base="https://lahuman.github.io/20181108-phase/">&lt;h1 id=&quot;팀-평가를-낮게-드려도-될까요&quot;&gt;팀 평가를 낮게 드려도 될까요?&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-11-18T12:09:06+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">새로운 회사에 적응을 하는중이다.</title><link href="https://lahuman.github.io/20181118-phase/" rel="alternate" type="text/html" title="새로운 회사에 적응을 하는중이다." /><published>2018-11-18T00:00:00+09:00</published><updated>2018-11-18T00:00:00+09:00</updated><id>https://lahuman.github.io/20181118-phase</id><content type="html" xml:base="https://lahuman.github.io/20181118-phase/">&lt;h1 id=&quot;새로운-회사에-적응을-하는-중이다&quot;&gt;새로운 회사에 적응을 하는 중이다.&lt;/h1&gt;
+
+&lt;p&gt;이직을 하고 좋은 점이 몇가지 있다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;출퇴근이 시간이 줄었다.&lt;/li&gt;
+  &lt;li&gt;밥을 준다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;출퇴근시간은 판교에서 다니던 시간이 워낙 오래 걸려서 그렇지만, 밥을 주는 회사는 처음이다.&lt;/p&gt;
+
+&lt;p&gt;3일간 출근하고 느낀점은 아주 바쁘고 일이 많다고 느껴졌다.&lt;/p&gt;
+
+&lt;h2 id=&quot;적응하겠지&quot;&gt;적응하겠지&lt;/h2&gt;</content><category term="단상" /><summary type="html">해야할 일이 많다.</summary></entry><entry><title type="html">팀 평가를 낮게 드려도 될까요?</title><link href="https://lahuman.github.io/20181108-phase/" rel="alternate" type="text/html" title="팀 평가를 낮게 드려도 될까요?" /><published>2018-11-08T00:00:00+09:00</published><updated>2018-11-08T00:00:00+09:00</updated><id>https://lahuman.github.io/20181108-phase</id><content type="html" xml:base="https://lahuman.github.io/20181108-phase/">&lt;h1 id=&quot;팀-평가를-낮게-드려도-될까요&quot;&gt;팀 평가를 낮게 드려도 될까요?&lt;/h1&gt;
 
 &lt;p&gt;팀장님이 갑자기 이야기좀 하자고 하셨다.&lt;/p&gt;
 
@@ -138,54 +151,4 @@ service apache2 restart
 
 &lt;p&gt;요즘은 간단한 프로그램은 JAVA를 이용하기 보다 Python을 이용하는게 빠르다는 생각을 가진다.&lt;/p&gt;
 
-&lt;h2 id=&quot;물론-숙련도가-중요하지만&quot;&gt;물론 숙련도가 중요하지만…&lt;/h2&gt;</content><category term="단상" /><summary type="html">Python, PHP만 사용하는구나... JAVA가 멀어져간다.</summary></entry><entry><title type="html">면접 질문 모음</title><link href="https://lahuman.github.io/interview_question/" rel="alternate" type="text/html" title="면접 질문 모음" /><published>2018-10-04T00:00:00+09:00</published><updated>2018-10-04T00:00:00+09:00</updated><id>https://lahuman.github.io/interview_question</id><content type="html" xml:base="https://lahuman.github.io/interview_question/">&lt;h1 id=&quot;면접-질문-모음&quot;&gt;면접 질문 모음&lt;/h1&gt;
-
-&lt;h3 id=&quot;1-객체지향-개발-5대-원리-solid&quot;&gt;1. &lt;a href=&quot;http://www.nextree.co.kr/p6960/&quot;&gt;객체지향 개발 5대 원리: SOLID&lt;/a&gt;&lt;/h3&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;- 기본중의 기본! 기본은 늘 중요 하니까!!!
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;2-springframework-의-중요-컨셉-3가지&quot;&gt;2. &lt;a href=&quot;http://asfirstalways.tistory.com/334&quot;&gt;SpringFramework 의 중요 컨셉 3가지&lt;/a&gt;&lt;/h3&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;1) IOC : 제어의 역전 / 의존성 주입
-2) AOP : 관심의 분리
-3) PSA : 일관성 있는 추상화
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;3-css-선택자-종류와-속도&quot;&gt;3. &lt;a href=&quot;http://www.nextree.co.kr/p8468/&quot;&gt;CSS 선택자 종류와 속도&lt;/a&gt;&lt;/h3&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;1) 전체 선택자
-2) 태그 선택자
-3) 클래스 선택자
-4) 아이디 선택자
-5) 복합 선택자
-6) 속성 선택자
-7) 가상 클래스 선택자
-8) 기타(언어, 부정, 목적, UI요소)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;4-jpa를-사용하면서-어려운점&quot;&gt;4. JPA를 사용하면서 어려운점&lt;/h3&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;1) 영속성 이해
-2) 다중 JOIN QUERY
-3) 관계 DB와 객체 지향적 DB 설계
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;5-msa-관련&quot;&gt;5. MSA 관련&lt;/h3&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;1) Eureka
-2) Zuul
-3) Histrix 
-4) 서킷 브레이커 등
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;6-cqrs란-무엇인가&quot;&gt;6. &lt;a href=&quot;https://justhackem.wordpress.com/2016/09/17/what-is-cqrs/&quot;&gt;CQRS란 무엇인가?&lt;/a&gt;&lt;/h3&gt;
-
-&lt;h3 id=&quot;7-데이터베이스-isolation-level&quot;&gt;7. &lt;a href=&quot;http://hundredin.net/2012/07/26/isolation-level/&quot;&gt;데이터베이스 Isolation Level&lt;/a&gt;&lt;/h3&gt;
-
-&lt;h3 id=&quot;8-업무-능력이-떨어지는-동료와-일할-경우-어떻게-대처할-것인가&quot;&gt;8. 업무 능력이 떨어지는 동료와 일할 경우 어떻게 대처할 것인가?&lt;/h3&gt;
-
-&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.nextree.co.kr/p6960/&quot;&gt;객체지향 개발 5대 원리: SOLID&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://asfirstalways.tistory.com/334&quot;&gt;Spring 의 시작, 프레임워크의 구성요소와 동작원리&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.nextree.co.kr/p8468/&quot;&gt;CSS: 선택자(Selector) 이해&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://justhackem.wordpress.com/2016/09/17/what-is-cqrs/&quot;&gt;CQRS란 무엇인가?&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://hundredin.net/2012/07/26/isolation-level/&quot;&gt;데이터베이스 Isolation Level&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;</content><category term="interview" /><category term="question" /><summary type="html">얼마전에 받은 면접 질문을 정리 해보았다.</summary></entry></feed>
+&lt;h2 id=&quot;물론-숙련도가-중요하지만&quot;&gt;물론 숙련도가 중요하지만…&lt;/h2&gt;</content><category term="단상" /><summary type="html">Python, PHP만 사용하는구나... JAVA가 멀어져간다.</summary></entry></feed>
