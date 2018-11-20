@@ -1,4 +1,35 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-11-19T21:03:22+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">이직 후 새로운 언어를 배워서 사용해보고 있다.</title><link href="https://lahuman.github.io/20181119-phase/" rel="alternate" type="text/html" title="이직 후 새로운 언어를 배워서 사용해보고 있다." /><published>2018-11-19T00:00:00+09:00</published><updated>2018-11-19T00:00:00+09:00</updated><id>https://lahuman.github.io/20181119-phase</id><content type="html" xml:base="https://lahuman.github.io/20181119-phase/">&lt;h1 id=&quot;이직-후-새로운-언어를-써보고-있다&quot;&gt;이직 후 새로운 언어를 써보고 있다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-11-20T17:15:58+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">mac에서 iTerm2의 디렉터리 색상 바꾸기</title><link href="https://lahuman.github.io/mac_iterm2_color_change/" rel="alternate" type="text/html" title="mac에서 iTerm2의 디렉터리 색상 바꾸기" /><published>2018-11-20T00:00:00+09:00</published><updated>2018-11-20T00:00:00+09:00</updated><id>https://lahuman.github.io/mac_iterm2_color_change</id><content type="html" xml:base="https://lahuman.github.io/mac_iterm2_color_change/">&lt;h1 id=&quot;mac에서-iterm2의-디렉터리-색상-바꾸기&quot;&gt;mac에서 iTerm2의 디렉터리 색상 바꾸기&lt;/h1&gt;
+
+&lt;p&gt;mac에서 zsh을 설치 하지 않고 단순하게 directory 색상만 변경하고 싶다.
+vi로 개발을 하는 것도 아니고 zsh는 많은 기능이 제공되어 나아게 필요 없다.&lt;/p&gt;
+
+&lt;p&gt;처음에 시도한 방법은 &lt;a href=&quot;https://iterm2colorschemes.com/&quot;&gt;테마&lt;/a&gt;를 이용하여 처리 하려고 했다.&lt;/p&gt;
+
+&lt;p&gt;하지만 테마를 바꾼다고 하여도 실제 디렉터리의 색상이 변경 되는 것은 아니었다.&lt;/p&gt;
+
+&lt;p&gt;그러다 &lt;a href=&quot;https://apple.stackexchange.com/questions/282185/how-do-i-get-different-colors-for-directories-etc-in-iterm2&quot;&gt;찾은 문의 글&lt;/a&gt;에서 LSCLORS를 알게 되었다.&lt;/p&gt;
+
+&lt;p&gt;사용방법은 단순하게 &lt;strong&gt;.bash_profile&lt;/strong&gt; 에 다음 라인을 추가 하면 된다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$&amp;gt; cd ~
+# .bash_profile 파일이 없으면 새로 생성 한다.
+$&amp;gt; vi .bash_profile
+export LSCOLORS=&quot;EHfxcxdxBxegecabagacad&quot; 
+
+# 이부분이 ls 시 색상을 입힌다.
+alias ls='ls -GH'  
+# ll을 많이 사용하는 편이라서 추가 했다.
+alias ll='ls -alGH'  
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;.bash_profile 팡일이 없어서 잠시 당황을 했지만 그냥 생성하면 처리된다.&lt;/p&gt;
+
+&lt;h2 id=&quot;참고-주소&quot;&gt;참고 주소&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://apple.stackexchange.com/questions/282185/how-do-i-get-different-colors-for-directories-etc-in-iterm2&quot;&gt;How do I get different color for irectories, etc. in  iTerm2?&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://geoff.greer.fm/lscolors/&quot;&gt;LSCORS calculator&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://iterm2colorschemes.com/&quot;&gt;Iterm2-color-schemes&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="iterm2" /><category term="color" /><summary type="html">다른거 설치 안하고 파일의 속성에 따라 색상 변경</summary></entry><entry><title type="html">이직 후 새로운 언어를 배워서 사용해보고 있다.</title><link href="https://lahuman.github.io/20181119-phase/" rel="alternate" type="text/html" title="이직 후 새로운 언어를 배워서 사용해보고 있다." /><published>2018-11-19T00:00:00+09:00</published><updated>2018-11-19T00:00:00+09:00</updated><id>https://lahuman.github.io/20181119-phase</id><content type="html" xml:base="https://lahuman.github.io/20181119-phase/">&lt;h1 id=&quot;이직-후-새로운-언어를-써보고-있다&quot;&gt;이직 후 새로운 언어를 써보고 있다.&lt;/h1&gt;
 
 &lt;p&gt;Node.js를 쓰고 있다.&lt;/p&gt;
 
@@ -143,12 +174,4 @@ service apache2 restart
 
 &lt;p&gt;다행이 업무가 잘 마무리 되어서 기쁘다.&lt;/p&gt;
 
-&lt;h2 id=&quot;잘했고-고생했어-나야&quot;&gt;잘했고 고생했어 나야!&lt;/h2&gt;</content><category term="단상" /><summary type="html">택시비만 20만원 나온다.</summary></entry><entry><title type="html">아이의 공부에 대한 고찰</title><link href="https://lahuman.github.io/20181012-phase/" rel="alternate" type="text/html" title="아이의 공부에 대한 고찰" /><published>2018-10-11T00:00:00+09:00</published><updated>2018-10-11T00:00:00+09:00</updated><id>https://lahuman.github.io/20181012-phase</id><content type="html" xml:base="https://lahuman.github.io/20181012-phase/">&lt;h1 id=&quot;요즘-아내의-가장-큰-고민은-아이의-공부다&quot;&gt;요즘 아내의 가장 큰 고민은 아이의 공부다.&lt;/h1&gt;
-
-&lt;p&gt;주변 동갑내기 친구는 이미 한글과 숫자에 대한 간단한 덧셈/뺄셈을 할 수 있다는데, 우리 아이는 아직 느리다.&lt;/p&gt;
-
-&lt;p&gt;내년에 초등학교에 들어가는 아이의 교육 때문에 아내가 초등학생 1학년의 수학책을 가져 왔는데 온통 한글로 가득차 있었다.&lt;/p&gt;
-
-&lt;p&gt;아이가 그냥 행복했으면 좋겠다는 생각으로 크게 신경을 쓰지 않았는데 앞으로 행복하기 위해서 필요한 공부가 부족함을 많이 느낀다.&lt;/p&gt;
-
-&lt;h2 id=&quot;어렵다-어려워&quot;&gt;어렵다. 어려워….&lt;/h2&gt;</content><category term="단상" /><summary type="html">나도 어릴때 공부가 참 싫었다.</summary></entry></feed>
+&lt;h2 id=&quot;잘했고-고생했어-나야&quot;&gt;잘했고 고생했어 나야!&lt;/h2&gt;</content><category term="단상" /><summary type="html">택시비만 20만원 나온다.</summary></entry></feed>
