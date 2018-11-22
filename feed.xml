@@ -1,4 +1,14 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-11-21T21:14:31+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">node.js 에서 다른 버젼으로 변경 하기</title><link href="https://lahuman.github.io/node_version_controll/" rel="alternate" type="text/html" title="node.js 에서 다른 버젼으로 변경 하기" /><published>2018-11-21T00:00:00+09:00</published><updated>2018-11-21T00:00:00+09:00</updated><id>https://lahuman.github.io/node_version_controll</id><content type="html" xml:base="https://lahuman.github.io/node_version_controll/">&lt;h1 id=&quot;nodejs에서-버젼-변경-하기&quot;&gt;node.js에서 버젼 변경 하기&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-11-22T22:10:56+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">밥주는 회사가 이렇게 좋은지 몰랐네!!</title><link href="https://lahuman.github.io/20181122-phase/" rel="alternate" type="text/html" title="밥주는 회사가 이렇게 좋은지 몰랐네!!" /><published>2018-11-22T00:00:00+09:00</published><updated>2018-11-22T00:00:00+09:00</updated><id>https://lahuman.github.io/20181122-phase</id><content type="html" xml:base="https://lahuman.github.io/20181122-phase/">&lt;h1 id=&quot;홀아비-생활-일주일째-평일에는-회사에서-모든것을-해결한다&quot;&gt;홀아비 생활 일주일째 평일에는 회사에서 모든것을 해결한다.&lt;/h1&gt;
+
+&lt;p&gt;밥 나오니 참 좋다.&lt;/p&gt;
+
+&lt;p&gt;밥 잘먹고 정말 열심히 일하는 중이다.&lt;/p&gt;
+
+&lt;p&gt;이직하고 초반엔 많이 힘들었는데 지금은 즐거워 진다.&lt;/p&gt;
+
+&lt;p&gt;내일은 melt in 이라는 워크샵을 떠난다.&lt;/p&gt;
+
+&lt;h2 id=&quot;잼나게-놀고-오자&quot;&gt;잼나게 놀고 오자!&lt;/h2&gt;</content><category term="단상" /><summary type="html">아침, 점심, 저녁까지 먹고 다닌다.</summary></entry><entry><title type="html">node.js 에서 다른 버젼으로 변경 하기</title><link href="https://lahuman.github.io/node_version_controll/" rel="alternate" type="text/html" title="node.js 에서 다른 버젼으로 변경 하기" /><published>2018-11-21T00:00:00+09:00</published><updated>2018-11-21T00:00:00+09:00</updated><id>https://lahuman.github.io/node_version_controll</id><content type="html" xml:base="https://lahuman.github.io/node_version_controll/">&lt;h1 id=&quot;nodejs에서-버젼-변경-하기&quot;&gt;node.js에서 버젼 변경 하기&lt;/h1&gt;
 
 &lt;p&gt;오늘 특정 프로젝트를 받아서 빌드를 진행하는데 오류가 발생하였다.&lt;/p&gt;
 
@@ -194,14 +204,4 @@ service apache2 restart
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;이건-함께-일하는-동료분이-찾아주심&quot;&gt;이건 함께 일하는 동료분이 찾아주심&lt;/h2&gt;
-&lt;h2 id=&quot;인터넷에도-안나와&quot;&gt;인터넷에도 안나와!&lt;/h2&gt;</content><category term="php" /><category term="getpwuid" /><summary type="html">php에서 python 실행시만 발생한다.</summary></entry><entry><title type="html">Redis 버젼이 벌써 5.0이 나왔구나…</title><link href="https://lahuman.github.io/20181022-phase/" rel="alternate" type="text/html" title="Redis 버젼이 벌써 5.0이 나왔구나..." /><published>2018-10-22T00:00:00+09:00</published><updated>2018-10-22T00:00:00+09:00</updated><id>https://lahuman.github.io/20181022-phase</id><content type="html" xml:base="https://lahuman.github.io/20181022-phase/">&lt;h1 id=&quot;오랜만에-캐쉬-서버-구축을-위하여-redis를-설치하기-위해-확인해보니&quot;&gt;오랜만에 캐쉬 서버 구축을 위하여 REDIS를 설치하기 위해 확인해보니…&lt;/h1&gt;
-
-&lt;p&gt;버젼이 5.0이 최근 안정화 버젼이었다.&lt;/p&gt;
-
-&lt;p&gt;정말 나빼곤 모두 버젼업을 한다.&lt;/p&gt;
-
-&lt;p&gt;Spring, Java, Reids 등등… 세상이 변하고 그 변화를 따라가지 못하는 상품은 도태된다.&lt;/p&gt;
-
-&lt;p&gt;나도 결국 사회에서 원하는 상품중 하나이므로… 토태되지 않게 계속 업그레이드 되어야 한다.&lt;/p&gt;
-
-&lt;h2 id=&quot;하면되지-까이꺼&quot;&gt;하면되지 까이꺼!!!&lt;/h2&gt;</content><category term="단상" /><summary type="html">나 빼고 온 세상이 업그레이드 중이다.</summary></entry></feed>
+&lt;h2 id=&quot;인터넷에도-안나와&quot;&gt;인터넷에도 안나와!&lt;/h2&gt;</content><category term="php" /><category term="getpwuid" /><summary type="html">php에서 python 실행시만 발생한다.</summary></entry></feed>
