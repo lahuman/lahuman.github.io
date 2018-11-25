@@ -1,4 +1,112 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-11-22T22:10:56+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">밥주는 회사가 이렇게 좋은지 몰랐네!!</title><link href="https://lahuman.github.io/20181122-phase/" rel="alternate" type="text/html" title="밥주는 회사가 이렇게 좋은지 몰랐네!!" /><published>2018-11-22T00:00:00+09:00</published><updated>2018-11-22T00:00:00+09:00</updated><id>https://lahuman.github.io/20181122-phase</id><content type="html" xml:base="https://lahuman.github.io/20181122-phase/">&lt;h1 id=&quot;홀아비-생활-일주일째-평일에는-회사에서-모든것을-해결한다&quot;&gt;홀아비 생활 일주일째 평일에는 회사에서 모든것을 해결한다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-11-25T16:25:13+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">CentOS7에서 Heroku 연동하여 Node.js 서버 기동해보기</title><link href="https://lahuman.github.io/centos7_heroku_test/" rel="alternate" type="text/html" title="CentOS7에서 Heroku 연동하여 Node.js 서버 기동해보기 " /><published>2018-11-25T00:00:00+09:00</published><updated>2018-11-25T00:00:00+09:00</updated><id>https://lahuman.github.io/centos7_heroku_test</id><content type="html" xml:base="https://lahuman.github.io/centos7_heroku_test/">&lt;h1 id=&quot;centos7에서-nodejs-설치와-heroku-연동&quot;&gt;CentOS7에서 Nodejs 설치와 Heroku 연동&lt;/h1&gt;
+
+&lt;p&gt;이번에 입사하게된 회사에서 NodeJS를 기반으로 개발을 하고 있다.&lt;/p&gt;
+
+&lt;p&gt;개인 PC에서 테스트 하기도 하고 해당 결과물을 개인 서버에 올리는 것으로 heroku가 유명하다고 들어서 한번 테스트 해보았다.&lt;/p&gt;
+
+&lt;p&gt;먼저 CentOS7이 설치가 되어있다는 상황에서 node.js를 설치 해야 한다.&lt;/p&gt;
+
+&lt;p&gt;node.js를 설치 하는 방법 중 &lt;a href=&quot;https://github.com/creationix/nvm&quot;&gt;nvm(Node Version Manager)&lt;/a&gt;을 이용한 설치를 진행한다. nvm을 이용할 경우 노드의 버젼을 쉽게 변경 할 수 있기 때문에 추천 한다.&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#nvm 설치
+$&amp;gt; curl https://raw.githubusercontent.com/creationix/nvm/v0.25.0/install.sh | bash
+$&amp;gt; source ~/.bashrc
+
+#node.js 10.13.0 설치
+$&amp;gt; nvm install 10.13.0
+$&amp;gt; node -v
+v10.13.0
+$&amp;gt; npm -v
+6.4.1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이후 Heroku 와 연동을 위하여 git과 heroku cli를 설치 한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#git 설치
+$&amp;gt; yum install git
+
+#heroku cli 설치 
+$&amp;gt; npm install -g heroku
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;heroku에 올릴 단순한 express 소스 작업을 한다.&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$&amp;gt; mkdir hello
+$&amp;gt; cd hello
+$&amp;gt; npm init # 엔터로 설정 스킵
+$&amp;gt; npm install -save express
+$&amp;gt; vi index.js
+####
+const express = require(&quot;express&quot;);
+const PORT = process.env.PORT
+const app = express();
+app.get(&quot;/&quot;, (req, res) =&amp;gt; {
+  res.send({ hello: &quot;world&quot; });
+});
+app.listen(PORT);
+####
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;heroku에 올리기 위한 설정 작업 진행&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$&amp;gt; vi package.json
+###
+{
+  &quot;name&quot;: &quot;hello&quot;,
+  &quot;version&quot;: &quot;1.0.0&quot;,
+  &quot;description&quot;: &quot;&quot;,
+  &quot;main&quot;: &quot;index.js&quot;,
+  &quot;scripts&quot;: {
+    &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;amp;&amp;amp; exit 1&quot;,
+    &quot;start&quot;: &quot;node index.js&quot; # 추가
+  },
+  &quot;author&quot;: &quot;&quot;,
+  &quot;license&quot;: &quot;ISC&quot;,
+  &quot;dependencies&quot;: {
+    &quot;express&quot;: &quot;^4.16.4&quot;
+  },
+  &quot;engines&quot;:{               # 추가
+    &quot;node&quot;: &quot;10.13.0&quot;,
+    &quot;npm&quot;: &quot;6.4.1&quot;
+  }                         # 추가
+}
+###
+
+$&amp;gt; vi .gitignore
+###
+node_modules
+###
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;heroku에 올리는 작업 진행&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$&amp;gt; git init
+$&amp;gt; heroku login -i # 중요!! -i 옵션이 없으면 오류남
+$&amp;gt; heroku create
+$&amp;gt; git add .
+$&amp;gt; git commit -m &quot;hello test&quot;
+$&amp;gt; git push heroku master
+$&amp;gt; heroku open # url을 복사하여 브라우져에 복사
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;heroku-login-오류&quot;&gt;heroku login 오류&lt;/h2&gt;
+
+&lt;p&gt;그냥 heroku login을 진행하면 아래와 같이 오류가 난다.
+그럴 경우 &lt;strong&gt;-i&lt;/strong&gt; 옵션을 이용하면 된다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$&amp;gt; heroku login ## -i 옵션을 줘어야 로그인이 진행됨
+heroku: Press any key to open up the browser to login or q to exit:
+$&amp;gt; heroku login -i
+heroku: Enter your login credentials
+Email:
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이제 기본 셋팅이 되었으니 node.js로 테스트를 해보자!!&lt;/p&gt;
+
+&lt;h2 id=&quot;참고-주소&quot;&gt;참고 주소&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.heroku.com&quot;&gt;HEROKU&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://medium.com/@yoobi55/express-node-js-%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%B4-%EC%84%9C%EB%B2%84%EB%A5%BC-%EB%A7%8C%EB%93%A4%EC%96%B4-heroku%EC%97%90-%EC%98%AC%EB%A6%AC%EB%8A%94-%EB%B0%A9%EB%B2%95-3a5134fc8743&quot;&gt;express/node.js 를 이용해 서버를 만들어 heroku에 올리는 방법&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/53396323/heroku-login-issue-on-node-js&quot;&gt;Heroku login issue on Node js&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.liquidweb.com/kb/how-to-install-nvm-node-version-manager-for-node-js-on-centos-7/&quot;&gt;How to Install NVM (Node Version Manager) for Node.js on CentOS 7&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="centos7" /><category term="heroku" /><category term="nodejs" /><summary type="html">어렵지 않아요. 설치가 귀찮아서 그러지...</summary></entry><entry><title type="html">밥주는 회사가 이렇게 좋은지 몰랐네!!</title><link href="https://lahuman.github.io/20181122-phase/" rel="alternate" type="text/html" title="밥주는 회사가 이렇게 좋은지 몰랐네!!" /><published>2018-11-22T00:00:00+09:00</published><updated>2018-11-22T00:00:00+09:00</updated><id>https://lahuman.github.io/20181122-phase</id><content type="html" xml:base="https://lahuman.github.io/20181122-phase/">&lt;h1 id=&quot;홀아비-생활-일주일째-평일에는-회사에서-모든것을-해결한다&quot;&gt;홀아비 생활 일주일째 평일에는 회사에서 모든것을 해결한다.&lt;/h1&gt;
 
 &lt;p&gt;밥 나오니 참 좋다.&lt;/p&gt;
 
@@ -183,25 +291,4 @@ alias ll='ls -alGH'
 
 &lt;p&gt;다음 회사에서도 즐겁게 지내기를 기대하고 있다.&lt;/p&gt;
 
-&lt;h2 id=&quot;다음-시작을-위해-마침표를-제대로-찍자&quot;&gt;다음 시작을 위해 마침표를 제대로 찍자!&lt;/h2&gt;</content><category term="단상" /><summary type="html">마지막 마무리를 잘하자!</summary></entry><entry><title type="html">php]apache2에서 python 실행시 (getpwuid(): uid not found) 발생</title><link href="https://lahuman.github.io/php_getpwuid()_uid_not_found_xx/" rel="alternate" type="text/html" title="php]apache2에서 python 실행시 (getpwuid(): uid not found) 발생" /><published>2018-10-23T00:00:00+09:00</published><updated>2018-10-23T00:00:00+09:00</updated><id>https://lahuman.github.io/php_getpwuid()_uid_not_found_xx</id><content type="html" xml:base="https://lahuman.github.io/php_getpwuid()_uid_not_found_xx/">&lt;h1 id=&quot;phpapache2에서-python-실행시-getpwuid-uid-not-found-발생&quot;&gt;php]apache2에서 python 실행시 (getpwuid(): uid not found) 발생&lt;/h1&gt;
-
-&lt;p&gt;에러 로그를 확인하면 python에서 다음과 같은 오류가 발생하였다고 표시된다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;KeyError: 'getpwuid(): uid not found: xx' 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;에러의 원인은 python을 실행될 때 site를 기본적으로 로드하는 되는 것으로 보입니다.
-따라서 PYTHONUSERBASE 환경변수를 apache에서 설정하면 실행이 됩니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;vi /etc/apache2/envvars
-
-# 아래 내용 추가
-export PYTHONUSERBASE=/usr/lib/python2.7/dist-packages
-# (해당 디렉토리는 서버에 따라 다를 수 있습니다.)
-
-# 서비스 재기동
-service apache2 restart
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;이건-함께-일하는-동료분이-찾아주심&quot;&gt;이건 함께 일하는 동료분이 찾아주심&lt;/h2&gt;
-&lt;h2 id=&quot;인터넷에도-안나와&quot;&gt;인터넷에도 안나와!&lt;/h2&gt;</content><category term="php" /><category term="getpwuid" /><summary type="html">php에서 python 실행시만 발생한다.</summary></entry></feed>
+&lt;h2 id=&quot;다음-시작을-위해-마침표를-제대로-찍자&quot;&gt;다음 시작을 위해 마침표를 제대로 찍자!&lt;/h2&gt;</content><category term="단상" /><summary type="html">마지막 마무리를 잘하자!</summary></entry></feed>
