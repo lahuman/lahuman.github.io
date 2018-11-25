@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-11-25T16:25:13+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">CentOS7에서 Heroku 연동하여 Node.js 서버 기동해보기</title><link href="https://lahuman.github.io/centos7_heroku_test/" rel="alternate" type="text/html" title="CentOS7에서 Heroku 연동하여 Node.js 서버 기동해보기 " /><published>2018-11-25T00:00:00+09:00</published><updated>2018-11-25T00:00:00+09:00</updated><id>https://lahuman.github.io/centos7_heroku_test</id><content type="html" xml:base="https://lahuman.github.io/centos7_heroku_test/">&lt;h1 id=&quot;centos7에서-nodejs-설치와-heroku-연동&quot;&gt;CentOS7에서 Nodejs 설치와 Heroku 연동&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-11-25T17:16:48+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">CentOS7에서 Heroku 연동하여 Node.js 서버 기동해보기</title><link href="https://lahuman.github.io/centos7_heroku_test/" rel="alternate" type="text/html" title="CentOS7에서 Heroku 연동하여 Node.js 서버 기동해보기 " /><published>2018-11-25T00:00:00+09:00</published><updated>2018-11-25T00:00:00+09:00</updated><id>https://lahuman.github.io/centos7_heroku_test</id><content type="html" xml:base="https://lahuman.github.io/centos7_heroku_test/">&lt;h1 id=&quot;centos7에서-nodejs-설치와-heroku-연동&quot;&gt;CentOS7에서 Nodejs 설치와 Heroku 연동&lt;/h1&gt;
 
 &lt;p&gt;이번에 입사하게된 회사에서 NodeJS를 기반으로 개발을 하고 있다.&lt;/p&gt;
 
@@ -98,6 +98,37 @@ Email:
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;이제 기본 셋팅이 되었으니 node.js로 테스트를 해보자!!&lt;/p&gt;
+
+&lt;h2 id=&quot;nodejs-기본-버젼-설정&quot;&gt;node.js 기본 버젼 설정&lt;/h2&gt;
+
+&lt;p&gt;nvm 으로 node.js를 설치하고 터미널을 종료 후 다시 들어오면 노드가 설치 되지 않은 것 처럼 동작한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$&amp;gt; node
+-bash: node: command not found
+
+$&amp;gt; npm
+-bash: npm: command not found
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;nvm ls 명령으로 확인해 보면, 다음과 같이 설정 된 것을 확인 가능하다.&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$&amp;gt; nvm ls
+       v10.13.0
+node -&amp;gt; stable (-&amp;gt; N/A) (default)
+unstable -&amp;gt; 10.13 (-&amp;gt; v10.13.0) (default)
+iojs -&amp;gt; iojs- (-&amp;gt; N/A) (default)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;기본 버젼 지정은 다음과 같이 하면 이후 터미널 접속시 문제 없이 해당 버젼을 사용 한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$&amp;gt; nvm alias default 10.13.0
+default -&amp;gt; 10.13.0 (-&amp;gt; v10.13.0)
+$&amp;gt; nvm ls
+-&amp;gt;     v10.13.0
+default -&amp;gt; 10.13.0 (-&amp;gt; v10.13.0)
+node -&amp;gt; stable (-&amp;gt; N/A) (default)
+unstable -&amp;gt; 10.13 (-&amp;gt; v10.13.0) (default)
+iojs -&amp;gt; iojs- (-&amp;gt; N/A) (default)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;참고-주소&quot;&gt;참고 주소&lt;/h2&gt;
 
