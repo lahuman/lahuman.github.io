@@ -1,4 +1,72 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-11-25T17:16:48+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">CentOS7에서 Heroku 연동하여 Node.js 서버 기동해보기</title><link href="https://lahuman.github.io/centos7_heroku_test/" rel="alternate" type="text/html" title="CentOS7에서 Heroku 연동하여 Node.js 서버 기동해보기 " /><published>2018-11-25T00:00:00+09:00</published><updated>2018-11-25T00:00:00+09:00</updated><id>https://lahuman.github.io/centos7_heroku_test</id><content type="html" xml:base="https://lahuman.github.io/centos7_heroku_test/">&lt;h1 id=&quot;centos7에서-nodejs-설치와-heroku-연동&quot;&gt;CentOS7에서 Nodejs 설치와 Heroku 연동&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-11-29T21:44:23+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Nginx private 인증서 적용하기</title><link href="https://lahuman.github.io/nginx_private_ssl/" rel="alternate" type="text/html" title="Nginx private 인증서 적용하기" /><published>2018-11-29T00:00:00+09:00</published><updated>2018-11-29T00:00:00+09:00</updated><id>https://lahuman.github.io/nginx_private_ssl</id><content type="html" xml:base="https://lahuman.github.io/nginx_private_ssl/">&lt;h1 id=&quot;nginx-private-인증서-적용하기&quot;&gt;Nginx private 인증서 적용하기&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;OPENSSL 기반으로 인증서요청서 생성하기&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$&amp;gt; openssl req -new -newkey rsa:2048 -nodes -keyout &amp;lt;개인키이름&amp;gt;.key -out &amp;lt;인증요청서이름&amp;gt;.csr
+... 정보 입력 or 걍 엔터
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;인증서 생성 하기&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$&amp;gt; openssl x509 -req -days 365 -in &amp;lt;인증요청서이름&amp;gt;.csr -signkey &amp;lt;개인키이름&amp;gt;.key -out &amp;lt;생성할인증서이름&amp;gt;.crt
+... 결과로 인증서( 인증서이름.crt )가 생성된다.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;비밀번호 제거작업
+필수는 아니지만, Nginx를 재기동 할 경우 비밀번호를 요청 받는다. 따라서 다음과 같이 개인키를 재생성 한다.
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$&amp;gt; cp &amp;lt;생성된개인키이름&amp;gt;.key &amp;lt;생성할개인키복사본이름&amp;gt;.key.secure
+$&amp;gt; openssl rsa -in &amp;lt;생성된개인키복사본이름&amp;gt;.key.secure -out &amp;lt;재생성할개인키이름&amp;gt;.key
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Nginx SSL 적용&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$&amp;gt; vi /etc/nginx/conf.d/&amp;lt;서비스명&amp;gt;.conf
+... 추가
+server {
+        listen 443;
+        server_name localhost;
+        charset utf-8;
+        access_log /etc/nginx/log/access.log;
+        error_log /etc/nginx/log/error.log;
+        ssl     on;                                               #ssl사용
+        ssl_certificate /etc/nginx/ssl/인증서이름.crt;               #생성된 인증서경로
+        ssl_certificate_key /etc/nginx/ssl/&amp;lt;재생성할개인키이름&amp;gt;.key;    #생성된 개인키
+        location / {
+                proxy_redirect  off;
+                proxy_set_header Host $http_host;
+                proxy_set_header X-Real-IP $remote_addr;
+                proxy_set_header X-Scheme $scheme;
+                proxy_pass http://target-server;
+        }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;끝!&lt;/p&gt;
+
+&lt;p&gt;참고 주소에 가면 더 많은 정보가 있다.&lt;/p&gt;
+
+&lt;h2 id=&quot;참고-주소&quot;&gt;참고 주소&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://setyourmindpark.github.io/2017/05/04/nginx/nginx-1/&quot;&gt;nginx ssl 적용하기&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="nginx" /><category term="private" /><category term="certification" /><summary type="html">참 별거 아닌데 찾으면 안나와</summary></entry><entry><title type="html">사람과의 대화에서는 경청이 중요하다.</title><link href="https://lahuman.github.io/20181128-phase/" rel="alternate" type="text/html" title="사람과의 대화에서는 경청이 중요하다." /><published>2018-11-28T00:00:00+09:00</published><updated>2018-11-28T00:00:00+09:00</updated><id>https://lahuman.github.io/20181128-phase</id><content type="html" xml:base="https://lahuman.github.io/20181128-phase/">&lt;h1 id=&quot;경청의-중요성&quot;&gt;경청의 중요성&lt;/h1&gt;
+
+&lt;p&gt;상대방과 의견이 다를 경우, 목소리를 높이고 상대를 압도하려고 한다.&lt;/p&gt;
+
+&lt;p&gt;결국 그런 행동은 상대의 기분만 나쁘게 하여 좋지 않은 결과를 가져온다.&lt;/p&gt;
+
+&lt;p&gt;반대로 상대의 의견을 최대한 경청하고 들어본 후 자신의 의견과 비교하여 설명을 하면 상대방도 이해를 해준다.&lt;/p&gt;
+
+&lt;p&gt;물론 모두 그런것은 아니지만…&lt;/p&gt;
+
+&lt;p&gt;기본적으로 상대의 의견을 경청하자. 내 의견이 모두 맞는 것도 아니기에 들어 보면 알게된다.&lt;/p&gt;
+
+&lt;h2 id=&quot;경청&quot;&gt;경청&lt;/h2&gt;</content><category term="단상" /><summary type="html">내 의견을 상대에게 이해시키기 위해 경청이 중요하다.</summary></entry><entry><title type="html">CentOS7에서 Heroku 연동하여 Node.js 서버 기동해보기</title><link href="https://lahuman.github.io/centos7_heroku_test/" rel="alternate" type="text/html" title="CentOS7에서 Heroku 연동하여 Node.js 서버 기동해보기 " /><published>2018-11-25T00:00:00+09:00</published><updated>2018-11-25T00:00:00+09:00</updated><id>https://lahuman.github.io/centos7_heroku_test</id><content type="html" xml:base="https://lahuman.github.io/centos7_heroku_test/">&lt;h1 id=&quot;centos7에서-nodejs-설치와-heroku-연동&quot;&gt;CentOS7에서 Nodejs 설치와 Heroku 연동&lt;/h1&gt;
 
 &lt;p&gt;이번에 입사하게된 회사에서 NodeJS를 기반으로 개발을 하고 있다.&lt;/p&gt;
 
@@ -292,34 +360,4 @@ alias ll='ls -alGH'
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.elastic.co/blog/hot-warm-architecture-in-elasticsearch-5-x&quot;&gt;“Hot-Warm” Architecture in Elasticsearch 5.x&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;http://cyuu.tistory.com/entry/Elasticsearch-Hot-Warm-Architecture&quot;&gt;Elasticsearch Hot Warm Architecture&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="elasticsearch" /><summary type="html">일단 보기에는 동작의 차이가 나지 않는다.</summary></entry><entry><title type="html">인포섹에서의 마지막 업무들이 정리되어 간다.</title><link href="https://lahuman.github.io/20181106-phase/" rel="alternate" type="text/html" title="인포섹에서의 마지막 업무들이 정리되어 간다." /><published>2018-11-06T00:00:00+09:00</published><updated>2018-11-06T00:00:00+09:00</updated><id>https://lahuman.github.io/20181106-phase</id><content type="html" xml:base="https://lahuman.github.io/20181106-phase/">&lt;h1 id=&quot;정말-정신없이-일했다&quot;&gt;정말 정신없이 일했다.&lt;/h1&gt;
-
-&lt;p&gt;마무리가 더 어려운거 같다.&lt;/p&gt;
-
-&lt;p&gt;인수 인계보다 하던일에 대한 마무리를 정말 열심히 하였다.&lt;/p&gt;
-
-&lt;p&gt;지금은 약간 번아웃 상태인거 같다.&lt;/p&gt;
-
-&lt;p&gt;이제 3일 남았다!&lt;/p&gt;
-
-&lt;p&gt;인포섹에 입사해서 많은 일을 겪었다.&lt;/p&gt;
-
-&lt;p&gt;좋은 일, 나쁜 일, 화나는 일 등… 이제 모두 추억이 될 일들이 지나가고 새로운 시작이 오고 있다.&lt;/p&gt;
-
-&lt;h2 id=&quot;아자아자-화이팅&quot;&gt;아자아자!!! 화이팅!&lt;/h2&gt;</content><category term="단상" /><summary type="html">파토 난것도 있고, 인수인계까지 잘 마무리 된것도 있고..</summary></entry><entry><title type="html">이제 2주 남았다.</title><link href="https://lahuman.github.io/20181028-phase/" rel="alternate" type="text/html" title="이제 2주 남았다." /><published>2018-10-28T00:00:00+09:00</published><updated>2018-10-28T00:00:00+09:00</updated><id>https://lahuman.github.io/20181028-phase</id><content type="html" xml:base="https://lahuman.github.io/20181028-phase/">&lt;h1 id=&quot;퇴사-2주-전이다-가장-바쁘네&quot;&gt;퇴사 2주 전이다. 가장 바쁘네…&lt;/h1&gt;
-
-&lt;p&gt;회사에 이직을 이야기 하고 퇴사를 위해 준비 중이다.&lt;/p&gt;
-
-&lt;p&gt;사실 근래 2주 동안은 정신 없이 일을 하였다.&lt;/p&gt;
-
-&lt;p&gt;농X 프로젝트에서 문제가 생겨서 우리 팀 모두가 야근을 많이 하였다.&lt;/p&gt;
-
-&lt;p&gt;그리고 개인적으로 퇴사 전까지 하던일을 마무리 하고 싶은데 잘 될지 모르겠다.&lt;/p&gt;
-
-&lt;p&gt;떠나는 사람의 빈자리를 느끼지 않도록 문서도 만들고 인수 인계도 꼼꼼히 하려고 한다.&lt;/p&gt;
-
-&lt;p&gt;지금 회사는 2년 8개월 정도 다니면서 보안에 대하여 많이 배웠다.&lt;/p&gt;
-
-&lt;p&gt;다음 회사에서도 즐겁게 지내기를 기대하고 있다.&lt;/p&gt;
-
-&lt;h2 id=&quot;다음-시작을-위해-마침표를-제대로-찍자&quot;&gt;다음 시작을 위해 마침표를 제대로 찍자!&lt;/h2&gt;</content><category term="단상" /><summary type="html">마지막 마무리를 잘하자!</summary></entry></feed>
+&lt;/ul&gt;</content><category term="elasticsearch" /><summary type="html">일단 보기에는 동작의 차이가 나지 않는다.</summary></entry></feed>
