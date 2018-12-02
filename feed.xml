@@ -1,4 +1,18 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-12-02T16:34:30+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">NODEJS]client, server 기본 틀 만들어 보기</title><link href="https://lahuman.github.io/vuejs_express_helloworld/" rel="alternate" type="text/html" title="NODEJS]client, server 기본 틀 만들어 보기" /><published>2018-11-30T00:00:00+09:00</published><updated>2018-11-30T00:00:00+09:00</updated><id>https://lahuman.github.io/vuejs_express_helloworld</id><content type="html" xml:base="https://lahuman.github.io/vuejs_express_helloworld/">&lt;h1 id=&quot;nodejsclient-server-기본-틀-만들어-보기&quot;&gt;NODEJS]client, server 기본 틀 만들어 보기&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-12-02T16:52:33+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">12월이다. 해야할껀 많은데 여전히 게으르다…</title><link href="https://lahuman.github.io/20181202-phase/" rel="alternate" type="text/html" title="12월이다. 해야할껀 많은데 여전히 게으르다..." /><published>2018-12-02T00:00:00+09:00</published><updated>2018-12-02T00:00:00+09:00</updated><id>https://lahuman.github.io/20181202-phase</id><content type="html" xml:base="https://lahuman.github.io/20181202-phase/">&lt;h1 id=&quot;이직한-회사는-그럭저럭-적응-중이다&quot;&gt;이직한 회사는 그럭저럭 적응 중이다.&lt;/h1&gt;
+
+&lt;p&gt;하지만!! 12월에 진행하는 발표는 준비가 잘 안된다.&lt;/p&gt;
+
+&lt;p&gt;영어 스크립트를 외워야 하는데 도저히 외워 지지가 않는다.&lt;/p&gt;
+
+&lt;p&gt;내가 무슨 말을 하려지가 명확한데도 한글로는 어찌 말하는데 영어로는 입이 안떨어진다.&lt;/p&gt;
+
+&lt;p&gt;일단 스크립트를 계속 보고 읽어 보는 것을 계속 하고 있다.&lt;/p&gt;
+
+&lt;p&gt;열심히 해보자!!&lt;/p&gt;
+
+&lt;p&gt;화이팅!!!&lt;/p&gt;
+
+&lt;h2 id=&quot;힘들지만-보람있게&quot;&gt;힘들지만 보람있게&lt;/h2&gt;</content><category term="단상" /><summary type="html">큰일이야... D-day가 이제 10일 남았어....</summary></entry><entry><title type="html">NODEJS]client, server 기본 틀 만들어 보기</title><link href="https://lahuman.github.io/vuejs_express_helloworld/" rel="alternate" type="text/html" title="NODEJS]client, server 기본 틀 만들어 보기" /><published>2018-11-30T00:00:00+09:00</published><updated>2018-11-30T00:00:00+09:00</updated><id>https://lahuman.github.io/vuejs_express_helloworld</id><content type="html" xml:base="https://lahuman.github.io/vuejs_express_helloworld/">&lt;h1 id=&quot;nodejsclient-server-기본-틀-만들어-보기&quot;&gt;NODEJS]client, server 기본 틀 만들어 보기&lt;/h1&gt;
 
 &lt;p&gt;Nodejs를 이용해서 개발을 시작한지 1주일이 되었다.&lt;/p&gt;
 
@@ -398,22 +412,4 @@ alias ll='ls -alGH'
 
 &lt;p&gt;3일간 출근하고 느낀점은 아주 바쁘고 일이 많다고 느껴졌다.&lt;/p&gt;
 
-&lt;h2 id=&quot;적응하겠지&quot;&gt;적응하겠지&lt;/h2&gt;</content><category term="단상" /><summary type="html">해야할 일이 많다.</summary></entry><entry><title type="html">팀 평가를 낮게 드려도 될까요?</title><link href="https://lahuman.github.io/20181108-phase/" rel="alternate" type="text/html" title="팀 평가를 낮게 드려도 될까요?" /><published>2018-11-08T00:00:00+09:00</published><updated>2018-11-08T00:00:00+09:00</updated><id>https://lahuman.github.io/20181108-phase</id><content type="html" xml:base="https://lahuman.github.io/20181108-phase/">&lt;h1 id=&quot;팀-평가를-낮게-드려도-될까요&quot;&gt;팀 평가를 낮게 드려도 될까요?&lt;/h1&gt;
-
-&lt;p&gt;팀장님이 갑자기 이야기좀 하자고 하셨다.&lt;/p&gt;
-
-&lt;p&gt;잠시 주저하시더니,&lt;/p&gt;
-
-&lt;p&gt;“팀 평가를 하는데 낮은 평가를 해도 괜찮을까요?”&lt;/p&gt;
-
-&lt;p&gt;곧 퇴사 하는 나로서는 평가가 큰 의미가 없기에&lt;/p&gt;
-
-&lt;p&gt;“괜찮습니다. 내일이 마지막 출근일인데요.”&lt;/p&gt;
-
-&lt;p&gt;팀장님은 많이 미안해 하면서&lt;/p&gt;
-
-&lt;p&gt;“그동안 고생하셨는데 평가를 낮게 드려서 죄송해요”&lt;/p&gt;
-
-&lt;p&gt;내일까지만 출근하기에 낮은 평가를 주셔도 내가 알수 없는데, 말씀을 주시니 내가 참 좋은 팀에 있었구나라는 생각이 든다.&lt;/p&gt;
-
-&lt;h2 id=&quot;그동안-감사했습니다&quot;&gt;그동안 감사했습니다.&lt;/h2&gt;</content><category term="단상" /><summary type="html">퇴사 전날 팀장님이 나에게 물었다.</summary></entry></feed>
+&lt;h2 id=&quot;적응하겠지&quot;&gt;적응하겠지&lt;/h2&gt;</content><category term="단상" /><summary type="html">해야할 일이 많다.</summary></entry></feed>
