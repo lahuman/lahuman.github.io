@@ -1,4 +1,18 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-12-08T21:15:18+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">어머니에게는 언제까지 아이 같은 나.</title><link href="https://lahuman.github.io/20181208-phase/" rel="alternate" type="text/html" title="어머니에게는 언제까지 아이 같은 나." /><published>2018-12-08T00:00:00+09:00</published><updated>2018-12-08T00:00:00+09:00</updated><id>https://lahuman.github.io/20181208-phase</id><content type="html" xml:base="https://lahuman.github.io/20181208-phase/">&lt;h1 id=&quot;어머니-집에서-밥-먹고-쉬다-옴&quot;&gt;어머니 집에서 밥 먹고 쉬다 옴&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-12-10T21:35:19+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">오늘은 차트로 삽질을 했다.</title><link href="https://lahuman.github.io/20181208-phase/" rel="alternate" type="text/html" title="오늘은 차트로 삽질을 했다." /><published>2018-12-10T00:00:00+09:00</published><updated>2018-12-10T00:00:00+09:00</updated><id>https://lahuman.github.io/20181208-phase</id><content type="html" xml:base="https://lahuman.github.io/20181208-phase/">&lt;h1 id=&quot;오후-내내-차트가-제대로-안그려져서-삽질함&quot;&gt;오후 내내 차트가 제대로 안그려져서 삽질함.&lt;/h1&gt;
+
+&lt;p&gt;사용하는 차트가 MIT 라이선스를 따르고 있는 &lt;a href=&quot;https://www.chartjs.org/&quot;&gt;chart.js&lt;/a&gt;를 이용하는 작업을 진행했다.&lt;/p&gt;
+
+&lt;p&gt;문제는 document에 나와있는데로 &lt;strong&gt;hello world&lt;/strong&gt; 를 찍었는데 제대로 표출이 되지 않았다.&lt;/p&gt;
+
+&lt;p&gt;이래 저래 삽질을 하다 스택오버플로워에 올라온 글을 따라 하니 제대로 동작했다.&lt;/p&gt;
+
+&lt;p&gt;아무리 오픈 소스라지만 문서는 좀 업뎃 해줘라~&lt;/p&gt;
+
+&lt;p&gt;또 외부 인력에 대한 관리 + 커뮤니케이션이 생각 만큼 쉽지 않다.&lt;/p&gt;
+
+&lt;p&gt;서로 생각하는 것이 다른 부분도 있고…&lt;/p&gt;
+
+&lt;h2 id=&quot;시간-많이-낭비&quot;&gt;시간 많이 낭비&lt;/h2&gt;</content><category term="단상" /><summary type="html">오늘의 문제점 중 하나는 외부의 원격 작업자의 커뮤니케이션과 차트 삽질</summary></entry><entry><title type="html">어머니에게는 언제까지 아이 같은 나.</title><link href="https://lahuman.github.io/20181210-phase/" rel="alternate" type="text/html" title="어머니에게는 언제까지 아이 같은 나." /><published>2018-12-08T00:00:00+09:00</published><updated>2018-12-08T00:00:00+09:00</updated><id>https://lahuman.github.io/20181210-phase</id><content type="html" xml:base="https://lahuman.github.io/20181210-phase/">&lt;h1 id=&quot;어머니-집에서-밥-먹고-쉬다-옴&quot;&gt;어머니 집에서 밥 먹고 쉬다 옴&lt;/h1&gt;
 
 &lt;p&gt;어머니에게는 낼 모레 40대가 되는 아들이 아직도 어린아이 같은가 보다.&lt;/p&gt;
 
@@ -397,16 +411,4 @@ alias ll='ls -alGH'
   &lt;li&gt;&lt;a href=&quot;https://apple.stackexchange.com/questions/282185/how-do-i-get-different-colors-for-directories-etc-in-iterm2&quot;&gt;How do I get different color for irectories, etc. in  iTerm2?&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://geoff.greer.fm/lscolors/&quot;&gt;LSCORS calculator&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://iterm2colorschemes.com/&quot;&gt;Iterm2-color-schemes&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="iterm2" /><category term="color" /><summary type="html">다른거 설치 안하고 파일의 속성에 따라 색상 변경</summary></entry><entry><title type="html">이직 후 새로운 언어를 배워서 사용해보고 있다.</title><link href="https://lahuman.github.io/20181119-phase/" rel="alternate" type="text/html" title="이직 후 새로운 언어를 배워서 사용해보고 있다." /><published>2018-11-19T00:00:00+09:00</published><updated>2018-11-19T00:00:00+09:00</updated><id>https://lahuman.github.io/20181119-phase</id><content type="html" xml:base="https://lahuman.github.io/20181119-phase/">&lt;h1 id=&quot;이직-후-새로운-언어를-써보고-있다&quot;&gt;이직 후 새로운 언어를 써보고 있다.&lt;/h1&gt;
-
-&lt;p&gt;Node.js를 쓰고 있다.&lt;/p&gt;
-
-&lt;p&gt;원해서 쓰는 것은 아니지만, 재미있게 배우고 있다.&lt;/p&gt;
-
-&lt;p&gt;10년 넘게 JAVA 만 써오다가, Python, Node.js 등 새로운 언어를 사용하고 있다.&lt;/p&gt;
-
-&lt;p&gt;새로운 언어를 사용하면서 많이 배오고 느낀다.&lt;/p&gt;
-
-&lt;p&gt;어쩌면 내가 JAVA라는 틀에 갇혀있던 건 아니었을까?&lt;/p&gt;
-
-&lt;h2 id=&quot;그렇다고-java-공부를-안하는건-아니고&quot;&gt;그렇다고 JAVA 공부를 안하는건 아니고&lt;/h2&gt;</content><category term="단상" /><summary type="html">Node.js를 써보는 중</summary></entry></feed>
+&lt;/ul&gt;</content><category term="iterm2" /><category term="color" /><summary type="html">다른거 설치 안하고 파일의 속성에 따라 색상 변경</summary></entry></feed>
