@@ -1,4 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-12-23T16:59:09+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">문병을 다녀오다.</title><link href="https://lahuman.github.io/20181223-phase/" rel="alternate" type="text/html" title="문병을 다녀오다." /><published>2018-12-23T00:00:00+09:00</published><updated>2018-12-23T00:00:00+09:00</updated><id>https://lahuman.github.io/20181223-phase</id><content type="html" xml:base="https://lahuman.github.io/20181223-phase/">&lt;h1 id=&quot;어제는-어머니와-홤께-문명만-다녔다&quot;&gt;어제는 어머니와 홤께 문명만 다녔다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-12-29T19:30:44+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">겨울이 정말 싫다.</title><link href="https://lahuman.github.io/20181229-phase/" rel="alternate" type="text/html" title="겨울이 정말 싫다." /><published>2018-12-29T00:00:00+09:00</published><updated>2018-12-29T00:00:00+09:00</updated><id>https://lahuman.github.io/20181229-phase</id><content type="html" xml:base="https://lahuman.github.io/20181229-phase/">&lt;h1 id=&quot;올-겨울은-혼자-있어서-그런지-유난히-춥다&quot;&gt;올 겨울은 혼자 있어서 그런지 유난히 춥다.&lt;/h1&gt;
+
+&lt;p&gt;이번주 수요일부터 들이 닥친 한파로 많이 춥다.&lt;/p&gt;
+
+&lt;p&gt;아침에 밖에 나가다가 수도 계량기 밑으로 물이 얼어 있어서 엄청 놀라 계량기를 확인해봤는데 다행이 계량기가 언건 아니었다.
+(아마도 이슬이 언거 같다.)&lt;/p&gt;
+
+&lt;p&gt;겨울을 좋아하지 않지만 올해는 유난히 춥다.&lt;/p&gt;
+
+&lt;p&gt;해야할것도 있지만 집중도 못하고 이러고 있다.&lt;/p&gt;
+
+&lt;h2 id=&quot;슬프다&quot;&gt;슬프다.&lt;/h2&gt;</content><category term="단상" /><summary type="html">추워서 밖에 나가는 일 자체게 부담된다.</summary></entry><entry><title type="html">문병을 다녀오다.</title><link href="https://lahuman.github.io/20181223-phase/" rel="alternate" type="text/html" title="문병을 다녀오다." /><published>2018-12-23T00:00:00+09:00</published><updated>2018-12-23T00:00:00+09:00</updated><id>https://lahuman.github.io/20181223-phase</id><content type="html" xml:base="https://lahuman.github.io/20181223-phase/">&lt;h1 id=&quot;어제는-어머니와-홤께-문명만-다녔다&quot;&gt;어제는 어머니와 홤께 문명만 다녔다.&lt;/h1&gt;
 
 &lt;p&gt;둘째 큰어머니와 큰아버님께서 무릅관절 수술을 받아서 입원 중이시라는 연락을 받고 병문안을 어머니와 다녀왔다.&lt;/p&gt;
 
@@ -273,60 +284,4 @@ $&amp;gt; npm run build
   &lt;li&gt;&lt;a href=&quot;https://cli.vuejs.org/guide/creating-a-project.html&quot;&gt;vue create&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://cli.vuejs.org/config/#devserver-proxy&quot;&gt;devServer.prox&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://expressjs.com/en/starter/generator.html&quot;&gt;Express application generator&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="nodejs" /><category term="vue" /><category term="express" /><summary type="html">Node 개발의 첫걸음 시작!</summary></entry><entry><title type="html">Nginx private 인증서 적용하기</title><link href="https://lahuman.github.io/nginx_private_ssl/" rel="alternate" type="text/html" title="Nginx private 인증서 적용하기" /><published>2018-11-29T00:00:00+09:00</published><updated>2018-11-29T00:00:00+09:00</updated><id>https://lahuman.github.io/nginx_private_ssl</id><content type="html" xml:base="https://lahuman.github.io/nginx_private_ssl/">&lt;h1 id=&quot;nginx-private-인증서-적용하기&quot;&gt;Nginx private 인증서 적용하기&lt;/h1&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;OPENSSL 기반으로 인증서요청서 생성하기&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$&amp;gt; openssl req -new -newkey rsa:2048 -nodes -keyout &amp;lt;개인키이름&amp;gt;.key -out &amp;lt;인증요청서이름&amp;gt;.csr
-... 정보 입력 or 걍 엔터
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;인증서 생성 하기&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$&amp;gt; openssl x509 -req -days 365 -in &amp;lt;인증요청서이름&amp;gt;.csr -signkey &amp;lt;개인키이름&amp;gt;.key -out &amp;lt;생성할인증서이름&amp;gt;.crt
-... 결과로 인증서( 인증서이름.crt )가 생성된다.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;비밀번호 제거작업
-필수는 아니지만, Nginx를 재기동 할 경우 비밀번호를 요청 받는다. 따라서 다음과 같이 개인키를 재생성 한다.
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$&amp;gt; cp &amp;lt;생성된개인키이름&amp;gt;.key &amp;lt;생성할개인키복사본이름&amp;gt;.key.secure
-$&amp;gt; openssl rsa -in &amp;lt;생성된개인키복사본이름&amp;gt;.key.secure -out &amp;lt;재생성할개인키이름&amp;gt;.key
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Nginx SSL 적용&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$&amp;gt; vi /etc/nginx/conf.d/&amp;lt;서비스명&amp;gt;.conf
-... 추가
-server {
-        listen 443;
-        server_name localhost;
-        charset utf-8;
-        access_log /etc/nginx/log/access.log;
-        error_log /etc/nginx/log/error.log;
-        ssl     on;                                               #ssl사용
-        ssl_certificate /etc/nginx/ssl/인증서이름.crt;               #생성된 인증서경로
-        ssl_certificate_key /etc/nginx/ssl/&amp;lt;재생성할개인키이름&amp;gt;.key;    #생성된 개인키
-        location / {
-                proxy_redirect  off;
-                proxy_set_header Host $http_host;
-                proxy_set_header X-Real-IP $remote_addr;
-                proxy_set_header X-Scheme $scheme;
-                proxy_pass http://target-server;
-        }
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;끝!&lt;/p&gt;
-
-&lt;p&gt;참고 주소에 가면 더 많은 정보가 있다.&lt;/p&gt;
-
-&lt;h2 id=&quot;참고-주소&quot;&gt;참고 주소&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://setyourmindpark.github.io/2017/05/04/nginx/nginx-1/&quot;&gt;nginx ssl 적용하기&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="nginx" /><category term="private" /><category term="certification" /><summary type="html">참 별거 아닌데 찾으면 안나와</summary></entry></feed>
+&lt;/ul&gt;</content><category term="nodejs" /><category term="vue" /><category term="express" /><summary type="html">Node 개발의 첫걸음 시작!</summary></entry></feed>
