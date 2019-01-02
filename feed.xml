@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-01-02T23:31:29+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">[CentOS]서버 시작시 서비스 함께 시작 하기</title><link href="https://lahuman.github.io/server_start_with_service/" rel="alternate" type="text/html" title="[CentOS]서버 시작시 서비스 함께 시작 하기" /><published>2019-01-02T00:00:00+09:00</published><updated>2019-01-02T00:00:00+09:00</updated><id>https://lahuman.github.io/server_start_with_service</id><content type="html" xml:base="https://lahuman.github.io/server_start_with_service/">&lt;h1 id=&quot;서버-시작시-서비스-시작-하기&quot;&gt;서버 시작시 서비스 시작 하기&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-01-02T23:37:05+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">[CentOS]서버 시작시 서비스 함께 시작 하기</title><link href="https://lahuman.github.io/server_start_with_service/" rel="alternate" type="text/html" title="[CentOS]서버 시작시 서비스 함께 시작 하기" /><published>2019-01-02T00:00:00+09:00</published><updated>2019-01-02T00:00:00+09:00</updated><id>https://lahuman.github.io/server_start_with_service</id><content type="html" xml:base="https://lahuman.github.io/server_start_with_service/">&lt;h1 id=&quot;서버-시작시-서비스-시작-하기&quot;&gt;서버 시작시 서비스 시작 하기&lt;/h1&gt;
 
 &lt;p&gt;사용하는 웹 서비스를 서버가 재시작 되었을때, 자동으로 시작하고 싶을때 사용하는 방법이다.&lt;/p&gt;
 
@@ -86,7 +86,7 @@ su lahuman -c 'nohup java -jar /home/lahuman/hello.jar &amp;amp; &amp;gt; /dev/n
 
 &lt;p&gt;이후 해당 디렉토리에 jar를 다음과 같은 형태로 추가 한다.&lt;/p&gt;
 &lt;figure class=&quot;half&quot;&gt;
-	&lt;img src=&quot;/asserts/img/post_img/local_repository.png&quot; /&gt;
+	&lt;img src=&quot;/assets/img/post_img/local_repository.png&quot; /&gt;
 	&lt;figcaption&gt;Local Repository&lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -115,7 +115,7 @@ lib/
 &lt;p&gt;이걸 해결 하기 위해서 &lt;strong&gt;RUN &amp;gt; Edit Configuration&lt;/strong&gt; 창을 열어서 &lt;strong&gt;Maven Run&lt;/strong&gt;을 추가 했다.&lt;/p&gt;
 
 &lt;figure class=&quot;half&quot;&gt;
-	&lt;img src=&quot;/asserts/img/post_img/run_edit_configuration.png&quot; /&gt;
+	&lt;img src=&quot;/assets/img/post_img/run_edit_configuration.png&quot; /&gt;
 	&lt;figcaption&gt;RUN &amp;gt; Edit Configuration&lt;/figcaption&gt;
 &lt;/figure&gt;
 
