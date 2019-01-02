@@ -1,4 +1,139 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2018-12-29T19:30:44+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">겨울이 정말 싫다.</title><link href="https://lahuman.github.io/20181229-phase/" rel="alternate" type="text/html" title="겨울이 정말 싫다." /><published>2018-12-29T00:00:00+09:00</published><updated>2018-12-29T00:00:00+09:00</updated><id>https://lahuman.github.io/20181229-phase</id><content type="html" xml:base="https://lahuman.github.io/20181229-phase/">&lt;h1 id=&quot;올-겨울은-혼자-있어서-그런지-유난히-춥다&quot;&gt;올 겨울은 혼자 있어서 그런지 유난히 춥다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-01-02T23:31:29+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">[CentOS]서버 시작시 서비스 함께 시작 하기</title><link href="https://lahuman.github.io/server_start_with_service/" rel="alternate" type="text/html" title="[CentOS]서버 시작시 서비스 함께 시작 하기" /><published>2019-01-02T00:00:00+09:00</published><updated>2019-01-02T00:00:00+09:00</updated><id>https://lahuman.github.io/server_start_with_service</id><content type="html" xml:base="https://lahuman.github.io/server_start_with_service/">&lt;h1 id=&quot;서버-시작시-서비스-시작-하기&quot;&gt;서버 시작시 서비스 시작 하기&lt;/h1&gt;
+
+&lt;p&gt;사용하는 웹 서비스를 서버가 재시작 되었을때, 자동으로 시작하고 싶을때 사용하는 방법이다.&lt;/p&gt;
+
+&lt;p&gt;간단하가 스크립트를 &lt;strong&gt;/etc/rc.d/rc.local&lt;/strong&gt;에 등록하면 서버가 재기동 되었을때, 해당 스크립트가 1회 동작을 한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 최초 한번은 rc.local에 실행권한을 줘야 한다.
+$&amp;gt; chmod +x /etc/rc.d/rc.local
+
+# 이후 rc.local 파일의 하단에 원하는 스크립트를 삽입 한다.
+$&amp;gt; vi /etc/rc.d/rc.local
+... rc.local 파일
+# 스크립트 추가
+nohup java -jar /home/lahuman/hello.jar &amp;amp; &amp;gt; /dev/null
+... 종료
+
+# 재기동 후 테스트
+$&amp;gt; reboot now
+... 재기동 후
+
+# 서비스 확인
+$&amp;gt; ps -ef | grep hello
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;추가로 실행이 root 계정으로 실행이 된다.&lt;/p&gt;
+
+&lt;p&gt;만약 다른 계정으로 실행을 하고 싶으면/rc.local에 스크립트를 &lt;strong&gt;su 계정 -c ‘명령어’&lt;/strong&gt; 로 추가 한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$&amp;gt; vi /etc/rc.d/rc.local
+... rc.local 파일
+# 스크립트 추가
+su lahuman -c 'nohup java -jar /home/lahuman/hello.jar &amp;amp; &amp;gt; /dev/null'
+... 종료
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://serverfault.com/questions/422950/execute-script-from-rc-local-as-user-instead-of-root&quot;&gt;Execute script from rc.local as user instead of root&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.centos.org/forums/viewtopic.php?t=62865&quot;&gt;how to make /etc/rc.local run after OS first rebooted when installed with kickstart?&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="centos" /><category term="startup" /><summary type="html">root가 아닌 계정으로 실행하기는 옵션</summary></entry><entry><title type="html">Maven 배포시 Local Jar 파일과 함께 하기!</title><link href="https://lahuman.github.io/maven_build_with_local_jar/" rel="alternate" type="text/html" title="Maven 배포시 Local Jar 파일과 함께 하기!" /><published>2018-12-31T00:00:00+09:00</published><updated>2018-12-31T00:00:00+09:00</updated><id>https://lahuman.github.io/maven_build_with_local_jar</id><content type="html" xml:base="https://lahuman.github.io/maven_build_with_local_jar/">&lt;h1 id=&quot;오랜만에-java로-개발-했다&quot;&gt;오랜만에 JAVA로 개발 했다.&lt;/h1&gt;
+
+&lt;p&gt;Node에서 Oracle JDBC에 연결을 하려는데 기존 버젼과 충돌이 발생하였다.&lt;/p&gt;
+
+&lt;p&gt;이를 해결하기 위해 기존 버젼을 변경에 따르는 사이드 임펙트를 알지 못하기에, JAVA를 이용하기로 하였다.&lt;/p&gt;
+
+&lt;p&gt;문제는 MAVEN에서 ojdbc 관련해서 dependency를 설정해도 가져오지를 못했다.
+&lt;del&gt;망할 오라클이 문제인가…&lt;/del&gt;&lt;/p&gt;
+
+&lt;p&gt;우여곡절 끝에 해당 jar 파일을 다운 받아 dependency를 다음과 같이 설정 하였다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# pom.xml
+...생략
+&amp;lt;dependency&amp;gt;
+    &amp;lt;groupId&amp;gt;oracle&amp;lt;/groupId&amp;gt;
+    &amp;lt;artifactId&amp;gt;ojdbc6&amp;lt;/artifactId&amp;gt;
+    &amp;lt;version&amp;gt;11.2.0.3&amp;lt;/version&amp;gt;
+    &amp;lt;scope&amp;gt;system&amp;lt;/scope&amp;gt;
+    &amp;lt;systemPath&amp;gt;file://${project.basedir}/lib&amp;lt;systemPath&amp;gt;
+&amp;lt;/dependency&amp;gt;
+...생략
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이렇게 처리 할 경우, 패키징을 할때 해당 jar 파일이 함께 배포 되지 않는다.&lt;/p&gt;
+
+&lt;p&gt;이럴때 쉬운 방법으로 로컬 저장소를 이용하면 된다.&lt;/p&gt;
+
+&lt;p&gt;먼저 pom.xml에 로컬 저장소를 다음과 같이 추가한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# pom.xml
+...생략
+&amp;lt;dependency&amp;gt;
+    &amp;lt;groupId&amp;gt;oracle&amp;lt;/groupId&amp;gt;
+    &amp;lt;artifactId&amp;gt;ojdbc6&amp;lt;/artifactId&amp;gt;
+    &amp;lt;version&amp;gt;11.2.0.3&amp;lt;/version&amp;gt;
+&amp;lt;/dependency&amp;gt;
+...생략
+&amp;lt;repositories&amp;gt;
+    &amp;lt;repository&amp;gt;
+        &amp;lt;id&amp;gt;local-repository&amp;lt;/id&amp;gt;
+        &amp;lt;name&amp;gt;local repository&amp;lt;/name&amp;gt;
+        &amp;lt;url&amp;gt;file://${project.basedir}/lib&amp;lt;/url&amp;gt;
+    &amp;lt;/repository&amp;gt;
+&amp;lt;/repositories&amp;gt;
+...생략
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이후 해당 디렉토리에 jar를 다음과 같은 형태로 추가 한다.&lt;/p&gt;
+&lt;figure class=&quot;half&quot;&gt;
+	&lt;img src=&quot;/asserts/img/post_img/local_repository.png&quot; /&gt;
+	&lt;figcaption&gt;Local Repository&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 아래과 같은 형식으로 디렉토리 구조를 만들어야 한다.
+lib/
+  {groupId}/
+    {ojdbc6}/
+      {version}/
+        ojdbc6-11.2.0.3.jar
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;마지막으로, 신나게 패키징을 하려는데 무료 IntelliJ를 써서 제대로 지원이 안되나 보다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mvn install spring-boot:repackage
+
+... 생략
+[ERROR] Failed to execute goal org.springframework.boot:spring-boot-maven-plugin:2.1.1.RELEASE:repackage (default-cli) on project simple-api: Execution default-cli of goal org.springframework.boot:spring-boot-maven-plugin:2.1.1.RELEASE:repackage failed: Source file must be provided -&amp;gt; [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/PluginExecutionException
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이걸 해결 하기 위해서 &lt;strong&gt;RUN &amp;gt; Edit Configuration&lt;/strong&gt; 창을 열어서 &lt;strong&gt;Maven Run&lt;/strong&gt;을 추가 했다.&lt;/p&gt;
+
+&lt;figure class=&quot;half&quot;&gt;
+	&lt;img src=&quot;/asserts/img/post_img/run_edit_configuration.png&quot; /&gt;
+	&lt;figcaption&gt;RUN &amp;gt; Edit Configuration&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;명령어에 mvn을 넣으면 안된다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;U&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;옵션은&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;로컬&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;리포지토리&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;사용시&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;추가하는&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;옵션이다&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;spring&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;boot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;repackage&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;U&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;오늘의-삽질-끝&quot;&gt;오늘의 삽질 끝~&lt;/h3&gt;
+
+&lt;h3 id=&quot;새해복-많이-받자&quot;&gt;새해복 많이 받자!&lt;/h3&gt;
+
+&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/17115471/intellij-mvn-package-is-behaving-differently-that-command-line&quot;&gt;IntelliJ mvn package is behaving differently that command line&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://seongtak-yoon.tistory.com/69&quot;&gt;[Maven] local jar를 dependency 추가하기&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="maven" /><category term="jar" /><summary type="html">이게 뭐라고 3시간 걸렸다.</summary></entry><entry><title type="html">겨울이 정말 싫다.</title><link href="https://lahuman.github.io/20181229-phase/" rel="alternate" type="text/html" title="겨울이 정말 싫다." /><published>2018-12-29T00:00:00+09:00</published><updated>2018-12-29T00:00:00+09:00</updated><id>https://lahuman.github.io/20181229-phase</id><content type="html" xml:base="https://lahuman.github.io/20181229-phase/">&lt;h1 id=&quot;올-겨울은-혼자-있어서-그런지-유난히-춥다&quot;&gt;올 겨울은 혼자 있어서 그런지 유난히 춥다.&lt;/h1&gt;
 
 &lt;p&gt;이번주 수요일부터 들이 닥친 한파로 많이 춥다.&lt;/p&gt;
 
@@ -181,107 +316,4 @@ console.log(test.running);
 
 &lt;p&gt;글을 써보는 것도 좋고, 무언가 발전을 위한 초석을 다져야겠다.&lt;/p&gt;
 
-&lt;h2 id=&quot;라고-말하고-쉬겠지-ㅋㅋ&quot;&gt;라고 말하고 쉬겠지 ㅋㅋ&lt;/h2&gt;</content><category term="단상" /><summary type="html">어머니 집에서 밥 먹고 놀다 옴</summary></entry><entry><title type="html">12월이다. 해야할껀 많은데 여전히 게으르다…</title><link href="https://lahuman.github.io/20181202-phase/" rel="alternate" type="text/html" title="12월이다. 해야할껀 많은데 여전히 게으르다..." /><published>2018-12-02T00:00:00+09:00</published><updated>2018-12-02T00:00:00+09:00</updated><id>https://lahuman.github.io/20181202-phase</id><content type="html" xml:base="https://lahuman.github.io/20181202-phase/">&lt;h1 id=&quot;이직한-회사는-그럭저럭-적응-중이다&quot;&gt;이직한 회사는 그럭저럭 적응 중이다.&lt;/h1&gt;
-
-&lt;p&gt;하지만!! 12월에 진행하는 발표는 준비가 잘 안된다.&lt;/p&gt;
-
-&lt;p&gt;영어 스크립트를 외워야 하는데 도저히 외워 지지가 않는다.&lt;/p&gt;
-
-&lt;p&gt;내가 무슨 말을 하려지가 명확한데도 한글로는 어찌 말하는데 영어로는 입이 안떨어진다.&lt;/p&gt;
-
-&lt;p&gt;일단 스크립트를 계속 보고 읽어 보는 것을 계속 하고 있다.&lt;/p&gt;
-
-&lt;p&gt;열심히 해보자!!&lt;/p&gt;
-
-&lt;p&gt;화이팅!!!&lt;/p&gt;
-
-&lt;h2 id=&quot;힘들지만-보람있게&quot;&gt;힘들지만 보람있게&lt;/h2&gt;</content><category term="단상" /><summary type="html">큰일이야... D-day가 이제 10일 남았어....</summary></entry><entry><title type="html">NODEJS]client, server 기본 틀 만들어 보기</title><link href="https://lahuman.github.io/vuejs_express_helloworld/" rel="alternate" type="text/html" title="NODEJS]client, server 기본 틀 만들어 보기" /><published>2018-11-30T00:00:00+09:00</published><updated>2018-11-30T00:00:00+09:00</updated><id>https://lahuman.github.io/vuejs_express_helloworld</id><content type="html" xml:base="https://lahuman.github.io/vuejs_express_helloworld/">&lt;h1 id=&quot;nodejsclient-server-기본-틀-만들어-보기&quot;&gt;NODEJS]client, server 기본 틀 만들어 보기&lt;/h1&gt;
-
-&lt;p&gt;Nodejs를 이용해서 개발을 시작한지 1주일이 되었다.&lt;/p&gt;
-
-&lt;p&gt;지금까지는 누군가 만들어 놓은 화면을 수정하는 작업이 주로 이루어 졌다.&lt;/p&gt;
-
-&lt;p&gt;기본적으로 node.js가 설치되어 있는 환경에서 진행 된다. 
-node 서버쪽 설정을 해보자
-node 서버는 &lt;strong&gt;express-generator&lt;/strong&gt; 를 이용한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# express-generator 설치
-$&amp;gt; npm install express-generator -g
-
-# express 기본 디렉터리 생성
-$&amp;gt; express &amp;lt;디렉터리 명&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;생성된 디렉토리는 다음과 같은 구조를 가진다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;|-bin           # express 실행 관련 
-|-node_modules  # node modules 설치되는 위치
-|-public        # 정적 파일의 위치 (client source 외 정적 파일)
-|-views         # view 관련 위치(.ejs, .html 등)
-|-routes        # route 설정된 js 모음
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;실행을 하기 전에 먼저 모듈을 설치 한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$&amp;gt; npm install
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;이후 express 서버를 기동한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$&amp;gt; npm run start
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;vue.js를 사용하기 위해서 vue-cli를 이용하여 client 화면의 구성을 생성한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# vue-cli install
-$&amp;gt; npm install -g @vue/cli
-# client project create
-# $&amp;gt; vue create &amp;lt;생성 프로젝트 명&amp;gt;
-$&amp;gt; vue create client
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;생성을 할때 여러 옵션이 있지만 기본으로 생성한다.&lt;/p&gt;
-
-&lt;p&gt;생성된 프로젝트 디렉토리로 들어가면, 다음의 구조로 되어 있다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;|-node_modules   # node modules 설치되는 위치
-|-public         # 정적 파일(html)
-|-src            # 실제 소스 위치
-  |-components   # vue components
-  |-assets       # 정적 파일(image, js, css ETC)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;생성된 프로젝트를 기동하는 방법은 다음과 같다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# client server running command
-$&amp;gt; npm run serve
-# build client source
-$&amp;gt; npm run build
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;빌드를 할때, server 소스 쪽으로 빌드를 하면 clinet 서버를 띄우지 않고 server 쪽의 서버로 함께 기동하도록 할 수 있다.
-위치는 일반적으로 server 의 public(정적 위치)으로 build 되도록 수정한다.
-client 쪽에 &lt;strong&gt;vue.config.js&lt;/strong&gt; 파일을 추가하여 다음과 같은 내용을 작성하자
-중요 한 것은 &lt;strong&gt;outputDir&lt;/strong&gt;을 서버의 public으로 설정 하는 것이다.&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$&amp;gt; vi vue.config.js
-
-###
-module.exports = {
-  outputDir: '../server/public',   # build 시 소스 저장 위치
-  devServer: {
-    proxy: 'http://localhost:3000' # server 의 접속 주소
-  }
-}
-###
-
-$&amp;gt; npm run build
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;client의 소스를 빌드 하고 server를 실행하면 server에서 client의 소스를 확인 할 수 있다.&lt;/p&gt;
-
-&lt;h2 id=&quot;참고-주소&quot;&gt;참고 주소&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://cli.vuejs.org/guide/creating-a-project.html&quot;&gt;vue create&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://cli.vuejs.org/config/#devserver-proxy&quot;&gt;devServer.prox&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://expressjs.com/en/starter/generator.html&quot;&gt;Express application generator&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="nodejs" /><category term="vue" /><category term="express" /><summary type="html">Node 개발의 첫걸음 시작!</summary></entry></feed>
+&lt;h2 id=&quot;라고-말하고-쉬겠지-ㅋㅋ&quot;&gt;라고 말하고 쉬겠지 ㅋㅋ&lt;/h2&gt;</content><category term="단상" /><summary type="html">어머니 집에서 밥 먹고 놀다 옴</summary></entry></feed>

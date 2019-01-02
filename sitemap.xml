@@ -1097,6 +1097,10 @@
 <lastmod>2018-11-28T00:00:00+09:00</lastmod>
 </url>
 <url>
+<loc>https://lahuman.github.io/docker_hello_world/</loc>
+<lastmod>2018-11-28T00:00:00+09:00</lastmod>
+</url>
+<url>
 <loc>https://lahuman.github.io/nginx_private_ssl/</loc>
 <lastmod>2018-11-29T00:00:00+09:00</lastmod>
 </url>
@@ -1139,6 +1143,14 @@
 <url>
 <loc>https://lahuman.github.io/20181229-phase/</loc>
 <lastmod>2018-12-29T00:00:00+09:00</lastmod>
+</url>
+<url>
+<loc>https://lahuman.github.io/maven_build_with_local_jar/</loc>
+<lastmod>2018-12-31T00:00:00+09:00</lastmod>
+</url>
+<url>
+<loc>https://lahuman.github.io/server_start_with_service/</loc>
+<lastmod>2019-01-02T00:00:00+09:00</lastmod>
 </url>
 <url>
 <loc>https://lahuman.github.io/404</loc>
