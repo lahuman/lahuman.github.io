@@ -1,4 +1,42 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-01-02T23:37:05+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">[CentOS]서버 시작시 서비스 함께 시작 하기</title><link href="https://lahuman.github.io/server_start_with_service/" rel="alternate" type="text/html" title="[CentOS]서버 시작시 서비스 함께 시작 하기" /><published>2019-01-02T00:00:00+09:00</published><updated>2019-01-02T00:00:00+09:00</updated><id>https://lahuman.github.io/server_start_with_service</id><content type="html" xml:base="https://lahuman.github.io/server_start_with_service/">&lt;h1 id=&quot;서버-시작시-서비스-시작-하기&quot;&gt;서버 시작시 서비스 시작 하기&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-01-05T16:25:27+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">2019년에는 어떤 프로젝트를 해볼까?</title><link href="https://lahuman.github.io/20190105/" rel="alternate" type="text/html" title="2019년에는 어떤 프로젝트를 해볼까?" /><published>2019-01-05T00:00:00+09:00</published><updated>2019-01-05T00:00:00+09:00</updated><id>https://lahuman.github.io/20190105</id><content type="html" xml:base="https://lahuman.github.io/20190105/">&lt;h1 id=&quot;sci에-게제할-논문을-작성-중인데-이건-어렵다&quot;&gt;SCI에 게제할 논문을 작성 중인데 이건… 어렵다.&lt;/h1&gt;
+
+&lt;p&gt;내 능력 밖의 일을 억지로 하고 있는거 같다.&lt;/p&gt;
+
+&lt;p&gt;글쓰기도 못하고 능력도 부족한데 어찌 저찌 해가고 있는거 같다.&lt;/p&gt;
+
+&lt;p&gt;다른 프로젝트로 무엇을 만들어 볼지 생각 중이다.&lt;/p&gt;
+
+&lt;p&gt;재미있는 아이디어가 몇개 있긴 한데 구현이 쉬운게 없다.&lt;/p&gt;
+
+&lt;p&gt;걍 한 두시간 뚝딱해서 만들만한 일을 하고 싶은데 뭐가 있을까?&lt;/p&gt;
+
+&lt;h2 id=&quot;2019년도-재미있게-보내자&quot;&gt;2019년도 재미있게 보내자!&lt;/h2&gt;</content><category term="단상" /><summary type="html">올해 계획까진 아니고 뭘해볼지 딩굴 딩굴 거리는 중</summary></entry><entry><title type="html">ORA-21561 OID generation failed</title><link href="https://lahuman.github.io/ora-21561_OID_generation_failed/" rel="alternate" type="text/html" title="ORA-21561 OID generation failed" /><published>2019-01-04T00:00:00+09:00</published><updated>2019-01-04T00:00:00+09:00</updated><id>https://lahuman.github.io/ora-21561_OID_generation_failed</id><content type="html" xml:base="https://lahuman.github.io/ora-21561_OID_generation_failed/">&lt;h1 id=&quot;ora-21561-oid-generation-failed&quot;&gt;ORA-21561 OID generation failed&lt;/h1&gt;
+
+&lt;p&gt;어제까지 문제가 없었는데 갑지가 node에서 Oracle 연결시 다음과 같이 오류가 발생 하였다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt; node ./bin/www
+ORA-21561: OID generation failed
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;검색을 해보니 호스트네임의 문제라고 한다.&lt;/p&gt;
+
+&lt;p&gt;다음과 같이 해주면 처리가 된다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;echo &quot;127.0.0.1 $(hostname)&quot; | sudo tee -a /etc/hosts
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;그러면 /etc/hosts에 한줄이 추가 되고 재기동 하면 접속에 성공했다는 메시지를 확인할 수 있다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt; node ./bin/www
+Connection was successful!
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;하루에-하나-이상은-배우는-구나&quot;&gt;하루에 하나 이상은 배우는 구나!&lt;/h3&gt;
+
+&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/joeferner/node-oracle/issues/47&quot;&gt;Error : ORA-21561 OID generation failed #47&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="oracle" /><summary type="html">hostname을 추가 해야 하는 오류</summary></entry><entry><title type="html">[CentOS]서버 시작시 서비스 함께 시작 하기</title><link href="https://lahuman.github.io/server_start_with_service/" rel="alternate" type="text/html" title="[CentOS]서버 시작시 서비스 함께 시작 하기" /><published>2019-01-02T00:00:00+09:00</published><updated>2019-01-02T00:00:00+09:00</updated><id>https://lahuman.github.io/server_start_with_service</id><content type="html" xml:base="https://lahuman.github.io/server_start_with_service/">&lt;h1 id=&quot;서버-시작시-서비스-시작-하기&quot;&gt;서버 시작시 서비스 시작 하기&lt;/h1&gt;
 
 &lt;p&gt;사용하는 웹 서비스를 서버가 재시작 되었을때, 자동으로 시작하고 싶을때 사용하는 방법이다.&lt;/p&gt;
 
@@ -292,28 +330,4 @@ console.log(test.running);
 
 &lt;p&gt;준비물을 정리 하고 오늘 하루 발표 준비를 열심히 해보자!!&lt;/p&gt;
 
-&lt;h2 id=&quot;발표-가즈아&quot;&gt;발표 가즈아&lt;/h2&gt;</content><category term="단상" /><summary type="html">영어로 발표하는게 가장 걱정 됨...</summary></entry><entry><title type="html">오늘은 차트로 삽질을 했다.</title><link href="https://lahuman.github.io/20181208-phase/" rel="alternate" type="text/html" title="오늘은 차트로 삽질을 했다." /><published>2018-12-10T00:00:00+09:00</published><updated>2018-12-10T00:00:00+09:00</updated><id>https://lahuman.github.io/20181208-phase</id><content type="html" xml:base="https://lahuman.github.io/20181208-phase/">&lt;h1 id=&quot;오후-내내-차트가-제대로-안그려져서-삽질함&quot;&gt;오후 내내 차트가 제대로 안그려져서 삽질함.&lt;/h1&gt;
-
-&lt;p&gt;사용하는 차트가 MIT 라이선스를 따르고 있는 &lt;a href=&quot;https://www.chartjs.org/&quot;&gt;chart.js&lt;/a&gt;를 이용하는 작업을 진행했다.&lt;/p&gt;
-
-&lt;p&gt;문제는 document에 나와있는데로 &lt;strong&gt;hello world&lt;/strong&gt; 를 찍었는데 제대로 표출이 되지 않았다.&lt;/p&gt;
-
-&lt;p&gt;이래 저래 삽질을 하다 스택오버플로워에 올라온 글을 따라 하니 제대로 동작했다.&lt;/p&gt;
-
-&lt;p&gt;아무리 오픈 소스라지만 문서는 좀 업뎃 해줘라~&lt;/p&gt;
-
-&lt;p&gt;또 외부 인력에 대한 관리 + 커뮤니케이션이 생각 만큼 쉽지 않다.&lt;/p&gt;
-
-&lt;p&gt;서로 생각하는 것이 다른 부분도 있고…&lt;/p&gt;
-
-&lt;h2 id=&quot;시간-많이-낭비&quot;&gt;시간 많이 낭비&lt;/h2&gt;</content><category term="단상" /><summary type="html">오늘의 문제점 중 하나는 외부의 원격 작업자의 커뮤니케이션과 차트 삽질</summary></entry><entry><title type="html">어머니에게는 언제까지 아이 같은 나.</title><link href="https://lahuman.github.io/20181210-phase/" rel="alternate" type="text/html" title="어머니에게는 언제까지 아이 같은 나." /><published>2018-12-08T00:00:00+09:00</published><updated>2018-12-08T00:00:00+09:00</updated><id>https://lahuman.github.io/20181210-phase</id><content type="html" xml:base="https://lahuman.github.io/20181210-phase/">&lt;h1 id=&quot;어머니-집에서-밥-먹고-쉬다-옴&quot;&gt;어머니 집에서 밥 먹고 쉬다 옴&lt;/h1&gt;
-
-&lt;p&gt;어머니에게는 낼 모레 40대가 되는 아들이 아직도 어린아이 같은가 보다.&lt;/p&gt;
-
-&lt;p&gt;나도 내 아이를 보면 늘 아이 같겠지?&lt;/p&gt;
-
-&lt;p&gt;오늘은 집에서 쉬었는데 내일은 공부를 좀 해야겠다.&lt;/p&gt;
-
-&lt;p&gt;글을 써보는 것도 좋고, 무언가 발전을 위한 초석을 다져야겠다.&lt;/p&gt;
-
-&lt;h2 id=&quot;라고-말하고-쉬겠지-ㅋㅋ&quot;&gt;라고 말하고 쉬겠지 ㅋㅋ&lt;/h2&gt;</content><category term="단상" /><summary type="html">어머니 집에서 밥 먹고 놀다 옴</summary></entry></feed>
+&lt;h2 id=&quot;발표-가즈아&quot;&gt;발표 가즈아&lt;/h2&gt;</content><category term="단상" /><summary type="html">영어로 발표하는게 가장 걱정 됨...</summary></entry></feed>
