@@ -1,4 +1,14 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-01-10T11:19:58+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">이번에 진행한 refactoring 코드 일부 공유</title><link href="https://lahuman.github.io/refactoring_javascript/" rel="alternate" type="text/html" title="이번에 진행한 refactoring 코드 일부 공유" /><published>2019-01-10T00:00:00+09:00</published><updated>2019-01-10T00:00:00+09:00</updated><id>https://lahuman.github.io/refactoring_javascript</id><content type="html" xml:base="https://lahuman.github.io/refactoring_javascript/">&lt;h1 id=&quot;이번에-함께-일하시는-분의-코드를-리펙토링하며-의견을-나누었다&quot;&gt;이번에 함께 일하시는 분의 코드를 리펙토링하며 의견을 나누었다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-01-12T00:24:33+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">사람이 점점 뻔뻔하고 말이 너무 많아진다.</title><link href="https://lahuman.github.io/20190112/" rel="alternate" type="text/html" title="사람이 점점 뻔뻔하고 말이 너무 많아진다." /><published>2019-01-12T00:00:00+09:00</published><updated>2019-01-12T00:00:00+09:00</updated><id>https://lahuman.github.io/20190112</id><content type="html" xml:base="https://lahuman.github.io/20190112/">&lt;p&gt;#누구 이야기냐고? 나야…&lt;/p&gt;
+
+&lt;p&gt;요즘 함께 일하는 분에게 되도 않는 조언을 하고 있다.&lt;/p&gt;
+
+&lt;p&gt;말하고 나서 뒤돌아서면, 괜한 오지랍 같다.&lt;/p&gt;
+
+&lt;p&gt;내 앞가림이나 잘하고 살자.&lt;/p&gt;
+
+&lt;p&gt;그리고 말좀 적게 해라 이놈아!!!&lt;/p&gt;
+
+&lt;h2 id=&quot;넌-말이-너무-많아&quot;&gt;넌 말이 너무 많아&lt;/h2&gt;</content><category term="단상" /><summary type="html">잘 익은 벼일수록 고개를 숙인다는데...</summary></entry><entry><title type="html">이번에 진행한 refactoring 코드 일부 공유</title><link href="https://lahuman.github.io/refactoring_javascript/" rel="alternate" type="text/html" title="이번에 진행한 refactoring 코드 일부 공유" /><published>2019-01-10T00:00:00+09:00</published><updated>2019-01-10T00:00:00+09:00</updated><id>https://lahuman.github.io/refactoring_javascript</id><content type="html" xml:base="https://lahuman.github.io/refactoring_javascript/">&lt;h1 id=&quot;이번에-함께-일하시는-분의-코드를-리펙토링하며-의견을-나누었다&quot;&gt;이번에 함께 일하시는 분의 코드를 리펙토링하며 의견을 나누었다.&lt;/h1&gt;
 
 &lt;p&gt;이번에 함께 일하는 분의 코드 리펙토링을 진행 하였다.&lt;/p&gt;
 
@@ -6,9 +16,76 @@
 
 &lt;p&gt;하나의 메소드를 15라인을 넘지 않도록 하고 결과를 확인하니, 너무 세분화 하여 쪼갠 느낌이다.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;http://www.mergely.com/TFa7VWc4/&quot;&gt;diff로 두 소스 비교&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;하나의 메소드는 하나의 역활만 하도록 하고, 중복된 코드가 없도로 했다.&lt;/p&gt;
 
-&lt;p&gt;TODO로 ESLINT와 TDD를 샘플링 해볼 예정이다.&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;const __DEFAULT_SELECTBOX_STR = &quot;선택해주세요&quot;;
+const __ORDER_SELECT_BOX = ['cls-l', 'cls-m', 'cls-s', 'cls-d'];
+
+const removeAllOptions = (isRemove, target) =&amp;gt; {
+    if(isRemove){
+        target.find('option').remove();
+        target.append(new Option(__DEFAULT_SELECTBOX_STR, &quot;&quot;));
+    }
+}
+
+const resetSubSelectBoxOption = (target_id) =&amp;gt; {
+    let target_obj;
+    let isResetSelectBox = false;
+    __ORDER_SELECT_BOX.forEach(v =&amp;gt; {
+        target_obj = $(&quot;#&quot;+v);
+        if(v === target_id){
+            isResetSelectBox = true;
+        }
+        removeAllOptions(isResetSelectBox, target_obj);
+    });
+}
+
+const setClassification = (target, val, level) =&amp;gt; {
+    callClassification({'upper_prd_cls_cd' : val, 'cls_lvl_no' : level}, (res)=&amp;gt;{
+        res.forEach(element =&amp;gt; {
+            target.append(new Option(element.PRD_CLS_NM, element.PRD_CLS_CD));
+        });
+    }); 
+}
+
+const setSubSelectBoxOption = ($target, val, level) =&amp;gt; {
+    resetSubSelectBoxOption($target.attr(&quot;id&quot;));
+    if (val === &quot;&quot;) return;
+    setClassification($target, val, level);
+}
+
+const setInitValue4SelectBox = (target, i) =&amp;gt; {
+    removeAllOptions(true, target);
+    if (i === 0){
+        setClassification(target, &quot;&quot;, 1);
+    }
+}
+
+const bindEventOnSelectBox = (target, i) =&amp;gt; {
+    if (i !== (__ORDER_SELECT_BOX.length-1)) {
+        target.change(function() {
+            setSubSelectBoxOption($(&quot;#&quot;+__ORDER_SELECT_BOX[i+1]), $(this).val(), (i+2));
+        });
+    }
+}
+
+const initSelectBox = () =&amp;gt; {
+    __ORDER_SELECT_BOX.forEach((o, i) =&amp;gt; {
+        let target = $(&quot;#&quot;+o);
+        setInitValue4SelectBox(target, i);
+        bindEventOnSelectBox(target, i);
+    });  
+    
+}
+
+$(document).ready(function() {
+    initSelectBox();  
+});
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.mergely.com/TFa7VWc4/&quot;&gt;전체 diff로 원본 소스와 리펙토링된 소스 비교&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;이후 처리로 ESLINT와 TDD를 샘플링 해볼 예정이다.&lt;/p&gt;
 
 &lt;h2 id=&quot;한걸음-한걸음씩&quot;&gt;한걸음 한걸음씩&lt;/h2&gt;</content><category term="refactoring" /><summary type="html">잘해서라기 보다는 이런 방식의 리팩토링을 한다는 차원에서의 공유</summary></entry><entry><title type="html">2019년에는 어떤 프로젝트를 해볼까?</title><link href="https://lahuman.github.io/20190105/" rel="alternate" type="text/html" title="2019년에는 어떤 프로젝트를 해볼까?" /><published>2019-01-05T00:00:00+09:00</published><updated>2019-01-05T00:00:00+09:00</updated><id>https://lahuman.github.io/20190105</id><content type="html" xml:base="https://lahuman.github.io/20190105/">&lt;h1 id=&quot;sci에-게제할-논문을-작성-중인데-이건-어렵다&quot;&gt;SCI에 게제할 논문을 작성 중인데 이건… 어렵다.&lt;/h1&gt;
 
@@ -313,21 +390,4 @@ console.log(test.running);
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/8958097/is-there-a-way-to-require-a-js-file-only-once-in-nodejs&quot;&gt;Is there a way to “require” a JS file only once in nodejs?&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://nodejs.org/docs/latest/api/modules.html#modules_caching&quot;&gt;https://nodejs.org/docs/latest/api/modules.html#modules_caching&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="nodejs" /><category term="global" /><summary type="html">JAVA로 치면 static, singleton으로 선언하는 방식</summary></entry><entry><title type="html">One of Best Papers를 수상하였다.</title><link href="https://lahuman.github.io/20181218-phase/" rel="alternate" type="text/html" title="One of Best Papers를 수상하였다." /><published>2018-12-18T00:00:00+09:00</published><updated>2018-12-18T00:00:00+09:00</updated><id>https://lahuman.github.io/20181218-phase</id><content type="html" xml:base="https://lahuman.github.io/20181218-phase/">&lt;h1 id=&quot;운이-좋게도-one-of-best-papers를-수상하였다&quot;&gt;운이 좋게도 One of Best Papers를 수상하였다.&lt;/h1&gt;
-
-&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;//www.youtube.com/embed/MftMzuyq0bw&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
-
-&lt;p&gt;일요일에 도착해서 교수님에게 리뷰하고 부족한 부분을 지도 받고 밤새도록 리허설을 하였다.&lt;/p&gt;
-
-&lt;p&gt;내 영어 실력의 부족함을 잘 알고 있고, 또 준비의 부족함을 알고 있었다.&lt;/p&gt;
-
-&lt;p&gt;운이 좋게도 컨퍼런스에서 &lt;strong&gt;최고의 논문상&lt;/strong&gt; 을 받게 되었다. 내가 잘나서라기 보다 이 논문이 나오기까지 도움 주신 교수님들과 선배님들 덕이 90%이상이다.&lt;/p&gt;
-
-&lt;figure&gt;
-	&lt;a href=&quot;/assets/img/phase/CUTE2018_oneOfBestPagper.png&quot;&gt;&lt;img src=&quot;/assets/img/phase/CUTE2018_oneOfBestPagper.png&quot; /&gt;&lt;/a&gt;
-	&lt;figcaption&gt;&lt;a href=&quot;https://youtu.be/MftMzuyq0bw&quot; title=&quot;Cute 2018 - One of Best Papers&quot;&gt;Cute 2018 - One of Best Papers&lt;/a&gt;.&lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;이 상을 계기로 더 발전 하는 내가 되었으면 좋겠다.&lt;/p&gt;
-
-&lt;h2 id=&quot;운이-좋았다-정말&quot;&gt;운이 좋았다 정말!&lt;/h2&gt;</content><category term="단상" /><summary type="html">교수님들과 원우님들의 도움으로 이렇게 좋은 날이 왔습니다.</summary></entry></feed>
+&lt;/ul&gt;</content><category term="nodejs" /><category term="global" /><summary type="html">JAVA로 치면 static, singleton으로 선언하는 방식</summary></entry></feed>
