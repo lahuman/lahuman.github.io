@@ -1,4 +1,167 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-01-19T06:34:19+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">구글 콜라보에서 제공하는 주피터 노트북</title><link href="https://lahuman.github.io/20190119/" rel="alternate" type="text/html" title="구글 콜라보에서 제공하는 주피터 노트북" /><published>2019-01-19T00:00:00+09:00</published><updated>2019-01-19T00:00:00+09:00</updated><id>https://lahuman.github.io/20190119</id><content type="html" xml:base="https://lahuman.github.io/20190119/">&lt;p&gt;#함께 일하시는 분이 주피터 노트북을 사용하는 것을 보았다.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-01-27T12:35:37+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html"></title><link href="https://lahuman.github.io/2019-01-23-vue_method_this/" rel="alternate" type="text/html" title="" /><published>2019-01-27T12:35:37+09:00</published><updated>2019-01-27T12:35:37+09:00</updated><id>https://lahuman.github.io/2019-01-23-vue_method_this</id><content type="html" xml:base="https://lahuman.github.io/2019-01-23-vue_method_this/">&lt;h1 id=&quot;how-to-fix-this-is-undefined-in-vue&quot;&gt;How to fix “this is undefined” in Vue.&lt;/h1&gt;
+
+&lt;p&gt;Vue를 써보고 있는데, Vue 안에 method를 선언하고 this를 호출하니 undefined가 발생하였다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;export default {
+  methods: {
+    sayHello: () =&amp;gt; {
+    	this.val = 'hello';
+    	console.log(this.val);
+    }
+  },
+  data() {
+	  return {
+	  	val: ''
+	  }
+  }
+}
+
+#### 결과
+this is undefined
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;원인을 찾아 보니 다음과 같은 내용을 확인했다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;If you try to access this from inside of an arrow function that’s on a Vue component, you’ll get an error because this doesn’t exist!&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Vue 구성 요소에있는 화살표 함수 내부에서 this에 액세스하려고 하면 존재하지 않기 때문에 오류가 발생합니다!&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Vue 구성 요소 안에서 this를 사용하려면 화살표 함수를 사용하지 말아야 한다는 내용이다. 다음과 같이 수정하면 잘 동작한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;export default {
+  methods: {
+    sayHello() {
+    	this.val = 'hello';
+    	console.log(this.val);
+    }
+  },
+  data() {
+	  return {
+	  	val: ''
+	  }
+  }
+}
+
+#### 결과
+hello
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;화살표 함수는 익명 함수를 만들때 사용하며, 다음과 같은 이유로 사용됩니다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;보다 짧고 응축된 구문&lt;/li&gt;
+  &lt;li&gt;향상된 가독성&lt;/li&gt;
+  &lt;li&gt;this 주변상황에서 취해진다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Vue의 method 내부에서 사용하는 것은 크게 문제가 없지만, method 자체를 화살표 함수로 선언할 경우 this를 사용할 수 없다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# Vue 내부에서 화살표 함수 사용 예
+data() {
+  return {
+    match: 'This is a message',
+  };
+},
+computed: {
+  filteredMessages(messages) {
+    console.log(this); // Our Vue component
+    
+    const filteredMessages = messages.filter(
+      // References our Vue Component
+      (message) =&amp;gt; message.includes(this.match)
+    );
+    
+    return filteredMessages;
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://michaelnthiessen.com/this-is-undefined/&quot;&gt;How to fix “this is undefined” in Vue&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content></entry><entry><title type="html">How To Use Winston to Log Node.js Applications</title><link href="https://lahuman.github.io/winston_app-root-path/" rel="alternate" type="text/html" title="How To Use Winston to Log Node.js Applications" /><published>2019-01-21T00:00:00+09:00</published><updated>2019-01-21T00:00:00+09:00</updated><id>https://lahuman.github.io/winston_app-root-path</id><content type="html" xml:base="https://lahuman.github.io/winston_app-root-path/">&lt;h1 id=&quot;how-to-use-winston-to-log-nodejs-applications&quot;&gt;How To Use Winston to Log Node.js Applications&lt;/h1&gt;
+
+&lt;p&gt;간단하게 설정만 작성하는 것으로 원본자료 &lt;a href=&quot;https://www.digitalocean.com/community/tutorials/how-to-use-winston-to-log-node-js-applications&quot;&gt;How To Use Winston to Log Node.js Applications&lt;/a&gt;을 보세요.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var appRoot = require('app-root-path');
+var winston = require('winston');
+
+// define the custom settings for each transport (file, console)
+var options = {
+  file: {
+    level: 'info',
+    filename: `${appRoot}/logs/app.log`,
+    handleExceptions: true,
+    json: true,
+    maxsize: 5242880, // 5MB
+    maxFiles: 5,
+    colorize: false,
+  },
+  console: {
+    level: 'debug',
+    handleExceptions: true,
+    json: false,
+    colorize: true,
+  },
+};
+
+// instantiate a winston.createLogger with the settings defined above
+var logger = winston.createLogger({
+  transports: [
+    new winston.transports.File(options.file),
+    new winston.transports.Console(options.console)
+  ],
+  exitOnError: false, // do not exit on handled exceptions
+});
+
+// create a stream object with a 'write' function that will be used by `morgan`
+logger.stream = {
+  write: function(message, encoding) {
+    // use the 'info' log level so the output will be picked up by both transports (file and console)
+    logger.info(message);
+  },
+};
+
+module.exports = logger;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;요렇게 설정만 해놓아도 기본으로 사용이 가능하다.&lt;/p&gt;
+
+&lt;p&gt;추가로 알게된 &lt;a href=&quot;https://www.npmjs.com/package/app-root-path&quot;&gt;App Root Path Module&lt;/a&gt; 도 꽤 유용해보인다.&lt;/p&gt;
+
+&lt;p&gt;app의 root path를 제공하여 다음과 같이 사용할 수 있다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#1 
+var appRoot = require('app-root-path');
+var myModule = require(appRoot + '/lib/my-module.js');
+
+#2
+var reqlib = require('app-root-path').require;
+var myModule = reqlib('/lib/my-module.js');
+
+#3
+// In app.js
+global.reqlib = require('app-root-path').require;
+ 
+// In lib/module/component/subcomponent.js
+var myModule = reqlib('/lib/my-module.js');
+
+#4
+var myModulePath = require('app-root-path').resolve('/lib/my-module.js');
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;좋은게 많은데 몰라서 못쓴다.&lt;/p&gt;
+
+&lt;p&gt;공부 많이 좀 해야겠다. 요즘 게을러져서 공부도 안하고 그냥 날로 먹을라고 한다.&lt;/p&gt;
+
+&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.digitalocean.com/community/tutorials/how-to-use-winston-to-log-node-js-applications&quot;&gt;How To Use Winston to Log Node.js Applications&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.npmjs.com/package/app-root-path&quot;&gt;App Root Path Module&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="nodejs" /><category term="winston" /><summary type="html">winston 설정을 하다 찾은 추가 모듈까지 설명</summary></entry><entry><title type="html">구글 콜라보에서 제공하는 주피터 노트북</title><link href="https://lahuman.github.io/20190119/" rel="alternate" type="text/html" title="구글 콜라보에서 제공하는 주피터 노트북" /><published>2019-01-19T00:00:00+09:00</published><updated>2019-01-19T00:00:00+09:00</updated><id>https://lahuman.github.io/20190119</id><content type="html" xml:base="https://lahuman.github.io/20190119/">&lt;p&gt;#함께 일하시는 분이 주피터 노트북을 사용하는 것을 보았다.&lt;/p&gt;
 
 &lt;p&gt;요청사항에 대하여 크롤링하고 간단하게 화면에 통계를 뽑는 것을 주피터를 이용하여 뚝딱 하는 모습을 보았다.&lt;/p&gt;
 
@@ -335,72 +498,4 @@ lib/
 
 &lt;p&gt;해야할것도 있지만 집중도 못하고 이러고 있다.&lt;/p&gt;
 
-&lt;h2 id=&quot;슬프다&quot;&gt;슬프다.&lt;/h2&gt;</content><category term="단상" /><summary type="html">추워서 밖에 나가는 일 자체게 부담된다.</summary></entry><entry><title type="html">문병을 다녀오다.</title><link href="https://lahuman.github.io/20181223-phase/" rel="alternate" type="text/html" title="문병을 다녀오다." /><published>2018-12-23T00:00:00+09:00</published><updated>2018-12-23T00:00:00+09:00</updated><id>https://lahuman.github.io/20181223-phase</id><content type="html" xml:base="https://lahuman.github.io/20181223-phase/">&lt;h1 id=&quot;어제는-어머니와-홤께-문명만-다녔다&quot;&gt;어제는 어머니와 홤께 문명만 다녔다.&lt;/h1&gt;
-
-&lt;p&gt;둘째 큰어머니와 큰아버님께서 무릅관절 수술을 받아서 입원 중이시라는 연락을 받고 병문안을 어머니와 다녀왔다.&lt;/p&gt;
-
-&lt;p&gt;또 고모님께서 유방암으로 수술을 받은 것을 듣고 고모님도 찾아 뵈었다.&lt;/p&gt;
-
-&lt;p&gt;첫째 큰어머니 역시 무릅 관전 수술을 받으셨다고 들었는데 시간이 여의치 않아 찾아 뵙지는 못하였다.&lt;/p&gt;
-
-&lt;p&gt;연세가 있으시기도 했고 무릅이 안좋으시다고 몇해 전부터 이야기 하셨는데 이번에 수술을 받으셨다고 한다.&lt;/p&gt;
-
-&lt;p&gt;갑자기 주위 어른들이 모두 병원에서 수술을 받으시자, 어머니의 건강이 염려된다.&lt;/p&gt;
-
-&lt;h2 id=&quot;아프지-말고-건강-하셔요&quot;&gt;아프지 말고 건강 하셔요.&lt;/h2&gt;</content><category term="단상" /><summary type="html">어제는 하루 종일 문병만 다녔다.</summary></entry><entry><title type="html">80 port에 대하여 Root가 아닌 다른 계정으로 서비스 하기</title><link href="https://lahuman.github.io/listening_on_port_80_without_root/" rel="alternate" type="text/html" title="80 port에 대하여 Root가 아닌 다른 계정으로 서비스 하기" /><published>2018-12-21T00:00:00+09:00</published><updated>2018-12-21T00:00:00+09:00</updated><id>https://lahuman.github.io/listening_on_port_80_without_root</id><content type="html" xml:base="https://lahuman.github.io/listening_on_port_80_without_root/">&lt;h1 id=&quot;80-port에-대하여-root가-아닌-다른-계정으로-서비스-하기&quot;&gt;80 port에 대하여 Root가 아닌 다른 계정으로 서비스 하기&lt;/h1&gt;
-
-&lt;p&gt;보안 취약점으로 인해 서비스에 대한 기동을 root가 아닌 다른 계정으로 하라는 지침이 내려왔다.&lt;/p&gt;
-
-&lt;p&gt;하지만 1024 포트 이하에 대한 서비스 권한은 root만 가지고 있다.
-기존에 했던 방법은 계정을 생성하고 root와 같은 그룹으로 묶어서 처리한 기억이 있다.&lt;/p&gt;
-
-&lt;p&gt;이번에 찾은 방법은 &lt;a href=&quot;http://manpages.ubuntu.com/manpages/bionic/man1/authbind.1.html&quot;&gt;authbind&lt;/a&gt;라는 라이브러리를 이용 하는 방법이다.&lt;/p&gt;
-
-&lt;p&gt;예제는 pm2를 이용하였는데, 아마 생각은 다른 프로그램 역시 동작 할것이다.&lt;/p&gt;
-
-&lt;p&gt;우선 다음 명령어를 이용하여 authbind를 설치 하고 %user% 는 사용하려는 계정으로 바꿔서 진행하면 된다.&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$&amp;gt; sudo apt-get install authbind
-$&amp;gt; sudo touch /etc/authbind/byport/80
-$&amp;gt; sudo chown %user% /etc/authbind/byport/80
-$&amp;gt; sudo chmod 755 /etc/authbind/byport/80
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;그리고 변경해야 하는 내용은 사용하려는 서비스의 기동을 다음과 같이 하면 된다.&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$&amp;gt; authbind --deep %명령어% 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;일일이 치기 귀찮다면 다음과 같이 alias를 사용자 프로파일에 추가한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# ~/.bash 또는 ~/.zshrc
-$&amp;gt; vi ~/.bash
-# 가장 하단에 다음 내역 추가 
-alias 명령어='authbind --deep 명령어'
-
-# 프로파일 재반영
-$&amp;gt; source ~/.bash
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;pm2를 예를 들면 다음과 같다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# ~/.bash 또는 ~/.zshrc
-$&amp;gt; vi ~/.bash
-# 가장 하단에 다음 내역 추가 
-alias pm2='authbind --deep pm2'
-
-# 프로파일 재반영
-$&amp;gt; source ~/.bash
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;pm2의 경우 update를 authbind를 이용하여 해야 한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$&amp;gt; authbind --deep pm2 update
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;추가적인 방법으로는 포트 포워딩을 이용하여 처리하는 방법도 있다.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://manpages.ubuntu.com/manpages/bionic/man1/authbind.1.html&quot;&gt;authbind&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://pm2.keymetrics.io/docs/usage/specifics/#listening-on-port-80-w-o-root&quot;&gt;Listening on port 80 w/o root&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="authbind" /><category term="pm2" /><summary type="html">예제는 pm2를 이용하였다.</summary></entry></feed>
+&lt;h2 id=&quot;슬프다&quot;&gt;슬프다.&lt;/h2&gt;</content><category term="단상" /><summary type="html">추워서 밖에 나가는 일 자체게 부담된다.</summary></entry></feed>
