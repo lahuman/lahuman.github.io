@@ -1,4 +1,21 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-02-09T09:59:32+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">nodejs에서 request Body에 json 처리 &amp;amp; body 크기 제한</title><link href="https://lahuman.github.io/node_bodyParser/" rel="alternate" type="text/html" title="nodejs에서 request Body에 json 처리 &amp; body 크기 제한" /><published>2019-02-06T00:00:00+09:00</published><updated>2019-02-06T00:00:00+09:00</updated><id>https://lahuman.github.io/ node_bodyParser</id><content type="html" xml:base="https://lahuman.github.io/node_bodyParser/">&lt;h1 id=&quot;express에서-post호출-시-request의-body에서-undefined가-발생한다&quot;&gt;Express에서 post호출 시 request의 body에서 undefined가 발생한다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-02-09T14:13:34+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">인증서버 구축기 - 1</title><link href="https://lahuman.github.io/auth_server_1/" rel="alternate" type="text/html" title="인증서버 구축기 - 1 " /><published>2019-02-09T00:00:00+09:00</published><updated>2019-02-09T00:00:00+09:00</updated><id>https://lahuman.github.io/auth_server_1</id><content type="html" xml:base="https://lahuman.github.io/auth_server_1/">&lt;h1 id=&quot;간단한-인증-서버를-구축-해보자&quot;&gt;간단한 인증 서버를 구축 해보자!&lt;/h1&gt;
+
+&lt;p&gt;인증 서버를 구축해보려고 한다.&lt;/p&gt;
+
+&lt;p&gt;간단하게 설계는 다음과 같이 했다.&lt;/p&gt;
+
+&lt;figure&gt;
+	&lt;a href=&quot;/assets/img/post_img/auth_service.png&quot;&gt;&lt;img src=&quot;/assets/img/post_img/auth_service.png&quot; /&gt;&lt;/a&gt;
+	&lt;figcaption&gt;AUTH server Sequence diagram&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;개발 언어는 &lt;a href=&quot;https://nodejs.org/ko/&quot;&gt;Node.js&lt;/a&gt;를 이용하여 개발 계획이다.&lt;/p&gt;
+
+&lt;p&gt;이미 Auth Server를 구현한 샘플이 많아서 새로운 것은 아니지만, 새로운 기술을 배우는 것을 목적으로 진행한다.&lt;/p&gt;
+
+&lt;p&gt;Frontend는 &lt;a href=&quot;https://kr.vuejs.org/v2/guide/index.html&quot;&gt;vue.js&lt;/a&gt;를 사용해보고 ORM 툴인 &lt;a href=&quot;http://docs.sequelizejs.com/&quot;&gt;sequelizejs&lt;/a&gt;도 사용할 계획이다.&lt;/p&gt;
+
+&lt;h2 id=&quot;프로젝트-저장소&quot;&gt;&lt;a href=&quot;https://github.com/lahuman/AuthServer&quot;&gt;프로젝트 저장소&lt;/a&gt;&lt;/h2&gt;</content><category term="node" /><category term="auth" /><summary type="html">기존에는 완료된 프로젝트만 적었는데, 진행하는 과정을 남겨 보자</summary></entry><entry><title type="html">nodejs에서 request Body에 json 처리 &amp;amp; body 크기 제한</title><link href="https://lahuman.github.io/node_bodyParser/" rel="alternate" type="text/html" title="nodejs에서 request Body에 json 처리 &amp; body 크기 제한" /><published>2019-02-06T00:00:00+09:00</published><updated>2019-02-06T00:00:00+09:00</updated><id>https://lahuman.github.io/ node_bodyParser</id><content type="html" xml:base="https://lahuman.github.io/node_bodyParser/">&lt;h1 id=&quot;express에서-post호출-시-request의-body에서-undefined가-발생한다&quot;&gt;Express에서 post호출 시 request의 body에서 undefined가 발생한다.&lt;/h1&gt;
 
 &lt;p&gt;다음과 같이 호출 했는데 결과가 undefined일 경우는 body-parser를 설정하지 않아서 이다.&lt;/p&gt;
 
@@ -437,16 +454,4 @@ $(document).ready(function() {
 
 &lt;p&gt;이후 처리로 ESLINT와 TDD를 샘플링 해볼 예정이다.&lt;/p&gt;
 
-&lt;h2 id=&quot;한걸음-한걸음씩&quot;&gt;한걸음 한걸음씩&lt;/h2&gt;</content><category term="refactoring" /><summary type="html">잘해서라기 보다는 이런 방식의 리팩토링을 한다는 차원에서의 공유</summary></entry><entry><title type="html">2019년에는 어떤 프로젝트를 해볼까?</title><link href="https://lahuman.github.io/20190105/" rel="alternate" type="text/html" title="2019년에는 어떤 프로젝트를 해볼까?" /><published>2019-01-05T00:00:00+09:00</published><updated>2019-01-05T00:00:00+09:00</updated><id>https://lahuman.github.io/20190105</id><content type="html" xml:base="https://lahuman.github.io/20190105/">&lt;h1 id=&quot;sci에-게제할-논문을-작성-중인데-이건-어렵다&quot;&gt;SCI에 게제할 논문을 작성 중인데 이건… 어렵다.&lt;/h1&gt;
-
-&lt;p&gt;내 능력 밖의 일을 억지로 하고 있는거 같다.&lt;/p&gt;
-
-&lt;p&gt;글쓰기도 못하고 능력도 부족한데 어찌 저찌 해가고 있는거 같다.&lt;/p&gt;
-
-&lt;p&gt;다른 프로젝트로 무엇을 만들어 볼지 생각 중이다.&lt;/p&gt;
-
-&lt;p&gt;재미있는 아이디어가 몇개 있긴 한데 구현이 쉬운게 없다.&lt;/p&gt;
-
-&lt;p&gt;걍 한 두시간 뚝딱해서 만들만한 일을 하고 싶은데 뭐가 있을까?&lt;/p&gt;
-
-&lt;h2 id=&quot;2019년도-재미있게-보내자&quot;&gt;2019년도 재미있게 보내자!&lt;/h2&gt;</content><category term="단상" /><summary type="html">올해 계획까진 아니고 뭘해볼지 딩굴 딩굴 거리는 중</summary></entry></feed>
+&lt;h2 id=&quot;한걸음-한걸음씩&quot;&gt;한걸음 한걸음씩&lt;/h2&gt;</content><category term="refactoring" /><summary type="html">잘해서라기 보다는 이런 방식의 리팩토링을 한다는 차원에서의 공유</summary></entry></feed>
