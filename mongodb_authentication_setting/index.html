@@ -11,9 +11,30 @@ net:
 /usr/bin/mongod --config /etc/mongod_repl3_arbiter.conf
 /usr/bin/mongod --config /etc/mongod_repl4_config.conf --configsvr
 /usr/bin/mongos --configdb localhost:20004 --port 10001 --fork --logpath /var/lib/mongodb/mongod_mongos.log --chunkSize 1 --keyFile /etc/m_key
-</code></pre></div></div> <h2 id="mongodb-재기동--계정-생성">MongoDB 재기동 &amp; 계정 생성</h2> <p>설정이 완료된 이후에 MongoDB를 재기동 한다.</p> <p>재기동이 완료 되면 계정을 생성 한다.</p> <p>여기서는 단순하게 계정을 생성 하도록 한다. 계정 생성은 mongos와 repl1에 모두 생성 해야 한다.</p> <ol> <li>mongos 설정 ~~~ $&gt; mongo –port 10001</li> </ol> <blockquote> <p>use admin; db.createUser( { user: “admin”, pwd: “1234”, roles: [ { role: “root”, db: “admin” } ] } );</p> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>2. repl1 설정
-</code></pre></div> </div> <p>$&gt; mongo –port 20001</p> </blockquote> <blockquote> <p>use admin; db.createUser( { user: “admin”, pwd: “1234”, roles: [ { role: “root”, db: “admin” } ] } );</p> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>3. mongo-connector 실행(생성한 계정의 id/pw를 option에 추가 한다.)
-</code></pre></div> </div> <p>/usr/bin/python /usr/bin/mongo-connector -m localhost:10001 -t localhost:9200 -d elastic2_doc_manager -a admin -p 1234 ~~~</p> </blockquote> <h2 id="테스트">테스트</h2> <p>계정 처리가 완료 되면, 데이터를 조회/삽입 해본다.</p> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$&gt; mongo --port 10001
+</code></pre></div></div> <h2 id="mongodb-재기동--계정-생성">MongoDB 재기동 &amp; 계정 생성</h2> <p>설정이 완료된 이후에 MongoDB를 재기동 한다.</p> <p>재기동이 완료 되면 계정을 생성 한다.</p> <p>여기서는 단순하게 계정을 생성 하도록 한다. 계정 생성은 mongos와 repl1에 모두 생성 해야 한다.</p> <ol> <li>mongos 설정</li> </ol> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$&gt; mongo --port 10001
+
+&gt;
+&gt; use admin;
+&gt; db.createUser(
+  {
+    user: "admin",
+    pwd: "1234",
+    roles: [ { role: "root", db: "admin" } ]
+  }
+);
+</code></pre></div></div> <ol> <li>repl1 설정</li> </ol> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$&gt; mongo --port 20001
+
+&gt;
+&gt; use admin;
+&gt; db.createUser(
+  {
+    user: "admin",
+    pwd: "1234",
+    roles: [ { role: "root", db: "admin" } ]
+  }
+);
+</code></pre></div></div> <ol> <li>mongo-connector 실행(생성한 계정의 id/pw를 option에 추가 한다.)</li> </ol> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/usr/bin/python /usr/bin/mongo-connector -m localhost:10001 -t localhost:9200 -d elastic2_doc_manager -a admin -p 1234
+</code></pre></div></div> <h2 id="테스트">테스트</h2> <p>계정 처리가 완료 되면, 데이터를 조회/삽입 해본다.</p> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$&gt; mongo --port 10001
 
 mongos&gt; db.test.find({})
 Error: error: {
