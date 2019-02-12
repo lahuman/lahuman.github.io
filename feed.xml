@@ -1,4 +1,65 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-02-09T14:13:34+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">인증서버 구축기 - 1</title><link href="https://lahuman.github.io/auth_server_1/" rel="alternate" type="text/html" title="인증서버 구축기 - 1 " /><published>2019-02-09T00:00:00+09:00</published><updated>2019-02-09T00:00:00+09:00</updated><id>https://lahuman.github.io/auth_server_1</id><content type="html" xml:base="https://lahuman.github.io/auth_server_1/">&lt;h1 id=&quot;간단한-인증-서버를-구축-해보자&quot;&gt;간단한 인증 서버를 구축 해보자!&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-02-12T23:29:41+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Async 모듈을 이용한 비동기 처리</title><link href="https://lahuman.github.io/node_async/" rel="alternate" type="text/html" title="Async 모듈을 이용한 비동기 처리" /><published>2019-02-12T00:00:00+09:00</published><updated>2019-02-12T00:00:00+09:00</updated><id>https://lahuman.github.io/node_async</id><content type="html" xml:base="https://lahuman.github.io/node_async/">&lt;h1 id=&quot;얼마전-node에서-비동기-처리를-순서대로-처리해야-하는-일이-있었다&quot;&gt;얼마전 Node에서 비동기 처리를 순서대로 처리해야 하는 일이 있었다.&lt;/h1&gt;
+
+&lt;p&gt;구글을 검색하다 &lt;a href=&quot;https://stackoverflow.com/questions/31799175/async-waterfall-in-a-for-loop-in-node-js?fbclid=IwAR3Mx9ZXS8qxNhKQqgSqB8KIFmIko031E0uCmhPFkAiXY0mFR5UAs5Y-_XA&quot;&gt;async.waterfall in a For Loop in Node.js&lt;/a&gt;을 찾았다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var async = require(&quot;async&quot;)
+var users = []; // Initialize user array or get it from DB
+
+async.forEachLimit(users, 1, function(user, userCallback){
+
+    async.waterfall([
+        function(callback) {
+            callback(null, 'one', 'two');
+        },
+        function(arg1, arg2, callback) {
+            // arg1 now equals 'one' and arg2 now equals 'two'
+            callback(null, 'three');
+        },
+        function(arg1, callback) {
+            // arg1 now equals 'three'
+            callback(null, 'done');
+        }
+    ], function (err, result) {
+        // result now equals 'done'
+        console.log('done')
+        userCallback();
+    });
+
+
+}, function(err){
+    console.log(&quot;User For Loop Completed&quot;);
+});
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://caolan.github.io/async/&quot;&gt;async&lt;/a&gt;는 &lt;a href=&quot;https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/async_function&quot;&gt;async, await&lt;/a&gt;인줄 알았는데, 비동기 처리에 사용하는 모듈 이었다.&lt;/p&gt;
+
+&lt;p&gt;70 여 가지 모듈을 지원하며, 예제도 잘 나와 있다.&lt;/p&gt;
+
+&lt;p&gt;이중 제어 관련하여 다음의 매소드 등이 제공된다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;XXXLimit : 한번에 처리 하는 Worker 갯수 지정&lt;/li&gt;
+  &lt;li&gt;XXXSeries : 한개씩 처리&lt;/li&gt;
+  &lt;li&gt;waterfall : 여러 비동기 처리를 순차적으로 처리&lt;/li&gt;
+  &lt;li&gt;parallel : 콜렉션을 병렬 처리&lt;/li&gt;
+  &lt;li&gt;apply : 인수 처리&lt;/li&gt;
+  &lt;li&gt;map : 새로운 컬렉션을 생성&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;이 외에도 많은 기능이 제공된다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Async provides around 70 functions that include the usual ‘functional’ suspects (map, reduce, filter, each…) as well as some common patterns for asynchronous control flow (parallel, series, waterfall…). All these functions assume you follow the Node.js convention of providing a single callback as the last argument of your asynchronous function – a callback which expects an Error as its first argument – and calling the callback once.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;비동기-처리를-할때-사용하면-상당히-유용하다&quot;&gt;비동기 처리를 할때 사용하면 상당히 유용하다.&lt;/h2&gt;
+
+&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://caolan.github.io/async/&quot;&gt;async&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/31799175/async-waterfall-in-a-for-loop-in-node-js?fbclid=IwAR3Mx9ZXS8qxNhKQqgSqB8KIFmIko031E0uCmhPFkAiXY0mFR5UAs5Y-_XA&quot;&gt;async.waterfall in a For Loop in Node.js&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/31815917/how-to-skip-a-async-foreachof-loop-iteration-in-node-js&quot;&gt;How to Skip a “async.forEachOf” loop iteration in Node.js&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="node" /><category term="tip" /><summary type="html">병렬, 직렬, 순서 등 비동기 제어에 도움이 되는 모듈</summary></entry><entry><title type="html">인증서버 구축기 - 1</title><link href="https://lahuman.github.io/auth_server_1/" rel="alternate" type="text/html" title="인증서버 구축기 - 1 " /><published>2019-02-09T00:00:00+09:00</published><updated>2019-02-09T00:00:00+09:00</updated><id>https://lahuman.github.io/auth_server_1</id><content type="html" xml:base="https://lahuman.github.io/auth_server_1/">&lt;h1 id=&quot;간단한-인증-서버를-구축-해보자&quot;&gt;간단한 인증 서버를 구축 해보자!&lt;/h1&gt;
 
 &lt;p&gt;인증 서버를 구축해보려고 한다.&lt;/p&gt;
 
@@ -375,83 +436,4 @@ print(&quot;정답율:&quot;, ok, '/', total, &quot;=&quot;, ok/total)
 
 &lt;p&gt;그리고 말좀 적게 해라 이놈아!!!&lt;/p&gt;
 
-&lt;h2 id=&quot;넌-말이-너무-많아&quot;&gt;넌 말이 너무 많아&lt;/h2&gt;</content><category term="단상" /><summary type="html">잘 익은 벼일수록 고개를 숙인다는데...</summary></entry><entry><title type="html">이번에 진행한 refactoring 코드 일부 공유</title><link href="https://lahuman.github.io/refactoring_javascript/" rel="alternate" type="text/html" title="이번에 진행한 refactoring 코드 일부 공유" /><published>2019-01-10T00:00:00+09:00</published><updated>2019-01-10T00:00:00+09:00</updated><id>https://lahuman.github.io/refactoring_javascript</id><content type="html" xml:base="https://lahuman.github.io/refactoring_javascript/">&lt;h1 id=&quot;이번에-함께-일하시는-분의-코드를-리펙토링하며-의견을-나누었다&quot;&gt;이번에 함께 일하시는 분의 코드를 리펙토링하며 의견을 나누었다.&lt;/h1&gt;
-
-&lt;p&gt;이번에 함께 일하는 분의 코드 리펙토링을 진행 하였다.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://www.kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&amp;amp;ejkGb=KOR&amp;amp;linkClass=331531&amp;amp;barcode=9791160500783&quot;&gt;유지보수 가능한 코딩의 기술 자바편&lt;/a&gt;의 내용을 기준으로 리펙토링을 하였다.&lt;/p&gt;
-
-&lt;p&gt;하나의 메소드를 15라인을 넘지 않도록 하고 결과를 확인하니, 너무 세분화 하여 쪼갠 느낌이다.&lt;/p&gt;
-
-&lt;p&gt;하나의 메소드는 하나의 역활만 하도록 하고, 중복된 코드가 없도로 했다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;const __DEFAULT_SELECTBOX_STR = &quot;선택해주세요&quot;;
-const __ORDER_SELECT_BOX = ['cls-l', 'cls-m', 'cls-s', 'cls-d'];
-
-const removeAllOptions = (isRemove, target) =&amp;gt; {
-    if(isRemove){
-        target.find('option').remove();
-        target.append(new Option(__DEFAULT_SELECTBOX_STR, &quot;&quot;));
-    }
-}
-
-const resetSubSelectBoxOption = (target_id) =&amp;gt; {
-    let target_obj;
-    let isResetSelectBox = false;
-    __ORDER_SELECT_BOX.forEach(v =&amp;gt; {
-        target_obj = $(&quot;#&quot;+v);
-        if(v === target_id){
-            isResetSelectBox = true;
-        }
-        removeAllOptions(isResetSelectBox, target_obj);
-    });
-}
-
-const setClassification = (target, val, level) =&amp;gt; {
-    callClassification({'upper_prd_cls_cd' : val, 'cls_lvl_no' : level}, (res)=&amp;gt;{
-        res.forEach(element =&amp;gt; {
-            target.append(new Option(element.PRD_CLS_NM, element.PRD_CLS_CD));
-        });
-    }); 
-}
-
-const setSubSelectBoxOption = ($target, val, level) =&amp;gt; {
-    resetSubSelectBoxOption($target.attr(&quot;id&quot;));
-    if (val === &quot;&quot;) return;
-    setClassification($target, val, level);
-}
-
-const setInitValue4SelectBox = (target, i) =&amp;gt; {
-    removeAllOptions(true, target);
-    if (i === 0){
-        setClassification(target, &quot;&quot;, 1);
-    }
-}
-
-const bindEventOnSelectBox = (target, i) =&amp;gt; {
-    if (i !== (__ORDER_SELECT_BOX.length-1)) {
-        target.change(function() {
-            setSubSelectBoxOption($(&quot;#&quot;+__ORDER_SELECT_BOX[i+1]), $(this).val(), (i+2));
-        });
-    }
-}
-
-const initSelectBox = () =&amp;gt; {
-    __ORDER_SELECT_BOX.forEach((o, i) =&amp;gt; {
-        let target = $(&quot;#&quot;+o);
-        setInitValue4SelectBox(target, i);
-        bindEventOnSelectBox(target, i);
-    });  
-    
-}
-
-$(document).ready(function() {
-    initSelectBox();  
-});
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://www.mergely.com/TFa7VWc4/&quot;&gt;전체 diff로 원본 소스와 리펙토링된 소스 비교&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;이후 처리로 ESLINT와 TDD를 샘플링 해볼 예정이다.&lt;/p&gt;
-
-&lt;h2 id=&quot;한걸음-한걸음씩&quot;&gt;한걸음 한걸음씩&lt;/h2&gt;</content><category term="refactoring" /><summary type="html">잘해서라기 보다는 이런 방식의 리팩토링을 한다는 차원에서의 공유</summary></entry></feed>
+&lt;h2 id=&quot;넌-말이-너무-많아&quot;&gt;넌 말이 너무 많아&lt;/h2&gt;</content><category term="단상" /><summary type="html">잘 익은 벼일수록 고개를 숙인다는데...</summary></entry></feed>
