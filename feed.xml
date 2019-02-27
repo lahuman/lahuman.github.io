@@ -1,4 +1,77 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-02-12T23:29:41+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Async 모듈을 이용한 비동기 처리</title><link href="https://lahuman.github.io/node_async/" rel="alternate" type="text/html" title="Async 모듈을 이용한 비동기 처리" /><published>2019-02-12T00:00:00+09:00</published><updated>2019-02-12T00:00:00+09:00</updated><id>https://lahuman.github.io/node_async</id><content type="html" xml:base="https://lahuman.github.io/node_async/">&lt;h1 id=&quot;얼마전-node에서-비동기-처리를-순서대로-처리해야-하는-일이-있었다&quot;&gt;얼마전 Node에서 비동기 처리를 순서대로 처리해야 하는 일이 있었다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-02-27T11:49:10+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">crt, key 인증서 파일 pem으로 변환</title><link href="https://lahuman.github.io/cet_key_to_pem/" rel="alternate" type="text/html" title="crt, key 인증서 파일 pem으로 변환" /><published>2019-02-27T00:00:00+09:00</published><updated>2019-02-27T00:00:00+09:00</updated><id>https://lahuman.github.io/cet_key_to_pem</id><content type="html" xml:base="https://lahuman.github.io/cet_key_to_pem/">&lt;h1 id=&quot;cert-key-파일을-pem-파일로-변환-하기&quot;&gt;cert, key 파일을 pem 파일로 변환 하기&lt;/h1&gt;
+
+&lt;p&gt;nginx에서 사용하던 인증서를 nodejs에서 바로 사용을 하기 위해 pem 파일 형식으로 변경 해야하는 일이 생겨서 검색을 해보았다.
+파일 형석의 변환은 다음과 같이 쉽게 할 수 있다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# key 변경
+openssl rsa -in server.key -text &amp;gt; private.pem
+# crt 변경
+openssl x509 -inform PEM -in server.crt &amp;gt; public.pem
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;추가-팁-nodejs-에서-https-설정&quot;&gt;추가 팁] nodejs 에서 https 설정&lt;/h2&gt;
+&lt;p&gt;nodejs에서 https 사용을 위해서는 https 모듈을 추가로 설치 해야 한다.&lt;/p&gt;
+
+&lt;p&gt;이후 소스내에 다음과 같이 인증서를 &lt;strong&gt;options&lt;/strong&gt;을 추가 하면 된다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;const https = require('https');
+const fs = require('fs');
+const options = {
+  ca: fs.readFileSync('인증서경로/ca-bundle.pem')
+  key: fs.readFileSync('인증서경로/domain_xxxxx.key.pem')
+  cert: fs.readFileSync('인증서경로/domain_xxxxx.crt.pem')
+};
+https.createServer(options, (req, res) =&amp;gt; {
+  res.writeHead(200);
+  res.end('hello world\n');
+}).listen(443);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;참-쉽죠&quot;&gt;참 쉽죠?&lt;/h3&gt;
+
+&lt;h1 id=&quot;참고-주소&quot;&gt;참고 주소&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/991758/how-to-get-pem-file-from-key-and-crt-files&quot;&gt;How to get .pem file from .key and .crt files?&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.securesign.kr/guides/Node-js-SSL-Certificates-Install&quot;&gt;Node.js SSL 인증서 설치/적용 가이드&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="pem" /><category term="cert" /><summary type="html">인증서 파일 형식 변경 처리 &amp; node 에서 https 사용설정</summary></entry><entry><title type="html">MongoDB backup &amp;amp; restore</title><link href="https://lahuman.github.io/mongodb_backup_restore/" rel="alternate" type="text/html" title="MongoDB backup &amp; restore" /><published>2019-02-23T00:00:00+09:00</published><updated>2019-02-23T00:00:00+09:00</updated><id>https://lahuman.github.io/mongodb_backup_restore</id><content type="html" xml:base="https://lahuman.github.io/mongodb_backup_restore/">&lt;h1 id=&quot;mongodb-backup--restore&quot;&gt;MongoDB backup &amp;amp; restore&lt;/h1&gt;
+
+&lt;p&gt;간단하게 몽고 디비 백업과 복구를 해보겠다.&lt;/p&gt;
+
+&lt;p&gt;먼저 백업 명령은 다음과 같다&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 결과로 디렉터리가 생성 된다.
+# 특정 collection 명이나 DB 명을 Backup 할 수 있다.
+$&amp;gt; mongodump --collection words --db TEST --out ./
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;다음은 복원 하는 방법이다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 특정 컬렉션만 복원 할 수 있으며 --drop  옵션을 추가 하면 삭제하고 복원 한다.
+$&amp;gt; mongorestore --host 172.30.10.1 --port 27017 --db TEST --collection words --username tester --password 'password'  ./TEST/words.bson --drop
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;가끔씩-쓸일이-생긴다&quot;&gt;가끔씩 쓸일이 생긴다.&lt;/h2&gt;</content><category term="mongodb" /><category term="tip" /><summary type="html">몽고 DB 백업 &amp; 리스토어</summary></entry><entry><title type="html">AWS LAMBDA를 이용해서 개발하다</title><link href="https://lahuman.github.io/Aws_Lambda/" rel="alternate" type="text/html" title="AWS LAMBDA를 이용해서 개발하다" /><published>2019-02-20T00:00:00+09:00</published><updated>2019-02-20T00:00:00+09:00</updated><id>https://lahuman.github.io/Aws_Lambda</id><content type="html" xml:base="https://lahuman.github.io/Aws_Lambda/">&lt;h1 id=&quot;aws-lambda-를-개발시-알면-좋은-팁&quot;&gt;AWS LAMBDA 를 개발시 알면 좋은 팁&lt;/h1&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Lambda를 API Gateway를 통해서 호출 하도록 설정 할때 &lt;a href=&quot;https://docs.aws.amazon.com/ko_kr/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html&quot;&gt;매핑 템플릿
+&lt;/a&gt;을 사용하면 IP 등의 정보를 얻을 수 있다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Lambda에서 RDS에 접근하기 위해서는 VPC를 설정해야 한다.&lt;/li&gt;
+  &lt;li&gt;VPC가 설정된 Lambda는 외부 인터넷에 접근 할 수 없다.&lt;/li&gt;
+  &lt;li&gt;VPC가 설정된 Lambda는 내부 private IP만 접근 할 수 있다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;다시 사용할 일이 올지는 모르겠지만, 재미있었다.&lt;/p&gt;
+
+&lt;h3 id=&quot;신기술은-늘-어렵다-근데-써보고-나면-별거-없다&quot;&gt;신기술은 늘 어렵다. 근데 써보고 나면 별거 없다.&lt;/h3&gt;
+
+&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.aws.amazon.com/ko_kr/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html&quot;&gt;API Gateway 매핑 템플릿 참조
+&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://blog.shikisoft.com/running-aws-lambda-in-vpc-accessing-rds/?fbclid=IwAR2-KHd23Db2PnVfm1JKDW_WoanfKRe2oamcsAhO1-mJomvta_EHNzoppVk&quot;&gt;Running AWS Lambda Functions in a VPC and Accessing RDS&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="aws" /><category term="tip" /><summary type="html">작은 모듈을 사용할때 좋을 듯!</summary></entry><entry><title type="html">Async 모듈을 이용한 비동기 처리</title><link href="https://lahuman.github.io/node_async/" rel="alternate" type="text/html" title="Async 모듈을 이용한 비동기 처리" /><published>2019-02-12T00:00:00+09:00</published><updated>2019-02-12T00:00:00+09:00</updated><id>https://lahuman.github.io/node_async</id><content type="html" xml:base="https://lahuman.github.io/node_async/">&lt;h1 id=&quot;얼마전-node에서-비동기-처리를-순서대로-처리해야-하는-일이-있었다&quot;&gt;얼마전 Node에서 비동기 처리를 순서대로 처리해야 하는 일이 있었다.&lt;/h1&gt;
 
 &lt;p&gt;구글을 검색하다 &lt;a href=&quot;https://stackoverflow.com/questions/31799175/async-waterfall-in-a-for-loop-in-node-js?fbclid=IwAR3Mx9ZXS8qxNhKQqgSqB8KIFmIko031E0uCmhPFkAiXY0mFR5UAs5Y-_XA&quot;&gt;async.waterfall in a For Loop in Node.js&lt;/a&gt;을 찾았다.&lt;/p&gt;
 
@@ -283,157 +356,4 @@ computed: {
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;http://michaelnthiessen.com/this-is-undefined/&quot;&gt;How to fix “this is undefined” in Vue&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="vue" /><summary type="html">Vue에서 this is undefined를 고치는 방법</summary></entry><entry><title type="html">How To Use Winston to Log Node.js Applications</title><link href="https://lahuman.github.io/winston_app-root-path/" rel="alternate" type="text/html" title="How To Use Winston to Log Node.js Applications" /><published>2019-01-21T00:00:00+09:00</published><updated>2019-01-21T00:00:00+09:00</updated><id>https://lahuman.github.io/winston_app-root-path</id><content type="html" xml:base="https://lahuman.github.io/winston_app-root-path/">&lt;h1 id=&quot;how-to-use-winston-to-log-nodejs-applications&quot;&gt;How To Use Winston to Log Node.js Applications&lt;/h1&gt;
-
-&lt;p&gt;간단하게 설정만 작성하는 것으로 원본자료 &lt;a href=&quot;https://www.digitalocean.com/community/tutorials/how-to-use-winston-to-log-node-js-applications&quot;&gt;How To Use Winston to Log Node.js Applications&lt;/a&gt;을 보세요.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var appRoot = require('app-root-path');
-var winston = require('winston');
-
-// define the custom settings for each transport (file, console)
-var options = {
-  file: {
-    level: 'info',
-    filename: `${appRoot}/logs/app.log`,
-    handleExceptions: true,
-    json: true,
-    maxsize: 5242880, // 5MB
-    maxFiles: 5,
-    colorize: false,
-  },
-  console: {
-    level: 'debug',
-    handleExceptions: true,
-    json: false,
-    colorize: true,
-  },
-};
-
-// instantiate a winston.createLogger with the settings defined above
-var logger = winston.createLogger({
-  transports: [
-    new winston.transports.File(options.file),
-    new winston.transports.Console(options.console)
-  ],
-  exitOnError: false, // do not exit on handled exceptions
-});
-
-// create a stream object with a 'write' function that will be used by `morgan`
-logger.stream = {
-  write: function(message, encoding) {
-    // use the 'info' log level so the output will be picked up by both transports (file and console)
-    logger.info(message);
-  },
-};
-
-module.exports = logger;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;요렇게 설정만 해놓아도 기본으로 사용이 가능하다.&lt;/p&gt;
-
-&lt;p&gt;추가로 알게된 &lt;a href=&quot;https://www.npmjs.com/package/app-root-path&quot;&gt;App Root Path Module&lt;/a&gt; 도 꽤 유용해보인다.&lt;/p&gt;
-
-&lt;p&gt;app의 root path를 제공하여 다음과 같이 사용할 수 있다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#1 
-var appRoot = require('app-root-path');
-var myModule = require(appRoot + '/lib/my-module.js');
-
-#2
-var reqlib = require('app-root-path').require;
-var myModule = reqlib('/lib/my-module.js');
-
-#3
-// In app.js
-global.reqlib = require('app-root-path').require;
- 
-// In lib/module/component/subcomponent.js
-var myModule = reqlib('/lib/my-module.js');
-
-#4
-var myModulePath = require('app-root-path').resolve('/lib/my-module.js');
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;좋은게 많은데 몰라서 못쓴다.&lt;/p&gt;
-
-&lt;p&gt;공부 많이 좀 해야겠다. 요즘 게을러져서 공부도 안하고 그냥 날로 먹을라고 한다.&lt;/p&gt;
-
-&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.digitalocean.com/community/tutorials/how-to-use-winston-to-log-node-js-applications&quot;&gt;How To Use Winston to Log Node.js Applications&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.npmjs.com/package/app-root-path&quot;&gt;App Root Path Module&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="nodejs" /><category term="winston" /><summary type="html">winston 설정을 하다 찾은 추가 모듈까지 설명</summary></entry><entry><title type="html">구글 콜라보에서 제공하는 주피터 노트북</title><link href="https://lahuman.github.io/20190119/" rel="alternate" type="text/html" title="구글 콜라보에서 제공하는 주피터 노트북" /><published>2019-01-19T00:00:00+09:00</published><updated>2019-01-19T00:00:00+09:00</updated><id>https://lahuman.github.io/20190119</id><content type="html" xml:base="https://lahuman.github.io/20190119/">&lt;p&gt;#함께 일하시는 분이 주피터 노트북을 사용하는 것을 보았다.&lt;/p&gt;
-
-&lt;p&gt;요청사항에 대하여 크롤링하고 간단하게 화면에 통계를 뽑는 것을 주피터를 이용하여 뚝딱 하는 모습을 보았다.&lt;/p&gt;
-
-&lt;p&gt;존멋! 나도 해보고 싶어서 요청 드려서 배웠다.&lt;/p&gt;
-
-&lt;p&gt;일단 &lt;a href=&quot;https://colab.research.google.com&quot;&gt;구글 콜라보&lt;/a&gt;에서 새로운 프로젝트를 생성한다.&lt;/p&gt;
-
-&lt;p&gt;필요한 모듈의 설치는 느낌펴(!)를 붙여서 설치하며 절차 지향적으로 프로그램을 작성한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#모듈 설치
-!pip install pandas
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;값을 확인하고 싶으면 그냥 해당 변수를 쓴다(약간 matlab 같은 느낌이다.)&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;a = &quot;hello&quot;
-# 이렇게 하면 출력 된다.
-a
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;파이썬을 이용한 머신러닝, 딥러닝 실전 개발 입문 이라는 책에서 나오는 예제를 돌려 보았다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-from sklearn import svm
-xor_data = [
-    #P, Q, result
-    [0,0,0],
-    [0,1,1],
-    [1,0,1],
-    [1,1,0]
-]
-
-data = []
-label = []
-for row in xor_data:
-  p = row[0]
-  q = row[1]
-  r = row[2]
-  data.append([p,q])
-  label.append(r)
-
-clf = svm.SVC()
-clf.fit(data, label)
-
-pre = clf.predict(data)
-print(&quot;예측결과&quot;, pre)
-
-ok = 0; total = 0
-for idx , answer in enumerate(label):
-  p = pre[idx]
-  if p == answer: 
-    ok += 1
-  total += 1
-  
-print(&quot;정답율:&quot;, ok, '/', total, &quot;=&quot;, ok/total)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;잘된다. 자주 써주마!&lt;/p&gt;
-
-&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://jupyter.org/&quot;&gt;주피터&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://colab.research.google.com&quot;&gt;구글 콜라보&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="단상" /><summary type="html">이거물건일세!</summary></entry><entry><title type="html">사람이 점점 뻔뻔하고 말이 너무 많아진다.</title><link href="https://lahuman.github.io/20190112/" rel="alternate" type="text/html" title="사람이 점점 뻔뻔하고 말이 너무 많아진다." /><published>2019-01-12T00:00:00+09:00</published><updated>2019-01-12T00:00:00+09:00</updated><id>https://lahuman.github.io/20190112</id><content type="html" xml:base="https://lahuman.github.io/20190112/">&lt;p&gt;#누구 이야기냐고? 나야…&lt;/p&gt;
-
-&lt;p&gt;요즘 함께 일하는 분에게 되도 않는 조언을 하고 있다.&lt;/p&gt;
-
-&lt;p&gt;말하고 나서 뒤돌아서면, 괜한 오지랍 같다.&lt;/p&gt;
-
-&lt;p&gt;내 앞가림이나 잘하고 살자.&lt;/p&gt;
-
-&lt;p&gt;그리고 말좀 적게 해라 이놈아!!!&lt;/p&gt;
-
-&lt;h2 id=&quot;넌-말이-너무-많아&quot;&gt;넌 말이 너무 많아&lt;/h2&gt;</content><category term="단상" /><summary type="html">잘 익은 벼일수록 고개를 숙인다는데...</summary></entry></feed>
+&lt;/ul&gt;</content><category term="vue" /><summary type="html">Vue에서 this is undefined를 고치는 방법</summary></entry></feed>
