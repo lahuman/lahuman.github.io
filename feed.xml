@@ -1,4 +1,183 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-03-02T15:50:13+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">상상 하기</title><link href="https://lahuman.github.io/20190302/" rel="alternate" type="text/html" title="상상 하기" /><published>2019-03-02T00:00:00+09:00</published><updated>2019-03-02T00:00:00+09:00</updated><id>https://lahuman.github.io/20190302</id><content type="html" xml:base="https://lahuman.github.io/20190302/">&lt;h1 id=&quot;상상력은-정말-끊없다&quot;&gt;상상력은 정말 끊없다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-03-03T00:32:15+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">인증서버 구축기 - 2</title><link href="https://lahuman.github.io/auth_server_2/" rel="alternate" type="text/html" title="인증서버 구축기 - 2 " /><published>2019-03-02T00:00:00+09:00</published><updated>2019-03-02T00:00:00+09:00</updated><id>https://lahuman.github.io/auth_server_2</id><content type="html" xml:base="https://lahuman.github.io/auth_server_2/">&lt;h1 id=&quot;간단하게-dbms-구현과-로그인-처리&quot;&gt;간단하게 DBMS 구현과 로그인 처리&lt;/h1&gt;
+
+&lt;p&gt;인증서버 구현에 대한 설계만 하고 손도 안되고 생각만 하고 있었다.&lt;/p&gt;
+
+&lt;p&gt;DBMS는 다음 그림과 같은 형태로 구현했다.&lt;/p&gt;
+
+&lt;figure&gt;
+	&lt;a href=&quot;/assets/img/post_img/auth_erd.png&quot;&gt;&lt;img src=&quot;/assets/img/post_img/auth_erd.png&quot; /&gt;&lt;/a&gt;
+	&lt;figcaption&gt;AUTH server Sequence diagram&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;이번 시간에는 Login API를 구현하고 테스트까지 진행한다.&lt;/p&gt;
+
+&lt;h2 id=&quot;모델-구현&quot;&gt;모델 구현&lt;/h2&gt;
+
+&lt;p&gt;모델을 구현하기 위하여 &lt;a href=&quot;https://github.com/sequelize/express-example&quot;&gt;Sequelize Express Example&lt;/a&gt;를 참조 하였다.&lt;/p&gt;
+
+&lt;p&gt;DBMS를 참고 하여 각 모델을 다음과 같이 작성 하였다.&lt;/p&gt;
+
+&lt;h3 id=&quot;users&quot;&gt;Users&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;module.exports = (sequelize, DataTypes) =&amp;gt; {
+  var User = sequelize.define('Users', {
+    id: {
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      primaryKey: true
+    },
+    user_id: { type: DataTypes.STRING(50), allowNull: false, unique: true },
+    password: { type: DataTypes.STRING(100), allowNull: false },
+    description: { type: DataTypes.STRING(1000), allowNull: true }
+  }, {
+    freezeTableName: true,
+    underscored: true,
+    timestamps: true,
+    paranoid: true
+  });
+
+
+  User.associate = (models) =&amp;gt; {
+    models.Users.belongsToMany(models.Roles, { through: 'UserRoles', foreignKey: 'u_id' });
+  };
+
+  return User;
+};
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;roles&quot;&gt;Roles&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;module.exports = (sequelize, DataTypes) =&amp;gt; {
+  var Roles = sequelize.define('Roles', {
+    id: {
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      primaryKey: true
+    },
+    role_name: { type: DataTypes.STRING(20), allowNull: false, unique: true },
+    description: { type: DataTypes.STRING(1000), allowNull: true }
+  }, {
+    freezeTableName: true,
+    underscored: true,
+    timestamps: true,
+    paranoid: true
+  });
+
+  Roles.associate = (models) =&amp;gt; {
+    models.Roles.belongsToMany(models.Users, { through: 'UserRoles', foreignKey: 'r_id' });
+  };
+
+  return Roles;
+};
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;userroles&quot;&gt;UserRoles&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;module.exports = (sequelize, DataTypes) =&amp;gt; {
+  var UserRole = sequelize.define('UserRoles', {
+    id: {
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      primaryKey: true
+    },
+    r_id: {
+      type: DataTypes.INTEGER
+    },
+    u_id: {
+      type: DataTypes.INTEGER
+    }
+  }, {
+    freezeTableName: true,
+    underscored: true,
+    timestamps: true
+  });
+  return UserRole;
+};
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;추가적으로 LoginHistory를 구현하였고 최근 10분간 로그인이 5회 실패시 잠시 후 시도하도록 했다.&lt;/p&gt;
+
+&lt;h3 id=&quot;loginhistorys&quot;&gt;LoginHistorys&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+module.exports = (sequelize, DataTypes) =&amp;gt; {
+    var LoginHistory = sequelize.define('LoginHistorys', {
+      id: {
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
+        primaryKey: true
+      },
+      user_id: { type: DataTypes.STRING(50), allowNull: false },
+      login_success: { type: DataTypes.STRING(1), allowNull: false, defaultValue:'Y' }
+    }, {
+      freezeTableName: true,
+      underscored: true,
+      timestamps: true,
+      paranoid: true
+    });
+  
+    return LoginHistory;
+  };
+  
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;로그인-구현&quot;&gt;로그인 구현&lt;/h2&gt;
+
+&lt;p&gt;로그인은 간단하게 routers/index.js 에 구현하였다. 추가로 다른 기능이 생긴다면 디렉토리를 추가하여 처리 할 예정이다.&lt;/p&gt;
+
+&lt;h3 id=&quot;login-process&quot;&gt;Login Process&lt;/h3&gt;
+
+&lt;p&gt;10분동안 5회 이상의 로그인 실패가 있을 경우 잠시후 시도하라는 메시지가 표출되며, 로그인 실패/성공은 LoginHistory에 저장된다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;router.post('/login', (req, res, next) =&amp;gt; {
+  const loginInfo = req.body;
+  if (!Object.prototype.hasOwnProperty.call(loginInfo, 'user_id')
+    || !Object.prototype.hasOwnProperty.call(loginInfo, 'password')) {
+    res.json({ status: 'error', message: 'Invalid Prameter' });
+  }
+  else {
+    models.LoginHistorys.count({ where: { user_id: loginInfo.user_id, login_success: 'N', created_at: { [models.Sequelize.Op.gt]: moment().subtract(20, 'minutes').toDate() } } }).then((c) =&amp;gt; {
+      if (c &amp;gt; 5) {
+        res.json({ status: 'error', message: 'Login failed several times. Please try again in 10 minutes.' });
+      }
+      else {
+        models.Users.findOne({
+          where: { user_id: loginInfo.user_id, password: loginInfo.password },
+          include: [models.Roles]
+        }).then((u) =&amp;gt; {
+          if (u) {
+            const userInfo = {
+              user_id: u.user_id,
+              password: u.password,
+              desc: u.description,
+              role: u.Roles.map(r =&amp;gt; r.role_name)
+            };
+            res.json({ status: 'success', userInfo });
+            loginInfo.login_success = 'Y';
+          }
+          else {
+            res.json({ status: 'error', message: 'check ID or PW' });
+            loginInfo.login_success = 'N';
+          }
+          models.LoginHistorys.create(loginInfo);
+        });
+      }
+    });
+  }
+});
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;todo-진행-예정&quot;&gt;TODO 진행 예정&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://jwt.io/&quot;&gt;JWT&lt;/a&gt;를 이용하여 로그인 성공시 전송되는 내용을 토큰 처리&lt;/li&gt;
+  &lt;li&gt;토큰 validate API 제공&lt;/li&gt;
+  &lt;li&gt;사용자 PASSWORD hash 암호화 처리(&lt;a href=&quot;https://epthffh.tistory.com/entry/SHA256-%EC%9D%B8%EC%BD%94%EB%94%A9-%EC%86%8C%EC%8A%A4&quot;&gt;SHA-256&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;나머지도-하나씩-처리-하자&quot;&gt;나머지도 하나씩 처리 하자!&lt;/h3&gt;
+
+&lt;h2 id=&quot;프로젝트-저장소&quot;&gt;&lt;a href=&quot;https://github.com/lahuman/AuthServer&quot;&gt;프로젝트 저장소&lt;/a&gt;&lt;/h2&gt;</content><category term="node" /><category term="auth" /><summary type="html">로그인 처리와 HISTORY 기록</summary></entry><entry><title type="html">상상 하기</title><link href="https://lahuman.github.io/20190302/" rel="alternate" type="text/html" title="상상 하기" /><published>2019-03-02T00:00:00+09:00</published><updated>2019-03-02T00:00:00+09:00</updated><id>https://lahuman.github.io/20190302</id><content type="html" xml:base="https://lahuman.github.io/20190302/">&lt;h1 id=&quot;상상력은-정말-끊없다&quot;&gt;상상력은 정말 끊없다.&lt;/h1&gt;
 
 &lt;p&gt;나는 소설책(무협지, 판타지, 만화 등)을 좋아한다. 현실 세계에 있을 수는 없지만 작가의 시점에서 주인공을 따라 새로운 세상을 함께 여행하는 일은 정말 즐겁다.&lt;/p&gt;
 
@@ -337,22 +516,4 @@ app.post('/', (req, res) =&amp;gt; {
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/9049993/node-js-how-to-limit-the-http-request-size-and-upload-file-size&quot;&gt;node-js-how-to-limit-the-http-request-size-and-upload-file-size&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://expressjs.com/en/4x/api.html#express-json-middleware&quot;&gt;express-json-middleware&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="node" /><category term="bodyparser" /><summary type="html">express 4.16이상에서는 body-Pararse가 내장되어 있다.</summary></entry><entry><title type="html">Node 모듈 설치시 오류시 해결 방법</title><link href="https://lahuman.github.io/node_tip/" rel="alternate" type="text/html" title="Node 모듈 설치시 오류시 해결 방법" /><published>2019-02-04T00:00:00+09:00</published><updated>2019-02-04T00:00:00+09:00</updated><id>https://lahuman.github.io/node_tip</id><content type="html" xml:base="https://lahuman.github.io/node_tip/">&lt;h1 id=&quot;node-모듈-설치시-오류시-해결-방법&quot;&gt;Node 모듈 설치시 오류시 해결 방법&lt;/h1&gt;
-
-&lt;p&gt;node 버젼이 변경된 상태에서 npm install을 하면, 오류가 발생하는 경우가 있다.&lt;/p&gt;
-
-&lt;p&gt;이럴때 해결 방법은 정말 단순 하다.&lt;/p&gt;
-
-&lt;p&gt;해당 모듈을 삭제 하고 재설치 한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm install
-#oracle-db 모듈 오류발생
-
-#oracle-db 모듈 삭제
-npm uninstall oracle-db
-
-#oracle-db 모듈 설치
-npm install --save oracle-db
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;컴터-동작이-이상하면-재기동-하면-되듯이-모듈도-재설치-하면된다&quot;&gt;컴터 동작이 이상하면 재기동 하면 되듯이, 모듈도 재설치 하면된다.&lt;/h2&gt;</content><category term="node" /><category term="tip" /><summary type="html">npm install 시 오류 발생시 처리 방안</summary></entry></feed>
+&lt;/ul&gt;</content><category term="node" /><category term="bodyparser" /><summary type="html">express 4.16이상에서는 body-Pararse가 내장되어 있다.</summary></entry></feed>
