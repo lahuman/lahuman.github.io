@@ -1,4 +1,104 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-03-03T00:32:15+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">인증서버 구축기 - 2</title><link href="https://lahuman.github.io/auth_server_2/" rel="alternate" type="text/html" title="인증서버 구축기 - 2 " /><published>2019-03-02T00:00:00+09:00</published><updated>2019-03-02T00:00:00+09:00</updated><id>https://lahuman.github.io/auth_server_2</id><content type="html" xml:base="https://lahuman.github.io/auth_server_2/">&lt;h1 id=&quot;간단하게-dbms-구현과-로그인-처리&quot;&gt;간단하게 DBMS 구현과 로그인 처리&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-03-04T18:28:48+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">인증서버 구축기 - 3</title><link href="https://lahuman.github.io/auth_server_3/" rel="alternate" type="text/html" title="인증서버 구축기 - 3" /><published>2019-03-04T00:00:00+09:00</published><updated>2019-03-04T00:00:00+09:00</updated><id>https://lahuman.github.io/auth_server_3</id><content type="html" xml:base="https://lahuman.github.io/auth_server_3/">&lt;h1 id=&quot;로그인-성공시-jwt를-이용하여-token-전송&quot;&gt;로그인 성공시 JWT를 이용하여 Token 전송&lt;/h1&gt;
+
+&lt;h2 id=&quot;jwt&quot;&gt;&lt;a href=&quot;https://jwt.io&quot;&gt;JWT&lt;/a&gt;&lt;/h2&gt;
+
+&lt;h3 id=&quot;jwt-설명-내용&quot;&gt;JWT 설명 내용&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;JSON Web Token (JWT) is an open standard (RFC 7519) that defines a compact and self-contained way for securely transmitting information between parties as a JSON object. This information can be verified and trusted because it is digitally signed. JWTs can be signed using a secret (with the HMAC algorithm) or a public/private key pair using RSA or ECDSA.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;JSON Web Token(JWT)는 JSON 객체로 당사자간에 안전하게 정보를 전송할수 있는 작고 독립적인 방법을 정의하는 공개 표준(&lt;a href=&quot;https://tools.ietf.org/html/rfc7519&quot;&gt;RFC 7519&lt;/a&gt;)입니다. 이 정보는 디지털 서명되기 때문에 검증되고 신뢰할 수 있습니다. JWT는 RSA/ECDSA를 이용한 공개키/개인키 또는 암호화(HMAC 알고리즘)를 이용하여 서명할 수 있습니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;jwt-사용-예시&quot;&gt;JWT 사용 예시&lt;/h3&gt;
+
+&lt;h4 id=&quot;로그인-후속-처리&quot;&gt;로그인 후속 처리&lt;/h4&gt;
+
+&lt;p&gt;가장 많이 사용되는 방법으로 사용자가 로그인 하면 후속 요청에 JWT가 포함되어 사용자가 해당 토큰으로 허용되는 경로, 서비스 및 리소스 액세스 할 수 있게 한다. 또한 JWT를 이용한 SSO(Single Sign On)은 오버헤드가 적고 다른 도메인에서 쉽게 사용할 수 있다.&lt;/p&gt;
+
+&lt;h4 id=&quot;정보-교환&quot;&gt;정보 교환&lt;/h4&gt;
+
+&lt;p&gt;JSON 웹 토큰은 당사자간에 정보를 안전하게 전송하는 좋은 방법이다. JWT는 서명을 할 수 있기 때문에 발신자에 대한 확인과 내용의 변조 여부를 확인 할 수 있다.&lt;/p&gt;
+
+&lt;h3 id=&quot;json-구조&quot;&gt;JSON 구조&lt;/h3&gt;
+
+&lt;p&gt;JSON은 dots(.)을 기준으로 3가지로 나뉜다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Header&lt;/li&gt;
+  &lt;li&gt;Payload&lt;/li&gt;
+  &lt;li&gt;Signature&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;다음과 같은 형태로 되어 있다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;aaaaaa.zzzzzz.yyyyyy
+______.______.______
+Header.Payload.Signature
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Header는 타입과 알고리즘 두가지 정보를 가지고 있다.&lt;/p&gt;
+
+&lt;p&gt;Payload는 클레임(claim)이라고 명칭되는 name/value 한쌍으로 이루어 져 있다.&lt;/p&gt;
+
+&lt;p&gt;클레임은 세 분류로 나눈다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;등록된(registred) 클레임 : iss(발급자), exp(만료시간), sub(주제), aud(잠재고객) 등이다.&lt;/li&gt;
+  &lt;li&gt;공개(public) 클레임 : 자유롭게 정의할수 있다. 충돌을 방지하기 위해 URI 형식을 권장한다.&lt;/li&gt;
+  &lt;li&gt;비공개(private) 클레임: 보통 클라이언트와 서버간 협의하에 사용되는 클레임 이름이다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;JWT의 등록된 클레임 이름의 길이는 3자이다. 또한 서명된 토큰의 경우 변조되지 않도록 보호는 되지만 모든 사람이 읽을 수 있다. 암호화되지 않은 JWT의 페이로드 또는 헤더 요소에 비밀 정보를 넣으면 안된다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Signature는 Header와 Payload의 인코딩 값을 합친후 주어진 비밀키로 해쉬를 생성 한다.&lt;/p&gt;
+
+&lt;h2 id=&quot;jwt-구현-하기&quot;&gt;JWT 구현 하기&lt;/h2&gt;
+
+&lt;p&gt;기존 프로젝트 코드에서 jsonwebtoken을 설치한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$&amp;gt; npm install --save jsonwebtoken
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이후 router/index.js파일에서 해당 모듈을 이용해서 로그인 성공시 Token을 전달하고, isAdmin 토큰을 검증하고 ROLE_TEST1을 가지고 있을 경우만 통과 하도록 수정한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;...모듈 추가...
+const jwt = require('jsonwebtoken');
+
+...로그인 성공시...
+const token = jwt.sign(userInfo, secretKey, { expiresIn: '5m' });
+res.json({ status: 'success', token });
+
+...isAdmin...
+const isAdmin = (req, res, next) =&amp;gt; {
+  try {
+    const decoded = jwt.verify(req.header('X-token'), secretKey);
+    if (decoded.role.includes(roleAdmin)) {
+      next();
+    }
+    else {
+      res.json({ status: 403, message: 'Login failed' });
+    }
+  }
+  catch (error) {
+    res.json({ status: 500, message: `token Error: ${error.message}` });
+  }
+};
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;다음시간에는 사용자 암호에 대한 해쉬알고리즘을 이용한 암호화 처리를 진행하자.&lt;/p&gt;
+
+&lt;h3 id=&quot;금방끝나네&quot;&gt;금방끝나네!&lt;/h3&gt;
+
+&lt;h2 id=&quot;프로젝트-저장소&quot;&gt;&lt;a href=&quot;https://github.com/lahuman/AuthServer&quot;&gt;프로젝트 저장소&lt;/a&gt;&lt;/h2&gt;
+
+&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://jwt.io&quot;&gt;JWT&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="node" /><category term="auth" /><summary type="html">JWT를 이용하여 로그인 성공시 Token 전송</summary></entry><entry><title type="html">인증서버 구축기 - 2</title><link href="https://lahuman.github.io/auth_server_2/" rel="alternate" type="text/html" title="인증서버 구축기 - 2 " /><published>2019-03-02T00:00:00+09:00</published><updated>2019-03-02T00:00:00+09:00</updated><id>https://lahuman.github.io/auth_server_2</id><content type="html" xml:base="https://lahuman.github.io/auth_server_2/">&lt;h1 id=&quot;간단하게-dbms-구현과-로그인-처리&quot;&gt;간단하게 DBMS 구현과 로그인 처리&lt;/h1&gt;
 
 &lt;p&gt;인증서버 구현에 대한 설계만 하고 손도 안되고 생각만 하고 있었다.&lt;/p&gt;
 
@@ -6,7 +106,7 @@
 
 &lt;figure&gt;
 	&lt;a href=&quot;/assets/img/post_img/auth_erd.png&quot;&gt;&lt;img src=&quot;/assets/img/post_img/auth_erd.png&quot; /&gt;&lt;/a&gt;
-	&lt;figcaption&gt;AUTH server Sequence diagram&lt;/figcaption&gt;
+	&lt;figcaption&gt;AUTH server ERD&lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;이번 시간에는 Login API를 구현하고 테스트까지 진행한다.&lt;/p&gt;
@@ -466,54 +566,4 @@ async.forEachLimit(users, 1, function(user, userCallback){
 
 &lt;p&gt;Frontend는 &lt;a href=&quot;https://kr.vuejs.org/v2/guide/index.html&quot;&gt;vue.js&lt;/a&gt;를 사용해보고 ORM 툴인 &lt;a href=&quot;http://docs.sequelizejs.com/&quot;&gt;sequelizejs&lt;/a&gt;도 사용할 계획이다.&lt;/p&gt;
 
-&lt;h2 id=&quot;프로젝트-저장소&quot;&gt;&lt;a href=&quot;https://github.com/lahuman/AuthServer&quot;&gt;프로젝트 저장소&lt;/a&gt;&lt;/h2&gt;</content><category term="node" /><category term="auth" /><summary type="html">기존에는 완료된 프로젝트만 적었는데, 진행하는 과정을 남겨 보자</summary></entry><entry><title type="html">nodejs에서 request Body에 json 처리 &amp;amp; body 크기 제한</title><link href="https://lahuman.github.io/node_bodyParser/" rel="alternate" type="text/html" title="nodejs에서 request Body에 json 처리 &amp; body 크기 제한" /><published>2019-02-06T00:00:00+09:00</published><updated>2019-02-06T00:00:00+09:00</updated><id>https://lahuman.github.io/ node_bodyParser</id><content type="html" xml:base="https://lahuman.github.io/node_bodyParser/">&lt;h1 id=&quot;express에서-post호출-시-request의-body에서-undefined가-발생한다&quot;&gt;Express에서 post호출 시 request의 body에서 undefined가 발생한다.&lt;/h1&gt;
-
-&lt;p&gt;다음과 같이 호출 했는데 결과가 undefined일 경우는 body-parser를 설정하지 않아서 이다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# post 호출시, body에 {test:'hello&quot;} 를 함께 전송
-
-#router 소스
-router.post('/', (req, res) =&amp;gt; {
-  console.log(req.body); undefined 발생
-  res.redirect('/');
-});
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;처리 방법은 body-parser를 express에서 사용하도록 설정 하면된다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# body-parser 설치
-$&amp;gt; npm install --save body-parser
-
-#app.js 소스
-const express = require('express');
-const bodyParser = require('body-parser');
-
-const app = express();
-app.use(bodyParser().json()); //bodyparser 사용 설정
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;이후 만나는 문제는 body의 크기가 크다는 오류를 만난 수 있다.
-이때는 body의 크기를 옵션 설정하면 된다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;const bodyParser = require('body-parser');
-app.use(bodyParser.json({limit: '50mb'})); //body 의 크기 설정
-app.use(bodyParser.urlencoded({limit: '50mb', extended: true})); //url의 크기 설정
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;추가로 express 4.16부터는 body-parser를 포함 하고 있다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;const express = require('express')
-const app = express();
-app.use(express.json())
-app.post('/', (req, res) =&amp;gt; {
-  console.log(req.body)
-})
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;알아두자&quot;&gt;알아두자&lt;/h2&gt;
-
-&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/9049993/node-js-how-to-limit-the-http-request-size-and-upload-file-size&quot;&gt;node-js-how-to-limit-the-http-request-size-and-upload-file-size&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://expressjs.com/en/4x/api.html#express-json-middleware&quot;&gt;express-json-middleware&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="node" /><category term="bodyparser" /><summary type="html">express 4.16이상에서는 body-Pararse가 내장되어 있다.</summary></entry></feed>
+&lt;h2 id=&quot;프로젝트-저장소&quot;&gt;&lt;a href=&quot;https://github.com/lahuman/AuthServer&quot;&gt;프로젝트 저장소&lt;/a&gt;&lt;/h2&gt;</content><category term="node" /><category term="auth" /><summary type="html">기존에는 완료된 프로젝트만 적었는데, 진행하는 과정을 남겨 보자</summary></entry></feed>
