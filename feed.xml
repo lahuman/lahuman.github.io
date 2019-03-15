@@ -1,4 +1,227 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-03-09T14:28:36+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">nodejs에서 sleep 구현하기</title><link href="https://lahuman.github.io/nodejs_sleep_inside_for/" rel="alternate" type="text/html" title="nodejs에서 sleep 구현하기" /><published>2019-03-09T00:00:00+09:00</published><updated>2019-03-09T00:00:00+09:00</updated><id>https://lahuman.github.io/nodejs_sleep_inside_for</id><content type="html" xml:base="https://lahuman.github.io/nodejs_sleep_inside_for/">&lt;h1 id=&quot;nodejs에서-sleep-구현하기&quot;&gt;nodejs에서 sleep 구현하기&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-03-15T11:31:50+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">MongoDB aggregate 사용해보기</title><link href="https://lahuman.github.io/mongodb_aggregate/" rel="alternate" type="text/html" title="MongoDB aggregate 사용해보기" /><published>2019-03-14T00:00:00+09:00</published><updated>2019-03-14T00:00:00+09:00</updated><id>https://lahuman.github.io/mongodb_aggregate</id><content type="html" xml:base="https://lahuman.github.io/mongodb_aggregate/">&lt;h1 id=&quot;mongodb-aggregate-사용&quot;&gt;MongoDB aggregate 사용&lt;/h1&gt;
+
+&lt;p&gt;다음과 같은 형식의 여러 ROW의 데이터를 하나의 데이터로 표현 하고 싶었다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# DATA
+{
+    &quot;_id&quot; : ObjectId(&quot;5c864b1e1cd4038eed5b5633&quot;),
+    &quot;link_tag&quot; : [ 
+        &quot;#핫앤쿨&quot;, 
+        &quot;#마스크팩&quot;, 
+        &quot;#홈케어&quot;, 
+        &quot;#리뉴메디&quot;, 
+        &quot;#젊줌마&quot;, 
+        &quot;#예뻐지는시간&quot;
+    ],
+    &quot;name&quot; : &quot;홈케어&quot;,
+    &quot;text&quot; : &quot;젊어지는시간\n. .\n\n#핫앤쿨 #마스크팩 #홈케어\n#리뉴메디 #젊줌마 #예뻐지는시간&quot;,
+    &quot;owner&quot; : &quot;10961953345&quot;,
+    &quot;shortcode&quot; : &quot;Bu3eX2iHIFG&quot;,
+    &quot;display_url&quot; : &quot;https://scontent-icn1-1.cdninstagram.com/vp/c330b55401b96aca266acca202386b42/5D08D97D/t51.2885-15/e35/54446467_181108306201409_5180562059450456961_n.jpg?_nc_ht=scontent-icn1-1.cdninstagram.com&quot;,
+    &quot;is_video&quot; : false,
+    &quot;accessibility_caption&quot; : &quot;Image may contain: 1 person&quot;,
+    &quot;writed_date&quot; : ISODate(&quot;2019-03-11T11:44:00.000Z&quot;),
+    &quot;hash&quot; : &quot;086e2b6a65b823c887ef1afc19734f67&quot;,
+    &quot;createdAt&quot; : ISODate(&quot;2019-03-11T11:48:46.276Z&quot;),
+    &quot;updatedAt&quot; : ISODate(&quot;2019-03-11T12:22:43.532Z&quot;),
+    &quot;__v&quot; : 3
+}
+
+/* 2 */
+{
+    &quot;_id&quot; : ObjectId(&quot;5c864b1e1cd4038eed5b5632&quot;),
+    &quot;link_tag&quot; : [ 
+        &quot;#토니슈어&quot;, 
+        &quot;#다낭까지와서&quot;, 
+        &quot;#이러고있다&quot;, 
+        &quot;#간절한걸어떡함&quot;, 
+        &quot;#플라즈마&quot;, 
+        &quot;#갈바닉&quot;, 
+        &quot;#너네둘만믿는다&quot;, 
+        &quot;#동안피부&quot;, 
+        &quot;#얼굴마사지기&quot;, 
+        &quot;#피부개선&quot;, 
+        &quot;#탄력&quot;, 
+        &quot;#피부미용기기&quot;, 
+        &quot;#미용&quot;, 
+        &quot;#홈케어&quot;, 
+        &quot;#피부미인&quot;, 
+        &quot;#데일리&quot;, 
+        &quot;#뷰티&quot;, 
+        &quot;#살균&quot;, 
+        &quot;#셀프&quot;, 
+        &quot;#피부질환&quot;, 
+        &quot;#플라즈마&quot;, 
+        &quot;#트러블케어&quot;, 
+        &quot;#피부&quot;, 
+        &quot;#피부과&quot;, 
+        &quot;#선물&quot;, 
+        &quot;#물광피부&quot;, 
+        &quot;#보습&quot;, 
+        &quot;#안티에이징&quot;, 
+        &quot;#led마스크&quot;, 
+        &quot;#미백&quot;, 
+        &quot;#콜라겐&quot;
+    ],
+    &quot;name&quot; : &quot;홈케어&quot;,
+    &quot;text&quot; : &quot;토니느님~ 제 피부를 10년전으로 돌려주세요\n\n제발요....♡ .\n\n#토니슈어 #다낭까지와서 #이러고있다 #간절한걸어떡함 #플라즈마 #갈바닉 #너네둘만믿는다 #동안피부 가즈앙~ \n#얼굴마사지기 #피부개선 #탄력 #피부미용기기 #미용 #홈케어 #피부미인 #데일리 #뷰티 #살균 #셀프 #피부질환 #플라즈마 #트러블케어 #피부 #피부과 #선물 #물광피부 #보습 #안티에이징 #led마스크 #미백 #콜라겐&quot;,
+    &quot;owner&quot; : &quot;10698447319&quot;,
+    &quot;shortcode&quot; : &quot;Bu3e2n_jrrE&quot;,
+    &quot;display_url&quot; : &quot;https://scontent-icn1-1.cdninstagram.com/vp/97d840dbdea55753d2a976302f90002b/5D065CE9/t51.2885-15/fr/e15/s1080x1080/53176269_319394038719034_3474616797099883761_n.jpg?_nc_ht=scontent-icn1-1.cdninstagram.com&quot;,
+    &quot;is_video&quot; : false,
+    &quot;accessibility_caption&quot; : &quot;Image may contain: outdoor and water&quot;,
+    &quot;writed_date&quot; : ISODate(&quot;2019-03-11T11:48:12.000Z&quot;),
+    &quot;hash&quot; : &quot;c9a418d8295391c1c83553f0316d1127&quot;,
+    &quot;createdAt&quot; : ISODate(&quot;2019-03-11T11:48:46.266Z&quot;),
+    &quot;updatedAt&quot; : ISODate(&quot;2019-03-11T12:22:43.527Z&quot;),
+    &quot;__v&quot; : 3
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;원하는 결과 데이터&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[
+	{ &quot;tag&quot; : &quot;#미백&quot;, &quot;count&quot; : 3},
+	{ &quot;tag&quot; : &quot;#물광&quot;, &quot;count&quot; : 4},
+	{ &quot;tag&quot; : &quot;#보습&quot;, &quot;count&quot; : 10},
+	...
+]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;구글을 검색하니 &lt;a href=&quot;https://docs.mongodb.com/manual/reference/operator/update/push/&quot;&gt;$push&lt;/a&gt;명령어를 찾았다.&lt;/p&gt;
+
+&lt;p&gt;내가 처리한 Query는 다음과 같다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;db.hashtag.aggregate([
+    { $unwind: &quot;$link_tag&quot; },
+    { $match: { $and: [{ name: &quot;테그명&quot; }, { &quot;createdAt&quot;: { $gte: (new Date()), $lt: (new Date()) } }] } },
+    { $group: { _id: null, clrs: { $push: &quot;$link_tag&quot; } } },
+    { $project: { _id: 0, link_tag: &quot;$clrs&quot; } }
+  ]);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이렇게 처리 하면 하나의 Array를 받을수 있는데 내가 원하는 결과까지의 데이터는 아니다.&lt;/p&gt;
+
+&lt;p&gt;따라서 Backend에서 추가적으로 작업을 하였다.(시간을 더 투자 하면 방법이 있을거 같긴 한데…)&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# result =&amp;gt; 데이터
+    for (let i = 0; i &amp;lt; result[0].link_tag.length; i++) {
+      const num = result[0].link_tag[i];
+      counts[num] = counts[num] ? counts[num] + 1 : 1;
+    }
+
+    delete counts['#'+tag];
+    
+    const output = [];
+    for (let i in counts) {
+        output.push({ text: i, size: counts[i] });
+    }
+# output 을 사용하면 원하는 최종 값
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;다음은 매 시간별로 수집된 데이터를 counting 하는 query 이다.&lt;/p&gt;
+
+&lt;p&gt;내가 원하는 결과는 다음과 같다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[
+	{&quot;date&quot;: &quot;2018-03-14 10&quot;, &quot;count&quot;:30},
+	{&quot;date&quot;: &quot;2018-03-14 11&quot;, &quot;count&quot;:20},
+	{&quot;date&quot;: &quot;2018-03-14 12&quot;, &quot;count&quot;:33},
+	{&quot;date&quot;: &quot;2018-03-14 13&quot;, &quot;count&quot;:34}
+]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;다행이 이번 QUERY는 한방에 처리 하였다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;db.hashtag.aggregate([
+    { $match: { $and: [{ name: &quot;태그명&quot; }, { &quot;createdAt&quot;: { $gte: (new Date()), $lt: (new Date()) } }] } },
+    {
+      $group:
+      {
+        _id:
+        {
+          hour: { $hour: &quot;$createdAt&quot; },
+          day: { $dayOfMonth: &quot;$createdAt&quot; },
+          month: { $month: &quot;$createdAt&quot; },
+          year: { $year: &quot;$createdAt&quot; }
+        },
+        value: { $sum: 1 },
+        date: { $first: &quot;$createdAt&quot; },
+        sortDate: { $first: &quot;$createdAt&quot; }
+      }
+    },
+    {
+      $project:
+      {
+        date:
+        {
+          $dateToString: { format: &quot;%Y-%m-%d %H&quot;, date: &quot;$date&quot; }
+        },
+        sortDate: 1,
+        value: 1,
+        _id: 0
+      }
+    },
+    { $sort: { sortDate: 1 }}
+  ])
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;분명히 많은 기능을 Mongodb에서 제공해주고 있는데, 잘 쓰지 못하고 있다…&lt;/p&gt;
+
+&lt;h2 id=&quot;노력하자&quot;&gt;노력하자.&lt;/h2&gt;
+
+&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.mongodb.com/manual/reference/operator/update/push/&quot;&gt;$push&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="mongodb" /><category term="aggregate" /><summary type="html">많은걸 제공해주는데 내가 잘 모름...</summary></entry><entry><title type="html">Mongoosejs 삽질기</title><link href="https://lahuman.github.io/mongoosejs_usage/" rel="alternate" type="text/html" title="Mongoosejs 삽질기" /><published>2019-03-12T00:00:00+09:00</published><updated>2019-03-12T00:00:00+09:00</updated><id>https://lahuman.github.io/mongoosejs_usage</id><content type="html" xml:base="https://lahuman.github.io/mongoosejs_usage/">&lt;h1 id=&quot;mongoosejs-삽질기&quot;&gt;Mongoosejs 삽질기&lt;/h1&gt;
+
+&lt;p&gt;Mongoosejs를 최근 프로젝트에서 잘 쓰고, 에러를 만나서 한참 고생을 했다.&lt;/p&gt;
+
+&lt;p&gt;기억에 1g도 안나서 삽질을 많이 했다.&lt;/p&gt;
+
+&lt;p&gt;Model에서 async와 await를 사용했더니, 에러가 많이 발생하였다.&lt;/p&gt;
+
+&lt;h2 id=&quot;model에서는-비동기-처리로-남겨-두어야-큰-문제-없이-동작한다&quot;&gt;Model에서는 비동기 처리로 남겨 두어야 큰 문제 없이 동작한다.&lt;/h2&gt;
+
+&lt;p&gt;잊지말자!&lt;/p&gt;
+
+&lt;p&gt;오늘 삽질일기…&lt;/p&gt;
+
+&lt;h1 id=&quot;참고-주소&quot;&gt;참고 주소&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/GoogleChrome/puppeteer/blob/master/docs/troubleshooting.md&quot;&gt;puppeteer troubleshooting&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/GoogleChrome/puppeteer/issues/404&quot;&gt;puppeteer not working on Ubuntu 16.04 but works on 14.04&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="nodejs" /><category term="mongoosejs" /><summary type="html">쉬운데 어려움...</summary></entry><entry><title type="html">puppeteer를 Ubuntu에 설치하고 기동하기</title><link href="https://lahuman.github.io/puppeteer_on_ubuntu/" rel="alternate" type="text/html" title="puppeteer를 Ubuntu에 설치하고 기동하기" /><published>2019-03-11T00:00:00+09:00</published><updated>2019-03-11T00:00:00+09:00</updated><id>https://lahuman.github.io/puppeteer_on_ubuntu</id><content type="html" xml:base="https://lahuman.github.io/puppeteer_on_ubuntu/">&lt;h1 id=&quot;puppeteer를-설치하고-구동하기&quot;&gt;puppeteer를 설치하고 구동하기&lt;/h1&gt;
+
+&lt;p&gt;설치는 아주 간단하다. npm 을 이용해서 설치 하면 바로 되는데, 문제는 설치후 기동하면 오류가 난다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 설치
+npm install --save puppeteer
+
+# 실행
+node app.js
+
+# error 발생
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;에러 메시지에서는 &lt;a href=&quot;https://github.com/GoogleChrome/puppeteer/blob/master/docs/troubleshooting.md&quot;&gt;puppeteer troubleshooting&lt;/a&gt;를 보라고 하지만, 내게 도움되는 내역이 없었다.&lt;/p&gt;
+
+&lt;p&gt;구글의 도움을 받아 찾은 &lt;a href=&quot;https://github.com/GoogleChrome/puppeteer/issues/404&quot;&gt;puppeteer not working on Ubuntu 16.04 but works on 14.04&lt;/a&gt;에서 다음 라이브러리를 설치하라는 메시지를 확인하였다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get install libpangocairo-1.0-0 libx11-xcb1 libxcomposite1 libxcursor1 libxdamage1 libxi6 libxtst6 libnss3 libcups2 libxss1 libxrandr2 libgconf2-4 libasound2 libatk1.0-0 libgtk-3-0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;설치를 하고 나서 실행하면 문제 없이 잘된다.&lt;/p&gt;
+
+&lt;h2 id=&quot;그러하다&quot;&gt;그러하다~&lt;/h2&gt;
+
+&lt;h1 id=&quot;참고-주소&quot;&gt;참고 주소&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/GoogleChrome/puppeteer/blob/master/docs/troubleshooting.md&quot;&gt;puppeteer troubleshooting&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/GoogleChrome/puppeteer/issues/404&quot;&gt;puppeteer not working on Ubuntu 16.04 but works on 14.04&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="nodejs" /><category term="puppeteer" /><summary type="html">설치는 쉬운데, 필요한 라이브러리가 있음!</summary></entry><entry><title type="html">nodejs에서 sleep 구현하기</title><link href="https://lahuman.github.io/nodejs_sleep_inside_for/" rel="alternate" type="text/html" title="nodejs에서 sleep 구현하기" /><published>2019-03-09T00:00:00+09:00</published><updated>2019-03-09T00:00:00+09:00</updated><id>https://lahuman.github.io/nodejs_sleep_inside_for</id><content type="html" xml:base="https://lahuman.github.io/nodejs_sleep_inside_for/">&lt;h1 id=&quot;nodejs에서-sleep-구현하기&quot;&gt;nodejs에서 sleep 구현하기&lt;/h1&gt;
 
 &lt;p&gt;nodejs에서 for문에 비동기 처리가 들어 있으면 해당 비동기 처리가 종료 되는 것을 기다려 주지 않는다.&lt;/p&gt;
 
@@ -481,103 +704,4 @@ https.createServer(options, (req, res) =&amp;gt; {
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;반성-하면-변화하는-내가-되자&quot;&gt;반성 하면 변화하는 내가 되자&lt;/h3&gt;</content><category term="단상" /><summary type="html">바쁘다는 핑계로 정리를 못하고 있다.</summary></entry><entry><title type="html">MongoDB backup &amp;amp; restore</title><link href="https://lahuman.github.io/mongodb_backup_restore/" rel="alternate" type="text/html" title="MongoDB backup &amp; restore" /><published>2019-02-23T00:00:00+09:00</published><updated>2019-02-23T00:00:00+09:00</updated><id>https://lahuman.github.io/mongodb_backup_restore</id><content type="html" xml:base="https://lahuman.github.io/mongodb_backup_restore/">&lt;h1 id=&quot;mongodb-backup--restore&quot;&gt;MongoDB backup &amp;amp; restore&lt;/h1&gt;
-
-&lt;p&gt;간단하게 몽고 디비 백업과 복구를 해보겠다.&lt;/p&gt;
-
-&lt;p&gt;먼저 백업 명령은 다음과 같다&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 결과로 디렉터리가 생성 된다.
-# 특정 collection 명이나 DB 명을 Backup 할 수 있다.
-$&amp;gt; mongodump --collection words --db TEST --out ./
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;다음은 복원 하는 방법이다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 특정 컬렉션만 복원 할 수 있으며 --drop  옵션을 추가 하면 삭제하고 복원 한다.
-$&amp;gt; mongorestore --host 172.30.10.1 --port 27017 --db TEST --collection words --username tester --password 'password'  ./TEST/words.bson --drop
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;가끔씩-쓸일이-생긴다&quot;&gt;가끔씩 쓸일이 생긴다.&lt;/h2&gt;</content><category term="mongodb" /><category term="tip" /><summary type="html">몽고 DB 백업 &amp; 리스토어</summary></entry><entry><title type="html">AWS LAMBDA를 이용해서 개발하다</title><link href="https://lahuman.github.io/Aws_Lambda/" rel="alternate" type="text/html" title="AWS LAMBDA를 이용해서 개발하다" /><published>2019-02-20T00:00:00+09:00</published><updated>2019-02-20T00:00:00+09:00</updated><id>https://lahuman.github.io/Aws_Lambda</id><content type="html" xml:base="https://lahuman.github.io/Aws_Lambda/">&lt;h1 id=&quot;aws-lambda-를-개발시-알면-좋은-팁&quot;&gt;AWS LAMBDA 를 개발시 알면 좋은 팁&lt;/h1&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;Lambda를 API Gateway를 통해서 호출 하도록 설정 할때 &lt;a href=&quot;https://docs.aws.amazon.com/ko_kr/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html&quot;&gt;매핑 템플릿
-&lt;/a&gt;을 사용하면 IP 등의 정보를 얻을 수 있다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Lambda에서 RDS에 접근하기 위해서는 VPC를 설정해야 한다.&lt;/li&gt;
-  &lt;li&gt;VPC가 설정된 Lambda는 외부 인터넷에 접근 할 수 없다.&lt;/li&gt;
-  &lt;li&gt;VPC가 설정된 Lambda는 내부 private IP만 접근 할 수 있다.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;다시 사용할 일이 올지는 모르겠지만, 재미있었다.&lt;/p&gt;
-
-&lt;h3 id=&quot;신기술은-늘-어렵다-근데-써보고-나면-별거-없다&quot;&gt;신기술은 늘 어렵다. 근데 써보고 나면 별거 없다.&lt;/h3&gt;
-
-&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://docs.aws.amazon.com/ko_kr/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html&quot;&gt;API Gateway 매핑 템플릿 참조
-&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://blog.shikisoft.com/running-aws-lambda-in-vpc-accessing-rds/?fbclid=IwAR2-KHd23Db2PnVfm1JKDW_WoanfKRe2oamcsAhO1-mJomvta_EHNzoppVk&quot;&gt;Running AWS Lambda Functions in a VPC and Accessing RDS&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="aws" /><category term="tip" /><summary type="html">작은 모듈을 사용할때 좋을 듯!</summary></entry><entry><title type="html">Async 모듈을 이용한 비동기 처리</title><link href="https://lahuman.github.io/node_async/" rel="alternate" type="text/html" title="Async 모듈을 이용한 비동기 처리" /><published>2019-02-12T00:00:00+09:00</published><updated>2019-02-12T00:00:00+09:00</updated><id>https://lahuman.github.io/node_async</id><content type="html" xml:base="https://lahuman.github.io/node_async/">&lt;h1 id=&quot;얼마전-node에서-비동기-처리를-순서대로-처리해야-하는-일이-있었다&quot;&gt;얼마전 Node에서 비동기 처리를 순서대로 처리해야 하는 일이 있었다.&lt;/h1&gt;
-
-&lt;p&gt;구글을 검색하다 &lt;a href=&quot;https://stackoverflow.com/questions/31799175/async-waterfall-in-a-for-loop-in-node-js?fbclid=IwAR3Mx9ZXS8qxNhKQqgSqB8KIFmIko031E0uCmhPFkAiXY0mFR5UAs5Y-_XA&quot;&gt;async.waterfall in a For Loop in Node.js&lt;/a&gt;을 찾았다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var async = require(&quot;async&quot;)
-var users = []; // Initialize user array or get it from DB
-
-async.forEachLimit(users, 1, function(user, userCallback){
-
-    async.waterfall([
-        function(callback) {
-            callback(null, 'one', 'two');
-        },
-        function(arg1, arg2, callback) {
-            // arg1 now equals 'one' and arg2 now equals 'two'
-            callback(null, 'three');
-        },
-        function(arg1, callback) {
-            // arg1 now equals 'three'
-            callback(null, 'done');
-        }
-    ], function (err, result) {
-        // result now equals 'done'
-        console.log('done')
-        userCallback();
-    });
-
-
-}, function(err){
-    console.log(&quot;User For Loop Completed&quot;);
-});
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://caolan.github.io/async/&quot;&gt;async&lt;/a&gt;는 &lt;a href=&quot;https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/async_function&quot;&gt;async, await&lt;/a&gt;인줄 알았는데, 비동기 처리에 사용하는 모듈 이었다.&lt;/p&gt;
-
-&lt;p&gt;70 여 가지 모듈을 지원하며, 예제도 잘 나와 있다.&lt;/p&gt;
-
-&lt;p&gt;이중 제어 관련하여 다음의 매소드 등이 제공된다.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;XXXLimit : 한번에 처리 하는 Worker 갯수 지정&lt;/li&gt;
-  &lt;li&gt;XXXSeries : 한개씩 처리&lt;/li&gt;
-  &lt;li&gt;waterfall : 여러 비동기 처리를 순차적으로 처리&lt;/li&gt;
-  &lt;li&gt;parallel : 콜렉션을 병렬 처리&lt;/li&gt;
-  &lt;li&gt;apply : 인수 처리&lt;/li&gt;
-  &lt;li&gt;map : 새로운 컬렉션을 생성&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;이 외에도 많은 기능이 제공된다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Async provides around 70 functions that include the usual ‘functional’ suspects (map, reduce, filter, each…) as well as some common patterns for asynchronous control flow (parallel, series, waterfall…). All these functions assume you follow the Node.js convention of providing a single callback as the last argument of your asynchronous function – a callback which expects an Error as its first argument – and calling the callback once.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;비동기-처리를-할때-사용하면-상당히-유용하다&quot;&gt;비동기 처리를 할때 사용하면 상당히 유용하다.&lt;/h2&gt;
-
-&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://caolan.github.io/async/&quot;&gt;async&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/31799175/async-waterfall-in-a-for-loop-in-node-js?fbclid=IwAR3Mx9ZXS8qxNhKQqgSqB8KIFmIko031E0uCmhPFkAiXY0mFR5UAs5Y-_XA&quot;&gt;async.waterfall in a For Loop in Node.js&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/31815917/how-to-skip-a-async-foreachof-loop-iteration-in-node-js&quot;&gt;How to Skip a “async.forEachOf” loop iteration in Node.js&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="node" /><category term="tip" /><summary type="html">병렬, 직렬, 순서 등 비동기 제어에 도움이 되는 모듈</summary></entry></feed>
+&lt;h3 id=&quot;반성-하면-변화하는-내가-되자&quot;&gt;반성 하면 변화하는 내가 되자&lt;/h3&gt;</content><category term="단상" /><summary type="html">바쁘다는 핑계로 정리를 못하고 있다.</summary></entry></feed>
