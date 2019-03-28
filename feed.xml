@@ -1,4 +1,35 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-03-22T11:52:29+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">리더 또는 사수라 불리는 자리에 있다.</title><link href="https://lahuman.github.io/20190322/" rel="alternate" type="text/html" title="리더 또는 사수라 불리는 자리에 있다." /><published>2019-03-22T00:00:00+09:00</published><updated>2019-03-22T00:00:00+09:00</updated><id>https://lahuman.github.io/20190322</id><content type="html" xml:base="https://lahuman.github.io/20190322/">&lt;h1 id=&quot;어떤-리더가-되어야-할까&quot;&gt;어떤 리더가 되어야 할까??&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-03-28T20:41:08+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">난 여전히 미숙한 아이 같다.</title><link href="https://lahuman.github.io/20190328/" rel="alternate" type="text/html" title="난 여전히 미숙한 아이 같다." /><published>2019-03-28T00:00:00+09:00</published><updated>2019-03-28T00:00:00+09:00</updated><id>https://lahuman.github.io/20190328</id><content type="html" xml:base="https://lahuman.github.io/20190328/">&lt;h1 id=&quot;아이-같은-나&quot;&gt;아이 같은 나…&lt;/h1&gt;
+
+&lt;p&gt;어제는 아이들에게 엄청 화를 냈다. 화를 낸 이유는 별게 아니다.&lt;/p&gt;
+
+&lt;p&gt;채윤이는 숙제를 하기 싫어서 꽁양꽁양 되었고, 동현이는 짜증을 계속 내는 게 싫었다.&lt;/p&gt;
+
+&lt;p&gt;아이들에게 한바탕 화를 내 고난 후 뒤처리는 아내의 몫이었다.&lt;/p&gt;
+
+&lt;p&gt;아내는 아이들에게 &lt;strong&gt;“아빠가 너무 피곤해서 그런 거야, 아빠가 정말 힘들어서 그런 거야”&lt;/strong&gt;라고 이야기 하며 아이들을 토닥여 주었다.&lt;/p&gt;
+
+&lt;p&gt;하지만, 채윤이랑 동현이는 울음을 터트렸고 나도 신경 쓰여서 잠을 못 이루었다.&lt;/p&gt;
+
+&lt;p&gt;오늘은 집에외서 아이들에게 사과를 하였다. 그리고 오늘 다시 채윤이의 숙제를 봐주고 있다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;여전히 채윤이는 숙제를 하면서 꽁양꽁양 짜증을 내고 동현이도 티비를 보여달라며 내 목에 매달려 있다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;어른이 되는건 아이들의 단점도 모두 받아주는 멋진 사람이 되어야 할텐데.. 난 여전히 부족하다.&lt;/p&gt;
+
+&lt;h3 id=&quot;어려워&quot;&gt;어려워&lt;/h3&gt;</content><category term="단상" /><summary type="html">낼 모레면 마흔인데.. 여전히 아이 같다.</summary></entry><entry><title type="html">jQuery-datepicker css 사용하기</title><link href="https://lahuman.github.io/jquery_datepicker/" rel="alternate" type="text/html" title="jQuery-datepicker css 사용하기" /><published>2019-03-27T00:00:00+09:00</published><updated>2019-03-27T00:00:00+09:00</updated><id>https://lahuman.github.io/jquery_datepicker</id><content type="html" xml:base="https://lahuman.github.io/jquery_datepicker/">&lt;h1 id=&quot;jquery-datepicker-css-사용하기&quot;&gt;jQuery-datepicker css 사용하기&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;jQuery-UI에서 제공하는 Datepicker를 사용할 경우 js만 이용하여 사용할 수 있다.
+NPM에서 &lt;a href=&quot;https://www.npmjs.com/package/jquery-datepicker&quot;&gt;jquery-datepicker&lt;/a&gt;만 다운로드하여 사용하면, css가 없어 많이 없어 보이는 달력이 표출된다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;아래 링크에서 제공하는 css와 2개의 이미지를 추가하면 이쁘게 표현된다.&lt;/p&gt;
+
+&lt;h2 id=&quot;원본-how-to-customizing-and-theming-jquery-ui-datepicker&quot;&gt;원본: &lt;a href=&quot;https://www.hongkiat.com/blog/jquery-ui-datepicker/&quot;&gt;How to: Customizing and Theming jQuery UI Datepicker&lt;/a&gt;&lt;/h2&gt;
+
+&lt;h2 id=&quot;내가-사용하는-살짝-고친-버젼&quot;&gt;&lt;a href=&quot;https://github.com/lahuman/jquery-datepicker_css&quot;&gt;내가 사용하는 살짝 고친 버젼&lt;/a&gt;&lt;/h2&gt;</content><category term="jquery" /><category term="datepicker" /><summary type="html">jQuery-UI에서 datepicker만 사용하기</summary></entry><entry><title type="html">리더 또는 사수라 불리는 자리에 있다.</title><link href="https://lahuman.github.io/20190322/" rel="alternate" type="text/html" title="리더 또는 사수라 불리는 자리에 있다." /><published>2019-03-22T00:00:00+09:00</published><updated>2019-03-22T00:00:00+09:00</updated><id>https://lahuman.github.io/20190322</id><content type="html" xml:base="https://lahuman.github.io/20190322/">&lt;h1 id=&quot;어떤-리더가-되어야-할까&quot;&gt;어떤 리더가 되어야 할까??&lt;/h1&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;일을 시작한 지 정신을 차려보니 13년이 지났다. 어느덧 사수라고 불리며 동료에게 업무를 배정하거나, 막히는 부분에 대한 지원도 해주고 업무에 대한 조언을 해준다.&lt;/p&gt;
@@ -517,283 +548,4 @@ init();
 &lt;h1 id=&quot;참고-주소&quot;&gt;참고 주소&lt;/h1&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/14249506/how-can-i-wait-in-node-js-javascript-l-need-to-pause-for-a-period-of-time&quot;&gt;How Can I Wait In Node.js (Javascript), l need to pause for a period of time&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="nodejs" /><category term="sleep" /><summary type="html">nodejs는 for 문이 기본적으로 비동기로 동작하니 주의 할 것!</summary></entry><entry><title type="html">인증서버 구축기 - 3</title><link href="https://lahuman.github.io/auth_server_3/" rel="alternate" type="text/html" title="인증서버 구축기 - 3" /><published>2019-03-04T00:00:00+09:00</published><updated>2019-03-04T00:00:00+09:00</updated><id>https://lahuman.github.io/auth_server_3</id><content type="html" xml:base="https://lahuman.github.io/auth_server_3/">&lt;h1 id=&quot;로그인-성공시-jwt를-이용하여-token-전송&quot;&gt;로그인 성공시 JWT를 이용하여 Token 전송&lt;/h1&gt;
-
-&lt;h2 id=&quot;jwt&quot;&gt;&lt;a href=&quot;https://jwt.io&quot;&gt;JWT&lt;/a&gt;&lt;/h2&gt;
-
-&lt;h3 id=&quot;jwt-설명-내용&quot;&gt;JWT 설명 내용&lt;/h3&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;JSON Web Token (JWT) is an open standard (RFC 7519) that defines a compact and self-contained way for securely transmitting information between parties as a JSON object. This information can be verified and trusted because it is digitally signed. JWTs can be signed using a secret (with the HMAC algorithm) or a public/private key pair using RSA or ECDSA.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;JSON Web Token(JWT)는 JSON 객체로 당사자간에 안전하게 정보를 전송할수 있는 작고 독립적인 방법을 정의하는 공개 표준(&lt;a href=&quot;https://tools.ietf.org/html/rfc7519&quot;&gt;RFC 7519&lt;/a&gt;)입니다. 이 정보는 디지털 서명되기 때문에 검증되고 신뢰할 수 있습니다. JWT는 RSA/ECDSA를 이용한 공개키/개인키 또는 암호화(HMAC 알고리즘)를 이용하여 서명할 수 있습니다.&lt;/p&gt;
-
-&lt;h3 id=&quot;jwt-사용-예시&quot;&gt;JWT 사용 예시&lt;/h3&gt;
-
-&lt;h4 id=&quot;로그인-후속-처리&quot;&gt;로그인 후속 처리&lt;/h4&gt;
-
-&lt;p&gt;가장 많이 사용되는 방법으로 사용자가 로그인 하면 후속 요청에 JWT가 포함되어 사용자가 해당 토큰으로 허용되는 경로, 서비스 및 리소스 액세스 할 수 있게 한다. 또한 JWT를 이용한 SSO(Single Sign On)은 오버헤드가 적고 다른 도메인에서 쉽게 사용할 수 있다.&lt;/p&gt;
-
-&lt;h4 id=&quot;정보-교환&quot;&gt;정보 교환&lt;/h4&gt;
-
-&lt;p&gt;JSON 웹 토큰은 당사자간에 정보를 안전하게 전송하는 좋은 방법이다. JWT는 서명을 할 수 있기 때문에 발신자에 대한 확인과 내용의 변조 여부를 확인 할 수 있다.&lt;/p&gt;
-
-&lt;h3 id=&quot;json-구조&quot;&gt;JSON 구조&lt;/h3&gt;
-
-&lt;p&gt;JSON은 dots(.)을 기준으로 3가지로 나뉜다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Header&lt;/li&gt;
-  &lt;li&gt;Payload&lt;/li&gt;
-  &lt;li&gt;Signature&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;다음과 같은 형태로 되어 있다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;aaaaaa.zzzzzz.yyyyyy
-______.______.______
-Header.Payload.Signature
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Header는 타입과 알고리즘 두가지 정보를 가지고 있다.&lt;/p&gt;
-
-&lt;p&gt;Payload는 클레임(claim)이라고 명칭되는 name/value 한쌍으로 이루어 져 있다.&lt;/p&gt;
-
-&lt;p&gt;클레임은 세 분류로 나눈다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;등록된(registred) 클레임 : iss(발급자), exp(만료시간), sub(주제), aud(잠재고객) 등이다.&lt;/li&gt;
-  &lt;li&gt;공개(public) 클레임 : 자유롭게 정의할수 있다. 충돌을 방지하기 위해 URI 형식을 권장한다.&lt;/li&gt;
-  &lt;li&gt;비공개(private) 클레임: 보통 클라이언트와 서버간 협의하에 사용되는 클레임 이름이다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;JWT의 등록된 클레임 이름의 길이는 3자이다. 또한 서명된 토큰의 경우 변조되지 않도록 보호는 되지만 모든 사람이 읽을 수 있다. 암호화되지 않은 JWT의 페이로드 또는 헤더 요소에 비밀 정보를 넣으면 안된다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Signature는 Header와 Payload의 인코딩 값을 합친후 주어진 비밀키로 해쉬를 생성 한다.&lt;/p&gt;
-
-&lt;h2 id=&quot;jwt-구현-하기&quot;&gt;JWT 구현 하기&lt;/h2&gt;
-
-&lt;p&gt;기존 프로젝트 코드에서 jsonwebtoken을 설치한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$&amp;gt; npm install --save jsonwebtoken
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;이후 router/index.js파일에서 해당 모듈을 이용해서 로그인 성공시 Token을 전달하고, isAdmin 토큰을 검증하고 ROLE_TEST1을 가지고 있을 경우만 통과 하도록 수정한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;...모듈 추가...
-const jwt = require('jsonwebtoken');
-
-...로그인 성공시...
-const token = jwt.sign(userInfo, secretKey, { expiresIn: '5m' });
-res.json({ status: 'success', token });
-
-...isAdmin...
-const isAdmin = (req, res, next) =&amp;gt; {
-  try {
-    const decoded = jwt.verify(req.header('X-token'), secretKey);
-    if (decoded.role.includes(roleAdmin)) {
-      next();
-    }
-    else {
-      res.json({ status: 403, message: 'Login failed' });
-    }
-  }
-  catch (error) {
-    res.json({ status: 500, message: `token Error: ${error.message}` });
-  }
-};
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;다음시간에는 사용자 암호에 대한 해쉬알고리즘을 이용한 암호화 처리를 진행하자.&lt;/p&gt;
-
-&lt;h3 id=&quot;금방끝나네&quot;&gt;금방끝나네!&lt;/h3&gt;
-
-&lt;h2 id=&quot;프로젝트-저장소&quot;&gt;&lt;a href=&quot;https://github.com/lahuman/AuthServer&quot;&gt;프로젝트 저장소&lt;/a&gt;&lt;/h2&gt;
-
-&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://jwt.io&quot;&gt;JWT&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="node" /><category term="auth" /><summary type="html">JWT를 이용하여 로그인 성공시 Token 전송</summary></entry><entry><title type="html">인증서버 구축기 - 2</title><link href="https://lahuman.github.io/auth_server_2/" rel="alternate" type="text/html" title="인증서버 구축기 - 2 " /><published>2019-03-02T00:00:00+09:00</published><updated>2019-03-02T00:00:00+09:00</updated><id>https://lahuman.github.io/auth_server_2</id><content type="html" xml:base="https://lahuman.github.io/auth_server_2/">&lt;h1 id=&quot;간단하게-dbms-구현과-로그인-처리&quot;&gt;간단하게 DBMS 구현과 로그인 처리&lt;/h1&gt;
-
-&lt;p&gt;인증서버 구현에 대한 설계만 하고 손도 안되고 생각만 하고 있었다.&lt;/p&gt;
-
-&lt;p&gt;DBMS는 다음 그림과 같은 형태로 구현했다.&lt;/p&gt;
-
-&lt;figure&gt;
-	&lt;a href=&quot;/assets/img/post_img/auth_erd.png&quot;&gt;&lt;img src=&quot;/assets/img/post_img/auth_erd.png&quot; /&gt;&lt;/a&gt;
-	&lt;figcaption&gt;AUTH server ERD&lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;이번 시간에는 Login API를 구현하고 테스트까지 진행한다.&lt;/p&gt;
-
-&lt;h2 id=&quot;모델-구현&quot;&gt;모델 구현&lt;/h2&gt;
-
-&lt;p&gt;모델을 구현하기 위하여 &lt;a href=&quot;https://github.com/sequelize/express-example&quot;&gt;Sequelize Express Example&lt;/a&gt;를 참조 하였다.&lt;/p&gt;
-
-&lt;p&gt;DBMS를 참고 하여 각 모델을 다음과 같이 작성 하였다.&lt;/p&gt;
-
-&lt;h3 id=&quot;users&quot;&gt;Users&lt;/h3&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;module.exports = (sequelize, DataTypes) =&amp;gt; {
-  var User = sequelize.define('Users', {
-    id: {
-      type: DataTypes.INTEGER,
-      autoIncrement: true,
-      primaryKey: true
-    },
-    user_id: { type: DataTypes.STRING(50), allowNull: false, unique: true },
-    password: { type: DataTypes.STRING(100), allowNull: false },
-    description: { type: DataTypes.STRING(1000), allowNull: true }
-  }, {
-    freezeTableName: true,
-    underscored: true,
-    timestamps: true,
-    paranoid: true
-  });
-
-
-  User.associate = (models) =&amp;gt; {
-    models.Users.belongsToMany(models.Roles, { through: 'UserRoles', foreignKey: 'u_id' });
-  };
-
-  return User;
-};
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;roles&quot;&gt;Roles&lt;/h3&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;module.exports = (sequelize, DataTypes) =&amp;gt; {
-  var Roles = sequelize.define('Roles', {
-    id: {
-      type: DataTypes.INTEGER,
-      autoIncrement: true,
-      primaryKey: true
-    },
-    role_name: { type: DataTypes.STRING(20), allowNull: false, unique: true },
-    description: { type: DataTypes.STRING(1000), allowNull: true }
-  }, {
-    freezeTableName: true,
-    underscored: true,
-    timestamps: true,
-    paranoid: true
-  });
-
-  Roles.associate = (models) =&amp;gt; {
-    models.Roles.belongsToMany(models.Users, { through: 'UserRoles', foreignKey: 'r_id' });
-  };
-
-  return Roles;
-};
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;userroles&quot;&gt;UserRoles&lt;/h3&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;module.exports = (sequelize, DataTypes) =&amp;gt; {
-  var UserRole = sequelize.define('UserRoles', {
-    id: {
-      type: DataTypes.INTEGER,
-      autoIncrement: true,
-      primaryKey: true
-    },
-    r_id: {
-      type: DataTypes.INTEGER
-    },
-    u_id: {
-      type: DataTypes.INTEGER
-    }
-  }, {
-    freezeTableName: true,
-    underscored: true,
-    timestamps: true
-  });
-  return UserRole;
-};
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;추가적으로 LoginHistory를 구현하였고 최근 10분간 로그인이 5회 실패시 잠시 후 시도하도록 했다.&lt;/p&gt;
-
-&lt;h3 id=&quot;loginhistorys&quot;&gt;LoginHistorys&lt;/h3&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-module.exports = (sequelize, DataTypes) =&amp;gt; {
-    var LoginHistory = sequelize.define('LoginHistorys', {
-      id: {
-        type: DataTypes.INTEGER,
-        autoIncrement: true,
-        primaryKey: true
-      },
-      user_id: { type: DataTypes.STRING(50), allowNull: false },
-      login_success: { type: DataTypes.STRING(1), allowNull: false, defaultValue:'Y' }
-    }, {
-      freezeTableName: true,
-      underscored: true,
-      timestamps: true,
-      paranoid: true
-    });
-  
-    return LoginHistory;
-  };
-  
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;로그인-구현&quot;&gt;로그인 구현&lt;/h2&gt;
-
-&lt;p&gt;로그인은 간단하게 routers/index.js 에 구현하였다. 추가로 다른 기능이 생긴다면 디렉토리를 추가하여 처리 할 예정이다.&lt;/p&gt;
-
-&lt;h3 id=&quot;login-process&quot;&gt;Login Process&lt;/h3&gt;
-
-&lt;p&gt;10분동안 5회 이상의 로그인 실패가 있을 경우 잠시후 시도하라는 메시지가 표출되며, 로그인 실패/성공은 LoginHistory에 저장된다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;router.post('/login', (req, res, next) =&amp;gt; {
-  const loginInfo = req.body;
-  if (!Object.prototype.hasOwnProperty.call(loginInfo, 'user_id')
-    || !Object.prototype.hasOwnProperty.call(loginInfo, 'password')) {
-    res.json({ status: 'error', message: 'Invalid Prameter' });
-  }
-  else {
-    models.LoginHistorys.count({ where: { user_id: loginInfo.user_id, login_success: 'N', created_at: { [models.Sequelize.Op.gt]: moment().subtract(20, 'minutes').toDate() } } }).then((c) =&amp;gt; {
-      if (c &amp;gt; 5) {
-        res.json({ status: 'error', message: 'Login failed several times. Please try again in 10 minutes.' });
-      }
-      else {
-        models.Users.findOne({
-          where: { user_id: loginInfo.user_id, password: loginInfo.password },
-          include: [models.Roles]
-        }).then((u) =&amp;gt; {
-          if (u) {
-            const userInfo = {
-              user_id: u.user_id,
-              password: u.password,
-              desc: u.description,
-              role: u.Roles.map(r =&amp;gt; r.role_name)
-            };
-            res.json({ status: 'success', userInfo });
-            loginInfo.login_success = 'Y';
-          }
-          else {
-            res.json({ status: 'error', message: 'check ID or PW' });
-            loginInfo.login_success = 'N';
-          }
-          models.LoginHistorys.create(loginInfo);
-        });
-      }
-    });
-  }
-});
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;todo-진행-예정&quot;&gt;TODO 진행 예정&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://jwt.io/&quot;&gt;JWT&lt;/a&gt;를 이용하여 로그인 성공시 전송되는 내용을 토큰 처리&lt;/li&gt;
-  &lt;li&gt;토큰 validate API 제공&lt;/li&gt;
-  &lt;li&gt;사용자 PASSWORD hash 암호화 처리(&lt;a href=&quot;https://epthffh.tistory.com/entry/SHA256-%EC%9D%B8%EC%BD%94%EB%94%A9-%EC%86%8C%EC%8A%A4&quot;&gt;SHA-256&lt;/a&gt;)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;나머지도-하나씩-처리-하자&quot;&gt;나머지도 하나씩 처리 하자!&lt;/h3&gt;
-
-&lt;h2 id=&quot;프로젝트-저장소&quot;&gt;&lt;a href=&quot;https://github.com/lahuman/AuthServer&quot;&gt;프로젝트 저장소&lt;/a&gt;&lt;/h2&gt;</content><category term="node" /><category term="auth" /><summary type="html">로그인 처리와 HISTORY 기록</summary></entry></feed>
+&lt;/ul&gt;</content><category term="nodejs" /><category term="sleep" /><summary type="html">nodejs는 for 문이 기본적으로 비동기로 동작하니 주의 할 것!</summary></entry></feed>
