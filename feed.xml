@@ -1,4 +1,241 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-03-28T20:41:08+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">난 여전히 미숙한 아이 같다.</title><link href="https://lahuman.github.io/20190328/" rel="alternate" type="text/html" title="난 여전히 미숙한 아이 같다." /><published>2019-03-28T00:00:00+09:00</published><updated>2019-03-28T00:00:00+09:00</updated><id>https://lahuman.github.io/20190328</id><content type="html" xml:base="https://lahuman.github.io/20190328/">&lt;h1 id=&quot;아이-같은-나&quot;&gt;아이 같은 나…&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-04-02T16:06:37+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">pupperteer를 이용한 화면 캡처 기능 개발</title><link href="https://lahuman.github.io/puppeteer_screen_capture/" rel="alternate" type="text/html" title="pupperteer를 이용한 화면 캡처 기능 개발" /><published>2019-03-29T00:00:00+09:00</published><updated>2019-03-29T00:00:00+09:00</updated><id>https://lahuman.github.io/puppeteer_screen_capture</id><content type="html" xml:base="https://lahuman.github.io/puppeteer_screen_capture/">&lt;h1 id=&quot;pupperteer를-이용한-화면-캡처-기능-개발&quot;&gt;pupperteer를 이용한 화면 캡처 기능 개발&lt;/h1&gt;
+
+&lt;p&gt;이번에 개발하는 기능중에 화면을 캡처해서 다운로드를 제공해야 하는 기능이 있다.&lt;/p&gt;
+
+&lt;p&gt;처음 시도한 방법은 &lt;a href=&quot;https://html2canvas.hertzen.com/&quot;&gt;html2canvas&lt;/a&gt;을 이용한 방법 이었는데… 실패 했다.&lt;/p&gt;
+
+&lt;p&gt;화면에 보여주는 부분은 잘 캡쳐가 되지만, 스크롤에 숨겨진 부분이 캡쳐가 되지 않았다.&lt;/p&gt;
+
+&lt;p&gt;하루를 날리고, 다음으로 시도한 방법은 &lt;a href=&quot;https://github.com/GoogleChrome/puppeteer&quot;&gt;pupperteer&lt;/a&gt;를 이용해서 요청이 오면 내부에서 새로운 페이지를 띄우고 해당 페이지를 로딩해서 캡쳐 하는 방식이다.&lt;/p&gt;
+
+&lt;p&gt;만든 코드는 다음과 같다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;router.post('/capture', async (req, res, next) =&amp;gt; {
+  const file_name = `${shortid.generate()}.png`;
+  const browser = await puppeteer.launch();
+  const page = await browser.newPage();
+  await page.setViewport({ width: 1366, height: 768, });
+  await page.goto(CAPTURE_URL+Buffer.from(JSON.stringify(req.body)).toString('base64'), {waitUntil: 'domcontentloaded'});
+  await page.waitFor(1000);
+  await page.waitForSelector('#endarea');
+  await page.screenshot({fullPage: true, path: `public/images/${file_name}`});
+  await browser.close();
+  res.json({image_url:`/images/${file_name}`})
+});
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;요청이 들어오면 해당 페이지로 넘어온 파라메터를 다시 전달해서 화면을 캡쳐 한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;await page.screenshot({fullPage: true, path: &lt;code class=&quot;highlighter-rouge&quot;&gt;public/images/${file_name}&lt;/code&gt;});&lt;/strong&gt;이 부분에 보이는 부분을 전체 화면으로 캡쳐를 해서 저장을 하는 기능을 수행한다.&lt;/p&gt;
+
+&lt;p&gt;저장된 이미지를 웹에서 다운로드를 하는 코드는 다음과 같다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function forceDownload(url, fileName){
+        var xhr = new XMLHttpRequest();
+        xhr.open(&quot;GET&quot;, url, true);
+        xhr.responseType = &quot;blob&quot;;
+        xhr.onload = function(){
+            var urlCreator = window.URL || window.webkitURL;
+            var imageUrl = urlCreator.createObjectURL(this.response);
+            var tag = document.createElement('a');
+            tag.href = imageUrl;
+            tag.download = fileName;
+            document.body.appendChild(tag);
+            tag.click();
+            document.body.removeChild(tag);
+        }
+        xhr.send();
+    }
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이와 같이 실행하면 fileName으로 다운로드가 진행된다.&lt;/p&gt;
+
+&lt;h2 id=&quot;인터넷과-함께면-난-못하는게-없다&quot;&gt;인터넷과 함께면 난 못하는게 없다.&lt;/h2&gt;
+
+&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://html2canvas.hertzen.com/&quot;&gt;html2canvas&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/GoogleChrome/puppeteer&quot;&gt;pupperteer&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="node" /><category term="puppeteer" /><summary type="html">스크롤 있는 화면을 캡쳐 해보자!</summary></entry><entry><title type="html">Nodejs에서 Swagger 사용하기</title><link href="https://lahuman.github.io/nodejs_swagger/" rel="alternate" type="text/html" title="Nodejs에서 Swagger 사용하기" /><published>2019-03-29T00:00:00+09:00</published><updated>2019-03-29T00:00:00+09:00</updated><id>https://lahuman.github.io/nodejs_swagger</id><content type="html" xml:base="https://lahuman.github.io/nodejs_swagger/">&lt;h1 id=&quot;nodejs에서-swagger-사용하기&quot;&gt;Nodejs에서 Swagger 사용하기&lt;/h1&gt;
+
+&lt;p&gt;nodejs로 만들어진 API를 활용할 수 있도록 문서를 제공해야 하는데, 따로 문서를 만들기 보다는 Swagger를 이용하여 처리 하였다. 얼마전 진행했던 개인 프로젝트의 AuthServer에 적용해보았다.&lt;/p&gt;
+
+&lt;p&gt;먼저 npm을 이용해서 swagger를 설치 한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm install --save swagger-ui-express
+npm install --save swagger-jsdoc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;app.js 파일에서 다음과 같이 설정을 추가 한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;const swaggerJSDoc = require('swagger-jsdoc');
+const swaggerUi = require('swagger-ui-express');
+
+
+
+// Swagger definition
+// You can set every attribute except paths and swagger
+// https://github.com/swagger-api/swagger-spec/blob/master/versions/2.0.md
+const swaggerDefinition = {
+  info: { // API informations (required)
+    title: 'Auth Service', // Title (required)
+    version: '1.0.0', // Version (required)
+    description: 'Auth API' // Description (optional)
+  },
+  host: 'localhost:3000', // Host (optional)
+  basePath: '/' // Base path (optional)
+};
+
+// Options for the swagger docs
+const options = {
+  // Import swaggerDefinitions
+  swaggerDefinition,
+  // Path to the API docs
+  apis: ['./routes/index.js', './users/index.js', './roles/index.js']
+};
+
+// Initialize swagger-jsdoc -&amp;gt; returns validated swagger spec in json format
+const swaggerSpec = swaggerJSDoc(options);
+
+const app = express();
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;routes/index.js에 swagger 작성을 진행하며, 모델 정보를 가지고 있는 부분과 paths를 가진 부분으로 나누어서 작성하면 된다.&lt;/p&gt;
+
+&lt;p&gt;다음은 실제 소스 샘플 이다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+/**
+ * @swagger
+ * tags:
+ *   name: Auth
+ *   description: 로그인 처리
+ * definitions:
+ *   Auth_request:
+ *     type: object
+ *     required:
+ *       - user_id
+ *       - password
+ *     properties:
+ *       user_id:
+ *         type: string
+ *         description: 아이디
+ *       password:
+ *         type: string
+ *         description: 비밀번호
+ *   Auth_response:
+ *     type: object
+ *     required:
+ *       - status
+ *     properties:
+ *       status:
+ *         type: string
+ *         description: 로그인 성공 여부- error, success
+ *       token:
+ *         type: object
+ *         description: 계정 정보
+ *   Response_error:
+ *     type: object
+ *     required:
+ *       - status
+ *     properties:
+ *       message:
+ *         type: string
+ *         description: 오류 사유
+ *       status:
+ *         type: integer
+ *         description: response code
+ */
+
+/**
+ * @swagger
+ *  paths:
+ *    /login:
+ *      post:
+ *        tags:
+ *        - &quot;Auth&quot;
+ *        summary: &quot;Login process&quot;
+ *        description: &quot;&quot;
+ *        consumes:
+ *        - &quot;application/json&quot;
+ *        produces:
+ *        - &quot;application/json&quot;
+ *        parameters:
+ *        - in: &quot;body&quot;
+ *          name: &quot;body&quot;
+ *          description: &quot;로그인 계정 정보와 서비스 정보를 전달&quot;
+ *          required: true
+ *          schema:
+ *            $ref: &quot;#/definitions/Auth_request&quot;
+ *        responses:
+ *          200:
+ *            description: &quot;로그인 결과&quot;
+ *            schema:
+ *              $ref: &quot;#/definitions/Auth_response&quot;
+ *          400:
+ *            description: &quot;잘못된 데이터&quot;
+ *            schema:
+ *              $ref: &quot;#/definitions/Response_error&quot;
+ *          500:
+ *            description: &quot;로그인 오류 &amp;amp; 실패&quot;
+ *            schema:
+ *              $ref: &quot;#/definitions/Response_error&quot;
+ */
+router.post('/login', (req, res, next) =&amp;gt; {
+  const loginInfo = req.body;
+  if (!Object.prototype.hasOwnProperty.call(loginInfo, 'user_id')
+    || !Object.prototype.hasOwnProperty.call(loginInfo, 'password')) {
+    res.statusCode(400).json({ status: 'error', message: 'Invalid Prameter' });
+  }
+  else {
+    models.LoginHistorys.count({ where: { user_id: loginInfo.user_id, login_success: 'N', created_at: { [models.Sequelize.Op.gt]: moment().subtract(20, 'minutes').toDate() } } }).then((c) =&amp;gt; {
+      if (c &amp;gt; 5) {
+        res.statusCode(500).json({ status: 'error', message: 'Login failed several times. Please try again in 10 minutes.' });
+      }
+      else {
+        models.Users.findOne({
+          where: { user_id: loginInfo.user_id, password: loginInfo.password },
+          include: [models.Roles]
+        }).then((u) =&amp;gt; {
+          if (u) {
+            const userInfo = {
+              user_id: u.user_id,
+              desc: u.description,
+              role: u.Roles.map(r =&amp;gt; r.role_name)
+            };
+            const token = jwt.sign(userInfo, secretKey, {
+              expiresIn: '5m' // 유효 시간은 5분
+            });
+            res.json({ status: 'success', token });
+            loginInfo.login_success = 'Y';
+          }
+          else {
+            res.json({ status: 'error', message: 'check ID or PW' });
+            loginInfo.login_success = 'N';
+          }
+          models.LoginHistorys.create(loginInfo);
+        });
+      }
+    });
+  }
+});
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이렇게 하고 서버를 실행하면 이쁜 테스트 화면을 확인 할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;더 자세한 내용은 &lt;a href=&quot;https://swagger.io/specification/&quot;&gt;swagger&lt;/a&gt;의 문서를 참고 하면 된다.&lt;/p&gt;
+
+&lt;h2 id=&quot;근데-어렵다-쉽지-않다&quot;&gt;근데 어렵다.. 쉽지 않다…&lt;/h2&gt;
+
+&lt;h2 id=&quot;참조-링크&quot;&gt;참조 링크&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://gongzza.github.io/javascript/nodejs/swagger-node-express/&quot;&gt;Express에 Swagger 붙이기&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://swagger.io/specification/&quot;&gt;swagger&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://apihandyman.io/writing-openapi-swagger-specification-tutorial-part-1-introduction/&quot;&gt;Writing OpenAPI (fka Swagger) Specification tutorial
+&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="node" /><category term="swagger" /><summary type="html">쉬운듯 어려워!!</summary></entry><entry><title type="html">난 여전히 미숙한 아이 같다.</title><link href="https://lahuman.github.io/20190328/" rel="alternate" type="text/html" title="난 여전히 미숙한 아이 같다." /><published>2019-03-28T00:00:00+09:00</published><updated>2019-03-28T00:00:00+09:00</updated><id>https://lahuman.github.io/20190328</id><content type="html" xml:base="https://lahuman.github.io/20190328/">&lt;h1 id=&quot;아이-같은-나&quot;&gt;아이 같은 나…&lt;/h1&gt;
 
 &lt;p&gt;어제는 아이들에게 엄청 화를 냈다. 화를 낸 이유는 별게 아니다.&lt;/p&gt;
 
@@ -488,64 +725,4 @@ sudo fuser -k 10001/tcp
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://github.com/GoogleChrome/puppeteer/blob/master/docs/troubleshooting.md&quot;&gt;puppeteer troubleshooting&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://github.com/GoogleChrome/puppeteer/issues/404&quot;&gt;puppeteer not working on Ubuntu 16.04 but works on 14.04&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="nodejs" /><category term="mongoosejs" /><summary type="html">쉬운데 어려움...</summary></entry><entry><title type="html">puppeteer를 Ubuntu에 설치하고 기동하기</title><link href="https://lahuman.github.io/puppeteer_on_ubuntu/" rel="alternate" type="text/html" title="puppeteer를 Ubuntu에 설치하고 기동하기" /><published>2019-03-11T00:00:00+09:00</published><updated>2019-03-11T00:00:00+09:00</updated><id>https://lahuman.github.io/puppeteer_on_ubuntu</id><content type="html" xml:base="https://lahuman.github.io/puppeteer_on_ubuntu/">&lt;h1 id=&quot;puppeteer를-설치하고-구동하기&quot;&gt;puppeteer를 설치하고 구동하기&lt;/h1&gt;
-
-&lt;p&gt;설치는 아주 간단하다. npm 을 이용해서 설치 하면 바로 되는데, 문제는 설치후 기동하면 오류가 난다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 설치
-npm install --save puppeteer
-
-# 실행
-node app.js
-
-# error 발생
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;에러 메시지에서는 &lt;a href=&quot;https://github.com/GoogleChrome/puppeteer/blob/master/docs/troubleshooting.md&quot;&gt;puppeteer troubleshooting&lt;/a&gt;를 보라고 하지만, 내게 도움되는 내역이 없었다.&lt;/p&gt;
-
-&lt;p&gt;구글의 도움을 받아 찾은 &lt;a href=&quot;https://github.com/GoogleChrome/puppeteer/issues/404&quot;&gt;puppeteer not working on Ubuntu 16.04 but works on 14.04&lt;/a&gt;에서 다음 라이브러리를 설치하라는 메시지를 확인하였다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get install libpangocairo-1.0-0 libx11-xcb1 libxcomposite1 libxcursor1 libxdamage1 libxi6 libxtst6 libnss3 libcups2 libxss1 libxrandr2 libgconf2-4 libasound2 libatk1.0-0 libgtk-3-0
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;설치를 하고 나서 실행하면 문제 없이 잘된다.&lt;/p&gt;
-
-&lt;h2 id=&quot;그러하다&quot;&gt;그러하다~&lt;/h2&gt;
-
-&lt;h1 id=&quot;참고-주소&quot;&gt;참고 주소&lt;/h1&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/GoogleChrome/puppeteer/blob/master/docs/troubleshooting.md&quot;&gt;puppeteer troubleshooting&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/GoogleChrome/puppeteer/issues/404&quot;&gt;puppeteer not working on Ubuntu 16.04 but works on 14.04&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="nodejs" /><category term="puppeteer" /><summary type="html">설치는 쉬운데, 필요한 라이브러리가 있음!</summary></entry><entry><title type="html">nodejs에서 sleep 구현하기</title><link href="https://lahuman.github.io/nodejs_sleep_inside_for/" rel="alternate" type="text/html" title="nodejs에서 sleep 구현하기" /><published>2019-03-09T00:00:00+09:00</published><updated>2019-03-09T00:00:00+09:00</updated><id>https://lahuman.github.io/nodejs_sleep_inside_for</id><content type="html" xml:base="https://lahuman.github.io/nodejs_sleep_inside_for/">&lt;h1 id=&quot;nodejs에서-sleep-구현하기&quot;&gt;nodejs에서 sleep 구현하기&lt;/h1&gt;
-
-&lt;p&gt;nodejs에서 for문에 비동기 처리가 들어 있으면 해당 비동기 처리가 종료 되는 것을 기다려 주지 않는다.&lt;/p&gt;
-
-&lt;p&gt;따라서 Sleep 같은 처리를 하려면 많은 신경을 써야 한다.&lt;/p&gt;
-
-&lt;p&gt;참고 자료를 기반으로 처리해보니 잘된다.&lt;/p&gt;
-
-&lt;p&gt;내가 하려는데도 문제 없이 반영되는지 월요일에 확인해봐야겠다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;const init = async () =&amp;gt; {
-    for (let i=0; i&amp;lt;5; i++){
-        console.log(1);
-        await sleep(1000);
-        console.log(2);
-    }
- }
- const sleep = (ms) =&amp;gt; {
-     return new Promise(resolve=&amp;gt;{
-         setTimeout(resolve,ms)
-     })
- }
-
-init();
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;쉬운게없다&quot;&gt;쉬운게없다&lt;/h2&gt;
-
-&lt;h1 id=&quot;참고-주소&quot;&gt;참고 주소&lt;/h1&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/14249506/how-can-i-wait-in-node-js-javascript-l-need-to-pause-for-a-period-of-time&quot;&gt;How Can I Wait In Node.js (Javascript), l need to pause for a period of time&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="nodejs" /><category term="sleep" /><summary type="html">nodejs는 for 문이 기본적으로 비동기로 동작하니 주의 할 것!</summary></entry></feed>
+&lt;/ul&gt;</content><category term="nodejs" /><category term="mongoosejs" /><summary type="html">쉬운데 어려움...</summary></entry></feed>
