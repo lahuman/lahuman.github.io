@@ -1,4 +1,94 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-04-06T01:09:35+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">R을 이용한 동시출현단어 분석</title><link href="https://lahuman.github.io/r_rJava/" rel="alternate" type="text/html" title="R을 이용한 동시출현단어 분석" /><published>2019-04-04T00:00:00+09:00</published><updated>2019-04-04T00:00:00+09:00</updated><id>https://lahuman.github.io/r_rJava</id><content type="html" xml:base="https://lahuman.github.io/r_rJava/">&lt;h1 id=&quot;r에서-rjava-사용하기-위한-설치-진행&quot;&gt;R에서 rJava 사용하기 위한 설치 진행&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-04-10T17:33:24+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Nginx source를 이용한 compile 설치</title><link href="https://lahuman.github.io/nginx_source_install/" rel="alternate" type="text/html" title="Nginx source를 이용한 compile 설치" /><published>2019-04-09T00:00:00+09:00</published><updated>2019-04-09T00:00:00+09:00</updated><id>https://lahuman.github.io/nginx_source_install</id><content type="html" xml:base="https://lahuman.github.io/nginx_source_install/">&lt;h1 id=&quot;nginx-source를-이용한-컴파일-설치&quot;&gt;Nginx source를 이용한 컴파일 설치&lt;/h1&gt;
+
+&lt;p&gt;오랜만에 Nginx를 설치하고 sub_filter를 사용하였는데 동작을 하지 않는다.&lt;/p&gt;
+
+&lt;p&gt;원인은 &lt;strong&gt;http_sub_module&lt;/strong&gt;이 설치 되지 않아서 발생하는 문제이다.
+nginx에 &lt;strong&gt;http_sub_module&lt;/strong&gt;을 설치하기 위해서는 꼭 source compile 설치를 해야 한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.opentutorials.org/module/384/4511&quot;&gt;NGINX 컴파일&lt;/a&gt;에서 컴파일 방법에 대하여 잘 정리가 되어 있다.&lt;/p&gt;
+
+&lt;p&gt;다음은 내가 사용한 명령어만 정리 하였다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 최초 update &amp;amp; 필수 gcc g++ 설치
+$&amp;gt; sudo apt-get update
+$&amp;gt; sudo apt-get install gcc g++;
+
+# Nginx 설치 디렉토리 설정
+$&amp;gt; mkdir nginx_source
+$&amp;gt; cd nginx_source/
+
+# Nginx 1.15.10 다운
+$&amp;gt; wget https://nginx.org/download/nginx-1.15.10.tar.gz
+$&amp;gt; tar xvf nginx-1.15.10.tar.gz
+
+# Nginx 설치를 위한 모듈들 설치 START
+$&amp;gt; wget ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.43.tar.gz
+$&amp;gt; tar xvf pcre-8.43.tar.gz
+
+$&amp;gt; wget https://www.openssl.org/source/openssl-1.0.2r.tar.gz
+$&amp;gt; tar -xzvf openssl-1.0.2r.tar.gz
+
+$&amp;gt; wget http://zlib.net/zlib-1.2.11.tar.gz
+$&amp;gt; tar xvf zlib-1.2.11.tar.gz
+# Nginx 설치를 위한 모듈들 설치 END
+
+# 실행 계정 생성
+$&amp;gt; useradd --shell /usr/sbin/nologin www-data
+ 
+$&amp;gt; cd nginx-1.15.10/
+# 컴파일 옵션 설정 **--with-http_sub_module** 내가 추가한 옵션이다.
+$&amp;gt; sudo ./configure --with-http_sub_module --with-zlib=../zlib-1.2.11 --with-pcre=../pcre-8.43 --with-openssl=../openssl-1.0.2r --with-http_ssl_module --with-debug  --prefix=/usr/local/nginx --user=www-data --group=www-data
+$&amp;gt; sudo make;
+$&amp;gt; sudo make install;
+
+
+# Nginx init 스크립트 처리
+$&amp;gt; sudo wget https://raw.github.com/JasonGiedymin/nginx-init-ubuntu/master/nginx -O /etc/init.d/nginx;
+$&amp;gt; sudo chmod +x /etc/init.d/nginx;
+$&amp;gt; sudo update-rc.d -f nginx defaults
+$&amp;gt; service nginx status
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이렇게 하고 nginx.conf에 proxy pass 설정을 한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;location /test/{ 
+	proxy_pass http://lahuman.github.io/; 
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이 경우 기본적으로 주소에 http://server/test 를 호출 하면 http://lahuman.pe.kr 내용을 확인 할 수 있다. 다만 해당 컨텐츠의 링크를 확인하면 절대 경로로 표출 되어 동작이 제대로 되지 않는다.&lt;/p&gt;
+
+&lt;p&gt;rewrite 와 sub_filter를 이용하여 내부 컨텐츠의 경로를 변경 하자
+내부 컨텐츠의 경로를 변경하는 방법으로 sub_filter를 이용할 수 있다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;location /test/ {
+        rewrite ^/test(/.*)$ $1 break;
+        proxy_pass http://lahuman.pe.kr/;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto https;
+        proxy_redirect    off;
+        proxy_set_header Accept-Encoding &quot;&quot;;
+        sub_filter_types *;
+        sub_filter_once off;
+        sub_filter '(?i)src=[\&quot;\']/' 'src=&quot;/test/';
+        sub_filter '(?i)href=[\'\&quot;]/' 'href=&quot;/test/';
+        sub_filter '/doc4sm/' '/test/doc4sm/';
+    }
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;오랜만에 설정을 하였다.&lt;/p&gt;
+
+&lt;h2 id=&quot;설정은-늘-힘들다&quot;&gt;설정은 늘 힘들다…&lt;/h2&gt;
+
+&lt;h2 id=&quot;참조-링크&quot;&gt;참조 링크&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://nginx.org/en/docs/http/ngx_http_sub_module.html&quot;&gt;Module ngx_http_sub_module&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.opentutorials.org/module/384/4511&quot;&gt;NGINX 컴파일&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://lahuman.jabsiri.co.kr/157&quot;&gt;proxy_pass 설정 후 상세 내용 LINK URL 패턴 자동 변경&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="nginx" /><category term="install" /><summary type="html">sub_filter를 사용하기 위해서는 꼭 컴파일 설치를 해야 한다.</summary></entry><entry><title type="html">R을 이용한 동시출현단어 분석</title><link href="https://lahuman.github.io/r_rJava/" rel="alternate" type="text/html" title="R을 이용한 동시출현단어 분석" /><published>2019-04-04T00:00:00+09:00</published><updated>2019-04-04T00:00:00+09:00</updated><id>https://lahuman.github.io/r_rJava</id><content type="html" xml:base="https://lahuman.github.io/r_rJava/">&lt;h1 id=&quot;r에서-rjava-사용하기-위한-설치-진행&quot;&gt;R에서 rJava 사용하기 위한 설치 진행&lt;/h1&gt;
 
 &lt;p&gt;동시출현 단어에 대한 분석이 필요하여, 검색을 해보았다. R언에에서 간단하게 함수 호출로 처리가 가능하다는 것을 확인하였다.&lt;/p&gt;
 
@@ -783,173 +873,4 @@ sudo fuser -k 10001/tcp
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;http://faq.hostway.co.kr/?mid=Linux_ETC&amp;amp;page=4&amp;amp;document_srl=1559&quot;&gt;리눅스에서 fuser 명령어 사용하기&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="linux" /><category term="kill" /><summary type="html">kill 명령도 여러가지!</summary></entry><entry><title type="html">MongoDB aggregate 사용해보기</title><link href="https://lahuman.github.io/mongodb_aggregate/" rel="alternate" type="text/html" title="MongoDB aggregate 사용해보기" /><published>2019-03-14T00:00:00+09:00</published><updated>2019-03-14T00:00:00+09:00</updated><id>https://lahuman.github.io/mongodb_aggregate</id><content type="html" xml:base="https://lahuman.github.io/mongodb_aggregate/">&lt;h1 id=&quot;mongodb-aggregate-사용&quot;&gt;MongoDB aggregate 사용&lt;/h1&gt;
-
-&lt;p&gt;다음과 같은 형식의 여러 ROW의 데이터를 하나의 데이터로 표현 하고 싶었다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# DATA
-{
-    &quot;_id&quot; : ObjectId(&quot;5c864b1e1cd4038eed5b5633&quot;),
-    &quot;link_tag&quot; : [ 
-        &quot;#핫앤쿨&quot;, 
-        &quot;#마스크팩&quot;, 
-        &quot;#홈케어&quot;, 
-        &quot;#리뉴메디&quot;, 
-        &quot;#젊줌마&quot;, 
-        &quot;#예뻐지는시간&quot;
-    ],
-    &quot;name&quot; : &quot;홈케어&quot;,
-    &quot;text&quot; : &quot;젊어지는시간\n. .\n\n#핫앤쿨 #마스크팩 #홈케어\n#리뉴메디 #젊줌마 #예뻐지는시간&quot;,
-    &quot;owner&quot; : &quot;10961953345&quot;,
-    &quot;shortcode&quot; : &quot;Bu3eX2iHIFG&quot;,
-    &quot;display_url&quot; : &quot;https://scontent-icn1-1.cdninstagram.com/vp/c330b55401b96aca266acca202386b42/5D08D97D/t51.2885-15/e35/54446467_181108306201409_5180562059450456961_n.jpg?_nc_ht=scontent-icn1-1.cdninstagram.com&quot;,
-    &quot;is_video&quot; : false,
-    &quot;accessibility_caption&quot; : &quot;Image may contain: 1 person&quot;,
-    &quot;writed_date&quot; : ISODate(&quot;2019-03-11T11:44:00.000Z&quot;),
-    &quot;hash&quot; : &quot;086e2b6a65b823c887ef1afc19734f67&quot;,
-    &quot;createdAt&quot; : ISODate(&quot;2019-03-11T11:48:46.276Z&quot;),
-    &quot;updatedAt&quot; : ISODate(&quot;2019-03-11T12:22:43.532Z&quot;),
-    &quot;__v&quot; : 3
-}
-
-/* 2 */
-{
-    &quot;_id&quot; : ObjectId(&quot;5c864b1e1cd4038eed5b5632&quot;),
-    &quot;link_tag&quot; : [ 
-        &quot;#토니슈어&quot;, 
-        &quot;#다낭까지와서&quot;, 
-        &quot;#이러고있다&quot;, 
-        &quot;#간절한걸어떡함&quot;, 
-        &quot;#플라즈마&quot;, 
-        &quot;#갈바닉&quot;, 
-        &quot;#너네둘만믿는다&quot;, 
-        &quot;#동안피부&quot;, 
-        &quot;#얼굴마사지기&quot;, 
-        &quot;#피부개선&quot;, 
-        &quot;#탄력&quot;, 
-        &quot;#피부미용기기&quot;, 
-        &quot;#미용&quot;, 
-        &quot;#홈케어&quot;, 
-        &quot;#피부미인&quot;, 
-        &quot;#데일리&quot;, 
-        &quot;#뷰티&quot;, 
-        &quot;#살균&quot;, 
-        &quot;#셀프&quot;, 
-        &quot;#피부질환&quot;, 
-        &quot;#플라즈마&quot;, 
-        &quot;#트러블케어&quot;, 
-        &quot;#피부&quot;, 
-        &quot;#피부과&quot;, 
-        &quot;#선물&quot;, 
-        &quot;#물광피부&quot;, 
-        &quot;#보습&quot;, 
-        &quot;#안티에이징&quot;, 
-        &quot;#led마스크&quot;, 
-        &quot;#미백&quot;, 
-        &quot;#콜라겐&quot;
-    ],
-    &quot;name&quot; : &quot;홈케어&quot;,
-    &quot;text&quot; : &quot;토니느님~ 제 피부를 10년전으로 돌려주세요\n\n제발요....♡ .\n\n#토니슈어 #다낭까지와서 #이러고있다 #간절한걸어떡함 #플라즈마 #갈바닉 #너네둘만믿는다 #동안피부 가즈앙~ \n#얼굴마사지기 #피부개선 #탄력 #피부미용기기 #미용 #홈케어 #피부미인 #데일리 #뷰티 #살균 #셀프 #피부질환 #플라즈마 #트러블케어 #피부 #피부과 #선물 #물광피부 #보습 #안티에이징 #led마스크 #미백 #콜라겐&quot;,
-    &quot;owner&quot; : &quot;10698447319&quot;,
-    &quot;shortcode&quot; : &quot;Bu3e2n_jrrE&quot;,
-    &quot;display_url&quot; : &quot;https://scontent-icn1-1.cdninstagram.com/vp/97d840dbdea55753d2a976302f90002b/5D065CE9/t51.2885-15/fr/e15/s1080x1080/53176269_319394038719034_3474616797099883761_n.jpg?_nc_ht=scontent-icn1-1.cdninstagram.com&quot;,
-    &quot;is_video&quot; : false,
-    &quot;accessibility_caption&quot; : &quot;Image may contain: outdoor and water&quot;,
-    &quot;writed_date&quot; : ISODate(&quot;2019-03-11T11:48:12.000Z&quot;),
-    &quot;hash&quot; : &quot;c9a418d8295391c1c83553f0316d1127&quot;,
-    &quot;createdAt&quot; : ISODate(&quot;2019-03-11T11:48:46.266Z&quot;),
-    &quot;updatedAt&quot; : ISODate(&quot;2019-03-11T12:22:43.527Z&quot;),
-    &quot;__v&quot; : 3
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;원하는 결과 데이터&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[
-	{ &quot;tag&quot; : &quot;#미백&quot;, &quot;count&quot; : 3},
-	{ &quot;tag&quot; : &quot;#물광&quot;, &quot;count&quot; : 4},
-	{ &quot;tag&quot; : &quot;#보습&quot;, &quot;count&quot; : 10},
-	...
-]
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;구글을 검색하니 &lt;a href=&quot;https://docs.mongodb.com/manual/reference/operator/update/push/&quot;&gt;$push&lt;/a&gt;명령어를 찾았다.&lt;/p&gt;
-
-&lt;p&gt;내가 처리한 Query는 다음과 같다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;db.hashtag.aggregate([
-    { $match: { $and: [{ name: &quot;테그명&quot; }, { &quot;createdAt&quot;: { $gte: (new Date()), $lt: (new Date()) } }] } },
-    {$unwind: &quot;$link_tag&quot;},
-    {$group:{_id:null, clrs: {$push: {name: &quot;$link_tag&quot;, count:1}}}},
-    {$unwind: &quot;$clrs&quot;},
-    {$group:{_id:&quot;$clrs.name&quot;, size: {$sum:&quot;$clrs.count&quot;}}},
-    { $sort: { size:-1} },
-    { $limit : 5 },
-    {$project: {_id:1, size:1 }
-  ]);
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;이렇게 처리 하면 다음과 같은 결과를 받을 수 있다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[
-	{ _id:&quot;#물광&quot;, size:15 },
-	{ _id:&quot;#홈케어&quot;, size:13 }
-	{ _id:&quot;#대일리&quot;, size:12 }
-]
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;다음은 매 시간별로 수집된 데이터를 counting 하는 query 이다.
-내가 원하는 결과는 다음과 같다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[
-	{&quot;date&quot;: &quot;2018-03-14 10&quot;, &quot;count&quot;:30},
-	{&quot;date&quot;: &quot;2018-03-14 11&quot;, &quot;count&quot;:20},
-	{&quot;date&quot;: &quot;2018-03-14 12&quot;, &quot;count&quot;:33},
-	{&quot;date&quot;: &quot;2018-03-14 13&quot;, &quot;count&quot;:34}
-]
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;다행이 이번 QUERY는 한방에 처리 하였다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;db.hashtag.aggregate([
-    { $match: { $and: [{ name: &quot;태그명&quot; }, { &quot;createdAt&quot;: { $gte: (new Date()), $lt: (new Date()) } }] } },
-    {
-      $group:
-      {
-        _id:
-        {
-          hour: { $hour: &quot;$createdAt&quot; },
-          day: { $dayOfMonth: &quot;$createdAt&quot; },
-          month: { $month: &quot;$createdAt&quot; },
-          year: { $year: &quot;$createdAt&quot; }
-        },
-        value: { $sum: 1 },
-        date: { $first: &quot;$createdAt&quot; },
-        sortDate: { $first: &quot;$createdAt&quot; }
-      }
-    },
-    {
-      $project:
-      {
-        date:
-        {
-          $dateToString: { format: &quot;%Y-%m-%d %H&quot;, date: &quot;$date&quot; }
-        },
-        sortDate: 1,
-        value: 1,
-        _id: 0
-      }
-    },
-    { $sort: { sortDate: 1 }}
-  ])
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;분명히 많은 기능을 Mongodb에서 제공해주고 있는데, 잘 쓰지 못하고 있다…&lt;/p&gt;
-
-&lt;h2 id=&quot;노력하자&quot;&gt;노력하자.&lt;/h2&gt;
-
-&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://docs.mongodb.com/manual/reference/operator/update/push/&quot;&gt;$push&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="mongodb" /><category term="aggregate" /><summary type="html">많은걸 제공해주는데 내가 잘 모름...</summary></entry></feed>
+&lt;/ul&gt;</content><category term="linux" /><category term="kill" /><summary type="html">kill 명령도 여러가지!</summary></entry></feed>
