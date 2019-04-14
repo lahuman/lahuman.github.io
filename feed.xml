@@ -1,4 +1,71 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-04-10T17:33:24+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Nginx source를 이용한 compile 설치</title><link href="https://lahuman.github.io/nginx_source_install/" rel="alternate" type="text/html" title="Nginx source를 이용한 compile 설치" /><published>2019-04-09T00:00:00+09:00</published><updated>2019-04-09T00:00:00+09:00</updated><id>https://lahuman.github.io/nginx_source_install</id><content type="html" xml:base="https://lahuman.github.io/nginx_source_install/">&lt;h1 id=&quot;nginx-source를-이용한-컴파일-설치&quot;&gt;Nginx source를 이용한 컴파일 설치&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-04-14T17:38:56+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">swap 설정 하기!</title><link href="https://lahuman.github.io/setting_swap/" rel="alternate" type="text/html" title="swap 설정 하기!" /><published>2019-04-13T00:00:00+09:00</published><updated>2019-04-13T00:00:00+09:00</updated><id>https://lahuman.github.io/setting_swap</id><content type="html" xml:base="https://lahuman.github.io/setting_swap/">&lt;h1 id=&quot;swap-설정하기&quot;&gt;swap 설정하기&lt;/h1&gt;
+
+&lt;p&gt;2G 메모리를 가진 MongoDB 인스턴스에서 메모리가 부족하다는 메시지를 계속 받았다.&lt;/p&gt;
+
+&lt;p&gt;메모리를 제외하고는 큰 문제가 없어서 확인을 해보니 swap 영역의 크기가 0 이었다. swap은 디스크를 메모리처럼 사용하는 거라, 성능에 좋지 않아서 기본설정이 사용하지 않도록 되어있다.&lt;/p&gt;
+
+&lt;p&gt;MongoDB의 메모리 문제를 해결하기 위해 swap을 이용하기로 내부 결정을 하였다.&lt;/p&gt;
+
+&lt;p&gt;설정은 다음과 같다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# swap 확인
+$&amp;gt; sudo swapon -s
+
+$&amp;gt; sudo  free -m
+              total        used        free      shared  buff/cache   available
+Mem:           1955         271        1169           0         515        1537
+Swap:             0           0           0
+
+#swap 만들기
+$&amp;gt; sudo fallocate -l 4G /swapfile
+$&amp;gt; sudo chmod 600 /swapfile
+$&amp;gt; sudo mkswap /swapfile
+Setting up swapspace version 1, size = 4 GiB (4294963200 bytes)
+no label, UUID=67f5331d-d17a-4c67-9d77-b819114a9aab
+
+$&amp;gt; sudo swapon /swapfile
+sudo swapon -s
+Filename				Type		Size	Used	Priority
+/swapfile                              	file    	4194300	0	-2
+
+$&amp;gt; free -m
+              total        used        free      shared  buff/cache   available
+Mem:           1955         271        1169           0         515        1537
+Swap:          4095           0        4095
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;마지막으로 서버가 재부팅 되었을때, swap파일이 적용되도록 수정을 해야 한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$&amp;gt; sudo vi /etc/fstab
+
+# 가장 아래 부분에 추가 
+/swapfile   none    swap    sw    0   0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;추가-swap-삭제-하기&quot;&gt;추가 swap 삭제 하기&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# swap 메모리 제거
+$&amp;gt; sudo swapoff -v /swapfile
+swapoff /swapfile
+
+# 물리 파일 제거
+$&amp;gt; sudo rm -f /swapfile
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;swap 메모리를 제거할때 여유 공간이 없을 경우 다음과 같은 오류가 발생 할수 있다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$&amp;gt; sudo swapoff -a
+swapoff: /swapfile: swapoff failed: Cannot allocate memory
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이럴때는 서비스를 종료 해서 메모리를 충분히 확보후 실행하면 된다.&lt;/p&gt;
+
+&lt;h2 id=&quot;참조-링크&quot;&gt;참조 링크&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://zetawiki.com/wiki/%EB%A6%AC%EB%88%85%EC%8A%A4_%EC%8A%A4%EC%99%91%EA%B3%B5%EA%B0%84_%EC%B6%94%EA%B0%80%ED%95%98%EA%B8%B0_%EC%8B%A4%EC%8A%B5&quot;&gt;리눅스 스왑공간 추가하기 실습&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://linuxize.com/post/how-to-add-swap-space-on-ubuntu-18-04/&quot;&gt;How To Add Swap Space on Ubuntu 18.04&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="swap" /><summary type="html">부족한 메모리를 도와주자!</summary></entry><entry><title type="html">Nginx source를 이용한 compile 설치</title><link href="https://lahuman.github.io/nginx_source_install/" rel="alternate" type="text/html" title="Nginx source를 이용한 compile 설치" /><published>2019-04-09T00:00:00+09:00</published><updated>2019-04-09T00:00:00+09:00</updated><id>https://lahuman.github.io/nginx_source_install</id><content type="html" xml:base="https://lahuman.github.io/nginx_source_install/">&lt;h1 id=&quot;nginx-source를-이용한-컴파일-설치&quot;&gt;Nginx source를 이용한 컴파일 설치&lt;/h1&gt;
 
 &lt;p&gt;오랜만에 Nginx를 설치하고 sub_filter를 사용하였는데 동작을 하지 않는다.&lt;/p&gt;
 
@@ -826,51 +893,4 @@ res = make_response(json.dumps(mecab.morphs(param[&quot;text&quot;]), ensure_asc
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;http://konlpy.org/ko/latest/api/konlpy.tag/#module-konlpy.tag._hannanum&quot;&gt;KoNLPy-tag Package&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;http://flask.pocoo.org/&quot;&gt;Flask&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="morphs" /><category term="konlpy" /><summary type="html">형태소 분석기와 연결만 할뿐</summary></entry><entry><title type="html">kill 명령을 구동중인 Port 기반으로 처리</title><link href="https://lahuman.github.io/kill_by_port/" rel="alternate" type="text/html" title="kill 명령을 구동중인 Port 기반으로 처리" /><published>2019-03-17T00:00:00+09:00</published><updated>2019-03-17T00:00:00+09:00</updated><id>https://lahuman.github.io/kill_by_port</id><content type="html" xml:base="https://lahuman.github.io/kill_by_port/">&lt;h1 id=&quot;kill-명령을-구동중인-port-기반으로-처리&quot;&gt;kill 명령을 구동중인 Port 기반으로 처리&lt;/h1&gt;
-
-&lt;p&gt;특정 port를 Listening하고 있는 PID를 kill 하는 명령어입니다.&lt;/p&gt;
-
-&lt;p&gt;fuser 명령어는 특정 파일을 어떤 프로세스에서 사용하는지 확인할수 있다. 또한 PID를 KILL 또는 재시작도 가능하다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;fuser 명령어
-옵션
--a : 사용되고 있지 않은 파일까지도 표시한다.
--k : 지정된 파일과 관련된 모든 프로세스들을 KILL 한다.
--i : 프로세스를 KILL 하기전에 사용자에게 확인한다.
--n space : 지정된 공간(file, udp, or , tcp)내에서 검색한다.
--s : 결과를 간략히 출력한다.
--u : 프로세스 ID(PID)의 소유자를 보여준다.
-
-1)특정파일이나 디렉토리를 사용하고 있는 프로세스의 PID를 확인하는 명령어
-#fuser -m /etc/sshd/sshd_config  -&amp;gt; sshd_config파일을 사용하는 프로세스의 PID를 확인한다.
-2)특정파일이나 디렉토리를 사용하고 있는 프로세스를 모두 죽이는 명령어
-#fuser -k /usr/sbin/sshd          -&amp;gt; sshd 데몬을 사용하고 있는 프로세스를 모두 KILL한다.
-3)특정프로세스(또는 데몬파일)가 실행 중에 사용한 사용한정보(user),PID정보, ACCESS상태정보,
-실행명령어(COMMAND)등의 자세한 상황을 파악할수 있다
-
-#fuser -v /usr/sbin/sshd
-USER        PID    ACCESS    COMMAND
-/usr/sbin/sshd:       root       3432    ...e.        sshd
-                     root       5176    ...e.        sshd
-                     test       5179    ...e.        sshd
-ACCESS항목의  의미
-- c : 현재 디렉토리를 의미함.
-- e : 실행 가능함을 표시함.
-- f : 열려진 파일을 의미함.(default 이므로 생략됨)
-- r : root 디렉토리를 의미함.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;사용예&quot;&gt;사용예&lt;/h2&gt;
-
-&lt;p&gt;10001 port를 사용하는 프로그램 kill&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 10001 port process kill
-#!/bin/bash
-sudo fuser -k 10001/tcp
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://faq.hostway.co.kr/?mid=Linux_ETC&amp;amp;page=4&amp;amp;document_srl=1559&quot;&gt;리눅스에서 fuser 명령어 사용하기&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="linux" /><category term="kill" /><summary type="html">kill 명령도 여러가지!</summary></entry></feed>
+&lt;/ul&gt;</content><category term="morphs" /><category term="konlpy" /><summary type="html">형태소 분석기와 연결만 할뿐</summary></entry></feed>
