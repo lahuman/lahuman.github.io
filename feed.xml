@@ -1,4 +1,54 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-04-22T23:27:56+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">nodejs를 이용하여 web push 몇가지 주요 사항</title><link href="https://lahuman.github.io/web_push_with_nodejs_sometings/" rel="alternate" type="text/html" title="nodejs를 이용하여 web push 몇가지 주요 사항" /><published>2019-04-22T00:00:00+09:00</published><updated>2019-04-22T00:00:00+09:00</updated><id>https://lahuman.github.io/web_push_with_nodejs_sometings</id><content type="html" xml:base="https://lahuman.github.io/web_push_with_nodejs_sometings/">&lt;h1 id=&quot;web-push-구현하기&quot;&gt;web push 구현하기&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-04-26T03:38:56+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">puppeteer에서 POST로 요청 날리기</title><link href="https://lahuman.github.io/puppeteer_post_request/" rel="alternate" type="text/html" title="puppeteer에서 POST로 요청 날리기" /><published>2019-04-25T00:00:00+09:00</published><updated>2019-04-25T00:00:00+09:00</updated><id>https://lahuman.github.io/puppeteer_post_request</id><content type="html" xml:base="https://lahuman.github.io/puppeteer_post_request/">&lt;h1 id=&quot;puppeteer에서-post로-요청-날리기&quot;&gt;puppeteer에서 POST로 요청 날리기&lt;/h1&gt;
+
+&lt;p&gt;puppeteer에서 request를 POST로 요청 하기 위해서는 다음과 같은 설정을 해야 합니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;await page.setRequestInterception(true);
+// create a flag to only modify the initial request
+let reformatFirstRequest = true;
+
+page.on('request', interceptedRequest =&amp;gt; {
+  if (reformatFirstRequest) {
+    console.log('first-request');
+    reformatFirstRequest = false;
+    interceptedRequest.continue({
+      method: 'POST',
+      postData: JSON.stringify(data),
+      headers: { 'Content-Type': 'application/json' }
+    });
+  } else {
+    interceptedRequest.continue();
+  }
+});
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;interceptedRequest 를 한번만 하지 않으면 이후 해당 request에 대한 404 오류가 떨어질 수 있다.&lt;/p&gt;
+
+&lt;h4 id=&quot;끗&quot;&gt;끗~&lt;/h4&gt;
+
+&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/GoogleChrome/puppeteer/issues/669&quot;&gt;Send POST request to a page and take screenshot #669&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="pupeteer" /><category term="post" /><summary type="html">쉬울꺼라 생각했는데 쉽지 않았음</summary></entry><entry><title type="html">nodejs port forwarding 처리</title><link href="https://lahuman.github.io/nodejs_port_forwarding/" rel="alternate" type="text/html" title="nodejs port forwarding 처리" /><published>2019-04-23T00:00:00+09:00</published><updated>2019-04-23T00:00:00+09:00</updated><id>https://lahuman.github.io/nodejs_port_forwarding</id><content type="html" xml:base="https://lahuman.github.io/nodejs_port_forwarding/">&lt;h1 id=&quot;nodejs-port-forwarding-처리&quot;&gt;nodejs port forwarding 처리&lt;/h1&gt;
+
+&lt;p&gt;https를 설정하고 나니, 기존 80 포트로 요청이 있을 경우, 443으로 redirect 하는 방법을 찾아보았다.&lt;/p&gt;
+
+&lt;p&gt;구글을 확인해보니, 다음과 같이 쉽게 처리 할 수 있었다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// Redirect from http port 80 to https
+var http = require('http');
+http.createServer(function (req, res) {
+    res.writeHead(301, { &quot;Location&quot;: &quot;https://&quot; + req.headers['host'] + req.url });
+    res.end();
+}).listen(80);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;구글과-함께면-뭐든-쉽다&quot;&gt;구글과 함께면 뭐든 쉽다.&lt;/h4&gt;
+
+&lt;h2 id=&quot;참조-링크&quot;&gt;참조 링크&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/7450940/automatic-https-connection-redirect-with-node-js-express&quot;&gt;Automatic HTTPS connection/redirect with node.js/express&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="port" /><category term="nodejs" /><summary type="html">http로 접근시 https로 이동 시키자!</summary></entry><entry><title type="html">nodejs를 이용하여 web push 몇가지 주요 사항</title><link href="https://lahuman.github.io/web_push_with_nodejs_sometings/" rel="alternate" type="text/html" title="nodejs를 이용하여 web push 몇가지 주요 사항" /><published>2019-04-22T00:00:00+09:00</published><updated>2019-04-22T00:00:00+09:00</updated><id>https://lahuman.github.io/web_push_with_nodejs_sometings</id><content type="html" xml:base="https://lahuman.github.io/web_push_with_nodejs_sometings/">&lt;h1 id=&quot;web-push-구현하기&quot;&gt;web push 구현하기&lt;/h1&gt;
 
 &lt;p&gt;web push를 구현하기 위해서 &lt;a href=&quot;https://www.npmjs.com/package/web-push&quot;&gt;web-push&lt;/a&gt;라는 모듈을 사용해야 한다.&lt;/p&gt;
 
@@ -691,171 +741,4 @@ NPM에서 &lt;a href=&quot;https://www.npmjs.com/package/jquery-datepicker&quot;
 
 &lt;h2 id=&quot;원본-how-to-customizing-and-theming-jquery-ui-datepicker&quot;&gt;원본: &lt;a href=&quot;https://www.hongkiat.com/blog/jquery-ui-datepicker/&quot;&gt;How to: Customizing and Theming jQuery UI Datepicker&lt;/a&gt;&lt;/h2&gt;
 
-&lt;h2 id=&quot;내가-사용하는-살짝-고친-버젼&quot;&gt;&lt;a href=&quot;https://github.com/lahuman/jquery-datepicker_css&quot;&gt;내가 사용하는 살짝 고친 버젼&lt;/a&gt;&lt;/h2&gt;</content><category term="jquery" /><category term="datepicker" /><summary type="html">jQuery-UI에서 datepicker만 사용하기</summary></entry><entry><title type="html">리더 또는 사수라 불리는 자리에 있다.</title><link href="https://lahuman.github.io/20190322/" rel="alternate" type="text/html" title="리더 또는 사수라 불리는 자리에 있다." /><published>2019-03-22T00:00:00+09:00</published><updated>2019-03-22T00:00:00+09:00</updated><id>https://lahuman.github.io/20190322</id><content type="html" xml:base="https://lahuman.github.io/20190322/">&lt;h1 id=&quot;어떤-리더가-되어야-할까&quot;&gt;어떤 리더가 되어야 할까??&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;일을 시작한 지 정신을 차려보니 13년이 지났다. 어느덧 사수라고 불리며 동료에게 업무를 배정하거나, 막히는 부분에 대한 지원도 해주고 업무에 대한 조언을 해준다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;얼마 전 꼰대 방지 5계명을 읽고 “내가 꼰대처럼 행동했구나!”라고 생각했다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;꼰대-방지-5계명&quot;&gt;꼰대 방지 5계명&lt;/h2&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;내가 틀렸을지도 모른다.&lt;/li&gt;
-  &lt;li&gt;내가 바꿀 수 있는 사람은 없다.&lt;/li&gt;
-  &lt;li&gt;그때는 맞고 지금은 틀리다.&lt;/li&gt;
-  &lt;li&gt;말하지 않고 들어라, 답하지 말고 물어라&lt;/li&gt;
-  &lt;li&gt;존경은 권리가 아니라 성취다.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;요즘 좋은 리더가 되기 위하여 많은 내용을 보고 있는데,&lt;/p&gt;
-
-&lt;p&gt;꼰대에 대한 많은 생각을 하게 된다. 
-&lt;strong&gt;우황청심원&lt;/strong&gt;에 대한 내용도 기억해야 겠다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;우: 우월적 지위를 잊어라.&lt;/li&gt;
-  &lt;li&gt;황: (상)황이 바뀌었음을 알자.&lt;/li&gt;
-  &lt;li&gt;청: 청년시절을 기억하라. 입장을 바꿔보라.&lt;/li&gt;
-  &lt;li&gt;심: 심판관 노릇하지, 가르치려 하지마라&lt;/li&gt;
-  &lt;li&gt;원: 원칙을 버리지 마라.﻿&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;마지막으로 리더가 되었을때 조심해야 하는게 무엇일까?&lt;/p&gt;
-
-&lt;h2 id=&quot;좋은-리더--좋은-조직&quot;&gt;좋은 리더 &amp;amp; 좋은 조직&lt;/h2&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;동료에게서 기회를 빼앗지 마라
-    &lt;ul&gt;
-      &lt;li&gt;내가 잘하는 일이라고 내가 하기 보다 동료가 배울 기회를 제공하라&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;무능한 사람은 버려라
-    &lt;ul&gt;
-      &lt;li&gt;실패와 무능은 다르다. 생산적 실패는 용인하고 무능함을 근절하는 것사이에서 건강한 균형을 유지하는건 쉬운 일이 아니다.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;조언을 하지 마라
-    &lt;ul&gt;
-      &lt;li&gt;듣는 사람에게 고역일 뿐이다.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;하지만-나는&quot;&gt;하지만 나는…&lt;/h2&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;지금까지 일하면서 동료와 함께 많이 배우고 서로 자신만의 영역을 만들고 해당 영역에서는 최고의 전문가가 되기 위해 노력 하였다.&lt;/p&gt;
-
-  &lt;p&gt;부족한 동료의 발전을 위해 많은 시도를 했고, 동료가 스스로 노력하기를  기대 하였다.&lt;/p&gt;
-
-  &lt;p&gt;좋은 방향으로 이끌어 가도록 조언을 많이 하였다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;결국 그냥 꼰대 짓을 한것이 아닌가 싶다.&lt;/p&gt;
-
-&lt;p&gt;얼마전에 함께 일했던 동료가 나로 인해 힘들었다는 이야기도 들었다.&lt;/p&gt;
-
-&lt;h2 id=&quot;꼰대가-되지-않도록-노력하자&quot;&gt;꼰대가 되지 않도록 노력하자.&lt;/h2&gt;
-
-&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://jjalbox.com/vfgFF&quot;&gt;꼰대 방지 5계명&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=jJCiXkizKwA&quot;&gt;꼰대 5계명 - 나이들수록 명심해야할 5가지 - 꼰대 되지 않는 법 - 우황청심원&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://m.hbrkorea.com/magazine/article/view/2_1/page/1/article_no/1284&quot;&gt;혁신적 조직문화에 관한 냉혹한 진실&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="단상" /><summary type="html">많은 종류의 리더가 있다.</summary></entry><entry><title type="html">Frontend 에서 Npm 모듈 사용하기</title><link href="https://lahuman.github.io/npm_frontend-dependencies/" rel="alternate" type="text/html" title="Frontend 에서 Npm 모듈 사용하기" /><published>2019-03-20T00:00:00+09:00</published><updated>2019-03-20T00:00:00+09:00</updated><id>https://lahuman.github.io/npm_frontend-dependencies</id><content type="html" xml:base="https://lahuman.github.io/npm_frontend-dependencies/">&lt;h1 id=&quot;frontend-에서-npm-모듈-사용하기&quot;&gt;Frontend 에서 Npm 모듈 사용하기&lt;/h1&gt;
-
-&lt;p&gt;지금 일하는 곳에서 frontend 모듈 의존성 관리를 위해서 &lt;a href=&quot;https://bower.io/&quot;&gt;Bower&lt;/a&gt;를 사용하고 있다. 하지만 Bower를 더 이상 사용하지 말고 &lt;a href=&quot;https://yarnpkg.com/lang/en/&quot;&gt;Yarn&lt;/a&gt;나 &lt;a href=&quot;https://webpack.js.org/&quot;&gt;webpack&lt;/a&gt;를 사용하라고 추천 하고 있다.&lt;/p&gt;
-
-&lt;p&gt;Node의 모듈 의존성 관리를 위해 &lt;a href=&quot;https://www.npmjs.com/&quot;&gt;npm&lt;/a&gt;을 사용하고 있는데, Npm으로 frontend 까지 처리하고 싶은 욕심이 생겨서 좀 검색을 해보다가 &lt;a href=&quot;https://www.npmjs.com/package/frontend-dependencies&quot;&gt;frontend-dependencies&lt;/a&gt;을 찾았다.&lt;/p&gt;
-
-&lt;p&gt;단순하게 node_modules에 있는 특정 디렉토리 또는 파일을 원하는 곳으로 복사하는 기능이지만, 이 정도면 충분한거 같아서 사용하고 있다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 설치 
-npm install --save frontend-dependencies
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;설치 이후에 package.json 에 설정을 해줘야 한다. 다음은 &lt;a href=&quot;https://www.npmjs.com/package/frontend-dependencies&quot;&gt;frontend-dependencies&lt;/a&gt;의 full example를 발췌 하였다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{
-  &quot;name&quot;: &quot;frontend-dependencies-test&quot;,
-  &quot;version&quot;: &quot;1.0.0&quot;,
-  &quot;description&quot;: &quot;frontend-dependencies test project&quot;,
-  &quot;main&quot;: &quot;index.js&quot;,
-  &quot;author&quot;: &quot;Matias Surdi &amp;lt;matias@surdi.net&amp;gt;&quot;,
-  &quot;license&quot;: &quot;Apache-2.0&quot;,
-  &quot;dependencies&quot;: { },
-  &quot;devDependencies&quot;: {
-    &quot;shelljs&quot;: &quot;0.7.4&quot;
-  },
-  ## 추가되는 내용!!!
-  &quot;frontendDependencies&quot;: {
-    &quot;target&quot;: &quot;static/&quot;,
-    &quot;packages&quot;: {
-      &quot;jquery&quot;: {             // npm package name
-          &quot;version&quot;: &quot;3.1.0&quot;, // for `npm install`: version, tag or version range
-          &quot;src&quot;: &quot;dist/*&quot;     // relative path in package to copy files
-          &quot;namespaced&quot;: true  // extra parent folder with package Name
-      },
-      &quot;normalize.css&quot;: { // copy whole package
-          &quot;version&quot;: &quot;4.2.0&quot;
-      },
-      &quot;turbolinks&quot;: {
-          // alternative to 'version`: specifie git url, tarball url, tarball file, folder
-          &quot;url&quot;: &quot;git://github.com/turbolinks/turbolinks.git&quot;,     
-          &quot;src&quot;: &quot;{src,LICENSE}&quot;, // copy multiple files
-          &quot;target&quot;: &quot;static/turbo&quot; // specific target path
-      }
-    }
-  }
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;내 경우에는 특정 파일을 지정하기 귀찮아서 전체 파일을 복사하게 아래와 같이 사용하고 있다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&quot;frontendDependencies&quot;: {
-    &quot;target&quot;: &quot;public/static/&quot;,
-    &quot;packages&quot;: {
-      &quot;jquery&quot;: {
-        &quot;version&quot;: &quot;3.1.0&quot;,
-        &quot;namespace&quot;: true
-      },
-      &quot;bootstrap&quot;: {
-        &quot;version&quot;: &quot;4.3.1&quot;,
-        &quot;namespace&quot;: true
-      },
-      &quot;axios&quot;: {
-        &quot;version&quot;: &quot;^0.18.0&quot;,
-        &quot;namespace&quot;: true
-      }
-    }
-  }
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;그리고 실제 파일을 복사하기 위해 다음과 같은 명령어를 실행해야 한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 파일 복사 진행
-node ./node_modules/frontend-dependencies/index.js
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;간단하게 package.json에 scripts에 추가해서 사용해도 된다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &quot;scripts&quot;: {
-        &quot;postinstall&quot;: &quot;node ./node_modules/frontend-dependencies/index.js&quot;
-    }
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;이렇게-하면-npm으로-하나만으로-backend와-frontend의-의존성을-관리-할-수-있다&quot;&gt;이렇게 하면 npm으로 하나만으로 backend와 frontend의 의존성을 관리 할 수 있다.&lt;/h2&gt;
-
-&lt;h2 id=&quot;참고-주소&quot;&gt;참고 주소&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://bower.io/&quot;&gt;Bower&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://yarnpkg.com/lang/en/&quot;&gt;Yarn&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://webpack.js.org/&quot;&gt;webpack&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.npmjs.com/&quot;&gt;npm&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.npmjs.com/package/frontend-dependencies&quot;&gt;frontend-dependencies&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="nodejs" /><category term="frontend" /><summary type="html">frontend-dependencies를 이용해서 복사 기능을 사용하자!</summary></entry></feed>
+&lt;h2 id=&quot;내가-사용하는-살짝-고친-버젼&quot;&gt;&lt;a href=&quot;https://github.com/lahuman/jquery-datepicker_css&quot;&gt;내가 사용하는 살짝 고친 버젼&lt;/a&gt;&lt;/h2&gt;</content><category term="jquery" /><category term="datepicker" /><summary type="html">jQuery-UI에서 datepicker만 사용하기</summary></entry></feed>
