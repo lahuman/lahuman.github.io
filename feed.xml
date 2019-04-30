@@ -1,4 +1,26 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-04-26T03:38:56+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">puppeteer에서 POST로 요청 날리기</title><link href="https://lahuman.github.io/puppeteer_post_request/" rel="alternate" type="text/html" title="puppeteer에서 POST로 요청 날리기" /><published>2019-04-25T00:00:00+09:00</published><updated>2019-04-25T00:00:00+09:00</updated><id>https://lahuman.github.io/puppeteer_post_request</id><content type="html" xml:base="https://lahuman.github.io/puppeteer_post_request/">&lt;h1 id=&quot;puppeteer에서-post로-요청-날리기&quot;&gt;puppeteer에서 POST로 요청 날리기&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-04-30T23:08:18+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">입사 5개월차 후기</title><link href="https://lahuman.github.io/20190430/" rel="alternate" type="text/html" title="입사 5개월차 후기" /><published>2019-04-30T00:00:00+09:00</published><updated>2019-04-30T00:00:00+09:00</updated><id>https://lahuman.github.io/20190430</id><content type="html" xml:base="https://lahuman.github.io/20190430/">&lt;h1 id=&quot;puppeteer에서-post로-요청&quot;&gt;puppeteer에서 POST로 요청&lt;/h1&gt;
+
+&lt;p&gt;기본적으로 오래된 조직은 하향평준화가 된다고 한다.&lt;/p&gt;
+
+&lt;p&gt;지금 팀은 상향평준화를 위해 많은 노력을 한다.&lt;/p&gt;
+
+&lt;p&gt;코드리뷰, 페어코딩, 쇼미더코딩, CI/CD 구축 이라던지, 외국 컨퍼런스 참가 및 여러 활동을 지원 한다.&lt;/p&gt;
+
+&lt;p&gt;하지만 팀에 적응 못하거나, 힘들어 하는 인력은 교체한다. 입사하고 5개월 동안 4분 정도 다른팀으로 이동하셨고, 다른팀에 가신분들은 새로운 팀에 잘 적응하고 있다.&lt;/p&gt;
+
+&lt;p&gt;팀원들간에 건전한 경쟁을 하고 있으며, 늘 새로운 것을 익히고 업무에 반영해본다.
+(팀에 오래 계신 분들일 수록 실력이 좋다.)&lt;/p&gt;
+
+&lt;p&gt;처음 입사하고는 한달간 정신이 없었다. 힘들기도 하고 너무 빠르게 변하는 팀에 적응을 못하였다.&lt;/p&gt;
+
+&lt;p&gt;지난 5개월을 돌이켜 보면 최근 5년 중 가장 많이 발전하고 변화하고 있다.&lt;/p&gt;
+
+&lt;p&gt;R을 이용해 동시 단어출현 분석도 구현해 보고, 형태소 분석기를 설치해 다른 팀원이 사용할수 있게 구성해 보기도 하고, AWS의 LAMBDA, EC2, RDS등 여러 경험을 했다.&lt;/p&gt;
+
+&lt;p&gt;얼마 전 새로운 분들을 모시기 위해 이력서를 받아 코딩 테스트를 진행하였다.
+실력 좋은 분들이 많이 지원해 주셨고, 조만간 출근 하시는 분도 계신다.&lt;/p&gt;
+
+&lt;p&gt;많이 기대가 된다.&lt;/p&gt;</content><category term="단상" /><summary type="html">상향 평준화를 위해서...</summary></entry><entry><title type="html">puppeteer에서 POST로 요청 날리기</title><link href="https://lahuman.github.io/puppeteer_post_request/" rel="alternate" type="text/html" title="puppeteer에서 POST로 요청 날리기" /><published>2019-04-25T00:00:00+09:00</published><updated>2019-04-25T00:00:00+09:00</updated><id>https://lahuman.github.io/puppeteer_post_request</id><content type="html" xml:base="https://lahuman.github.io/puppeteer_post_request/">&lt;h1 id=&quot;puppeteer에서-post로-요청-날리기&quot;&gt;puppeteer에서 POST로 요청 날리기&lt;/h1&gt;
 
 &lt;p&gt;puppeteer에서 request를 POST로 요청 하기 위해서는 다음과 같은 설정을 해야 합니다.&lt;/p&gt;
 
@@ -730,15 +752,4 @@ router.post('/login', (req, res, next) =&amp;gt; {
 
 &lt;p&gt;어른이 되는건 아이들의 단점도 모두 받아주는 멋진 사람이 되어야 할텐데.. 난 여전히 부족하다.&lt;/p&gt;
 
-&lt;h3 id=&quot;어려워&quot;&gt;어려워&lt;/h3&gt;</content><category term="단상" /><summary type="html">낼 모레면 마흔인데.. 여전히 아이 같다.</summary></entry><entry><title type="html">jQuery-datepicker css 사용하기</title><link href="https://lahuman.github.io/jquery_datepicker/" rel="alternate" type="text/html" title="jQuery-datepicker css 사용하기" /><published>2019-03-27T00:00:00+09:00</published><updated>2019-03-27T00:00:00+09:00</updated><id>https://lahuman.github.io/jquery_datepicker</id><content type="html" xml:base="https://lahuman.github.io/jquery_datepicker/">&lt;h1 id=&quot;jquery-datepicker-css-사용하기&quot;&gt;jQuery-datepicker css 사용하기&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;jQuery-UI에서 제공하는 Datepicker를 사용할 경우 js만 이용하여 사용할 수 있다.
-NPM에서 &lt;a href=&quot;https://www.npmjs.com/package/jquery-datepicker&quot;&gt;jquery-datepicker&lt;/a&gt;만 다운로드하여 사용하면, css가 없어 많이 없어 보이는 달력이 표출된다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;아래 링크에서 제공하는 css와 2개의 이미지를 추가하면 이쁘게 표현된다.&lt;/p&gt;
-
-&lt;h2 id=&quot;원본-how-to-customizing-and-theming-jquery-ui-datepicker&quot;&gt;원본: &lt;a href=&quot;https://www.hongkiat.com/blog/jquery-ui-datepicker/&quot;&gt;How to: Customizing and Theming jQuery UI Datepicker&lt;/a&gt;&lt;/h2&gt;
-
-&lt;h2 id=&quot;내가-사용하는-살짝-고친-버젼&quot;&gt;&lt;a href=&quot;https://github.com/lahuman/jquery-datepicker_css&quot;&gt;내가 사용하는 살짝 고친 버젼&lt;/a&gt;&lt;/h2&gt;</content><category term="jquery" /><category term="datepicker" /><summary type="html">jQuery-UI에서 datepicker만 사용하기</summary></entry></feed>
+&lt;h3 id=&quot;어려워&quot;&gt;어려워&lt;/h3&gt;</content><category term="단상" /><summary type="html">낼 모레면 마흔인데.. 여전히 아이 같다.</summary></entry></feed>
