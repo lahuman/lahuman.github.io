@@ -1,4 +1,75 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-04-30T23:08:18+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">입사 5개월차 후기</title><link href="https://lahuman.github.io/20190430/" rel="alternate" type="text/html" title="입사 5개월차 후기" /><published>2019-04-30T00:00:00+09:00</published><updated>2019-04-30T00:00:00+09:00</updated><id>https://lahuman.github.io/20190430</id><content type="html" xml:base="https://lahuman.github.io/20190430/">&lt;h1 id=&quot;puppeteer에서-post로-요청&quot;&gt;puppeteer에서 POST로 요청&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-05-05T08:52:39+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">nodejs package.json의 모듈 업데이트 하기!</title><link href="https://lahuman.github.io/node_package.json_update/" rel="alternate" type="text/html" title="nodejs package.json의 모듈 업데이트 하기!" /><published>2019-05-03T00:00:00+09:00</published><updated>2019-05-03T00:00:00+09:00</updated><id>https://lahuman.github.io/node_package.json_update</id><content type="html" xml:base="https://lahuman.github.io/node_package.json_update/">&lt;h1 id=&quot;nodejs-packagejson의-모듈-업데이트-하기&quot;&gt;nodejs package.json의 모듈 업데이트 하기!&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.npmjs.com/package/npm-check-updates&quot;&gt;npm-check-updates&lt;/a&gt;을 이용하여 package.json에 등록된 모듈들을 의존성에 알맞게 최신 버젼으로 업데이트 할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;설치 후 실행은 다음과 같다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# global로 npm-check-updates 설치
+$&amp;gt; npm i -g npm-check-updates
+# 프로젝트(package.json과 동일한) 디렉토리에서 다음 명령어 실행
+$&amp;gt; ncu -u
+Upgrading /Users/admin/myProject/package.json
+[====================] 17/17 100%
+
+ app-root-path     ^2.1.0  →   ^2.2.1
+ cookie-parser     ~1.4.3  →   ~1.4.4
+ debug             ~2.6.9  →   ~4.1.1
+ dotenv            ^7.0.0  →   ^8.0.0
+ express          ~4.16.0  →  ~4.16.4
+ express-session  ^1.15.6  →  ^1.16.1
+ helmet           ^3.16.0  →  ^3.17.0
+ http-errors       ~1.6.2  →   ~1.7.2
+ morgan            ~1.9.0  →   ~1.9.1
+ puppeteer        ^1.13.0  →  ^1.15.0
+
+Run npm install to install new versions.
+
+# 업데이트된 결과를 설치
+$&amp;gt; npm install
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;자주는 아니더라도, 가끔씩은 모듈을 업데이트 하자!&lt;/p&gt;
+
+&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/16073603/how-do-i-update-each-dependency-in-package-json-to-the-latest-version&quot;&gt;How do I update each dependency in package.json to the latest version?&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.npmjs.com/package/npm-check-updates&quot;&gt;npm-check-updates&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="nodejs" /><category term="update" /><summary type="html">업데이트는 한번씩 해줘야지!</summary></entry><entry><title type="html">Reactjs] Create-react-app 시작하기</title><link href="https://lahuman.github.io/create_reactjs/" rel="alternate" type="text/html" title="Reactjs] Create-react-app 시작하기" /><published>2019-05-02T00:00:00+09:00</published><updated>2019-05-02T00:00:00+09:00</updated><id>https://lahuman.github.io/create_reactjs</id><content type="html" xml:base="https://lahuman.github.io/create_reactjs/">&lt;h1 id=&quot;reactjs-create-react-app-시작하기&quot;&gt;Reactjs] Create-react-app 시작하기&lt;/h1&gt;
+
+&lt;p&gt;reactjs 시작은 다음과 같다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$&amp;gt; npx create-react-app my-app
+$&amp;gt; cd my-app
+$&amp;gt; npm start
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;위와 같이 명령어를 실행하여 기본 react 구조와 모듈이 포함된 프로젝트를 생성한다. 생성된 프로젝트의 구조는 다음과 같다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;my-app
+├── README.md
+├── node_modules
+├── package.json
+├── .gitignore
+├── public
+│   ├── favicon.ico
+│   ├── index.html
+│   └── manifest.json
+└── src
+    ├── App.css
+    ├── App.js
+    ├── App.test.js
+    ├── index.css
+    ├── index.js
+    ├── logo.svg
+    └── serviceWorker.js
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이후 프로젝트에 router, design 관련 모듈들을 추가 해서 반영하면된다.&lt;/p&gt;
+
+&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://facebook.github.io/create-react-app/docs/getting-started&quot;&gt;Getting Started&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="reactjs" /><category term="frontend" /><summary type="html">Reactjs로 UI 개발 시작 하기</summary></entry><entry><title type="html">입사 5개월차 후기</title><link href="https://lahuman.github.io/20190430/" rel="alternate" type="text/html" title="입사 5개월차 후기" /><published>2019-04-30T00:00:00+09:00</published><updated>2019-04-30T00:00:00+09:00</updated><id>https://lahuman.github.io/20190430</id><content type="html" xml:base="https://lahuman.github.io/20190430/">&lt;h1 id=&quot;puppeteer에서-post로-요청&quot;&gt;puppeteer에서 POST로 요청&lt;/h1&gt;
 
 &lt;p&gt;기본적으로 오래된 조직은 하향평준화가 된다고 한다.&lt;/p&gt;
 
@@ -554,202 +625,4 @@ Terms     연구 결과 사람 주제 작업 c데이터
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://html2canvas.hertzen.com/&quot;&gt;html2canvas&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://github.com/GoogleChrome/puppeteer&quot;&gt;pupperteer&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="node" /><category term="puppeteer" /><summary type="html">스크롤 있는 화면을 캡쳐 해보자!</summary></entry><entry><title type="html">Nodejs에서 Swagger 사용하기</title><link href="https://lahuman.github.io/nodejs_swagger/" rel="alternate" type="text/html" title="Nodejs에서 Swagger 사용하기" /><published>2019-03-29T00:00:00+09:00</published><updated>2019-03-29T00:00:00+09:00</updated><id>https://lahuman.github.io/nodejs_swagger</id><content type="html" xml:base="https://lahuman.github.io/nodejs_swagger/">&lt;h1 id=&quot;nodejs에서-swagger-사용하기&quot;&gt;Nodejs에서 Swagger 사용하기&lt;/h1&gt;
-
-&lt;p&gt;nodejs로 만들어진 API를 활용할 수 있도록 문서를 제공해야 하는데, 따로 문서를 만들기 보다는 Swagger를 이용하여 처리 하였다. 얼마전 진행했던 개인 프로젝트의 AuthServer에 적용해보았다.&lt;/p&gt;
-
-&lt;p&gt;먼저 npm을 이용해서 swagger를 설치 한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm install --save swagger-ui-express
-npm install --save swagger-jsdoc
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;app.js 파일에서 다음과 같이 설정을 추가 한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;const swaggerJSDoc = require('swagger-jsdoc');
-const swaggerUi = require('swagger-ui-express');
-
-
-
-// Swagger definition
-// You can set every attribute except paths and swagger
-// https://github.com/swagger-api/swagger-spec/blob/master/versions/2.0.md
-const swaggerDefinition = {
-  info: { // API informations (required)
-    title: 'Auth Service', // Title (required)
-    version: '1.0.0', // Version (required)
-    description: 'Auth API' // Description (optional)
-  },
-  host: 'localhost:3000', // Host (optional)
-  basePath: '/' // Base path (optional)
-};
-
-// Options for the swagger docs
-const options = {
-  // Import swaggerDefinitions
-  swaggerDefinition,
-  // Path to the API docs
-  apis: ['./routes/index.js', './users/index.js', './roles/index.js']
-};
-
-// Initialize swagger-jsdoc -&amp;gt; returns validated swagger spec in json format
-const swaggerSpec = swaggerJSDoc(options);
-
-const app = express();
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;routes/index.js에 swagger 작성을 진행하며, 모델 정보를 가지고 있는 부분과 paths를 가진 부분으로 나누어서 작성하면 된다.&lt;/p&gt;
-
-&lt;p&gt;다음은 실제 소스 샘플 이다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-/**
- * @swagger
- * tags:
- *   name: Auth
- *   description: 로그인 처리
- * definitions:
- *   Auth_request:
- *     type: object
- *     required:
- *       - user_id
- *       - password
- *     properties:
- *       user_id:
- *         type: string
- *         description: 아이디
- *       password:
- *         type: string
- *         description: 비밀번호
- *   Auth_response:
- *     type: object
- *     required:
- *       - status
- *     properties:
- *       status:
- *         type: string
- *         description: 로그인 성공 여부- error, success
- *       token:
- *         type: object
- *         description: 계정 정보
- *   Response_error:
- *     type: object
- *     required:
- *       - status
- *     properties:
- *       message:
- *         type: string
- *         description: 오류 사유
- *       status:
- *         type: integer
- *         description: response code
- */
-
-/**
- * @swagger
- *  paths:
- *    /login:
- *      post:
- *        tags:
- *        - &quot;Auth&quot;
- *        summary: &quot;Login process&quot;
- *        description: &quot;&quot;
- *        consumes:
- *        - &quot;application/json&quot;
- *        produces:
- *        - &quot;application/json&quot;
- *        parameters:
- *        - in: &quot;body&quot;
- *          name: &quot;body&quot;
- *          description: &quot;로그인 계정 정보와 서비스 정보를 전달&quot;
- *          required: true
- *          schema:
- *            $ref: &quot;#/definitions/Auth_request&quot;
- *        responses:
- *          200:
- *            description: &quot;로그인 결과&quot;
- *            schema:
- *              $ref: &quot;#/definitions/Auth_response&quot;
- *          400:
- *            description: &quot;잘못된 데이터&quot;
- *            schema:
- *              $ref: &quot;#/definitions/Response_error&quot;
- *          500:
- *            description: &quot;로그인 오류 &amp;amp; 실패&quot;
- *            schema:
- *              $ref: &quot;#/definitions/Response_error&quot;
- */
-router.post('/login', (req, res, next) =&amp;gt; {
-  const loginInfo = req.body;
-  if (!Object.prototype.hasOwnProperty.call(loginInfo, 'user_id')
-    || !Object.prototype.hasOwnProperty.call(loginInfo, 'password')) {
-    res.statusCode(400).json({ status: 'error', message: 'Invalid Prameter' });
-  }
-  else {
-    models.LoginHistorys.count({ where: { user_id: loginInfo.user_id, login_success: 'N', created_at: { [models.Sequelize.Op.gt]: moment().subtract(20, 'minutes').toDate() } } }).then((c) =&amp;gt; {
-      if (c &amp;gt; 5) {
-        res.statusCode(500).json({ status: 'error', message: 'Login failed several times. Please try again in 10 minutes.' });
-      }
-      else {
-        models.Users.findOne({
-          where: { user_id: loginInfo.user_id, password: loginInfo.password },
-          include: [models.Roles]
-        }).then((u) =&amp;gt; {
-          if (u) {
-            const userInfo = {
-              user_id: u.user_id,
-              desc: u.description,
-              role: u.Roles.map(r =&amp;gt; r.role_name)
-            };
-            const token = jwt.sign(userInfo, secretKey, {
-              expiresIn: '5m' // 유효 시간은 5분
-            });
-            res.json({ status: 'success', token });
-            loginInfo.login_success = 'Y';
-          }
-          else {
-            res.json({ status: 'error', message: 'check ID or PW' });
-            loginInfo.login_success = 'N';
-          }
-          models.LoginHistorys.create(loginInfo);
-        });
-      }
-    });
-  }
-});
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;이렇게 하고 서버를 실행하면 이쁜 테스트 화면을 확인 할 수 있다.&lt;/p&gt;
-
-&lt;p&gt;더 자세한 내용은 &lt;a href=&quot;https://swagger.io/specification/&quot;&gt;swagger&lt;/a&gt;의 문서를 참고 하면 된다.&lt;/p&gt;
-
-&lt;h2 id=&quot;근데-어렵다-쉽지-않다&quot;&gt;근데 어렵다.. 쉽지 않다…&lt;/h2&gt;
-
-&lt;h2 id=&quot;참조-링크&quot;&gt;참조 링크&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://gongzza.github.io/javascript/nodejs/swagger-node-express/&quot;&gt;Express에 Swagger 붙이기&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://swagger.io/specification/&quot;&gt;swagger&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://apihandyman.io/writing-openapi-swagger-specification-tutorial-part-1-introduction/&quot;&gt;Writing OpenAPI (fka Swagger) Specification tutorial
-&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="node" /><category term="swagger" /><summary type="html">쉬운듯 어려워!!</summary></entry><entry><title type="html">난 여전히 미숙한 아이 같다.</title><link href="https://lahuman.github.io/20190328/" rel="alternate" type="text/html" title="난 여전히 미숙한 아이 같다." /><published>2019-03-28T00:00:00+09:00</published><updated>2019-03-28T00:00:00+09:00</updated><id>https://lahuman.github.io/20190328</id><content type="html" xml:base="https://lahuman.github.io/20190328/">&lt;h1 id=&quot;아이-같은-나&quot;&gt;아이 같은 나…&lt;/h1&gt;
-
-&lt;p&gt;어제는 아이들에게 엄청 화를 냈다. 화를 낸 이유는 별게 아니다.&lt;/p&gt;
-
-&lt;p&gt;채윤이는 숙제를 하기 싫어서 꽁양꽁양 되었고, 동현이는 짜증을 계속 내는 게 싫었다.&lt;/p&gt;
-
-&lt;p&gt;아이들에게 한바탕 화를 내 고난 후 뒤처리는 아내의 몫이었다.&lt;/p&gt;
-
-&lt;p&gt;아내는 아이들에게 &lt;strong&gt;“아빠가 너무 피곤해서 그런 거야, 아빠가 정말 힘들어서 그런 거야”&lt;/strong&gt;라고 이야기 하며 아이들을 토닥여 주었다.&lt;/p&gt;
-
-&lt;p&gt;하지만, 채윤이랑 동현이는 울음을 터트렸고 나도 신경 쓰여서 잠을 못 이루었다.&lt;/p&gt;
-
-&lt;p&gt;오늘은 집에외서 아이들에게 사과를 하였다. 그리고 오늘 다시 채윤이의 숙제를 봐주고 있다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;여전히 채윤이는 숙제를 하면서 꽁양꽁양 짜증을 내고 동현이도 티비를 보여달라며 내 목에 매달려 있다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;어른이 되는건 아이들의 단점도 모두 받아주는 멋진 사람이 되어야 할텐데.. 난 여전히 부족하다.&lt;/p&gt;
-
-&lt;h3 id=&quot;어려워&quot;&gt;어려워&lt;/h3&gt;</content><category term="단상" /><summary type="html">낼 모레면 마흔인데.. 여전히 아이 같다.</summary></entry></feed>
+&lt;/ul&gt;</content><category term="node" /><category term="puppeteer" /><summary type="html">스크롤 있는 화면을 캡쳐 해보자!</summary></entry></feed>
