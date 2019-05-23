@@ -1,4 +1,187 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-05-09T22:05:31+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">express에서 stream을 이용하여 파일 다운로드 하기</title><link href="https://lahuman.github.io/express_filedownload/" rel="alternate" type="text/html" title="express에서 stream을 이용하여 파일 다운로드 하기" /><published>2019-05-09T00:00:00+09:00</published><updated>2019-05-09T00:00:00+09:00</updated><id>https://lahuman.github.io/express_filedownload</id><content type="html" xml:base="https://lahuman.github.io/express_filedownload/">&lt;h1 id=&quot;express에서-stream을-이용하여-파일-다운로드-하기&quot;&gt;express에서 stream을 이용하여 파일 다운로드 하기&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-05-23T23:42:17+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">NodeJs에서 Parse Error: HPE_HEADER_OVERFLOW 발생</title><link href="https://lahuman.github.io/nodejs_HEP_HEADER_OVERFLOW/" rel="alternate" type="text/html" title="NodeJs에서 Parse Error: HPE_HEADER_OVERFLOW 발생" /><published>2019-05-18T00:00:00+09:00</published><updated>2019-05-18T00:00:00+09:00</updated><id>https://lahuman.github.io/nodejs_HEP_HEADER_OVERFLOW</id><content type="html" xml:base="https://lahuman.github.io/nodejs_HEP_HEADER_OVERFLOW/">&lt;h1 id=&quot;nodejs에서-parse-error-hpe_header_overflow-발생&quot;&gt;NodeJs에서 Parse Error: HPE_HEADER_OVERFLOW 발생&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.npmjs.com/package/x-ray&quot;&gt;x-ray(node moudle)&lt;/a&gt;를 이용해서 크롤링을 개발하고 있던 중, 다음과 같은 오류를 만나게 되었다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(node:63533) UnhandledPromiseRejectionWarning: Error: Parse Error
+    at Socket.socketOnData (_http_client.js:442:20)
+    at Socket.emit (events.js:189:13)
+    at addChunk (_stream_readable.js:284:12)
+    at readableAddChunk (_stream_readable.js:265:11)
+    at Socket.Readable.push (_stream_readable.js:220:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:94:17)
+     bytesParsed: 6545,
+  code: 'HPE_HEADER_OVERFLOW',
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이 오류는 3개의 사이트중 1개의 사이트에서만 발생하였다.&lt;/p&gt;
+
+&lt;p&gt;원인을 파악하기 위해 검색을 하다 다음과 같은 내용을 확인하였다.&lt;/p&gt;
+
+&lt;p&gt;Node.js의 http 80KB의 Header 크기 제한을 가지고 있고 만약 큰 Header 크기가 필요 하다면, 명령을 실행시 특정 argument를 추가 해야 한다.&lt;/p&gt;
+
+&lt;h3 id=&quot;해결책은-다음과-같다&quot;&gt;해결책은 다음과 같다!&lt;/h3&gt;
+
+&lt;p&gt;실행하는 node 명령와 함께 &lt;strong&gt;–max-http-header-size=크기&lt;/strong&gt; argument를 추가 해라&lt;/p&gt;
+
+&lt;p&gt;예제)&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$&amp;gt; node --max-http-header-size=81000 app.js
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;에러가 안날때 까지 최대 http header 크기를 키우면 된다.&lt;/p&gt;
+
+&lt;p&gt;&lt;del&gt;근데… 이건 에러나는 사이트가 문제 아닌가? 80KB를 넘는 헤더를 왜 넘기지??&lt;/del&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/Azure/azure-cosmos-js/issues/221&quot;&gt;Trying to query documents results in a Parse Error: HPE_HEADER_OVERFLOW #221&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/35328725/hpe-header-overflow-exception-when-make-http-request/35330480#35330480&quot;&gt;HPE_HEADER_OVERFLOW exception when make http.request&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/nodejs/http-parser/blob/678a9e21f11e5ea93e5e17a2302390f88a6a8c46/http_parser.h#L64&quot;&gt;nodejs/http-parser&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.npmjs.com/package/x-ray&quot;&gt;x-ray(node moudle)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="error" /><category term="nodejs" /><summary type="html">처음 보는 에러가 발생하였다.</summary></entry><entry><title type="html">Google Docs Sheets 연동 하기</title><link href="https://lahuman.github.io/google_sheet_api/" rel="alternate" type="text/html" title="Google Docs Sheets 연동 하기" /><published>2019-05-15T00:00:00+09:00</published><updated>2019-05-15T00:00:00+09:00</updated><id>https://lahuman.github.io/google_sheet_api</id><content type="html" xml:base="https://lahuman.github.io/google_sheet_api/">&lt;h1 id=&quot;google-docs-sheets-연동-하기&quot;&gt;google docs Sheets 연동 하기&lt;/h1&gt;
+
+&lt;p&gt;이번에 진행되는 프로젝트에서 데이터를 Google Docs의 Sheets에 넣어 두고 해당 데이터를 활용하여 대시보드를 구현하게 되었다.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://developers.google.com/sheets/guides/concepts?hl=ko&quot;&gt;Google Sheets API 소개&lt;/a&gt;에도 잘 나와 있듯이, API를 활용하여 쉽게 이용할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://developers.google.com/sheets/api/quickstart/nodejs&quot;&gt;Node.js Quickstart&lt;/a&gt;에서 제공되는 소스는 아래와 같다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;const fs = require('fs');
+const readline = require('readline');
+const {google} = require('googleapis');
+
+// If modifying these scopes, delete token.json.
+const SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly'];
+// The file token.json stores the user's access and refresh tokens, and is
+// created automatically when the authorization flow completes for the first
+// time.
+const TOKEN_PATH = 'token.json';
+
+// Load client secrets from a local file.
+fs.readFile('credentials.json', (err, content) =&amp;gt; {
+  if (err) return console.log('Error loading client secret file:', err);
+  // Authorize a client with credentials, then call the Google Sheets API.
+  authorize(JSON.parse(content), listMajors);
+});
+
+/**
+ * Create an OAuth2 client with the given credentials, and then execute the
+ * given callback function.
+ * @param {Object} credentials The authorization client credentials.
+ * @param {function} callback The callback to call with the authorized client.
+ */
+function authorize(credentials, callback) {
+  const {client_secret, client_id, redirect_uris} = credentials.installed;
+  const oAuth2Client = new google.auth.OAuth2(
+      client_id, client_secret, redirect_uris[0]);
+
+  // Check if we have previously stored a token.
+  fs.readFile(TOKEN_PATH, (err, token) =&amp;gt; {
+    if (err) return getNewToken(oAuth2Client, callback);
+    oAuth2Client.setCredentials(JSON.parse(token));
+    callback(oAuth2Client);
+  });
+}
+
+/**
+ * Get and store new token after prompting for user authorization, and then
+ * execute the given callback with the authorized OAuth2 client.
+ * @param {google.auth.OAuth2} oAuth2Client The OAuth2 client to get token for.
+ * @param {getEventsCallback} callback The callback for the authorized client.
+ */
+function getNewToken(oAuth2Client, callback) {
+  const authUrl = oAuth2Client.generateAuthUrl({
+    access_type: 'offline',
+    scope: SCOPES,
+  });
+  console.log('Authorize this app by visiting this url:', authUrl);
+  const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+  });
+  rl.question('Enter the code from that page here: ', (code) =&amp;gt; {
+    rl.close();
+    oAuth2Client.getToken(code, (err, token) =&amp;gt; {
+      if (err) return console.error('Error while trying to retrieve access token', err);
+      oAuth2Client.setCredentials(token);
+      // Store the token to disk for later program executions
+      fs.writeFile(TOKEN_PATH, JSON.stringify(token), (err) =&amp;gt; {
+        if (err) return console.error(err);
+        console.log('Token stored to', TOKEN_PATH);
+      });
+      callback(oAuth2Client);
+    });
+  });
+}
+
+/**
+ * Prints the names and majors of students in a sample spreadsheet:
+ * @see https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/edit
+ * @param {google.auth.OAuth2} auth The authenticated Google OAuth client.
+ */
+function listMajors(auth) {
+  const sheets = google.sheets({version: 'v4', auth});
+  sheets.spreadsheets.values.get({
+    spreadsheetId: '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
+    range: 'Class Data!A2:E',
+  }, (err, res) =&amp;gt; {
+    if (err) return console.log('The API returned an error: ' + err);
+    const rows = res.data.values;
+    if (rows.length) {
+      console.log('Name, Major:');
+      // Print columns A and E, which correspond to indices 0 and 4.
+      rows.map((row) =&amp;gt; {
+        console.log(`${row[0]}, ${row[4]}`);
+      });
+    } else {
+      console.log('No data found.');
+    }
+  });
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;참 좋은 세상이다!&lt;/p&gt;
+
+&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developers.google.com/sheets/guides/concepts?hl=ko&quot;&gt;Google Sheets API 소개&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developers.google.com/sheets/api/quickstart/nodejs&quot;&gt;Node.js Quickstart&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="sheets" /><category term="google" /><summary type="html">Google Docs Sheets를 이용하면 DB도 필요 없겠다!!</summary></entry><entry><title type="html">express에서 File Upload 구현 하기</title><link href="https://lahuman.github.io/express_fileupload/" rel="alternate" type="text/html" title="express에서 File Upload 구현 하기" /><published>2019-05-12T00:00:00+09:00</published><updated>2019-05-12T00:00:00+09:00</updated><id>https://lahuman.github.io/express_fileupload</id><content type="html" xml:base="https://lahuman.github.io/express_fileupload/">&lt;h1 id=&quot;express에서-file-upload-구현-하기&quot;&gt;express에서 File Upload 구현 하기&lt;/h1&gt;
+
+&lt;p&gt;업로드는 복잡하게 구현 하지 않고 모듈을 사용하면 쉽게 할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.npmjs.com/package/express-fileupload&quot;&gt;express-fileupload&lt;/a&gt;를 이용하면 된다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# express 의 app.js 에서 다음과 같이 사용 
+const fileUpload = require('express-fileupload');
+const cors = require('cors');
+const fs = require('fs');
+
+app.use(cors());
+app.use(fileUpload());
+
+app.post('/upload', (req, res, next) =&amp;gt; {
+  let uploadFile = req.files.file
+  const fileName = req.files.file.name
+  uploadFile.mv(
+    `${__dirname}/public/files/${fileName}`,
+    function (err) {
+      if (err) {
+        return res.status(500).send(err);
+      }
+
+      res.json(JSON.parse(fs.readFileSync(`${__dirname}/public/files/${fileName}`, 'utf8')));
+    }
+  );
+})
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;그게 어렵지 않게 한다.&lt;/p&gt;
+
+&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.npmjs.com/package/express-fileupload&quot;&gt;express-fileupload&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="upload" /><category term="express" /><summary type="html">업로드</summary></entry><entry><title type="html">express에서 stream을 이용하여 파일 다운로드 하기</title><link href="https://lahuman.github.io/express_filedownload/" rel="alternate" type="text/html" title="express에서 stream을 이용하여 파일 다운로드 하기" /><published>2019-05-09T00:00:00+09:00</published><updated>2019-05-09T00:00:00+09:00</updated><id>https://lahuman.github.io/express_filedownload</id><content type="html" xml:base="https://lahuman.github.io/express_filedownload/">&lt;h1 id=&quot;express에서-stream을-이용하여-파일-다운로드-하기&quot;&gt;express에서 stream을 이용하여 파일 다운로드 하기&lt;/h1&gt;
 
 &lt;p&gt;파일다운로드를 하기위해서는 스트림을 이용해야 한다.&lt;/p&gt;
 
@@ -179,406 +362,4 @@ http.createServer(function (req, res) {
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://thecodebarbarian.com/sending-web-push-notifications-from-node-js.html&quot;&gt;Sending Web Push Notifications from Node.js&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.npmjs.com/package/web-push&quot;&gt;web-push&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="webpush" /><category term="nodejs" /><summary type="html">web push 모듈을 테스트 하면서 얻은 몇가지 사항 공유</summary></entry><entry><title type="html">swap 설정 하기!</title><link href="https://lahuman.github.io/setting_swap/" rel="alternate" type="text/html" title="swap 설정 하기!" /><published>2019-04-13T00:00:00+09:00</published><updated>2019-04-13T00:00:00+09:00</updated><id>https://lahuman.github.io/setting_swap</id><content type="html" xml:base="https://lahuman.github.io/setting_swap/">&lt;h1 id=&quot;swap-설정하기&quot;&gt;swap 설정하기&lt;/h1&gt;
-
-&lt;p&gt;2G 메모리를 가진 MongoDB 인스턴스에서 메모리가 부족하다는 메시지를 계속 받았다.&lt;/p&gt;
-
-&lt;p&gt;메모리를 제외하고는 큰 문제가 없어서 확인을 해보니 swap 영역의 크기가 0 이었다. swap은 디스크를 메모리처럼 사용하는 거라, 성능에 좋지 않아서 기본설정이 사용하지 않도록 되어있다.&lt;/p&gt;
-
-&lt;p&gt;MongoDB의 메모리 문제를 해결하기 위해 swap을 이용하기로 내부 결정을 하였다.&lt;/p&gt;
-
-&lt;p&gt;설정은 다음과 같다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# swap 확인
-$&amp;gt; sudo swapon -s
-
-$&amp;gt; sudo  free -m
-              total        used        free      shared  buff/cache   available
-Mem:           1955         271        1169           0         515        1537
-Swap:             0           0           0
-
-#swap 만들기
-$&amp;gt; sudo fallocate -l 4G /swapfile
-$&amp;gt; sudo chmod 600 /swapfile
-$&amp;gt; sudo mkswap /swapfile
-Setting up swapspace version 1, size = 4 GiB (4294963200 bytes)
-no label, UUID=67f5331d-d17a-4c67-9d77-b819114a9aab
-
-$&amp;gt; sudo swapon /swapfile
-sudo swapon -s
-Filename				Type		Size	Used	Priority
-/swapfile                              	file    	4194300	0	-2
-
-$&amp;gt; free -m
-              total        used        free      shared  buff/cache   available
-Mem:           1955         271        1169           0         515        1537
-Swap:          4095           0        4095
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;마지막으로 서버가 재부팅 되었을때, swap파일이 적용되도록 수정을 해야 한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$&amp;gt; sudo vi /etc/fstab
-
-# 가장 아래 부분에 추가 
-/swapfile   none    swap    sw    0   0
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;추가-swap-삭제-하기&quot;&gt;추가 swap 삭제 하기&lt;/h2&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# swap 메모리 제거
-$&amp;gt; sudo swapoff -v /swapfile
-swapoff /swapfile
-
-# 물리 파일 제거
-$&amp;gt; sudo rm -f /swapfile
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;swap 메모리를 제거할때 여유 공간이 없을 경우 다음과 같은 오류가 발생 할수 있다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$&amp;gt; sudo swapoff -a
-swapoff: /swapfile: swapoff failed: Cannot allocate memory
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;이럴때는 서비스를 종료 해서 메모리를 충분히 확보후 실행하면 된다.&lt;/p&gt;
-
-&lt;h2 id=&quot;참조-링크&quot;&gt;참조 링크&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://zetawiki.com/wiki/%EB%A6%AC%EB%88%85%EC%8A%A4_%EC%8A%A4%EC%99%91%EA%B3%B5%EA%B0%84_%EC%B6%94%EA%B0%80%ED%95%98%EA%B8%B0_%EC%8B%A4%EC%8A%B5&quot;&gt;리눅스 스왑공간 추가하기 실습&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://linuxize.com/post/how-to-add-swap-space-on-ubuntu-18-04/&quot;&gt;How To Add Swap Space on Ubuntu 18.04&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="swap" /><summary type="html">부족한 메모리를 도와주자!</summary></entry><entry><title type="html">Nginx source를 이용한 compile 설치</title><link href="https://lahuman.github.io/nginx_source_install/" rel="alternate" type="text/html" title="Nginx source를 이용한 compile 설치" /><published>2019-04-09T00:00:00+09:00</published><updated>2019-04-09T00:00:00+09:00</updated><id>https://lahuman.github.io/nginx_source_install</id><content type="html" xml:base="https://lahuman.github.io/nginx_source_install/">&lt;h1 id=&quot;nginx-source를-이용한-컴파일-설치&quot;&gt;Nginx source를 이용한 컴파일 설치&lt;/h1&gt;
-
-&lt;p&gt;오랜만에 Nginx를 설치하고 sub_filter를 사용하였는데 동작을 하지 않는다.&lt;/p&gt;
-
-&lt;p&gt;원인은 &lt;strong&gt;http_sub_module&lt;/strong&gt;이 설치 되지 않아서 발생하는 문제이다.
-nginx에 &lt;strong&gt;http_sub_module&lt;/strong&gt;을 설치하기 위해서는 꼭 source compile 설치를 해야 한다.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.opentutorials.org/module/384/4511&quot;&gt;NGINX 컴파일&lt;/a&gt;에서 컴파일 방법에 대하여 잘 정리가 되어 있다.&lt;/p&gt;
-
-&lt;p&gt;다음은 내가 사용한 명령어만 정리 하였다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 최초 update &amp;amp; 필수 gcc g++ 설치
-$&amp;gt; sudo apt-get update
-$&amp;gt; sudo apt-get install gcc g++;
-
-# Nginx 설치 디렉토리 설정
-$&amp;gt; mkdir nginx_source
-$&amp;gt; cd nginx_source/
-
-# Nginx 1.15.10 다운
-$&amp;gt; wget https://nginx.org/download/nginx-1.15.10.tar.gz
-$&amp;gt; tar xvf nginx-1.15.10.tar.gz
-
-# Nginx 설치를 위한 모듈들 설치 START
-$&amp;gt; wget ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.43.tar.gz
-$&amp;gt; tar xvf pcre-8.43.tar.gz
-
-$&amp;gt; wget https://www.openssl.org/source/openssl-1.0.2r.tar.gz
-$&amp;gt; tar -xzvf openssl-1.0.2r.tar.gz
-
-$&amp;gt; wget http://zlib.net/zlib-1.2.11.tar.gz
-$&amp;gt; tar xvf zlib-1.2.11.tar.gz
-# Nginx 설치를 위한 모듈들 설치 END
-
-# 실행 계정 생성
-$&amp;gt; useradd --shell /usr/sbin/nologin www-data
- 
-$&amp;gt; cd nginx-1.15.10/
-# 컴파일 옵션 설정 **--with-http_sub_module** 내가 추가한 옵션이다.
-$&amp;gt; sudo ./configure --with-http_sub_module --with-zlib=../zlib-1.2.11 --with-pcre=../pcre-8.43 --with-openssl=../openssl-1.0.2r --with-http_ssl_module --with-debug  --prefix=/usr/local/nginx --user=www-data --group=www-data
-$&amp;gt; sudo make;
-$&amp;gt; sudo make install;
-
-
-# Nginx init 스크립트 처리
-$&amp;gt; sudo wget https://raw.github.com/JasonGiedymin/nginx-init-ubuntu/master/nginx -O /etc/init.d/nginx;
-$&amp;gt; sudo chmod +x /etc/init.d/nginx;
-$&amp;gt; sudo update-rc.d -f nginx defaults
-$&amp;gt; service nginx status
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;이렇게 하고 nginx.conf에 proxy pass 설정을 한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;location /test/{ 
-	proxy_pass http://lahuman.github.io/; 
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;이 경우 기본적으로 주소에 http://server/test 를 호출 하면 http://lahuman.pe.kr 내용을 확인 할 수 있다. 다만 해당 컨텐츠의 링크를 확인하면 절대 경로로 표출 되어 동작이 제대로 되지 않는다.&lt;/p&gt;
-
-&lt;p&gt;rewrite 와 sub_filter를 이용하여 내부 컨텐츠의 경로를 변경 하자
-내부 컨텐츠의 경로를 변경하는 방법으로 sub_filter를 이용할 수 있다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;location /test/ {
-        rewrite ^/test(/.*)$ $1 break;
-        proxy_pass http://lahuman.pe.kr/;
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto https;
-        proxy_redirect    off;
-        proxy_set_header Accept-Encoding &quot;&quot;;
-        sub_filter_types *;
-        sub_filter_once off;
-        sub_filter '(?i)src=[\&quot;\']/' 'src=&quot;/test/';
-        sub_filter '(?i)href=[\'\&quot;]/' 'href=&quot;/test/';
-        sub_filter '/doc4sm/' '/test/doc4sm/';
-    }
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;오랜만에 설정을 하였다.&lt;/p&gt;
-
-&lt;h2 id=&quot;설정은-늘-힘들다&quot;&gt;설정은 늘 힘들다…&lt;/h2&gt;
-
-&lt;h2 id=&quot;참조-링크&quot;&gt;참조 링크&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://nginx.org/en/docs/http/ngx_http_sub_module.html&quot;&gt;Module ngx_http_sub_module&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.opentutorials.org/module/384/4511&quot;&gt;NGINX 컴파일&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://lahuman.jabsiri.co.kr/157&quot;&gt;proxy_pass 설정 후 상세 내용 LINK URL 패턴 자동 변경&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="nginx" /><category term="install" /><summary type="html">sub_filter를 사용하기 위해서는 꼭 컴파일 설치를 해야 한다.</summary></entry><entry><title type="html">R을 이용한 동시출현단어 분석</title><link href="https://lahuman.github.io/r_rJava/" rel="alternate" type="text/html" title="R을 이용한 동시출현단어 분석" /><published>2019-04-04T00:00:00+09:00</published><updated>2019-04-04T00:00:00+09:00</updated><id>https://lahuman.github.io/r_rJava</id><content type="html" xml:base="https://lahuman.github.io/r_rJava/">&lt;h1 id=&quot;r에서-rjava-사용하기-위한-설치-진행&quot;&gt;R에서 rJava 사용하기 위한 설치 진행&lt;/h1&gt;
-
-&lt;p&gt;동시출현 단어에 대한 분석이 필요하여, 검색을 해보았다. R언에에서 간단하게 함수 호출로 처리가 가능하다는 것을 확인하였다.&lt;/p&gt;
-
-&lt;h2 id=&quot;r-설치-하기&quot;&gt;R 설치 하기&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&quot;https://www.digitalocean.com/community/tutorials/how-to-install-r-on-ubuntu-18-04&quot;&gt;How To Install R on Ubuntu 18.04&lt;/a&gt; 를 참조해서 R을 설치 했다 명령어를 따라만 해도 쉽게 설치가 된다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 서버 키값 추가
-$&amp;gt; sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
-
-# repository 추가
-$&amp;gt; sudo add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran35/'
-
-$&amp;gt; sudo apt update
-
-# R 설치
-$&amp;gt; sudo apt install r-base
-
-# R Command 접근
-$&amp;gt; sudo -i R
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;h2 id=&quot;필요-모듈-설치&quot;&gt;필요 모듈 설치&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://junhewk.github.io/text/2017/08/08/cooccurence-matrix-with-Naver-blog/&quot;&gt;네이버 블로그로 동시출현단어 분석 (co-occurence network anlysis)&lt;/a&gt;에서 힌트를 얻어서 R을 한번 진행하려고 하였는데, KoNLP 모듈의 설치에서 rJava를 설치하라는 문구를 만나며 맨붕에 빠지게 되었다.&lt;/p&gt;
-
-&lt;h3 id=&quot;java-설치&quot;&gt;JAVA 설치&lt;/h3&gt;
-
-&lt;p&gt;처음 실패를 계기로 구글링을 하여 다음의 해결책을 찾게 되었다.
-준비해야 할 것이 몇개 있는데 큰 예로 &lt;strong&gt;JDK 10, 11&lt;/strong&gt;로는 실패 하였다.&lt;/p&gt;
-
-&lt;p&gt;그래서 JDK 8을 기반으로 진행하였다.
-JDK8 설치는 &lt;a href=&quot;http://ubuntuhandbook.org/index.php/2018/05/install-oracle-java-jdk-8-10-ubuntu-18-04/&quot;&gt;How to Install Oracle Java JDK 8 / 10 in Ubuntu 18.04
-&lt;/a&gt;를 참고하여 처리 하였다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# repostiroy 추가 
-$&amp;gt; sudo add-apt-repository ppa:webupd8team/java
-
-# java8 설치
-$&amp;gt; sudo apt-get install oracle-java8-installer
-
-# java8을 기본으로 사용하도록 설정
-$&amp;gt; sudo apt-get install oracle-java8-set-default
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;rjava-설치&quot;&gt;rJava 설치&lt;/h3&gt;
-
-&lt;p&gt;설치를 하려고 하면 많은 오류를 확인 할수 있다.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/s-u/rJava/issues/153?fbclid=IwAR3AIi1wLW4yIx1uj7oz_yDjMC5FpO-abGYXdN0QgJMHCn7-HkAPrPEqupk&quot;&gt;Compiling rJava macOS, java8&lt;/a&gt;를 참고하여 설치를 하면된다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#java config 재설정
-$&amp;gt; sudo R CMD javareconf
-
-# R Command 진입
-$&amp;gt; sudo R
-# rJava 설치 (특정 위치에서 - jdk8과 궁합이 맞는 패키지인듯)
-R&amp;gt; install.packages(&quot;https://cran.r-project.org/src/contrib/Archive/rJava/rJava_0.9-9.tar.gz&quot;)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;r에서-필요한-모듈-추가&quot;&gt;R에서 필요한 모듈 추가&lt;/h3&gt;
-
-&lt;p&gt;이후 다른 패키지를 설치하기 위해서 다음 모듈을 설치해 두는 것이 좋다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$&amp;gt; sudo apt-get install libcurl4-openssl-dev libssl-dev libxml2-dev
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;이후 필요한 패키지를 설치하면 문제 없이 설치 된다.&lt;/p&gt;
-
-&lt;h3 id=&quot;동시-출현-단어-분석-매트릭스&quot;&gt;동시 출현 단어 분석 매트릭스&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://statkclee.github.io/parallel-r/r-parallel-rscript-exec.html&quot;&gt;.R 스크립트를 인자와 함께 실행&lt;/a&gt;를 참고 하여 R 실행 파일을 만들고 실행을 하면 원하는 결과를 확인 가능하다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;#! /usr/bin/env Rscript&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rvest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;KoNLP&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stringr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;qgraph&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dplyr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;networkD3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;useNIADic&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;keyword&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;텍스트+분석&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;paste0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;https://search.naver.com/search.naver?where=post&amp;amp;sm=tab_pge&amp;amp;query=&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;keyword&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&amp;amp;st=sim&amp;amp;date_option=0&amp;amp;date_from=&amp;amp;date_to=&amp;amp;dup_remove=1&amp;amp;post_blogurl=&amp;amp;post_blogurl_without=&amp;amp;srchby=all&amp;amp;nso=&amp;amp;ie=utf8&amp;amp;start=&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;searching&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-
-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;page&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;in&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;seq&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;by&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;page_url&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;paste0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;page&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read_html&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;page_url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;html_nodes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;css&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'.sh_blog_passage'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;html_text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# result &amp;lt;- iconv(result, &quot;UTF-8&quot;, &quot;CP949&quot;) # 윈도우의 경우, R 작업환경에 맞춰 CP949로 변경할 필요가 있습니다.&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;searching&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;searching&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Sys.sleep&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;runif&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ko_words&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;doc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;as.character&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;doc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pos&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;unlist&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SimplePos22&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-
-  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;extracted&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;str_match&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'([가-힣]+)/[NP][A-Z]'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-
-  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;keyword&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;extracted&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;keyword&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;is.na&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;keyword&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;texts&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;searching&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;str_replace_all&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pattern&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;\r&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;replacement&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;str_replace_all&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pattern&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;\n&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;replacement&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot; &quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;str_replace_all&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pattern&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;[[:punct:]]&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;replacement&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot; &quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;str_replace_all&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pattern&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;[ㄱ-ㅎㅏ-ㅣ]+&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;replacement&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;str_replace_all&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pattern&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;/&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;replacement&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot; &quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;str_trim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;side&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;both&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;texts&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;texts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;texts&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pos&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ko_words&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;texts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-
-
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;corpus&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Corpus&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;VectorSource&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stopWord&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;텍스트&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;분석&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tdm&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TermDocumentMatrix&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;corpus&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;control&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;removePunctuation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;TRUE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stopwords&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stopWord&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;removeNumbers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;TRUE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;wordLengths&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;weighting&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;weightBin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tdm.matrix&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;as.matrix&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tdm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;word.count&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rowSums&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tdm.matrix&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;word.order&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;order&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;word.count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;decreasing&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;TRUE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;freq.words&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tdm.matrix&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;word.order&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;co.matrix&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;freq.words&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%*%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;freq.words&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;co.matrix&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;결과는 다음과 같이 표기 된다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;         Terms
-Terms     데이터 c텍스트 분석하 통하 방법 마이닝 위하 기법 과정 가지 전처리
-  데이터      26       4      5    5    6      1    3    3    3    2      3
-  c텍스트      4      13      2    2    3      2    2    0    2    2      1
-  분석하       5       2     11    2    3      1    2    1    0    1      0
-  통하         5       2      2   11    2      1    1    2    0    0      0
-  방법         6       3      3    2   10      1    0    2    1    1      1
-  마이닝       1       2      1    1    1     10    1    1    1    0      0
-  위하         3       2      2    1    0      1    9    1    1    0      1
-  기법         3       0      1    2    2      1    1    7    0    0      1
-  과정         3       2      0    0    1      1    1    0    7    0      3
-  가지         2       2      1    0    1      0    0    0    0    6      0
-  전처리       3       1      0    0    1      0    1    1    3    0      6
-  활용         3       1      1    2    2      2    0    2    1    1      0
-  대하         1       0      1    1    0      0    0    1    0    2      0
-  아니         4       0      0    1    0      0    0    1    0    0      0
-  요소         1       1      2    0    1      2    1    2    0    0      1
-  내용         1       0      0    2    1      1    0    2    0    0      0
-  수집         3       1      0    0    0      1    1    0    1    0      1
-  의미         0       2      0    2    0      0    0    1    1    0      1
-  철학         0       1      0    0    0      0    0    0    1    1      0
-  텍스         1       2      0    0    1      0    0    0    1    1      1
-  단어         0       0      0    0    0      1    0    0    0    0      1
-  형태소       1       1      1    0    0      0    2    0    0    0      0
-  형태         0       0      0    1    1      0    0    0    0    0      0
-  단위         1       1      0    0    0      1    1    1    1    0      1
-  연구         1       0      0    0    1      3    0    1    1    0      0
-  결과         1       1      0    0    0      1    0    0    0    0      0
-  사람         2       1      1    0    1      0    0    0    0    1      0
-  주제         1       1      0    2    0      0    0    0    0    1      0
-  작업         0       0      1    0    1      0    1    0    1    0      1
-  c데이터      2       0      0    0    0      0    0    0    1    0      0
-         Terms
-Terms     활용 대하 아니 요소 내용 수집 의미 철학 텍스 단어 형태소 형태 단위
-  데이터     3    1    4    1    1    3    0    0    1    0      1    0    1
-  c텍스트    1    0    0    1    0    1    2    1    2    0      1    0    1
-  분석하     1    1    0    2    0    0    0    0    0    0      1    0    0
-  통하       2    1    1    0    2    0    2    0    0    0      0    1    0
-  방법       2    0    0    1    1    0    0    0    1    0      0    1    0
-  마이닝     2    0    0    2    1    1    0    0    0    1      0    0    1
-  위하       0    0    0    1    0    1    0    0    0    0      2    0    1
-  기법       2    1    1    2    2    0    1    0    0    0      0    0    1
-  과정       1    0    0    0    0    1    1    1    1    0      0    0    1
-  가지       1    2    0    0    0    0    0    1    1    0      0    0    0
-  전처리     0    0    0    1    0    1    1    0    1    1      0    0    1
-  활용       6    1    1    0    2    2    0    0    0    0      0    0    0
-  대하       1    6    1    1    1    0    0    1    0    0      0    0    0
-  아니       1    1    6    0    1    0    0    0    0    0      0    0    0
-  요소       0    1    0    5    0    0    0    0    0    0      0    0    1
-  내용       2    1    1    0    5    1    0    0    0    0      0    1    0
-  수집       2    0    0    0    1    5    0    0    0    0      0    0    0
-  의미       0    0    0    0    0    0    5    0    0    0      0    0    1
-  철학       0    1    0    0    0    0    0    5    1    0      0    0    0
-  텍스       0    0    0    0    0    0    0    1    4    1      0    0    0
-  단어       0    0    0    0    0    0    0    0    1    4      1    0    0
-  형태소     0    0    0    0    0    0    0    0    0    1      4    1    1
-  형태       0    0    0    0    1    0    0    0    0    0      1    4    0
-  단위       0    0    0    1    0    0    1    0    0    0      1    0    4
-  연구       1    0    0    1    0    0    0    0    0    0      0    0    1
-  결과       1    0    0    0    1    2    0    0    0    0      0    0    0
-  사람       0    1    0    0    0    0    0    0    0    0      0    0    0
-  주제       0    1    0    0    0    0    1    0    0    0      0    0    0
-  작업       0    0    0    1    0    0    1    0    0    0      0    0    1
-  c데이터    0    0    0    0    0    1    0    0    0    0      0    0    0
-         Terms
-Terms     연구 결과 사람 주제 작업 c데이터
-  데이터     1    1    2    1    0       2
-  c텍스트    0    1    1    1    0       0
-  분석하     0    0    1    0    1       0
-  통하       0    0    0    2    0       0
-  방법       1    0    1    0    1       0
-  마이닝     3    1    0    0    0       0
-  위하       0    0    0    0    1       0
-  기법       1    0    0    0    0       0
-  과정       1    0    0    0    1       1
-  가지       0    0    1    1    0       0
-  전처리     0    0    0    0    1       0
-  활용       1    1    0    0    0       0
-  대하       0    0    1    1    0       0
-  아니       0    0    0    0    0       0
-  요소       1    0    0    0    1       0
-  내용       0    1    0    0    0       0
-  수집       0    2    0    0    0       1
-  의미       0    0    0    1    1       0
-  철학       0    0    0    0    0       0
-  텍스       0    0    0    0    0       0
-  단어       0    0    0    0    0       0
-  형태소     0    0    0    0    0       0
-  형태       0    0    0    0    0       0
-  단위       1    0    0    0    1       0
-  연구       4    0    0    0    0       0
-  결과       0    4    0    0    0       1
-  사람       0    0    4    1    0       0
-  주제       0    0    1    4    0       0
-  작업       0    0    0    0    4       0
-  c데이터    0    1    0    0    0       4
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;참조-링크&quot;&gt;참조 링크&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.digitalocean.com/community/tutorials/how-to-install-r-on-ubuntu-18-04&quot;&gt;How To Install R on Ubuntu 18.04&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://junhewk.github.io/text/2017/08/08/cooccurence-matrix-with-Naver-blog/&quot;&gt;네이버 블로그로 동시출현단어 분석 (co-occurence network anlysis)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/s-u/rJava/issues/153?fbclid=IwAR3AIi1wLW4yIx1uj7oz_yDjMC5FpO-abGYXdN0QgJMHCn7-HkAPrPEqupk&quot;&gt;Compiling rJava macOS, java8&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://ubuntuhandbook.org/index.php/2018/05/install-oracle-java-jdk-8-10-ubuntu-18-04/&quot;&gt;How to Install Oracle Java JDK 8 / 10 in Ubuntu 18.04
-&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://statkclee.github.io/parallel-r/r-parallel-rscript-exec.html&quot;&gt;.R 스크립트를 인자와 함께 실행&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="r" /><category term="rjava" /><summary type="html">rJava 사용하기 위한 설치 진행</summary></entry></feed>
+&lt;/ul&gt;</content><category term="webpush" /><category term="nodejs" /><summary type="html">web push 모듈을 테스트 하면서 얻은 몇가지 사항 공유</summary></entry></feed>
