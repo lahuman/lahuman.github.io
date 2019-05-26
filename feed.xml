@@ -1,4 +1,50 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-05-23T23:42:17+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">NodeJs에서 Parse Error: HPE_HEADER_OVERFLOW 발생</title><link href="https://lahuman.github.io/nodejs_HEP_HEADER_OVERFLOW/" rel="alternate" type="text/html" title="NodeJs에서 Parse Error: HPE_HEADER_OVERFLOW 발생" /><published>2019-05-18T00:00:00+09:00</published><updated>2019-05-18T00:00:00+09:00</updated><id>https://lahuman.github.io/nodejs_HEP_HEADER_OVERFLOW</id><content type="html" xml:base="https://lahuman.github.io/nodejs_HEP_HEADER_OVERFLOW/">&lt;h1 id=&quot;nodejs에서-parse-error-hpe_header_overflow-발생&quot;&gt;NodeJs에서 Parse Error: HPE_HEADER_OVERFLOW 발생&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-05-26T15:06:24+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Reactjs 초기 프로젝트 구성하기</title><link href="https://lahuman.github.io/reactjs_init/" rel="alternate" type="text/html" title="Reactjs 초기 프로젝트 구성하기" /><published>2019-05-26T00:00:00+09:00</published><updated>2019-05-26T00:00:00+09:00</updated><id>https://lahuman.github.io/reactjs_init</id><content type="html" xml:base="https://lahuman.github.io/reactjs_init/">&lt;h1 id=&quot;reactjs-초기-프로젝트-구성하기&quot;&gt;Reactjs 초기 프로젝트 구성하기&lt;/h1&gt;
+
+&lt;p&gt;Reactjs 초기 프로젝트를 구성하려는 방법 중 가장 쉽고 널리 알려진 것은  &lt;a href=&quot;https://github.com/facebook/create-react-app&quot;&gt;Create React App&lt;/a&gt;를 이용하는 방법이다. 아래와 같이 실행하면 바로 프로젝트 구성이 완료된다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npx create-react-app my-app
+cd my-app
+npm start
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;아쉬운 점은 무엇이 설치 되었는지 내가 알지 못하고, 또한 컴파일에 오랜 시간이 걸린다.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://facebook.github.io/create-react-app/docs/available-scripts#npm-run-eject&quot;&gt;npm run eject&lt;/a&gt;를 이용해서 묶음을 풀어 보면 너무 많은 것들이 설치 되어 있다.&lt;/p&gt;
+
+&lt;p&gt;그래서 방법을 찾아 보던 중 &lt;a href=&quot;https://www.youtube.com/watch?v=LoMFC4kdrnQ&amp;amp;list=PLcqDmjxt30RtqbStQqk-eYMK8N-1SYIFn&amp;amp;index=17&quot;&gt;@babel/preset-env와 plugins&lt;/a&gt;이라는 유튜브를 보고 한땀씩 진행을 해보았다.&lt;/p&gt;
+
+&lt;p&gt;우선 나에게 필요한 기본 모듈은 다음과 같다.&lt;/p&gt;
+
+&lt;h3 id=&quot;기본-모듈&quot;&gt;기본 모듈&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;react&lt;/li&gt;
+  &lt;li&gt;react-dom&lt;/li&gt;
+  &lt;li&gt;react&lt;/li&gt;
+  &lt;li&gt;react-router-dom&lt;/li&gt;
+  &lt;li&gt;dotenv&lt;/li&gt;
+  &lt;li&gt;axois&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;이들을 모두 설치하고 기본 테스트까지 된 프로젝트를 만들어 보았다.&lt;/p&gt;
+
+&lt;p&gt;진행하면서 수정사항이 바로 바로 반영되는 &lt;a href=&quot;http://gaearon.github.io/react-hot-loader/&quot;&gt;React Hot Loader&lt;/a&gt;도 알게되어 추가 하였다.&lt;/p&gt;
+
+&lt;p&gt;또한 컴파일을 위해 웹팩 설정을 하고 한땀 한땀 진행해보았다.&lt;/p&gt;
+
+&lt;p&gt;어려운듯 쉬운듯 꽤 많은 시간이 소비 하고야 내가 원하는 결과를 확인 할 수 있었다.&lt;/p&gt;
+
+&lt;h3 id=&quot;reactjs-start&quot;&gt;&lt;a href=&quot;https://github.com/lahuman/ReactJS-Start&quot;&gt;ReactJS-Start&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;많이 삽질하면서 많이 배운 시간이었다.&lt;/p&gt;
+
+&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/facebook/create-react-app&quot;&gt;Create React App&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=LoMFC4kdrnQ&amp;amp;list=PLcqDmjxt30RtqbStQqk-eYMK8N-1SYIFn&amp;amp;index=17&quot;&gt;@babel/preset-env와 plugins&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://velog.io/@padakim/Webpack4-for-React-%EB%A6%AC%EC%95%A1%ED%8A%B8%EB%A5%BC-%EC%9C%84%ED%95%9C-%EC%9B%B9%ED%8C%A94-1-&quot;&gt;Webpack4 for React (리액트를 위한 웹팩4) - 1&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://medium.com/@trekinbami/using-environment-variables-in-react-6b0a99d83cf5&quot;&gt;Using environment variables in React&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://gaearon.github.io/react-hot-loader/&quot;&gt;React Hot Loader&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="reactjs" /><category term="init" /><summary type="html">'npx create-react-app my-app' 는 너무 무겁다.</summary></entry><entry><title type="html">NodeJs에서 Parse Error: HPE_HEADER_OVERFLOW 발생</title><link href="https://lahuman.github.io/nodejs_HEP_HEADER_OVERFLOW/" rel="alternate" type="text/html" title="NodeJs에서 Parse Error: HPE_HEADER_OVERFLOW 발생" /><published>2019-05-18T00:00:00+09:00</published><updated>2019-05-18T00:00:00+09:00</updated><id>https://lahuman.github.io/nodejs_HEP_HEADER_OVERFLOW</id><content type="html" xml:base="https://lahuman.github.io/nodejs_HEP_HEADER_OVERFLOW/">&lt;h1 id=&quot;nodejs에서-parse-error-hpe_header_overflow-발생&quot;&gt;NodeJs에서 Parse Error: HPE_HEADER_OVERFLOW 발생&lt;/h1&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://www.npmjs.com/package/x-ray&quot;&gt;x-ray(node moudle)&lt;/a&gt;를 이용해서 크롤링을 개발하고 있던 중, 다음과 같은 오류를 만나게 되었다.&lt;/p&gt;
 
@@ -339,27 +385,4 @@ http.createServer(function (req, res) {
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/7450940/automatic-https-connection-redirect-with-node-js-express&quot;&gt;Automatic HTTPS connection/redirect with node.js/express&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="port" /><category term="nodejs" /><summary type="html">http로 접근시 https로 이동 시키자!</summary></entry><entry><title type="html">nodejs를 이용하여 web push 몇가지 주요 사항</title><link href="https://lahuman.github.io/web_push_with_nodejs_sometings/" rel="alternate" type="text/html" title="nodejs를 이용하여 web push 몇가지 주요 사항" /><published>2019-04-22T00:00:00+09:00</published><updated>2019-04-22T00:00:00+09:00</updated><id>https://lahuman.github.io/web_push_with_nodejs_sometings</id><content type="html" xml:base="https://lahuman.github.io/web_push_with_nodejs_sometings/">&lt;h1 id=&quot;web-push-구현하기&quot;&gt;web push 구현하기&lt;/h1&gt;
-
-&lt;p&gt;web push를 구현하기 위해서 &lt;a href=&quot;https://www.npmjs.com/package/web-push&quot;&gt;web-push&lt;/a&gt;라는 모듈을 사용해야 한다.&lt;/p&gt;
-
-&lt;p&gt;구현 방법은 &lt;a href=&quot;https://thecodebarbarian.com/sending-web-push-notifications-from-node-js.html&quot;&gt;Sending Web Push Notifications from Node.js&lt;/a&gt;을 참고 하면 된다.
-(추후 시간을 내어 코드를 정리해보려고 한다.)&lt;/p&gt;
-
-&lt;p&gt;오늘은 일단 중요한 몇가지 사항을 공유 하려고 한다.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;windows에서는 알람을 활성하 해두어야 알람을 받을 수 있다.&lt;/li&gt;
-  &lt;li&gt;실제 서비스는 https만 가능하며, 인증서 또한 공식 인증서를 이용해야 된다.&lt;/li&gt;
-  &lt;li&gt;subscription 정보를 잘 관리 하면 계속 상대방이 차단하기 전까지 계속 알람을 보낼 수 있다.&lt;/li&gt;
-  &lt;li&gt;동작 원리는 worker를 등록하여 상대방에게 push를 한다.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;일단 오늘은 여기까지!!!&lt;/p&gt;
-
-&lt;h2 id=&quot;참조-링크&quot;&gt;참조 링크&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://thecodebarbarian.com/sending-web-push-notifications-from-node-js.html&quot;&gt;Sending Web Push Notifications from Node.js&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.npmjs.com/package/web-push&quot;&gt;web-push&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="webpush" /><category term="nodejs" /><summary type="html">web push 모듈을 테스트 하면서 얻은 몇가지 사항 공유</summary></entry></feed>
+&lt;/ul&gt;</content><category term="port" /><category term="nodejs" /><summary type="html">http로 접근시 https로 이동 시키자!</summary></entry></feed>
