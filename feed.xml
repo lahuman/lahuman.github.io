@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-06-19T23:48:55+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">vim upgrade or 업그레이드 내역 확인 하기!</title><link href="https://lahuman.github.io/vim-upgrade/" rel="alternate" type="text/html" title="vim upgrade or 업그레이드 내역 확인 하기!" /><published>2019-06-19T00:00:00+09:00</published><updated>2019-06-19T00:00:00+09:00</updated><id>https://lahuman.github.io/vim-upgrade</id><content type="html" xml:base="https://lahuman.github.io/vim-upgrade/">&lt;h1 id=&quot;vim-upgrade-or-업그레이드-내역-확인-하기&quot;&gt;vim upgrade or 업그레이드 내역 확인 하기!&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-06-19T23:50:06+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">vim upgrade or 업그레이드 내역 확인 하기!</title><link href="https://lahuman.github.io/vim-upgrade/" rel="alternate" type="text/html" title="vim upgrade or 업그레이드 내역 확인 하기!" /><published>2019-06-19T00:00:00+09:00</published><updated>2019-06-19T00:00:00+09:00</updated><id>https://lahuman.github.io/vim-upgrade</id><content type="html" xml:base="https://lahuman.github.io/vim-upgrade/">&lt;h1 id=&quot;vim-upgrade-or-업그레이드-내역-확인-하기&quot;&gt;vim upgrade or 업그레이드 내역 확인 하기!&lt;/h1&gt;
 
 &lt;h2 id=&quot;vim과-neovim-편집기에서-os-명령어-실행-취약점-발견-20190613&quot;&gt;Vim과 Neovim 편집기에서 OS 명령어 실행 취약점 발견 2019.06.13&lt;/h2&gt;
 
@@ -7,7 +7,10 @@
  임의 OS 명령 실행 취약점(CVE-2019-12735)을 발견
     &lt;ul&gt;
       &lt;li&gt;Vim 편집기 : 사용자들이 리눅스에서 텍스트, 스크립트, 문서를 포함한 파일을 생성하고, 열람하거나 수정할 수 있는 프로그램
-    +  Neovim 편집기 : 플러그인, GUI 등이 개선된 Vim 확장 버전 프로그램&lt;/li&gt;
+        &lt;ul&gt;
+          &lt;li&gt;Neovim 편집기 : 플러그인, GUI 등이 개선된 Vim 확장 버전 프로그램&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;
