@@ -1,10 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-06-19T23:50:06+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">vim upgrade or 업그레이드 내역 확인 하기!</title><link href="https://lahuman.github.io/vim-upgrade/" rel="alternate" type="text/html" title="vim upgrade or 업그레이드 내역 확인 하기!" /><published>2019-06-19T00:00:00+09:00</published><updated>2019-06-19T00:00:00+09:00</updated><id>https://lahuman.github.io/vim-upgrade</id><content type="html" xml:base="https://lahuman.github.io/vim-upgrade/">&lt;h1 id=&quot;vim-upgrade-or-업그레이드-내역-확인-하기&quot;&gt;vim upgrade or 업그레이드 내역 확인 하기!&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-06-19T23:51:58+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">vim upgrade or 업그레이드 내역 확인 하기!</title><link href="https://lahuman.github.io/vim-upgrade/" rel="alternate" type="text/html" title="vim upgrade or 업그레이드 내역 확인 하기!" /><published>2019-06-19T00:00:00+09:00</published><updated>2019-06-19T00:00:00+09:00</updated><id>https://lahuman.github.io/vim-upgrade</id><content type="html" xml:base="https://lahuman.github.io/vim-upgrade/">&lt;h1 id=&quot;vim-upgrade-or-업그레이드-내역-확인-하기&quot;&gt;vim upgrade or 업그레이드 내역 확인 하기!&lt;/h1&gt;
 
 &lt;h2 id=&quot;vim과-neovim-편집기에서-os-명령어-실행-취약점-발견-20190613&quot;&gt;Vim과 Neovim 편집기에서 OS 명령어 실행 취약점 발견 2019.06.13&lt;/h2&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;보안 연구원 Armin Razmjou는 최근 리눅스에서 가장 인기 있는 커맨드라인 텍스트 편집 유틸리티인 Vim과 Neovim에서 심각도 높은
- 임의 OS 명령 실행 취약점(CVE-2019-12735)을 발견
+  &lt;li&gt;보안 연구원 Armin Razmjou는 최근 리눅스에서 가장 인기 있는 커맨드라인 텍스트 편집 유틸리티인 Vim과 Neovim에서 심각도 높은 임의 OS 명령 실행 취약점(CVE-2019-12735)을 발견
     &lt;ul&gt;
       &lt;li&gt;Vim 편집기 : 사용자들이 리눅스에서 텍스트, 스크립트, 문서를 포함한 파일을 생성하고, 열람하거나 수정할 수 있는 프로그램
         &lt;ul&gt;
@@ -94,8 +93,7 @@ vim (2:8.0.1453-1ubuntu1.1) bionic-security; urgency=medium
 &lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;[“Your Linux Can Get Hacked Just by Opening a File in Vim or Neovim Editor”, 2019. 6. 10]
-(https://thehackernews.com/2019/06/linux-vim-vulnerability.html?fbclid=IwAR2Z6XgBENCk2c2SGgyvAJE9ZIFv1UiyQzJAw45w8-fzGcSOuYxv2X821W0)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://thehackernews.com/2019/06/linux-vim-vulnerability.html?fbclid=IwAR2Z6XgBENCk2c2SGgyvAJE9ZIFv1UiyQzJAw45w8-fzGcSOuYxv2X821W0&quot;&gt;“Your Linux Can Get Hacked Just by Opening a File in Vim or Neovim Editor”, 2019. 6. 10&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://vi.stackexchange.com/questions/10817/how-can-i-get-a-newer-version-of-vim-on-ubuntu?fbclid=IwAR3b75m_fA2NBbKtmjwO_3dinZ2hq4Teu7n3bv3TgDXhrznEUIgLAzl3nDQ&quot;&gt;How can I get a newer version of Vim on Ubuntu?&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</content><category term="vim" /><category term="upgrade" /><summary type="html">CVE-2019-12735 취약점으로 인해 확인 진행</summary></entry><entry><title type="html">이직하고 처음 짜증나는 날이다.</title><link href="https://lahuman.github.io/20190607/" rel="alternate" type="text/html" title="이직하고 처음 짜증나는 날이다." /><published>2019-06-07T00:00:00+09:00</published><updated>2019-06-07T00:00:00+09:00</updated><id>https://lahuman.github.io/20190607</id><content type="html" xml:base="https://lahuman.github.io/20190607/">&lt;h1 id=&quot;원하는-일을-하는게-문제인가&quot;&gt;원하는 일을 하는게 문제인가?&lt;/h1&gt;
 
