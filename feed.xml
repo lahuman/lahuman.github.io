@@ -1,4 +1,100 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-06-07T20:51:01+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">이직하고 처음 짜증나는 날이다.</title><link href="https://lahuman.github.io/20190607/" rel="alternate" type="text/html" title="이직하고 처음 짜증나는 날이다." /><published>2019-06-07T00:00:00+09:00</published><updated>2019-06-07T00:00:00+09:00</updated><id>https://lahuman.github.io/20190607</id><content type="html" xml:base="https://lahuman.github.io/20190607/">&lt;h1 id=&quot;원하는-일을-하는게-문제인가&quot;&gt;원하는 일을 하는게 문제인가?&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-06-19T23:28:18+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">vim upgrade or 업그레이드 내역 확인 하기!</title><link href="https://lahuman.github.io/vim-upgrade/" rel="alternate" type="text/html" title="vim upgrade or 업그레이드 내역 확인 하기!" /><published>2019-06-19T00:00:00+09:00</published><updated>2019-06-19T00:00:00+09:00</updated><id>https://lahuman.github.io/vim-upgrade</id><content type="html" xml:base="https://lahuman.github.io/vim-upgrade/">&lt;h1 id=&quot;vim-upgrade-or-업그레이드-내역-확인-하기&quot;&gt;vim upgrade or 업그레이드 내역 확인 하기!&lt;/h1&gt;
+
+&lt;h2 id=&quot;vim과-neovim-편집기에서-os-명령어-실행-취약점-발견-20190613&quot;&gt;Vim과 Neovim 편집기에서 OS 명령어 실행 취약점 발견 2019.06.13&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;보안 연구원 Armin Razmjou는 최근 리눅스에서 가장 인기 있는 커맨드라인 텍스트 편집 유틸리티인 Vim과 Neovim에서 심각도 높은
+ 임의 OS 명령 실행 취약점(CVE-2019-12735)을 발견
+    &lt;ul&gt;
+      &lt;li&gt;Vim 편집기 : 사용자들이 리눅스에서 텍스트, 스크립트, 문서를 포함한 파일을 생성하고, 열람하거나 수정할 수 있는 프로그램
+    +  Neovim 편집기 : 플러그인, GUI 등이 개선된 Vim 확장 버전 프로그램&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;이 취약점은 “modlines”를 처리하는 과정에서 발견됨
+    + modelines : 문서의 시작과 마지막 라인 근처에 파일의 제작자가 언급한 커스텀 설정 세트를 자동으로 찾아 적용하는 기능으로 기본으로
+                          활성화되어 있음&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;비록 보안상의 이유로 modelines의 서브셋만을 허용하고 샌드박스 보호를 사용할지라도 “:source!” 명령어를 사용하면 샌드박스를
+  우회할 수 있음&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;따라서, Vim이나 Neovim을 사용해 특별히 제작된 파일을 열람하는 것만으로도 공격자가 피해자의 리눅스 시스템에서 명령을 실행하고
+  제어권을 탈취할 수 있음&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Vim(8.1.1365)과 Neovim(v0.3.6)은 해당 취약점 문제 해결을 위해 최근 업데이트를 발표&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;해결 방안
+    &lt;ul&gt;
+      &lt;li&gt;modelines 기능 비활성화&lt;/li&gt;
+      &lt;li&gt;modelines의 수식을 비활성화 하기 위한 “modelineexpr” 비활성화&lt;/li&gt;
+      &lt;li&gt;Vim modelines의 대한인 “securemodelines plugin” 사용&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;시사점&quot;&gt;시사점&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;리눅스 및 Vim과 Neovim 에디터를 최신 버전으로 업데이트하고, 주기적인 권한 탈취 여부 확인&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;vim-확인-하기&quot;&gt;vim 확인 하기&lt;/h2&gt;
+
+&lt;h3 id=&quot;vim-upgrade-하기&quot;&gt;vim upgrade 하기&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;sudo apt-get upgrade vim&lt;/strong&gt; 명령어를 이용해서 업그레이드를 할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;만약 업그레이드를 할 내용이 없으면 다음과 같은 결과가 확이 된다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$&amp;gt; sudo apt-get upgrade vim
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+vim is already the newest version (2:8.0.1453-1ubuntu1.1).
+Calculating upgrade... Done
+The following package was automatically installed and is no longer required:
+  linux-aws-headers-4.15.0-1035
+Use 'sudo apt autoremove' to remove it.
+The following packages have been kept back:
+  linux-aws linux-headers-aws linux-image-aws
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;vim-최신-버젼으로-강제-업데이트-하기&quot;&gt;vim 최신 버젼으로 강제 업데이트 하기&lt;/h3&gt;
+
+&lt;p&gt;PPA를 이용해서 최신 버젼으로 업데이트를 한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$&amp;gt; sudo add-apt-repository ppa:jonathonf/vim
+$&amp;gt; sudo apt update
+$&amp;gt; sudo apt install vim
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h3 id=&quot;vim-upgrade-내역-확인-하기&quot;&gt;vim upgrade 내역 확인 하기&lt;/h3&gt;
+
+&lt;p&gt;changelog를 확인하면 업데이트 기록이 확인 된다. 다음과 같인 로그가 있다면, CVE-2019-12735.patch에 대한 패치가 되어 있는 것이다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$&amp;gt; apt changelog vim
+vim (2:8.0.1453-1ubuntu1.1) bionic-security; urgency=medium
+
+  * SECURITY UPDATE: Arbitrary code execution
+    - debian/patches/CVE-2019-12735.patch: disallow
+      sourcing a file in the sandbox in src/getchar.c
+    - CVE-2019-12735
+
+ -- Leonidas S. Barbosa &amp;lt;leo.barbosa@canonical.com&amp;gt;  Thu, 06 Jun 2019 14:31:41 -0300
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;대부분 서비스를 확인하니 이미 패치가 되어 있었다.&lt;/p&gt;
+
+&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;[“Your Linux Can Get Hacked Just by Opening a File in Vim or Neovim Editor”, 2019. 6. 10]
+(https://thehackernews.com/2019/06/linux-vim-vulnerability.html?fbclid=IwAR2Z6XgBENCk2c2SGgyvAJE9ZIFv1UiyQzJAw45w8-fzGcSOuYxv2X821W0)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://vi.stackexchange.com/questions/10817/how-can-i-get-a-newer-version-of-vim-on-ubuntu?fbclid=IwAR3b75m_fA2NBbKtmjwO_3dinZ2hq4Teu7n3bv3TgDXhrznEUIgLAzl3nDQ&quot;&gt;How can I get a newer version of Vim on Ubuntu?&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="vim" /><category term="upgrade" /><summary type="html">CVE-2019-12735 취약점으로 인해 확인 진행</summary></entry><entry><title type="html">이직하고 처음 짜증나는 날이다.</title><link href="https://lahuman.github.io/20190607/" rel="alternate" type="text/html" title="이직하고 처음 짜증나는 날이다." /><published>2019-06-07T00:00:00+09:00</published><updated>2019-06-07T00:00:00+09:00</updated><id>https://lahuman.github.io/20190607</id><content type="html" xml:base="https://lahuman.github.io/20190607/">&lt;h1 id=&quot;원하는-일을-하는게-문제인가&quot;&gt;원하는 일을 하는게 문제인가?&lt;/h1&gt;
 
 &lt;p&gt;얼마전 본부장에게 들은 말이다.&lt;/p&gt;
 
@@ -381,26 +477,4 @@ $&amp;gt; npm start
 &lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://facebook.github.io/create-react-app/docs/getting-started&quot;&gt;Getting Started&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="reactjs" /><category term="frontend" /><summary type="html">Reactjs로 UI 개발 시작 하기</summary></entry><entry><title type="html">입사 5개월차 후기</title><link href="https://lahuman.github.io/20190430/" rel="alternate" type="text/html" title="입사 5개월차 후기" /><published>2019-04-30T00:00:00+09:00</published><updated>2019-04-30T00:00:00+09:00</updated><id>https://lahuman.github.io/20190430</id><content type="html" xml:base="https://lahuman.github.io/20190430/">&lt;h1 id=&quot;puppeteer에서-post로-요청&quot;&gt;puppeteer에서 POST로 요청&lt;/h1&gt;
-
-&lt;p&gt;기본적으로 오래된 조직은 하향평준화가 된다고 한다.&lt;/p&gt;
-
-&lt;p&gt;지금 팀은 상향평준화를 위해 많은 노력을 한다.&lt;/p&gt;
-
-&lt;p&gt;코드리뷰, 페어코딩, 쇼미더코딩, CI/CD 구축 이라던지, 외국 컨퍼런스 참가 및 여러 활동을 지원 한다.&lt;/p&gt;
-
-&lt;p&gt;하지만 팀에 적응 못하거나, 힘들어 하는 인력은 교체한다. 입사하고 5개월 동안 4분 정도 다른팀으로 이동하셨고, 다른팀에 가신분들은 새로운 팀에 잘 적응하고 있다.&lt;/p&gt;
-
-&lt;p&gt;팀원들간에 건전한 경쟁을 하고 있으며, 늘 새로운 것을 익히고 업무에 반영해본다.
-(팀에 오래 계신 분들일 수록 실력이 좋다.)&lt;/p&gt;
-
-&lt;p&gt;처음 입사하고는 한달간 정신이 없었다. 힘들기도 하고 너무 빠르게 변하는 팀에 적응을 못하였다.&lt;/p&gt;
-
-&lt;p&gt;지난 5개월을 돌이켜 보면 최근 5년 중 가장 많이 발전하고 변화하고 있다.&lt;/p&gt;
-
-&lt;p&gt;R을 이용해 동시 단어출현 분석도 구현해 보고, 형태소 분석기를 설치해 다른 팀원이 사용할수 있게 구성해 보기도 하고, AWS의 LAMBDA, EC2, RDS등 여러 경험을 했다.&lt;/p&gt;
-
-&lt;p&gt;얼마 전 새로운 분들을 모시기 위해 이력서를 받아 코딩 테스트를 진행하였다.
-실력 좋은 분들이 많이 지원해 주셨고, 조만간 출근 하시는 분도 계신다.&lt;/p&gt;
-
-&lt;p&gt;많이 기대가 된다.&lt;/p&gt;</content><category term="단상" /><summary type="html">상향 평준화를 위해서...</summary></entry></feed>
+&lt;/ul&gt;</content><category term="reactjs" /><category term="frontend" /><summary type="html">Reactjs로 UI 개발 시작 하기</summary></entry></feed>
