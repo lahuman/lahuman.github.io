@@ -1,4 +1,25 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-06-19T23:51:58+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">vim upgrade or 업그레이드 내역 확인 하기!</title><link href="https://lahuman.github.io/vim-upgrade/" rel="alternate" type="text/html" title="vim upgrade or 업그레이드 내역 확인 하기!" /><published>2019-06-19T00:00:00+09:00</published><updated>2019-06-19T00:00:00+09:00</updated><id>https://lahuman.github.io/vim-upgrade</id><content type="html" xml:base="https://lahuman.github.io/vim-upgrade/">&lt;h1 id=&quot;vim-upgrade-or-업그레이드-내역-확인-하기&quot;&gt;vim upgrade or 업그레이드 내역 확인 하기!&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-06-21T20:59:07+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">내 논문이 SCI 저널에 기재 되었다.</title><link href="https://lahuman.github.io/pager/" rel="alternate" type="text/html" title="내 논문이 SCI 저널에 기재 되었다." /><published>2019-06-20T00:00:00+09:00</published><updated>2019-06-20T00:00:00+09:00</updated><id>https://lahuman.github.io/pager</id><content type="html" xml:base="https://lahuman.github.io/pager/">&lt;h1 id=&quot;5개월간-많은-시행-착오를-겪었다&quot;&gt;5개월간 많은 시행 착오를 겪었다.&lt;/h1&gt;
+
+&lt;p&gt;처음 방송통신 대학원에 입학하고 바로 ACT 랩을 찾아갔다.
+이후 많은 선배들의 논문의 준비하는 과정을 지켜 보고 내 논문도 준비 하였다.&lt;/p&gt;
+
+&lt;p&gt;많은 시행 착오를 겪었고 2018년 8월 졸업 논문을 작성하여 졸업하였다. 
+2016년에 입학하여 5학기 만에 논문을 작성하였고 그 과정에는 ACT랩의 선배들과 교수님들의 지원과 조언이 있었다.&lt;/p&gt;
+
+&lt;p&gt;2018년 12월에는 CSA 컨플런스에서 최우수 논문상을 받았다.&lt;/p&gt;
+
+&lt;p&gt;해당 논문을 더욱 발전시켜 2019년 6월 18일에 SCI 저널에 기재 할 수 있었다.&lt;/p&gt;
+
+&lt;p&gt;이는 손진곤 교수님과 박지수 박사님의 도움으로 가능하다고 생각 한다.&lt;/p&gt;
+
+&lt;p&gt;특히 박지수 박사님의 끝없는 지원이야 말로 내가 포기 하지 않고 마무리 할수 있었다고 생각 한다.&lt;/p&gt;
+
+&lt;p&gt;이 논문이 END가 아닌 AND로 더 많은 것을 시도하는 내 첫 걸음이 되었으면 좋겠다.&lt;/p&gt;
+
+&lt;h2 id=&quot;논문-정보&quot;&gt;논문 정보&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://link.springer.com/article/10.1007%2Fs11227-019-02932-4&quot;&gt;Differential data processing technique to improve the performance of wireless sensor networks&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="pager" /><summary type="html">2019/06/18 기재됨!</summary></entry><entry><title type="html">vim upgrade or 업그레이드 내역 확인 하기!</title><link href="https://lahuman.github.io/vim-upgrade/" rel="alternate" type="text/html" title="vim upgrade or 업그레이드 내역 확인 하기!" /><published>2019-06-19T00:00:00+09:00</published><updated>2019-06-19T00:00:00+09:00</updated><id>https://lahuman.github.io/vim-upgrade</id><content type="html" xml:base="https://lahuman.github.io/vim-upgrade/">&lt;h1 id=&quot;vim-upgrade-or-업그레이드-내역-확인-하기&quot;&gt;vim upgrade or 업그레이드 내역 확인 하기!&lt;/h1&gt;
 
 &lt;h2 id=&quot;vim과-neovim-편집기에서-os-명령어-실행-취약점-발견-20190613&quot;&gt;Vim과 Neovim 편집기에서 OS 명령어 실행 취약점 발견 2019.06.13&lt;/h2&gt;
 
@@ -443,39 +464,4 @@ $&amp;gt; npm install
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/16073603/how-do-i-update-each-dependency-in-package-json-to-the-latest-version&quot;&gt;How do I update each dependency in package.json to the latest version?&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.npmjs.com/package/npm-check-updates&quot;&gt;npm-check-updates&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="nodejs" /><category term="update" /><summary type="html">업데이트는 한번씩 해줘야지!</summary></entry><entry><title type="html">Reactjs] Create-react-app 시작하기</title><link href="https://lahuman.github.io/create_reactjs/" rel="alternate" type="text/html" title="Reactjs] Create-react-app 시작하기" /><published>2019-05-02T00:00:00+09:00</published><updated>2019-05-02T00:00:00+09:00</updated><id>https://lahuman.github.io/create_reactjs</id><content type="html" xml:base="https://lahuman.github.io/create_reactjs/">&lt;h1 id=&quot;reactjs-create-react-app-시작하기&quot;&gt;Reactjs] Create-react-app 시작하기&lt;/h1&gt;
-
-&lt;p&gt;reactjs 시작은 다음과 같다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$&amp;gt; npx create-react-app my-app
-$&amp;gt; cd my-app
-$&amp;gt; npm start
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;위와 같이 명령어를 실행하여 기본 react 구조와 모듈이 포함된 프로젝트를 생성한다. 생성된 프로젝트의 구조는 다음과 같다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;my-app
-├── README.md
-├── node_modules
-├── package.json
-├── .gitignore
-├── public
-│   ├── favicon.ico
-│   ├── index.html
-│   └── manifest.json
-└── src
-    ├── App.css
-    ├── App.js
-    ├── App.test.js
-    ├── index.css
-    ├── index.js
-    ├── logo.svg
-    └── serviceWorker.js
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;이후 프로젝트에 router, design 관련 모듈들을 추가 해서 반영하면된다.&lt;/p&gt;
-
-&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://facebook.github.io/create-react-app/docs/getting-started&quot;&gt;Getting Started&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="reactjs" /><category term="frontend" /><summary type="html">Reactjs로 UI 개발 시작 하기</summary></entry></feed>
+&lt;/ul&gt;</content><category term="nodejs" /><category term="update" /><summary type="html">업데이트는 한번씩 해줘야지!</summary></entry></feed>
