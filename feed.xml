@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-07-03T21:37:52+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">도서관에 도서 요청 하기</title><link href="https://lahuman.github.io/request-book-library-nodejs/" rel="alternate" type="text/html" title="도서관에 도서 요청 하기" /><published>2019-07-03T00:00:00+09:00</published><updated>2019-07-03T00:00:00+09:00</updated><id>https://lahuman.github.io/request-book-library-nodejs</id><content type="html" xml:base="https://lahuman.github.io/request-book-library-nodejs/">&lt;h1 id=&quot;도서관에-도서-자동-요청-프로젝트&quot;&gt;도서관에 도서 자동 요청 프로젝트&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-07-03T23:10:44+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">도서관에 도서 요청 하기</title><link href="https://lahuman.github.io/request-book-library-nodejs/" rel="alternate" type="text/html" title="도서관에 도서 요청 하기" /><published>2019-07-03T00:00:00+09:00</published><updated>2019-07-03T00:00:00+09:00</updated><id>https://lahuman.github.io/request-book-library-nodejs</id><content type="html" xml:base="https://lahuman.github.io/request-book-library-nodejs/">&lt;h1 id=&quot;도서관에-도서-자동-요청-프로젝트&quot;&gt;도서관에 도서 자동 요청 프로젝트&lt;/h1&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;도서관에 책을 등록하는 프로그램 입니다. 기존에 JAVA로 만들어진 모듈을 nodejs로 변경 하였습니다. 
@@ -6,6 +6,8 @@ JAVA 소스의 경우 selenium을 설치하고 설정해야하는 부분이 많�
 &lt;/blockquote&gt;
 
 &lt;div&gt;&lt;a href=&quot;https://github.com/lahuman/request-book-apply&quot; class=&quot;btn btn-warning&quot;&gt; 기존 JAVA Source 바로가기&lt;/a&gt;&lt;/div&gt;
+
+&lt;div&gt;&lt;a href=&quot;https://github.com/lahuman/request-book-library&quot; class=&quot;btn btn-primary&quot;&gt; nodejs Source 바로가기&lt;/a&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;프로그램-설계&quot;&gt;프로그램 설계&lt;/h2&gt;
 
