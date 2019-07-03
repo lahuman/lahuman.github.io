@@ -1,4 +1,128 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-06-29T15:39:04+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">오늘은 토요일</title><link href="https://lahuman.github.io/20190629/" rel="alternate" type="text/html" title="오늘은 토요일" /><published>2019-06-29T00:00:00+09:00</published><updated>2019-06-29T00:00:00+09:00</updated><id>https://lahuman.github.io/20190629</id><content type="html" xml:base="https://lahuman.github.io/20190629/">&lt;h1 id=&quot;오랜만에-집에서-쉰다&quot;&gt;오랜만에 집에서 쉰다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-07-03T21:37:52+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">도서관에 도서 요청 하기</title><link href="https://lahuman.github.io/request-book-library-nodejs/" rel="alternate" type="text/html" title="도서관에 도서 요청 하기" /><published>2019-07-03T00:00:00+09:00</published><updated>2019-07-03T00:00:00+09:00</updated><id>https://lahuman.github.io/request-book-library-nodejs</id><content type="html" xml:base="https://lahuman.github.io/request-book-library-nodejs/">&lt;h1 id=&quot;도서관에-도서-자동-요청-프로젝트&quot;&gt;도서관에 도서 자동 요청 프로젝트&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;도서관에 책을 등록하는 프로그램 입니다. 기존에 JAVA로 만들어진 모듈을 nodejs로 변경 하였습니다. 
+JAVA 소스의 경우 selenium을 설치하고 설정해야하는 부분이 많았는데 &lt;a href=&quot;https://github.com/GoogleChrome/puppeteer&quot;&gt;puppeteer&lt;/a&gt;를 이용하면 간단하게 최소한의 설정으로 처리가 가능하다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div&gt;&lt;a href=&quot;https://github.com/lahuman/request-book-apply&quot; class=&quot;btn btn-warning&quot;&gt; 기존 JAVA Source 바로가기&lt;/a&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;프로그램-설계&quot;&gt;프로그램 설계&lt;/h2&gt;
+
+&lt;p&gt;부천 시립 도서관에서 한달에 요청 할 수 있는 도서는 다음과 같다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;상동, 심곡, 꿈빛, 책마루, 송내도서관 : 1인당 월 5권&lt;/li&gt;
+  &lt;li&gt;원미, 북부, 한울빛, 꿈여울도서관 : 1인당 월 20권&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;이에 도서 목록을 다음과 같이 TXT 파일로 작성하연 자동으로 등록 하도록 한다.&lt;/p&gt;
+
+&lt;h4 id=&quot;도서목록-파일-내용-샘플&quot;&gt;도서목록 파일 내용 샘플&lt;/h4&gt;
+&lt;pre&gt;
+도서관코드|도서명
+AA|즐거운하루
+AB|자동책등록프로그램
+&lt;/pre&gt;
+
+&lt;h4 id=&quot;도서관-코드&quot;&gt;도서관 코드&lt;/h4&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;2019년 부터 상동, 심곡, 꿈빛, 책마루, 송내, 동화도서관: 1인당 월 5권 으로 변경 되었습니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;아래 내용은 2017년 기준 내용입니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;도서관코드&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;도서관명&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;비고&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;AA&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;상동&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;월5권&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;AB&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;원미&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;월20권&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;AC&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;삼곡&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;월5권&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;AD&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;북부&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;월20권&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;AE&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;꿈빛&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;월5권&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;AF&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;책마루&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;월5권&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;AG&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;한울빛&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;월20권&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;AH&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;꿈여울&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;월20권&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;AI&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;송내&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;월5권&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;AK&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;도당&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;월20권&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;프로세스-순서도&quot;&gt;프로세스 순서도&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://lahuman.github.io/assets/project/bookapply/process_flowchart.png&quot; alt=&quot;프로세스 순서도&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;notice&quot;&gt;Notice&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;nodejs 필요&lt;/li&gt;
+  &lt;li&gt;_env 를 .env 로 파일명 변경&lt;/li&gt;
+  &lt;li&gt;.env 에 ID/PW 작성&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;실행-방법&quot;&gt;실행 방법&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 모듈 설치
+npm install
+
+# 실행
+npm run start
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;license&quot;&gt;License&lt;/h2&gt;
+
+&lt;p&gt;희망 도서 자동 등록 프로그램은 open source 프로그램으로 MIT 라이선스를 따릅니다.&lt;/p&gt;
+
+&lt;p&gt;This Request book apply is free and open source software, distributed under the MIT License. So feel free to use this program on your project without linking back to me or including a disclaimer.&lt;/p&gt;</content><category term="node" /><category term="book" /><summary type="html">기존 JAVA 프로젝트를 nodejs로 변환 함!</summary></entry><entry><title type="html">오늘은 토요일</title><link href="https://lahuman.github.io/20190629/" rel="alternate" type="text/html" title="오늘은 토요일" /><published>2019-06-29T00:00:00+09:00</published><updated>2019-06-29T00:00:00+09:00</updated><id>https://lahuman.github.io/20190629</id><content type="html" xml:base="https://lahuman.github.io/20190629/">&lt;h1 id=&quot;오랜만에-집에서-쉰다&quot;&gt;오랜만에 집에서 쉰다.&lt;/h1&gt;
 
 &lt;p&gt;한동안 주말 마다 아이들과 놀러를 다니거나, 근처 공원을 다녔따&amp;gt;&lt;/p&gt;
 
@@ -308,112 +432,4 @@ npm start
   &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/35328725/hpe-header-overflow-exception-when-make-http-request/35330480#35330480&quot;&gt;HPE_HEADER_OVERFLOW exception when make http.request&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://github.com/nodejs/http-parser/blob/678a9e21f11e5ea93e5e17a2302390f88a6a8c46/http_parser.h#L64&quot;&gt;nodejs/http-parser&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.npmjs.com/package/x-ray&quot;&gt;x-ray(node moudle)&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="error" /><category term="nodejs" /><summary type="html">처음 보는 에러가 발생하였다.</summary></entry><entry><title type="html">Google Docs Sheets 연동 하기</title><link href="https://lahuman.github.io/google_sheet_api/" rel="alternate" type="text/html" title="Google Docs Sheets 연동 하기" /><published>2019-05-15T00:00:00+09:00</published><updated>2019-05-15T00:00:00+09:00</updated><id>https://lahuman.github.io/google_sheet_api</id><content type="html" xml:base="https://lahuman.github.io/google_sheet_api/">&lt;h1 id=&quot;google-docs-sheets-연동-하기&quot;&gt;google docs Sheets 연동 하기&lt;/h1&gt;
-
-&lt;p&gt;이번에 진행되는 프로젝트에서 데이터를 Google Docs의 Sheets에 넣어 두고 해당 데이터를 활용하여 대시보드를 구현하게 되었다.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://developers.google.com/sheets/guides/concepts?hl=ko&quot;&gt;Google Sheets API 소개&lt;/a&gt;에도 잘 나와 있듯이, API를 활용하여 쉽게 이용할 수 있다.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://developers.google.com/sheets/api/quickstart/nodejs&quot;&gt;Node.js Quickstart&lt;/a&gt;에서 제공되는 소스는 아래와 같다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;const fs = require('fs');
-const readline = require('readline');
-const {google} = require('googleapis');
-
-// If modifying these scopes, delete token.json.
-const SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly'];
-// The file token.json stores the user's access and refresh tokens, and is
-// created automatically when the authorization flow completes for the first
-// time.
-const TOKEN_PATH = 'token.json';
-
-// Load client secrets from a local file.
-fs.readFile('credentials.json', (err, content) =&amp;gt; {
-  if (err) return console.log('Error loading client secret file:', err);
-  // Authorize a client with credentials, then call the Google Sheets API.
-  authorize(JSON.parse(content), listMajors);
-});
-
-/**
- * Create an OAuth2 client with the given credentials, and then execute the
- * given callback function.
- * @param {Object} credentials The authorization client credentials.
- * @param {function} callback The callback to call with the authorized client.
- */
-function authorize(credentials, callback) {
-  const {client_secret, client_id, redirect_uris} = credentials.installed;
-  const oAuth2Client = new google.auth.OAuth2(
-      client_id, client_secret, redirect_uris[0]);
-
-  // Check if we have previously stored a token.
-  fs.readFile(TOKEN_PATH, (err, token) =&amp;gt; {
-    if (err) return getNewToken(oAuth2Client, callback);
-    oAuth2Client.setCredentials(JSON.parse(token));
-    callback(oAuth2Client);
-  });
-}
-
-/**
- * Get and store new token after prompting for user authorization, and then
- * execute the given callback with the authorized OAuth2 client.
- * @param {google.auth.OAuth2} oAuth2Client The OAuth2 client to get token for.
- * @param {getEventsCallback} callback The callback for the authorized client.
- */
-function getNewToken(oAuth2Client, callback) {
-  const authUrl = oAuth2Client.generateAuthUrl({
-    access_type: 'offline',
-    scope: SCOPES,
-  });
-  console.log('Authorize this app by visiting this url:', authUrl);
-  const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout,
-  });
-  rl.question('Enter the code from that page here: ', (code) =&amp;gt; {
-    rl.close();
-    oAuth2Client.getToken(code, (err, token) =&amp;gt; {
-      if (err) return console.error('Error while trying to retrieve access token', err);
-      oAuth2Client.setCredentials(token);
-      // Store the token to disk for later program executions
-      fs.writeFile(TOKEN_PATH, JSON.stringify(token), (err) =&amp;gt; {
-        if (err) return console.error(err);
-        console.log('Token stored to', TOKEN_PATH);
-      });
-      callback(oAuth2Client);
-    });
-  });
-}
-
-/**
- * Prints the names and majors of students in a sample spreadsheet:
- * @see https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/edit
- * @param {google.auth.OAuth2} auth The authenticated Google OAuth client.
- */
-function listMajors(auth) {
-  const sheets = google.sheets({version: 'v4', auth});
-  sheets.spreadsheets.values.get({
-    spreadsheetId: '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
-    range: 'Class Data!A2:E',
-  }, (err, res) =&amp;gt; {
-    if (err) return console.log('The API returned an error: ' + err);
-    const rows = res.data.values;
-    if (rows.length) {
-      console.log('Name, Major:');
-      // Print columns A and E, which correspond to indices 0 and 4.
-      rows.map((row) =&amp;gt; {
-        console.log(`${row[0]}, ${row[4]}`);
-      });
-    } else {
-      console.log('No data found.');
-    }
-  });
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;참 좋은 세상이다!&lt;/p&gt;
-
-&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://developers.google.com/sheets/guides/concepts?hl=ko&quot;&gt;Google Sheets API 소개&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://developers.google.com/sheets/api/quickstart/nodejs&quot;&gt;Node.js Quickstart&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="sheets" /><category term="google" /><summary type="html">Google Docs Sheets를 이용하면 DB도 필요 없겠다!!</summary></entry></feed>
+&lt;/ul&gt;</content><category term="error" /><category term="nodejs" /><summary type="html">처음 보는 에러가 발생하였다.</summary></entry></feed>
