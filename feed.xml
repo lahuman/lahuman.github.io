@@ -1,4 +1,36 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-07-03T23:10:44+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">도서관에 도서 요청 하기</title><link href="https://lahuman.github.io/request-book-library-nodejs/" rel="alternate" type="text/html" title="도서관에 도서 요청 하기" /><published>2019-07-03T00:00:00+09:00</published><updated>2019-07-03T00:00:00+09:00</updated><id>https://lahuman.github.io/request-book-library-nodejs</id><content type="html" xml:base="https://lahuman.github.io/request-book-library-nodejs/">&lt;h1 id=&quot;도서관에-도서-자동-요청-프로젝트&quot;&gt;도서관에 도서 자동 요청 프로젝트&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-07-07T21:32:29+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">딸아이와의 데이트</title><link href="https://lahuman.github.io/20190707/" rel="alternate" type="text/html" title="딸아이와의 데이트" /><published>2019-07-07T00:00:00+09:00</published><updated>2019-07-07T00:00:00+09:00</updated><id>https://lahuman.github.io/20190707</id><content type="html" xml:base="https://lahuman.github.io/20190707/">&lt;h1 id=&quot;오늘은-아내가-약속이-있어서-나갔다&quot;&gt;오늘은 아내가 약속이 있어서 나갔다.&lt;/h1&gt;
+
+&lt;p&gt;딸아이가 근래에 코피가 계속 나서 이비후과를 찾아갔다.&lt;/p&gt;
+
+&lt;p&gt;많이 겁을 내던 아이는 의사 선생님 앞에서 계속 몸을 피하여 내가 앉고 진료를 보았다.&lt;/p&gt;
+
+&lt;p&gt;평소에 코를 많다 코피가 나면 내가&lt;/p&gt;
+
+&lt;p&gt;“자꾸 그렇게 하면 병원가서 코를 지져야한다.”  라고 겁을 줘서인지 덜덜 떨고 있었다.&lt;/p&gt;
+
+&lt;p&gt;등을 두번 두드려 주며, “선생님이 약만 발라 주실꺼야.” 라고 이해 시킨후 치료를 받았다.&lt;/p&gt;
+
+&lt;p&gt;진료가 끝나고, 점심을 먹으로 가는 길에 채윤이가 먹고 싶은 음식집을 찾아 보았다.&lt;/p&gt;
+
+&lt;p&gt;나 : “우동 먹을까??”&lt;/p&gt;
+
+&lt;p&gt;딸 : “싫어.”&lt;/p&gt;
+
+&lt;p&gt;나 : “고기 먹을까?”&lt;/p&gt;
+
+&lt;p&gt;딸 : “더운데 고기 먹기 싫어”&lt;/p&gt;
+
+&lt;p&gt;나 : “시원한 냉면 먹을까?”&lt;/p&gt;
+
+&lt;p&gt;딸: “싫어, 나 면 싫어해!”&lt;/p&gt;
+
+&lt;p&gt;나 : “삼계탕은 어때?”&lt;/p&gt;
+
+&lt;p&gt;딸 : “싫어, 더워”&lt;/p&gt;
+
+&lt;p&gt;도저히 채윤이가 원하는 음식을 찾을 수가 없었다.&lt;/p&gt;
+
+&lt;h2 id=&quot;까칠한-딸아이와의-데이트는-나를-많이-지치게-많들었다&quot;&gt;까칠한 딸아이와의 데이트는 나를 많이 지치게 많들었다.&lt;/h2&gt;</content><category term="단상" /><summary type="html">덥다 고기 싫고, 면 싫고, 야채 싫다고 한다.</summary></entry><entry><title type="html">도서관에 도서 요청 하기</title><link href="https://lahuman.github.io/request-book-library-nodejs/" rel="alternate" type="text/html" title="도서관에 도서 요청 하기" /><published>2019-07-03T00:00:00+09:00</published><updated>2019-07-03T00:00:00+09:00</updated><id>https://lahuman.github.io/request-book-library-nodejs</id><content type="html" xml:base="https://lahuman.github.io/request-book-library-nodejs/">&lt;h1 id=&quot;도서관에-도서-자동-요청-프로젝트&quot;&gt;도서관에 도서 자동 요청 프로젝트&lt;/h1&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;도서관에 책을 등록하는 프로그램 입니다. 기존에 JAVA로 만들어진 모듈을 nodejs로 변경 하였습니다. 
@@ -394,44 +426,4 @@ npm start
   &lt;li&gt;&lt;a href=&quot;https://velog.io/@padakim/Webpack4-for-React-%EB%A6%AC%EC%95%A1%ED%8A%B8%EB%A5%BC-%EC%9C%84%ED%95%9C-%EC%9B%B9%ED%8C%A94-1-&quot;&gt;Webpack4 for React (리액트를 위한 웹팩4) - 1&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://medium.com/@trekinbami/using-environment-variables-in-react-6b0a99d83cf5&quot;&gt;Using environment variables in React&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;http://gaearon.github.io/react-hot-loader/&quot;&gt;React Hot Loader&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="reactjs" /><category term="init" /><summary type="html">'npx create-react-app my-app' 는 너무 무겁다.</summary></entry><entry><title type="html">NodeJs에서 Parse Error: HPE_HEADER_OVERFLOW 발생</title><link href="https://lahuman.github.io/nodejs_HEP_HEADER_OVERFLOW/" rel="alternate" type="text/html" title="NodeJs에서 Parse Error: HPE_HEADER_OVERFLOW 발생" /><published>2019-05-18T00:00:00+09:00</published><updated>2019-05-18T00:00:00+09:00</updated><id>https://lahuman.github.io/nodejs_HEP_HEADER_OVERFLOW</id><content type="html" xml:base="https://lahuman.github.io/nodejs_HEP_HEADER_OVERFLOW/">&lt;h1 id=&quot;nodejs에서-parse-error-hpe_header_overflow-발생&quot;&gt;NodeJs에서 Parse Error: HPE_HEADER_OVERFLOW 발생&lt;/h1&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.npmjs.com/package/x-ray&quot;&gt;x-ray(node moudle)&lt;/a&gt;를 이용해서 크롤링을 개발하고 있던 중, 다음과 같은 오류를 만나게 되었다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(node:63533) UnhandledPromiseRejectionWarning: Error: Parse Error
-    at Socket.socketOnData (_http_client.js:442:20)
-    at Socket.emit (events.js:189:13)
-    at addChunk (_stream_readable.js:284:12)
-    at readableAddChunk (_stream_readable.js:265:11)
-    at Socket.Readable.push (_stream_readable.js:220:10)
-    at TCP.onStreamRead (internal/stream_base_commons.js:94:17)
-     bytesParsed: 6545,
-  code: 'HPE_HEADER_OVERFLOW',
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;이 오류는 3개의 사이트중 1개의 사이트에서만 발생하였다.&lt;/p&gt;
-
-&lt;p&gt;원인을 파악하기 위해 검색을 하다 다음과 같은 내용을 확인하였다.&lt;/p&gt;
-
-&lt;p&gt;Node.js의 http 80KB의 Header 크기 제한을 가지고 있고 만약 큰 Header 크기가 필요 하다면, 명령을 실행시 특정 argument를 추가 해야 한다.&lt;/p&gt;
-
-&lt;h3 id=&quot;해결책은-다음과-같다&quot;&gt;해결책은 다음과 같다!&lt;/h3&gt;
-
-&lt;p&gt;실행하는 node 명령와 함께 &lt;strong&gt;–max-http-header-size=크기&lt;/strong&gt; argument를 추가 해라&lt;/p&gt;
-
-&lt;p&gt;예제)&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$&amp;gt; node --max-http-header-size=81000 app.js
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;에러가 안날때 까지 최대 http header 크기를 키우면 된다.&lt;/p&gt;
-
-&lt;p&gt;&lt;del&gt;근데… 이건 에러나는 사이트가 문제 아닌가? 80KB를 넘는 헤더를 왜 넘기지??&lt;/del&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/Azure/azure-cosmos-js/issues/221&quot;&gt;Trying to query documents results in a Parse Error: HPE_HEADER_OVERFLOW #221&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/35328725/hpe-header-overflow-exception-when-make-http-request/35330480#35330480&quot;&gt;HPE_HEADER_OVERFLOW exception when make http.request&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/nodejs/http-parser/blob/678a9e21f11e5ea93e5e17a2302390f88a6a8c46/http_parser.h#L64&quot;&gt;nodejs/http-parser&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.npmjs.com/package/x-ray&quot;&gt;x-ray(node moudle)&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="error" /><category term="nodejs" /><summary type="html">처음 보는 에러가 발생하였다.</summary></entry></feed>
+&lt;/ul&gt;</content><category term="reactjs" /><category term="init" /><summary type="html">'npx create-react-app my-app' 는 너무 무겁다.</summary></entry></feed>
