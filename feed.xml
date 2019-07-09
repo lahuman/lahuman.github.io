@@ -1,4 +1,37 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-07-07T21:32:29+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">딸아이와의 데이트</title><link href="https://lahuman.github.io/20190707/" rel="alternate" type="text/html" title="딸아이와의 데이트" /><published>2019-07-07T00:00:00+09:00</published><updated>2019-07-07T00:00:00+09:00</updated><id>https://lahuman.github.io/20190707</id><content type="html" xml:base="https://lahuman.github.io/20190707/">&lt;h1 id=&quot;오늘은-아내가-약속이-있어서-나갔다&quot;&gt;오늘은 아내가 약속이 있어서 나갔다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-07-10T00:20:49+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">raspberry pi 3 를 얻었다!</title><link href="https://lahuman.github.io/raspberry/" rel="alternate" type="text/html" title="raspberry pi 3 를 얻었다!" /><published>2019-07-09T00:00:00+09:00</published><updated>2019-07-09T00:00:00+09:00</updated><id>https://lahuman.github.io/raspberry</id><content type="html" xml:base="https://lahuman.github.io/raspberry/">&lt;h1 id=&quot;raspberry-pi-3-초기-설정&quot;&gt;raspberry pi 3 초기 설정&lt;/h1&gt;
+
+&lt;p&gt;황부장님에게 &lt;a href=&quot;https://www.raspberrypi.org/products/raspberry-pi-3-model-b/&quot;&gt;Raspberry Pi 3 Model B&lt;/a&gt;을 얻어서 설치와 설정을 해보았다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;사실 이번에  &lt;a href=&quot;https://www.raspberrypi.org/products/raspberry-pi-4-model-b/&quot;&gt;Raspberry Pi 4&lt;/a&gt;가 나와서 개인적으로 구매하여 PC 처럼 사용해 보려고 했다.
+일단 &lt;a href=&quot;https://www.raspberrypi.org/products/raspberry-pi-4-model-b/&quot;&gt;Raspberry Pi 4&lt;/a&gt;를 현재는 구하기도 어렵고, 국제 배송을 해야 하기 때문에 오래 걸린다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;먼저 &lt;a href=&quot;https://geeksvoyage.com/raspberry%20pi/installing-os-for-pi/&quot;&gt;라즈베리파이3 B+ 설치가이드(2) RASPBIAN OS 설치&lt;/a&gt;를 보고 Raspbian OS를 설치 하였다.
+크게 어렵지는 않지만 다운로드에 오랜 시간이 걸린다.&lt;/p&gt;
+
+&lt;p&gt;한글 설정은 nabi, fcitx를 이용해서 테스트 하였지만 잘 안되었다.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://bluexmas.tistory.com/875&quot;&gt;Raspberry PI : 한글 환경 설정, 한글 입력기(uim) 설치&lt;/a&gt;를 보고 uim으로 설치 하니 문제 없이 되었다.&lt;/p&gt;
+
+&lt;p&gt;VSCODE와 VIM을 IDE로 설치하고, nodejs까지 설치하여 설정은 마무리 하였다.&lt;/p&gt;
+
+&lt;p&gt;다만 이것 저것 설정을 하다보니, 온도가 뜨거워 진다는 메시지를 확인할수 있었다.&lt;/p&gt;
+
+&lt;p&gt;몇일 써보고 정말 괜찮으면 &lt;a href=&quot;https://www.raspberrypi.org/products/raspberry-pi-4-model-b/&quot;&gt;Raspberry Pi 4&lt;/a&gt;를 구매해야겠다.&lt;/p&gt;
+
+&lt;figure class=&quot;half&quot;&gt;
+	&lt;img src=&quot;https://lahuman.github.io/assets/img/post_img/raspberry_install_node.jpg&quot; /&gt;
+	&lt;figcaption&gt;Two images.&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.raspberrypi.org/products/raspberry-pi-3-model-b/&quot;&gt;Raspberry Pi 3 Model B&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.raspberrypi.org/products/raspberry-pi-4-model-b/&quot;&gt;Raspberry Pi 4&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://geeksvoyage.com/raspberry%20pi/installing-os-for-pi/&quot;&gt;라즈베리파이3 B+ 설치가이드(2) RASPBIAN OS 설치&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://bluexmas.tistory.com/875&quot;&gt;Raspberry PI : 한글 환경 설정, 한글 입력기(uim) 설치&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="raspberry" /><summary type="html">황부장님 감사합니다!!! :)</summary></entry><entry><title type="html">딸아이와의 데이트</title><link href="https://lahuman.github.io/20190707/" rel="alternate" type="text/html" title="딸아이와의 데이트" /><published>2019-07-07T00:00:00+09:00</published><updated>2019-07-07T00:00:00+09:00</updated><id>https://lahuman.github.io/20190707</id><content type="html" xml:base="https://lahuman.github.io/20190707/">&lt;h1 id=&quot;오늘은-아내가-약속이-있어서-나갔다&quot;&gt;오늘은 아내가 약속이 있어서 나갔다.&lt;/h1&gt;
 
 &lt;p&gt;딸아이가 근래에 코피가 계속 나서 이비후과를 찾아갔다.&lt;/p&gt;
 
@@ -380,50 +413,4 @@ vim (2:8.0.1453-1ubuntu1.1) bionic-security; urgency=medium
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://lahuman.github.io/maven_build_with_local_jar/&quot;&gt;Maven 배포시 Local Jar 파일과 함께 하기!&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/46353477/jdk9-and-maven-jar-plugin&quot;&gt;JDK9 and maven-jar-plugin&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="reactjs" /><category term="init" /><summary type="html">Failed to execute goal org.apache.maven.plugins:maven-jar-plugin:2.6:jar</summary></entry><entry><title type="html">Reactjs 초기 프로젝트 구성하기</title><link href="https://lahuman.github.io/reactjs_init/" rel="alternate" type="text/html" title="Reactjs 초기 프로젝트 구성하기" /><published>2019-05-26T00:00:00+09:00</published><updated>2019-05-26T00:00:00+09:00</updated><id>https://lahuman.github.io/reactjs_init</id><content type="html" xml:base="https://lahuman.github.io/reactjs_init/">&lt;h1 id=&quot;reactjs-초기-프로젝트-구성하기&quot;&gt;Reactjs 초기 프로젝트 구성하기&lt;/h1&gt;
-
-&lt;p&gt;Reactjs 초기 프로젝트를 구성하려는 방법 중 가장 쉽고 널리 알려진 것은  &lt;a href=&quot;https://github.com/facebook/create-react-app&quot;&gt;Create React App&lt;/a&gt;를 이용하는 방법이다. 아래와 같이 실행하면 바로 프로젝트 구성이 완료된다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npx create-react-app my-app
-cd my-app
-npm start
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;아쉬운 점은 무엇이 설치 되었는지 내가 알지 못하고, 또한 컴파일에 오랜 시간이 걸린다.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://facebook.github.io/create-react-app/docs/available-scripts#npm-run-eject&quot;&gt;npm run eject&lt;/a&gt;를 이용해서 묶음을 풀어 보면 너무 많은 것들이 설치 되어 있다.&lt;/p&gt;
-
-&lt;p&gt;그래서 방법을 찾아 보던 중 &lt;a href=&quot;https://www.youtube.com/watch?v=LoMFC4kdrnQ&amp;amp;list=PLcqDmjxt30RtqbStQqk-eYMK8N-1SYIFn&amp;amp;index=17&quot;&gt;@babel/preset-env와 plugins&lt;/a&gt;이라는 유튜브를 보고 한땀씩 진행을 해보았다.&lt;/p&gt;
-
-&lt;p&gt;우선 나에게 필요한 기본 모듈은 다음과 같다.&lt;/p&gt;
-
-&lt;h3 id=&quot;기본-모듈&quot;&gt;기본 모듈&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;react&lt;/li&gt;
-  &lt;li&gt;react-dom&lt;/li&gt;
-  &lt;li&gt;react&lt;/li&gt;
-  &lt;li&gt;react-router-dom&lt;/li&gt;
-  &lt;li&gt;dotenv&lt;/li&gt;
-  &lt;li&gt;axois&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;이들을 모두 설치하고 기본 테스트까지 된 프로젝트를 만들어 보았다.&lt;/p&gt;
-
-&lt;p&gt;진행하면서 수정사항이 바로 바로 반영되는 &lt;a href=&quot;http://gaearon.github.io/react-hot-loader/&quot;&gt;React Hot Loader&lt;/a&gt;도 알게되어 추가 하였다.&lt;/p&gt;
-
-&lt;p&gt;또한 컴파일을 위해 웹팩 설정을 하고 한땀 한땀 진행해보았다.&lt;/p&gt;
-
-&lt;p&gt;어려운듯 쉬운듯 꽤 많은 시간이 소비 하고야 내가 원하는 결과를 확인 할 수 있었다.&lt;/p&gt;
-
-&lt;h3 id=&quot;reactjs-start&quot;&gt;&lt;a href=&quot;https://github.com/lahuman/ReactJS-Start&quot;&gt;ReactJS-Start&lt;/a&gt;&lt;/h3&gt;
-
-&lt;p&gt;많이 삽질하면서 많이 배운 시간이었다.&lt;/p&gt;
-
-&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/facebook/create-react-app&quot;&gt;Create React App&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=LoMFC4kdrnQ&amp;amp;list=PLcqDmjxt30RtqbStQqk-eYMK8N-1SYIFn&amp;amp;index=17&quot;&gt;@babel/preset-env와 plugins&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://velog.io/@padakim/Webpack4-for-React-%EB%A6%AC%EC%95%A1%ED%8A%B8%EB%A5%BC-%EC%9C%84%ED%95%9C-%EC%9B%B9%ED%8C%A94-1-&quot;&gt;Webpack4 for React (리액트를 위한 웹팩4) - 1&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://medium.com/@trekinbami/using-environment-variables-in-react-6b0a99d83cf5&quot;&gt;Using environment variables in React&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://gaearon.github.io/react-hot-loader/&quot;&gt;React Hot Loader&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="reactjs" /><category term="init" /><summary type="html">'npx create-react-app my-app' 는 너무 무겁다.</summary></entry></feed>
+&lt;/ul&gt;</content><category term="reactjs" /><category term="init" /><summary type="html">Failed to execute goal org.apache.maven.plugins:maven-jar-plugin:2.6:jar</summary></entry></feed>
