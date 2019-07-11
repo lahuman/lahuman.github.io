@@ -1,4 +1,80 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-07-10T00:29:06+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">raspberry pi 3 를 얻었다!</title><link href="https://lahuman.github.io/raspberry/" rel="alternate" type="text/html" title="raspberry pi 3 를 얻었다!" /><published>2019-07-09T00:00:00+09:00</published><updated>2019-07-09T00:00:00+09:00</updated><id>https://lahuman.github.io/raspberry</id><content type="html" xml:base="https://lahuman.github.io/raspberry/">&lt;h1 id=&quot;raspberry-pi-3-초기-설정&quot;&gt;raspberry pi 3 초기 설정&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-07-12T08:48:30+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">raspberry pi 에서 puppeteer 사용하기!</title><link href="https://lahuman.github.io/raspberry_puppeter/" rel="alternate" type="text/html" title="raspberry pi 에서 puppeteer 사용하기!" /><published>2019-07-11T00:00:00+09:00</published><updated>2019-07-11T00:00:00+09:00</updated><id>https://lahuman.github.io/raspberry_puppeter</id><content type="html" xml:base="https://lahuman.github.io/raspberry_puppeter/">&lt;h1 id=&quot;raspberry-pi-에서-puppeteer-사용하기&quot;&gt;raspberry pi 에서 puppeteer 사용하기!&lt;/h1&gt;
+
+&lt;p&gt;본격적으로 raspberry pi에서 개발을 하고 있다.&lt;/p&gt;
+
+&lt;p&gt;기존 개인 프로젝트 중에서 puppeteer를 사용한 프로젝트를 수정하려는데, 동작은 하지 않고 다음과 같은 오류가 발생했다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;book&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;1.0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;start&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;home&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;pi&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;DEV&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;99.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;personal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;book&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;library&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;node&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;js&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3745&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;UnhandledPromiseRejectionWarning&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Error&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Failed&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;launch&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;chrome&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;home&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;pi&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;DEV&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;99.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;personal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;book&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;node_modules&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;puppeteer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;local&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;chromium&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;linux&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;672088&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;chrome&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;linux&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;chrome&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;home&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;pi&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;DEV&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;99.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;personal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;book&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;node_modules&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;puppeteer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;local&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;chromium&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;linux&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;672088&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;chrome&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;linux&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;chrome&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Syntax&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Unterminated&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;quoted&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;string&lt;/span&gt;
+
+
+&lt;span class=&quot;nx&quot;&gt;TROUBLESHOOTING&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;https&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;://&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;github&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;GoogleChrome&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;puppeteer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;blob&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;master&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;docs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;troubleshooting&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;md&lt;/span&gt;
+
+    &lt;span class=&quot;nx&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;onClose&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;home&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;pi&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;DEV&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;99.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;personal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;book&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;node_modules&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;puppeteer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;lib&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Launcher&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;js&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;340&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;14&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Interface&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;helper&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addEventListener&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;home&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;pi&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;DEV&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;99.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;personal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;book&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;node_modules&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;puppeteer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;lib&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Launcher&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;js&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;329&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Interface&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;emit&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;events&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;js&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;203&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;15&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Interface&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;close&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;readline&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;js&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;397&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Socket&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;onend&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;readline&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;js&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;173&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Socket&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;emit&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;events&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;js&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;203&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;15&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;endReadableNT&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;_stream_readable&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;js&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1129&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;process&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;_tickCallback&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;internal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;process&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;next_tick&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;js&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;63&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;19&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3745&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;UnhandledPromiseRejectionWarning&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Unhandled&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;promise&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;rejection&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;This&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;originated&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;either&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;by&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;throwing&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;inside&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;of&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;an&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;without&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;block&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;by&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;rejecting&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;promise&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;which&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;was&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;not&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;handled&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;rejection&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3745&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;DEP0018&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;DeprecationWarning&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Unhandled&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;promise&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;rejections&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;are&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;deprecated&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;In&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;the&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;future&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;promise&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;rejections&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;that&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;are&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;not&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;handled&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;will&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;terminate&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;the&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Node&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;js&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;process&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;non&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;zero&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;exit&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;code&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;오류가 발생할 문제가 전혀 없음에도 발생하여 당황하며 검색하였지만, 해당 문제는 나오지 않았다.&lt;/p&gt;
+
+&lt;p&gt;혹시나 하여 raspberry puppeteer로 검색을 하니 다음 글을 찾았다.&lt;/p&gt;
+
+&lt;h4 id=&quot;chrome-headless-and-puppeteer-on-raspberry-pi&quot;&gt;&lt;a href=&quot;https://codingvideos.net/chrome-headless-and-puppeteer-on-raspberry-pi/&quot;&gt;Chrome Headless and Puppeteer on Raspberry Pi&lt;/a&gt;&lt;/h4&gt;
+
+&lt;p&gt;해당 글을 참고로 puppeteer-core를 설치하여 테스트 하니 아주 잘된다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt install chromium-browser chromium-codecs-ffmpeg
+sudo install npm
+npm install puppeteer-core@v1.11.0
+
+const puppeteer = require(‘puppeteer-core’);
+
+const browser = await puppeteer.launch({executablePath: ‘/usr/bin/chromium-browser’});
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;os가 비슷하지만 다르기 때문인지 동작이 조금식 다르다.&lt;/p&gt;
+
+&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://codingvideos.net/chrome-headless-and-puppeteer-on-raspberry-pi/&quot;&gt;Chrome Headless and Puppeteer on Raspberry Pi&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="raspberry" /><category term="puppeteer" /><summary type="html">일반적으로 사용하는건 안되나 보다...</summary></entry><entry><title type="html">raspberry pi 3에 VSCODE를 설치시 깡통화면만 뜬다.</title><link href="https://lahuman.github.io/raspberry_vscode/" rel="alternate" type="text/html" title="raspberry pi 3에 VSCODE를 설치시 깡통화면만 뜬다." /><published>2019-07-10T00:00:00+09:00</published><updated>2019-07-10T00:00:00+09:00</updated><id>https://lahuman.github.io/raspberry_vscode</id><content type="html" xml:base="https://lahuman.github.io/raspberry_vscode/">&lt;h1 id=&quot;raspberry-pi-3-초기-설정&quot;&gt;raspberry pi 3 초기 설정&lt;/h1&gt;
+
+&lt;p&gt;raspberry pi를 desktop 버젼으로 설치하게 되면 vscode가 설치되어 있다.&lt;/p&gt;
+
+&lt;p&gt;하지만, 실행 후 표출된 앱은 아무 동작을 하지 않는다. 메뉴를 눌러보고 이렇게 저렇게 해도 아무 동작을 하지 않아 구글에 검색해보았다.&lt;/p&gt;
+
+&lt;p&gt;v1.32는 정상동작이 되지 않는다는 내용과 v1.29로 다운그레이드 하는 명령어가 함께 있었다.&lt;/p&gt;
+
+&lt;p&gt;따라하니 동작한다. 다음 업뎃에는 되려나?&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 다운그레이드 vscode
+$&amp;gt; sudo apt-get install code-oss=1.29.0-1539702286
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;추가--사용-후기&quot;&gt;추가 : 사용 후기&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;WIFI 신호를 잘 못잡는다.&lt;/li&gt;
+  &lt;li&gt;심하게 느런건 없는데 여러 작업을 하면 발열이 많다는 메시지가 뜬다.&lt;/li&gt;
+  &lt;li&gt;브라우져가 메모리와 CPU를 많이 사용한다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;결론 : respberry pi 4가 정말 기대된다. 거의 데탑 수준으로 상상 된다.&lt;/p&gt;
+
+&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/headmelted/codebuilds/issues/67&quot;&gt;can’t get code-oss to launch raspberry pi 3b&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="raspberry" /><category term="vscode" /><summary type="html">메뉴를 눌러보아도 동작하지 않는다.</summary></entry><entry><title type="html">raspberry pi 3 를 얻었다!</title><link href="https://lahuman.github.io/raspberry/" rel="alternate" type="text/html" title="raspberry pi 3 를 얻었다!" /><published>2019-07-09T00:00:00+09:00</published><updated>2019-07-09T00:00:00+09:00</updated><id>https://lahuman.github.io/raspberry</id><content type="html" xml:base="https://lahuman.github.io/raspberry/">&lt;h1 id=&quot;raspberry-pi-3-초기-설정&quot;&gt;raspberry pi 3 초기 설정&lt;/h1&gt;
 
 &lt;p&gt;황부장님에게 &lt;a href=&quot;https://www.raspberrypi.org/products/raspberry-pi-3-model-b/&quot;&gt;Raspberry Pi 3 Model B&lt;/a&gt;을 얻어서 설치와 설정을 해보았다.&lt;/p&gt;
 
@@ -345,72 +421,4 @@ vim (2:8.0.1453-1ubuntu1.1) bionic-security; urgency=medium
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://thehackernews.com/2019/06/linux-vim-vulnerability.html?fbclid=IwAR2Z6XgBENCk2c2SGgyvAJE9ZIFv1UiyQzJAw45w8-fzGcSOuYxv2X821W0&quot;&gt;“Your Linux Can Get Hacked Just by Opening a File in Vim or Neovim Editor”, 2019. 6. 10&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://vi.stackexchange.com/questions/10817/how-can-i-get-a-newer-version-of-vim-on-ubuntu?fbclid=IwAR3b75m_fA2NBbKtmjwO_3dinZ2hq4Teu7n3bv3TgDXhrznEUIgLAzl3nDQ&quot;&gt;How can I get a newer version of Vim on Ubuntu?&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="vim" /><category term="upgrade" /><summary type="html">CVE-2019-12735 취약점으로 인해 확인 진행</summary></entry><entry><title type="html">이직하고 처음 짜증나는 날이다.</title><link href="https://lahuman.github.io/20190607/" rel="alternate" type="text/html" title="이직하고 처음 짜증나는 날이다." /><published>2019-06-07T00:00:00+09:00</published><updated>2019-06-07T00:00:00+09:00</updated><id>https://lahuman.github.io/20190607</id><content type="html" xml:base="https://lahuman.github.io/20190607/">&lt;h1 id=&quot;원하는-일을-하는게-문제인가&quot;&gt;원하는 일을 하는게 문제인가?&lt;/h1&gt;
-
-&lt;p&gt;얼마전 본부장에게 들은 말이다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;너는 너가 원하는 일만 하는거 아니냐?&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;그렇다 나는 내가 좋아하고 하고 싶은 일을 한다.&lt;/p&gt;
-
-&lt;p&gt;이게 문제인가??&lt;/p&gt;
-
-&lt;p&gt;개발팀에게 마케팅을 바라고, 퍼실레이팅을 바라는게 이상한거 아닌가?&lt;/p&gt;
-
-&lt;p&gt;설사 개발팀이 마케팅을 한다 처도 전문 마케터를 이길수 없을 것이고, 퍼실레이트를 한다 처도 전문 퍼실레이터를 이실수 없을 텐데…&lt;/p&gt;
-
-&lt;p&gt;개발자에게 개발을 못한다고 무어라 할수 있는건 이해하는데… 지금 문제는 모르겠다.&lt;/p&gt;
-
-&lt;p&gt;포장은 &lt;strong&gt;소통과 공감&lt;/strong&gt;이라는데, 무엇에 대해 소통을 하지 못하였는지 공감을 못하였는지가 아니라&lt;/p&gt;
-
-&lt;p&gt;협업하는 사람에게서 우리의 이야기가 나오지 않았다는 이야기를 들었다.&lt;/p&gt;
-
-&lt;p&gt;못한단는 이야기를 들은게 아니라 문제 없으니 아무 이야기가 없는건데….&lt;/p&gt;
-
-&lt;h2 id=&quot;어쩌라는건지-모르겠다&quot;&gt;어쩌라는건지 모르겠다.&lt;/h2&gt;</content><category term="단상" /><summary type="html">원하는 일을 하는게 무슨 문제인가?</summary></entry><entry><title type="html">Maven을 이용한 Springboot 프로젝트 repackage 하기</title><link href="https://lahuman.github.io/maven_springboot_repackage/" rel="alternate" type="text/html" title="Maven을 이용한 Springboot 프로젝트 repackage 하기" /><published>2019-06-04T00:00:00+09:00</published><updated>2019-06-04T00:00:00+09:00</updated><id>https://lahuman.github.io/maven_springboot_repackage</id><content type="html" xml:base="https://lahuman.github.io/maven_springboot_repackage/">&lt;h1 id=&quot;maven을-이용한-springboot-프로젝트-repackage-하기&quot;&gt;Maven을 이용한 Springboot 프로젝트 repackage 하기&lt;/h1&gt;
-
-&lt;p&gt;다른 분이 작성한 Springboot 프로젝트를 패키징하게 되었다.&lt;/p&gt;
-
-&lt;p&gt;해당 프로젝트는 maven으로 되어 있었기에 큰 문제가 없을꺼라 생각했다.&lt;/p&gt;
-
-&lt;p&gt;내 업무 환경은 JDK 12가 설치되어 있었는데, spring-repackage를 하면 다음과 같은 오류가 발생하였다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ERROR] Failed to execute goal org.apache.maven.plugins:maven-jar-plugin:2.6:jar (default-jar) on project my-test-utils: Execution default-jar of goal org.apache.maven.plugins:maven-jar-plugin:2.6:jar failed: An API incompatibility was encountered while executing org.apache.maven.plugins:maven-jar-plugin:2.6:jar: java.lang.ExceptionInInitializerError: null
-[ERROR] -----------------------------------------------------
-[ERROR] realm =    plugin&amp;gt;org.apache.maven.plugins:maven-jar-plugin:2.6
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;에러 발생의 원인은 maven-plugin 버전 문제로, 다음과 같이 pom.xml에 추가 하면 된다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;build&amp;gt;
-	&amp;lt;plugins&amp;gt;
-		&amp;lt;plugin&amp;gt;
-			&amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;
-			&amp;lt;artifactId&amp;gt;spring-boot-maven-plugin&amp;lt;/artifactId&amp;gt;
-		&amp;lt;/plugin&amp;gt;
-		&amp;lt;plugin&amp;gt;
-			&amp;lt;groupId&amp;gt;org.apache.maven.plugins&amp;lt;/groupId&amp;gt;
-			&amp;lt;artifactId&amp;gt;maven-jar-plugin&amp;lt;/artifactId&amp;gt;
-			&amp;lt;version&amp;gt;3.1.0&amp;lt;/version&amp;gt;
-		&amp;lt;/plugin&amp;gt;
-	&amp;lt;/plugins&amp;gt;
-&amp;lt;/build&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;추가로 다음과 같은 오류가 발생하면,&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[ERROR] Failed to execute goal org.springframework.boot:spring-boot-maven-plugin:1.5.21.RELEASE:repackage (default-cli) on project lahuman: Execution default-cli of goal org.springframework.boot:spring-boot-maven-plugin:1.5.21.RELEASE:repackage failed: Source file must be provided -&amp;gt; [Help 1]
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://lahuman.github.io/maven_build_with_local_jar/&quot;&gt;Maven 배포시 Local Jar 파일과 함께 하기!&lt;/a&gt;내용과 같이 spring:repackage에 -U 옵션을 추가하면 해결 된다.&lt;/p&gt;
-
-&lt;h3 id=&quot;오랜만에-java-보는듯-하다-요즘은-개인-프로젝트도-그냥-node로-개발-하게-된다&quot;&gt;오랜만에 JAVA 보는듯 하다. 요즘은 개인 프로젝트도 그냥 NODE로 개발 하게 된다.&lt;/h3&gt;
-
-&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://lahuman.github.io/maven_build_with_local_jar/&quot;&gt;Maven 배포시 Local Jar 파일과 함께 하기!&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/46353477/jdk9-and-maven-jar-plugin&quot;&gt;JDK9 and maven-jar-plugin&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="reactjs" /><category term="init" /><summary type="html">Failed to execute goal org.apache.maven.plugins:maven-jar-plugin:2.6:jar</summary></entry></feed>
+&lt;/ul&gt;</content><category term="vim" /><category term="upgrade" /><summary type="html">CVE-2019-12735 취약점으로 인해 확인 진행</summary></entry></feed>
