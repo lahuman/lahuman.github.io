@@ -1,4 +1,24 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-08-07T22:51:31+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">AWS EC2 서버에서 DATE를 강제로 변경하기</title><link href="https://lahuman.github.io/aws_ubuntu_date_change/" rel="alternate" type="text/html" title="AWS EC2 서버에서 DATE를 강제로 변경하기" /><published>2019-08-06T00:00:00+09:00</published><updated>2019-08-06T00:00:00+09:00</updated><id>https://lahuman.github.io/aws_ubuntu_date_change</id><content type="html" xml:base="https://lahuman.github.io/aws_ubuntu_date_change/">&lt;h1 id=&quot;aws-ec2-서버에서-date를-강제로-변경하기&quot;&gt;AWS EC2 서버에서 DATE를 강제로 변경하기&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-08-07T23:00:08+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">아이가 짜증내고 화내고 바보 같이 구는 행동을 받아주기 너무 힘들다.</title><link href="https://lahuman.github.io/20190807/" rel="alternate" type="text/html" title="아이가 짜증내고 화내고 바보 같이 구는 행동을 받아주기 너무 힘들다." /><published>2019-08-07T00:00:00+09:00</published><updated>2019-08-07T00:00:00+09:00</updated><id>https://lahuman.github.io/20190807</id><content type="html" xml:base="https://lahuman.github.io/20190807/">&lt;h1 id=&quot;아이의-짜증과-화를-받아주기-힘들다&quot;&gt;아이의 짜증과 화를 받아주기 힘들다.&lt;/h1&gt;
+
+&lt;p&gt;미친 아이처럼 소리 지르고 물건을 던지고 짜증내는 아이를 보고 있으면… 싫다.&lt;/p&gt;
+
+&lt;p&gt;왜 저러는지도 모르겠다.&lt;/p&gt;
+
+&lt;p&gt;내가 아이를 이해하지 못해 아이도 힘들고 나도 힘든거 같다.&lt;/p&gt;
+
+&lt;p&gt;나는 아직 아빠의 자격이 없는지도 모르겠다.&lt;/p&gt;
+
+&lt;p&gt;아이를 사랑으로만 대하려고 노력하지만 순간 순간마다, 나도 아이에게 소리를 지르고 짜증을 내고 만다.&lt;/p&gt;
+
+&lt;p&gt;어떻게 해야할지 모르겠다.&lt;/p&gt;
+
+&lt;p&gt;아이에게 좋게 이야기 하려고 하다가 소리를 지르게 된다.&lt;/p&gt;
+
+&lt;h2 id=&quot;이런-내가-싫다&quot;&gt;이런 내가 싫다.&lt;/h2&gt;
+
+&lt;h2 id=&quot;아이를-키우는-것도-너무-힘들고-싫다&quot;&gt;아이를 키우는 것도 너무 힘들고 싫다.&lt;/h2&gt;
+
+&lt;h2 id=&quot;늘-좋을-수-많은-없겠지만-오늘은-정말-싫고-힘들다&quot;&gt;늘 좋을 수 많은 없겠지만, 오늘은 정말 싫고 힘들다.&lt;/h2&gt;</content><category term="단상" /><summary type="html">아이가 싫어진다.</summary></entry><entry><title type="html">AWS EC2 서버에서 DATE를 강제로 변경하기</title><link href="https://lahuman.github.io/aws_ubuntu_date_change/" rel="alternate" type="text/html" title="AWS EC2 서버에서 DATE를 강제로 변경하기" /><published>2019-08-06T00:00:00+09:00</published><updated>2019-08-06T00:00:00+09:00</updated><id>https://lahuman.github.io/aws_ubuntu_date_change</id><content type="html" xml:base="https://lahuman.github.io/aws_ubuntu_date_change/">&lt;h1 id=&quot;aws-ec2-서버에서-date를-강제로-변경하기&quot;&gt;AWS EC2 서버에서 DATE를 강제로 변경하기&lt;/h1&gt;
 
 &lt;p&gt;AWS의 EC2 서버의 Date를 변경하기 위해서 다음과 같은 명령어를 이용하여 처리 하였다.&lt;/p&gt;
 
@@ -319,36 +339,4 @@ $&amp;gt; sudo apt-get install code-oss=1.29.0-1539702286
   &lt;li&gt;&lt;a href=&quot;https://www.raspberrypi.org/products/raspberry-pi-4-model-b/&quot;&gt;Raspberry Pi 4&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://geeksvoyage.com/raspberry%20pi/installing-os-for-pi/&quot;&gt;라즈베리파이3 B+ 설치가이드(2) RASPBIAN OS 설치&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://bluexmas.tistory.com/875&quot;&gt;Raspberry PI : 한글 환경 설정, 한글 입력기(uim) 설치&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="raspberry" /><summary type="html">황부장님 감사합니다!!! :)</summary></entry><entry><title type="html">딸아이와의 데이트</title><link href="https://lahuman.github.io/20190707/" rel="alternate" type="text/html" title="딸아이와의 데이트" /><published>2019-07-07T00:00:00+09:00</published><updated>2019-07-07T00:00:00+09:00</updated><id>https://lahuman.github.io/20190707</id><content type="html" xml:base="https://lahuman.github.io/20190707/">&lt;h1 id=&quot;오늘은-아내가-약속이-있어서-나갔다&quot;&gt;오늘은 아내가 약속이 있어서 나갔다.&lt;/h1&gt;
-
-&lt;p&gt;딸아이가 근래에 코피가 계속 나서 이비후과를 찾아갔다.&lt;/p&gt;
-
-&lt;p&gt;많이 겁을 내던 아이는 의사 선생님 앞에서 계속 몸을 피하여 내가 앉고 진료를 보았다.&lt;/p&gt;
-
-&lt;p&gt;평소에 코를 많다 코피가 나면 내가&lt;/p&gt;
-
-&lt;p&gt;“자꾸 그렇게 하면 병원가서 코를 지져야한다.”  라고 겁을 줘서인지 덜덜 떨고 있었다.&lt;/p&gt;
-
-&lt;p&gt;등을 두번 두드려 주며, “선생님이 약만 발라 주실꺼야.” 라고 이해 시킨후 치료를 받았다.&lt;/p&gt;
-
-&lt;p&gt;진료가 끝나고, 점심을 먹으로 가는 길에 채윤이가 먹고 싶은 음식집을 찾아 보았다.&lt;/p&gt;
-
-&lt;p&gt;나 : “우동 먹을까??”&lt;/p&gt;
-
-&lt;p&gt;딸 : “싫어.”&lt;/p&gt;
-
-&lt;p&gt;나 : “고기 먹을까?”&lt;/p&gt;
-
-&lt;p&gt;딸 : “더운데 고기 먹기 싫어”&lt;/p&gt;
-
-&lt;p&gt;나 : “시원한 냉면 먹을까?”&lt;/p&gt;
-
-&lt;p&gt;딸: “싫어, 나 면 싫어해!”&lt;/p&gt;
-
-&lt;p&gt;나 : “삼계탕은 어때?”&lt;/p&gt;
-
-&lt;p&gt;딸 : “싫어, 더워”&lt;/p&gt;
-
-&lt;p&gt;도저히 채윤이가 원하는 음식을 찾을 수가 없었다.&lt;/p&gt;
-
-&lt;h2 id=&quot;까칠한-딸아이와의-데이트는-나를-많이-지치게-많들었다&quot;&gt;까칠한 딸아이와의 데이트는 나를 많이 지치게 많들었다.&lt;/h2&gt;</content><category term="단상" /><summary type="html">덥다 고기 싫고, 면 싫고, 야채 싫다고 한다.</summary></entry></feed>
+&lt;/ul&gt;</content><category term="raspberry" /><summary type="html">황부장님 감사합니다!!! :)</summary></entry></feed>
