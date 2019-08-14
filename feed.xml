@@ -1,4 +1,66 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-08-07T23:00:08+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">아이가 짜증내고 화내고 바보 같이 구는 행동을 받아주기 너무 힘들다.</title><link href="https://lahuman.github.io/20190807/" rel="alternate" type="text/html" title="아이가 짜증내고 화내고 바보 같이 구는 행동을 받아주기 너무 힘들다." /><published>2019-08-07T00:00:00+09:00</published><updated>2019-08-07T00:00:00+09:00</updated><id>https://lahuman.github.io/20190807</id><content type="html" xml:base="https://lahuman.github.io/20190807/">&lt;h1 id=&quot;아이의-짜증과-화를-받아주기-힘들다&quot;&gt;아이의 짜증과 화를 받아주기 힘들다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-08-14T23:15:18+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Loop와 함께 async, await 사용하기</title><link href="https://lahuman.github.io/loop_with_async_await/" rel="alternate" type="text/html" title="Loop와 함께 async, await 사용하기" /><published>2019-08-12T00:00:00+09:00</published><updated>2019-08-12T00:00:00+09:00</updated><id>https://lahuman.github.io/loop_with_async_await</id><content type="html" xml:base="https://lahuman.github.io/loop_with_async_await/">&lt;h1 id=&quot;loop와-함께-async-await-사용하기&quot;&gt;Loop와 함께 async, await 사용하기&lt;/h1&gt;
+
+&lt;p&gt;함께 일하는 분이 while 과 함께 async를 사용하면 동작 하지 않는다고 하셔서 확인을 해보았다.&lt;/p&gt;
+
+&lt;p&gt;결론은 동작은 잘된다.&lt;/p&gt;
+
+&lt;p&gt;다만, array를 이용해서 forEach, map 등을 할경우는 동작 하지 않는다.&lt;/p&gt;
+
+&lt;p&gt;그래서 array는 for 문을 이용해서 직렬로 처리 하거나, map으로 모든 오브젝트를 promise로 변환하여 병렬로 처리 하여야 한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;const sleep = (ms) =&amp;gt; {
+  return new Promise(resolve =&amp;gt; setTimeout(resolve, ms));
+}
+const wrapSlept = async () =&amp;gt; { await sleep(2000) };
+
+function delay(item) { return new Promise(resolve =&amp;gt; setTimeout(() =&amp;gt; { console.log(item); resolve(); }, 500)); }
+
+const testAwait = async () =&amp;gt; {
+  //동작
+  let i = 0;
+  while (i &amp;lt; 5) {
+    console.log('i: ', i);
+    i++;
+    await wrapSlept(3000);
+  }
+  console.log(&quot;Done!&quot;);
+  
+  //동작
+  for (var f = 0; f &amp;lt; 5; f++) {
+    console.log('f: ', f);
+    await wrapSlept(3000);
+  }
+  console.log(&quot;Done!&quot;);
+  
+  //동작 안함
+  [1, 2, 3].forEach(async (n) =&amp;gt; {
+    console.log('n: ', n);
+    await wrapSlept(3000);
+  });
+  console.log(&quot;Done!&quot;);
+  
+  //직렬 처리
+  for (const item of [1,2,3]) {
+    await delay(item);
+  }
+  console.log(&quot;Done!&quot;);
+
+  //병렬
+  const promises = [1, 2, 3].map(item =&amp;gt; delay(item));
+  await Promise.all(promises);
+  console.log(&quot;Done!&quot;);
+
+}
+
+testAwait();
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;기억해두자&quot;&gt;기억해두자&lt;/h2&gt;
+
+&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://mygumi.tistory.com/328&quot;&gt;[Async function] async/await 비동기 처리 :: 마이구미&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="async" /><category term="loop" /><summary type="html">루프와 함께 async, await 사용기</summary></entry><entry><title type="html">아이가 짜증내고 화내고 바보 같이 구는 행동을 받아주기 너무 힘들다.</title><link href="https://lahuman.github.io/20190807/" rel="alternate" type="text/html" title="아이가 짜증내고 화내고 바보 같이 구는 행동을 받아주기 너무 힘들다." /><published>2019-08-07T00:00:00+09:00</published><updated>2019-08-07T00:00:00+09:00</updated><id>https://lahuman.github.io/20190807</id><content type="html" xml:base="https://lahuman.github.io/20190807/">&lt;h1 id=&quot;아이의-짜증과-화를-받아주기-힘들다&quot;&gt;아이의 짜증과 화를 받아주기 힘들다.&lt;/h1&gt;
 
 &lt;p&gt;미친 아이처럼 소리 지르고 물건을 던지고 짜증내는 아이를 보고 있으면… 싫다.&lt;/p&gt;
 
@@ -306,37 +368,4 @@ $&amp;gt; sudo apt-get install code-oss=1.29.0-1539702286
 &lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://github.com/headmelted/codebuilds/issues/67&quot;&gt;can’t get code-oss to launch raspberry pi 3b&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="raspberry" /><category term="vscode" /><summary type="html">메뉴를 눌러보아도 동작하지 않는다.</summary></entry><entry><title type="html">raspberry pi 3 를 얻었다!</title><link href="https://lahuman.github.io/raspberry/" rel="alternate" type="text/html" title="raspberry pi 3 를 얻었다!" /><published>2019-07-09T00:00:00+09:00</published><updated>2019-07-09T00:00:00+09:00</updated><id>https://lahuman.github.io/raspberry</id><content type="html" xml:base="https://lahuman.github.io/raspberry/">&lt;h1 id=&quot;raspberry-pi-3-초기-설정&quot;&gt;raspberry pi 3 초기 설정&lt;/h1&gt;
-
-&lt;p&gt;황부장님에게 &lt;a href=&quot;https://www.raspberrypi.org/products/raspberry-pi-3-model-b/&quot;&gt;Raspberry Pi 3 Model B&lt;/a&gt;을 얻어서 설치와 설정을 해보았다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;사실 이번에  &lt;a href=&quot;https://www.raspberrypi.org/products/raspberry-pi-4-model-b/&quot;&gt;Raspberry Pi 4&lt;/a&gt;가 나와서 개인적으로 구매하여 PC 처럼 사용해 보려고 했다.
-일단 &lt;a href=&quot;https://www.raspberrypi.org/products/raspberry-pi-4-model-b/&quot;&gt;Raspberry Pi 4&lt;/a&gt;를 현재는 구하기도 어렵고, 국제 배송을 해야 하기 때문에 오래 걸린다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;먼저 &lt;a href=&quot;https://geeksvoyage.com/raspberry%20pi/installing-os-for-pi/&quot;&gt;라즈베리파이3 B+ 설치가이드(2) RASPBIAN OS 설치&lt;/a&gt;를 보고 Raspbian OS를 설치 하였다.
-크게 어렵지는 않지만 다운로드에 오랜 시간이 걸린다.&lt;/p&gt;
-
-&lt;p&gt;한글 설정은 nabi, fcitx를 이용해서 테스트 하였지만 잘 안되었다.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://bluexmas.tistory.com/875&quot;&gt;Raspberry PI : 한글 환경 설정, 한글 입력기(uim) 설치&lt;/a&gt;를 보고 uim으로 설치 하니 문제 없이 되었다.&lt;/p&gt;
-
-&lt;p&gt;VSCODE와 VIM을 IDE로 설치하고, nodejs까지 설치하여 설정은 마무리 하였다.&lt;/p&gt;
-
-&lt;p&gt;다만 이것 저것 설정을 하다보니, 온도가 뜨거워 진다는 메시지를 확인할수 있었다.&lt;/p&gt;
-
-&lt;p&gt;몇일 써보고 정말 괜찮으면 &lt;a href=&quot;https://www.raspberrypi.org/products/raspberry-pi-4-model-b/&quot;&gt;Raspberry Pi 4&lt;/a&gt;를 구매해야겠다.&lt;/p&gt;
-
-&lt;figure class=&quot;half&quot;&gt;
-	&lt;img src=&quot;https://lahuman.github.io/assets/img/post_img/raspberry_install_node.jpg&quot; /&gt;
-	&lt;figcaption&gt;설치 화면중&lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.raspberrypi.org/products/raspberry-pi-3-model-b/&quot;&gt;Raspberry Pi 3 Model B&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.raspberrypi.org/products/raspberry-pi-4-model-b/&quot;&gt;Raspberry Pi 4&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://geeksvoyage.com/raspberry%20pi/installing-os-for-pi/&quot;&gt;라즈베리파이3 B+ 설치가이드(2) RASPBIAN OS 설치&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://bluexmas.tistory.com/875&quot;&gt;Raspberry PI : 한글 환경 설정, 한글 입력기(uim) 설치&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="raspberry" /><summary type="html">황부장님 감사합니다!!! :)</summary></entry></feed>
+&lt;/ul&gt;</content><category term="raspberry" /><category term="vscode" /><summary type="html">메뉴를 눌러보아도 동작하지 않는다.</summary></entry></feed>
