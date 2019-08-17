@@ -1,4 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-08-14T23:15:18+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Loop와 함께 async, await 사용하기</title><link href="https://lahuman.github.io/loop_with_async_await/" rel="alternate" type="text/html" title="Loop와 함께 async, await 사용하기" /><published>2019-08-12T00:00:00+09:00</published><updated>2019-08-12T00:00:00+09:00</updated><id>https://lahuman.github.io/loop_with_async_await</id><content type="html" xml:base="https://lahuman.github.io/loop_with_async_await/">&lt;h1 id=&quot;loop와-함께-async-await-사용하기&quot;&gt;Loop와 함께 async, await 사용하기&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-08-17T20:21:47+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">브라우저의 쿠키와 로컬스토리지 차이</title><link href="https://lahuman.github.io/browser_cookie_localstorage/" rel="alternate" type="text/html" title="브라우저의 쿠키와 로컬스토리지 차이" /><published>2019-08-17T00:00:00+09:00</published><updated>2019-08-17T00:00:00+09:00</updated><id>https://lahuman.github.io/browser_cookie_localstorage</id><content type="html" xml:base="https://lahuman.github.io/browser_cookie_localstorage/">&lt;h1 id=&quot;broswer의-cookie-와-localstorage-의-차이점-정리&quot;&gt;Broswer의 Cookie 와 localstorage 의 차이점 정리&lt;/h1&gt;
+
+&lt;p&gt;쿠키는 오랫동안 사용된 클라이언트에 저장하는 정보이다.&lt;/p&gt;
+
+&lt;p&gt;로컬 스토리지는 웹 스토리지의 하나로 기본적으로 key와 value 형태이다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API&quot;&gt;웹 스토리지&lt;/a&gt;는 &lt;a href=&quot;https://developer.mozilla.org/ko/docs/Web/API/Window/sessionStorage&quot;&gt;세션 스토리지&lt;/a&gt;와 &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Local_storage&quot;&gt;로컬 스토리지&lt;/a&gt;가 존재한다.
+세션 스토리지와 로컬 스토리지의 차이는 세션이 종료되는 경우 스토리지 내용의 삭제 유무이다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;쿠키와-로컬스토리지와의-가장-큰-차이점&quot;&gt;쿠키와 로컬스토리지와의 가장 큰 차이점&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;쿠키는 서버에서 읽을수 있음&lt;/li&gt;
+  &lt;li&gt;로컬 스토리지는 클라이언트에서만 읽고 쓸수 있음&lt;/li&gt;
+  &lt;li&gt;쿠키는 4Kb 까지만 지원&lt;/li&gt;
+  &lt;li&gt;로컬 스토리지는 5Mb 까지 지원&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API&quot;&gt;웹 스토리지&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/ko/docs/Web/API/Window/sessionStorage&quot;&gt;세션 스토리지&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Local_storage&quot;&gt;로컬 스토리지&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/3220660/local-storage-vs-cookies?source=post_page-----2f3732c7d977----------------------&quot;&gt;ocal Storage vs Cookies&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://kadamon.tistory.com/8&quot;&gt;쿠키 vs 로컬스토리지 vs 세션스토리지&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="cookie" /><category term="localstorage" /><summary type="html">쿠키는 오래전부터 사용해보았는데 로컬스토리지는 무엇인가??</summary></entry><entry><title type="html">Loop와 함께 async, await 사용하기</title><link href="https://lahuman.github.io/loop_with_async_await/" rel="alternate" type="text/html" title="Loop와 함께 async, await 사용하기" /><published>2019-08-12T00:00:00+09:00</published><updated>2019-08-12T00:00:00+09:00</updated><id>https://lahuman.github.io/loop_with_async_await</id><content type="html" xml:base="https://lahuman.github.io/loop_with_async_await/">&lt;h1 id=&quot;loop와-함께-async-await-사용하기&quot;&gt;Loop와 함께 async, await 사용하기&lt;/h1&gt;
 
 &lt;p&gt;함께 일하는 분이 while 과 함께 async를 사용하면 동작 하지 않는다고 하셔서 확인을 해보았다.&lt;/p&gt;
 
@@ -341,31 +368,4 @@ const browser = await puppeteer.launch({executablePath: ‘/usr/bin/chromium-bro
 &lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://codingvideos.net/chrome-headless-and-puppeteer-on-raspberry-pi/&quot;&gt;Chrome Headless and Puppeteer on Raspberry Pi&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="raspberry" /><category term="puppeteer" /><summary type="html">일반적으로 사용하는건 안되나 보다...</summary></entry><entry><title type="html">raspberry pi 3에 VSCODE를 설치시 깡통화면만 뜬다.</title><link href="https://lahuman.github.io/raspberry_vscode/" rel="alternate" type="text/html" title="raspberry pi 3에 VSCODE를 설치시 깡통화면만 뜬다." /><published>2019-07-10T00:00:00+09:00</published><updated>2019-07-10T00:00:00+09:00</updated><id>https://lahuman.github.io/raspberry_vscode</id><content type="html" xml:base="https://lahuman.github.io/raspberry_vscode/">&lt;h1 id=&quot;raspberry-pi-3-초기-설정&quot;&gt;raspberry pi 3 초기 설정&lt;/h1&gt;
-
-&lt;p&gt;raspberry pi를 desktop 버젼으로 설치하게 되면 vscode가 설치되어 있다.&lt;/p&gt;
-
-&lt;p&gt;하지만, 실행 후 표출된 앱은 아무 동작을 하지 않는다. 메뉴를 눌러보고 이렇게 저렇게 해도 아무 동작을 하지 않아 구글에 검색해보았다.&lt;/p&gt;
-
-&lt;p&gt;v1.32는 정상동작이 되지 않는다는 내용과 v1.29로 다운그레이드 하는 명령어가 함께 있었다.&lt;/p&gt;
-
-&lt;p&gt;따라하니 동작한다. 다음 업뎃에는 되려나?&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 다운그레이드 vscode
-$&amp;gt; sudo apt-get install code-oss=1.29.0-1539702286
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;추가--사용-후기&quot;&gt;추가 : 사용 후기&lt;/h2&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;WIFI 신호를 잘 못잡는다.&lt;/li&gt;
-  &lt;li&gt;심하게 느런건 없는데 여러 작업을 하면 발열이 많다는 메시지가 뜬다.&lt;/li&gt;
-  &lt;li&gt;브라우져가 메모리와 CPU를 많이 사용한다.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;결론 : respberry pi 4가 정말 기대된다. 거의 데탑 수준으로 상상 된다.&lt;/p&gt;
-
-&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/headmelted/codebuilds/issues/67&quot;&gt;can’t get code-oss to launch raspberry pi 3b&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="raspberry" /><category term="vscode" /><summary type="html">메뉴를 눌러보아도 동작하지 않는다.</summary></entry></feed>
+&lt;/ul&gt;</content><category term="raspberry" /><category term="puppeteer" /><summary type="html">일반적으로 사용하는건 안되나 보다...</summary></entry></feed>
