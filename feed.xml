@@ -1,4 +1,40 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-08-22T23:18:38+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">package-lock.json은 왜 필요 한가?</title><link href="https://lahuman.github.io/what_is_package-lock_json/" rel="alternate" type="text/html" title="package-lock.json은 왜 필요 한가?" /><published>2019-08-18T00:00:00+09:00</published><updated>2019-08-18T00:00:00+09:00</updated><id>https://lahuman.github.io/what_is_package-lock_json</id><content type="html" xml:base="https://lahuman.github.io/what_is_package-lock_json/">&lt;h1 id=&quot;package-lockjson은-왜-필요-한가&quot;&gt;package-lock.json은 왜 필요 한가?&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-08-22T23:34:37+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">글쓰기 클래스 - 1</title><link href="https://lahuman.github.io/write_class_1/" rel="alternate" type="text/html" title="글쓰기 클래스 - 1" /><published>2019-08-22T00:00:00+09:00</published><updated>2019-08-22T00:00:00+09:00</updated><id>https://lahuman.github.io/write_class_1</id><content type="html" xml:base="https://lahuman.github.io/write_class_1/">&lt;h1 id=&quot;글쓰기를-배우고-있다&quot;&gt;글쓰기를 배우고 있다.&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;2017년 대학원 논문을 작성할 당시 교수님에게 많이 배웠으나, 내 실력은 여전히 안좋다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;왜-글을-쓰는가&quot;&gt;왜 글을 쓰는가?&lt;/h2&gt;
+
+&lt;p&gt;내가 생각한 것을 다른 사람에게 정확하게 전달 하고 싶다.&lt;/p&gt;
+
+&lt;h2 id=&quot;첫번째-시간에-무엇을-배웠는가&quot;&gt;첫번째 시간에 무엇을 배웠는가?&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;일기와 에세이의 차이점
+    &lt;ul&gt;
+      &lt;li&gt;일기 : 나만 알고 이해하도록 내용을 작성한다.&lt;/li&gt;
+      &lt;li&gt;에세이 : 제 3자가 이해할 수 있도록 내용을 작성한다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;논리적인 글을 쓰는 방법
+    &lt;ul&gt;
+      &lt;li&gt;큰 주제를 가진 글을 쓴다.&lt;/li&gt;
+      &lt;li&gt;타겟이 명확한 글을 쓴다.&lt;/li&gt;
+      &lt;li&gt;클라이맥스는 느리게/감정적으로 티나게 한다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;첫번째-연슴한-글쓰기&quot;&gt;첫번째 연슴한 글쓰기&lt;/h2&gt;
+
+&lt;p&gt;내가 경험했던 글쓰기가 필요한 내용을 에세이 형식으로 작성 하였으나, 글의 마무리가 어설펐다.&lt;/p&gt;
+
+&lt;h2 id=&quot;총평&quot;&gt;총평&lt;/h2&gt;
+
+&lt;p&gt;재미있는 시간이었다. 다음 시간까지 가장 감명 깊었던 카피라이터를 준비해야 한다.&lt;/p&gt;
+
+&lt;p&gt;무엇이 나에게 좋았는지 작성해보자.&lt;/p&gt;</content><category term="write" /><category term="class" /><summary type="html">회사에서 진행하는 뭉클로 글쓰기를 해보고 있다.</summary></entry><entry><title type="html">package-lock.json은 왜 필요 한가?</title><link href="https://lahuman.github.io/what_is_package-lock_json/" rel="alternate" type="text/html" title="package-lock.json은 왜 필요 한가?" /><published>2019-08-18T00:00:00+09:00</published><updated>2019-08-18T00:00:00+09:00</updated><id>https://lahuman.github.io/what_is_package-lock_json</id><content type="html" xml:base="https://lahuman.github.io/what_is_package-lock_json/">&lt;h1 id=&quot;package-lockjson은-왜-필요-한가&quot;&gt;package-lock.json은 왜 필요 한가?&lt;/h1&gt;
 
 &lt;p&gt;npm install을 이용해서 package를 인스톨하면 자동으로 &lt;strong&gt;package-lock.json&lt;/strong&gt;이라는 파일이 생성된다.&lt;/p&gt;
 
@@ -311,35 +347,4 @@ Wed May 15 18:09:45 KST 2019
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.raspberrypi.org/documentation/configuration/audio-config.md&quot;&gt;Audio configuration&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;http://wiki.sunfounder.cc/index.php?title=Connecting_Raspberry_Pi_with_the_Bluetooth_keyboard&quot;&gt;Connecting Raspberry Pi with the Bluetooth keyboard&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="raspberry" /><category term="sound" /><summary type="html">사운드가 안되는 줄 알았다</summary></entry><entry><title type="html">raspberry pi apt-get update 에러 발생시 처리 방법</title><link href="https://lahuman.github.io/apt-update/" rel="alternate" type="text/html" title="raspberry pi apt-get update 에러 발생시 처리 방법" /><published>2019-07-15T00:00:00+09:00</published><updated>2019-07-15T00:00:00+09:00</updated><id>https://lahuman.github.io/apt-update</id><content type="html" xml:base="https://lahuman.github.io/apt-update/">&lt;h1 id=&quot;raspberry-pi-apt-get-update-에러-발생시-처리-방법&quot;&gt;raspberry pi apt-get update 에러 발생시 처리 방법&lt;/h1&gt;
-
-&lt;p&gt;editor로 VSCODE를 사용하고 있다.&lt;/p&gt;
-
-&lt;p&gt;단순 에디터로 sublime editor를 설치하려고 했다.
-설치를 위한 명령어를 실행하다, 다음과 같은 오류를 만났다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pi@raspberrypi:~ $ sudo apt-get update
-Get:1 http://raspbian.raspberrypi.org/raspbian buster InRelease [15.0 kB]
-Hit:2 http://archive.raspberrypi.org/debian buster InRelease 
-Reading package lists... Done
-E: Repository 'http://raspbian.raspberrypi.org/raspbian buster InRelease' changed its 'Suite' value from 'testing' to 'stable'
-N: This must be accepted explicitly before updates for this repository can be applied. See apt-secure(8) manpage for details.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;이 오류를 해결하는 방법은 아주 간단하다.
-다음 명령어 &lt;strong&gt;sudo apt update&lt;/strong&gt;를 입력하면 된다.
-이후 &lt;strong&gt;pi@raspberrypi:~ $ sudo apt-get update&lt;/strong&gt;를 사용해도 문제 없이 동작한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pi@raspberrypi:~ $ sudo apt update 
-pi@raspberrypi:~ $ sudo apt-get update
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;업데이트 문제를 해결하고 Sublime을 설치 하려고 보니, Raspberry pi를 지원하지 않는다고 한다.&lt;/p&gt;
-
-&lt;h2 id=&quot;응-으음-그렇구나&quot;&gt;응? 으음…. 그렇구나.&lt;/h2&gt;
-
-&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.raspberrypi.org/forums/viewtopic.php?p=1495033&quot;&gt;“apt-get update testing to stable” [FIXED]&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://forum.sublimetext.com/t/sublime-text-for-raspberry-pi-3-with-rasbian-os/21066/20&quot;&gt;Sublime Text for Raspberry Pi 3 with Rasbian OS&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="raspberry" /><category term="apt" /><summary type="html">첨부터 발생한 에러인데 알고 보면 황당함</summary></entry></feed>
+&lt;/ul&gt;</content><category term="raspberry" /><category term="sound" /><summary type="html">사운드가 안되는 줄 알았다</summary></entry></feed>
