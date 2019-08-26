@@ -1,4 +1,64 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-08-22T23:34:37+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">글쓰기 클래스 - 1</title><link href="https://lahuman.github.io/write_class_1/" rel="alternate" type="text/html" title="글쓰기 클래스 - 1" /><published>2019-08-22T00:00:00+09:00</published><updated>2019-08-22T00:00:00+09:00</updated><id>https://lahuman.github.io/write_class_1</id><content type="html" xml:base="https://lahuman.github.io/write_class_1/">&lt;h1 id=&quot;글쓰기를-배우고-있다&quot;&gt;글쓰기를 배우고 있다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-08-26T23:03:48+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">글쓰기 클래스 - 1 과제</title><link href="https://lahuman.github.io/write_class_1_homework/" rel="alternate" type="text/html" title="글쓰기 클래스 - 1 과제" /><published>2019-08-26T00:00:00+09:00</published><updated>2019-08-26T00:00:00+09:00</updated><id>https://lahuman.github.io/write_class_1_homework</id><content type="html" xml:base="https://lahuman.github.io/write_class_1_homework/">&lt;h1 id=&quot;1장-일기-말고-에세이-쓰기&quot;&gt;1장 일기 말고 에세이 쓰기!&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;지난 시간에 배운 내용 정리&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;아무 것이나 매일 써라!&lt;/li&gt;
+  &lt;li&gt;글쓰기 == 즐겁다
+    &lt;ul&gt;
+      &lt;li&gt;자신이 즐거운 글을 쓴다.&lt;/li&gt;
+      &lt;li&gt;글을 완성한다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;신경 쓰이는 것에 집중 하라
+    &lt;ul&gt;
+      &lt;li&gt;일상에서 특별한 것을 찾아내는 기술&lt;/li&gt;
+      &lt;li&gt;일상을 잘 관찰 하자&lt;/li&gt;
+      &lt;li&gt;나만의 유니크한 글을 쓰자
+        &lt;ul&gt;
+          &lt;li&gt;남이 생각하지 않은 메시지를 쓰자&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;에세이란?
+    &lt;ul&gt;
+      &lt;li&gt;제 3자에게 전달하기 위해 작성&lt;/li&gt;
+      &lt;li&gt;모르는 사람도 이해하기 쉽게 자세히 작성&lt;/li&gt;
+      &lt;li&gt;감정을 움직이는 글이 좋음&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;글 쓸때 추가 팁
+    &lt;ul&gt;
+      &lt;li&gt;감정 V.S 메시지
+        &lt;ul&gt;
+          &lt;li&gt;둘중 하나는 글에 담자&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;다른 유명인의 글을 인용&lt;/li&gt;
+      &lt;li&gt;첫 문장을 “ 로 시작&lt;/li&gt;
+      &lt;li&gt;한(큰) 주제를 관통하게 쓰자&lt;/li&gt;
+      &lt;li&gt;타겟을 명확히 하자&lt;/li&gt;
+      &lt;li&gt;클라이맥스에서 논리적/상세한 묘사/느리게 등으로 증폭 하자&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;과제로는-마음에-드는-문장-하나-가져오기-입니다&quot;&gt;과제로는 마음에 드는 문장 하나 가져오기 입니다.&lt;/h2&gt;
+
+&lt;p&gt;개인적으로 준비한 내용은 다음과 같습니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;There are only two ways to live your life. One is as though nothing is a miracle. The other is as though everything is.
+
+ - Albert Einstein
+
+인생을 살아가는 데는 오직 두가지 방법밖에 없다. 하나는 아무것도 기적이 아닌 것처럼, 다른 하나는 모든 것이 기적인 것처럼 살아가는 것이다.
+ - 알베르트 아인슈타인
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;강사님--김은경&quot;&gt;강사님 : &lt;a href=&quot;http://www.yes24.com/SearchCorner/Search?author_yn=y&amp;amp;query=&amp;amp;auth_no=224730&amp;amp;domain=all&quot;&gt;김은경&lt;/a&gt;&lt;/h2&gt;</content><category term="write" /><category term="class" /><summary type="html">인상 깊은 문구 가져오기</summary></entry><entry><title type="html">글쓰기 클래스 - 1</title><link href="https://lahuman.github.io/write_class_1/" rel="alternate" type="text/html" title="글쓰기 클래스 - 1" /><published>2019-08-22T00:00:00+09:00</published><updated>2019-08-22T00:00:00+09:00</updated><id>https://lahuman.github.io/write_class_1</id><content type="html" xml:base="https://lahuman.github.io/write_class_1/">&lt;h1 id=&quot;글쓰기를-배우고-있다&quot;&gt;글쓰기를 배우고 있다.&lt;/h1&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;2017년 대학원 논문을 작성할 당시 교수님에게 많이 배웠으나, 내 실력은 여전히 안좋다.&lt;/p&gt;
@@ -326,25 +386,4 @@ Wed May 15 18:09:45 KST 2019
   &lt;li&gt;데이터 조회시 서버 시간 사용시 오류&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h2 id=&quot;서버-셋팅하고-나면-kst로-변경해야겠다&quot;&gt;서버 셋팅하고 나면 KST로 변경해야겠다.&lt;/h2&gt;</content><category term="server" /><category term="timezone" /><summary type="html">서버 시간 변경을 안해서 문제가 발생했다.</summary></entry><entry><title type="html">raspberry pi 3.5 jack으로 음악 출력하기</title><link href="https://lahuman.github.io/raspberry_sound_3.5/" rel="alternate" type="text/html" title="raspberry pi 3.5 jack으로 음악 출력하기" /><published>2019-07-16T00:00:00+09:00</published><updated>2019-07-16T00:00:00+09:00</updated><id>https://lahuman.github.io/raspberry_sound_3.5</id><content type="html" xml:base="https://lahuman.github.io/raspberry_sound_3.5/">&lt;h1 id=&quot;raspberry-pi-35-jack으로-음악-출력하기&quot;&gt;raspberry pi 3.5 jack으로 음악 출력하기&lt;/h1&gt;
-
-&lt;p&gt;오늘은 음악을 듣기 위해 3.5 잭을 통해 raspberry pi에서 출력한 것을 알아보자.&lt;/p&gt;
-
-&lt;p&gt;기본적으로 HDMI 잭을 연결하기 때문에 3.5잭으로 출력이 일어나지 않는다.&lt;/p&gt;
-
-&lt;p&gt;이를 수정하기 위해서는 다음 설정을 이용하면 된다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo raspi-config
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;해당 설정에서 7번 매뉴 &amp;gt; Audio &amp;gt; 출력 3.5 잭 또는 HDMI 선택 후 저장&lt;/p&gt;
-
-&lt;p&gt;이후 사운드를 확인 할 수 있다.&lt;/p&gt;
-
-&lt;h2 id=&quot;막상-설정을-완료-하고-보니-youtube가-플레이-되지-않는다&quot;&gt;막상 설정을 완료 하고 보니 youtube가 플레이 되지 않는다.&lt;/h2&gt;
-
-&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.raspberrypi.org/documentation/configuration/audio-config.md&quot;&gt;Audio configuration&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://wiki.sunfounder.cc/index.php?title=Connecting_Raspberry_Pi_with_the_Bluetooth_keyboard&quot;&gt;Connecting Raspberry Pi with the Bluetooth keyboard&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="raspberry" /><category term="sound" /><summary type="html">사운드가 안되는 줄 알았다</summary></entry></feed>
+&lt;h2 id=&quot;서버-셋팅하고-나면-kst로-변경해야겠다&quot;&gt;서버 셋팅하고 나면 KST로 변경해야겠다.&lt;/h2&gt;</content><category term="server" /><category term="timezone" /><summary type="html">서버 시간 변경을 안해서 문제가 발생했다.</summary></entry></feed>
