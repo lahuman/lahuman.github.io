@@ -1,4 +1,90 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-08-29T23:03:45+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">휴일 관리  feat.ORACLE DBMS</title><link href="https://lahuman.github.io/holiday_oracle/" rel="alternate" type="text/html" title="휴일 관리  feat.ORACLE DBMS" /><published>2019-08-27T00:00:00+09:00</published><updated>2019-08-27T00:00:00+09:00</updated><id>https://lahuman.github.io/holiday_oracle</id><content type="html" xml:base="https://lahuman.github.io/holiday_oracle/">&lt;h1 id=&quot;휴일-관리--featoracle-dbms&quot;&gt;휴일 관리  feat.ORACLE DBMS&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-08-31T11:59:44+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">javascript에서 제공되는 console methods</title><link href="https://lahuman.github.io/javascript_console/" rel="alternate" type="text/html" title="javascript에서 제공되는 console methods" /><published>2019-08-31T00:00:00+09:00</published><updated>2019-08-31T00:00:00+09:00</updated><id>https://lahuman.github.io/javascript_console</id><content type="html" xml:base="https://lahuman.github.io/javascript_console/">&lt;h1 id=&quot;javascript에서-제공되는-console-methods&quot;&gt;javascript에서 제공되는 console methods&lt;/h1&gt;
+
+&lt;p&gt;오늘 javascript 강좌를 보다가 다음과 같은 코드를 보았다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;console.time('Label');
+... 성능측정(시간 측정)을 하려는 코드
+console.timeEnd('Label');
+
+... 결과
+Label: 13998.528076171875ms
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;time이라는 method는 인자로 받은 문자열을 기준으로 실행 시간의 시작을 의미하고, timerEnd method는 인자로 받은 문자열을 기준으로 실행 시간을 화면에 표출하고 종료 한다.
+이외에 timeLog도 제공하며 시작이후 지금가지 시간을 표기한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;console.time('Label');
+... 성능측정(시간 측정)을 하려는 코드
+
+console.timeLog('Label');
+... 출력
+Label: 7327.245849609375ms
+
+console.timeEnd('Label');
+
+... 결과
+Label: 13998.528076171875ms
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;기본적으로 console의 info, debug, trace, log, warn 과 같이 로그 레벨을 기준으로 사용하거나, 특별하게 dir(object 형식으로 출력) method 정도 사용해보았다.&lt;/p&gt;
+
+&lt;p&gt;금일 알게된건 console에 더 많은 옵션들이 존재 한다는 것이다.&lt;/p&gt;
+
+&lt;h2 id=&quot;console의-옵션-정리&quot;&gt;console의 옵션 정리&lt;/h2&gt;
+
+&lt;p&gt;### - Console.assert()
+    + 첫 번째 매개변수가 false인 경우 메시지와 스택 추적을 출력합니다.
+ ### - Console.clear()
+    + 콘솔의 내용을 지웁니다.
+ ### - Console.count()
+    + 주어진 라벨로 메서드를 호출한 횟수를 출력합니다.
+ ### - Console.countReset()
+    + 주어진 라벨의 횟수를 초기화합니다.
+ ### - Console.debug()
+    + “debug” 중요도로 메시지를 출력합니다.
+참고: Chromium 브라우저는 58 버전 이후 브라우저 콘솔의 “Verbose” 레벨을 선택하지 않으면 이 메서드의 출력 결과가 보이지 않습니다.
+ ### - Console.dir()
+    + 주어진 JavaScript 객체의 속성 목록을 상호작용 가능한 형태로 표시합니다. 속성 값이 다른 객체라면 펼쳐서 살펴볼 수 있습니다.
+ ### - Console.dirxml()
+    + 객체를 XML/HTML 요소 형태로 나타낼 수 있으면 그렇게 표시하고, 아닐 경우 JavaScript 객체 형태로 표시합니다.&lt;/p&gt;
+
+&lt;p&gt;### - Console.error()
+    + 오류 메시지를 출력합니다. 추가 매개변수와 함께 문자열 치환을 사용할 수 있습니다.
+ ### - Console.exception()  표준 아님, 사용하지 않기를 권고
+    + error()의 별칭입니다.
+ ### - Console.group()
+    + 새로운 인라인 그룹을 생성해, 이후 모든 출력을 한 단계 들여씁니다. 그룹을 나오려면 groupEnd()를 호출하세요.
+ ### - Console.groupCollapsed()
+    + 새로운 인라인 그룹을 생성해, 이후 모든 출력을 한 단계 들여씁니다. 그러나 group()과 달리, groupCollapsed()로 생성한 그룹은 처음에 접혀 있습니다. 그룹을 나오려면 groupEnd()를 호출하세요.
+ ### - Console.groupEnd()
+    + 현재 인라인 그룹을 나옵니다.
+ ### - Console.info()
+    + 정보 메시지를 출력합니다. 추가 매개변수와 함께 문자열 치환을 사용할 수 있습니다.
+ ### - Console.log()
+    + 일반 메시지를 출력합니다. 추가 매개변수와 함께 문자열 치환을 사용할 수 있습니다.
+ ### - Console.profile()
+    + 브라우저의 내장 프로파일러(Firefox 성능 측정 도구 등)를 실행합니다. 선택 사항으로 프로파일에 이름을 붙일 수 있습니다.
+ ### - Console.profileEnd()
+    + 프로파일러를 멈춥니다. 프로파일 결과는 브라우저의 성능 측정 도구(Firefox 성능 측정 도구 등)에서 확인할 수 있습니다.
+ ### - Console.table()
+    + 표 형태의 데이터를 표에 그립니다.
+ ### - Console.time()
+    + 주어진 이름의 타이머를 실행합니다. 하나의 페이지에서는 최대 10,000개의 타이머를 동시에 실행할 수 있습니다.
+ ### - Console.timeEnd()
+    + 지정한 타이머를 멈추고, 소요시간을 출력합니다.
+ ### - Console.timeStamp() 표준 아님
+    + 브라우저의 타임라인이나 워터폴에 마커를 추가합니다.
+ ### - Console.trace()
+    + 스택 추적을 출력합니다.
+ ### - Console.warn()
+    + 경고 메시지를 출력합니다. 추가 매개변수와 함께 문자열 치환을 사용할 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;몰라서 쓰지 못했던 옵션이 6개도 넘는다. 앞으로 프로젝트에서 많이 사용해보자!&lt;/p&gt;
+
+&lt;h2 id=&quot;출처&quot;&gt;출처&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Console&quot;&gt;console&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="console" /><category term="javascript" /><summary type="html">생각보다 많은 기능을 제공하는데, 제대로 알지 못했다.</summary></entry><entry><title type="html">휴일 관리  feat.ORACLE DBMS</title><link href="https://lahuman.github.io/holiday_oracle/" rel="alternate" type="text/html" title="휴일 관리  feat.ORACLE DBMS" /><published>2019-08-27T00:00:00+09:00</published><updated>2019-08-27T00:00:00+09:00</updated><id>https://lahuman.github.io/holiday_oracle</id><content type="html" xml:base="https://lahuman.github.io/holiday_oracle/">&lt;h1 id=&quot;휴일-관리--featoracle-dbms&quot;&gt;휴일 관리  feat.ORACLE DBMS&lt;/h1&gt;
 
 &lt;p&gt;휴일 관리를 할때, 오라클 DBMS를 가지고 있을 경우 다음과 같은 형식의 테이블을 기반으로 처리 하며 쉽다!&lt;/p&gt;
 
@@ -403,47 +489,4 @@ app.use(wrap(function (req, res) {
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.npmjs.com/package/express-async-handler&quot;&gt;express-async-handler&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.npmjs.com/package/async-middleware&quot;&gt;async-middleware&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="node" /><category term="async" /><summary type="html">은근 손이 가는 부분임!</summary></entry><entry><title type="html">구조화된 객체 또는 배열을 Distructuring (비구조화, 파괴) 하여 사용하기</title><link href="https://lahuman.github.io/distructuring/" rel="alternate" type="text/html" title="구조화된 객체 또는 배열을 Distructuring (비구조화, 파괴) 하여 사용하기" /><published>2019-07-21T00:00:00+09:00</published><updated>2019-07-21T00:00:00+09:00</updated><id>https://lahuman.github.io/distructuring</id><content type="html" xml:base="https://lahuman.github.io/distructuring/">&lt;h1 id=&quot;구조화된-객체-또는-배열을-distructuring-비구조화-파괴-하여-사용하기&quot;&gt;구조화된 객체 또는 배열을 Distructuring (비구조화, 파괴) 하여 사용하기&lt;/h1&gt;
-
-&lt;p&gt;같이 일하시는 분의 코드를 리뷰 하던 중 처음 보는 문법을 발견했다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;let [
-{
-result: { riskLevelCount, riskLevelRanking, riskLevelHistory },
-pending: loading,
-
-},
-execGetAnalysis,
-] = (() =&amp;gt; [{result:{riskLevelCount:[1,2,3], riskLevelRanking: [4,5,6], riskLevelHistory: [7,8,9]}, pending: false}, (a) =&amp;gt; console.log(a) ])() ;
-
-console.log(riskLevelCount); // 결과 : [1,2,3]
-console.log(loading) // 결과 : false
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;React 를 공부 하면서 Hooks 에서 다음과 같이 사용하는 하는 건,&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;const [hasInt, setHasInt] = useState(false);
-
-console.log(hasInt) // false;
-setHasInt(true);
-console.log(hasInt) // true;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;그냥 받아들이고 사용하고 있었는데, 다시 보니 이해하지 못하는 문법이있다.&lt;/p&gt;
-
-&lt;p&gt;해당 문법은 ES6에서 제공되는 Distructuring(비구조화, 파괴) 라고 한다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;디스트럭처링(Destructuring)은 구조화된 배열 또는 객체를 Destructuring(비구조화, 파괴)하여 개별적인 변수에 할당하는 것&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;2015년에 올라온 포스트인 &lt;a href=&quot;http://hacks.mozilla.or.kr/2015/09/es6-in-depth-destructuring/&quot;&gt;ES6 In Depth: 디스트럭처링(Destructuring)&lt;/a&gt;을 보면 자세하게 설명 되어 있다.&lt;/p&gt;
-
-&lt;h2 id=&quot;공부하자&quot;&gt;공부하자!!&lt;/h2&gt;
-
-&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://poiemaweb.com/es6-destructuring?fbclid=IwAR0hbOymSK5OI1l1Ezfks-xy1n2FH6kxC5JFcHsQ5oaFguGamme7sOtGdU8&quot;&gt;6.6 Destructuring 디스트럭처링&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://hacks.mozilla.or.kr/2015/09/es6-in-depth-destructuring/&quot;&gt;ES6 In Depth: 디스트럭처링(Destructuring)&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="server" /><category term="timezone" /><summary type="html">이게 사용중이었는데도 이해를 못했다.</summary></entry></feed>
+&lt;/ul&gt;</content><category term="node" /><category term="async" /><summary type="html">은근 손이 가는 부분임!</summary></entry></feed>
