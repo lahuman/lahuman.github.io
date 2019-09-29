@@ -1,4 +1,36 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-09-23T23:59:31+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">JAVASCIRPT에서 느낌표 2개의 의미</title><link href="https://lahuman.github.io/javascript_double_exclamation_mark/" rel="alternate" type="text/html" title="JAVASCIRPT에서 느낌표 2개의 의미" /><published>2019-09-23T00:00:00+09:00</published><updated>2019-09-23T00:00:00+09:00</updated><id>https://lahuman.github.io/javascript_double_exclamation_mark</id><content type="html" xml:base="https://lahuman.github.io/javascript_double_exclamation_mark/">&lt;h1 id=&quot;느낌표-2개의-의미&quot;&gt;느낌표 2개의 의미&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-09-29T21:54:32+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">mongodb expire data 사용법</title><link href="https://lahuman.github.io/mongodb_expire_data/" rel="alternate" type="text/html" title="mongodb expire data 사용법" /><published>2019-09-29T00:00:00+09:00</published><updated>2019-09-29T00:00:00+09:00</updated><id>https://lahuman.github.io/mongodb_expire_data</id><content type="html" xml:base="https://lahuman.github.io/mongodb_expire_data/">&lt;h1 id=&quot;mongodb-expire-data&quot;&gt;mongodb expire data&lt;/h1&gt;
+
+&lt;p&gt;로그인 처리를 위해서 특정 시간동안 데이터를 저장할 필요가 생겼다.&lt;/p&gt;
+
+&lt;p&gt;기존에 사용경험이 있었던 Redis를 이용할지를 고민하던 중에, 혹시 요즘 많이 쓰고 있는 Mongodb에도 혹시 특정 시간동안만 저장하는 기능이 있을까 해서 찾아보았다.&lt;/p&gt;
+
+&lt;p&gt;검색 키워드로는 &lt;strong&gt;“mongodb expire data”&lt;/strong&gt;를 이용했고 바로 첫번째로 검색 되었다.&lt;/p&gt;
+
+&lt;p&gt;사용방법은 인덱스를 생성할때 날짜 필드에 expireAfterSeconds 를 추가하면된다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 1시간뒤에 삭제되는 데이터 구조 생성
+db.log_events.createIndex( { &quot;createdAt&quot;: 1 }, { expireAfterSeconds: 3600 } );
+
+# 사용법 
+db.log_events.insert( {
+   &quot;createdAt&quot;: new Date(),
+   &quot;logEvent&quot;: 2,
+   &quot;logMessage&quot;: &quot;Success!&quot;
+} );
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;createAt 이라는 필드 명에는 날짜 형식이 들어가고 해당 날짜를 기준으로 expireAfterSeconds 의 초 만큼 지나가면 데이터가 삭제 된다.&lt;/p&gt;
+
+&lt;p&gt;nodejs에서 mongodb를 사용할때는 다음과 같이 스키마 구조를 생성하면 된다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;new Schema({ createdAt: { type: Date, expires: 3600 }});
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.mongodb.com/manual/tutorial/expire-data/&quot;&gt;Expire Data from Collections by Setting TTL&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="mongodb" /><category term="expire" /><summary type="html">mongodb에도 expire data가 있다.</summary></entry><entry><title type="html">JAVASCIRPT에서 느낌표 2개의 의미</title><link href="https://lahuman.github.io/javascript_double_exclamation_mark/" rel="alternate" type="text/html" title="JAVASCIRPT에서 느낌표 2개의 의미" /><published>2019-09-23T00:00:00+09:00</published><updated>2019-09-23T00:00:00+09:00</updated><id>https://lahuman.github.io/javascript_double_exclamation_mark</id><content type="html" xml:base="https://lahuman.github.io/javascript_double_exclamation_mark/">&lt;h1 id=&quot;느낌표-2개의-의미&quot;&gt;느낌표 2개의 의미&lt;/h1&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;const x = '';
 !!x; //false
@@ -410,27 +442,4 @@ SELECT MAX(WOKING_DDCNT) AS WOKING_DDCNT
 
 &lt;p&gt;재미있는 시간이었다. 다음 시간까지 가장 감명 깊었던 카피라이터를 준비해야 한다.&lt;/p&gt;
 
-&lt;p&gt;무엇이 나에게 좋았는지 작성해보자.&lt;/p&gt;</content><category term="write" /><category term="class" /><summary type="html">회사에서 진행하는 뭉클로 글쓰기를 해보고 있다.</summary></entry><entry><title type="html">package-lock.json은 왜 필요 한가?</title><link href="https://lahuman.github.io/what_is_package-lock_json/" rel="alternate" type="text/html" title="package-lock.json은 왜 필요 한가?" /><published>2019-08-18T00:00:00+09:00</published><updated>2019-08-18T00:00:00+09:00</updated><id>https://lahuman.github.io/what_is_package-lock_json</id><content type="html" xml:base="https://lahuman.github.io/what_is_package-lock_json/">&lt;h1 id=&quot;package-lockjson은-왜-필요-한가&quot;&gt;package-lock.json은 왜 필요 한가?&lt;/h1&gt;
-
-&lt;p&gt;npm install을 이용해서 package를 인스톨하면 자동으로 &lt;strong&gt;package-lock.json&lt;/strong&gt;이라는 파일이 생성된다.&lt;/p&gt;
-
-&lt;p&gt;용도를 몰라서 그냥 두고 있었는데, 가끔씩 이 파일이 형상관리 과정에서 충돌이 일어나 &lt;strong&gt;.gitignore&lt;/strong&gt;에 추가해버렸었다.&lt;/p&gt;
-
-&lt;p&gt;함께 일하시는 분이 package-lock.json은 꼭 필요하다는 이야기를 해주셔서 검색을 해보니 다음과 같은 경우에 사용된다.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;npm의 버전의 다른 경우&lt;/li&gt;
-  &lt;li&gt;의존성을 가진 패키지의 버전이 업데이터 되는 경우&lt;/li&gt;
-  &lt;li&gt;의존성을 가진 패키지가 의존하는 패키지의 버전이 업데이트되는 경우&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;node_modules의 폴더의 스냅샷을 저장하여, 다른 곳에서 npm install 명령어를 실행시 package-lock.json에 명시된 의존 패키지들을 통해 node_modules를 만들어 낸다. 다만, package.json의 변경은 package-lock.json 보다 우선 된다.&lt;/p&gt;
-
-&lt;p&gt;주요 사항은 &lt;strong&gt;package-lock.json&lt;/strong&gt;은 꼭 형상 관리에 포함 시켜야 한다.&lt;/p&gt;
-
-&lt;h3 id=&quot;그러하다&quot;&gt;그러하다&lt;/h3&gt;
-
-&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://dschci.tistory.com/108&quot;&gt;Npm 거슬리는 pacakge-lock.json?&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="npm" /><category term="package" /><summary type="html">결론은 필요 하다! 꼭 형상 관리에 추가 할 것!</summary></entry></feed>
+&lt;p&gt;무엇이 나에게 좋았는지 작성해보자.&lt;/p&gt;</content><category term="write" /><category term="class" /><summary type="html">회사에서 진행하는 뭉클로 글쓰기를 해보고 있다.</summary></entry></feed>
