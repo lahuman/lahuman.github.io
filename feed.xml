@@ -1,4 +1,64 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-09-29T21:54:32+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">mongodb expire data 사용법</title><link href="https://lahuman.github.io/mongodb_expire_data/" rel="alternate" type="text/html" title="mongodb expire data 사용법" /><published>2019-09-29T00:00:00+09:00</published><updated>2019-09-29T00:00:00+09:00</updated><id>https://lahuman.github.io/mongodb_expire_data</id><content type="html" xml:base="https://lahuman.github.io/mongodb_expire_data/">&lt;h1 id=&quot;mongodb-expire-data&quot;&gt;mongodb expire data&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-10-03T19:51:30+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">pm2 로그 관리 모듈</title><link href="https://lahuman.github.io/pm2-logrotate/" rel="alternate" type="text/html" title="pm2 로그 관리 모듈" /><published>2019-10-03T00:00:00+09:00</published><updated>2019-10-03T00:00:00+09:00</updated><id>https://lahuman.github.io/pm2-logrotate</id><content type="html" xml:base="https://lahuman.github.io/pm2-logrotate/">&lt;h1 id=&quot;pm2-로그를-관리하는-모듈을-이용하자&quot;&gt;pm2 로그를 관리하는 모듈을 이용하자&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://pm2.keymetrics.io/&quot;&gt;pm2&lt;/a&gt;는 Nodejs에서 프로세스를 관리 하는 모듈이다.&lt;/p&gt;
+
+&lt;p&gt;아주 많이 사용되고 있으며 주요 기능은 프로세스 관리 및 모니터링을 제공한다. 또한 사용법이 간단하다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 설치 
+$&amp;gt; npm install pm2 -g 
+# 사용
+$&amp;gt; pm2 start app.js
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;6개월 가량 운영하던 서비스에서 디스크 FULL 메시지를 받고 가장 많이 사용중인 파일을 확인하였는데, pm2 로그 파일이었다.&lt;/p&gt;
+
+&lt;p&gt;기본 설정을 사용시, 로그 파일은 한개만 생성되고 계속 사이즈가 증량되는 방식으로 제공한다.&lt;/p&gt;
+
+&lt;p&gt;pm2 로그를 관리 하기 위하여 검색 결과 &lt;a href=&quot;https://github.com/keymetrics/pm2-logrotate&quot;&gt;pm2-logrotate&lt;/a&gt;를 찾았다.
+pm2 모듈로, 설치는 다음과 같이 하면 된다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#설치
+$&amp;gt; pm2 install pm2-logrotate
+
+[PM2][Module] Module downloaded
+[PM2][WARN] Applications pm2-logrotate not running, starting...
+[PM2] App [pm2-logrotate] launched (1 instances)
+== pm2-logrotate ==
+┌────────────────┬─────────────────────┐
+│ key            │ value               │
+├────────────────┼─────────────────────┤
+│ max_size       │ 10M                 │
+│ retain         │ 30                  │
+│ compress       │ false               │
+│ dateFormat     │ YYYY-MM-DD_HH-mm-ss │
+│ workerInterval │ 30                  │
+│ rotateInterval │ 0 0 * * *           │
+│ rotateModule   │ true                │
+└────────────────┴─────────────────────┘
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;설치를 하면 다음과 같은 기본 설정이 반영 된다.&lt;/p&gt;
+
+&lt;p&gt;파일 한개의 최대 크기는 10M 이고 파일은 30개만 남는다. 파일명은 dateFormat을 기반으로 표시 되고 매일 1개의 파일이 생성된다.&lt;/p&gt;
+
+&lt;p&gt;설정을 변경하려면 다음과 같은 명령어를 이용하면 된다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# (1KB)
+$&amp;gt; pm2 set pm2-logrotate:max_size 1K 
+#  (compress logs when rotated)
+$&amp;gt; pm2 set pm2-logrotate:compress true
+#  (force rotate every minute)
+$&amp;gt; pm2 set pm2-logrotate:rotateInterval '*/1 * * * *'
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;설치하고 사용이 참 쉬웠다.&lt;/p&gt;
+
+&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://pm2.keymetrics.io/&quot;&gt;pm2&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/keymetrics/pm2-logrotate&quot;&gt;pm2-logrotate&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="node" /><category term="pm2" /><summary type="html">모듈을 설치하지 않으면 로그의 크기가 무한 증식 한다.</summary></entry><entry><title type="html">mongodb expire data 사용법</title><link href="https://lahuman.github.io/mongodb_expire_data/" rel="alternate" type="text/html" title="mongodb expire data 사용법" /><published>2019-09-29T00:00:00+09:00</published><updated>2019-09-29T00:00:00+09:00</updated><id>https://lahuman.github.io/mongodb_expire_data</id><content type="html" xml:base="https://lahuman.github.io/mongodb_expire_data/">&lt;h1 id=&quot;mongodb-expire-data&quot;&gt;mongodb expire data&lt;/h1&gt;
 
 &lt;p&gt;로그인 처리를 위해서 특정 시간동안 데이터를 저장할 필요가 생겼다.&lt;/p&gt;
 
@@ -406,40 +466,4 @@ SELECT MAX(WOKING_DDCNT) AS WOKING_DDCNT
  - 알베르트 아인슈타인
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h2 id=&quot;강사님--김은경&quot;&gt;강사님 : &lt;a href=&quot;http://www.yes24.com/SearchCorner/Search?author_yn=y&amp;amp;query=&amp;amp;auth_no=224730&amp;amp;domain=all&quot;&gt;김은경&lt;/a&gt;&lt;/h2&gt;</content><category term="write" /><category term="class" /><summary type="html">인상 깊은 문구 가져오기</summary></entry><entry><title type="html">글쓰기 클래스 - 1</title><link href="https://lahuman.github.io/write_class_1/" rel="alternate" type="text/html" title="글쓰기 클래스 - 1" /><published>2019-08-22T00:00:00+09:00</published><updated>2019-08-22T00:00:00+09:00</updated><id>https://lahuman.github.io/write_class_1</id><content type="html" xml:base="https://lahuman.github.io/write_class_1/">&lt;h1 id=&quot;글쓰기를-배우고-있다&quot;&gt;글쓰기를 배우고 있다.&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;2017년 대학원 논문을 작성할 당시 교수님에게 많이 배웠으나, 내 실력은 여전히 안좋다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;왜-글을-쓰는가&quot;&gt;왜 글을 쓰는가?&lt;/h2&gt;
-
-&lt;p&gt;내가 생각한 것을 다른 사람에게 정확하게 전달 하고 싶다.&lt;/p&gt;
-
-&lt;h2 id=&quot;첫번째-시간에-무엇을-배웠는가&quot;&gt;첫번째 시간에 무엇을 배웠는가?&lt;/h2&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;일기와 에세이의 차이점
-    &lt;ul&gt;
-      &lt;li&gt;일기 : 나만 알고 이해하도록 내용을 작성한다.&lt;/li&gt;
-      &lt;li&gt;에세이 : 제 3자가 이해할 수 있도록 내용을 작성한다.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;논리적인 글을 쓰는 방법
-    &lt;ul&gt;
-      &lt;li&gt;큰 주제를 가진 글을 쓴다.&lt;/li&gt;
-      &lt;li&gt;타겟이 명확한 글을 쓴다.&lt;/li&gt;
-      &lt;li&gt;클라이맥스는 느리게/감정적으로 티나게 한다.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;첫번째-연슴한-글쓰기&quot;&gt;첫번째 연슴한 글쓰기&lt;/h2&gt;
-
-&lt;p&gt;내가 경험했던 글쓰기가 필요한 내용을 에세이 형식으로 작성 하였으나, 글의 마무리가 어설펐다.&lt;/p&gt;
-
-&lt;h2 id=&quot;총평&quot;&gt;총평&lt;/h2&gt;
-
-&lt;p&gt;재미있는 시간이었다. 다음 시간까지 가장 감명 깊었던 카피라이터를 준비해야 한다.&lt;/p&gt;
-
-&lt;p&gt;무엇이 나에게 좋았는지 작성해보자.&lt;/p&gt;</content><category term="write" /><category term="class" /><summary type="html">회사에서 진행하는 뭉클로 글쓰기를 해보고 있다.</summary></entry></feed>
+&lt;h2 id=&quot;강사님--김은경&quot;&gt;강사님 : &lt;a href=&quot;http://www.yes24.com/SearchCorner/Search?author_yn=y&amp;amp;query=&amp;amp;auth_no=224730&amp;amp;domain=all&quot;&gt;김은경&lt;/a&gt;&lt;/h2&gt;</content><category term="write" /><category term="class" /><summary type="html">인상 깊은 문구 가져오기</summary></entry></feed>
