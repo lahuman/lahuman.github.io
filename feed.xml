@@ -1,4 +1,72 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-10-13T16:20:49+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">스케일</title><link href="https://lahuman.github.io/20191013/" rel="alternate" type="text/html" title="스케일" /><published>2019-10-13T00:00:00+09:00</published><updated>2019-10-13T00:00:00+09:00</updated><id>https://lahuman.github.io/20191013</id><content type="html" xml:base="https://lahuman.github.io/20191013/">&lt;h1 id=&quot;스케일&quot;&gt;스케일&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-10-18T21:41:28+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">NodeJS에서 Mongoose를 이용해서 MongoDB 사용하기</title><link href="https://lahuman.github.io/mongodb_mongoose/" rel="alternate" type="text/html" title="NodeJS에서 Mongoose를 이용해서 MongoDB 사용하기" /><published>2019-10-15T00:00:00+09:00</published><updated>2019-10-15T00:00:00+09:00</updated><id>https://lahuman.github.io/mongodb_mongoose</id><content type="html" xml:base="https://lahuman.github.io/mongodb_mongoose/">&lt;h1 id=&quot;nodejs에서-mongoose를-이용해서-mongodb-사용하기&quot;&gt;NodeJS에서 Mongoose를 이용해서 MongoDB 사용하기&lt;/h1&gt;
+
+&lt;h2 id=&quot;1-mongodb-42와-robot3-연동-오류&quot;&gt;#1 MongoDB 4.2와 RoboT3 연동 오류&lt;/h2&gt;
+
+&lt;p&gt;어제부터 Docker를 이용해서 MongoDB 4.2를 설치하고 Robo 3T로 접근을 하는데 다음과 같은 오류가 계속 발생하고 있었다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;network error while attempting to run command 'saslstart' on host 'localhost:27017'
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;검색을 해보았는데 여러 가지 이유가 나와서, 다른 이미지로 설치도 하고 계정을 추가도 해보는 등의 여러 삽질을 하였다.
+하지만 해결을 못해서 전전 긍긍 되고 있었는데, 드디어 원인을 알았다.&lt;/p&gt;
+
+&lt;p&gt;바로 Robo 3T 버그 였다. 내가 사용하던 1.2.1 에서 발생하는 문제로 1.3.1로 업그레이드 하니 해결 되었다.&lt;/p&gt;
+
+&lt;h3 id=&quot;문제-해결-이슈&quot;&gt;&lt;a href=&quot;https://github.com/Studio3T/robomongo/issues/1566&quot;&gt;문제 해결 이슈&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;나의 귀중한 하루를 날렸다.&lt;/p&gt;
+
+&lt;h2 id=&quot;2-mongoose에서-데이터베이스를-만들지-않고-접근-시도&quot;&gt;#2 mongoose에서 데이터베이스를 만들지 않고 접근 시도&lt;/h2&gt;
+
+&lt;p&gt;mongodb 에서 데이터베이스를 만들지 않고 mongoose를 이용해서 해당 데이터 베이스에 접근 하려고 했더니…. 안된다는 삽질을 오전 내내 했다….&lt;/p&gt;
+
+&lt;p&gt;그리고 데이터 베이스를 생성 하였으면 꼭 사용자도 생성 해야 한다.&lt;/p&gt;
+
+&lt;p&gt;늘 하는 작업인데 Command에서 되니까 그냥 넘어갔었나 보다.&lt;/p&gt;
+
+&lt;h2 id=&quot;3-docker-db-설치&quot;&gt;#3 Docker DB 설치&lt;/h2&gt;
+
+&lt;p&gt;Docker-compose 명령어를 이용해서 DB를 설치 하려고 하는데 ID/PW 셋팅을 안해주면 관리해주기 많이 귀찮다.&lt;/p&gt;
+
+&lt;p&gt;docker-compose.yml 파일을 이용하여서 여러 개의 인스턴스를 생성 관리 할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;다음은 docker-compose.yml 의 예제이다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;version: '3.1'
+services:
+  mongodb:
+    image: mongo:4
+    command: [--auth]
+    ports:
+      - &quot;27017:27017&quot;
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: &amp;lt;ID&amp;gt;
+      MONGO_INITDB_ROOT_PASSWORD: &amp;lt;PW&amp;gt;
+  mysql:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: &amp;lt;PW&amp;gt;
+      WORDPRESS_DB_NAME: &amp;lt;DBNAME&amp;gt;
+      WORDPRESS_DB_USER: &amp;lt;ID&amp;gt;
+      WORDPRESS_DB_PASSWORD: &amp;lt;PW&amp;gt;
+    ports:
+      - &quot;3306:3306&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;실행은 다음과 같이 해당 파일이 있는 곳에서 하면 된다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$&amp;gt; docker-compose up -d
+# 삭제시 해당 인스턴스도 삭제 한다!! 조심할 것!
+$&amp;gt; docker-compose down
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;down-명령어는-인스턴스를-삭제한다&quot;&gt;down 명령어는 인스턴스를 삭제한다.&lt;/h4&gt;
+
+&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/Studio3T/robomongo/issues/1566&quot;&gt;문제 해결 이슈&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="mongoose" /><category term="mongodb" /><summary type="html">삽질기</summary></entry><entry><title type="html">스케일</title><link href="https://lahuman.github.io/20191013/" rel="alternate" type="text/html" title="스케일" /><published>2019-10-13T00:00:00+09:00</published><updated>2019-10-13T00:00:00+09:00</updated><id>https://lahuman.github.io/20191013</id><content type="html" xml:base="https://lahuman.github.io/20191013/">&lt;h1 id=&quot;스케일&quot;&gt;스케일&lt;/h1&gt;
 
 &lt;p&gt;지금 다니는 회사에서는 북클(책으로 클수있다?)라는 소규모 모임을 진행하고 있다.&lt;/p&gt;
 
@@ -279,90 +347,4 @@ Filesystem       Size  Used Avail Use% Mounted on
 
 &lt;p&gt;가르쳐 주시는 강사분도 많이 힘들었을꺼다.&lt;/p&gt;
 
-&lt;h2 id=&quot;그래도-재미있게-잘-놀았다&quot;&gt;그래도 재미있게 잘 놀았다!&lt;/h2&gt;</content><category term="단상" /><summary type="html">운동 부족인데 헬스는 너무 재미 없어서...</summary></entry><entry><title type="html">javascript에서 제공되는 console methods</title><link href="https://lahuman.github.io/javascript_console/" rel="alternate" type="text/html" title="javascript에서 제공되는 console methods" /><published>2019-08-31T00:00:00+09:00</published><updated>2019-08-31T00:00:00+09:00</updated><id>https://lahuman.github.io/javascript_console</id><content type="html" xml:base="https://lahuman.github.io/javascript_console/">&lt;h1 id=&quot;javascript에서-제공되는-console-methods&quot;&gt;javascript에서 제공되는 console methods&lt;/h1&gt;
-
-&lt;p&gt;오늘 javascript 강좌를 보다가 다음과 같은 코드를 보았다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;console.time('Label');
-... 성능측정(시간 측정)을 하려는 코드
-console.timeEnd('Label');
-
-... 결과
-Label: 13998.528076171875ms
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;time이라는 method는 인자로 받은 문자열을 기준으로 실행 시간의 시작을 의미하고, timerEnd method는 인자로 받은 문자열을 기준으로 실행 시간을 화면에 표출하고 종료 한다.
-이외에 timeLog도 제공하며 시작이후 지금가지 시간을 표기한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;console.time('Label');
-... 성능측정(시간 측정)을 하려는 코드
-
-console.timeLog('Label');
-... 출력
-Label: 7327.245849609375ms
-
-console.timeEnd('Label');
-
-... 결과
-Label: 13998.528076171875ms
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;기본적으로 console의 info, debug, trace, log, warn 과 같이 로그 레벨을 기준으로 사용하거나, 특별하게 dir(object 형식으로 출력) method 정도 사용해보았다.&lt;/p&gt;
-
-&lt;p&gt;금일 알게된건 console에 더 많은 옵션들이 존재 한다는 것이다.&lt;/p&gt;
-
-&lt;h2 id=&quot;console의-옵션-정리&quot;&gt;console의 옵션 정리&lt;/h2&gt;
-
-&lt;p&gt;### - Console.assert()
-    + 첫 번째 매개변수가 false인 경우 메시지와 스택 추적을 출력합니다.
- ### - Console.clear()
-    + 콘솔의 내용을 지웁니다.
- ### - Console.count()
-    + 주어진 라벨로 메서드를 호출한 횟수를 출력합니다.
- ### - Console.countReset()
-    + 주어진 라벨의 횟수를 초기화합니다.
- ### - Console.debug()
-    + “debug” 중요도로 메시지를 출력합니다.
-참고: Chromium 브라우저는 58 버전 이후 브라우저 콘솔의 “Verbose” 레벨을 선택하지 않으면 이 메서드의 출력 결과가 보이지 않습니다.
- ### - Console.dir()
-    + 주어진 JavaScript 객체의 속성 목록을 상호작용 가능한 형태로 표시합니다. 속성 값이 다른 객체라면 펼쳐서 살펴볼 수 있습니다.
- ### - Console.dirxml()
-    + 객체를 XML/HTML 요소 형태로 나타낼 수 있으면 그렇게 표시하고, 아닐 경우 JavaScript 객체 형태로 표시합니다.&lt;/p&gt;
-
-&lt;p&gt;### - Console.error()
-    + 오류 메시지를 출력합니다. 추가 매개변수와 함께 문자열 치환을 사용할 수 있습니다.
- ### - Console.exception()  표준 아님, 사용하지 않기를 권고
-    + error()의 별칭입니다.
- ### - Console.group()
-    + 새로운 인라인 그룹을 생성해, 이후 모든 출력을 한 단계 들여씁니다. 그룹을 나오려면 groupEnd()를 호출하세요.
- ### - Console.groupCollapsed()
-    + 새로운 인라인 그룹을 생성해, 이후 모든 출력을 한 단계 들여씁니다. 그러나 group()과 달리, groupCollapsed()로 생성한 그룹은 처음에 접혀 있습니다. 그룹을 나오려면 groupEnd()를 호출하세요.
- ### - Console.groupEnd()
-    + 현재 인라인 그룹을 나옵니다.
- ### - Console.info()
-    + 정보 메시지를 출력합니다. 추가 매개변수와 함께 문자열 치환을 사용할 수 있습니다.
- ### - Console.log()
-    + 일반 메시지를 출력합니다. 추가 매개변수와 함께 문자열 치환을 사용할 수 있습니다.
- ### - Console.profile()
-    + 브라우저의 내장 프로파일러(Firefox 성능 측정 도구 등)를 실행합니다. 선택 사항으로 프로파일에 이름을 붙일 수 있습니다.
- ### - Console.profileEnd()
-    + 프로파일러를 멈춥니다. 프로파일 결과는 브라우저의 성능 측정 도구(Firefox 성능 측정 도구 등)에서 확인할 수 있습니다.
- ### - Console.table()
-    + 표 형태의 데이터를 표에 그립니다.
- ### - Console.time()
-    + 주어진 이름의 타이머를 실행합니다. 하나의 페이지에서는 최대 10,000개의 타이머를 동시에 실행할 수 있습니다.
- ### - Console.timeEnd()
-    + 지정한 타이머를 멈추고, 소요시간을 출력합니다.
- ### - Console.timeStamp() 표준 아님
-    + 브라우저의 타임라인이나 워터폴에 마커를 추가합니다.
- ### - Console.trace()
-    + 스택 추적을 출력합니다.
- ### - Console.warn()
-    + 경고 메시지를 출력합니다. 추가 매개변수와 함께 문자열 치환을 사용할 수 있습니다.&lt;/p&gt;
-
-&lt;p&gt;몰라서 쓰지 못했던 옵션이 6개도 넘는다. 앞으로 프로젝트에서 많이 사용해보자!&lt;/p&gt;
-
-&lt;h2 id=&quot;출처&quot;&gt;출처&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Console&quot;&gt;console&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="console" /><category term="javascript" /><summary type="html">생각보다 많은 기능을 제공하는데, 제대로 알지 못했다.</summary></entry></feed>
+&lt;h2 id=&quot;그래도-재미있게-잘-놀았다&quot;&gt;그래도 재미있게 잘 놀았다!&lt;/h2&gt;</content><category term="단상" /><summary type="html">운동 부족인데 헬스는 너무 재미 없어서...</summary></entry></feed>
