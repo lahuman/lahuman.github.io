@@ -1,4 +1,24 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-10-18T21:48:45+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">NodeJS에서 Mongoose를 이용해서 MongoDB 사용하기</title><link href="https://lahuman.github.io/mongodb_mongoose/" rel="alternate" type="text/html" title="NodeJS에서 Mongoose를 이용해서 MongoDB 사용하기" /><published>2019-10-15T00:00:00+09:00</published><updated>2019-10-15T00:00:00+09:00</updated><id>https://lahuman.github.io/mongodb_mongoose</id><content type="html" xml:base="https://lahuman.github.io/mongodb_mongoose/">&lt;h1 id=&quot;nodejs에서-mongoose를-이용해서-mongodb-사용하기&quot;&gt;NodeJS에서 Mongoose를 이용해서 MongoDB 사용하기&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-10-22T21:21:40+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">이춘기가 시작된 딸아이</title><link href="https://lahuman.github.io/20191022/" rel="alternate" type="text/html" title="이춘기가 시작된 딸아이" /><published>2019-10-22T00:00:00+09:00</published><updated>2019-10-22T00:00:00+09:00</updated><id>https://lahuman.github.io/20191022</id><content type="html" xml:base="https://lahuman.github.io/20191022/">&lt;h1 id=&quot;이춘기가-시작된-딸아이&quot;&gt;이춘기가 시작된 딸아이&lt;/h1&gt;
+
+&lt;p&gt;요즘 이춘기가 시작된 따님과 밤마실을 다녀왔다.&lt;/p&gt;
+
+&lt;p&gt;이춘기가 시작된 따님은 감정 기복이 심하다.&lt;/p&gt;
+
+&lt;p&gt;소리를 지르기도 하고 물건을 던지거나 감정을 온 몸으로 표현한다.&lt;/p&gt;
+
+&lt;p&gt;감정적이 된 따님을 대할때 주의해야 할 것이 함께 감정적으로 대하면 안된다. 그렇게 되면 이쁜 따님의 눈에서 짜고 투명한 물이 흘려나오기 때문이다.&lt;/p&gt;
+
+&lt;p&gt;따님이 감정을 추스릴때까지 기다려 줘야 한다.&lt;/p&gt;
+
+&lt;p&gt;그리고 왜 힘들었는지 앞으로는 이렇게 해주었으면 좋겠다는 이야기를 하며 서로의 눈높이를 마춘다.&lt;/p&gt;
+
+&lt;p&gt;감정을 모두 소비하고 난 따님은 잘 듣고 이해한다고 말한다.
+앞으로 서로 노력하자는 훈훈한 마무리로 하루를 마친다.&lt;/p&gt;
+
+&lt;p&gt;하지만 내일이면 다시 이춘기가 시작된다.&lt;/p&gt;
+
+&lt;h2 id=&quot;무한루프&quot;&gt;무한루프&lt;/h2&gt;
+&lt;h2 id=&quot;다음차례는아들이겠지&quot;&gt;다음차례는아들이겠지&lt;/h2&gt;</content><category term="단상" /><summary type="html">세상은 돌고 돌아 나에게 왔다.</summary></entry><entry><title type="html">NodeJS에서 Mongoose를 이용해서 MongoDB 사용하기</title><link href="https://lahuman.github.io/mongodb_mongoose/" rel="alternate" type="text/html" title="NodeJS에서 Mongoose를 이용해서 MongoDB 사용하기" /><published>2019-10-15T00:00:00+09:00</published><updated>2019-10-15T00:00:00+09:00</updated><id>https://lahuman.github.io/mongodb_mongoose</id><content type="html" xml:base="https://lahuman.github.io/mongodb_mongoose/">&lt;h1 id=&quot;nodejs에서-mongoose를-이용해서-mongodb-사용하기&quot;&gt;NodeJS에서 Mongoose를 이용해서 MongoDB 사용하기&lt;/h1&gt;
 
 &lt;h2 id=&quot;1-mongodb-42와-robot3-연동-오류&quot;&gt;#1 MongoDB 4.2와 RoboT3 연동 오류&lt;/h2&gt;
 
@@ -335,16 +355,4 @@ Filesystem       Size  Used Avail Use% Mounted on
 
 &lt;p&gt;9월 15일 자정까지 과제로 글을 써서 이메일로 보내드려야 한다. 세 번의 강의를 듣고 내 글쓰기 실력이 눈에 보이게 향상되었거나, 스타일이 달라지지는 않았다. 하지만 글을 쓰는데 느끼는 두려움과 부끄러움은 작아졌다. 용기 또는 만용으로 글을 쓰고 있다.&lt;/p&gt;
 
-&lt;h2 id=&quot;다-쓴-글을-읽고-수정하고-다시-읽고를-반복하는데-에세이라기보다는-일기로-느껴진다-무엇이-문제인지-첫-술에-배가-부르면-천재이겠지라는-위안을-하면서-글을-마친다&quot;&gt;다 쓴 글을 읽고 수정하고 다시 읽고를 반복하는데 에세이라기보다는 일기로 느껴진다. 무엇이 문제인지… 첫 술에 배가 부르면 &lt;strong&gt;천재&lt;/strong&gt;이겠지라는 위안을 하면서 글을 마친다.&lt;/h2&gt;</content><category term="단상" /><summary type="html">에세이일까? 일기일까?</summary></entry><entry><title type="html">회사에서 테니스 동호회를 가입하였다.</title><link href="https://lahuman.github.io/20190909/" rel="alternate" type="text/html" title="회사에서 테니스 동호회를 가입하였다." /><published>2019-09-09T00:00:00+09:00</published><updated>2019-09-09T00:00:00+09:00</updated><id>https://lahuman.github.io/20190909</id><content type="html" xml:base="https://lahuman.github.io/20190909/">&lt;h1 id=&quot;회사에서-테니스-동호회에-가입했다&quot;&gt;회사에서 테니스 동호회에 가입했다&lt;/h1&gt;
-
-&lt;p&gt;이번에 3번째 참석인데, 오늘은 사람이 없어서 알려주시는 분에게 오랜 시간 동안 1:1 개인 레슨을 받았다.&lt;/p&gt;
-
-&lt;p&gt;“앞으로 나아가면서 이렇게 빵~ 치셔요.” 라는 강사분의 말씀을 머리로는 이해하지만,&lt;/p&gt;
-
-&lt;p&gt;내 몸은 웃푼 춤을 춘다.&lt;/p&gt;
-
-&lt;p&gt;공 없이 자세로는 어떻게 따라 하는데 막상 공이 넘어서 나에게 돌진하면 뻣뻣한 로보트 마냥 이상한 자세로 친다.&lt;/p&gt;
-
-&lt;p&gt;가르쳐 주시는 강사분도 많이 힘들었을꺼다.&lt;/p&gt;
-
-&lt;h2 id=&quot;그래도-재미있게-잘-놀았다&quot;&gt;그래도 재미있게 잘 놀았다!&lt;/h2&gt;</content><category term="단상" /><summary type="html">운동 부족인데 헬스는 너무 재미 없어서...</summary></entry></feed>
+&lt;h2 id=&quot;다-쓴-글을-읽고-수정하고-다시-읽고를-반복하는데-에세이라기보다는-일기로-느껴진다-무엇이-문제인지-첫-술에-배가-부르면-천재이겠지라는-위안을-하면서-글을-마친다&quot;&gt;다 쓴 글을 읽고 수정하고 다시 읽고를 반복하는데 에세이라기보다는 일기로 느껴진다. 무엇이 문제인지… 첫 술에 배가 부르면 &lt;strong&gt;천재&lt;/strong&gt;이겠지라는 위안을 하면서 글을 마친다.&lt;/h2&gt;</content><category term="단상" /><summary type="html">에세이일까? 일기일까?</summary></entry></feed>
