@@ -1,4 +1,112 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-10-22T21:21:40+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">이춘기가 시작된 딸아이</title><link href="https://lahuman.github.io/20191022/" rel="alternate" type="text/html" title="이춘기가 시작된 딸아이" /><published>2019-10-22T00:00:00+09:00</published><updated>2019-10-22T00:00:00+09:00</updated><id>https://lahuman.github.io/20191022</id><content type="html" xml:base="https://lahuman.github.io/20191022/">&lt;h1 id=&quot;이춘기가-시작된-딸아이&quot;&gt;이춘기가 시작된 딸아이&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-10-25T19:49:52+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">NODEJS] AWS의 S3에 파일 업로드 다운로드 구현</title><link href="https://lahuman.github.io/aws_s3_file_upload_download/" rel="alternate" type="text/html" title="NODEJS] AWS의 S3에 파일 업로드 다운로드 구현" /><published>2019-10-25T00:00:00+09:00</published><updated>2019-10-25T00:00:00+09:00</updated><id>https://lahuman.github.io/aws_s3_file_upload_download</id><content type="html" xml:base="https://lahuman.github.io/aws_s3_file_upload_download/">&lt;h1 id=&quot;nodejs-aws의-s3에-파일-업로드-다운로드-구현&quot;&gt;NODEJS] AWS의 S3에 파일 업로드 다운로드 구현&lt;/h1&gt;
+
+&lt;p&gt;AWS EC2 서버에서 공지사항에 들어가는 첨부 파일을 업로드 하고 다운로드 하는 기능이 필요 했다.&lt;/p&gt;
+
+&lt;p&gt;다음의 순서로 처리하면 쉽게 된다.&lt;/p&gt;
+
+&lt;h2 id=&quot;1-사용자-생성-하기&quot;&gt;1. 사용자 생성 하기&lt;/h2&gt;
+
+&lt;h6 id=&quot;1-aws-iam에서-사용자를-생성-하고-애세스-유형을-프로그램-방식으로-선택&quot;&gt;1. AWS IAM에서 사용자를 생성 하고, 애세스 유형을 프로그램 방식으로 선택&lt;/h6&gt;
+
+&lt;p class=&quot;image-left&quot;&gt;&lt;img src=&quot;https://lahuman.github.io/assets/img/post_img/aws_iam.png&quot; alt=&quot;사용자 추가&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;이후 결과로 &lt;strong&gt;Access key ID, Secret access key&lt;/strong&gt;를 알고 있어야 한다.&lt;/p&gt;
+
+&lt;h6 id=&quot;2-권한으로-amazons3fullaccess를-할당&quot;&gt;2. 권한으로 AmazonS3FullAccess를 할당&lt;/h6&gt;
+
+&lt;p class=&quot;image-left&quot;&gt;&lt;img src=&quot;https://lahuman.github.io/assets/img/post_img/aws_permission.png&quot; alt=&quot;사용자 권한&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;2-nodejs에서-aws-sdk-사용하기&quot;&gt;2. nodejs에서 aws-sdk 사용하기&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 프로젝트 초기화
+$&amp;gt; npm init
+
+# aws-sdk 모듈 설치
+$&amp;gt; npm install aws-sdk --save
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;3-bucket-생성-하기&quot;&gt;3. bucket 생성 하기&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;createBucket.js&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;const AWS = require('aws-sdk');
+const ID = 'Access key Id';
+const SECRET = '';
+const BUCKET_NAME = '';
+const s3 = new AWS.S3({
+  accessKeyId: ID,
+  secretAccessKey: SECRET
+});
+const params = {
+  Bucket: BUCKET_NAME,
+  CreateBucketConfiguration: {
+      // Set your region here
+      LocationConstraint: &quot;ap-northeast-2&quot;
+  }
+};
+
+s3.createBucket(params, function(err, data) {
+  if (err) console.log(err, err.stack);
+  else console.log('Bucket Created Successfully', data.Location);
+});
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;4-파일-업로드&quot;&gt;4. 파일 업로드&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;uploadFile.js&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;const fs = require('fs');
+const AWS = require('aws-sdk');
+const BUCKET_NAME = '';
+const s3 = new AWS.S3({
+  accessKeyId: '',
+  secretAccessKey: ''
+});
+const uploadFile = (fileName) =&amp;gt; {
+  const fileContent = fs.readFileSync(fileName);
+  const params = {
+      Bucket: BUCKET_NAME,
+      Key: 'test.txt', // File name you want to save as in S3
+      Body: fileContent
+  };
+  s3.upload(params, function(err, data) {
+      if (err) { throw err; }
+      console.log(`File uploaded successfully. ${data.Location}`);
+  });
+};
+uploadFile('./uploads/test.txt');
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;5-파일-다운로드&quot;&gt;5. 파일 다운로드&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;download.js&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;const fs = require('fs');
+const AWS = require('aws-sdk');
+const BUCKET_NAME = '';
+const s3 = new AWS.S3({
+  accessKeyId: '',
+  secretAccessKey: ''
+});
+const downloadFile = (fileName) =&amp;gt; {
+  const params = {
+      Bucket: BUCKET_NAME,
+      Key: 'test.txt', // File name you want to save as in S3
+  };
+  s3.getObject(params, function(err, data) {
+      if (err) {
+          throw err;
+      }
+      fs.writeFileSync(fileName, data.Body.toString());
+  });
+};
+downloadFile('../../uploads/test-download.txt');
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://stackabuse.com/uploading-files-to-aws-s3-with-node-js/&quot;&gt;Uploading Files to AWS S3 with Node.js&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="s3" /><category term="nodejs" /><summary type="html">코드는 쉽다. 잘 안되었던 경험을 공유 하자</summary></entry><entry><title type="html">이춘기가 시작된 딸아이</title><link href="https://lahuman.github.io/20191022/" rel="alternate" type="text/html" title="이춘기가 시작된 딸아이" /><published>2019-10-22T00:00:00+09:00</published><updated>2019-10-22T00:00:00+09:00</updated><id>https://lahuman.github.io/20191022</id><content type="html" xml:base="https://lahuman.github.io/20191022/">&lt;h1 id=&quot;이춘기가-시작된-딸아이&quot;&gt;이춘기가 시작된 딸아이&lt;/h1&gt;
 
 &lt;p&gt;요즘 이춘기가 시작된 따님과 밤마실을 다녀왔다.&lt;/p&gt;
 
@@ -324,35 +432,4 @@ Filesystem       Size  Used Avail Use% Mounted on
 &lt;p&gt;존중은 쟁취하거나 뺏는 것이 아니다, 내 행동에 따라 자연히 따라오는 것이지.&lt;/p&gt;
 
 &lt;h2 id=&quot;뻘글&quot;&gt;뻘글&lt;/h2&gt;
-&lt;h2 id=&quot;글쓰기-연습&quot;&gt;글쓰기 연습&lt;/h2&gt;</content><category term="단상" /><summary type="html">패미니즘, 탈 코르셋, 동성애 등에 대한 개인의 생각</summary></entry><entry><title type="html">에세이를 써보자</title><link href="https://lahuman.github.io/20190915/" rel="alternate" type="text/html" title="에세이를 써보자" /><published>2019-09-15T00:00:00+09:00</published><updated>2019-09-15T00:00:00+09:00</updated><id>https://lahuman.github.io/20190915</id><content type="html" xml:base="https://lahuman.github.io/20190915/">&lt;h1 id=&quot;에세이를-써보자&quot;&gt;에세이를 써보자&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;나는 그 이층 방에서 내가 알고 있는 것 한 가지에 단편을 하나씩 쓰기로 결심했다. 글을 쓸 때마다 이렇게 하려고 노력했다. 그것은 엄격하고 효과적인 훈련 방법이었다.&lt;/p&gt;
-  &lt;ul&gt;
-    &lt;li&gt;어니스트 헤밍웨어&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;나는 욕심이 많다. 문제는 욕심은 많은데 비해 능력도 적고 게으르기까지 하다. 욕심이 있어서 여러 가지 일을 시도하다 포기하기를 수백 번씩 하였다. 하지만 “인간의 욕심은 끝이 없고 같은 실수를 반복한다”라고 누군가 이야기하지 않았던가, 회사 내 동아리 같은 뭉클(‘뭉치면 클 수 있다’의 줄임말)에서 글쓰기 강좌가 있다고 하여 능력은 없지만 욕심을 내서 신청하였다. 다행히 가입이 되었고, 2019년 8월 22일 첫 뭉클 이 시작되었다. 
-강사로 오신 분은 편집자를 거쳐 에세이 쓰기 워크숍을 진행하시며 책을 내신 김은경 작가님이다.&lt;/p&gt;
-
-&lt;h2 id=&quot;첫-시간에는-일기와-에세이의-차이점-글쓰기를-즐겨야-한다-등을-알려주셨고-가장-기억에-남는-다음과-같은-말씀을-하셨다&quot;&gt;첫 시간에는 일기와 에세이의 차이점, 글쓰기를 즐겨야 한다 등을 알려주셨고, 가장 기억에 남는 다음과 같은 말씀을 하셨다.&lt;/h2&gt;
-
-&lt;p&gt;“나만의 유니크한 글을 쓰세요. 내가 신경 쓰이는 것에 집중하셔요.”&lt;/p&gt;
-
-&lt;p&gt;나만의 글을 쓴다는 건 어떤 의미일지 많은 고민을 해보았다. 내가 잘하는 것과 관심 있는 무언가에 대하여 글을 쓰는 일이 쉽지 않았다. 물론 이런 문제에 대한 해답도 주셨다.&lt;/p&gt;
-
-&lt;p&gt;“우선 글을 써보세요. 시작이 어려우면 생각나는 데로 작성해보셔요.”&lt;/p&gt;
-
-&lt;p&gt;글을 작성하기 위해 많은 생각을 하기보다는 내가 알고 있는 한 가지에 집중해서 글을 써보는 작업이 어니스트 헤밍웨이도 시도한 훈련 방법이었다고 한다. 뭐 그렇게 대단한 글은 아니지만 생각나는 대로 일단 써보기로 다짐하고 글을 쓰기 시작했다.&lt;/p&gt;
-
-&lt;p&gt;처음 쓴 글은 논문을 작성하면서 겪었던 일에 대한 경험이다. 당시에는 국어가 정말 어렵다고 느꼈으며, 나의 국어 실력이 많이 부족해서 교수님을 비롯해 선배님들에게 많은 도움을 받았다. 가장 어려웠던 부분은 내 생각을 전달하기 위한 문장을 만드는 작업이었다. 시간이 지나서 지금이 되었을 때, 크게 발전하지는 못하였지만 글을 보는 눈이 넓어졌다는 내용의 글을 작성하였다.
-“하나의 문장이 너무 길어도 안되고, 너무 많은 뜻을 가져서도 안된다. 하나의 문장은 하나의 뜻을 가지는 게 가장 좋다.”라는 내용을 두 번째 강의 시간에 들었다. 또한 내용에서 제목을 뽑아내는 방식을 알려주시고 몇 가지 글을 가지고 연습을 하였다. 다른 분들과 의견을 나누면서 생각지도 못한 제목을 뽑는 능력에 감탄할 수밖에 없었다.&lt;/p&gt;
-
-&lt;h2 id=&quot;두-번째-쓴-글은-내가-할-때-행복하다라는-내용의-문장을-만드는-연습을-하였고-나는-육아에서-느끼는-행복한-순간을-작성하였다-아이가-퇴근-후-문을-열었을-때-아빠-하며-달려온다거나-새우잠을-자고-있는-아내와-아이를-볼-때-느끼는-행복에-대하여-작성하였다&quot;&gt;두 번째 쓴 글은 “내가 ~할 때 행복하다.”라는 내용의 문장을 만드는 연습을 하였고 나는 육아에서 느끼는 행복한 순간을 작성하였다. 아이가 퇴근 후 문을 열었을 때 “아빠~” 하며 달려온다거나, 새우잠을 자고 있는 아내와 아이를 볼 때 느끼는 행복에 대하여 작성하였다.&lt;/h2&gt;
-
-&lt;h2 id=&quot;세-번째-시간에는-정확한-문장을-작성하고-단어의-선택과-띄어쓰기-마침표-기호의-의미-등에-대해서-배웠다-개인적으로는-가장-어려운-시간이었다-마침표를-빼먹은-문장을-찾아내는-분은-정말-대단하셨다-문장을-이해하기-쉽게-수정하는-연습-또한-쉽지-않았고-국어가-참-어렵다고-다시-느끼는-시간이-되었다&quot;&gt;세 번째 시간에는 정확한 문장을 작성하고 단어의 선택과 띄어쓰기, 마침표, 기호의 의미 등에 대해서 배웠다. 개인적으로는 가장 어려운 시간이었다. 마침표를 빼먹은 문장을 찾아내는 분은 정말 대단하셨다. 문장을 이해하기 쉽게 수정하는 연습 또한 쉽지 않았고, 국어가 참 어렵다고 다시 느끼는 시간이 되었다.&lt;/h2&gt;
-
-&lt;p&gt;9월 15일 자정까지 과제로 글을 써서 이메일로 보내드려야 한다. 세 번의 강의를 듣고 내 글쓰기 실력이 눈에 보이게 향상되었거나, 스타일이 달라지지는 않았다. 하지만 글을 쓰는데 느끼는 두려움과 부끄러움은 작아졌다. 용기 또는 만용으로 글을 쓰고 있다.&lt;/p&gt;
-
-&lt;h2 id=&quot;다-쓴-글을-읽고-수정하고-다시-읽고를-반복하는데-에세이라기보다는-일기로-느껴진다-무엇이-문제인지-첫-술에-배가-부르면-천재이겠지라는-위안을-하면서-글을-마친다&quot;&gt;다 쓴 글을 읽고 수정하고 다시 읽고를 반복하는데 에세이라기보다는 일기로 느껴진다. 무엇이 문제인지… 첫 술에 배가 부르면 &lt;strong&gt;천재&lt;/strong&gt;이겠지라는 위안을 하면서 글을 마친다.&lt;/h2&gt;</content><category term="단상" /><summary type="html">에세이일까? 일기일까?</summary></entry></feed>
+&lt;h2 id=&quot;글쓰기-연습&quot;&gt;글쓰기 연습&lt;/h2&gt;</content><category term="단상" /><summary type="html">패미니즘, 탈 코르셋, 동성애 등에 대한 개인의 생각</summary></entry></feed>
