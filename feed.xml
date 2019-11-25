@@ -1,4 +1,13 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-11-06T23:34:36+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">요즘 내가 벌인 일들…</title><link href="https://lahuman.github.io/20191106/" rel="alternate" type="text/html" title="요즘 내가 벌인 일들..." /><published>2019-11-06T00:00:00+09:00</published><updated>2019-11-06T00:00:00+09:00</updated><id>https://lahuman.github.io/20191106</id><content type="html" xml:base="https://lahuman.github.io/20191106/">&lt;h1 id=&quot;요즘-무언가-열심히-해보려고-하고-있다&quot;&gt;요즘 무언가 열심히 해보려고 하고 있다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-11-26T00:12:41+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">JAVA 개발자가 시작하는 NodeJS</title><link href="https://lahuman.github.io/java_user_useing_node/" rel="alternate" type="text/html" title="JAVA 개발자가 시작하는 NodeJS" /><published>2019-11-26T00:00:00+09:00</published><updated>2019-11-26T00:00:00+09:00</updated><id>https://lahuman.github.io/java_user_useing_node</id><content type="html" xml:base="https://lahuman.github.io/java_user_useing_node/">&lt;h1 id=&quot;java-개발자가-시작하는-nodejs&quot;&gt;JAVA 개발자가 시작하는 NodeJS&lt;/h1&gt;
+
+&lt;p&gt;이번에 회사에서 지원하는 사내강사 프로그램에 참가하였다.&lt;/p&gt;
+
+&lt;p&gt;발표 주제로 입사하고 nodejs를 사용하면서 느낀 점을 공유 하는 것으로 잡았다.&lt;/p&gt;
+
+&lt;p&gt;주요 내용은 nodejs를 사용하여 좋은 점과 아쉬운 점을 담았다.&lt;/p&gt;
+
+&lt;iframe src=&quot;//www.slideshare.net/slideshow/embed_code/key/eQIONDNAh6RF4N&quot; width=&quot;595&quot; height=&quot;485&quot; frameborder=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; scrolling=&quot;no&quot; style=&quot;border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&quot; allowfullscreen=&quot;&quot;&gt; &lt;/iframe&gt;
+&lt;div style=&quot;margin-bottom:5px&quot;&gt; &lt;strong&gt; &lt;a href=&quot;//www.slideshare.net/lahuman1/java-nodejs-196972795&quot; title=&quot;JAVA 개발자가 시작하는 NodeJS&quot; target=&quot;_blank&quot;&gt;JAVA 개발자가 시작하는 NodeJS&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&quot;https://www.slideshare.net/lahuman1&quot; target=&quot;_blank&quot;&gt;Daniel Lim&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;</content><category term="nodejs" /><summary type="html">발표자료를 만들었는데 생각보다 어렵다.</summary></entry><entry><title type="html">요즘 내가 벌인 일들…</title><link href="https://lahuman.github.io/20191106/" rel="alternate" type="text/html" title="요즘 내가 벌인 일들..." /><published>2019-11-06T00:00:00+09:00</published><updated>2019-11-06T00:00:00+09:00</updated><id>https://lahuman.github.io/20191106</id><content type="html" xml:base="https://lahuman.github.io/20191106/">&lt;h1 id=&quot;요즘-무언가-열심히-해보려고-하고-있다&quot;&gt;요즘 무언가 열심히 해보려고 하고 있다.&lt;/h1&gt;
 
 &lt;ol&gt;
   &lt;li&gt;때밀이
@@ -392,69 +401,4 @@ db.log_events.insert( {
 &lt;h2 id=&quot;참고&quot;&gt;참고&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://medium.com/better-programming/javascript-bang-bang-i-shot-you-down-use-of-double-bangs-in-javascript-7c9d94446054&quot;&gt;Javascript “Bang, Bang. I Shot You Down” - Use of Double Bangs (!!) in Javascript.&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="javascript" /><summary type="html">옆에 분이 물어봤는데 나도 몰라서 검색함!</summary></entry><entry><title type="html">AWS EC2 서버 DISK 크기 늘리기</title><link href="https://lahuman.github.io/aws_disk_upgrade/" rel="alternate" type="text/html" title="AWS EC2 서버 DISK 크기 늘리기" /><published>2019-09-17T00:00:00+09:00</published><updated>2019-09-17T00:00:00+09:00</updated><id>https://lahuman.github.io/aws_disk_upgrade</id><content type="html" xml:base="https://lahuman.github.io/aws_disk_upgrade/">&lt;h1 id=&quot;aws-ec2-서버-disk-크기-늘리기&quot;&gt;AWS EC2 서버 DISK 크기 늘리기&lt;/h1&gt;
-
-&lt;p&gt;EC2의 디스크는 탄력적 볼륨이라고 하여 DISK의 크기를 가변적으로 조절 할수 있다.&lt;/p&gt;
-
-&lt;p&gt;이번에 EC2 인스턴스의 DISK 용량을 확장하였는데, WEB GUI 기반으로 볼륨 수정 요청을 하고 하루가 지나도 용량의 변경이 없었다.&lt;/p&gt;
-
-&lt;p&gt;구글에 검색을 해보니, &lt;strong&gt;“파일 시스템을 확장 해야 디스크 용량이 확장되다”&lt;/strong&gt;고 한다.&lt;/p&gt;
-
-&lt;p&gt;먼저 &lt;strong&gt;lsbkl&lt;/strong&gt; 명령어를 이용해서 인스턴스의 볼륨을 확인한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[ec2-user ~]$ lsblk
-NAME          MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
-nvme1n1       259:0    0  30G  0 disk /data
-nvme0n1       259:1    0  16G  0 disk
-└─nvme0n1p1   259:2    0   8G  0 part /
-└─nvme0n1p128 259:3    0   1M  0 part
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;루트 볼륨 /dev/nvme0n1에는 /dev/nvme0n1p1라는 파티션이 있다. 루트 볼륨에 새 크기인 16GB가 반영되는 동안 파티션의 크기에 원래 크기인 8GB가 반영되기 때문에 파일 시스템을 확장하려면 먼저 파티션 크기를 늘려야 한다.&lt;/li&gt;
-  &lt;li&gt;볼륨 /dev/nvme1n1에는 파티션이 없습니다. 볼륨 크기에 새 크기 30GB가 반영됩니다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;루트 볼륨에서 파티션을 확장하려면 다음 growpart 명령을 사용한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[ec2-user ~]$ sudo growpart /dev/nvme0n1 1
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;lsbkl&lt;/strong&gt; 명령어를 이용해서 인스턴스의 볼륨의 크기가 반영 되었는지 확인한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[ec2-user ~]$ lsblk
-NAME          MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
-nvme1n1       259:0    0  30G  0 disk /data
-nvme0n1       259:1    0  16G  0 disk
-└─nvme0n1p1   259:2    0  16G  0 part /
-└─nvme0n1p128 259:3    0   1M  0 part
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;예제-ext2-ext3-또는-ext4-파일-시스템-확장&quot;&gt;예제: ext2, ext3 또는 ext4 파일 시스템 확장&lt;/h2&gt;
-
-&lt;p&gt;df -h 명령어로 볼륨에 대한 파일 시스템 크기를 확인한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[ec2-user ~]$ df -h
-Filesystem       Size  Used Avail Use% Mounted on
-/dev/xvda1       8.0G  1.9G  6.2G  24% /
-/dev/xvdf1       8.0G   45M  8.0G   1% /data
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;resize2fs&lt;/strong&gt; 명령어를 이용해서 각 볼륨에서 파일 시스템을 확장한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[ec2-user ~]$ sudo resize2fs /dev/xvda1
-[ec2-user ~]$ sudo resize2fs /dev/xvdf1
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;마지막으로 볼륨에 대한 파일 시스템의 크기를 확인하면 된다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[ec2-user ~]$ df -h
-Filesystem       Size  Used Avail Use% Mounted on
-/dev/xvda1        16G  1.9G  6.2G  12% /
-/dev/xvdf1        30G   45M  8.0G   1% /data
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;참고&quot;&gt;참고&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://docs.aws.amazon.com/ko_kr/AWSEC2/latest/UserGuide/recognize-expanded-volume-linux.html&quot;&gt;볼륨 크기 조정 후 Linux 파일 시스템 확장&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="aws" /><category term="disk" /><summary type="html">볼륨 크기 조정 후 Linux 파일 시스템 확장</summary></entry></feed>
+&lt;/ul&gt;</content><category term="javascript" /><summary type="html">옆에 분이 물어봤는데 나도 몰라서 검색함!</summary></entry></feed>
