@@ -1,4 +1,138 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-12-09T23:13:44+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">ReactJS에서 파일 다운로드 처리 방안</title><link href="https://lahuman.github.io/reactjs_readablestream/" rel="alternate" type="text/html" title="ReactJS에서 파일 다운로드 처리 방안" /><published>2019-12-08T00:00:00+09:00</published><updated>2019-12-08T00:00:00+09:00</updated><id>https://lahuman.github.io/reactjs_readablestream</id><content type="html" xml:base="https://lahuman.github.io/reactjs_readablestream/">&lt;h1 id=&quot;요즘-reactjs를-이용해서-개발을-진행하고-있다&quot;&gt;요즘 ReactJS를 이용해서 개발을 진행하고 있다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-12-13T17:59:04+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">git 메시지 작성 도움말</title><link href="https://lahuman.github.io/git_message/" rel="alternate" type="text/html" title="git 메시지 작성 도움말" /><published>2019-12-13T00:00:00+09:00</published><updated>2019-12-13T00:00:00+09:00</updated><id>https://lahuman.github.io/git_message</id><content type="html" xml:base="https://lahuman.github.io/git_message/">&lt;h1 id=&quot;udacity-git-commit-message-style-guide를-기초로-작성한-메시지-작성-규칙&quot;&gt;&lt;a href=&quot;https://udacity.github.io/git-styleguide/&quot;&gt;Udacity Git Commit Message Style Guide&lt;/a&gt;를 기초로 작성한 메시지 작성 규칙&lt;/h1&gt;
+
+&lt;p&gt;지금까지 git message가 귀찮아서 그냥 update 이런식으로 작성하였는데, 시간이 지나서 보면 내가 어떤 작업을 했었는지 알수 없다.&lt;/p&gt;
+
+&lt;p&gt;엉망인 코멘트가 달린 로그를 보고 내가 원하는 시점으로 전환이 되지 않아 많이 불편해서 git 메시지를 아름답게 작성하는 노하우를 인터넷에 검색해보았다.&lt;/p&gt;
+
+&lt;p&gt;우선 시작하기 전에 이런 방법도 있구나로 알고 있으면 좋다.&lt;/p&gt;
+
+&lt;h2 id=&quot;메시지-구조&quot;&gt;메시지 구조&lt;/h2&gt;
+
+&lt;p&gt;메시지는 다음과 같이 작성한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;type: subject
+
+body(options)
+
+footer(options)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;제목은 type과 subject로 구성됩니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;type&quot;&gt;Type&lt;/h2&gt;
+
+&lt;p&gt;타입은 다음중 하나를 선택하여서 사용합니다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;feat: 새로운 기능&lt;/li&gt;
+  &lt;li&gt;fix: 오류 수정&lt;/li&gt;
+  &lt;li&gt;docs: 문서 수정&lt;/li&gt;
+  &lt;li&gt;style: 코드의 변경 없이 포멧이나 ; 추가 등 작업;&lt;/li&gt;
+  &lt;li&gt;refactor: 코드의 리펙토링 작업&lt;/li&gt;
+  &lt;li&gt;test: 테스트를 추가 하거나, 리펙토링 작업을 진행한 경우; 운영 코드의 변화 없음&lt;/li&gt;
+  &lt;li&gt;chore:  빌드 테스크 변화, 패키지 매니저 설정 등; 운영 코드의 변화 없음&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;subject&quot;&gt;Subject&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;주제는 50자를 넘어서는 안된다.&lt;/li&gt;
+  &lt;li&gt;이해하기 쉽게 명령조로 작성하세요.&lt;/li&gt;
+  &lt;li&gt;영어로 작성할 경우 변경을 작성할때, chage를 사용하고, changed 또는 changes를 사용하지 마세요.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;body&quot;&gt;Body&lt;/h2&gt;
+
+&lt;p&gt;제목만으로 충분하지 않을 경우 사용합니다. 
+제목과 Body 사이에는 빈공간 1칸을 두어서 구분해주세요.
+어떻게를 작성하지 말고, &lt;strong&gt;왜&lt;/strong&gt;와 &lt;strong&gt;무엇을&lt;/strong&gt; 기준으로 작성하세요.
+또한 한 라인에 72글자를 넘지 않도록 작성하세요.&lt;/p&gt;
+
+&lt;h2 id=&quot;footer&quot;&gt;Footer&lt;/h2&gt;
+
+&lt;p&gt;선택 사항이며, 이슈트레커의 IDs 나 참고 정보를 작성합니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;example-commit-message&quot;&gt;Example Commit Message&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;feat: Summarize changes in around 50 characters or less
+
+More detailed explanatory text, if necessary. Wrap it to about 72
+characters or so. In some contexts, the first line is treated as the
+subject of the commit and the rest of the text as the body. The
+blank line separating the summary from the body is critical (unless
+you omit the body entirely); various tools like `log`, `shortlog`
+and `rebase` can get confused if you run the two together.
+
+Explain the problem that this commit is solving. Focus on why you
+are making this change as opposed to how (the code explains that).
+Are there side effects or other unintuitive consequenses of this
+change? Here's the place to explain them.
+
+Further paragraphs come after blank lines.
+
+ - Bullet points are okay, too
+
+ - Typically a hyphen or asterisk is used for the bullet, preceded
+   by a single space, with blank lines in between, but conventions
+   vary here
+
+If you use an issue tracker, put references to them at the bottom,
+like this:
+
+Resolves: #123
+See also: #456, #789
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;우선 간단하게 제목만이라도 적는 연습을 하다보면 좋은 결과를 얻을 수 있다!&lt;/p&gt;
+
+&lt;h1 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://udacity.github.io/git-styleguide/&quot;&gt;Udacity Git Commit Message Style Guide&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="git" /><category term="message" /><summary type="html">유다시티 스타일 가이드가 괜찮습니다.</summary></entry><entry><title type="html">PM2 save / startup을 해두어도, reboot 시 실행되지 않을시 처리 방안</title><link href="https://lahuman.github.io/pm2_reboot_problem/" rel="alternate" type="text/html" title="PM2 save / startup을 해두어도, reboot 시 실행되지 않을시 처리 방안" /><published>2019-12-12T00:00:00+09:00</published><updated>2019-12-12T00:00:00+09:00</updated><id>https://lahuman.github.io/pm2_reboot_problem</id><content type="html" xml:base="https://lahuman.github.io/pm2_reboot_problem/">&lt;h1 id=&quot;pm2-save--startup을-해두어도-reboot-시-실행되지-않을시-처리-방안&quot;&gt;PM2 save / startup을 해두어도, reboot 시 실행되지 않을시 처리 방안&lt;/h1&gt;
+
+&lt;p&gt;PM2에서 startup 을 root 가 아닌 계정으로 실행할 경우 아래와 같은 메시지가 표기 된다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ pm2 startup
+[PM2] You have to run this command as root. Execute the following command:
+      sudo su -c &quot;env PATH=$PATH:/home/unitech/.nvm/versions/node/v4.3/bin pm2 startup &amp;lt;distribution&amp;gt; -u &amp;lt;user&amp;gt; --hp &amp;lt;home-path&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이때 당황하지 말고 &lt;strong&gt;sudo&lt;/strong&gt; 이하의 명령어를 실행하면 된다.
+(꺽쇠로 나온 값에 대하여 셋팅되여 명령어에 표기 된다.)&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;root 계정이 아닐 경우 발생하는 문제로 설정을 해야 한다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;이후에 startup / service 기동 / save 를 하고 reboot을 해도 문제가 없다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ pm2 startup
+# 서비스 기동
+$ pm2 start app.js --name=serviceName
+# 상태 저장
+$ pm2 save
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;예제&quot;&gt;예제&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;상황 : ubuntu 계정으로 재부팅시 pm2 프로세스를 기동하려고 한다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$&amp;gt; pm2 startup ubuntu
+$&amp;gt; sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup ubuntu -u ubuntu --hp /home/ubuntu
+
+$&amp;gt; cd service
+$&amp;gt; pm2 start app.js --name=servicename
+$&amp;gt; pm2 save
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;늘-그렇지만-문서만-잘읽어도-금방-해결될-문제다-문서-읽기를-생활화-하자&quot;&gt;늘 그렇지만 문서만 잘읽어도 금방 해결될 문제다. 문서 읽기를 생활화 하자!&lt;/h3&gt;
+
+&lt;h1 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://pm2.keymetrics.io/docs/usage/startup/&quot;&gt;Startup Script Generator&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="pm2" /><category term="reboot" /><summary type="html">계정이 root가 아닐 경우 발생한다.</summary></entry><entry><title type="html">ReactJS에서 파일 다운로드 처리 방안</title><link href="https://lahuman.github.io/reactjs_readablestream/" rel="alternate" type="text/html" title="ReactJS에서 파일 다운로드 처리 방안" /><published>2019-12-08T00:00:00+09:00</published><updated>2019-12-08T00:00:00+09:00</updated><id>https://lahuman.github.io/reactjs_readablestream</id><content type="html" xml:base="https://lahuman.github.io/reactjs_readablestream/">&lt;h1 id=&quot;요즘-reactjs를-이용해서-개발을-진행하고-있다&quot;&gt;요즘 ReactJS를 이용해서 개발을 진행하고 있다.&lt;/h1&gt;
 
 &lt;p&gt;사용하면서 간간히 만나는 문제들을 풀어가고 있는데,&lt;/p&gt;
 
@@ -366,49 +500,4 @@ $&amp;gt; docker-compose down
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://github.com/Studio3T/robomongo/issues/1566&quot;&gt;문제 해결 이슈&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="mongoose" /><category term="mongodb" /><summary type="html">삽질기</summary></entry><entry><title type="html">스케일</title><link href="https://lahuman.github.io/20191013/" rel="alternate" type="text/html" title="스케일" /><published>2019-10-13T00:00:00+09:00</published><updated>2019-10-13T00:00:00+09:00</updated><id>https://lahuman.github.io/20191013</id><content type="html" xml:base="https://lahuman.github.io/20191013/">&lt;h1 id=&quot;스케일&quot;&gt;스케일&lt;/h1&gt;
-
-&lt;p&gt;지금 다니는 회사에서는 북클(책으로 클수있다?)라는 소규모 모임을 진행하고 있다.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://www.yes24.com/Product/Goods/62600886&quot;&gt;스케일&lt;/a&gt;이라는 책을 가지고 모임을 진행하는데, 책의 내용이 흥미롭다.&lt;/p&gt;
-
-&lt;p&gt;같은 모양이 반복되는 프랙탈을 생물학과 도시, 지형 등의 예제로 설명을 한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;프랙탈이라는 것이 있다. 복잡해 보이는 것들 속에서 어떠한 법칙이 있고 더욱 자세히 보면 큰 구조 안에 작은 구조가 반복되고 있는 신기한 현상을 볼 수 있다. 어떠한 상관관계가 없는 것들을 면밀히 보면 서로 간에 공통점이 있고 보편성을 있다. 생물과 도시, 기업에도 적용된다. 각기 다른 관계가 크기에 따라 서로 통용되는 법칙이 있다고 한다면 얼마나 신기할까? ≪스케일≫에서 이 신비한 크기 법칙을 알아갈 수 있다.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;도시를 제외하고는 모든 것은 &lt;strong&gt;탄생 &amp;gt; 성장 &amp;gt; 유지 &amp;gt; 죽음&lt;/strong&gt;의 단계를 거친다는 내용등이 있으며, 도시만 유일하게 수천년동안 계속 성장을 한다고 한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;p.14
-
-어느 포유동물이든 심장이 평생 뛰는 평균 횟수는 거의 같다. 생쥐처럼 작은 동물은 겨우 몇 년을 사는 반면, 고래 같은 거대한 포유동물은 100년 이상을 살 수 있음에도 심장이 뛰는 횟수는 거의 같다. 이런 놀라운 규칙성은 서로 전혀 다르고 고도로 복잡한 이 모든 현상의 밑바탕에 공통된 개념 구조가 있으며, 동물, 식물, 인간의 사회적 행동, 도시, 기업의 동역학, 성장, 조직 체계가 사실상 비슷한 일반 ‘법칙’을 따름을 강하게 시사한다.
- 
-스터디셀러이자 얼마 전에 다시 재출간된 책 ≪코끼리의 시간, 쥐의 시간≫이라는 책이 있다. 동물의 크기에 따라 생존 전략이 있고 동물의 크기에 따라 시간은 상대적일 수 있음을 언급한다. 동물의 시간은 체중의 4분의 1제곱에 비례하고 몸길이의 4분의 3제곱에 비례한다는 법칙과 비슷한 법칙은 ≪스케일≫에도 등장한다. 동물의 몸집이 2배로 늘어나면 대사율은 75% 증가하고 크기가 두 배 커질 때마다 에너지는 25% 절약 된다는 바로 ‘스케일링 법칙’이다.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;많은 재미있는 생각을 할 수 있게 도와주는 책이다.&lt;/p&gt;
-
-&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.yes24.com/Product/Goods/62600886&quot;&gt;스케일&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="단상" /><summary type="html">독서 모임 &amp; 글쓰기</summary></entry><entry><title type="html">재능과 노력에 대하여</title><link href="https://lahuman.github.io/20191011/" rel="alternate" type="text/html" title="재능과 노력에 대하여" /><published>2019-10-11T00:00:00+09:00</published><updated>2019-10-11T00:00:00+09:00</updated><id>https://lahuman.github.io/20191011</id><content type="html" xml:base="https://lahuman.github.io/20191011/">&lt;h1 id=&quot;재능과-노력에-대하여&quot;&gt;재능과 노력에 대하여&lt;/h1&gt;
-
-&lt;p&gt;얼마전 인터넷에서 이런 내용을 보았다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;연습을 많이 했는데도 효과가 안난다는 건, 재능이 없다는 이야기다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;노력과 재능중 하나를 선택하라면 노력이겠지만, 중요한 건 세상은 넓고 노력도 하는데 재능까지 겸비한 사람이 많다.
-나는 내 일을 좋아하고 노력을 하지만 재능이 있는지는 모르겠다.
-다만 밥 값만 하는 실력으로 하루하루 살아가다 보니,
-언어도 자바에서 파이선으로 또다시 노드로 변경하고 백앤드로만은 부족하여 프런트앤드인 리액트도 공부하며 치열하게 산다.&lt;/p&gt;
-
-&lt;p&gt;만약 나에게 뛰어난 재능이 있었다면 자바 개발자로 여전히 남아있었을지도 모른다.&lt;/p&gt;
-
-&lt;p&gt;오늘도 부족한 재능을 매우기 위해서 노력한다.&lt;/p&gt;
-
-&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://naekkeo.startupbridgeva.com/view/%EC%8A%A4%EC%95%95-%EC%9C%84%EB%8C%80%ED%95%9C%ED%83%84%EC%83%9D-%EB%A9%98%ED%86%A0%EC%8A%A4%EC%BF%A8%EC%97%90%EC%84%9C-%ED%8C%A9%ED%8F%AD-%EB%82%A0%EB%A6%AC%EB%8A%94-%EA%B9%80%EC%9C%A4%EC%95%84?fbclid=IwAR2VB332hGxvTIjYkhra_2ipUD_7_RF3ISqUguwImtbhuXAuuxPpgxnQ29k&quot;&gt;[스압] 위대한탄생 멘토스쿨에서 팩폭 날리는 김윤아&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="단상" /><summary type="html">재능이 없으니 노력을 많이 해야 한다.</summary></entry></feed>
+&lt;/ul&gt;</content><category term="mongoose" /><category term="mongodb" /><summary type="html">삽질기</summary></entry></feed>
