@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-12-30T08:52:31+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">2020년에 하고 싶은 일들은?</title><link href="https://lahuman.github.io/20191229/" rel="alternate" type="text/html" title="2020년에 하고 싶은 일들은?" /><published>2019-12-29T00:00:00+09:00</published><updated>2019-12-29T00:00:00+09:00</updated><id>https://lahuman.github.io/20191229</id><content type="html" xml:base="https://lahuman.github.io/20191229/">&lt;h1 id=&quot;2019년에-석사-논문-관련해서-마무리-하였다&quot;&gt;2019년에 석사 논문 관련해서 마무리 하였다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-12-30T08:57:11+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">2020년에 하고 싶은 일들은?</title><link href="https://lahuman.github.io/20191229/" rel="alternate" type="text/html" title="2020년에 하고 싶은 일들은?" /><published>2019-12-29T00:00:00+09:00</published><updated>2019-12-29T00:00:00+09:00</updated><id>https://lahuman.github.io/20191229</id><content type="html" xml:base="https://lahuman.github.io/20191229/">&lt;h1 id=&quot;2019년에-석사-논문-관련해서-마무리-하였다&quot;&gt;2019년에 석사 논문 관련해서 마무리 하였다.&lt;/h1&gt;
 
 &lt;p&gt;논문을 쓴다는건 쉽지 않은 일이었다.&lt;/p&gt;
 
@@ -27,7 +27,7 @@
 
 &lt;p&gt;먼저 vscode에 ESLint plugin을 설치한다.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;assets/img/post_img/eslint_plugin_install.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/eslint_plugin_install.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;eslint-모듈-설치&quot;&gt;ESLint 모듈 설치&lt;/h2&gt;
 
@@ -43,7 +43,7 @@
 
 &lt;p&gt;나중에 수정이 가능하니 부담없이 자신이 사용하는 설정 위주로 선택 합니다.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;assets/img/post_img/eslint_init.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/eslint_init.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;설치가 완료 되면 &lt;strong&gt;.eslintrc.js&lt;/strong&gt; 파일이 생성된다.&lt;/p&gt;
 
@@ -55,7 +55,7 @@
 
 &lt;h2 id=&quot;js-파일을-확인해보자&quot;&gt;js 파일을 확인해보자&lt;/h2&gt;
 
-&lt;p&gt;&lt;img src=&quot;assets/img/post_img/eslint_example.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/eslint_example.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;위의 그림과 같이 빨간 줄이 확인된다.&lt;/p&gt;
 
