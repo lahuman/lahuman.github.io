@@ -1,4 +1,21 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2019-12-30T08:57:11+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">2020년에 하고 싶은 일들은?</title><link href="https://lahuman.github.io/20191229/" rel="alternate" type="text/html" title="2020년에 하고 싶은 일들은?" /><published>2019-12-29T00:00:00+09:00</published><updated>2019-12-29T00:00:00+09:00</updated><id>https://lahuman.github.io/20191229</id><content type="html" xml:base="https://lahuman.github.io/20191229/">&lt;h1 id=&quot;2019년에-석사-논문-관련해서-마무리-하였다&quot;&gt;2019년에 석사 논문 관련해서 마무리 하였다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-01-05T16:38:19+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">2020년에 시작하려는 일중 하나는 OPENSOURCE 다.</title><link href="https://lahuman.github.io/20200102/" rel="alternate" type="text/html" title="2020년에 시작하려는 일중 하나는 OPENSOURCE 다." /><published>2020-01-02T00:00:00+09:00</published><updated>2020-01-02T00:00:00+09:00</updated><id>https://lahuman.github.io/20200102</id><content type="html" xml:base="https://lahuman.github.io/20200102/">&lt;h1 id=&quot;회사에-최규우님에게-오픈소스를-시작하는-방법을-배우고-있다&quot;&gt;회사에 “최규우”님에게 오픈소스를 시작하는 방법을 배우고 있다.&lt;/h1&gt;
+
+&lt;p&gt;처음 시작점으로 &lt;a href=&quot;https://eslint.org/&quot;&gt;ESLint&lt;/a&gt;를 GSSHOP용으로 만들어 보려고 했으나, 아직 많이 사용해보지 않아서 aribnb의 룰을 따라서 우선 사용해보고 추후에 다시 이야기하기로 하였다.&lt;/p&gt;
+
+&lt;p&gt;그래서 우선 &lt;a href=&quot;https://brunch.co.kr/@kooslab/144&quot;&gt;Boilerplate&lt;/a&gt; 프로젝트를 생성해보기로 했다. 팀 내의 starer-pack은 친절하지 않아서 처음 사용하는 사람에게는 난이도가 높은 편이다.
+(쉬운 코드임에도…)&lt;/p&gt;
+
+&lt;p&gt;따라서 신규로 팀에 들어오는 사람을 위한 Boilerplate 프로젝트를 작성하고 공유하기로 했다.&lt;/p&gt;
+
+&lt;p&gt;첫 번째로 진행할 프로젝트는 &lt;a href=&quot;https://github.com/swagger-api/swagger-node&quot;&gt;swagger-node&lt;/a&gt;로 swagger를 node 기반에서 사용하는 API Server이다.&lt;/p&gt;
+
+&lt;p&gt;다음 시간이 기대된다.&lt;/p&gt;
+
+&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://eslint.org/&quot;&gt;ESLint&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://brunch.co.kr/@kooslab/144&quot;&gt;Boilerplate&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="단상" /><summary type="html">엄청 대단한걸 한다는건 아니고 어떻게 해야하는지를 배우는 한해가 되었음 좋겠다.</summary></entry><entry><title type="html">2020년에 하고 싶은 일들은?</title><link href="https://lahuman.github.io/20191229/" rel="alternate" type="text/html" title="2020년에 하고 싶은 일들은?" /><published>2019-12-29T00:00:00+09:00</published><updated>2019-12-29T00:00:00+09:00</updated><id>https://lahuman.github.io/20191229</id><content type="html" xml:base="https://lahuman.github.io/20191229/">&lt;h1 id=&quot;2019년에-석사-논문-관련해서-마무리-하였다&quot;&gt;2019년에 석사 논문 관련해서 마무리 하였다.&lt;/h1&gt;
 
 &lt;p&gt;논문을 쓴다는건 쉽지 않은 일이었다.&lt;/p&gt;
 
@@ -300,94 +317,4 @@ mysql['password'] = &quot;password&quot;
 
 &lt;h2 id=&quot;주요-사항&quot;&gt;주요 사항&lt;/h2&gt;
 
-&lt;p&gt;Python에서 GPIO의 INPUT을 명확하게 처리 하지 않으면 랜덤한 값이 표출 된다.&lt;/p&gt;</content><category term="rasbperry" /><category term="gpio" /><summary type="html">스크래치로 제어하는게 가장 재미있다.</summary></entry><entry><title type="html">git 메시지 작성 도움말</title><link href="https://lahuman.github.io/git_message/" rel="alternate" type="text/html" title="git 메시지 작성 도움말" /><published>2019-12-13T00:00:00+09:00</published><updated>2019-12-13T00:00:00+09:00</updated><id>https://lahuman.github.io/git_message</id><content type="html" xml:base="https://lahuman.github.io/git_message/">&lt;h1 id=&quot;udacity-git-commit-message-style-guide를-기초로-작성한-메시지-작성-규칙&quot;&gt;&lt;a href=&quot;https://udacity.github.io/git-styleguide/&quot;&gt;Udacity Git Commit Message Style Guide&lt;/a&gt;를 기초로 작성한 메시지 작성 규칙&lt;/h1&gt;
-
-&lt;p&gt;지금까지 git message가 귀찮아서 그냥 update 이런식으로 작성하였는데, 시간이 지나서 보면 내가 어떤 작업을 했었는지 알수 없다.&lt;/p&gt;
-
-&lt;p&gt;엉망인 코멘트가 달린 로그를 보고 내가 원하는 시점으로 전환이 되지 않아 많이 불편해서 git 메시지를 아름답게 작성하는 노하우를 인터넷에 검색해보았다.&lt;/p&gt;
-
-&lt;p&gt;우선 시작하기 전에 이런 방법도 있구나로 알고 있으면 좋다.&lt;/p&gt;
-
-&lt;h2 id=&quot;메시지-구조&quot;&gt;메시지 구조&lt;/h2&gt;
-
-&lt;p&gt;메시지는 다음과 같이 작성한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;type: subject
-
-body(options)
-
-footer(options)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;제목은 type과 subject로 구성됩니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;type&quot;&gt;Type&lt;/h2&gt;
-
-&lt;p&gt;타입은 다음중 하나를 선택하여서 사용합니다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;feat: 새로운 기능&lt;/li&gt;
-  &lt;li&gt;fix: 오류 수정&lt;/li&gt;
-  &lt;li&gt;docs: 문서 수정&lt;/li&gt;
-  &lt;li&gt;style: 코드의 변경 없이 포멧이나 ; 추가 등 작업;&lt;/li&gt;
-  &lt;li&gt;refactor: 코드의 리펙토링 작업&lt;/li&gt;
-  &lt;li&gt;test: 테스트를 추가 하거나, 리펙토링 작업을 진행한 경우; 운영 코드의 변화 없음&lt;/li&gt;
-  &lt;li&gt;chore:  빌드 테스크 변화, 패키지 매니저 설정 등; 운영 코드의 변화 없음&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;subject&quot;&gt;Subject&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;주제는 50자를 넘어서는 안된다.&lt;/li&gt;
-  &lt;li&gt;이해하기 쉽게 명령조로 작성하세요.&lt;/li&gt;
-  &lt;li&gt;영어로 작성할 경우 변경을 작성할때, chage를 사용하고, changed 또는 changes를 사용하지 마세요.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;body&quot;&gt;Body&lt;/h2&gt;
-
-&lt;p&gt;제목만으로 충분하지 않을 경우 사용합니다. 
-제목과 Body 사이에는 빈공간 1칸을 두어서 구분해주세요.
-어떻게를 작성하지 말고, &lt;strong&gt;왜&lt;/strong&gt;와 &lt;strong&gt;무엇을&lt;/strong&gt; 기준으로 작성하세요.
-또한 한 라인에 72글자를 넘지 않도록 작성하세요.&lt;/p&gt;
-
-&lt;h2 id=&quot;footer&quot;&gt;Footer&lt;/h2&gt;
-
-&lt;p&gt;선택 사항이며, 이슈트레커의 IDs 나 참고 정보를 작성합니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;example-commit-message&quot;&gt;Example Commit Message&lt;/h2&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;feat: Summarize changes in around 50 characters or less
-
-More detailed explanatory text, if necessary. Wrap it to about 72
-characters or so. In some contexts, the first line is treated as the
-subject of the commit and the rest of the text as the body. The
-blank line separating the summary from the body is critical (unless
-you omit the body entirely); various tools like `log`, `shortlog`
-and `rebase` can get confused if you run the two together.
-
-Explain the problem that this commit is solving. Focus on why you
-are making this change as opposed to how (the code explains that).
-Are there side effects or other unintuitive consequenses of this
-change? Here's the place to explain them.
-
-Further paragraphs come after blank lines.
-
- - Bullet points are okay, too
-
- - Typically a hyphen or asterisk is used for the bullet, preceded
-   by a single space, with blank lines in between, but conventions
-   vary here
-
-If you use an issue tracker, put references to them at the bottom,
-like this:
-
-Resolves: #123
-See also: #456, #789
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;우선 간단하게 제목만이라도 적는 연습을 하다보면 좋은 결과를 얻을 수 있다!&lt;/p&gt;
-
-&lt;h1 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h1&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://udacity.github.io/git-styleguide/&quot;&gt;Udacity Git Commit Message Style Guide&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="git" /><category term="message" /><summary type="html">유다시티 스타일 가이드가 괜찮습니다.</summary></entry></feed>
+&lt;p&gt;Python에서 GPIO의 INPUT을 명확하게 처리 하지 않으면 랜덤한 값이 표출 된다.&lt;/p&gt;</content><category term="rasbperry" /><category term="gpio" /><summary type="html">스크래치로 제어하는게 가장 재미있다.</summary></entry></feed>
