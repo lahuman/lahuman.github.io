@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]--><!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8"><![endif]--><!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9"><![endif]--><!--[if gt IE 8]><!--><html class="no-js">
+<!--<![endif]--> <head> <meta charset="UTF-8"> <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"> <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> <title>쿠버네티스 설치 yum 명령어에서 오류를 만났다. – lahuman</title> <meta name="description" content="열심히 사는 아저씨"> <meta name="keywords" content="yum, error"> <!-- Twitter Cards --> <meta name="twitter:card" content="summary"> <meta name="twitter:image" content="https://lahuman.github.io/assets/img/logo.png"> <meta name="twitter:title" content="쿠버네티스 설치 yum 명령어에서 오류를 만났다."> <meta name="twitter:description" content="Peer’s certificate issuer has been marked as not trusted by the user."> <!-- Open Graph --> <meta property="og:locale" content="ko_KR"> <meta property="og:type" content="article"> <meta property="og:title" content="쿠버네티스 설치 yum 명령어에서 오류를 만났다."> <meta property="og:description" content="Peer’s certificate issuer has been marked as not trusted by the user."> <meta property="og:url" content="https://lahuman.github.io/yum_certificate_issuer/"> <meta property="og:site_name" content="lahuman"> <meta property="og:image" content="https://lahuman.github.io/assets/img/logo.png"> <link rel="canonical" href="https://lahuman.github.io/yum_certificate_issuer/"> <link href="https://lahuman.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="lahuman Feed"> <!-- Handheld --> <meta name="HandheldFriendly" content="True"> <meta name="MobileOptimized" content="320"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- CSS --> <link rel="stylesheet" href="https://lahuman.github.io/assets/css/main.css"> <!-- JS --> <script src="https://lahuman.github.io/assets/js/modernizr-3.3.1.custom.min.js"></script> <!-- Favicons --> <link rel="apple-touch-icon" href="https://lahuman.github.io/assets/img/favicons/apple-icon-precomposed.png"> <link rel="apple-touch-icon" sizes="72x72" href="https://lahuman.github.io/assets/img/favicons/apple-icon-72x72.png"> <link rel="apple-touch-icon" sizes="114x114" href="https://lahuman.github.io/assets/img/favicons/apple-icon-114x114.png"> <link rel="apple-touch-icon" sizes="144x144" href="https://lahuman.github.io/assets/img/favicons/apple-icon-144x144.png"> <link rel="shortcut icon" type="image/png" href="https://lahuman.github.io/favicon.png"> <link rel="shortcut icon" href="https://lahuman.github.io/favicon.ico"> <!-- Background Image --> <style type="text/css">body {background-image:url(https://lahuman.github.io/assets/img/placeholder-big.jpg); background-repeat: no-repeat; background-size: cover; }</style> <!-- Post Feature Image --> </head> <body> <nav id="dl-menu" class="dl-menuwrapper" role="navigation"> <button class="dl-trigger">Open Menu</button> <ul class="dl-menu"> <li><a href="https://lahuman.github.io/">Home</a></li> <li> <a href="#">About</a> <ul class="dl-submenu"> <li> <img src="https://lahuman.github.io/assets/img/logo.png" alt="lahuman photo" class="author-photo"> <h4>lahuman</h4> <p>열심히 사는 아저씨</p> </li> <li><a href="https://lahuman.github.io/about/"><span class="btn btn-inverse">Learn More</span></a></li> <li> <a href="http://facebook.com/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-facebook-square"></i> Facebook</a> </li> <li> <a href="http://github.com/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-github"></i> Github</a> </li> </ul>
+<!-- /.dl-submenu --> </li> <li> <a href="#">Posts</a> <ul class="dl-submenu"> <li><a href="https://lahuman.github.io/posts/">All Posts</a></li> <li><a href="https://lahuman.github.io/tags/">All Tags</a></li> </ul> </li> <li><a href="https://lahuman.github.io/projects/">Projects</a></li> </ul>
+<!-- /.dl-menu --> </nav><!-- /.dl-menuwrapper --> <!-- Header --> <header class="header" role="banner"> <div class="wrapper animated fadeIn"> <div class="content"> <div class="post-title "> <h1>쿠버네티스 설치 yum 명령어에서 오류를 만났다.</h1> <h4>08 Jan 2020</h4> <p class="reading-time"> <i class="fa fa-clock-o"></i> Reading time ~2 minutes </p>
+<!-- /.entry-reading-time --> <a class="btn zoombtn" href="https://lahuman.github.io/posts/"> <i class="fa fa-chevron-left"></i> </a> </div> <h1 id="쿠버네티스-설치-중-오류를-만났다">쿠버네티스 설치 중 오류를 만났다.</h1> <h2 id="1-도커설치">1. 도커설치</h2> <blockquote> <p>쿠버네티스를 설치 하기 전에 도커를 설치 해야 한다.</p> </blockquote> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ yum install -y yum-utils device-mapper-persistent-data lvm2
+$ yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+$ yum install docker-ce
+$ systemctl start docker &amp;&amp; systemctl enable docker
+</code></pre></div></div> <h2 id="2-쿠버네티스-설치">2. 쿠버네티스 설치</h2> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cat &lt;&lt;EOF &gt; /etc/yum.repos.d/kubernetes.repo
+$ [kubernetes]
+$ name=Kubernetes
+$ baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64
+$ enabled=1
+$ gpgcheck=1
+$ repo_gpgcheck=1
+$ gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+$ EOF
+ 
+$ # Set SELinux in permissive mode (effectively disabling it)
+$ setenforce 0
+$ sed -i 's/^SELINUX=enforcing$/SELINUX=permissive/' /etc/selinux/config
+ 
+$ yum install -y kubelet kubeadm kubectl --disableexcludes=kubernetes
+
+$ systemctl enable --now kubelet
+</code></pre></div></div> <p>설치 과정을 따라 하던중, 이 부분에서 다음과 같은 오류를 만나게 되었다.</p> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ yum install -y kubelet kubeadm kubectl --disableexcludes=kubernetes
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+ * base: ftp.iij.ad.jp
+ * extras: ftp.iij.ad.jp
+ * updates: mirror.navercorp.com
+base                                                     | 3.6 kB     00:00
+docker-ce-stable                                         | 3.5 kB     00:00
+extras                                                   | 2.9 kB     00:00
+https://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64/repodata/repomd.xml: [Errno 14] curl#60 - "Peer's certificate issuer has been marked as not trusted by the user."
+Trying other mirror.
+It was impossible to connect to the CentOS servers.
+This could mean a connectivity issue in your environment, such as the requirement to configure a proxy,
+or a transparent proxy that tampers with TLS security, or an incorrect system clock.
+You can try to solve this issue by using the instructions on https://wiki.centos.org/yum-errors
+If above article doesn't help to resolve this issue please use https://bugs.centos.org/.
+
+... 계속
+</code></pre></div></div> <p>문제 발생 이유로는 방화벽일 수도 있고, 보안 프로그램일수도 있다고 한다.</p> <p>가장 쉽게 해결하는 방법은</p> <p><strong>sslverify=0</strong>을 /etc/yum.repos.d/kubernetes.repo 파일에 추가 하면 다음과 같이 넘거 간다.</p> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ yum install -y kubelet kubeadm kubectl --disableexcludes=kubernetes
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+ * base: ftp.iij.ad.jp
+ * extras: ftp.iij.ad.jp
+ * updates: mirror.navercorp.com
+base                                                     | 3.6 kB     00:00
+docker-ce-stable                                         | 3.5 kB     00:00
+extras                                                   | 2.9 kB     00:00
+kubernetes/signature                                     |  454 B     00:00
+Retrieving key from https://packages.cloud.google.com/yum/doc/yum-key.gpg
+Importing GPG key 0xA7317B0F:
+ Userid     : "Google Cloud Packages Automatic Signing Key &lt;gc-team@google.com&gt;"
+ Fingerprint: d0bc 747f d8ca f711 7500 d6fa 3746 c208 a731 7b0f
+ From       : https://packages.cloud.google.com/yum/doc/yum-key.gpg
+Retrieving key from https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+kubernetes/signature                                     | 1.4 kB     00:00 !!!
+</code></pre></div></div> <h2 id="끝">끝!!!</h2> <h2 id="참고-자료">참고 자료</h2> <ul> <li><a href="https://docs.docker.com/install/linux/docker-ce/centos/">Get Docker Engine - Community for CentOS</a></li> <li><a href="https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/">Installing kubeadm</a></li> <li><a href="https://forums.centos.org/viewtopic.php?t=65658">yum https repository error no. 14</a></li> </ul> <div class="entry-meta"> <br> <hr> <span class="entry-tags"><a href="https://lahuman.github.io/tags/#yum" title="Pages tagged yum" class="tag"><span class="term">yum</span></a><a href="https://lahuman.github.io/tags/#error" title="Pages tagged error" class="tag"><span class="term">error</span></a></span> <span class="social-share"> <a href="https://www.facebook.com/sharer/sharer.php?u=https://lahuman.github.io/yum_certificate_issuer/" title="Share on Facebook" class="tag"> <span class="term"><i class="fa fa-facebook-square"></i> Share</span> </a> <a href="https://twitter.com/intent/tweet?text=https://lahuman.github.io/yum_certificate_issuer/" title="Share on Twitter" class="tag"> <span class="term"><i class="fa fa-twitter-square"></i> Tweet</span> </a> <a href="https://plus.google.com/share?url=https://lahuman.github.io/yum_certificate_issuer/" title="Share on Google+" class="tag"> <span class="term"><i class="fa fa-google-plus-square"></i> +1</span> </a> </span> <div style="clear:both"></div> </div> </div> </div> <section id="disqus_thread" class="animated fadeInUp"></section><!-- /#disqus_thread --> </header> <!-- JS --> <script src="https://lahuman.github.io/assets/js/jquery-1.12.0.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.dlmenu.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.goup.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.magnific-popup.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.fitvid.min.js"></script> <script src="https://lahuman.github.io/assets/js/scripts.js"></script> <!-- Global site tag (gtag.js) - Google Analytics --> <script async src="https://www.googletagmanager.com/gtag/js?id=UA-74095083-1"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-74095083-1'); </script> <script type="text/javascript"> var disqus_shortname = 'daniels-blog'; (function() { var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true; dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js'; (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq); })(); (function () { var s = document.createElement('script'); s.async = true; s.type = 'text/javascript'; s.src = '//' + disqus_shortname + '.disqus.com/count.js'; (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s); }()); </script> <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript> <!-- MathJax --> <script async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> </body> </html>
