@@ -1,4 +1,117 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-01-08T23:15:41+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">쿠버네티스 설치 yum 명령어에서 오류를 만났다.</title><link href="https://lahuman.github.io/yum_certificate_issuer/" rel="alternate" type="text/html" title="쿠버네티스 설치 yum 명령어에서 오류를 만났다." /><published>2020-01-08T00:00:00+09:00</published><updated>2020-01-08T00:00:00+09:00</updated><id>https://lahuman.github.io/yum_certificate_issuer</id><content type="html" xml:base="https://lahuman.github.io/yum_certificate_issuer/">&lt;h1 id=&quot;쿠버네티스-설치-중-오류를-만났다&quot;&gt;쿠버네티스 설치 중 오류를 만났다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-01-10T21:00:21+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Material-Components</title><link href="https://lahuman.github.io/material-components/" rel="alternate" type="text/html" title="Material-Components" /><published>2020-01-10T00:00:00+09:00</published><updated>2020-01-10T00:00:00+09:00</updated><id>https://lahuman.github.io/material-components</id><content type="html" xml:base="https://lahuman.github.io/material-components/">&lt;h1 id=&quot;material-components&quot;&gt;MATERIAL-COMPONENTS&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;오랜만에 진행하는 개인 프로젝트입니다.
+(간간히 짧은건 몇개 진행하였습니다.) 요즘 ReactJS를 활용하고 있는데요. 몇몇 컴포넌트들은 살짝 변경해서 공통으로 쓰고 있습니다. 이런 공통 컴포넌트들을 오픈소스화 해보려고 합니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;ReactJS + MaterialUI 기반에서 동작합니다.&lt;/p&gt;
+
+&lt;p&gt;기본으로 제공되는 component를 변경하였습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;datepicker&quot;&gt;Datepicker&lt;/h2&gt;
+
+&lt;p&gt;기존 datepicker에서 달력에 표시되는 포멧을 한글로 변경하고 삭제 등의 기능을 추가 하였습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://github.com/lahuman/Material-components/raw/master/images/datepicker.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;App.js에서 포멧이나 타임존에 대한 변경을 할수 있습니다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;주의 할점은 @date-io/moment 2.X에서는 오류가 발생합니다. 1.3.x를 사용해주세요.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// for MuiPickers only
+MomentUtils.prototype.getCalendarHeaderText = date =&amp;gt; {
+  return MomentUtils.prototype.format(date, 'YYYY년 M월');
+};
+MomentUtils.prototype.getDateTimePickerHeaderText = date =&amp;gt; {
+  return MomentUtils.prototype.format(date, &quot;M월 D일&quot;);
+};
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;datatable&quot;&gt;DataTable&lt;/h2&gt;
+
+&lt;p&gt;기본 테이블에 정렬기능을 추가 하였습니다.&lt;/p&gt;
+
+&lt;p&gt;복잡하지 않고 정렬만 사용할 경우 유용합니다.&lt;/p&gt;
+
+&lt;p&gt;정렬되고 있는 컬럼에 정렬방식을 표기하고 다시 클릭하면 반대로 정렬합니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://github.com/lahuman/Material-components/raw/master/images/datatable.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;</content><category term="reactjs" /><category term="materialui" /><summary type="html">ReactJS + MaterialUI = Custom Components</summary></entry><entry><title type="html">Rancher로 Kubernetes 설치 &amp;amp; 관리 하기</title><link href="https://lahuman.github.io/rancher/" rel="alternate" type="text/html" title="Rancher로 Kubernetes 설치 &amp; 관리 하기" /><published>2020-01-09T00:00:00+09:00</published><updated>2020-01-09T00:00:00+09:00</updated><id>https://lahuman.github.io/rancher</id><content type="html" xml:base="https://lahuman.github.io/rancher/">&lt;h1 id=&quot;rancher로-kubernetes-설치--관리-하기&quot;&gt;Rancher로 Kubernetes 설치 &amp;amp; 관리 하기&lt;/h1&gt;
+
+&lt;p&gt;어제 쿠버네티스를 한땀 한땀 설치하였다. 
+설정을 하려고 보니 생각보다 손이 많이가서 오늘 진행하기로 하였다.&lt;/p&gt;
+
+&lt;h2 id=&quot;하지만&quot;&gt;하지만!&lt;/h2&gt;
+
+&lt;p&gt;쿠버네티스 경험자인 동료분이 Rancher를 활용하면 쉽게 설치를 할 수 있다고 추천해주셨다.&lt;/p&gt;
+
+&lt;h2 id=&quot;rancher란&quot;&gt;Rancher란?&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Rancher is a complete software stack for teams adopting containers. It addresses the operational and security challenges of managing multiple Kubernetes clusters across any infrastructure, while providing DevOps teams with integrated tools for running containerized workloads.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Rancher는 컨테이너를 채택한 팀을위한 완벽한 소프트웨어 스택입니다. 모든 인프라에서 여러 Kubernetes 클러스터를 관리해야하는 운영 및 보안 문제를 해결하는 동시에 DevOps 팀에 컨테이너화 된 워크로드 실행을위한 통합 도구를 제공합니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;설치-하기&quot;&gt;설치 하기&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ sudo docker run -d --restart=unless-stopped -p 80:80 -p 443:443 rancher/rancher
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이로서 Rancher가 설치 되었다.&lt;/p&gt;
+
+&lt;p&gt;Rancher는 도커 환경에서 실행되며 쿠버네티스를 도커 환경에서 구축한다.&lt;/p&gt;
+
+&lt;p&gt;이후 웹 화면을 띄우면 admin 비밀번호를 설정 하도록 한다.&lt;/p&gt;
+
+&lt;h2 id=&quot;add-cluster&quot;&gt;Add Cluster&lt;/h2&gt;
+
+&lt;p&gt;첫화면을 들어갔다면 먼저 Add Cluster메뉴를 선택해서 쿠버네티스를 구성한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;assets/img/post_img/rancher-cluster.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;서버의 디스크를 활용할 예정이라면, &lt;strong&gt;From existing nodes (Custom)&lt;/strong&gt; 버튼을 클릭한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;assets/img/post_img/rancher-addcluster-1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Cluster Name만 주고 Next 버튼을 클릭해도 된다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;assets/img/post_img/rancher-addcluster-2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;이후 docker 명령어가 화면에 표시 된다.&lt;/p&gt;
+
+&lt;p&gt;첫 2개의 체크 박스는 마스터 노드를 뜻한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;assets/img/post_img/rancher-master.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;마지막 체크 박스인 worker는 pod을 가진 node를 뜻한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;assets/img/post_img/rancher-worker.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;물론 3개의 체크박스를 모두 선택하고 명령어를 실행해도 된다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;assets/img/post_img/rancher-runcommand.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;명령어를 실행하고 난 이후 결과는 다음과 같다.
+(좀 많은 시간이 걸린다.)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;assets/img/post_img/rancher-active.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;이제 활성화된 클러스터를 클릭 하면 다음과 같은 대시 보드를 확인 할수 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;assets/img/post_img/rancher-dashboard.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;이후 쿠버네티스 관련 명령어를 웹에서 &lt;strong&gt;Launch Kubectl&lt;/strong&gt; 명령어를 이용해서 실행해볼 수 있다.&lt;/p&gt;
+
+&lt;p&gt;마지막으로 &lt;strong&gt;kubectl get all&lt;/strong&gt;을 실행한 결과이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;assets/img/post_img/rancher-shell.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;오늘-엄청-배움&quot;&gt;오늘 엄청 배움!!!&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;assets/img/post_img/rancher-worker.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;</content><category term="kubernetes" /><category term="rancher" /><summary type="html">오메 신세계다!!!</summary></entry><entry><title type="html">쿠버네티스 설치 yum 명령어에서 오류를 만났다.</title><link href="https://lahuman.github.io/yum_certificate_issuer/" rel="alternate" type="text/html" title="쿠버네티스 설치 yum 명령어에서 오류를 만났다." /><published>2020-01-08T00:00:00+09:00</published><updated>2020-01-08T00:00:00+09:00</updated><id>https://lahuman.github.io/yum_certificate_issuer</id><content type="html" xml:base="https://lahuman.github.io/yum_certificate_issuer/">&lt;h1 id=&quot;쿠버네티스-설치-중-오류를-만났다&quot;&gt;쿠버네티스 설치 중 오류를 만났다.&lt;/h1&gt;
 
 &lt;h2 id=&quot;1-도커설치&quot;&gt;1. 도커설치&lt;/h2&gt;
 
@@ -378,26 +491,4 @@ mysql['password'] = &quot;password&quot;
   &lt;li&gt;&lt;a href=&quot;https://aerobase.io/docs/gsg/index.html&quot;&gt;설치 가이드&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://dev.mysql.com/doc/mysql-apt-repo-quick-guide/en/#apt-repo-setup&quot;&gt;Adding the MySQL APT Repository&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://dev.mysql.com/downloads/repo/yum/&quot;&gt;MySQL Yum repository&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="aerobase" /><category term="iam" /><summary type="html">OPEN SOURCE 설치는 은근히 어려워</summary></entry><entry><title type="html">2019년을 회고 해보았다.</title><link href="https://lahuman.github.io/20191222/" rel="alternate" type="text/html" title="2019년을 회고 해보았다." /><published>2019-12-22T00:00:00+09:00</published><updated>2019-12-22T00:00:00+09:00</updated><id>https://lahuman.github.io/20191222</id><content type="html" xml:base="https://lahuman.github.io/20191222/">&lt;h1 id=&quot;2019년을-보내며&quot;&gt;2019년을 보내며…&lt;/h1&gt;
-
-&lt;p&gt;2018년 11월에 지금 다니는 회사로 이직을 했다.&lt;/p&gt;
-
-&lt;p&gt;1년을 보내면서 좋았던 점은 첫째로, 내가 원하는 만큼 개발을 하게되었다.&lt;/p&gt;
-
-&lt;p&gt;나쁜 점은… 여전히 오지랍퍼에 생각없이 말하고 행동할때가 많다.&lt;/p&gt;
-
-&lt;p&gt;말이 너무 많아서 주위 사람에게 실수를 하기도 하고, 신뢰를 잃기도 한다.&lt;/p&gt;
-
-&lt;p&gt;2019년의 나는 변한게 없었다.&lt;/p&gt;
-
-&lt;p&gt;2020년의 나는 조금 더 진중해지고, 열심히 살았으면 좋겠다.&lt;/p&gt;</content><category term="단상" /><summary type="html">이직을 했고, 여전히 오지랍퍼에 생각없는 행동도 많이 했다.</summary></entry><entry><title type="html">남에게 무엇을 가르치는건 정말 어렵다.</title><link href="https://lahuman.github.io/20191217/" rel="alternate" type="text/html" title="남에게 무엇을 가르치는건 정말 어렵다." /><published>2019-12-17T00:00:00+09:00</published><updated>2019-12-17T00:00:00+09:00</updated><id>https://lahuman.github.io/20191217</id><content type="html" xml:base="https://lahuman.github.io/20191217/">&lt;h1 id=&quot;딸-아이와-밤-12시까지-수학을-공부-시켰다&quot;&gt;딸 아이와 밤 12시까지 수학을 공부 시켰다.&lt;/h1&gt;
-
-&lt;p&gt;울면서 하기 싫다는 아이를 억지로 잡고 문제를 푸는 방식만 이해하면 끝내겠다고 어르고 달래며 진행했다.&lt;/p&gt;
-
-&lt;p&gt;결국 나에게 죄책감과 회의감만 잔뜩 남기고 끝났다.&lt;/p&gt;
-
-&lt;p&gt;나는 좋은 선생은 아닌거 같다.&lt;/p&gt;
-
-&lt;p&gt;힘든 어제가 끝나고… 딸 아이는 나에게 짜증만 낸다.&lt;/p&gt;
-
-&lt;h2 id=&quot;싫다-나도&quot;&gt;싫다 나도…&lt;/h2&gt;</content><category term="단상" /><summary type="html">특히 하기 싫은 사람을 가르치는건 더 더욱...</summary></entry></feed>
+&lt;/ul&gt;</content><category term="aerobase" /><category term="iam" /><summary type="html">OPEN SOURCE 설치는 은근히 어려워</summary></entry></feed>
