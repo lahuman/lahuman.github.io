@@ -1,4 +1,214 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-01-10T21:00:21+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Material-Components</title><link href="https://lahuman.github.io/material-components/" rel="alternate" type="text/html" title="Material-Components" /><published>2020-01-10T00:00:00+09:00</published><updated>2020-01-10T00:00:00+09:00</updated><id>https://lahuman.github.io/material-components</id><content type="html" xml:base="https://lahuman.github.io/material-components/">&lt;h1 id=&quot;material-components&quot;&gt;MATERIAL-COMPONENTS&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-01-11T15:59:05+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">harbor 설치 부터 kubernetes 연동까지!</title><link href="https://lahuman.github.io/kubernetes-harbor/" rel="alternate" type="text/html" title="harbor 설치 부터 kubernetes 연동까지!" /><published>2020-01-11T00:00:00+09:00</published><updated>2020-01-11T00:00:00+09:00</updated><id>https://lahuman.github.io/kubernetes-harbor</id><content type="html" xml:base="https://lahuman.github.io/kubernetes-harbor/">&lt;h1 id=&quot;harbor-설치-부터-kubernetes-연동까지&quot;&gt;harbor 설치 부터 kubernetes 연동까지!&lt;/h1&gt;
+
+&lt;h2 id=&quot;harbor-설치&quot;&gt;&lt;a href=&quot;https://goharbor.io/&quot;&gt;Harbor&lt;/a&gt; 설치&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;설치 전에 필수 설치 사항
+    &lt;ul&gt;
+      &lt;li&gt;docker-compose&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ sudo curl -L &quot;https://github.com/docker/compose/releases/download/1.25.0/docker-compose-$(uname -s)-$(uname -m)&quot; -o /usr/local/bin/docker-compose
+$ sudo chmod +x /usr/local/bin/docker-compose
+# version 확인
+$ docker-compose -v
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Harbor를 다운받기&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;기본적으로 Online(harbor-online-installer-vx.x.x.tgz)으로 받아서 설치를 시작하면 된다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;assets/img/post_img/harbor_download.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;2020년 1월 11일 최신 버젼인 &lt;a href=&quot;https://github.com/goharbor/harbor/releases/download/v1.9.4/harbor-online-installer-v1.9.4.tgz&quot;&gt;harbor-online-installer-v1.9.4.tgz&lt;/a&gt;을 기준으로 진행하였다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ wget https://github.com/goharbor/harbor/releases/download/v1.9.4/harbor-online-installer-v1.9.4.tgz
+$ tar xvfz harbor-online-installer-v1.9.4.tgz
+$ cd harbor
+# 특정 설정을 변경해야 한다.
+# hostname과 https 설정 필수 수정
+# 작동하는 PORT를 변경할 경우 다음 파일에서 수정
+$ vi harbor.yml
+# 설치는 ROOT 계정으로 진행하는 것을 추천한다.
+$ ./install.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;동작 확인&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;브라우저를 통해서 확인한다. HTTPS를 활성화 했다면 https로 확인이 가능하다.
+로그인 기본 ID 는 admin이며 password는 harbor.yml에 표기되어 있다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 파일 내 기본 비밀번호 
+harbor_admin_password: Harbor12345
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;harbor.xml 수정시 반영 방법&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;harbor.xml을 수정후 무언가 반영할때는 다음과 같이 진행한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 변경내역 반영
+$ ./prepare
+# docker-compose 재실행
+$ docker-compose down -v
+$ docker-compose up -d
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;harbor에-이미지-올리고-받기&quot;&gt;harbor에 이미지 올리고 받기&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;docker login&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;먼저 docker에서 이미지를 push 하기 위해서 login을 해야 한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ docker login 10.52.181.240:8443
+Username: admin
+Password:
+WARNING! Your password will be stored unencrypted in /home/service/.docker/config.json.
+Configure a credential helper to remove this warning. See
+https://docs.docker.com/engine/reference/commandline/login/#credentials-store
+
+Login Succeeded
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;docker tag 생성&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ docker tag lahuman/react-app:0.1 10.52.181.240:8443/51scrum/test-react-app:0.1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;docker push&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ docker push 10.52.181.240:8443/51scrum/test-react-app:0.1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;docker pull&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ docker pull 10.52.181.240:8443/51scrum/test-react-app:0.1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;만약-x503-에러가-발생하면서-docker-login이-되지-않는다면&quot;&gt;만약 x503 에러가 발생하면서 docker login이 되지 않는다면?&lt;/h3&gt;
+
+&lt;p&gt;인증서 문제인데 내 경우는 그냥 http 통신으로 처리하였다.&lt;/p&gt;
+
+&lt;p&gt;우선 http 방식의 docker login을 위해서는 &lt;strong&gt;/etc/docker/daemon.json&lt;/strong&gt; 파일을 생성하고 주소 정보와 IP를 다음과 같이 추가 한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{
+  &quot;insecure-registries&quot; : [&quot;10.52.181.240:8000&quot;]
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이후 docker 서비스를 재기동 후 http로 로그인을 한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ systemctl restart docker
+# 로그인
+$ docker login 10.52.181.240:8000
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;kubernetes에서-private-repository-이미지-가져오기&quot;&gt;kubernetes에서 Private Repository 이미지 가져오기&lt;/h2&gt;
+
+&lt;p&gt;kubernetes에서 Private Repository를 사용하기 위해서는 secret를 등록해야 한다. 
+lahuman이라는 이름을 가진 secret를 생성한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ kubectl create secret docker-registry lahuman --docker-server=http://10.52.181.240:8000 --docker-username=admin --docker-password='비밀번호' --docker-email=&quot;이메일&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;만약 http 통신으로 docker login 한다면, kubernetes worker의 docker에 &lt;strong&gt;insecure-registries&lt;/strong&gt; 설정을 해야한다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;등록된 값의 상세 확인은 다음의 명령어로 한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ kubectl get secret lahuman --output=&quot;jsonpath={.data.\.dockerconfigjson}&quot; | base64 -d
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이제 pod를 배포해서 정상 동작 되는지 확인해보자&lt;/p&gt;
+
+&lt;p&gt;우산 다음과 같은 pod.yml을 작성한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: react
+  template:
+    metadata:
+      labels:
+        app: react
+    spec:
+      containers:
+      - name: hello-container
+        image: lahuman/test-react-app
+        ports:
+        - containerPort: 80
+      imagePullSecrets:
+      - name: lahuman
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;생성된 파일을 kubectl 명령어를 이용해서 반영한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ kubectl apply -f pod.yml
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;결과를 확인한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ kubectl get pod
+NAME                          READY   STATUS    RESTARTS   AGE
+hello-react-6968cdc94-5fxrv   1/1     Running   0          51m
+hello-react-6968cdc94-5lpdg   1/1     Running   0          51m
+hello-react-6968cdc94-82zh6   1/1     Running   0          51m
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;외부에서 접근하기 위해서 service.yml 파일을 작성한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apiVersion: v1
+kind: Service
+metadata:
+  name: hello-svc
+spec:
+  selector:
+    app: react
+  ports:
+    - port: 8200
+      targetPort: 80
+  externalIPs:
+    - 10.52.181.240
+    - 10.52.181.241
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;서비스 파일을 kubectl 명령을 이용해서 반영한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ kubectl apply -f service.yml
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;정상적으로 동작하는지 브라우저를 통해 확인하면 된다!&lt;/p&gt;
+
+&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://goharbor.io/&quot;&gt;Harbor&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://sarc.io/index.php/cloud/1702-install-harbor&quot;&gt;Harbor 설치&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/&quot;&gt;Pull an Image from a Private Registry&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developer.rackspace.com/docs/rkaas/latest/external/rkaas-userguide/configure-docker-registry/&quot;&gt;Example of private Docker registry usage&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://blog.uniqbuild.co.kr/?p=724&quot;&gt;Kubernetes + private docker registry&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://ohgyun.com/484&quot;&gt;쉘에서 느낌표 이스케이프하기&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="kubernetes" /><category term="yaml" /><summary type="html">private repository를 생성해서 이미지를 올리고, kubernetes에서 실행해보자!</summary></entry><entry><title type="html">Material-Components</title><link href="https://lahuman.github.io/material-components/" rel="alternate" type="text/html" title="Material-Components" /><published>2020-01-10T00:00:00+09:00</published><updated>2020-01-10T00:00:00+09:00</updated><id>https://lahuman.github.io/material-components</id><content type="html" xml:base="https://lahuman.github.io/material-components/">&lt;h1 id=&quot;material-components&quot;&gt;MATERIAL-COMPONENTS&lt;/h1&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;오랜만에 진행하는 개인 프로젝트입니다.
@@ -61,6 +271,18 @@ MomentUtils.prototype.getDateTimePickerHeaderText = date =&amp;gt; {
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;이로서 Rancher가 설치 되었다.&lt;/p&gt;
+
+&lt;p&gt;만약 아래와 같은 오류가 발생한다면,&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ sudo docker run -d --restart=unless-stopped -p 80:80 -p 443:443 rancher/rancher
+6ab639e217cccebed6fb4bdd8aa4049e247740b4f00c519c5294fe1ad40c9239
+docker: Error response from daemon: driver failed programming external connectivity on endpoint thirsty_volhard (58f908f66cd6a307f6c0ce111fe5b755049a76df806c0ed85d53cfe3e24cce6b):  (iptables failed: iptables --wait -t nat -A DOCKER -p tcp -d 0/0 --dport 443 -j DNAT --to-destination 172.17.0.2:443 ! -i docker0: iptables: No chain/target/match by that name.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;docker 서비스를 재기동 후 다시 설치하면 된다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ systemctl restart docker
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Rancher는 도커 환경에서 실행되며 쿠버네티스를 도커 환경에서 구축한다.&lt;/p&gt;
 
@@ -361,134 +583,4 @@ kubernetes/signature                                     | 1.4 kB     00:00 !!!
 
 &lt;p&gt;그러다 보니 동현이가 놀자고 와서 굳은 얼굴로 나중에 라며 밀어 낸다.&lt;/p&gt;
 
-&lt;h2 id=&quot;하루하루-딸아이와-전쟁이다&quot;&gt;하루하루 딸아이와 전쟁이다.&lt;/h2&gt;</content><category term="단상" /><summary type="html">딸아이와 짜증을 내며 싸웠다.</summary></entry><entry><title type="html">aerobase 설치 삽질기 공유</title><link href="https://lahuman.github.io/aerobase_install/" rel="alternate" type="text/html" title="aerobase 설치 삽질기 공유" /><published>2019-12-24T00:00:00+09:00</published><updated>2019-12-24T00:00:00+09:00</updated><id>https://lahuman.github.io/aerobase_install</id><content type="html" xml:base="https://lahuman.github.io/aerobase_install/">&lt;h1 id=&quot;aerobase-설치-삽질기&quot;&gt;aerobase 설치 삽질기&lt;/h1&gt;
-
-&lt;h2 id=&quot;설치-전-필수-사항&quot;&gt;설치 전 필수 사항&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;JAVA를 실행할 수 있는 OS&lt;/li&gt;
-  &lt;li&gt;JAVA JDK 8&lt;/li&gt;
-  &lt;li&gt;512 RAM 이상&lt;/li&gt;
-  &lt;li&gt;1G DISK 이상&lt;/li&gt;
-  &lt;li&gt;PostgreSQL, MySQL, Oracle, etc DBMS&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://aerobase.io/docs/gsg/index.html&quot;&gt;설치 가이드&lt;/a&gt;를 따라서 설치를 진행하다 보면 나오는 몇가지 문제가 있다.&lt;/p&gt;
-
-&lt;p&gt;우선 파일을 이용한 설치는 오류가 발생한다.&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ yum install java-1.8.0-openjdk
-# 아래 라인은 동작 안함
-$ yum install aerobase-2.4.0.el7.x86_64.rpm aerobase-iam-2.4.0.el7.x86_64.rpm
-
-# rpm -qpi 파일명  이렇게 변경 해야함
-$ rpm -qpi aerobase-2.4.0.el7.x86_64.rpm 
-$ rpm -qpi aerobase-iam-2.4.0.el7.x86_64.rpm
-
-or
-
-$ apt-get install openjdk-8-jdk
-# 아래 라인은 동작 안함
-$ apt-get install aerobase_2.4.0_xenial.deb aerobase-iam_2.4.0_xenial.deb
-
-# dpkg -i 패키지.deb 이렇게 변경 해야함
-$ dpkg -i aerobase_2.4.0_xenial.deb 
-$ dpkg -i aerobase-iam_2.4.0_xenial.deb
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;mysql-shell-설치&quot;&gt;mysql shell 설치&lt;/h2&gt;
-
-&lt;p&gt;DBMS 연결을 위해 mysql shell을 설치 해야 한다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;centso
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://dev.mysql.com/downloads/repo/yum/&quot;&gt;MySQL Yum repository&lt;/a&gt;을 이용해서 설치 한다.
-        &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ yum install mysql-shell
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;ubuntu
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://dev.mysql.com/doc/mysql-apt-repo-quick-guide/en/#apt-repo-setup&quot;&gt;Adding the MySQL APT Repository&lt;/a&gt;를 참고 하여 repository를 추가 하고 다음 명령어를 이용해 설치 한다.
-        &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ sudo apt-get update
-$ sudo apt-get install mysql-apt-config 
-$ sudo apt-get install mysql-shell
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;공통-설정&quot;&gt;공통 설정&lt;/h2&gt;
-
-&lt;p&gt;기본은 postgresql이나, 필요에 의해서 다른 DBMS를 사용할 수 있다.&lt;/p&gt;
-
-&lt;p&gt;만약 mysql을 사용한다는 가정하에 아래 설정을 변경 해야 한다.&lt;/p&gt;
-
-&lt;p&gt;설정을 변경 하기 위해서는 &lt;strong&gt;/etc/aerobase/aerobase.rb&lt;/strong&gt;  파일을 수정 해야 한다.&lt;/p&gt;
-
-&lt;p&gt;수정내역은 아래와 같다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# Shutdown internal embedded database
-postgresql['enable'] = false
-
-# Change adapter type
-aerobase_server['db_adapter'] = &quot;mysql&quot;
-
-# Point to MYSQL host and port (default 3306)
-mysql['server'] = &quot;localhost&quot;
-mysql['port'] = 3306
-mysql['username'] = &quot;root&quot;
-mysql['password'] = &quot;password&quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;수정이 끝나면 다음 명령어를 실행하여 설정을 반영해야 한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ sudo aerobase-ctl reconfigure
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;변경된 설정이 반영되면 다음 명령을 이용해서 실행한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ sudo aerobase-ctl start
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;오류-발생-처리-tip&quot;&gt;오류 발생 처리 TIP&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;JBOSS와 DBMS 사이에 타임존이 다르면 다음과 같은 오류가 발생한다.
-    &lt;ul&gt;
-      &lt;li&gt;조치사항
-        &lt;ol&gt;
-          &lt;li&gt;JBOSS 타임존 설정
-            &lt;ul&gt;
-              &lt;li&gt;똑같이 에러 발생, 참고로 기동시에 config 사라짐&lt;/li&gt;
-            &lt;/ul&gt;
-          &lt;/li&gt;
-          &lt;li&gt;MySQL 타임존 설정
-            &lt;ul&gt;
-              &lt;li&gt;SYSTEM 에서 KST로 변경&lt;/li&gt;
-            &lt;/ul&gt;
-          &lt;/li&gt;
-        &lt;/ol&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;서버에 hostname 설정이 안되어 있으면 다음과 같은 오류가 발생한다.
-&lt;img src=&quot;/assets/img/post_img/aerobase_error.png&quot; alt=&quot;&quot; /&gt;
-    &lt;ul&gt;
-      &lt;li&gt;확인 명령어
-        &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ hostname -f
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://aerobase.io/iam&quot;&gt;aerobase&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://aerobase.io/docs/gsg/index.html&quot;&gt;설치 가이드&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://dev.mysql.com/doc/mysql-apt-repo-quick-guide/en/#apt-repo-setup&quot;&gt;Adding the MySQL APT Repository&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://dev.mysql.com/downloads/repo/yum/&quot;&gt;MySQL Yum repository&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="aerobase" /><category term="iam" /><summary type="html">OPEN SOURCE 설치는 은근히 어려워</summary></entry></feed>
+&lt;h2 id=&quot;하루하루-딸아이와-전쟁이다&quot;&gt;하루하루 딸아이와 전쟁이다.&lt;/h2&gt;</content><category term="단상" /><summary type="html">딸아이와 짜증을 내며 싸웠다.</summary></entry></feed>
