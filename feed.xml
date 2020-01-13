@@ -1,4 +1,84 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-01-11T16:07:11+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">harbor 설치 부터 kubernetes 연동까지!</title><link href="https://lahuman.github.io/kubernetes-harbor/" rel="alternate" type="text/html" title="harbor 설치 부터 kubernetes 연동까지!" /><published>2020-01-11T00:00:00+09:00</published><updated>2020-01-11T00:00:00+09:00</updated><id>https://lahuman.github.io/kubernetes-harbor</id><content type="html" xml:base="https://lahuman.github.io/kubernetes-harbor/">&lt;h1 id=&quot;harbor-설치-부터-kubernetes-연동까지&quot;&gt;harbor 설치 부터 kubernetes 연동까지!&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-01-14T00:11:19+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">ReactJS에서 docker 이미지 생성 &amp;amp; 배포 하기</title><link href="https://lahuman.github.io/reactjs-dockerfile/" rel="alternate" type="text/html" title="ReactJS에서 docker 이미지 생성 &amp; 배포 하기" /><published>2020-01-13T00:00:00+09:00</published><updated>2020-01-13T00:00:00+09:00</updated><id>https://lahuman.github.io/reactjs-dockerfile</id><content type="html" xml:base="https://lahuman.github.io/reactjs-dockerfile/">&lt;h1 id=&quot;reactjs-proejct-docker-이미지-생성--배포-하기&quot;&gt;ReactJS Proejct Docker 이미지 생성 &amp;amp; 배포 하기&lt;/h1&gt;
+
+&lt;p&gt;ReactJS 프로젝트를 docker 이미지를 생성하는 방법을 정리 합니다.&lt;/p&gt;
+
+&lt;p&gt;기본적으로 node 12.x 의 이미지에 nginx 이미지를 활용하여서 생성하였습니다.&lt;/p&gt;
+
+&lt;p&gt;자세한 내용은 &lt;a href=&quot;/Dockerfile&quot;&gt;Dockerfile&lt;/a&gt; 파일을 참고 하시면 됩니다.&lt;/p&gt;
+
+&lt;p&gt;ReactJS 파일은 기본 명령어를 이용해서 생성하였습니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ npx create-react-app mycode
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;1-우선-reacjs-프로젝트에서-다음-파일을-생성합니다&quot;&gt;1. 우선 ReacJS 프로젝트에서 다음 파일을 생성합니다.&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;/Dockerfile&quot;&gt;Dockerfile&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/default.conf&quot;&gt;default.conf&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/expires.conf&quot;&gt;expires.conf&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;2-이미지-생성하기&quot;&gt;2. 이미지 생성하기&lt;/h2&gt;
+
+&lt;p&gt;다음 명령어를 이용해서 이미지를 생성 합니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# docker build -t ${image-name}:${version} .
+
+$ docker build -t react-dockerfile:1.0 .
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;3-이미지-테스트-하기&quot;&gt;3. 이미지 테스트 하기&lt;/h2&gt;
+
+&lt;p&gt;생성된 이미지를 docker run으로 테스트 합니다.&lt;/p&gt;
+
+&lt;p&gt;아래 명령어는 이미지를 띄우고 &lt;strong&gt;Ctrl + C&lt;/strong&gt;를 이용해서 종료 하면 바로 컨테이너를 삭제 합니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# docker run -p 8888:80 --rm ${image-name}:${version}
+
+$ docker run -p 8888:80 --rm react-dockerfile:1.0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;로컬 PC의 8888 포트와 컨테이너 80 포트를 연결 하여서 띄우기 때문에 http://localhost:8888 을 브라우저에서 입력하시고 결과를 확인해세요.&lt;/p&gt;
+
+&lt;h2 id=&quot;4-이미지를-docker-repository에-올리기&quot;&gt;4. 이미지를 docker repository에 올리기&lt;/h2&gt;
+
+&lt;p&gt;마지막으로 만든 이미지에 문제가 없다면, 해당 이미지를 docker repository에 올립니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;41-docker-login-을-하세요&quot;&gt;4.1 docker login 을 하세요.&lt;/h3&gt;
+
+&lt;p&gt;저장하려는 repository에 로그인 하세요 기본으로 로그인시 docker hub에 저장하게 됩니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ docker login
+Login with your Docker ID to push and pull images from Docker Hub. If you don't have a Docker ID, head over to https://hub.docker.com to create one.
+Username: lahuman
+Password:
+Login Succeeded
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;42-우선-이미지-태그를-다시-생성하셔요&quot;&gt;4.2 우선 이미지 태그를 다시 생성하셔요.&lt;/h3&gt;
+
+&lt;p&gt;docker 이미지 태그는 docker hub 계정 정보가 함께 들어 갑니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# docker tag ${image-name}:${version} ${account}/${image-name}:${version}
+
+$ docker tag react-dockerfile:1.0 lahuman/react-dockerfile:1.0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;43-push를-하세요&quot;&gt;4.3 push를 하세요&lt;/h3&gt;
+
+&lt;p&gt;마지막으로 이미지를 docker hub에 push 하세요.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ docker push ${account}/${image-name}:${version}
+$ docker push lahuman/react-dockerfile:1.0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;오류-denied-requested-access-to-the-resource-is-denied&quot;&gt;[오류] denied: requested access to the resource is denied&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;로그인 정보를 확인하세요.&lt;/li&gt;
+  &lt;li&gt;tag에 계정 정보가 알맞게 저장 되었는지 확인하세요.&lt;/li&gt;
+&lt;/ol&gt;</content><category term="reactjs" /><category term="dockerfile" /><summary type="html">node + nginx로 처리 하면 참 쉽죠?</summary></entry><entry><title type="html">harbor 설치 부터 kubernetes 연동까지!</title><link href="https://lahuman.github.io/kubernetes-harbor/" rel="alternate" type="text/html" title="harbor 설치 부터 kubernetes 연동까지!" /><published>2020-01-11T00:00:00+09:00</published><updated>2020-01-11T00:00:00+09:00</updated><id>https://lahuman.github.io/kubernetes-harbor</id><content type="html" xml:base="https://lahuman.github.io/kubernetes-harbor/">&lt;h1 id=&quot;harbor-설치-부터-kubernetes-연동까지&quot;&gt;harbor 설치 부터 kubernetes 연동까지!&lt;/h1&gt;
 
 &lt;h2 id=&quot;harbor-설치&quot;&gt;&lt;a href=&quot;https://goharbor.io/&quot;&gt;Harbor&lt;/a&gt; 설치&lt;/h2&gt;
 
@@ -549,38 +629,4 @@ kubernetes/signature                                     | 1.4 kB     00:00 !!!
 
 &lt;p&gt;누구를 지칭 하는건지 알듯 말듯 하다.&lt;/p&gt;
 
-&lt;h2 id=&quot;그러하다&quot;&gt;그러하다.&lt;/h2&gt;</content><category term="단상" /><summary type="html">팀내부에서 무임승차 하는 사람이 없어야 한다는 이야기가 자주 나온다.</summary></entry><entry><title type="html">반성하는 크리스마스…</title><link href="https://lahuman.github.io/20191225/" rel="alternate" type="text/html" title="반성하는 크리스마스..." /><published>2019-12-25T00:00:00+09:00</published><updated>2019-12-25T00:00:00+09:00</updated><id>https://lahuman.github.io/20191225</id><content type="html" xml:base="https://lahuman.github.io/20191225/">&lt;h1 id=&quot;삐딱하게-이야기-하고-짜증내는-모습이-나랑-같아서-일까&quot;&gt;삐딱하게 이야기 하고 짜증내는 모습이 나랑 같아서 일까?&lt;/h1&gt;
-
-&lt;p&gt;“채윤아 이빨 다 닦고 놀자!”&lt;/p&gt;
-
-&lt;p&gt;하지만 딸 아이는 칫솔을 물고 뛰어 놀고 있다.&lt;/p&gt;
-
-&lt;p&gt;“임채윤! 칫솔 물고 그렇게 뛰다가 넘어지면 다쳐 다 닦고 놀아!”&lt;/p&gt;
-
-&lt;p&gt;“아씨~ 알았어~”&lt;/p&gt;
-
-&lt;p&gt;억지로 대답을 했지만 아이는 여전히 뛰어 논다.&lt;/p&gt;
-
-&lt;p&gt;결국 나는 화를 참지 못하고 소리 쳤다.&lt;/p&gt;
-
-&lt;p&gt;“야! 너 정말 혼나래? 아빠가 말하면 한번에 안듣고 뭐하는거야?”&lt;/p&gt;
-
-&lt;p&gt;딸 아이가 이야기 했다.&lt;/p&gt;
-
-&lt;p&gt;“아 몰라 왜 나만 그래? 동현이도 놀자나!”&lt;/p&gt;
-
-&lt;p&gt;나는 대답 했다.&lt;/p&gt;
-
-&lt;p&gt;“동현이는 이빨 다 닦고 노는거고 넌 아직 칫솔을 물고 있자나! 그리고 말 이쁘게 안할꺼야? 왜이렇게 삐딱하게 말해!”&lt;/p&gt;
-
-&lt;p&gt;채윤이는 짜증이 잔뜩 섞인 푸념을 하며 화장실로 갔다.&lt;/p&gt;
-
-&lt;p&gt;“아씨~”&lt;/p&gt;
-
-&lt;p&gt;나는.. 속이 부글부글 끓어 오르는 걸 느낀다.&lt;/p&gt;
-
-&lt;p&gt;화가 난다, 기본적인 예의를 지키지 않는 아이의 모습에 화산이 폭발하기 직전인다.&lt;/p&gt;
-
-&lt;p&gt;그러다 보니 동현이가 놀자고 와서 굳은 얼굴로 나중에 라며 밀어 낸다.&lt;/p&gt;
-
-&lt;h2 id=&quot;하루하루-딸아이와-전쟁이다&quot;&gt;하루하루 딸아이와 전쟁이다.&lt;/h2&gt;</content><category term="단상" /><summary type="html">딸아이와 짜증을 내며 싸웠다.</summary></entry></feed>
+&lt;h2 id=&quot;그러하다&quot;&gt;그러하다.&lt;/h2&gt;</content><category term="단상" /><summary type="html">팀내부에서 무임승차 하는 사람이 없어야 한다는 이야기가 자주 나온다.</summary></entry></feed>
