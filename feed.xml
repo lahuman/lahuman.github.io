@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-01-25T22:15:48+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">kubernetes Persistent Volumes 설정하여 사용하기</title><link href="https://lahuman.github.io/kubernetes-persistent-volumes/" rel="alternate" type="text/html" title="kubernetes Persistent Volumes 설정하여 사용하기" /><published>2020-01-23T00:00:00+09:00</published><updated>2020-01-23T00:00:00+09:00</updated><id>https://lahuman.github.io/kubernetes-persistent-volumes</id><content type="html" xml:base="https://lahuman.github.io/kubernetes-persistent-volumes/">&lt;h1 id=&quot;kubernetes-persistent-volumes-사용하기&quot;&gt;Kubernetes Persistent Volumes 사용하기&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-01-25T22:28:15+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">kubernetes Persistent Volumes 설정하여 사용하기</title><link href="https://lahuman.github.io/kubernetes-persistent-volumes/" rel="alternate" type="text/html" title="kubernetes Persistent Volumes 설정하여 사용하기" /><published>2020-01-23T00:00:00+09:00</published><updated>2020-01-23T00:00:00+09:00</updated><id>https://lahuman.github.io/kubernetes-persistent-volumes</id><content type="html" xml:base="https://lahuman.github.io/kubernetes-persistent-volumes/">&lt;h1 id=&quot;kubernetes-persistent-volumes-사용하기&quot;&gt;Kubernetes Persistent Volumes 사용하기&lt;/h1&gt;
 
 &lt;h2 id=&quot;준비-작업&quot;&gt;준비 작업&lt;/h2&gt;
 
@@ -50,29 +50,76 @@ $ sudo exportfs -v
 
 &lt;h4 id=&quot;추가-정보-etcexports-설정-정보&quot;&gt;추가 정보 /etc/exports 설정 정보&lt;/h4&gt;
 
-&lt;p&gt;| 옵션 | 기능 |
-|—|—|
-| ro | 파일 시스템을 읽기전용으로 마운트  |
-| rw  |   파일시스템을 읽기/쓰기 로 마운트 |
-| root_squash  | 클라이언트에서 루트를 서버상에 nobody 사용자로 매핑  |
-| no_root_squash | 서버와 클라이언트 모두 같은 root를 사용  |
-| secure | 클라이언트 마운트 요청시 포트를 1024 이하로 설정 |
-| anonuid | 익명 사용자를 위한 사용자 ID를 지정하실 수 있음 |
-| anongid | 익명 사용자를 위한 그룹 ID를 지정하실 수 있음 |
-| insecure | 인증되지 않은 액세스도 가능  |
-| noaccess | 액세스 거부 |
-| link_relative | 서버에 있는 루트와의 링크를 포함하는 디렉토리에서 얻는 “../” 만큼 링크 앞에 두어 절대 심볼릭 링크를 상대 심볼릭 링크로 바꿀때 사용  |
-| sync | 파일 시스템이 변경되면 즉시 동기화합니다.|
-| async | sync 옵션을 사용하지 않는 경우에 해당 하며, 
-서버는 데이터가 저장소에 안전히 저장됐는지를 확인하지 않음
-클라이언트의 데이터 쓰기 요청이 들어오면 바로 응답을 보냄
-데이터 curruption이 발생할 수 있지만 성능 향상을 기대할 수 있음 |
-| no_subtree_check | 파일 시스템의 전체 디렉토리가 아닌 하부 디렉토리가 내보내진 경우,
-서버는 내보낸 하부 디렉토리에 요청된 파일이 존재하는지를 검사 함 
-이러한 검사 과정을 하부구조 검사라고 부르는데, 이 옵션을 선택하시면 하부구조 검사를 사용하지 않음
-전체 파일 시스템이 내보내진 경우에 이 옵션을 선택하면 하부구조 검사를 하지 않음으로서 전송률을 높일 수 있음 |
-| all_squash | root를 제외하고 서버와 클라이언트의 사용자를 동일한 권한으로 설정|
-| no_all_squash | root를 제외하고 서버와 클라이언트의 사용자들을 하나의 권한을 가지도록 설정 |&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;옵션&lt;/th&gt;
+      &lt;th&gt;기능&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;ro&lt;/td&gt;
+      &lt;td&gt;파일 시스템을 읽기전용으로 마운트&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;rw&lt;/td&gt;
+      &lt;td&gt;파일시스템을 읽기/쓰기 로 마운트&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;root_squash&lt;/td&gt;
+      &lt;td&gt;클라이언트에서 루트를 서버상에 nobody 사용자로 매핑&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;no_root_squash&lt;/td&gt;
+      &lt;td&gt;서버와 클라이언트 모두 같은 root를 사용&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;secure&lt;/td&gt;
+      &lt;td&gt;클라이언트 마운트 요청시 포트를 1024 이하로 설정&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;anonuid&lt;/td&gt;
+      &lt;td&gt;익명 사용자를 위한 사용자 ID를 지정하실 수 있음&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;anongid&lt;/td&gt;
+      &lt;td&gt;익명 사용자를 위한 그룹 ID를 지정하실 수 있음&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;insecure&lt;/td&gt;
+      &lt;td&gt;인증되지 않은 액세스도 가능&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;noaccess&lt;/td&gt;
+      &lt;td&gt;액세스 거부&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;link_relative&lt;/td&gt;
+      &lt;td&gt;서버에 있는 루트와의 링크를 포함하는 디렉토리에서 얻는 “../” 만큼 링크 앞에 두어 절대 심볼릭 링크를 상대 심볼릭 링크로 바꿀때 사용&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;sync&lt;/td&gt;
+      &lt;td&gt;파일 시스템이 변경되면 즉시 동기화합니다.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;async&lt;/td&gt;
+      &lt;td&gt;sync 옵션을 사용하지 않는 경우에 해당 하며, 서버는 데이터가 저장소에 안전히 저장됐는지를 확인하지 않음 클라이언트의 데이터 쓰기 요청이 들어오면 바로 응답을 보냄 데이터 curruption이 발생할 수 있지만 성능 향상을 기대할 수 있음&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;no_subtree_check&lt;/td&gt;
+      &lt;td&gt;파일 시스템의 전체 디렉토리가 아닌 하부 디렉토리가 내보내진 경우, 서버는 내보낸 하부 디렉토리에 요청된 파일이 존재하는지를 검사 함 이러한 검사 과정을 하부구조 검사라고 부르는데, 이 옵션을 선택하시면 하부구조 검사를 사용하지 않음 전체 파일 시스템이 내보내진 경우에 이 옵션을 선택하면 하부구조 검사를 하지 않음으로서 전송률을 높일 수 있음&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;all_squash&lt;/td&gt;
+      &lt;td&gt;root를 제외하고 서버와 클라이언트의 사용자를 동일한 권한으로 설정&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;no_all_squash&lt;/td&gt;
+      &lt;td&gt;root를 제외하고 서버와 클라이언트의 사용자들을 하나의 권한을 가지도록 설정&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
 &lt;h5 id=&quot;nfs-exporting-설정-예&quot;&gt;NFS Exporting 설정 예&lt;/h5&gt;
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/*
