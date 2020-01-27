@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-01-27T12:09:51+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">windows에 wsl 설치하고 설정하기</title><link href="https://lahuman.github.io/windows-wsl-setting/" rel="alternate" type="text/html" title="windows에 wsl 설치하고 설정하기" /><published>2020-01-26T00:00:00+09:00</published><updated>2020-01-26T00:00:00+09:00</updated><id>https://lahuman.github.io/windows-wsl-setting</id><content type="html" xml:base="https://lahuman.github.io/windows-wsl-setting/">&lt;h1 id=&quot;windows에-wsl-설치하고-설정하기&quot;&gt;windows에 wsl 설치하고 설정하기&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-01-27T12:46:27+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">windows에 wsl 설치하고 설정하기</title><link href="https://lahuman.github.io/windows-wsl-setting/" rel="alternate" type="text/html" title="windows에 wsl 설치하고 설정하기" /><published>2020-01-26T00:00:00+09:00</published><updated>2020-01-26T00:00:00+09:00</updated><id>https://lahuman.github.io/windows-wsl-setting</id><content type="html" xml:base="https://lahuman.github.io/windows-wsl-setting/">&lt;h1 id=&quot;windows에-wsl-설치하고-설정하기&quot;&gt;windows에 wsl 설치하고 설정하기&lt;/h1&gt;
 
 &lt;p&gt;일반적으로 windows OS에서 linux 환경을 사용하기 위해서는 vmware를 이용해 OS를 설치하고 활용했다.
 장단점이 있지만, 기본적으로 OS 설치 비용 + 디스크, 메모리 등을 쉐어 하기 때문에 호스트 OS에도 부담이 되는 방식이다.&lt;/p&gt;
@@ -201,6 +201,14 @@ $ docker ps
 CONTAINER ID        IMAGE                    COMMAND                  CREATED             STATUS              PORTS                NAMES
 5e0cd323d4c9        lahuman/test-react-app   &quot;nginx -g 'daemon of…&quot;   5 seconds ago       Up 3 seconds        0.0.0.0:80-&amp;gt;80/tcp   react-app
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;vscode-와-연동-하기&quot;&gt;VSCODE 와 연동 하기&lt;/h2&gt;
+
+&lt;p&gt;vscode에서 Remote-WSL plugin을 설치 한다.&lt;/p&gt;
+
+&lt;p&gt;이후 F1을 눌러 &lt;strong&gt;Remote-WSL: new Windows&lt;/strong&gt;를 입력 후 클릭한다.&lt;/p&gt;
+
+&lt;p&gt;새창이 뜨고, 뜬 새창에서 터미널이나, 파일 exporler를 열면 wsl 안의 내용을 확인 가능하다.&lt;/p&gt;
 
 &lt;h2 id=&quot;ubuntu-삭제-하기&quot;&gt;ubuntu 삭제 하기&lt;/h2&gt;
 
