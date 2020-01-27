@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-01-27T12:46:27+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">windows에 wsl 설치하고 설정하기</title><link href="https://lahuman.github.io/windows-wsl-setting/" rel="alternate" type="text/html" title="windows에 wsl 설치하고 설정하기" /><published>2020-01-26T00:00:00+09:00</published><updated>2020-01-26T00:00:00+09:00</updated><id>https://lahuman.github.io/windows-wsl-setting</id><content type="html" xml:base="https://lahuman.github.io/windows-wsl-setting/">&lt;h1 id=&quot;windows에-wsl-설치하고-설정하기&quot;&gt;windows에 wsl 설치하고 설정하기&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-01-27T12:52:05+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">windows에 wsl 설치하고 설정하기</title><link href="https://lahuman.github.io/windows-wsl-setting/" rel="alternate" type="text/html" title="windows에 wsl 설치하고 설정하기" /><published>2020-01-26T00:00:00+09:00</published><updated>2020-01-26T00:00:00+09:00</updated><id>https://lahuman.github.io/windows-wsl-setting</id><content type="html" xml:base="https://lahuman.github.io/windows-wsl-setting/">&lt;h1 id=&quot;windows에-wsl-설치하고-설정하기&quot;&gt;windows에 wsl 설치하고 설정하기&lt;/h1&gt;
 
 &lt;p&gt;일반적으로 windows OS에서 linux 환경을 사용하기 위해서는 vmware를 이용해 OS를 설치하고 활용했다.
 장단점이 있지만, 기본적으로 OS 설치 비용 + 디스크, 메모리 등을 쉐어 하기 때문에 호스트 OS에도 부담이 되는 방식이다.&lt;/p&gt;
@@ -150,7 +150,7 @@ Microsoft Windows [Version 10.0.19041.21]
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# wsl --set-version &amp;lt;Distro&amp;gt; 2
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/w_w_wsl2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/w_w_wsl2.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;이제 docker를 사용할 준비가 완료 되었습니다.&lt;/p&gt;

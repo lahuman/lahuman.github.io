@@ -48,7 +48,7 @@ Microsoft Windows [Version 10.0.19041.21]
 </code></pre></div></div> <p>이후 가상 컴퓨터 플랫폼을 사용하도록 powserShell에서 다음 명령어를 입력한다. 주의 할것은 powserShell을 관리자 권한으로 실행해야 한다.</p> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
 # dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
 </code></pre></div></div> <p>이후 powserShell에서 wsl의 배포판 모드를 변경한다.</p> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># wsl --set-version &lt;Distro&gt; 2
-</code></pre></div></div> <p><img src="/assets/img/post_img/w_w_wsl2.png" alt="" /></p> <blockquote> <p>이제 docker를 사용할 준비가 완료 되었습니다.</p> </blockquote> <h2 id="docker-설치">docker 설치</h2> <p>docker container를 설치해보자, 설치는 다음의 명령어를 이용해서 할 수 있다.</p> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo apt-get install \
+</code></pre></div></div> <p><img src="/assets/img/post_img/w_w_wsl2.jpg" alt="" /></p> <blockquote> <p>이제 docker를 사용할 준비가 완료 되었습니다.</p> </blockquote> <h2 id="docker-설치">docker 설치</h2> <p>docker container를 설치해보자, 설치는 다음의 명령어를 이용해서 할 수 있다.</p> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo apt-get install \
     apt-transport-https \
     ca-certificates \
     curl \
