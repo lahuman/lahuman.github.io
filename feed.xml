@@ -1,4 +1,28 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-01-29T21:46:21+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">두려움 없는 조직을 읽고</title><link href="https://lahuman.github.io/20200129/" rel="alternate" type="text/html" title="두려움 없는 조직을 읽고" /><published>2020-01-29T00:00:00+09:00</published><updated>2020-01-29T00:00:00+09:00</updated><id>https://lahuman.github.io/20200129</id><content type="html" xml:base="https://lahuman.github.io/20200129/">&lt;h1 id=&quot;에이미-에드먼슨의-두려움-없는-조직을-읽고&quot;&gt;에이미 에드먼슨의 두려움 없는 조직을 읽고…&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-02-04T22:54:04+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">부족한 내 능력에 화가 많이 나는 하루이다.</title><link href="https://lahuman.github.io/20200204/" rel="alternate" type="text/html" title="부족한 내 능력에 화가 많이 나는 하루이다." /><published>2020-02-04T00:00:00+09:00</published><updated>2020-02-04T00:00:00+09:00</updated><id>https://lahuman.github.io/20200204</id><content type="html" xml:base="https://lahuman.github.io/20200204/">&lt;p&gt;#풀 스택이라 쓰고 잡부라 부른다.&lt;/p&gt;
+
+&lt;p&gt;나는 풀 스택 개발자이다.&lt;/p&gt;
+
+&lt;p&gt;뭐 좋게 들을 때는 모든지 다 하는 것이고, 나쁘게 이야기해서는 제대로 하는 것이 없는 것이다.&lt;/p&gt;
+
+&lt;p&gt;오늘 프로젝트 리더와 의견 충돌이 있었다.&lt;/p&gt;
+
+&lt;p&gt;프로젝트 리더의 의견은 알고 있으니, 사실 내 능력이 안 되는 업무라서 좀 답답했었다.&lt;/p&gt;
+
+&lt;p&gt;내가 가진 프런트 개발 능력은 뛰어나지 않다.&lt;/p&gt;
+
+&lt;p&gt;적당한 UI를 만드는 건 할 수 있지만 프로젝트 리더가 원하는 고급진 UI를 만드는 능력이 부족했다.&lt;/p&gt;
+
+&lt;p&gt;오늘 문제가 되었던 것은 애플 산돌 고딕체를 디자이너가 제시한 크기로 css를 작성하였는데, 다르게 표출되었다.&lt;/p&gt;
+
+&lt;p&gt;실제 퍼블리셔에게 문의하여보니, 애플 산돌 고딕체는 앱과 웹에서 다르게 보인다는 답변을 받았다.&lt;/p&gt;
+
+&lt;p&gt;결국 내가 찾지 못한 버그로 거의 하루를 날리고 나니 정신이 털려서 다 귀찮아졌다.&lt;/p&gt;
+
+&lt;p&gt;결국 프로젝트 리더에게 내 능력이 부족해서 못하겠다고 하고 말았다.&lt;/p&gt;
+
+&lt;p&gt;내일은 더 잘 할 방법을 고민하는 하루를 보내야겠다.&lt;/p&gt;
+
+&lt;h1 id=&quot;우울한-하루의-끝&quot;&gt;우울한 하루의 끝&lt;/h1&gt;</content><category term="단상" /><summary type="html">시간 부족으로 늘 대충 마무리 하고 있다.</summary></entry><entry><title type="html">두려움 없는 조직을 읽고</title><link href="https://lahuman.github.io/20200129/" rel="alternate" type="text/html" title="두려움 없는 조직을 읽고" /><published>2020-01-29T00:00:00+09:00</published><updated>2020-01-29T00:00:00+09:00</updated><id>https://lahuman.github.io/20200129</id><content type="html" xml:base="https://lahuman.github.io/20200129/">&lt;h1 id=&quot;에이미-에드먼슨의-두려움-없는-조직을-읽고&quot;&gt;에이미 에드먼슨의 두려움 없는 조직을 읽고…&lt;/h1&gt;
 
 &lt;p&gt;&lt;strong&gt;“두려움 없는 조직”&lt;/strong&gt;이라는 책을 2번째 읽고 있다.
 나는 침묵하기보다는 문제 제기를 많이 하는 편이다.&lt;/p&gt;
@@ -1579,93 +1603,4 @@ docker: Error response from daemon: driver failed programming external connectiv
 
 &lt;h2 id=&quot;오늘-엄청-배움&quot;&gt;오늘 엄청 배움!!!&lt;/h2&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/rancher-worker.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;</content><category term="kubernetes" /><category term="rancher" /><summary type="html">오메 신세계다!!!</summary></entry><entry><title type="html">쿠버네티스 설치 yum 명령어에서 오류를 만났다.</title><link href="https://lahuman.github.io/yum_certificate_issuer/" rel="alternate" type="text/html" title="쿠버네티스 설치 yum 명령어에서 오류를 만났다." /><published>2020-01-08T00:00:00+09:00</published><updated>2020-01-08T00:00:00+09:00</updated><id>https://lahuman.github.io/yum_certificate_issuer</id><content type="html" xml:base="https://lahuman.github.io/yum_certificate_issuer/">&lt;h1 id=&quot;쿠버네티스-설치-중-오류를-만났다&quot;&gt;쿠버네티스 설치 중 오류를 만났다.&lt;/h1&gt;
-
-&lt;h2 id=&quot;1-도커설치&quot;&gt;1. 도커설치&lt;/h2&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;쿠버네티스를 설치 하기 전에 도커를 설치 해야 한다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ yum install -y yum-utils device-mapper-persistent-data lvm2
-$ yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
-$ yum install docker-ce
-$ systemctl start docker &amp;amp;&amp;amp; systemctl enable docker
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;2-쿠버네티스-설치&quot;&gt;2. 쿠버네티스 설치&lt;/h2&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ cat &amp;lt;&amp;lt;EOF &amp;gt; /etc/yum.repos.d/kubernetes.repo
-$ [kubernetes]
-$ name=Kubernetes
-$ baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64
-$ enabled=1
-$ gpgcheck=1
-$ repo_gpgcheck=1
-$ gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
-$ EOF
- 
-$ # Set SELinux in permissive mode (effectively disabling it)
-$ setenforce 0
-$ sed -i 's/^SELINUX=enforcing$/SELINUX=permissive/' /etc/selinux/config
- 
-$ yum install -y kubelet kubeadm kubectl --disableexcludes=kubernetes
-
-$ systemctl enable --now kubelet
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;설치 과정을 따라 하던중, 이 부분에서 다음과 같은 오류를 만나게 되었다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ yum install -y kubelet kubeadm kubectl --disableexcludes=kubernetes
-Loaded plugins: fastestmirror
-Loading mirror speeds from cached hostfile
- * base: ftp.iij.ad.jp
- * extras: ftp.iij.ad.jp
- * updates: mirror.navercorp.com
-base                                                     | 3.6 kB     00:00
-docker-ce-stable                                         | 3.5 kB     00:00
-extras                                                   | 2.9 kB     00:00
-https://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64/repodata/repomd.xml: [Errno 14] curl#60 - &quot;Peer's certificate issuer has been marked as not trusted by the user.&quot;
-Trying other mirror.
-It was impossible to connect to the CentOS servers.
-This could mean a connectivity issue in your environment, such as the requirement to configure a proxy,
-or a transparent proxy that tampers with TLS security, or an incorrect system clock.
-You can try to solve this issue by using the instructions on https://wiki.centos.org/yum-errors
-If above article doesn't help to resolve this issue please use https://bugs.centos.org/.
-
-... 계속
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;문제 발생 이유로는 방화벽일 수도 있고, 보안 프로그램일수도 있다고 한다.&lt;/p&gt;
-
-&lt;p&gt;가장 쉽게 해결하는 방법은&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;sslverify=0&lt;/strong&gt;을 /etc/yum.repos.d/kubernetes.repo 파일에 추가 하면 다음과 같이 넘거 간다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ yum install -y kubelet kubeadm kubectl --disableexcludes=kubernetes
-Loaded plugins: fastestmirror
-Loading mirror speeds from cached hostfile
- * base: ftp.iij.ad.jp
- * extras: ftp.iij.ad.jp
- * updates: mirror.navercorp.com
-base                                                     | 3.6 kB     00:00
-docker-ce-stable                                         | 3.5 kB     00:00
-extras                                                   | 2.9 kB     00:00
-kubernetes/signature                                     |  454 B     00:00
-Retrieving key from https://packages.cloud.google.com/yum/doc/yum-key.gpg
-Importing GPG key 0xA7317B0F:
- Userid     : &quot;Google Cloud Packages Automatic Signing Key &amp;lt;gc-team@google.com&amp;gt;&quot;
- Fingerprint: d0bc 747f d8ca f711 7500 d6fa 3746 c208 a731 7b0f
- From       : https://packages.cloud.google.com/yum/doc/yum-key.gpg
-Retrieving key from https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
-kubernetes/signature                                     | 1.4 kB     00:00 !!!
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;끝&quot;&gt;끝!!!&lt;/h2&gt;
-
-&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://docs.docker.com/install/linux/docker-ce/centos/&quot;&gt;Get Docker Engine - Community for CentOS&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/&quot;&gt;Installing kubeadm&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://forums.centos.org/viewtopic.php?t=65658&quot;&gt;yum https repository error no. 14&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="yum" /><category term="error" /><summary type="html">Peer's certificate issuer has been marked as not trusted by the user.</summary></entry></feed>
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/rancher-worker.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;</content><category term="kubernetes" /><category term="rancher" /><summary type="html">오메 신세계다!!!</summary></entry></feed>
