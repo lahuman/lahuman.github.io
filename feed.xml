@@ -1,4 +1,30 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-02-04T22:54:04+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">부족한 내 능력에 화가 많이 나는 하루이다.</title><link href="https://lahuman.github.io/20200204/" rel="alternate" type="text/html" title="부족한 내 능력에 화가 많이 나는 하루이다." /><published>2020-02-04T00:00:00+09:00</published><updated>2020-02-04T00:00:00+09:00</updated><id>https://lahuman.github.io/20200204</id><content type="html" xml:base="https://lahuman.github.io/20200204/">&lt;p&gt;#풀 스택이라 쓰고 잡부라 부른다.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-02-09T22:45:55+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">굿바이 블랙독</title><link href="https://lahuman.github.io/20200209/" rel="alternate" type="text/html" title="굿바이 블랙독" /><published>2020-02-09T00:00:00+09:00</published><updated>2020-02-09T00:00:00+09:00</updated><id>https://lahuman.github.io/20200209</id><content type="html" xml:base="https://lahuman.github.io/20200209/">&lt;h1 id=&quot;책에서는-우울증을-블랙독이라는-이름으로-부른다&quot;&gt;책에서는 우울증을 블랙독이라는 이름으로 부른다.&lt;/h1&gt;
+
+&lt;p&gt;블랙독은 누구나 가지고 있으며 혼자서는 이겨낼수 없는 존재이다.&lt;/p&gt;
+
+&lt;p&gt;작가도 블랙독에게 무릅을 꿇고 나서야 전문가를 찾아 가게 되었다.&lt;/p&gt;
+
+&lt;p&gt;전문가가 추천하는 것은 다음과 같다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;운동하기&lt;/li&gt;
+  &lt;li&gt;기분 기록표 작성하기&lt;/li&gt;
+  &lt;li&gt;나 자신을 믿고 사랑하기&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;블랙독은 누구나 가지고 있다. 어떻게 괸리할지가 중요하다.&lt;/p&gt;
+
+&lt;p&gt;블랙독을 우을증으로 바꿔서 읽으면 좋다.&lt;/p&gt;</content><category term="단상" /><summary type="html">내안의 우울과 이별하기를 읽고</summary></entry><entry><title type="html">자택 근무는 처음이야…</title><link href="https://lahuman.github.io/20200206/" rel="alternate" type="text/html" title="자택 근무는 처음이야..." /><published>2020-02-06T00:00:00+09:00</published><updated>2020-02-06T00:00:00+09:00</updated><id>https://lahuman.github.io/20200206</id><content type="html" xml:base="https://lahuman.github.io/20200206/">&lt;h1 id=&quot;자택-근무를-한다&quot;&gt;자택 근무를 한다.&lt;/h1&gt;
+
+&lt;p&gt;생애 첫 자택 근무이다.&lt;/p&gt;
+
+&lt;p&gt;하지만, 아이들과 함께하니 너무 힘들다.&lt;/p&gt;
+
+&lt;p&gt;아이들은 내가 논다고 생각한다.&lt;/p&gt;
+
+&lt;p&gt;집밖은 위험해서 나갈 수 없다.&lt;/p&gt;
+
+&lt;h2 id=&quot;어떻게든-넘겨보자&quot;&gt;어떻게든 넘겨보자!&lt;/h2&gt;</content><category term="단상" /><summary type="html">어머! 자택 근무라니?</summary></entry><entry><title type="html">부족한 내 능력에 화가 많이 나는 하루이다.</title><link href="https://lahuman.github.io/20200204/" rel="alternate" type="text/html" title="부족한 내 능력에 화가 많이 나는 하루이다." /><published>2020-02-04T00:00:00+09:00</published><updated>2020-02-04T00:00:00+09:00</updated><id>https://lahuman.github.io/20200204</id><content type="html" xml:base="https://lahuman.github.io/20200204/">&lt;h1 id=&quot;풀-스택이라-쓰고-잡부라-부른다&quot;&gt;풀 스택이라 쓰고 잡부라 부른다.&lt;/h1&gt;
 
 &lt;p&gt;나는 풀 스택 개발자이다.&lt;/p&gt;
 
@@ -1467,140 +1493,4 @@ spec:
   &lt;li&gt;&lt;a href=&quot;https://developer.rackspace.com/docs/rkaas/latest/external/rkaas-userguide/configure-docker-registry/&quot;&gt;Example of private Docker registry usage&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://blog.uniqbuild.co.kr/?p=724&quot;&gt;Kubernetes + private docker registry&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://ohgyun.com/484&quot;&gt;쉘에서 느낌표 이스케이프하기&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="kubernetes" /><category term="yaml" /><summary type="html">private repository를 생성해서 이미지를 올리고, kubernetes에서 실행해보자!</summary></entry><entry><title type="html">Material-Components</title><link href="https://lahuman.github.io/material-components/" rel="alternate" type="text/html" title="Material-Components" /><published>2020-01-10T00:00:00+09:00</published><updated>2020-01-10T00:00:00+09:00</updated><id>https://lahuman.github.io/material-components</id><content type="html" xml:base="https://lahuman.github.io/material-components/">&lt;h1 id=&quot;material-components&quot;&gt;MATERIAL-COMPONENTS&lt;/h1&gt;
-
-&lt;h2 id=&quot;github-source-바로가기&quot;&gt;&lt;a href=&quot;https://github.com/lahuman/Material-components&quot;&gt;github source 바로가기&lt;/a&gt;&lt;/h2&gt;
-
-&lt;h2 id=&quot;docker-repository-바로가기&quot;&gt;&lt;a href=&quot;https://hub.docker.com/repository/docker/lahuman/test-react-app&quot;&gt;docker repository 바로가기&lt;/a&gt;&lt;/h2&gt;
-
-&lt;h2 id=&quot;docker로-빠른-실행-해보기&quot;&gt;docker로 빠른 실행 해보기&lt;/h2&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ docker run -d --name react-app -p 80:80 lahuman/test-react-app
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;프로젝트-개요&quot;&gt;프로젝트 개요&lt;/h2&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;오랜만에 진행하는 개인 프로젝트입니다.
-(간간히 짧은건 몇개 진행하였습니다.) 요즘 ReactJS를 활용하고 있는데요. 몇몇 컴포넌트들은 살짝 변경해서 공통으로 쓰고 있습니다. 이런 공통 컴포넌트들을 오픈소스화 해보려고 합니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;ReactJS + MaterialUI 기반에서 동작합니다.&lt;/p&gt;
-
-&lt;p&gt;기본으로 제공되는 component를 변경하였습니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;datepicker&quot;&gt;Datepicker&lt;/h2&gt;
-
-&lt;p&gt;기존 datepicker에서 달력에 표시되는 포멧을 한글로 변경하고 삭제 등의 기능을 추가 하였습니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://github.com/lahuman/Material-components/raw/master/images/datepicker.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;App.js에서 포멧이나 타임존에 대한 변경을 할수 있습니다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;주의 할점은 @date-io/moment 2.X에서는 오류가 발생합니다. 1.3.x를 사용해주세요.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// for MuiPickers only
-MomentUtils.prototype.getCalendarHeaderText = date =&amp;gt; {
-  return MomentUtils.prototype.format(date, 'YYYY년 M월');
-};
-MomentUtils.prototype.getDateTimePickerHeaderText = date =&amp;gt; {
-  return MomentUtils.prototype.format(date, &quot;M월 D일&quot;);
-};
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;datatable&quot;&gt;DataTable&lt;/h2&gt;
-
-&lt;p&gt;기본 테이블에 정렬기능을 추가 하였습니다.&lt;/p&gt;
-
-&lt;p&gt;복잡하지 않고 정렬만 사용할 경우 유용합니다.&lt;/p&gt;
-
-&lt;p&gt;정렬되고 있는 컬럼에 정렬방식을 표기하고 다시 클릭하면 반대로 정렬합니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://github.com/lahuman/Material-components/raw/master/images/datatable.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;</content><category term="reactjs" /><category term="materialui" /><summary type="html">ReactJS + MaterialUI = Custom Components</summary></entry><entry><title type="html">Rancher로 Kubernetes 설치 &amp;amp; 관리 하기</title><link href="https://lahuman.github.io/rancher/" rel="alternate" type="text/html" title="Rancher로 Kubernetes 설치 &amp; 관리 하기" /><published>2020-01-09T00:00:00+09:00</published><updated>2020-01-09T00:00:00+09:00</updated><id>https://lahuman.github.io/rancher</id><content type="html" xml:base="https://lahuman.github.io/rancher/">&lt;h1 id=&quot;rancher로-kubernetes-설치--관리-하기&quot;&gt;Rancher로 Kubernetes 설치 &amp;amp; 관리 하기&lt;/h1&gt;
-
-&lt;p&gt;어제 쿠버네티스를 한땀 한땀 설치하였다. 
-설정을 하려고 보니 생각보다 손이 많이가서 오늘 진행하기로 하였다.&lt;/p&gt;
-
-&lt;h2 id=&quot;하지만&quot;&gt;하지만!&lt;/h2&gt;
-
-&lt;p&gt;쿠버네티스 경험자인 동료분이 Rancher를 활용하면 쉽게 설치를 할 수 있다고 추천해주셨다.&lt;/p&gt;
-
-&lt;h2 id=&quot;rancher란&quot;&gt;Rancher란?&lt;/h2&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Rancher is a complete software stack for teams adopting containers. It addresses the operational and security challenges of managing multiple Kubernetes clusters across any infrastructure, while providing DevOps teams with integrated tools for running containerized workloads.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Rancher는 컨테이너를 채택한 팀을위한 완벽한 소프트웨어 스택입니다. 모든 인프라에서 여러 Kubernetes 클러스터를 관리해야하는 운영 및 보안 문제를 해결하는 동시에 DevOps 팀에 컨테이너화 된 워크로드 실행을위한 통합 도구를 제공합니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;설치-하기&quot;&gt;설치 하기&lt;/h2&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ sudo docker run -d --restart=unless-stopped -p 80:80 -p 443:443 rancher/rancher
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;이로서 Rancher가 설치 되었다.&lt;/p&gt;
-
-&lt;p&gt;만약 아래와 같은 오류가 발생한다면,&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ sudo docker run -d --restart=unless-stopped -p 80:80 -p 443:443 rancher/rancher
-6ab639e217cccebed6fb4bdd8aa4049e247740b4f00c519c5294fe1ad40c9239
-docker: Error response from daemon: driver failed programming external connectivity on endpoint thirsty_volhard (58f908f66cd6a307f6c0ce111fe5b755049a76df806c0ed85d53cfe3e24cce6b):  (iptables failed: iptables --wait -t nat -A DOCKER -p tcp -d 0/0 --dport 443 -j DNAT --to-destination 172.17.0.2:443 ! -i docker0: iptables: No chain/target/match by that name.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;docker 서비스를 재기동 후 다시 설치하면 된다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ systemctl restart docker
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Rancher는 도커 환경에서 실행되며 쿠버네티스를 도커 환경에서 구축한다.&lt;/p&gt;
-
-&lt;p&gt;이후 웹 화면을 띄우면 admin 비밀번호를 설정 하도록 한다.&lt;/p&gt;
-
-&lt;h2 id=&quot;add-cluster&quot;&gt;Add Cluster&lt;/h2&gt;
-
-&lt;p&gt;첫화면을 들어갔다면 먼저 Add Cluster메뉴를 선택해서 쿠버네티스를 구성한다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/rancher-cluster.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;서버의 디스크를 활용할 예정이라면, &lt;strong&gt;From existing nodes (Custom)&lt;/strong&gt; 버튼을 클릭한다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/rancher-addcluster-1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Cluster Name만 주고 Next 버튼을 클릭해도 된다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/rancher-addcluster-2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;이후 docker 명령어가 화면에 표시 된다.&lt;/p&gt;
-
-&lt;p&gt;첫 2개의 체크 박스는 마스터 노드를 뜻한다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/rancher-master.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;마지막 체크 박스인 worker는 pod을 가진 node를 뜻한다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/rancher-worker.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;물론 3개의 체크박스를 모두 선택하고 명령어를 실행해도 된다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/rancher-runcommand.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;명령어를 실행하고 난 이후 결과는 다음과 같다.
-(좀 많은 시간이 걸린다.)&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/rancher-active.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;이제 활성화된 클러스터를 클릭 하면 다음과 같은 대시 보드를 확인 할수 있다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/rancher-dashboard.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;이후 쿠버네티스 관련 명령어를 웹에서 &lt;strong&gt;Launch Kubectl&lt;/strong&gt; 명령어를 이용해서 실행해볼 수 있다.&lt;/p&gt;
-
-&lt;p&gt;마지막으로 &lt;strong&gt;kubectl get all&lt;/strong&gt;을 실행한 결과이다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/rancher-shell.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;오늘-엄청-배움&quot;&gt;오늘 엄청 배움!!!&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/rancher-worker.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;</content><category term="kubernetes" /><category term="rancher" /><summary type="html">오메 신세계다!!!</summary></entry></feed>
+&lt;/ul&gt;</content><category term="kubernetes" /><category term="yaml" /><summary type="html">private repository를 생성해서 이미지를 올리고, kubernetes에서 실행해보자!</summary></entry></feed>
