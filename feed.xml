@@ -1,4 +1,24 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-02-09T22:45:55+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">굿바이 블랙독</title><link href="https://lahuman.github.io/20200209/" rel="alternate" type="text/html" title="굿바이 블랙독" /><published>2020-02-09T00:00:00+09:00</published><updated>2020-02-09T00:00:00+09:00</updated><id>https://lahuman.github.io/20200209</id><content type="html" xml:base="https://lahuman.github.io/20200209/">&lt;h1 id=&quot;책에서는-우울증을-블랙독이라는-이름으로-부른다&quot;&gt;책에서는 우울증을 블랙독이라는 이름으로 부른다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-02-19T00:24:14+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">AWS LAMBDA 사용 중 발생한 이상현상</title><link href="https://lahuman.github.io/aws_lambda_tip/" rel="alternate" type="text/html" title="AWS LAMBDA 사용 중 발생한 이상현상" /><published>2020-02-19T00:00:00+09:00</published><updated>2020-02-19T00:00:00+09:00</updated><id>https://lahuman.github.io/aws_lambda_tip</id><content type="html" xml:base="https://lahuman.github.io/aws_lambda_tip/">&lt;h1 id=&quot;gitlab에서-jenkins의-webhook을-직접-호출할-수-없는-경우가-생겼다&quot;&gt;Gitlab에서 jenkins의 webhook을 직접 호출할 수 없는 경우가 생겼다.&lt;/h1&gt;
+
+&lt;p&gt;기본적으로 호출되는 구조는 아래와 같다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/git2lambda2jenkins_call.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;이렇게 호출 하는 이유는 Lambda를 통해서 내부 API Gateway를 호출하고 해당 API Gateway를 통해 Jenkins를 호출하기 때문이다.&lt;/p&gt;
+
+&lt;p&gt;기본적으로 gitlab과 직접 통신이 안되는 경우이다.&lt;/p&gt;
+
+&lt;p&gt;구현은 쉽게 하였고, AWS의 API GATEWAY를 이용해서 trigger를 생성하였다.&lt;/p&gt;
+
+&lt;p&gt;여기서 POST call만을 작성하였는데, lambda의 event에 아무것도 리턴이 되지 않았다.&lt;/p&gt;
+
+&lt;p&gt;몇번을 테스트해보다 Any로 설정하고 테스트 하니 parameter/header/body 등이 잘 넘어갔다.&lt;/p&gt;
+
+&lt;p&gt;마지막으로 팀원이 보여달라고 해서 안되는걸 보여주기 위해서 똑같이 구축 하였는데…. 잘되었다!!!???&lt;/p&gt;
+
+&lt;p&gt;시간은 시간대로 버리고, 이상한 사람이 된 하루였다.&lt;/p&gt;
+
+&lt;p&gt;#아오빡쵸&lt;/p&gt;</content><category term="lambda" /><category term="aws" /><summary type="html">Lambda를 사용하는데 안되던게 되기도 하네요.</summary></entry><entry><title type="html">굿바이 블랙독</title><link href="https://lahuman.github.io/20200209/" rel="alternate" type="text/html" title="굿바이 블랙독" /><published>2020-02-09T00:00:00+09:00</published><updated>2020-02-09T00:00:00+09:00</updated><id>https://lahuman.github.io/20200209</id><content type="html" xml:base="https://lahuman.github.io/20200209/">&lt;h1 id=&quot;책에서는-우울증을-블랙독이라는-이름으로-부른다&quot;&gt;책에서는 우울증을 블랙독이라는 이름으로 부른다.&lt;/h1&gt;
 
 &lt;p&gt;블랙독은 누구나 가지고 있으며 혼자서는 이겨낼수 없는 존재이다.&lt;/p&gt;
 
@@ -1283,214 +1303,4 @@ $ docker push lahuman/react-dockerfile:1.0
 &lt;ol&gt;
   &lt;li&gt;로그인 정보를 확인하세요.&lt;/li&gt;
   &lt;li&gt;tag에 계정 정보가 알맞게 저장 되었는지 확인하세요.&lt;/li&gt;
-&lt;/ol&gt;</content><category term="reactjs" /><category term="dockerfile" /><summary type="html">node + nginx로 처리 하면 참 쉽죠?</summary></entry><entry><title type="html">harbor 설치 부터 kubernetes 연동까지!</title><link href="https://lahuman.github.io/kubernetes-harbor/" rel="alternate" type="text/html" title="harbor 설치 부터 kubernetes 연동까지!" /><published>2020-01-11T00:00:00+09:00</published><updated>2020-01-11T00:00:00+09:00</updated><id>https://lahuman.github.io/kubernetes-harbor</id><content type="html" xml:base="https://lahuman.github.io/kubernetes-harbor/">&lt;h1 id=&quot;harbor-설치-부터-kubernetes-연동까지&quot;&gt;harbor 설치 부터 kubernetes 연동까지!&lt;/h1&gt;
-
-&lt;h2 id=&quot;harbor-설치&quot;&gt;&lt;a href=&quot;https://goharbor.io/&quot;&gt;Harbor&lt;/a&gt; 설치&lt;/h2&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;설치 전에 필수 설치 사항
-    &lt;ul&gt;
-      &lt;li&gt;docker-compose&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ sudo curl -L &quot;https://github.com/docker/compose/releases/download/1.25.0/docker-compose-$(uname -s)-$(uname -m)&quot; -o /usr/local/bin/docker-compose
-$ sudo chmod +x /usr/local/bin/docker-compose
-# version 확인
-$ docker-compose -v
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Harbor를 다운받기&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;기본적으로 Online(harbor-online-installer-vx.x.x.tgz)으로 받아서 설치를 시작하면 된다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/harbor_download.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;2020년 1월 11일 최신 버젼인 &lt;a href=&quot;https://github.com/goharbor/harbor/releases/download/v1.9.4/harbor-online-installer-v1.9.4.tgz&quot;&gt;harbor-online-installer-v1.9.4.tgz&lt;/a&gt;을 기준으로 진행하였다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ wget https://github.com/goharbor/harbor/releases/download/v1.9.4/harbor-online-installer-v1.9.4.tgz
-$ tar xvfz harbor-online-installer-v1.9.4.tgz
-$ cd harbor
-# 특정 설정을 변경해야 한다.
-# hostname과 https 설정 필수 수정
-# 작동하는 PORT를 변경할 경우 다음 파일에서 수정
-$ vi harbor.yml
-# 설치는 ROOT 계정으로 진행하는 것을 추천한다.
-$ ./install.sh
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;동작 확인&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;브라우저를 통해서 확인한다. HTTPS를 활성화 했다면 https로 확인이 가능하다.
-로그인 기본 ID 는 admin이며 password는 harbor.yml에 표기되어 있다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 파일 내 기본 비밀번호 
-harbor_admin_password: Harbor12345
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;harbor.xml 수정시 반영 방법&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;harbor.xml을 수정후 무언가 반영할때는 다음과 같이 진행한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 변경내역 반영
-$ ./prepare
-# docker-compose 재실행
-$ docker-compose down -v
-$ docker-compose up -d
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;harbor에-이미지-올리고-받기&quot;&gt;harbor에 이미지 올리고 받기&lt;/h2&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;docker login&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;먼저 docker에서 이미지를 push 하기 위해서 login을 해야 한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ docker login 10.52.181.240:8443
-Username: admin
-Password:
-WARNING! Your password will be stored unencrypted in /home/service/.docker/config.json.
-Configure a credential helper to remove this warning. See
-https://docs.docker.com/engine/reference/commandline/login/#credentials-store
-
-Login Succeeded
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;docker tag 생성&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ docker tag lahuman/react-app:0.1 10.52.181.240:8443/51scrum/test-react-app:0.1
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;docker push&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ docker push 10.52.181.240:8443/51scrum/test-react-app:0.1
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;docker pull&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ docker pull 10.52.181.240:8443/51scrum/test-react-app:0.1
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;만약-x503-에러가-발생하면서-docker-login이-되지-않는다면&quot;&gt;만약 x503 에러가 발생하면서 docker login이 되지 않는다면?&lt;/h3&gt;
-
-&lt;p&gt;인증서 문제인데 내 경우는 그냥 http 통신으로 처리하였다.&lt;/p&gt;
-
-&lt;p&gt;우선 http 방식의 docker login을 위해서는 &lt;strong&gt;/etc/docker/daemon.json&lt;/strong&gt; 파일을 생성하고 주소 정보와 IP를 다음과 같이 추가 한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{
-  &quot;insecure-registries&quot; : [&quot;10.52.181.240:8000&quot;]
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;이후 docker 서비스를 재기동 후 http로 로그인을 한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ systemctl restart docker
-# 로그인
-$ docker login 10.52.181.240:8000
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;kubernetes에서-private-repository-이미지-가져오기&quot;&gt;kubernetes에서 Private Repository 이미지 가져오기&lt;/h2&gt;
-
-&lt;p&gt;kubernetes에서 Private Repository를 사용하기 위해서는 secret를 등록해야 한다. 
-lahuman이라는 이름을 가진 secret를 생성한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ kubectl create secret docker-registry lahuman --docker-server=http://10.52.181.240:8000 --docker-username=admin --docker-password='비밀번호' --docker-email=&quot;이메일&quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;만약 http 통신으로 docker login 한다면, kubernetes worker의 docker에 &lt;strong&gt;insecure-registries&lt;/strong&gt; 설정을 해야한다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;등록된 값의 상세 확인은 다음의 명령어로 한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ kubectl get secret lahuman --output=&quot;jsonpath={.data.\.dockerconfigjson}&quot; | base64 -d
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;이제 pod를 배포해서 정상 동작 되는지 확인해보자&lt;/p&gt;
-
-&lt;p&gt;우산 다음과 같은 pod.yml을 작성한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: hello-deployment
-spec:
-  replicas: 3
-  selector:
-    matchLabels:
-      app: react
-  template:
-    metadata:
-      labels:
-        app: react
-    spec:
-      containers:
-      - name: hello-container
-        image: lahuman/test-react-app
-        ports:
-        - containerPort: 80
-      imagePullSecrets:
-      - name: lahuman
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;생성된 파일을 kubectl 명령어를 이용해서 반영한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ kubectl apply -f pod.yml
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;결과를 확인한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ kubectl get pod
-NAME                          READY   STATUS    RESTARTS   AGE
-hello-react-6968cdc94-5fxrv   1/1     Running   0          51m
-hello-react-6968cdc94-5lpdg   1/1     Running   0          51m
-hello-react-6968cdc94-82zh6   1/1     Running   0          51m
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;외부에서 접근하기 위해서 service.yml 파일을 작성한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apiVersion: v1
-kind: Service
-metadata:
-  name: hello-svc
-spec:
-  selector:
-    app: react
-  ports:
-    - port: 8200
-      targetPort: 80
-  externalIPs:
-    - 10.52.181.240
-    - 10.52.181.241
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;서비스 파일을 kubectl 명령을 이용해서 반영한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ kubectl apply -f service.yml
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;정상적으로 동작하는지 브라우저를 통해 확인하면 된다!&lt;/p&gt;
-
-&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://goharbor.io/&quot;&gt;Harbor&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://sarc.io/index.php/cloud/1702-install-harbor&quot;&gt;Harbor 설치&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/&quot;&gt;Pull an Image from a Private Registry&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://developer.rackspace.com/docs/rkaas/latest/external/rkaas-userguide/configure-docker-registry/&quot;&gt;Example of private Docker registry usage&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://blog.uniqbuild.co.kr/?p=724&quot;&gt;Kubernetes + private docker registry&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://ohgyun.com/484&quot;&gt;쉘에서 느낌표 이스케이프하기&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="kubernetes" /><category term="yaml" /><summary type="html">private repository를 생성해서 이미지를 올리고, kubernetes에서 실행해보자!</summary></entry></feed>
+&lt;/ol&gt;</content><category term="reactjs" /><category term="dockerfile" /><summary type="html">node + nginx로 처리 하면 참 쉽죠?</summary></entry></feed>
