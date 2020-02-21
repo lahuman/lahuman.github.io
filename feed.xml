@@ -1,4 +1,111 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-02-19T00:24:14+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">AWS LAMBDA 사용 중 발생한 이상현상</title><link href="https://lahuman.github.io/aws_lambda_tip/" rel="alternate" type="text/html" title="AWS LAMBDA 사용 중 발생한 이상현상" /><published>2020-02-19T00:00:00+09:00</published><updated>2020-02-19T00:00:00+09:00</updated><id>https://lahuman.github.io/aws_lambda_tip</id><content type="html" xml:base="https://lahuman.github.io/aws_lambda_tip/">&lt;h1 id=&quot;gitlab에서-jenkins의-webhook을-직접-호출할-수-없는-경우가-생겼다&quot;&gt;Gitlab에서 jenkins의 webhook을 직접 호출할 수 없는 경우가 생겼다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-02-21T21:26:24+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">보안프로그램을 피해서 WSL 설치하기!</title><link href="https://lahuman.github.io/wsl_install_using_command/" rel="alternate" type="text/html" title="보안프로그램을 피해서 WSL 설치하기!" /><published>2020-02-21T00:00:00+09:00</published><updated>2020-02-21T00:00:00+09:00</updated><id>https://lahuman.github.io/wsl_install_using_command</id><content type="html" xml:base="https://lahuman.github.io/wsl_install_using_command/">&lt;h1 id=&quot;windows에서-개발을-편하게-하기-위한-wsl-설치-가이드&quot;&gt;Windows에서 개발을 편하게 하기 위한 WSL 설치 가이드&lt;/h1&gt;
+
+&lt;p&gt;기본 설치 방법은 보안프로그램에 의해서 진행이 안될 수 있습니다.
+하지만 PowerShell을 이용한 설치는 보안프로그램에 대하여 우회가 가능합니다.&lt;/p&gt;
+
+&lt;p&gt;뭔가 엄청 특별한 방법이 있는것은 아니고, &lt;a href=&quot;https://docs.microsoft.com/ko-kr/windows/wsl/install-manual&quot;&gt;수동 설치 지침&lt;/a&gt;을 참조 하여 설치 하면 됩니다.&lt;/p&gt;
+
+&lt;p&gt;먼저 &lt;strong&gt;Linux용 Windows하위 시스템 기능&lt;/strong&gt;을 사용하도록 설정해야 합니다.&lt;/p&gt;
+
+&lt;p&gt;관리자 권한으로 PowerShell을 열어 다음 명령어를 실행합니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;설치를 하고 나면 재부팅을 해줘야 한다.&lt;/p&gt;
+
+&lt;p&gt;재부팅이후, 설치를 원하는 Linux 배포판을 명령줄을 이용해서 다운로드 받습니다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;아래 명령어는 Ubuntu 18.04 버전으로 진행한 명령어 입니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Invoke-WebRequest -Uri https://aka.ms/wsl-ubuntu-1804 -OutFile Ubuntu.appx -UseBasicParsing
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;설치가 끝나면 다음 명령어로 설치 할수 있다고 합니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Add-AppxPackage .\Ubuntu.appx
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;하지만-설치-이후-실행을-하면-file-system-error-12030가-발생합니다&quot;&gt;하지만!!! 설치 이후 실행을 하면 “File system Error (12030)”가 발생합니다.&lt;/h1&gt;
+
+&lt;p&gt;이럴 경우 우선 기존에 설치된 배포판 버젼을 삭제 하세요.&lt;/p&gt;
+
+&lt;p&gt;그리고 다운로드 받았던 앱 파일 &lt;strong&gt;Ubuntu.appx&lt;/strong&gt;의 파일 확장자를 .zip로 변경하세요.&lt;/p&gt;
+
+&lt;p&gt;압축을 풀고 해당 디렉토리에서 &lt;strong&gt;ubuntu1804.exe&lt;/strong&gt; 파일을 실행하면 됩니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.microsoft.com/ko-kr/windows/wsl/install-win10&quot;&gt;Windows 10에 Linux용 Windows 하위 시스템 설치 가이드&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="wsl" /><category term="certificate" /><summary type="html">Windows 10에서 제공하는 WSL</summary></entry><entry><title type="html">프로그램에서 통신시 ssl certificate_verify_failed 오류 발생</title><link href="https://lahuman.github.io/ssl_certificate_verify_failed/" rel="alternate" type="text/html" title="프로그램에서 통신시 ssl certificate_verify_failed 오류 발생" /><published>2020-02-20T00:00:00+09:00</published><updated>2020-02-20T00:00:00+09:00</updated><id>https://lahuman.github.io/ssl_certificate_verify_failed</id><content type="html" xml:base="https://lahuman.github.io/ssl_certificate_verify_failed/">&lt;h1 id=&quot;특정-도메인의-api를-사용시-발생하는-ssl-certificate_verify_failed-오류&quot;&gt;특정 도메인의 API를 사용시 발생하는 ssl certificate_verify_failed 오류&lt;/h1&gt;
+
+&lt;p&gt;https 통신시 발생을 합니다.&lt;/p&gt;
+
+&lt;p&gt;도메인이나 다른 문제가 없어 보이는테 이상하게 httpclient, axios로 통신을 시도하면 발생하는 문제입니다.&lt;/p&gt;
+
+&lt;p&gt;언어별로 해별방법이 비슷합니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;python에서-해결-방법&quot;&gt;python에서 해결 방법&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import urllib.request
+import ssl
+
+def callApi(requst):
+	context = ssl._create_unverified_context() 
+    r = urllib.request.urlopen('https://lahuman.github.com', context = context)    
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;java에서-해결-방법&quot;&gt;java에서 해결 방법&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;httpclient 4.4 이상을 사용하면 다음과 같이 쉽게 해결이 가능합니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;void contextLoads() throws IOException {
+		CloseableHttpClient httpClient = HttpClients.custom().setSSLHostnameVerifier(NoopHostnameVerifier.INSTANCE).build();
+		HttpPost httpPost = new HttpPost(&quot;https://lahuman.github.com&quot;);
+    httpPost.addHeader(&quot;API-KEY&quot;,&quot;adsfasdfasdfasdfasdfasdf&quot; );
+		httpPost.addHeader(&quot;Content-Type&quot;,&quot;application/json&quot; );
+		httpPost.setEntity(new ByteArrayEntity(String.format(&quot;{\&quot;ABC\&quot;:123}&quot;).getBytes()));
+
+		try (CloseableHttpResponse response = httpClient.execute(httpPost)) {
+			System.out.println(response.getStatusLine());
+			HttpEntity entity = response.getEntity();
+			String text = null;
+			try (Scanner scanner = new Scanner(entity.getContent(), StandardCharsets.UTF_8.name())) {
+				text = scanner.useDelimiter(&quot;\\A&quot;).next();
+			}
+			System.out.println(text);
+			EntityUtils.consume(entity);
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+	}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;nodejs에서-해결-방법&quot;&gt;nodejs에서 해결 방법&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;const https = require('https');
+const axios = require('axios');
+
+const instance = axios.create({
+  baseURL: 'https://lahuman.github.com',
+  timeout: 120000,
+  httpsAgent: new https.Agent({
+    rejectUnauthorized: false
+  })
+});
+
+const response = await instance.post('/api', { abc:123 });
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;결론&quot;&gt;결론&lt;/h2&gt;
+
+&lt;p&gt;결국 https의 Verifier를 사용하지 않는 옵션을 추가 한다.&lt;/p&gt;</content><category term="ssl" /><category term="certificate" /><summary type="html">특정 도메인에서 종종 발생하는 문제입니다.</summary></entry><entry><title type="html">AWS LAMBDA 사용 중 발생한 이상현상</title><link href="https://lahuman.github.io/aws_lambda_tip/" rel="alternate" type="text/html" title="AWS LAMBDA 사용 중 발생한 이상현상" /><published>2020-02-19T00:00:00+09:00</published><updated>2020-02-19T00:00:00+09:00</updated><id>https://lahuman.github.io/aws_lambda_tip</id><content type="html" xml:base="https://lahuman.github.io/aws_lambda_tip/">&lt;h1 id=&quot;gitlab에서-jenkins의-webhook을-직접-호출할-수-없는-경우가-생겼다&quot;&gt;Gitlab에서 jenkins의 webhook을 직접 호출할 수 없는 경우가 생겼다.&lt;/h1&gt;
 
 &lt;p&gt;기본적으로 호출되는 구조는 아래와 같다.&lt;/p&gt;
 
@@ -18,7 +125,7 @@
 
 &lt;p&gt;시간은 시간대로 버리고, 이상한 사람이 된 하루였다.&lt;/p&gt;
 
-&lt;p&gt;#아오빡쵸&lt;/p&gt;</content><category term="lambda" /><category term="aws" /><summary type="html">Lambda를 사용하는데 안되던게 되기도 하네요.</summary></entry><entry><title type="html">굿바이 블랙독</title><link href="https://lahuman.github.io/20200209/" rel="alternate" type="text/html" title="굿바이 블랙독" /><published>2020-02-09T00:00:00+09:00</published><updated>2020-02-09T00:00:00+09:00</updated><id>https://lahuman.github.io/20200209</id><content type="html" xml:base="https://lahuman.github.io/20200209/">&lt;h1 id=&quot;책에서는-우울증을-블랙독이라는-이름으로-부른다&quot;&gt;책에서는 우울증을 블랙독이라는 이름으로 부른다.&lt;/h1&gt;
+&lt;h1 id=&quot;아오빡쵸&quot;&gt;아오빡쵸&lt;/h1&gt;</content><category term="lambda" /><category term="aws" /><summary type="html">Lambda를 사용하는데 안되던게 되기도 하네요.</summary></entry><entry><title type="html">굿바이 블랙독</title><link href="https://lahuman.github.io/20200209/" rel="alternate" type="text/html" title="굿바이 블랙독" /><published>2020-02-09T00:00:00+09:00</published><updated>2020-02-09T00:00:00+09:00</updated><id>https://lahuman.github.io/20200209</id><content type="html" xml:base="https://lahuman.github.io/20200209/">&lt;h1 id=&quot;책에서는-우울증을-블랙독이라는-이름으로-부른다&quot;&gt;책에서는 우울증을 블랙독이라는 이름으로 부른다.&lt;/h1&gt;
 
 &lt;p&gt;블랙독은 누구나 가지고 있으며 혼자서는 이겨낼수 없는 존재이다.&lt;/p&gt;
 
@@ -939,368 +1046,4 @@ image: fluent/fluentd-kubernetes-daemonset:v1.4.2-debian-elasticsearch-1.1
   &lt;li&gt;&lt;a href=&quot;https://arisu1000.tistory.com/27852&quot;&gt;쿠버네티스 로깅(kubernetes logging)&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/58252254/unable-to-recognize-filebeat-kubernetes-yaml-no-matches-for-kind-daemonset&quot;&gt;unable to recognize “filebeat-kubernetes.yaml”: no matches for kind “DaemonSet” in version “extensions/v1beta1”&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://github.com/fluent/fluentd-kubernetes-daemonset/issues/230&quot;&gt;Did not recognize your adapter specification #230&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="kubernetes" /><category term="fluentd" /><category term="elasticsearch" /><category term="kibana" /><summary type="html">fluentd를 활용해 kubernetes 로그를 elasticsearch에 저장하고 kibana로 표출 해보자!</summary></entry><entry><title type="html">kubernetes의 각 항목을 살펴보자.</title><link href="https://lahuman.github.io/kubernetes-yaml/" rel="alternate" type="text/html" title="kubernetes의 각 항목을 살펴보자." /><published>2020-01-14T00:00:00+09:00</published><updated>2020-01-14T00:00:00+09:00</updated><id>https://lahuman.github.io/kubernetes-yaml</id><content type="html" xml:base="https://lahuman.github.io/kubernetes-yaml/">&lt;iframe src=&quot;//www.slideshare.net/slideshow/embed_code/key/Gdt6XNEK0dydXF&quot; width=&quot;595&quot; height=&quot;485&quot; frameborder=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; scrolling=&quot;no&quot; style=&quot;border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&quot; allowfullscreen=&quot;&quot;&gt; &lt;/iframe&gt;
-&lt;div style=&quot;margin-bottom:5px&quot;&gt; &lt;strong&gt; &lt;a href=&quot;//www.slideshare.net/lahuman1/kubernetes-object&quot; title=&quot;Kubernetes object에 대하여&quot; target=&quot;_blank&quot;&gt;Kubernetes object에 대하여&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&quot;https://www.slideshare.net/lahuman1&quot; target=&quot;_blank&quot;&gt;Daniel Lim&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;
-
-&lt;h1 id=&quot;오브젝트-기술하기&quot;&gt;오브젝트 기술하기&lt;/h1&gt;
-
-&lt;p&gt;쿠버네티스에서 오브젝트를 생성할 때, 기본적인 정보와 더불어 의도한 상태를 기술한 오브젝트 spec를 제시해줘야 한다.&lt;/p&gt;
-
-&lt;p&gt;많이 사용되는 것은 &lt;strong&gt;.yaml&lt;/strong&gt; 파일로 &lt;code class=&quot;highlighter-rouge&quot;&gt;kubectl&lt;/code&gt;에 정보를 제공해준다.
-&lt;code class=&quot;highlighter-rouge&quot;&gt;kubectl&lt;/code&gt;은 API 요청이 이루어질 때, JSON 형식으로 정보를 변환시켜준다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;요청-필드와-오브젝트-spac를-보여주는-yaml-파일-예시&quot;&gt;요청 필드와 오브젝트 spac를 보여주는 &lt;code class=&quot;highlighter-rouge&quot;&gt;.yaml&lt;/code&gt; 파일 예시&lt;/h1&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# application/deployment.yaml 
-
-apiVersion: apps/v1 # apps/v1beta2를 사용하는 1.9.0보다 더 이전의 버전용
-kind: Deployment
-metadata:
-  name: nginx-deployment
-spec:
-  selector:
-    matchLabels:
-      app: nginx
-  replicas: 2 # 템플릿에 매칭되는 파드 2개를 구동하는 디플로이먼트임
-  template:
-    metadata:
-      labels:
-        app: nginx
-    spec:
-      containers:
-      - name: nginx
-        image: nginx:1.7.9
-        ports:
-        - containerPort: 80
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;yaml-파일을-이용한-반영-예시&quot;&gt;.yaml 파일을 이용한 반영 예시&lt;/h1&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.yaml&lt;/code&gt; 파일을 &lt;a href=&quot;https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply&quot;&gt;kubectl apply&lt;/a&gt; 명령어를 이용해서 반영 할 수 있다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ kubectl apply -f https://k8s.io/examples/application/deployment.yaml --record
-deployment.apps/nginx-deployment created
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;필드들-설명&quot;&gt;필드들 설명&lt;/h1&gt;
-
-&lt;p&gt;생성하고자 하는 쿠버네티스 오브젝트에 대한 &lt;code class=&quot;highlighter-rouge&quot;&gt;.yaml&lt;/code&gt; 파일 내, 다음 필드를 위한 값들을 설정해 줘야한다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;apiVersion - 이 오브젝트를 생성하기 위해 사용하고 있는 쿠버네티스 API 버전이 어떤 것인지&lt;/li&gt;
-  &lt;li&gt;kind - 어떤 종류의 오브젝트를 생성하고자 하는지&lt;/li&gt;
-  &lt;li&gt;metadata - 이름 문자열, UID, 그리고 선택적인 네임스페이스 를 포함하여 오브젝트를 유일하게 구분지어 줄 데이터&lt;/li&gt;
-  &lt;li&gt;spec - 오브젝트에 대해 어떤 상태를 의도하는지&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;오브젝트 &lt;code class=&quot;highlighter-rouge&quot;&gt;spec&lt;/code&gt;에 대한 정확한 포맷은 모든 코버네티스 오브젝트마다 다르고 그 오브젝트 특유의 중첩된 필드를 포함한다.&lt;/p&gt;
-
-&lt;h6 id=&quot;kubernetes-api-reference-는-쿠버네티스를-이용하여-생성할-수-있는-오브젝트에-대한-모든-spec-포맷을-살펴볼-수-있도록-해준다&quot;&gt;&lt;a href=&quot;https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.17/&quot;&gt;Kubernetes API Reference &lt;/a&gt;는 쿠버네티스를 이용하여 생성할 수 있는 오브젝트에 대한 모든 spec 포맷을 살펴볼 수 있도록 해준다.&lt;/h6&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;용어-설명1&quot;&gt;용어 설명(1)&lt;/h1&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;노드(Node)
-  ###### + 클러스터의 일부이며, 쿠버네티스에 속한 워커 머신.&lt;/li&gt;
-  &lt;li&gt;클러스터(Cluster)
-  ###### + 쿠버네티스에서 관리되는 컨테이너화 된 애플리케이션을 실행하는 노드 집합. 이 예시와 대부분의 일반적인 쿠버네티스 배포에서 클러스터에 속한 노드는 퍼블릭 인터넷의 일부가 아니다.&lt;/li&gt;
-  &lt;li&gt;에지 라우터(Edge router)
-  ###### + 클러스터에 방화벽 정책을 적용하는 라우터. 이것은 클라우드 공급자 또는 물리적 하드웨어의 일부에서 관리하는 게이트웨이일 수 있다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;용어-설명2&quot;&gt;용어 설명(2)&lt;/h1&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;클러스터 네트워크(Cluster network)
-  ###### + 쿠버네티스 네트워킹 모델에 따라 클러스터 내부에서 통신을 용이하게 하는 논리적 또는 물리적 링크 집합.&lt;/li&gt;
-  &lt;li&gt;서비스(Service)
-  ###### + 레이블 셀렉터를 사용해서 파드 집합을 식별하는 쿠버네티스 서비스(Service). 달리 언급하지 않으면 서비스는 클러스터 네트워크 내에서만 라우팅 가능한 가상 IP를 가지고 있다고 가정한다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;파드pod에-대하여&quot;&gt;&lt;a href=&quot;https://kubernetes.io/ko/docs/concepts/workloads/pods/pod-overview/&quot;&gt;파드(Pod)에 대하여&lt;/a&gt;&lt;/h1&gt;
-
-&lt;p&gt;파드는 쿠버네티스 애플리케이션의 기본 실행 단위이다. 쿠버네티스 객체 모델 중 만들고 배포할 수 있는 가장 작고 간단한 단위이다. 파드는 &lt;a href=&quot;https://kubernetes.io/ko/docs/reference/glossary/?all=true#term-cluster&quot;&gt;Cluster&lt;/a&gt;에서의 동작하는 프로세스를 나타낸다.&lt;/p&gt;
-
-&lt;p&gt;파다는 애플리케이션 컨테이너, 저장소 리소스, 특정 네트워크 IP 그리고 &lt;a href=&quot;https://kubernetes.io/ko/docs/concepts/overview/what-is-kubernetes/#%ec%99%9c-%ec%bb%a8%ed%85%8c%ec%9d%b4%eb%84%88%ec%9d%b8%ea%b0%80&quot;&gt;container&lt;/a&gt;가 동작하기 위해 만들어진 옵션들을 캡술화한다.파드는 배포의 단위를 말한다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;a href=&quot;https://www.docker.com/&quot;&gt;도커&lt;/a&gt;는 쿠버네티스 파드에서 사용되는 가장 대표적인 컨테이너 런타임이지만, 파드는 다른 &lt;a href=&quot;https://kubernetes.io/ko/docs/setup/production-environment/container-runtimes/&quot;&gt;컨테이너 런타임&lt;/a&gt; 역시 지원한다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h5 id=&quot;파드는-두가지-방법으로-사용된다&quot;&gt;파드는 두가지 방법으로 사용된다.&lt;/h5&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;단일 컨테이너만 동작하는 파드&lt;/li&gt;
-  &lt;li&gt;함께 동작하는 작업이 필요한 다중 컨테이너가 동작하는 파드&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;어떻게-파드가-다중-컨테너를-관리하는가&quot;&gt;어떻게 파드가 다중 컨테너를 관리하는가?&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/post_img/pod.svg&quot; alt=&quot;fit opacity bg&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;파드는 &lt;a href=&quot;https://kubernetes.io/ko/docs/reference/glossary/?all=true#term-init-container&quot;&gt;init containers&lt;/a&gt; 뿐만 아니라 &lt;a href=&quot;https://kubernetes.io/ko/docs/reference/glossary/?all=true#term-app-container&quot;&gt;app containers&lt;/a&gt;도 가진다.&lt;/p&gt;
-
-&lt;p&gt;파드는 같은 파드 안에 속한 컨테이너에게 두가지 공유 리소스를 제공한다.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;네트워킹
-    &lt;ul&gt;
-      &lt;li&gt;유일한 IP주소를 할당 받음&lt;/li&gt;
-      &lt;li&gt;파드 안의 컨테이너끼리는 &lt;code class=&quot;highlighter-rouge&quot;&gt;localhost&lt;/code&gt;를 통해 통신 할수 있음&lt;/li&gt;
-      &lt;li&gt;파드 안의 컨테이너와 파드 밖의 요소와 통신을 위해 네트워크 리소스 공유(PORT 등)&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;저장소
-    &lt;ul&gt;
-      &lt;li&gt;공유 저장 집합인 &lt;a href=&quot;https://kubernetes.io/docs/concepts/storage/volumes/&quot;&gt;volumes&lt;/a&gt; 명시&lt;/li&gt;
-      &lt;li&gt;
-        &lt;h2 id=&quot;컨테이너가-재시작-해야-하는-상황에도-파드-안의-데이터가-영구적으로-유지될-수-있게-한다&quot;&gt;컨테이너가 재시작 해야 하는 상황에도 파드 안의 데이터가 영구적으로 유지될 수 있게 한다.&lt;/h2&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;파드와-컨트롤러&quot;&gt;파드와 컨트롤러&lt;/h2&gt;
-
-&lt;blockquote&gt;
-  &lt;h6 id=&quot;파드는-스스로를-치료-하지-않는다-만약-스케줄링된-노드애-장애가-생기거나-스케쥴링-동작이-스스로-실패할-경우-파드는-삭제-된다-그와-비슷하게-리소스나-노드의-유지-부족으로-인해-제거-되는-상황에서-살아남지-못한다&quot;&gt;파드는 스스로를 치료 하지 않는다. 만약 스케줄링된 노드애 장애가 생기거나, 스케쥴링 동작이 스스로 실패할 경우 파드는 삭제 된다. 그와 비슷하게 리소스나 노드의 유지 부족으로 인해 제거 되는 상황에서 살아남지 못한다.&lt;/h6&gt;
-  &lt;h6 id=&quot;쿠버네티스는-상대적으로-일시적인-파드-인스턴스를-관리하는-작업을-처리하는-컨트롤러-라고-하는-고수준의-추상적-개념을-사용한다&quot;&gt;쿠버네티스는 상대적으로 일시적인 파드 인스턴스를 관리하는 작업을 처리하는 &lt;strong&gt;컨트롤러&lt;/strong&gt; 라고 하는 고수준의 추상적 개념을 사용한다.&lt;/h6&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;컨트롤러는 다중 파드를 생성하고 관리해 주는데, 클러스터 범위 내에서의 레플리케이션 핸들링, 롤아웃 그리고 셀프힐링 기능 제공을 한다. 예를 들어, 만약 노드가 고장났을 때, 컨트롤러는 다른 노드에 파드를 스케줄링 함으로써 자동으로 교체할 것이다.&lt;/p&gt;
-
-&lt;p&gt;한 가지 또는 그 이상의 파드를 보유한 컨트롤러의 몇 가지 예시.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://kubernetes.io/ko/docs/concepts/workloads/controllers/deployment/&quot;&gt;디플로이먼트&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://kubernetes.io/ko/docs/concepts/workloads/controllers/statefulset/&quot;&gt;스테이트풀 셋&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://kubernetes.io/ko/docs/concepts/workloads/controllers/daemonset/&quot;&gt;데몬 셋&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;파드-템플릿&quot;&gt;파드 템플릿&lt;/h2&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apiVersion: v1
-kind: Pod
-metadata:
-  name: myapp-pod
-  labels:
-    app: myapp
-spec:
-  containers:
-  - name: myapp-container
-    image: busybox
-    command: ['sh', '-c', 'echo 안녕하세요 쿠버네티스! &amp;amp;&amp;amp; sleep 3600']
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;&lt;a href=&quot;https://kubernetes.io/ko/docs/concepts/workloads/pods/pod/&quot;&gt;파드(Pod)에 대하여 더 알아보고 싶다면!&lt;/a&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;서비스servic&quot;&gt;&lt;a href=&quot;https://kubernetes.io/docs/concepts/services-networking/service/&quot;&gt;서비스(Servic)&lt;/a&gt;&lt;/h1&gt;
-
-&lt;p&gt;kubernetes에서 서비스는 논리적 포트 세트와 액세스 할 수 있는 정책을 정의하는 추상화를 제공합니다. 서비스가 대상으로 하는 파드의 세트는 설정으로 결정됩니다.&lt;/p&gt;
-
-&lt;h6 id=&quot;예를-들어-tcp-포트-9376을-사용하는-파드-셋의-레이블이-appmyapp-일때-my-service를-다음과-같이-설정-할-수-있습니다&quot;&gt;예를 들어 TCP 포트 9376을 사용하는 파드 셋의 레이블이 app=Myapp 일때, my-service를 다음과 같이 설정 할 수 있습니다.&lt;/h6&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apiVersion: v1
-kind: Service
-metadata:
-  name: my-service
-spec:
-  selector:
-    app: MyApp
-  ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 9376
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;서비스-external-설정&quot;&gt;&lt;a href=&quot;https://kubernetes.io/ko/docs/tutorials/kubernetes-basics/expose/expose-intro/&quot;&gt;서비스 external 설정&lt;/a&gt;&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;ClusterIP (기본값)&lt;/strong&gt; - 클러스터 내에서 내부 IP 에 대해 서비스를 노출해준다. 이 방식은 오직 클러스터 내에서만 서비스가 접근될 수 있도록 해준다.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;NodePort&lt;/strong&gt; - NAT가 이용되는 클러스터 내에서 각각 선택된 노드들의 동일한 포트에 서비스를 노출시켜준다. &lt;NodeIP&gt;:&lt;NodePort&gt;를 이용하여 클러스터 외부로부터 서비스가 접근할 수 있도록 해준다. CluserIP의 상위 집합이다.&lt;/NodePort&gt;&lt;/NodeIP&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;LoadBalancer&lt;/strong&gt; - (지원 가능한 경우) 기존 클라우드에서 외부용 로드밸런서를 생성하고 서비스에 고정된 공인 IP를 할당해준다. NodePort의 상위 집합이다.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;ExternalName&lt;/strong&gt; - 이름으로 CNAME 레코드를 반환함으로써 임의의 이름(스펙에서 externalName으로 명시)을 이용하여 서비스를 노출시켜준다. 프록시는 사용되지 않는다. 이 방식은 kube-dns 버전 1.7 이상에서 지원 가능하다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;서비스와-레이블&quot;&gt;서비스와 레이블&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/post_img/module_04_labels.svg&quot; alt=&quot;fit h:700 bg right&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;서비스는 파드 셋에 걸쳐서 트래픽을 라우트한다&lt;/p&gt;
-
-&lt;p&gt;서비스는 쿠버네티스의 객체들에 대해 논리 연산을 허용해주는 기본 그룹핑 단위인, &lt;a href=&quot;https://kubernetes.io/ko/docs/concepts/overview/working-with-objects/labels/&quot;&gt;레이블과 셀렉터&lt;/a&gt;를 이용하여 파드 셋과 매치시킨다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;인그레스ingress&quot;&gt;&lt;a href=&quot;https://kubernetes.io/ko/docs/concepts/services-networking/ingress/&quot;&gt;인그레스(Ingress)&lt;/a&gt;&lt;/h1&gt;
-
-&lt;p&gt;클러스터 내의 서비스에 대한 외부 접근을 관리하는 API 오브젝트이며, 일반적으로 HTTP를 관리함.&lt;/p&gt;
-
-&lt;p&gt;인그레스는 부하 분산, SSL 종료, 명칭 기반의 가상 호스팅을 제공할 수 있다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;인그레스는 클러스터 외부에서 클러스터 내부 서비스로 HTTP와 HTTPS 경로를 노출한다. 트래픽 라우팅은 인그레스 리소스에 정의된 규칙에 의해 컨트롤된다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    internet
-        |
-   [ Ingress ]
-   --|-----|--
-   [ Services ]
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;인그레스-리소스&quot;&gt;인그레스 리소스&lt;/h2&gt;
-
-&lt;p&gt;최소한의 인그레스 리소스 예제&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apiVersion: networking.k8s.io/v1beta1
-kind: Ingress
-metadata:
-  name: test-ingress
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
-spec:
-  rules:
-  - http:
-      paths:
-      - path: /testpath
-        backend:
-          serviceName: test
-          servicePort: 80
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;인그레스-유형들&quot;&gt;인그레스 유형들&lt;/h2&gt;
-
-&lt;h4 id=&quot;--단일-서비스&quot;&gt;- 단일 서비스&lt;/h4&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;NAME           HOSTS     ADDRESS           PORTS     AGE
-test-ingress   *         107.178.254.228   80        59s
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;h4 id=&quot;--간단한-팬아웃fanout&quot;&gt;- 간단한 팬아웃(fanout)&lt;/h4&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;foo.bar.com -&amp;gt; 178.91.123.132 -&amp;gt; / foo    service1:4200
-                                 / bar    service2:8080
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;h4 id=&quot;--이름-기반의-가상-호스팅&quot;&gt;- 이름 기반의 가상 호스팅&lt;/h4&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;foo.bar.com --|                 |-&amp;gt; foo.bar.com service1:80
-              | 178.91.123.132  |
-bar.foo.com --|                 |-&amp;gt; bar.foo.com service2:80
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;인그레스-컨트롤러&quot;&gt;&lt;a href=&quot;https://kubernetes.io/ko/docs/concepts/services-networking/ingress-controllers/&quot;&gt;인그레스 컨트롤러&lt;/a&gt;&lt;/h2&gt;
-
-&lt;p&gt;인그레스 리소스가 작동하려면, 클러스터는 실행 중인 인그레스 컨트롤러가 반드시 필요하다.&lt;/p&gt;
-
-&lt;p&gt;kube-controller-manager 바이너리의 일부로 실행되는 컨트롤러의 다른 타입과 달리 인그레스 컨트롤러는 클러스터와 함께 자동으로 실행되지 않는다. 클러스터에 가장 적합한 인그레스 컨트롤러 구현을 선택하는데 이 페이지를 사용한다.&lt;/p&gt;
-
-&lt;p&gt;프로젝트로써 쿠버네티스는 현재 &lt;a href=&quot;https://github.com/kubernetes/ingress-gce/blob/master/README.md&quot;&gt;GCE&lt;/a&gt; 와 &lt;a href=&quot;https://github.com/kubernetes/ingress-nginx/blob/master/README.md&quot;&gt;nginx&lt;/a&gt; 컨트롤러를 지원하고 유지한다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h1&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://kubernetes.io/ko/docs/concepts/overview/working-with-objects/kubernetes-objects/&quot;&gt;쿠버네티스 오브젝트 이해하기&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="kubernetes" /><category term="yaml" /><summary type="html">많이 사용되고 꼭 알아야 하는 정보만 기억하자!</summary></entry><entry><title type="html">ReactJS에서 docker 이미지 생성 &amp;amp; 배포 하기</title><link href="https://lahuman.github.io/reactjs-dockerfile/" rel="alternate" type="text/html" title="ReactJS에서 docker 이미지 생성 &amp; 배포 하기" /><published>2020-01-13T00:00:00+09:00</published><updated>2020-01-13T00:00:00+09:00</updated><id>https://lahuman.github.io/reactjs-dockerfile</id><content type="html" xml:base="https://lahuman.github.io/reactjs-dockerfile/">&lt;h1 id=&quot;reactjs-proejct-docker-이미지-생성--배포-하기&quot;&gt;ReactJS Proejct Docker 이미지 생성 &amp;amp; 배포 하기&lt;/h1&gt;
-
-&lt;p&gt;ReactJS 프로젝트를 docker 이미지를 생성하는 방법을 정리 합니다.&lt;/p&gt;
-
-&lt;p&gt;기본적으로 node 12.x 의 이미지에 nginx 이미지를 활용하여서 생성하였습니다.&lt;/p&gt;
-
-&lt;p&gt;자세한 내용은 &lt;a href=&quot;/Dockerfile&quot;&gt;Dockerfile&lt;/a&gt; 파일을 참고 하시면 됩니다.&lt;/p&gt;
-
-&lt;p&gt;ReactJS 파일은 기본 명령어를 이용해서 생성하였습니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ npx create-react-app mycode
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;1-우선-reacjs-프로젝트에서-다음-파일을-생성합니다&quot;&gt;1. 우선 ReacJS 프로젝트에서 다음 파일을 생성합니다.&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;/Dockerfile&quot;&gt;Dockerfile&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;/default.conf&quot;&gt;default.conf&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;/expires.conf&quot;&gt;expires.conf&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;2-이미지-생성하기&quot;&gt;2. 이미지 생성하기&lt;/h2&gt;
-
-&lt;p&gt;다음 명령어를 이용해서 이미지를 생성 합니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# docker build -t ${image-name}:${version} .
-
-$ docker build -t react-dockerfile:1.0 .
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;3-이미지-테스트-하기&quot;&gt;3. 이미지 테스트 하기&lt;/h2&gt;
-
-&lt;p&gt;생성된 이미지를 docker run으로 테스트 합니다.&lt;/p&gt;
-
-&lt;p&gt;아래 명령어는 이미지를 띄우고 &lt;strong&gt;Ctrl + C&lt;/strong&gt;를 이용해서 종료 하면 바로 컨테이너를 삭제 합니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# docker run -p 8888:80 --rm ${image-name}:${version}
-
-$ docker run -p 8888:80 --rm react-dockerfile:1.0
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;로컬 PC의 8888 포트와 컨테이너 80 포트를 연결 하여서 띄우기 때문에 http://localhost:8888 을 브라우저에서 입력하시고 결과를 확인해세요.&lt;/p&gt;
-
-&lt;h2 id=&quot;4-이미지를-docker-repository에-올리기&quot;&gt;4. 이미지를 docker repository에 올리기&lt;/h2&gt;
-
-&lt;p&gt;마지막으로 만든 이미지에 문제가 없다면, 해당 이미지를 docker repository에 올립니다.&lt;/p&gt;
-
-&lt;h3 id=&quot;41-docker-login-을-하세요&quot;&gt;4.1 docker login 을 하세요.&lt;/h3&gt;
-
-&lt;p&gt;저장하려는 repository에 로그인 하세요 기본으로 로그인시 docker hub에 저장하게 됩니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ docker login
-Login with your Docker ID to push and pull images from Docker Hub. If you don't have a Docker ID, head over to https://hub.docker.com to create one.
-Username: lahuman
-Password:
-Login Succeeded
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;42-우선-이미지-태그를-다시-생성하셔요&quot;&gt;4.2 우선 이미지 태그를 다시 생성하셔요.&lt;/h3&gt;
-
-&lt;p&gt;docker 이미지 태그는 docker hub 계정 정보가 함께 들어 갑니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# docker tag ${image-name}:${version} ${account}/${image-name}:${version}
-
-$ docker tag react-dockerfile:1.0 lahuman/react-dockerfile:1.0
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;43-push를-하세요&quot;&gt;4.3 push를 하세요&lt;/h3&gt;
-
-&lt;p&gt;마지막으로 이미지를 docker hub에 push 하세요.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ docker push ${account}/${image-name}:${version}
-$ docker push lahuman/react-dockerfile:1.0
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;오류-denied-requested-access-to-the-resource-is-denied&quot;&gt;[오류] denied: requested access to the resource is denied&lt;/h2&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;로그인 정보를 확인하세요.&lt;/li&gt;
-  &lt;li&gt;tag에 계정 정보가 알맞게 저장 되었는지 확인하세요.&lt;/li&gt;
-&lt;/ol&gt;</content><category term="reactjs" /><category term="dockerfile" /><summary type="html">node + nginx로 처리 하면 참 쉽죠?</summary></entry></feed>
+&lt;/ul&gt;</content><category term="kubernetes" /><category term="fluentd" /><category term="elasticsearch" /><category term="kibana" /><summary type="html">fluentd를 활용해 kubernetes 로그를 elasticsearch에 저장하고 kibana로 표출 해보자!</summary></entry></feed>
