@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-02-25T09:54:41+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Windows WSL에서 GUI 사용하기</title><link href="https://lahuman.github.io/wsl_useing_gui/" rel="alternate" type="text/html" title="Windows WSL에서 GUI 사용하기" /><published>2020-02-25T00:00:00+09:00</published><updated>2020-02-25T00:00:00+09:00</updated><id>https://lahuman.github.io/wsl_useing_gui</id><content type="html" xml:base="https://lahuman.github.io/wsl_useing_gui/">&lt;h1 id=&quot;windows-wsl에서-gui-사용하기&quot;&gt;Windows WSL에서 GUI 사용하기&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-02-25T10:36:55+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Windows WSL에서 GUI 사용하기</title><link href="https://lahuman.github.io/wsl_useing_gui/" rel="alternate" type="text/html" title="Windows WSL에서 GUI 사용하기" /><published>2020-02-25T00:00:00+09:00</published><updated>2020-02-25T00:00:00+09:00</updated><id>https://lahuman.github.io/wsl_useing_gui</id><content type="html" xml:base="https://lahuman.github.io/wsl_useing_gui/">&lt;h1 id=&quot;windows-wsl에서-gui-사용하기&quot;&gt;Windows WSL에서 GUI 사용하기&lt;/h1&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;기본적으로 GUI를 사용하려면 ssh를 통한 접근 후 사용해야 합니다.&lt;/p&gt;
@@ -65,6 +65,8 @@ export DISPLAY=:0
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$&amp;gt; xeyes
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;실행이 성공적으로 되면 눈이 뜨면서 마우스를 따라 눈동자를 움직입니다.&lt;/p&gt;
 
 &lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
 &lt;ul&gt;
