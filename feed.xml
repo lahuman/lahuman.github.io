@@ -1,4 +1,124 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-02-21T21:26:24+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">보안프로그램을 피해서 WSL 설치하기!</title><link href="https://lahuman.github.io/wsl_install_using_command/" rel="alternate" type="text/html" title="보안프로그램을 피해서 WSL 설치하기!" /><published>2020-02-21T00:00:00+09:00</published><updated>2020-02-21T00:00:00+09:00</updated><id>https://lahuman.github.io/wsl_install_using_command</id><content type="html" xml:base="https://lahuman.github.io/wsl_install_using_command/">&lt;h1 id=&quot;windows에서-개발을-편하게-하기-위한-wsl-설치-가이드&quot;&gt;Windows에서 개발을 편하게 하기 위한 WSL 설치 가이드&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-02-25T09:51:14+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Windows WSL에서 GUI 사용하기</title><link href="https://lahuman.github.io/wsl_useing_gui/" rel="alternate" type="text/html" title="Windows WSL에서 GUI 사용하기" /><published>2020-02-25T00:00:00+09:00</published><updated>2020-02-25T00:00:00+09:00</updated><id>https://lahuman.github.io/wsl_useing_gui</id><content type="html" xml:base="https://lahuman.github.io/wsl_useing_gui/">&lt;h1 id=&quot;windows-wsl에서-gui-사용하기&quot;&gt;Windows WSL에서 GUI 사용하기&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;기본적으로 GUI를 사용하려면 ssh를 통한 접근 후 사용해야 합니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Windows 10에서 &lt;a href=&quot;https://docs.microsoft.com/ko-kr/windows/wsl/about&quot;&gt;Windows Subsystem for Linux(WSL)&lt;/a&gt; GUI를 띄우는(크롬, interlij) 작업을 하기위해서 다음과 같은 설정이 필요합니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;ssh-서버-설치--설정&quot;&gt;SSH 서버 설치 &amp;amp; 설정&lt;/h2&gt;
+
+&lt;p&gt;기본으로 설치되어 있는 SSH 서버는 동작을 제대로 하지 못함으로 완전히 제거하고 재설치 한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 설치 전에 APT repository 업데이트
+$&amp;gt; sudo apt-get update
+$&amp;gt; sudo apt-get upgrade
+
+# ssh를 완전히 삭제하고 재설치
+$&amp;gt; sudo apt-get purge openssh-server
+$&amp;gt; sudo apt-get install openssh-server
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이후 &lt;strong&gt;/etc/ssh/sshd_config&lt;/strong&gt; 파일을 열고 다음 항목들을 설정한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# /etc/ssh/sshd_config 파일 내
+Port 22
+Protocol 2
+PermitRootLogin no
+AuthorizedKeysFile  .ssh/authorized_keys
+PasswordAuthentication yes
+PubkeyAuthentication yes
+ChallengeResponseAuthentication no
+X11Forwarding yes
+UseDNS no
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;마지막으로 ssh 서버를 재시작 하고 나면 ssh에 대한 재설치와 설정은 끝이다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$&amp;gt; sudo service ssh --full-restart
+$&amp;gt; sudo service ssh restart
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;gui-사용하기&quot;&gt;GUI 사용하기&lt;/h2&gt;
+
+&lt;p&gt;다음 명령어를 이용해서 Machine ID를 생성한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# ID 생성
+$&amp;gt; sudo systemd-machine-id-setup
+$&amp;gt; sudo dbus-uuidgen --ensure
+# ID 확인
+$&amp;gt; cat /etc/machine-id
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;x-window 구성요소 설치를 합니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$&amp;gt; sudo apt-get install x11-apps xfonts-base xfonts-100dpi xfonts-75dpi xfonts-cyrillic
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;기본 디스플레이 포트 설정을 위해서 &lt;strong&gt;~/.bashrc&lt;/strong&gt;에 디스플레이 환경변수를 설정합니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# ~/.bashrc
+export DISPLAY=:0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이후 다음 명령어를 이용해서 디스플레이가 동작하는지 확인합니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$&amp;gt; xeyes
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.tuwlab.com/29302&quot;&gt;[WSL] Windows Subsystem for Linux - SSH 서버 세팅하기&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.tuwlab.com/29485&quot;&gt;[WSL] Windows Subsystem for Linux - 디스플레이 서버 설정 및 GUI 사용하기&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="wsl" /><category term="gui" /><summary type="html">그냥 쓰면 안되고 SSH를 통해서 연결후 사용해야 합니다.</summary></entry><entry><title type="html">VS CODE에서 npm install 시 EACCESS 권한 오류 발생</title><link href="https://lahuman.github.io/wsl_vscode_eaccess/" rel="alternate" type="text/html" title="VS CODE에서 npm install 시 EACCESS 권한 오류 발생" /><published>2020-02-24T00:00:00+09:00</published><updated>2020-02-24T00:00:00+09:00</updated><id>https://lahuman.github.io/wsl_vscode_eaccess</id><content type="html" xml:base="https://lahuman.github.io/wsl_vscode_eaccess/">&lt;h1 id=&quot;vs-code에서-npm-사용시-권한-문제-해결&quot;&gt;VS CODE에서 NPM 사용시 권한 문제 해결&lt;/h1&gt;
+
+&lt;p&gt;Windows 10에서 &lt;a href=&quot;https://docs.microsoft.com/ko-kr/windows/wsl/about&quot;&gt;Windows Subsystem for Linux(WSL)&lt;/a&gt;를 설치 후 node의 개발을 VSCODE를 이용해서 진행하려고 하였습니다.&lt;/p&gt;
+
+&lt;p&gt;문제의 발생은 VSCODE의 terminal에서 npm을 이용해서 모듈을 설치할때 발생하였습니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# IN VS CODE TERMINAL
+$&amp;gt; cd /project
+$&amp;gt; npm i
+npm ERR! code EACCES
+npm ERR! syscall rename
+npm ERR! path /project/node_modules/@samverschueren/stream-to-observable
+npm ERR! dest /project/node_modules/@samverschueren/.stream-to-observable.DELETE
+npm ERR! errno -13
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;sudo 명령어를 이용해서 시도해보고, root 권한으로도 시도 해보았으나, 동일한 오류가 발생했습니다.&lt;/p&gt;
+
+&lt;p&gt;하지만, wsl 터미널에서는 해당 문제가 없이 설치가 진행됩니다.&lt;/p&gt;
+
+&lt;p&gt;npm install 명령어는 자주 사용하기에 해결 방법을 찾아보니, &lt;a href=&quot;https://code.visualstudio.com/docs/remote/wsl&quot;&gt;Developing in WSL&lt;/a&gt;에서 다음과 같은 내용을 찾았습니다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;I see EACCESS: permission denied error trying to rename a folder in the open workspace
+That’s a known problem with the WSL file system implementation (Microsoft/WSL#3395, Microsoft/WSL#1956) caused by the file watcher active by VSCode. The issue will only be fixed in WSL 2.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;To avoid the issue, set remote.WSL.fileWatcher.polling to true. However, polling based has a performance impact for large workspaces.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;For large workspace you want to increase the polling interval: remote.WSL.fileWatcher.pollingInterval and control the folders that are watched: files.watcherExclude.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;WSL 2 does not have that file watcher problem is also not affected by the new setting.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;해당 이슈는 &lt;a href=&quot;https://docs.microsoft.com/ko-kr/windows/wsl/wsl2-index&quot;&gt;WSL 2&lt;/a&gt;에서 해결된다고 합니다.&lt;/p&gt;
+
+&lt;p&gt;우선 간단하게 해당 문제를 피하기 위해서는 &lt;strong&gt;remote.WSL.fileWatcher.polling&lt;/strong&gt; 옵션을 true로 체크 해주면 됩니다.&lt;/p&gt;
+
+&lt;p&gt;다른 이슈도 &lt;a href=&quot;https://code.visualstudio.com/docs/remote/wsl&quot;&gt;Developing in WSL&lt;/a&gt;에 잘 정리되어 있습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://code.visualstudio.com/docs/remote/wsl&quot;&gt;Developing in WSL&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="wsl" /><category term="npm" /><summary type="html">해결방법이 잘 정리가 되어 있네요.</summary></entry><entry><title type="html">보안프로그램을 피해서 WSL 설치하기!</title><link href="https://lahuman.github.io/wsl_install_using_command/" rel="alternate" type="text/html" title="보안프로그램을 피해서 WSL 설치하기!" /><published>2020-02-21T00:00:00+09:00</published><updated>2020-02-21T00:00:00+09:00</updated><id>https://lahuman.github.io/wsl_install_using_command</id><content type="html" xml:base="https://lahuman.github.io/wsl_install_using_command/">&lt;h1 id=&quot;windows에서-개발을-편하게-하기-위한-wsl-설치-가이드&quot;&gt;Windows에서 개발을 편하게 하기 위한 WSL 설치 가이드&lt;/h1&gt;
 
 &lt;p&gt;기본 설치 방법은 보안프로그램에 의해서 진행이 안될 수 있습니다.
 하지만 PowerShell을 이용한 설치는 보안프로그램에 대하여 우회가 가능합니다.&lt;/p&gt;
@@ -426,624 +546,4 @@ CONTAINER ID        IMAGE                    COMMAND                  CREATED   
   &lt;li&gt;&lt;a href=&quot;https://subhankarsarkar.com/wsl2-for-containerised-dot-net-core-development-using-docker/?fbclid=IwAR3QFlL-sgSbWDk4wYGgsaTJ5-st4VgxvNMuuaRYrGQ4EMneAznuMyjPBsk&quot;&gt;Build Containerised .NET Core Application using Docker on Windows Subsystem for Linux (WSL) 2&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://docs.microsoft.com/ko-kr/windows/nodejs/setup-on-wsl2?fbclid=IwAR0E6rXQNJRPIt5Ki4tD49bkNvTBCRn-Wk7BpkTd-jYdY-aoT240lfr5SbY&quot;&gt;WSL 2를 사용 하 여 node.js 개발 환경 설정&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://docs.microsoft.com/ko-kr/virtualization/hyper-v-on-windows/quick-start/quick-create-virtual-machine?fbclid=IwAR0W7qMdgawtOTZzJ-qruiceGyfrB7aKN-hJj8cd00OQkozebeXL6dg5mSs&quot;&gt;Hyper-V를 사용하여 가상 컴퓨터 만들기&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="windows" /><category term="wsl" /><category term="vscode" /><summary type="html">vscode의 remote WSL까지 연결하면 신세계가 열린다.</summary></entry><entry><title type="html">kubernetes Persistent Volumes 설정하여 사용하기</title><link href="https://lahuman.github.io/kubernetes-persistent-volumes/" rel="alternate" type="text/html" title="kubernetes Persistent Volumes 설정하여 사용하기" /><published>2020-01-23T00:00:00+09:00</published><updated>2020-01-23T00:00:00+09:00</updated><id>https://lahuman.github.io/kubernetes-persistent-volumes</id><content type="html" xml:base="https://lahuman.github.io/kubernetes-persistent-volumes/">&lt;h1 id=&quot;kubernetes-persistent-volumes-사용하기&quot;&gt;Kubernetes Persistent Volumes 사용하기&lt;/h1&gt;
-
-&lt;h2 id=&quot;준비-작업&quot;&gt;준비 작업&lt;/h2&gt;
-
-&lt;p&gt;가장 쉽게 돈 안들이고 구성하기 위해서 &lt;a href=&quot;https://ko.wikipedia.org/wiki/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC_%ED%8C%8C%EC%9D%BC_%EC%8B%9C%EC%8A%A4%ED%85%9C&quot;&gt;Network file system(NFS)&lt;/a&gt;을 설치하여 사용한다.&lt;/p&gt;
-
-&lt;h3 id=&quot;centos에-nfs-설치--구성&quot;&gt;CentOS에 NFS 설치 &amp;amp; 구성&lt;/h3&gt;
-
-&lt;p&gt;우선 설치는 다음과 같이 쉽게 할 수 있다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ yum install nfs-utils
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;설치가 끝났면, nfs 데몬을 시작하고 재부팅시 자동으로 실행 될수 있도록 설정한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# nfs 서버 기동
-$ systemctl start nfs-server
-# 서버 재기동시 nfs 서버 기동
-$ systemctl enable nfs-server
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;이후 exports 할 디렉토리를 생성하고 exports에 해당 위치를 설정 합니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ mkdir /nfs
-$ vi /etc/exports
-/nfs *(rw,root-squash,sync)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;수정이 다 되었다면, 다음 명령으로 변경된 내역을 반영합니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ exportfs -r
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;이후 해당 서비스를 다른 서버에서 사용하기 위해 방화벽을 허용해야 합니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ firewall-cmd --permanent --add-service=nfs
-$ firewall-cmd --reload
-$ firewall-cmd --list-all
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;마지막으로 NFS 공유가 잘되었는지 확인합니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ showmount -e
-Export list for server:
-/nfs *
-
-$ sudo exportfs -v
-/nfs          	&amp;lt;world&amp;gt;(sync,wdelay,hide,no_subtree_check,sec=sys,rw,secure,root_squash,all_squash)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h4 id=&quot;추가-정보-etcexports-설정-정보&quot;&gt;추가 정보 /etc/exports 설정 정보&lt;/h4&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;옵션&lt;/th&gt;
-      &lt;th&gt;기능&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;ro&lt;/td&gt;
-      &lt;td&gt;파일 시스템을 읽기전용으로 마운트&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;rw&lt;/td&gt;
-      &lt;td&gt;파일시스템을 읽기/쓰기 로 마운트&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;root_squash&lt;/td&gt;
-      &lt;td&gt;클라이언트에서 루트를 서버상에 nobody 사용자로 매핑&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;no_root_squash&lt;/td&gt;
-      &lt;td&gt;서버와 클라이언트 모두 같은 root를 사용&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;secure&lt;/td&gt;
-      &lt;td&gt;클라이언트 마운트 요청시 포트를 1024 이하로 설정&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;anonuid&lt;/td&gt;
-      &lt;td&gt;익명 사용자를 위한 사용자 ID를 지정하실 수 있음&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;anongid&lt;/td&gt;
-      &lt;td&gt;익명 사용자를 위한 그룹 ID를 지정하실 수 있음&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;insecure&lt;/td&gt;
-      &lt;td&gt;인증되지 않은 액세스도 가능&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;noaccess&lt;/td&gt;
-      &lt;td&gt;액세스 거부&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;link_relative&lt;/td&gt;
-      &lt;td&gt;서버에 있는 루트와의 링크를 포함하는 디렉토리에서 얻는 “../” 만큼 링크 앞에 두어 절대 심볼릭 링크를 상대 심볼릭 링크로 바꿀때 사용&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;sync&lt;/td&gt;
-      &lt;td&gt;파일 시스템이 변경되면 즉시 동기화합니다.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;async&lt;/td&gt;
-      &lt;td&gt;sync 옵션을 사용하지 않는 경우에 해당 하며, 서버는 데이터가 저장소에 안전히 저장됐는지를 확인하지 않음 클라이언트의 데이터 쓰기 요청이 들어오면 바로 응답을 보냄 데이터 curruption이 발생할 수 있지만 성능 향상을 기대할 수 있음&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;no_subtree_check&lt;/td&gt;
-      &lt;td&gt;파일 시스템의 전체 디렉토리가 아닌 하부 디렉토리가 내보내진 경우, 서버는 내보낸 하부 디렉토리에 요청된 파일이 존재하는지를 검사 함 이러한 검사 과정을 하부구조 검사라고 부르는데, 이 옵션을 선택하시면 하부구조 검사를 사용하지 않음 전체 파일 시스템이 내보내진 경우에 이 옵션을 선택하면 하부구조 검사를 하지 않음으로서 전송률을 높일 수 있음&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;all_squash&lt;/td&gt;
-      &lt;td&gt;root를 제외하고 서버와 클라이언트의 사용자를 동일한 권한으로 설정&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;no_all_squash&lt;/td&gt;
-      &lt;td&gt;root를 제외하고 서버와 클라이언트의 사용자들을 하나의 권한을 가지도록 설정&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h5 id=&quot;nfs-exporting-설정-예&quot;&gt;NFS Exporting 설정 예&lt;/h5&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/*
-/home/redhat  디렉토리를 one.linux.co.kr과 two.linux.co.kr 
-두 개의 클라이언트 컴퓨터들이 마운트할 수 있으며, 
-one 클라이언트 컴퓨터는 오직 읽기로만 마운트되고, 
-two 클라이언트 컴퓨터에는 읽기/쓰기로 마운트 된다.
-*/
-
-/home/redhat   one.linux.co.kr  (ro)  two.linux.co.kr  (rw)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# linux.co.kr 도메인 내에 있는 모든 컴퓨터들이 /usr/local/bin 파일 시스템을 읽기 전용으로 마운트된다.
-/usr/local/bin    *.linux.co.kr    (ro)
-# /pub 디렉토리에 대해서 읽기로만 마운트할 수 있고, 사용자 인증이 없이 액세스가 가능하며, 이 데렉토리 파일 시스템에 액세스 하는 모든 컴퓨터의 루트를 서버에서 nobody 사용자로 액세스할 수 있게 한다는 의미이다.
-/pub                                        (ro, insecure,root_square)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;클라이언트-설치-테스트&quot;&gt;클라이언트 설치 테스트&lt;/h3&gt;
-
-&lt;p&gt;우선 nfs 패키지를 설치 한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ yum install nfs-utils
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;export 위치를 확인한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 192.168.0.1 서버 IP
-$ showmount -e 192.168.0.1
-Export list for server:
-/nfs *
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;NFS 디렉토리와 마운트 한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;마운트할 디렉토리 생성
-$ mkdir /test/nfs
-# 마운트
-$ mount -t nfs -o sync 192.168.0.1:/nfs /test/nfs
-# 확인
-$ df -h | grep nfs
-192.168.0.1:/nfs  228G  9.8G  218G   5% /test/nfs
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;만약 리부팅시 자동으로 마운트 하기를 원한다면 다음과 같이 설정한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ vim /etc/fstab
-192.168.0.1:/nfs     /test/nfs       nfs     sync    0 0
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;mount를 끊기를 원한다면 다음과 같이 하면 된다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ umount -f -l /test/nfs
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;오류-발생-linux-clnt_create-rpc-program-not-registered-를-확인하면&quot;&gt;오류 발생 &lt;a href=&quot;https://unix.stackexchange.com/questions/82290/linux-clnt-create-rpc-program-not-registered&quot;&gt;Linux: clnt_create: RPC: Program not registered&lt;/a&gt; 를 확인하면,&lt;/h3&gt;
-
-&lt;p&gt;nfs service가 제대로 기동 되지 않은 것이다. 다시 시작하자!&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ service nfs status
-rpc.svcgssd is stopped
-rpc.mountd is stopped
-nfsd is stopped
-rpc.rquotad is stopped
-
-$ service nfs start
-Starting NFS services:                                     [  OK  ]
-Starting NFS quotas:                                       [  OK  ]
-Starting NFS daemon:                                       [  OK  ]
-Starting NFS mountd:                                       [  OK  ]
-
-$ chkconfig nfs on
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;persistent-volumes-추가&quot;&gt;Persistent Volumes 추가&lt;/h2&gt;
-
-&lt;p&gt;kuberctl로 추가 하는 방법도 있고, 지금 사용하는 Rancher UI에서 처리 하는 방법도 있다.&lt;/p&gt;
-
-&lt;p&gt;간단하게 Rancher UI에서 설정하는 방식은 우선 아래 메뉴로 이동 한다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/kpv_menu.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;이후 &lt;strong&gt;Add Volumes&lt;/strong&gt; 버튼을 클릭해서 Volume을 설정을 한다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/add_volume.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;설정을 저장하면 다음과 같이 추가된 내역을 확인 할 수 있다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/kpv_menu.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;claim-설정&quot;&gt;Claim 설정&lt;/h2&gt;
-
-&lt;p&gt;Available 된 Persistent Volumes을 pod와 연동을 위해서 Claim과 연결 해야 한다.&lt;/p&gt;
-
-&lt;p&gt;다음 메뉴로 이동 한다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/ku_claim_menu.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Add Volumn&lt;/strong&gt; 버튼을 클릭하고, 아래와 같이 설정 한다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/add_claim.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;저장을 하고 나면, Bound 된 상태 확인이 가능하다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/claim_bound.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;사용해보기&quot;&gt;사용해보기&lt;/h2&gt;
-
-&lt;p&gt;이제 설정이 다 되었으면 다음과 같이 사용 하면 된다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;---
-apiVersion: extensions/v1beta1
-kind: Deployment
-metadata:
-  name: elasticsearch
-  namespace: devops-tool
-  labels:
-    app: elasticsearch
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: elasticsearch
-  template:
-    metadata:
-      labels:
-        app: elasticsearch
-    spec:
-      containers:
-      - name: elasticsearch
-        image: elasticsearch:latest
-        ports:
-        - containerPort: 9200
-        imagePullPolicy: Always
-        volumeMounts:
-        - mountPath: /usr/share/elasticsearch/data
-          name: elasticsearchdata
-      volumes:
-      - name: elasticsearchdata
-        persistentVolumeClaim:
-          claimName: mongodb-claim
----
-apiVersion: v1
-kind: Service
-metadata:
-  namespace: devops-tool
-  name: elasticsearch
-spec:
-  ports:
-    - port: 9200
-      targetPort: 9200
-      protocol: TCP
-      name: http
-      nodePort: 30560
-  selector:
-    app: elasticsearch
-  type: LoadBalancer
----
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;중간에 내용을 보면,&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;        volumeMounts:
-        - mountPath: /usr/share/elasticsearch/data
-          name: elasticsearchdata
-      volumes:
-      - name: elasticsearchdata
-        persistentVolumeClaim:
-          claimName: mongodb-claim
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;여기를 잘 보면 된다.&lt;/p&gt;
-
-&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://waspro.tistory.com/580&quot;&gt;Kubernetes Persistent Volume 생성하기 - PV, PVC&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://yangnoon.tistory.com/38&quot;&gt;[LINUX][RHEL7] 리눅스 NFS서버 NFS클라이언트 설정&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://unix.stackexchange.com/questions/82290/linux-clnt-create-rpc-program-not-registered&quot;&gt;Linux: clnt_create: RPC: Program not registered&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://server-talk.tistory.com/117&quot;&gt;NFS 설정하기&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="kubernetes" /><category term="persistent" /><category term="volumes" /><category term="nfs" /><summary type="html">pod의 저장소를 쓰면 pod가 삭제될때 함께 삭제되어 피똥 쌀 수 있다.</summary></entry><entry><title type="html">kubernetes Logging 처리를 해보자!</title><link href="https://lahuman.github.io/kubernetes-logging/" rel="alternate" type="text/html" title="kubernetes Logging 처리를 해보자!" /><published>2020-01-17T00:00:00+09:00</published><updated>2020-01-17T00:00:00+09:00</updated><id>https://lahuman.github.io/kubernetes-logging</id><content type="html" xml:base="https://lahuman.github.io/kubernetes-logging/">&lt;h1 id=&quot;fluentd를-활용해-kubernetes-로그를-elasticsearch에-저장하고-kibana로-표출-해보자&quot;&gt;fluentd를 활용해 kubernetes 로그를 elasticsearch에 저장하고 kibana로 표출 해보자!&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;kubernetes를 셋팅을 하고 다음으로 해야 할일은 모니터링이다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;그 작업의 기초가 되는일이 바로 로깅을 쌓는 일이다.&lt;/p&gt;
-
-&lt;p&gt;모든 컨테이너의 로그들을 모아서 한 곳에서 확인할 수 있도록 구성했다.&lt;/p&gt;
-
-&lt;p&gt;각 컨테이너에서 로그를 가져오는 것은 &lt;a href=&quot;https://github.com/fluent/fluentd-kubernetes-daemonset&quot;&gt;fluentd&lt;/a&gt;를 이용했다.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/fluent/fluentd-kubernetes-daemonset&quot;&gt;fluentd&lt;/a&gt;에서 &lt;a href=&quot;https://www.elastic.co/kr/what-is/elasticsearch&quot;&gt;elasticsearch&lt;/a&gt;로 데이터를 적재 하도록 설정하였고, &lt;a href=&quot;https://www.elastic.co/kr/products/kibana&quot;&gt;kibana&lt;/a&gt;를 통해서 해당 데이터를 표출했다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;kubernetes &amp;lt;-로그수집- fluentd -데이터 적재-&amp;gt; elasticsearch &amp;lt;-표출- kibana
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;구축-순서&quot;&gt;구축 순서&lt;/h2&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.elastic.co/kr/what-is/elasticsearch&quot;&gt;elasticsearch&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.elastic.co/kr/products/kibana&quot;&gt;kibana&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/fluent/fluentd-kubernetes-daemonset&quot;&gt;fluentd&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;elasticsearch-구성&quot;&gt;&lt;a href=&quot;https://www.elastic.co/kr/what-is/elasticsearch&quot;&gt;elasticsearch&lt;/a&gt; 구성&lt;/h3&gt;
-
-&lt;p&gt;kubernetes의 오브젝트를 생성하기 위한 yaml 파일을 다음과 같이 생성한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# elastic.yml
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: elasticsearch
-  labels:
-    app: elasticsearch
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: elasticsearch
-  template:
-    metadata:
-      labels:
-        app: elasticsearch
-    spec:
-      containers:
-      - name: elasticsearch
-        image: elastic/elasticsearch:6.8.6
-        env:
-        - name: discovery.type
-          value: &quot;single-node&quot;
-        ports:
-        - containerPort: 9200
-        - containerPort: 9300
----
-apiVersion: v1
-kind: Service
-metadata:
-  labels:
-    app: elasticsearch
-  name: elasticsearch-svc
-  namespace: default
-spec:
-  ports:
-  - name: elasticsearch-rest
-    nodePort: 30482
-    port: 9200
-    protocol: TCP
-    targetPort: 9200
-  - name: elasticsearch-nodecom
-    nodePort: 30930
-    port: 9300
-    protocol: TCP
-    targetPort: 9300
-  selector:
-    app: elasticsearch
-  type: NodePort
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;kubectl&lt;/code&gt; 명령어를 이용해서 오브젝트를 kubernetes에 생성한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ kbuectl apply -f elastic.yml
-deployment.apps/elasticsearch created
-service/elasticsearch-svc created
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;설정된 노드포트를 통해서 서비스를 확인할 수 있다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;http://${kubernetes_host}:30842/
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/elastic_service_check.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;kibana-구성&quot;&gt;&lt;a href=&quot;https://www.elastic.co/kr/products/kibana&quot;&gt;kibana&lt;/a&gt; 구성&lt;/h3&gt;
-
-&lt;p&gt;kubernetes의 오브젝트를 생성하기 위한 yaml 파일을 다음과 같이 생성한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# kibana.yml
-
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: kibana
-  labels:
-    app: kibana
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: kibana
-  template:
-    metadata:
-      labels:
-        app: kibana
-    spec:
-      containers:
-      - name: kibana
-        image: elastic/kibana:6.8.6
-        env:
-        - name: SERVER_NAME
-          value: &quot;kibana.kubenetes.example.com&quot;
-        - name: ELASTICSEARCH_URL
-          value: &quot;http://elasticsearch-svc.default.svc.cluster.local:9200&quot;
-        ports:
-        - containerPort: 5601
----
-apiVersion: v1
-kind: Service
-metadata:
-  labels:
-    app: kibana
-  name: kibana-svc
-  namespace: default
-spec:
-  ports:
-  - nodePort: 30920
-    port: 5601
-    protocol: TCP
-    targetPort: 5601
-  selector:
-    app: kibana
-  type: NodePort
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;연결하는 elasticsearch 주소는 &lt;code class=&quot;highlighter-rouge&quot;&gt;http://elasticsearch-svc.default.svc.cluster.local:9200&lt;/code&gt;이다.
-&lt;code class=&quot;highlighter-rouge&quot;&gt;kubectl&lt;/code&gt; 명령어를 이용해서 오브젝트를 kubernetes에 생성한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ kbuectl apply -f kibana.yml
-deployment.apps/kibana created
-service/kibana-svc created
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;설정된 노드포트를 통해서 서비스를 확인할 수 있다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/kibana_service_check.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;fluentd-구성&quot;&gt;&lt;a href=&quot;https://github.com/fluent/fluentd-kubernetes-daemonset&quot;&gt;fluentd&lt;/a&gt; 구성&lt;/h3&gt;
-
-&lt;p&gt;kubernetes의 오브젝트를 생성하기 위한 yaml 파일을 다음과 같이 생성한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# fluentd.yml
-
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  labels:
-    k8s-app: fluentd
-  name: fluentd
-  namespace: kube-system
-
----
-kind: ClusterRole
-apiVersion: rbac.authorization.k8s.io/v1beta1
-metadata:
-  name: fluentd
-rules:
-  - apiGroups:
-      - &quot;&quot;
-    resources:
-      - &quot;namespaces&quot;
-      - &quot;pods&quot;
-    verbs:
-      - &quot;list&quot;
-      - &quot;get&quot;
-      - &quot;watch&quot;
-
----
-kind: ClusterRoleBinding
-apiVersion: rbac.authorization.k8s.io/v1beta1
-metadata:
-  name: fluentd
-roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: ClusterRole
-  name: fluentd
-subjects:
-- kind: ServiceAccount
-  name: fluentd
-  namespace: kube-system
-
----
-apiVersion: apps/v1
-kind: DaemonSet
-metadata:
-  name: fluentd
-  namespace: kube-system
-  labels:
-    k8s-app: fluentd-logging
-    version: v1
-    kubernetes.io/cluster-service: &quot;true&quot;
-spec:
-  selector:
-    matchLabels:
-      k8s-app: fluentd-logging
-  template:
-    metadata:
-      labels:
-        k8s-app: fluentd-logging
-        version: v1
-        kubernetes.io/cluster-service: &quot;true&quot;
-    spec:
-      serviceAccount: fluentd
-      serviceAccountName: fluentd
-      tolerations:
-      - key: node-role.kubernetes.io/master
-        effect: NoSchedule
-      containers:
-      - name: fluentd
-        image: fluent/fluentd-kubernetes-daemonset:v1.4.2-debian-elasticsearch-1.1
-        env:
-          - name:  FLUENT_ELASTICSEARCH_HOST
-            value: &quot;elasticsearch-svc.default.svc.cluster.local&quot;
-          - name:  FLUENT_ELASTICSEARCH_PORT
-            value: &quot;9200&quot;
-          - name: FLUENT_ELASTICSEARCH_SCHEME
-            value: &quot;http&quot;
-          - name: FLUENTD_SYSTEMD_CONF
-            value: &quot;disable&quot;
-          - name: FLUENT_UID
-            value: &quot;0&quot;
-        resources:
-          limits:
-            memory: 200Mi
-          requests:
-            cpu: 100m
-            memory: 200Mi
-        volumeMounts:
-        - name: varlog
-          mountPath: /var/log
-        - name: varlibdockercontainers
-          mountPath: /var/lib/docker/containers
-          readOnly: true
-      terminationGracePeriodSeconds: 30
-      volumes:
-      - name: varlog
-        hostPath:
-          path: /var/log
-      - name: varlibdockercontainers
-        hostPath:
-          path: /var/lib/docker/containers
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;위의 설정에서 보면 /var/log를 모두 로그를 가져오며 가져온 데이터는 &lt;code class=&quot;highlighter-rouge&quot;&gt;http://elasticsearch-svc.default.svc.cluster.local:9200&lt;/code&gt;에 적재 한다.&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;kubectl&lt;/code&gt; 명령어를 이용해서 오브젝트를 kubernetes에 생성한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ kbuectl apply -f fluentd.yml
-serviceaccount/fluentd created
-clusterrole.rbac.authorization.k8s.io/fluentd created
-clusterrolebinding.rbac.authorization.k8s.io/fluentd created
-daemonset.apps/fluentd created
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h4 id=&quot;설치시-오류-발생에-따른-해결책&quot;&gt;설치시 오류 발생에 따른 해결책&lt;/h4&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://stackoverflow.com/questions/58252254/unable-to-recognize-filebeat-kubernetes-yaml-no-matches-for-kind-daemonset&quot;&gt;unable to recognize “filebeat-kubernetes.yaml”: no matches for kind “DaemonSet” in version “extensions/v1beta1”&lt;/a&gt; 과 같은 오류가 발생한 이유는 &lt;code class=&quot;highlighter-rouge&quot;&gt;apiVersion&lt;/code&gt;이 extensions/v1beta1을 사용하지 말고 apps/v1을 사용하도록 되어 있다.&lt;/p&gt;
-
-&lt;p&gt;다음과 같은 오류가 발생할 경우,&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;2018-11-26 23:19:44 +0000 [warn]: suppressed same stacktrace
-2018-11-26 23:19:50 +0000 [info]: stats - namespace_cache_size: 3, pod_cache_size: 6, namespace_cache_api_updates: 15, pod_cache_api_updates: 15, id_cache_miss: 15
-2018-11-26 23:20:14 +0000 [warn]: temporarily failed to flush the buffer. next_retry=2018-11-26 23:20:44 +0000 error_class=&quot;MultiJson::AdapterError&quot; error=&quot;Did not recognize your adapter specification (cannot load such file -- bigdecimal).&quot; plugin_id=&quot;out_es&quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;debian 계열의 이미지를 사용하면 된다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;containers:
-- name: fluentd
-image: fluent/fluentd-kubernetes-daemonset:v1.4.2-debian-elasticsearch-1.1
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/fluent/fluentd-kubernetes-daemonset/issues/230&quot;&gt;Did not recognize your adapter specification #230&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;설치가 완료되고 나면, 각 worker node에서 기동하는 것을 확인 할 수 있다.&lt;/p&gt;
-
-&lt;h3 id=&quot;kibana-설정&quot;&gt;kibana 설정&lt;/h3&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Management =&amp;gt; kibana =&amp;gt; Index Patterns =&amp;gt; Create Index Pattern =&amp;gt; &quot;logstash-*&quot; 추가
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/kibana_setting.png&quot; alt=&quot;설정화면&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;위와 같이 처리 하면 다음과 같은 결과를 확인 할 수 있다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/kibana_result_sample.png&quot; alt=&quot;설정화면&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;마치며&quot;&gt;마치며&lt;/h3&gt;
-
-&lt;p&gt;한땀 한땀 설치 kubernetes의 오부젝트에 대하여 더 많이 이해하게 되었다.&lt;/p&gt;
-
-&lt;p&gt;데이터 적재의 형태나, node의 error 로그 적재 등은 좀더 확인해봐야겠다.&lt;/p&gt;
-
-&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://kubernetes.io/docs/concepts/cluster-administration/logging/&quot;&gt;https://kubernetes.io/docs/concepts/cluster-administration/logging/&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://arisu1000.tistory.com/27852&quot;&gt;쿠버네티스 로깅(kubernetes logging)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/58252254/unable-to-recognize-filebeat-kubernetes-yaml-no-matches-for-kind-daemonset&quot;&gt;unable to recognize “filebeat-kubernetes.yaml”: no matches for kind “DaemonSet” in version “extensions/v1beta1”&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/fluent/fluentd-kubernetes-daemonset/issues/230&quot;&gt;Did not recognize your adapter specification #230&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="kubernetes" /><category term="fluentd" /><category term="elasticsearch" /><category term="kibana" /><summary type="html">fluentd를 활용해 kubernetes 로그를 elasticsearch에 저장하고 kibana로 표출 해보자!</summary></entry></feed>
+&lt;/ul&gt;</content><category term="windows" /><category term="wsl" /><category term="vscode" /><summary type="html">vscode의 remote WSL까지 연결하면 신세계가 열린다.</summary></entry></feed>
