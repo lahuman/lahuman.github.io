@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-02-25T09:51:14+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Windows WSL에서 GUI 사용하기</title><link href="https://lahuman.github.io/wsl_useing_gui/" rel="alternate" type="text/html" title="Windows WSL에서 GUI 사용하기" /><published>2020-02-25T00:00:00+09:00</published><updated>2020-02-25T00:00:00+09:00</updated><id>https://lahuman.github.io/wsl_useing_gui</id><content type="html" xml:base="https://lahuman.github.io/wsl_useing_gui/">&lt;h1 id=&quot;windows-wsl에서-gui-사용하기&quot;&gt;Windows WSL에서 GUI 사용하기&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-02-25T09:54:41+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Windows WSL에서 GUI 사용하기</title><link href="https://lahuman.github.io/wsl_useing_gui/" rel="alternate" type="text/html" title="Windows WSL에서 GUI 사용하기" /><published>2020-02-25T00:00:00+09:00</published><updated>2020-02-25T00:00:00+09:00</updated><id>https://lahuman.github.io/wsl_useing_gui</id><content type="html" xml:base="https://lahuman.github.io/wsl_useing_gui/">&lt;h1 id=&quot;windows-wsl에서-gui-사용하기&quot;&gt;Windows WSL에서 GUI 사용하기&lt;/h1&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;기본적으로 GUI를 사용하려면 ssh를 통한 접근 후 사용해야 합니다.&lt;/p&gt;
@@ -111,7 +111,7 @@ That’s a known problem with the WSL file system implementation (Microsoft/WSL#
 
 &lt;p&gt;해당 이슈는 &lt;a href=&quot;https://docs.microsoft.com/ko-kr/windows/wsl/wsl2-index&quot;&gt;WSL 2&lt;/a&gt;에서 해결된다고 합니다.&lt;/p&gt;
 
-&lt;p&gt;우선 간단하게 해당 문제를 피하기 위해서는 &lt;strong&gt;remote.WSL.fileWatcher.polling&lt;/strong&gt; 옵션을 true로 체크 해주면 됩니다.&lt;/p&gt;
+&lt;p&gt;우선 간단하게 해당 문제를 피하기 위해서는 vscode에서 설정으로 가서 &lt;strong&gt;remote.WSL.fileWatcher.polling&lt;/strong&gt; 옵션을 true로 체크 해주면 됩니다.&lt;/p&gt;
 
 &lt;p&gt;다른 이슈도 &lt;a href=&quot;https://code.visualstudio.com/docs/remote/wsl&quot;&gt;Developing in WSL&lt;/a&gt;에 잘 정리되어 있습니다.&lt;/p&gt;
 
