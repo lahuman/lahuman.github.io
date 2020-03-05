@@ -1,4 +1,27 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-02-25T10:36:55+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Windows WSL에서 GUI 사용하기</title><link href="https://lahuman.github.io/wsl_useing_gui/" rel="alternate" type="text/html" title="Windows WSL에서 GUI 사용하기" /><published>2020-02-25T00:00:00+09:00</published><updated>2020-02-25T00:00:00+09:00</updated><id>https://lahuman.github.io/wsl_useing_gui</id><content type="html" xml:base="https://lahuman.github.io/wsl_useing_gui/">&lt;h1 id=&quot;windows-wsl에서-gui-사용하기&quot;&gt;Windows WSL에서 GUI 사용하기&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-03-05T22:40:38+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">오랜만에 출근하였습니다.</title><link href="https://lahuman.github.io/20200305/" rel="alternate" type="text/html" title="오랜만에 출근하였습니다." /><published>2020-03-05T00:00:00+09:00</published><updated>2020-03-05T00:00:00+09:00</updated><id>https://lahuman.github.io/20200305</id><content type="html" xml:base="https://lahuman.github.io/20200305/">&lt;h1 id=&quot;일주일만에-집밖-나들이를-하였습니다&quot;&gt;일주일만에 집밖 나들이를 하였습니다.&lt;/h1&gt;
+
+&lt;p&gt;2020년 3월 5일 현재의 대한민국은 코로나19로 혼란의 도가니입니다.&lt;/p&gt;
+
+&lt;p&gt;다행이 정부와 기관 또 국민들이 힘을 모아서 조금씩 극복하기 위해 노력하고 있습니다.&lt;/p&gt;
+
+&lt;p&gt;현재 확진자는 5,700여명이고, 사망자는 40명을 넘었습니다.&lt;/p&gt;
+
+&lt;p&gt;대부분의 회사들이 자택근무를 시작하고, 제가 다니는 회사에서도 저번주 2월 27일부터 자택근무를 실행하고 있습니다.&lt;/p&gt;
+
+&lt;p&gt;자택근무를 하면서 처음에는 회사 인프라팀에서도 많이 힘들어하고, 저도 아이들에게 시달리느라 적응하지 못하였습니다.&lt;/p&gt;
+
+&lt;p&gt;다행이 사람은 적응의 동물이라고, 일주일쯤 되자 어느정도 자택근무도 자리를 잡아가고 있습니다.&lt;/p&gt;
+
+&lt;p&gt;다만 강제로 집에 갇혀있게되어 너무 답답하였습니다.&lt;/p&gt;
+
+&lt;p&gt;금일 회의 해야하는 것도 있어서 회사에 출근을 하였는데, 오전 출근을 하면서 자택근무가 편하구나를 깨달았습니다.
+(지옥철은 여전하더라구요)&lt;/p&gt;
+
+&lt;p&gt;요즘 걱정은 아이들 학교 방학이 3월 28일로 늘어졌습니다.&lt;/p&gt;
+
+&lt;p&gt;다음주부터 집에서 혼자 아이들을 돌보아야 하는 아내가 걱정이네요.&lt;/p&gt;
+
+&lt;h2 id=&quot;개인적인-바램은-다음주도-자택근무-연장이-되었으면-좋겠습니다&quot;&gt;개인적인 바램은 다음주도 자택근무 연장이 되었으면 좋겠습니다.&lt;/h2&gt;</content><category term="단상" /><summary type="html">일주일만에 집밖으로 나왔네요.</summary></entry><entry><title type="html">Windows WSL에서 GUI 사용하기</title><link href="https://lahuman.github.io/wsl_useing_gui/" rel="alternate" type="text/html" title="Windows WSL에서 GUI 사용하기" /><published>2020-02-25T00:00:00+09:00</published><updated>2020-02-25T00:00:00+09:00</updated><id>https://lahuman.github.io/wsl_useing_gui</id><content type="html" xml:base="https://lahuman.github.io/wsl_useing_gui/">&lt;h1 id=&quot;windows-wsl에서-gui-사용하기&quot;&gt;Windows WSL에서 GUI 사용하기&lt;/h1&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;기본적으로 GUI를 사용하려면 ssh를 통한 접근 후 사용해야 합니다.&lt;/p&gt;
@@ -323,229 +346,4 @@ const response = await instance.post('/api', { abc:123 });
   &lt;p&gt;다행히 지금 동료들과는 침묵하기보다 의견을 나누고, 문제가 있다고 생각되면 함께 해결책을 찾기 위해 많은 노력을 아끼지 않는다.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h1 id=&quot;내일도-즐겁게-시작해보자&quot;&gt;내일도 즐겁게 시작해보자!&lt;/h1&gt;</content><category term="단상" /><summary type="html">조직 내에서 두려움 없이 자신의 생각을 이야기 하는게 쉽지만은 않다.</summary></entry><entry><title type="html">windows에 wsl 설치하고 설정하기</title><link href="https://lahuman.github.io/windows-wsl-setting/" rel="alternate" type="text/html" title="windows에 wsl 설치하고 설정하기" /><published>2020-01-26T00:00:00+09:00</published><updated>2020-01-26T00:00:00+09:00</updated><id>https://lahuman.github.io/windows-wsl-setting</id><content type="html" xml:base="https://lahuman.github.io/windows-wsl-setting/">&lt;h1 id=&quot;windows에-wsl-설치하고-설정하기&quot;&gt;windows에 wsl 설치하고 설정하기&lt;/h1&gt;
-
-&lt;p&gt;일반적으로 windows OS에서 linux 환경을 사용하기 위해서는 vmware를 이용해 OS를 설치하고 활용했다.
-장단점이 있지만, 기본적으로 OS 설치 비용 + 디스크, 메모리 등을 쉐어 하기 때문에 호스트 OS에도 부담이 되는 방식이다.&lt;/p&gt;
-
-&lt;p&gt;2년전쯤 WSL을 설치하려고 시도하다가 업데이트가 잘 안되서 실패 했었다.&lt;/p&gt;
-
-&lt;p&gt;요즘은 쉽게 설치가 된다고 하여 다시 재도전을 해보았다.&lt;/p&gt;
-
-&lt;h2 id=&quot;제어판에서-linux용-windows-하위-시스템-사용-설정&quot;&gt;제어판에서 &lt;strong&gt;Linux용 Windows 하위 시스템&lt;/strong&gt; 사용 설정&lt;/h2&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;제어판을 연다.&lt;/li&gt;
-  &lt;li&gt;프로그램을 선택한다.&lt;/li&gt;
-  &lt;li&gt;Windows 기능 켜기/끄기 선택&lt;/li&gt;
-  &lt;li&gt;Linux용 Windows 하위 시스템 켜기&lt;/li&gt;
-  &lt;li&gt;재부팅 한다.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/w_w_setting.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;ubuntu-1804-설치&quot;&gt;Ubuntu 18.04 설치&lt;/h2&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Microsoft Store에서 Linux를 검색한다.&lt;/li&gt;
-  &lt;li&gt;Ubuntu 18.04 LTS를 선택한다.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;처음에 Ubuntu를 설치했더니, &lt;strong&gt;yum update&lt;/strong&gt; 부터 오류가 발생했다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/w_w_msstore_ubuntu.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;설치가 끝나면 실행을 한다.&lt;/p&gt;
-
-&lt;p&gt;실행을 하면 사용자 ID와 Password를 입력하면 된다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/w_w_ubuntu18.04.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;nvm-설치-하기&quot;&gt;nvm 설치 하기&lt;/h2&gt;
-
-&lt;p&gt;현재(2020.01.26)기준 최신 버젼은 0.35.2이다. 다음 명령어를 이용해서 설치 한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-100 13527  100 13527    0     0  13888      0 --:--:-- --:--:-- --:--:-- 13873
-=&amp;gt; Downloading nvm from git to '/home/lahuman/.nvm'
-=&amp;gt; Cloning into '/home/lahuman/.nvm'...
-remote: Enumerating objects: 288, done.
-remote: Counting objects: 100% (288/288), done.
-remote: Compressing objects: 100% (258/258), done.
-remote: Total 288 (delta 35), reused 95 (delta 18), pack-reused 0
-Receiving objects: 100% (288/288), 146.70 KiB | 408.00 KiB/s, done.
-Resolving deltas: 100% (35/35), done.
-=&amp;gt; Compressing and cleaning up git repository
-
-=&amp;gt; Appending nvm source string to /home/lahuman/.bashrc
-=&amp;gt; Appending bash_completion source string to /home/lahuman/.bashrc
-: not foundram Files/nodejs/npm: 3: /mnt/c/Program Files/nodejs/npm:
-: not foundram Files/nodejs/npm: 5: /mnt/c/Program Files/nodejs/npm:
-/mnt/c/Program Files/nodejs/npm: 6: /mnt/c/Program Files/nodejs/npm: Syntax error: word unexpected (expecting &quot;in&quot;)
-=&amp;gt; Close and reopen your terminal to start using nvm or run the following to use it now:
-
-export NVM_DIR=&quot;$HOME/.nvm&quot;
-[ -s &quot;$NVM_DIR/nvm.sh&quot; ] &amp;amp;&amp;amp; \. &quot;$NVM_DIR/nvm.sh&quot;  # This loads nvm
-[ -s &quot;$NVM_DIR/bash_completion&quot; ] &amp;amp;&amp;amp; \. &quot;$NVM_DIR/bash_completion&quot;  # This loads nvm bash_completion
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;설치가 끝나면 마지막 3줄을 복사해서 붙이면 설치는 마무리 된다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ export NVM_DIR=&quot;$HOME/.nvm&quot;
-$ [ -s &quot;$NVM_DIR/nvm.sh&quot; ] &amp;amp;&amp;amp; \. &quot;$NVM_DIR/nvm.sh&quot; 
-$ [ -s &quot;$NVM_DIR/bash_completion&quot; ] &amp;amp;&amp;amp; \. &quot;$NVM_DIR/bash_completion&quot; 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;nvm list&lt;/strong&gt;명령어를 이용해서 현재 설치된 것을 확인하면, 다음과 같이 아무것도 설치 되어 있지 않다는 것을 확인 할 수 있다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ nvm list
-            N/A
-iojs -&amp;gt; N/A (default)
-node -&amp;gt; stable (-&amp;gt; N/A) (default)
-unstable -&amp;gt; N/A (default)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;nvm install node&lt;/strong&gt; 명령어를 이용해서 node를 설치 할 수 있다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ nvm install node
-Downloading and installing node v13.7.0...
-Downloading https://nodejs.org/dist/v13.7.0/node-v13.7.0-linux-x64.tar.xz...
-################################################################################################################# 100.0%
-Computing checksum with sha256sum
-Checksums matched!
-Now using node v13.7.0 (npm v6.13.6)
-Creating default alias: default -&amp;gt; node (-&amp;gt; v13.7.0)
-$ node -v
-v13.7.0
-$ npm -v
-6.13.6
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;설치 버젼을 확인하여, 설치가 잘된 것을 확인한다.&lt;/p&gt;
-
-&lt;h2 id=&quot;docker-설치-하기&quot;&gt;docker 설치 하기&lt;/h2&gt;
-
-&lt;p&gt;기본적으로 WSL은 docker 데몬을 지원 하지 않는다.&lt;/p&gt;
-
-&lt;p&gt;하지만! WSL2 라면 지원을 한다.&lt;/p&gt;
-
-&lt;h3 id=&quot;wsl2설치&quot;&gt;WSL2설치&lt;/h3&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;WSL2란, 최신의 가상화 기술을 사용하여 경량 유틸리티 VM(가상 머신) 내에서 Linux 커널을 실행합니다. 기존 VM과 다르게, WSL1과 동일한 사용자 환경을 유지 하면서 백그라운드에서 관리되고 실행됩니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;우선 Hyper-v를 사용하도록 설정 해야 한다.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;BIOS 설정
-&lt;img src=&quot;https://i2.wp.com/www.nextofwindows.com/wp-content/uploads/2015/05/6116.HVW8a.jpg&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
-  &lt;li&gt;Hyper-V 설정
-&lt;img src=&quot;/assets/img/post_img/w_w_hyper-v.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
-  &lt;li&gt;wsl2 설치&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;WSL 2는 Windows 10 빌드 18917 이상에서만 사용할 수 있음 
-Windows 참가자 프로그램을 참가하여야 합니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/w_w_update.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;이후 업데이트(인터넷 속도에 따라 2시간 정도 걸림)를 모두 하면, 빌드 버젼이 2020.01.27기준 10.0.19041.21이다.
-버전을 확인하는 방법은 cmd 명령창에서 &lt;strong&gt;ver&lt;/strong&gt; 명령어로 확인이 가능합니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# ver
-
-Microsoft Windows [Version 10.0.19041.21]
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;이후 가상 컴퓨터 플랫폼을 사용하도록 powserShell에서 다음 명령어를 입력한다. 주의 할것은 powserShell을 관리자 권한으로 실행해야 한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
-# dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;이후 powserShell에서 wsl의 배포판 모드를 변경한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# wsl --set-version &amp;lt;Distro&amp;gt; 2
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/w_w_wsl2.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;이제 docker를 사용할 준비가 완료 되었습니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;docker-설치&quot;&gt;docker 설치&lt;/h2&gt;
-
-&lt;p&gt;docker container를 설치해보자, 설치는 다음의 명령어를 이용해서 할 수 있다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ sudo apt-get install \
-    apt-transport-https \
-    ca-certificates \
-    curl \
-    software-properties-common
-$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-$ sudo apt-key fingerprint 0EBFCD88
-$ sudo add-apt-repository &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable&quot;
-$ sudo apt-get update
-$ sudo apt-get install docker-ce
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;설치가 완료 되었으면, docker service를 root 권한으로 실행하여야 한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ sudo service docker start
- * Starting Docker: docker                                                                                       [ OK ]
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;기본적으로 docker는 root 권한으로만 실행할 수 있다. docker 명령어를 이용할 때마다, sudo를 붙이는게 귀찮다면, 다음과 같이 사용자를 docker그룹에 추가하면 된다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ sudo usermod -aG docker $(whoami)
-# 터미널 종료후 다시 열어야 한다.
-$ exit
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;샘플 docker 실행 테스트&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ docker run -d --name react-app -p 80:80 lahuman/test-react-app
-Unable to find image 'lahuman/test-react-app:latest' locally
-latest: Pulling from lahuman/test-react-app
-e7c96db7181b: Pull complete
-8985e402e050: Pull complete
-41c1b09855ea: Pull complete
-Digest: sha256:bb4d447b8a51845510671f731d68a4b944e681fe856bef670102bb97f904895d
-Status: Downloaded newer image for lahuman/test-react-app:latest
-5e0cd323d4c97682e4ecb3103555ff9c9ff9d10ffd2bc30fe9591a8b8157fad1
-
-$ docker ps
-CONTAINER ID        IMAGE                    COMMAND                  CREATED             STATUS              PORTS                NAMES
-5e0cd323d4c9        lahuman/test-react-app   &quot;nginx -g 'daemon of…&quot;   5 seconds ago       Up 3 seconds        0.0.0.0:80-&amp;gt;80/tcp   react-app
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;vscode-와-연동-하기&quot;&gt;VSCODE 와 연동 하기&lt;/h2&gt;
-
-&lt;p&gt;vscode에서 Remote-WSL plugin을 설치 한다.&lt;/p&gt;
-
-&lt;p&gt;이후 F1을 눌러 &lt;strong&gt;Remote-WSL: new Windows&lt;/strong&gt;를 입력 후 클릭한다.&lt;/p&gt;
-
-&lt;p&gt;새창이 뜨고, 뜬 새창에서 터미널이나, 파일 exporler를 열면 wsl 안의 내용을 확인 가능하다.&lt;/p&gt;
-
-&lt;h2 id=&quot;ubuntu-삭제-하기&quot;&gt;ubuntu 삭제 하기&lt;/h2&gt;
-
-&lt;p&gt;설치된 wsl의 OS를 삭제하기 위해서는 &lt;strong&gt;앱 및 기능&lt;/strong&gt;으로 이동해서 ms store에서 설치했던, Ubuntu를 찾아서 제거 하면 된다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/w_w_ubuntu_remove.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.windowscentral.com/install-windows-subsystem-linux-windows-10&quot;&gt;How to install Windows Subsystem for Linux (WSL) on Windows 10&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://docs.microsoft.com/ko-kr/windows/wsl/wsl2-install?fbclid=IwAR29NZ7vEdgWpYbvtXn0PhTCrD2udghu9H3r-9mtc64tDRAna7QOELDvMPk&quot;&gt;WSL 2의 설치 지침&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://subhankarsarkar.com/wsl2-for-containerised-dot-net-core-development-using-docker/?fbclid=IwAR3QFlL-sgSbWDk4wYGgsaTJ5-st4VgxvNMuuaRYrGQ4EMneAznuMyjPBsk&quot;&gt;Build Containerised .NET Core Application using Docker on Windows Subsystem for Linux (WSL) 2&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://docs.microsoft.com/ko-kr/windows/nodejs/setup-on-wsl2?fbclid=IwAR0E6rXQNJRPIt5Ki4tD49bkNvTBCRn-Wk7BpkTd-jYdY-aoT240lfr5SbY&quot;&gt;WSL 2를 사용 하 여 node.js 개발 환경 설정&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://docs.microsoft.com/ko-kr/virtualization/hyper-v-on-windows/quick-start/quick-create-virtual-machine?fbclid=IwAR0W7qMdgawtOTZzJ-qruiceGyfrB7aKN-hJj8cd00OQkozebeXL6dg5mSs&quot;&gt;Hyper-V를 사용하여 가상 컴퓨터 만들기&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="windows" /><category term="wsl" /><category term="vscode" /><summary type="html">vscode의 remote WSL까지 연결하면 신세계가 열린다.</summary></entry></feed>
+&lt;h1 id=&quot;내일도-즐겁게-시작해보자&quot;&gt;내일도 즐겁게 시작해보자!&lt;/h1&gt;</content><category term="단상" /><summary type="html">조직 내에서 두려움 없이 자신의 생각을 이야기 하는게 쉽지만은 않다.</summary></entry></feed>
