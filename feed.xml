@@ -1,4 +1,22 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-03-13T12:04:35+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">동료와 일을 할때 중요한 몇가지</title><link href="https://lahuman.github.io/20200313/" rel="alternate" type="text/html" title="동료와 일을 할때 중요한 몇가지" /><published>2020-03-13T00:00:00+09:00</published><updated>2020-03-13T00:00:00+09:00</updated><id>https://lahuman.github.io/20200313</id><content type="html" xml:base="https://lahuman.github.io/20200313/">&lt;h1 id=&quot;조금만-신경쓰면-동료도-편하게-일하고-인정도-받을수-있어요&quot;&gt;조금만 신경쓰면 동료도 편하게 일하고 인정도 받을수 있어요.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-03-18T17:51:30+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">요즘 화두는 비용 절감 입니다.</title><link href="https://lahuman.github.io/20200318/" rel="alternate" type="text/html" title="요즘 화두는 비용 절감 입니다." /><published>2020-03-18T00:00:00+09:00</published><updated>2020-03-18T00:00:00+09:00</updated><id>https://lahuman.github.io/20200318</id><content type="html" xml:base="https://lahuman.github.io/20200318/">&lt;h1 id=&quot;본부내에서-비용절감을-목놓아-외치는-분과-일하고-있습니다&quot;&gt;본부내에서 비용절감을 목놓아 외치는 분과 일하고 있습니다&lt;/h1&gt;
+
+&lt;p&gt;결론만 말해서는 &lt;strong&gt;상당히 피곤&lt;/strong&gt;합니다.&lt;/p&gt;
+
+&lt;p&gt;밑도 끝도없이 비용을 절감해야 한다고 외쳐서 당황스럽습니다.&lt;/p&gt;
+
+&lt;p&gt;현재 상황은 약 30개 이상의 서비스를 AWS에서 관리 하여 사용하고 있습니다.&lt;/p&gt;
+
+&lt;p&gt;월 비용이 약 150만원 전후로 나오기 때문에 상당히 아껴서 사용한다고 생각합니다.&lt;/p&gt;
+
+&lt;p&gt;몇몇 서비스는 평일 아침 8시부터 저녁 8시까지만 운영하도록 하고 있고, 사용율이 떨어지는 서비스 역시 빠르게 종료 하고 있습니다.&lt;/p&gt;
+
+&lt;p&gt;그런데 말입니다.&lt;/p&gt;
+
+&lt;p&gt;천원이라도 아껴야 한다는데…&lt;/p&gt;
+
+&lt;p&gt;아낄껄 아끼자고 이야기 하고 싶네요.&lt;/p&gt;
+
+&lt;h2 id=&quot;오늘은-빡친다&quot;&gt;오늘은 빡친다.&lt;/h2&gt;</content><category term="단상" /><summary type="html">천원이라도 아껴라</summary></entry><entry><title type="html">동료와 일을 할때 중요한 몇가지</title><link href="https://lahuman.github.io/20200313/" rel="alternate" type="text/html" title="동료와 일을 할때 중요한 몇가지" /><published>2020-03-13T00:00:00+09:00</published><updated>2020-03-13T00:00:00+09:00</updated><id>https://lahuman.github.io/20200313</id><content type="html" xml:base="https://lahuman.github.io/20200313/">&lt;h1 id=&quot;조금만-신경쓰면-동료도-편하게-일하고-인정도-받을수-있어요&quot;&gt;조금만 신경쓰면 동료도 편하게 일하고 인정도 받을수 있어요.&lt;/h1&gt;
 
 &lt;h2 id=&quot;1-빠른-피드백&quot;&gt;1. 빠른 피드백&lt;/h2&gt;
 
@@ -334,28 +352,4 @@ const response = await instance.post('/api', { abc:123 });
 
 &lt;p&gt;집밖은 위험해서 나갈 수 없다.&lt;/p&gt;
 
-&lt;h2 id=&quot;어떻게든-넘겨보자&quot;&gt;어떻게든 넘겨보자!&lt;/h2&gt;</content><category term="단상" /><summary type="html">어머! 자택 근무라니?</summary></entry><entry><title type="html">부족한 내 능력에 화가 많이 나는 하루이다.</title><link href="https://lahuman.github.io/20200204/" rel="alternate" type="text/html" title="부족한 내 능력에 화가 많이 나는 하루이다." /><published>2020-02-04T00:00:00+09:00</published><updated>2020-02-04T00:00:00+09:00</updated><id>https://lahuman.github.io/20200204</id><content type="html" xml:base="https://lahuman.github.io/20200204/">&lt;h1 id=&quot;풀-스택이라-쓰고-잡부라-부른다&quot;&gt;풀 스택이라 쓰고 잡부라 부른다.&lt;/h1&gt;
-
-&lt;p&gt;나는 풀 스택 개발자이다.&lt;/p&gt;
-
-&lt;p&gt;뭐 좋게 들을 때는 모든지 다 하는 것이고, 나쁘게 이야기해서는 제대로 하는 것이 없는 것이다.&lt;/p&gt;
-
-&lt;p&gt;오늘 프로젝트 리더와 의견 충돌이 있었다.&lt;/p&gt;
-
-&lt;p&gt;프로젝트 리더의 의견은 알고 있으니, 사실 내 능력이 안 되는 업무라서 좀 답답했었다.&lt;/p&gt;
-
-&lt;p&gt;내가 가진 프런트 개발 능력은 뛰어나지 않다.&lt;/p&gt;
-
-&lt;p&gt;적당한 UI를 만드는 건 할 수 있지만 프로젝트 리더가 원하는 고급진 UI를 만드는 능력이 부족했다.&lt;/p&gt;
-
-&lt;p&gt;오늘 문제가 되었던 것은 애플 산돌 고딕체를 디자이너가 제시한 크기로 css를 작성하였는데, 다르게 표출되었다.&lt;/p&gt;
-
-&lt;p&gt;실제 퍼블리셔에게 문의하여보니, 애플 산돌 고딕체는 앱과 웹에서 다르게 보인다는 답변을 받았다.&lt;/p&gt;
-
-&lt;p&gt;결국 내가 찾지 못한 버그로 거의 하루를 날리고 나니 정신이 털려서 다 귀찮아졌다.&lt;/p&gt;
-
-&lt;p&gt;결국 프로젝트 리더에게 내 능력이 부족해서 못하겠다고 하고 말았다.&lt;/p&gt;
-
-&lt;p&gt;내일은 더 잘 할 방법을 고민하는 하루를 보내야겠다.&lt;/p&gt;
-
-&lt;h1 id=&quot;우울한-하루의-끝&quot;&gt;우울한 하루의 끝&lt;/h1&gt;</content><category term="단상" /><summary type="html">시간 부족으로 늘 대충 마무리 하고 있다.</summary></entry></feed>
+&lt;h2 id=&quot;어떻게든-넘겨보자&quot;&gt;어떻게든 넘겨보자!&lt;/h2&gt;</content><category term="단상" /><summary type="html">어머! 자택 근무라니?</summary></entry></feed>
