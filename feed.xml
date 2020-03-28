@@ -1,4 +1,117 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-03-18T17:51:30+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">요즘 화두는 비용 절감 입니다.</title><link href="https://lahuman.github.io/20200318/" rel="alternate" type="text/html" title="요즘 화두는 비용 절감 입니다." /><published>2020-03-18T00:00:00+09:00</published><updated>2020-03-18T00:00:00+09:00</updated><id>https://lahuman.github.io/20200318</id><content type="html" xml:base="https://lahuman.github.io/20200318/">&lt;h1 id=&quot;본부내에서-비용절감을-목놓아-외치는-분과-일하고-있습니다&quot;&gt;본부내에서 비용절감을 목놓아 외치는 분과 일하고 있습니다&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-03-28T12:29:01+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">수동으로 설치한 WSL을 삭제 하는 방법</title><link href="https://lahuman.github.io/wsl_uninstall/" rel="alternate" type="text/html" title="수동으로 설치한 WSL을 삭제 하는 방법" /><published>2020-03-26T00:00:00+09:00</published><updated>2020-03-26T00:00:00+09:00</updated><id>https://lahuman.github.io/wsl_uninstall</id><content type="html" xml:base="https://lahuman.github.io/wsl_uninstall/">&lt;h1 id=&quot;수동으로-설치한-wsl-삭제-하기&quot;&gt;수동으로 설치한 WSL 삭제 하기&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://lahuman.github.io/wsl_install_using_command/&quot;&gt;보안프로그램을 피해서 WSL 설치하기!&lt;/a&gt;를 통해서 설치한 경우 제어판 &amp;gt; 앱에 Ubuntu가 표기 되지 않습니다.&lt;/p&gt;
+
+&lt;p&gt;압축을 풀었던 디렉토리를 삭제하고 다시 압축을 풀고 Ubuntu.exe 실행하면 그때부터는 &lt;strong&gt;0x80070003&lt;/strong&gt; 메시지를 만나게 됩니다.&lt;/p&gt;
+
+&lt;p&gt;메뉴얼 삭제시에 windows의 wsl에 등록된 정보를 삭제하지 않았기 때문에 발생하는 문제입니다.&lt;/p&gt;
+
+&lt;p&gt;PowerShell에서 wsl을 삭제해주어야 됩니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 설치된 wsl 목록 확인
+PS C:\Users\admin&amp;gt; wslconfig.exe /l
+Linux 배포용 Windows 하위 시스템:
+Ubuntu-18.04(기본값)
+
+# 설치된 wsl 목록 삭제
+PS C:\Users\admin&amp;gt; wslconfig.exe /u Ubuntu-18.04
+삭제중...
+
+# 이후 확인하면 설치된 wsl목록이 없음
+PS C:\Users\admin&amp;gt; wslconfig.exe /l
+Windows Subsystem for Linux has no installed distributions.
+Distributions can be installed by visiting the Windows Store:
+https://aka.ms/wslstore
+
+# 이후 Ubuntu 디렉토리 삭제 진행
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;메뉴얼-방식으로-설치된-wsl을-삭제를-위해서는-wslconfigexe를-이용한-레지스트리-제거가-필요-합니다&quot;&gt;메뉴얼 방식으로 설치된 WSL을 삭제를 위해서는 &lt;strong&gt;wslconfig.exe&lt;/strong&gt;를 이용한 레지스트리 제거가 필요 합니다.&lt;/h2&gt;
+
+&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/microsoft/WSL/issues/3324&quot;&gt;Error 0x80070003 after manually installing/uninstalling when launching bash.exe #3324&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="wsl" /><category term="uninstall" /><summary type="html">보안 프로그램을 피해서 설치한 WSL을 삭제 하는 방법</summary></entry><entry><title type="html">Windows WSL에서 한글 입력기 설정 하기</title><link href="https://lahuman.github.io/wsl_uim_ko/" rel="alternate" type="text/html" title="Windows WSL에서 한글 입력기 설정 하기" /><published>2020-03-20T00:00:00+09:00</published><updated>2020-03-20T00:00:00+09:00</updated><id>https://lahuman.github.io/wsl_uim_ko</id><content type="html" xml:base="https://lahuman.github.io/wsl_uim_ko/">&lt;h1 id=&quot;한글-입력기-설정&quot;&gt;한글 입력기 설정&lt;/h1&gt;
+
+&lt;p&gt;기본적으로 이전에 진행한 &lt;a href=&quot;https://lahuman.github.io/wsl_useing_gui/&quot;&gt;Windows WSL에서 GUI 사용하기
+&lt;/a&gt;가 적용되어야 합니다.&lt;/p&gt;
+
+&lt;p&gt;우선 아래 명령어를 이용하여 한글 폰트를 설치 해야 합니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ sudo apt-get install fonts-nanum fonts-nanum-coding fonts-nanum-extra
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;폰트가 설치 되었으면 &lt;a href=&quot;https://en.wikipedia.org/wiki/Uim&quot;&gt;uim&lt;/a&gt;을 설치 합니다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;uim 은 “universal input method”로 다국어 입력기 프레임워크 입니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;기존에는 uim-byeoru를 함께 설치 하였는데, ubuntu 18.04에서는 uim-byeoru 패키지가 삭제 되고, uim에 Byeoru가 포함되어 있습니다.
+출처 :  &lt;a href=&quot;https://hamonikr.org/board_bFBk25/47893&quot;&gt;한글 입력기 uim-byeoru 패키지 없어짐&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ sudo apt-get install uim
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이후 환경 설정에 다음을 추가 해야 합니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ vi ~/.bashrc
+# 가장 밑에 아래 내용을 추가
+
+export XIM=uim
+
+export XMODIFIERS=@im=uim
+
+export UIM_CANDWIN_PROG=uim-candwin-gtk
+
+export GTK_IM_MODULE=uim
+
+export QT_IM_MODULE=uim
+
+#
+
+if [ $SHLVL -eq 1 ]; then
+
+  uim-xim &amp;amp;
+
+fi
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;파일을 저장하고, 다음 명령어로 환경변수를 반영합니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ source ~/.bashrc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;마지막으로 uim-pref-gtk 명령어를 이용해서 기본 IM을 Byeoru를 설정하고 변환 키를 셋팅 합니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;기본-im을-byeoru로-설정&quot;&gt;기본 IM을 Byeoru로 설정&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/uim_global.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Byeoru 가 선택창 가장 아래부분에 있습니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;전체-키와-벼루-키가-충돌이-일어-날수-있어서-제외&quot;&gt;전체 키와 벼루 키가 충돌이 일어 날수 있어서 제외&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/uim_global_key.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;벼루-키-설정&quot;&gt;벼루 키 설정&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/uim_byeoru_key.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;이후 GUI로 띄운 프로그램에서 한글 입력이 문제 없이 됩니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;오늘도-하나-배웠네요&quot;&gt;오늘도 하나 배웠네요.&lt;/h2&gt;
+
+&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://findnew.tistory.com/22&quot;&gt;우분투 서버 한글 설정 및 한글폰트 설치&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://hamonikr.org/board_bFBk25/47893&quot;&gt;한글 입력기 uim-byeoru 패키지 없어짐&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://sigmafelix.wordpress.com/2018/01/25/wsl-ubuntu%EC%97%90%EC%84%9C-%ED%95%9C%EA%B8%80-%EC%9E%85%EB%A0%A5-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/&quot;&gt;WSL (Ubuntu)에서 한글 입력 사용하기&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="wsl" /><category term="uim" /><summary type="html">한글 입력을 하기 위한 설정을 진행합니다.</summary></entry><entry><title type="html">요즘 화두는 비용 절감 입니다.</title><link href="https://lahuman.github.io/20200318/" rel="alternate" type="text/html" title="요즘 화두는 비용 절감 입니다." /><published>2020-03-18T00:00:00+09:00</published><updated>2020-03-18T00:00:00+09:00</updated><id>https://lahuman.github.io/20200318</id><content type="html" xml:base="https://lahuman.github.io/20200318/">&lt;h1 id=&quot;본부내에서-비용절감을-목놓아-외치는-분과-일하고-있습니다&quot;&gt;본부내에서 비용절감을 목놓아 외치는 분과 일하고 있습니다&lt;/h1&gt;
 
 &lt;p&gt;결론만 말해서는 &lt;strong&gt;상당히 피곤&lt;/strong&gt;합니다.&lt;/p&gt;
 
@@ -326,30 +439,4 @@ const response = await instance.post('/api', { abc:123 });
 
 &lt;p&gt;시간은 시간대로 버리고, 이상한 사람이 된 하루였다.&lt;/p&gt;
 
-&lt;h1 id=&quot;아오빡쵸&quot;&gt;아오빡쵸&lt;/h1&gt;</content><category term="lambda" /><category term="aws" /><summary type="html">Lambda를 사용하는데 안되던게 되기도 하네요.</summary></entry><entry><title type="html">굿바이 블랙독</title><link href="https://lahuman.github.io/20200209/" rel="alternate" type="text/html" title="굿바이 블랙독" /><published>2020-02-09T00:00:00+09:00</published><updated>2020-02-09T00:00:00+09:00</updated><id>https://lahuman.github.io/20200209</id><content type="html" xml:base="https://lahuman.github.io/20200209/">&lt;h1 id=&quot;책에서는-우울증을-블랙독이라는-이름으로-부른다&quot;&gt;책에서는 우울증을 블랙독이라는 이름으로 부른다.&lt;/h1&gt;
-
-&lt;p&gt;블랙독은 누구나 가지고 있으며 혼자서는 이겨낼수 없는 존재이다.&lt;/p&gt;
-
-&lt;p&gt;작가도 블랙독에게 무릅을 꿇고 나서야 전문가를 찾아 가게 되었다.&lt;/p&gt;
-
-&lt;p&gt;전문가가 추천하는 것은 다음과 같다.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;운동하기&lt;/li&gt;
-  &lt;li&gt;기분 기록표 작성하기&lt;/li&gt;
-  &lt;li&gt;나 자신을 믿고 사랑하기&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;블랙독은 누구나 가지고 있다. 어떻게 괸리할지가 중요하다.&lt;/p&gt;
-
-&lt;p&gt;블랙독을 우을증으로 바꿔서 읽으면 좋다.&lt;/p&gt;</content><category term="단상" /><summary type="html">내안의 우울과 이별하기를 읽고</summary></entry><entry><title type="html">자택 근무는 처음이야…</title><link href="https://lahuman.github.io/20200206/" rel="alternate" type="text/html" title="자택 근무는 처음이야..." /><published>2020-02-06T00:00:00+09:00</published><updated>2020-02-06T00:00:00+09:00</updated><id>https://lahuman.github.io/20200206</id><content type="html" xml:base="https://lahuman.github.io/20200206/">&lt;h1 id=&quot;자택-근무를-한다&quot;&gt;자택 근무를 한다.&lt;/h1&gt;
-
-&lt;p&gt;생애 첫 자택 근무이다.&lt;/p&gt;
-
-&lt;p&gt;하지만, 아이들과 함께하니 너무 힘들다.&lt;/p&gt;
-
-&lt;p&gt;아이들은 내가 논다고 생각한다.&lt;/p&gt;
-
-&lt;p&gt;집밖은 위험해서 나갈 수 없다.&lt;/p&gt;
-
-&lt;h2 id=&quot;어떻게든-넘겨보자&quot;&gt;어떻게든 넘겨보자!&lt;/h2&gt;</content><category term="단상" /><summary type="html">어머! 자택 근무라니?</summary></entry></feed>
+&lt;h1 id=&quot;아오빡쵸&quot;&gt;아오빡쵸&lt;/h1&gt;</content><category term="lambda" /><category term="aws" /><summary type="html">Lambda를 사용하는데 안되던게 되기도 하네요.</summary></entry></feed>
