@@ -16,12 +16,11 @@ ENV CHROMIUM_PATH /usr/bin/chromium-browser
 </code></pre></div></div> <p>이후 다음과 같은 오류가 발생할 수 있습니다.</p> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Protocol error (IO.read): Invalid parameters handle: string value expected
 </code></pre></div></div> <p>이유는 <code class="highlighter-rouge">node:12-alpine</code>를 사용할 경우 발생하는 오류로 <code class="highlighter-rouge">node:13-alpine</code>를 이용하면 해결 됩니다.</p> <p>마지막으로 이렇게 처리 했음에도 한글이 깨지고 맙니다.</p> <p>한글 폰트를 다음과 같이 설치하여 줍니다.</p> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Dockerfile
 # 한글 폰트 설치
-RUN cd /usr/share/fonts/
-RUN mkdir ./nanumfont
-RUN cd ./nanumfont
+RUN mkdir /usr/share/fonts/nanumfont
 RUN wget http://cdn.naver.com/naver/NanumFont/fontfiles/NanumFont_TTF_ALL.zip
-RUN unzip NanumFont_TTF_ALL.zip
+RUN unzip NanumFont_TTF_ALL.zip -d /usr/share/fonts/nanumfont
 RUN fc-cache -f -v
+
 </code></pre></div></div> <h3 id="추가--전체-dockerfile을-예제">추가 : 전체 Dockerfile을 예제</h3> <blockquote> <p>Alpine 이란? 알파인 리눅스는 보안, 단순성 및 자원 효율성을 높이는 고급 사용자를 위해 설계된 범용 리눅스 배포판으로 musl libc와 busybox를 기반으로 하기에 GNU/Linux 배포판 보다 작고 가벼우며 yum이나 apt 같은 패키지 관리자가 아닌 apk라는 자체 패키지 관리자를 가지며 보안에 염두해두고 설계되었기에 모든 바이너리는 독립적인 실행 파일(PIE)로 컴파일 됩니다.</p> </blockquote> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>FROM node:13.12.0-alpine3.11 as build
 
 USER root
@@ -34,12 +33,11 @@ COPY . .
 RUN apk add --no-cache udev ttf-freefont chromium
 
 # 한글 폰트 처리
-RUN cd /usr/share/fonts/
-RUN mkdir ./nanumfont
-RUN cd ./nanumfont
+RUN mkdir /usr/share/fonts/nanumfont
 RUN wget http://cdn.naver.com/naver/NanumFont/fontfiles/NanumFont_TTF_ALL.zip
-RUN unzip NanumFont_TTF_ALL.zip
+RUN unzip NanumFont_TTF_ALL.zip -d /usr/share/fonts/nanumfont
 RUN fc-cache -f -v
+
 # 앱 디렉토리로 다시 이동
 RUN cd /usr/src/app
 # npm install 시 Chromium 다운로드 제외 처리
