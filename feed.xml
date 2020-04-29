@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-04-19T00:50:16+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">[Dockerfile] node:Alpine에서 puppeteer 기동 &amp;amp; 한글 깨짐 처리</title><link href="https://lahuman.github.io/dockerfile_alpine_puppeteer/" rel="alternate" type="text/html" title="[Dockerfile] node:Alpine에서 puppeteer 기동 &amp; 한글 깨짐 처리" /><published>2020-04-14T00:00:00+09:00</published><updated>2020-04-14T00:00:00+09:00</updated><id>https://lahuman.github.io/dockerfile_alpine_puppeteer</id><content type="html" xml:base="https://lahuman.github.io/dockerfile_alpine_puppeteer/">&lt;h1 id=&quot;nodealpine-에서-puppeteer-기동-하고-한글-깨짐-처리-하기&quot;&gt;node:Alpine 에서 puppeteer 기동 하고 한글 깨짐 처리 하기&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-04-29T22:01:00+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">[Dockerfile] node:Alpine에서 puppeteer 기동 &amp;amp; 한글 깨짐 처리</title><link href="https://lahuman.github.io/dockerfile_alpine_puppeteer/" rel="alternate" type="text/html" title="[Dockerfile] node:Alpine에서 puppeteer 기동 &amp; 한글 깨짐 처리" /><published>2020-04-14T00:00:00+09:00</published><updated>2020-04-14T00:00:00+09:00</updated><id>https://lahuman.github.io/dockerfile_alpine_puppeteer</id><content type="html" xml:base="https://lahuman.github.io/dockerfile_alpine_puppeteer/">&lt;h1 id=&quot;nodealpine-에서-puppeteer-기동-하고-한글-깨짐-처리-하기&quot;&gt;node:Alpine 에서 puppeteer 기동 하고 한글 깨짐 처리 하기&lt;/h1&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://www.weave.works/blog/gitops-operations-by-pull-request&quot;&gt;GitOps&lt;/a&gt; 스타일의 지속적인 배포를 구축하여 자동 배포 시스템을 Git ==&amp;gt; jenkins ==&amp;gt; Kubernetes로 구축하여 사용하고 있습니다.&lt;/p&gt;
 
@@ -146,10 +146,10 @@ $&amp;gt; sudo xcode-select --install
 
 &lt;p&gt;아래는 모든 컴포넌트에서 애니메이션 효과를 제거하는 코드입니다.&lt;/p&gt;
 
-&lt;p&gt;’’’
-import { createMuiTheme, ThemeProvider } from ‘@material-ui/core’;&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+import { createMuiTheme, ThemeProvider } from '@material-ui/core';
 
-&lt;p&gt;const theme = createMuiTheme({
+const theme = createMuiTheme({
   props: {
     // Name of the component ⚛️
     MuiButtonBase: {
@@ -158,19 +158,19 @@ import { createMuiTheme, ThemeProvider } from ‘@material-ui/core’;&lt;/p&gt;
     },
   },
   transitions: {
-    // So we have &lt;code class=&quot;highlighter-rouge&quot;&gt;transition: none;&lt;/code&gt; everywhere
-    create: () =&amp;gt; ‘none’,
+    // So we have 'transition: none;' everywhere
+    create: () =&amp;gt; 'none',
   },
-});&lt;/p&gt;
+});
 
-&lt;p&gt;export default (props) =&amp;gt; {
+export default (props) =&amp;gt; {
   &amp;lt;ThemeProvider theme={theme}&amp;gt;
     &amp;lt;div className={classes.root}&amp;gt;
-    ….
+    ....
     &amp;lt;/div&amp;gt;
   &amp;lt;/ThemeProvider&amp;gt;
 }
-‘’’&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h3 id=&quot;결과&quot;&gt;결과&lt;/h3&gt;
 
