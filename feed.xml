@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-05-10T21:43:28+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">동네에 코로나바이러스 확진자가 발생하였습니다.</title><link href="https://lahuman.github.io/20200510/" rel="alternate" type="text/html" title="동네에 코로나바이러스 확진자가 발생하였습니다." /><published>2020-05-10T00:00:00+09:00</published><updated>2020-05-10T00:00:00+09:00</updated><id>https://lahuman.github.io/20200510</id><content type="html" xml:base="https://lahuman.github.io/20200510/">&lt;h1 id=&quot;끝날때까지-끝난게-아니라고-그렇게-이야기-다들-하는데&quot;&gt;끝날때까지 끝난게 아니라고 그렇게 이야기 다들 하는데…&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-05-10T21:49:19+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">동네에 코로나바이러스 확진자가 발생하였습니다.</title><link href="https://lahuman.github.io/20200510/" rel="alternate" type="text/html" title="동네에 코로나바이러스 확진자가 발생하였습니다." /><published>2020-05-10T00:00:00+09:00</published><updated>2020-05-10T00:00:00+09:00</updated><id>https://lahuman.github.io/20200510</id><content type="html" xml:base="https://lahuman.github.io/20200510/">&lt;h1 id=&quot;끝날때까지-끝난게-아니라고-그렇게-이야기-다들-하는데&quot;&gt;끝날때까지 끝난게 아니라고 그렇게 이야기 다들 하는데…&lt;/h1&gt;
 
 &lt;p&gt;몇몇 사람들로 인해서 다시 활성화되고 있습니다.&lt;/p&gt;
 
@@ -14,7 +14,7 @@
 
 &lt;p&gt;node를 설치하고 진행중인 개인 프로젝트를 설치 하였는데, npm install sqlite3에서 다음과 같은 오류페이지가 표출 되었습니다.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;assets/img/post_img/sqlite3_error.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/sqlite3_error.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;오류를 처리하기 위해서 많은 시도를 하였지만, 모두 실패 하였습니다.&lt;/p&gt;
 
@@ -36,7 +36,7 @@ $ sudo apt-get install -y nodejs
 $ sudo npm install sqlite3
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;img src=&quot;assets/img/post_img/sqlite3_install.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/sqlite3_install.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;아주 잘 설치됩니다.&lt;/p&gt;
 
