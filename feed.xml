@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-05-10T18:36:34+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">동네에 코로나바이러스 확진자가 발생하였습니다.</title><link href="https://lahuman.github.io/20200510/" rel="alternate" type="text/html" title="동네에 코로나바이러스 확진자가 발생하였습니다." /><published>2020-05-10T00:00:00+09:00</published><updated>2020-05-10T00:00:00+09:00</updated><id>https://lahuman.github.io/20200510</id><content type="html" xml:base="https://lahuman.github.io/20200510/">&lt;h1 id=&quot;끝날때까지-끝난게-아니라고-그렇게-이야기-다들-하는데&quot;&gt;끝날때까지 끝난게 아니라고 그렇게 이야기 다들 하는데…&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-05-10T21:43:28+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">동네에 코로나바이러스 확진자가 발생하였습니다.</title><link href="https://lahuman.github.io/20200510/" rel="alternate" type="text/html" title="동네에 코로나바이러스 확진자가 발생하였습니다." /><published>2020-05-10T00:00:00+09:00</published><updated>2020-05-10T00:00:00+09:00</updated><id>https://lahuman.github.io/20200510</id><content type="html" xml:base="https://lahuman.github.io/20200510/">&lt;h1 id=&quot;끝날때까지-끝난게-아니라고-그렇게-이야기-다들-하는데&quot;&gt;끝날때까지 끝난게 아니라고 그렇게 이야기 다들 하는데…&lt;/h1&gt;
 
 &lt;p&gt;몇몇 사람들로 인해서 다시 활성화되고 있습니다.&lt;/p&gt;
 
@@ -8,7 +8,41 @@
 
 &lt;p&gt;조금만 더 참고 조심해야 합니다.&lt;/p&gt;
 
-&lt;h2 id=&quot;모두-조금만-더-힘내-보아요&quot;&gt;모두 조금만 더 힘내 보아요!&lt;/h2&gt;</content><category term="단상" /><summary type="html">이태원 클럽을 다녀왔다고 하네요.</summary></entry><entry><title type="html">[Dockerfile] node:Alpine에서 puppeteer 기동 &amp;amp; 한글 깨짐 처리</title><link href="https://lahuman.github.io/dockerfile_alpine_puppeteer/" rel="alternate" type="text/html" title="[Dockerfile] node:Alpine에서 puppeteer 기동 &amp; 한글 깨짐 처리" /><published>2020-04-14T00:00:00+09:00</published><updated>2020-04-14T00:00:00+09:00</updated><id>https://lahuman.github.io/dockerfile_alpine_puppeteer</id><content type="html" xml:base="https://lahuman.github.io/dockerfile_alpine_puppeteer/">&lt;h1 id=&quot;nodealpine-에서-puppeteer-기동-하고-한글-깨짐-처리-하기&quot;&gt;node:Alpine 에서 puppeteer 기동 하고 한글 깨짐 처리 하기&lt;/h1&gt;
+&lt;h2 id=&quot;모두-조금만-더-힘내-보아요&quot;&gt;모두 조금만 더 힘내 보아요!&lt;/h2&gt;</content><category term="단상" /><summary type="html">이태원 클럽을 다녀왔다고 하네요.</summary></entry><entry><title type="html">Ubuntu 20.04] npm install sqlite3 설치시 오류 처리</title><link href="https://lahuman.github.io/ubuntu_20.04_npm_sqlite3/" rel="alternate" type="text/html" title="Ubuntu 20.04] npm install sqlite3 설치시 오류 처리" /><published>2020-04-14T00:00:00+09:00</published><updated>2020-04-14T00:00:00+09:00</updated><id>https://lahuman.github.io/ubuntu_20.04_npm_sqlite3</id><content type="html" xml:base="https://lahuman.github.io/ubuntu_20.04_npm_sqlite3/">&lt;h1 id=&quot;ubuntu-2004-npm-install-sqlite3-설치시-오류-처리&quot;&gt;Ubuntu 20.04] npm install sqlite3 설치시 오류 처리&lt;/h1&gt;
+
+&lt;p&gt;WSL에서 Ubuntu 20.04가 제공된다는 이야기를 듣고 바로 설치 하였습니다.&lt;/p&gt;
+
+&lt;p&gt;node를 설치하고 진행중인 개인 프로젝트를 설치 하였는데, npm install sqlite3에서 다음과 같은 오류페이지가 표출 되었습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;assets/img/post_img/sqlite3_error.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;오류를 처리하기 위해서 많은 시도를 하였지만, 모두 실패 하였습니다.&lt;/p&gt;
+
+&lt;p&gt;결국 최후의 방법으로 Ubuntu를 삭제하고 재설치를 진행하였습니다.&lt;/p&gt;
+
+&lt;p&gt;다음과 같이 처리하여 문제를 해결하였습니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# ubuntu update
+$ sudo apt-get update
+$ sudo apt-get -y upgrade
+
+# 개발도구 설치
+$ sudo apt-get install -y build-essential
+
+# node 12 설치
+$ curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash - 
+$ sudo apt-get install -y nodejs
+
+$ sudo npm install sqlite3
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;assets/img/post_img/sqlite3_install.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;아주 잘 설치됩니다.&lt;/p&gt;
+
+&lt;p&gt;거의 2주간 여러 라이브러리를 설치하고 지우고를 했는데, 결국 포멧후 첨부터 다시하니 쉽게 되네요.&lt;/p&gt;
+
+&lt;h2 id=&quot;역시-최후의-방법은-포멧입니다&quot;&gt;역시 최후의 방법은 포멧입니다.&lt;/h2&gt;</content><category term="ubuntu" /><category term="npm" /><category term="sqlite3" /><summary type="html">돌고 돌아 깔끔 처리</summary></entry><entry><title type="html">[Dockerfile] node:Alpine에서 puppeteer 기동 &amp;amp; 한글 깨짐 처리</title><link href="https://lahuman.github.io/dockerfile_alpine_puppeteer/" rel="alternate" type="text/html" title="[Dockerfile] node:Alpine에서 puppeteer 기동 &amp; 한글 깨짐 처리" /><published>2020-04-14T00:00:00+09:00</published><updated>2020-04-14T00:00:00+09:00</updated><id>https://lahuman.github.io/dockerfile_alpine_puppeteer</id><content type="html" xml:base="https://lahuman.github.io/dockerfile_alpine_puppeteer/">&lt;h1 id=&quot;nodealpine-에서-puppeteer-기동-하고-한글-깨짐-처리-하기&quot;&gt;node:Alpine 에서 puppeteer 기동 하고 한글 깨짐 처리 하기&lt;/h1&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://www.weave.works/blog/gitops-operations-by-pull-request&quot;&gt;GitOps&lt;/a&gt; 스타일의 지속적인 배포를 구축하여 자동 배포 시스템을 Git ==&amp;gt; jenkins ==&amp;gt; Kubernetes로 구축하여 사용하고 있습니다.&lt;/p&gt;
 
@@ -385,78 +419,4 @@ fi
 
 &lt;p&gt;다음주부터 집에서 혼자 아이들을 돌보아야 하는 아내가 걱정이네요.&lt;/p&gt;
 
-&lt;h2 id=&quot;개인적인-바램은-다음주도-자택근무-연장이-되었으면-좋겠습니다&quot;&gt;개인적인 바램은 다음주도 자택근무 연장이 되었으면 좋겠습니다.&lt;/h2&gt;</content><category term="단상" /><summary type="html">일주일만에 집밖으로 나왔네요.</summary></entry><entry><title type="html">Windows WSL에서 GUI 사용하기</title><link href="https://lahuman.github.io/wsl_useing_gui/" rel="alternate" type="text/html" title="Windows WSL에서 GUI 사용하기" /><published>2020-02-25T00:00:00+09:00</published><updated>2020-02-25T00:00:00+09:00</updated><id>https://lahuman.github.io/wsl_useing_gui</id><content type="html" xml:base="https://lahuman.github.io/wsl_useing_gui/">&lt;h1 id=&quot;windows-wsl에서-gui-사용하기&quot;&gt;Windows WSL에서 GUI 사용하기&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;기본적으로 GUI를 사용하려면 ssh를 통한 접근 후 사용해야 합니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Windows 10에서 &lt;a href=&quot;https://docs.microsoft.com/ko-kr/windows/wsl/about&quot;&gt;Windows Subsystem for Linux(WSL)&lt;/a&gt; GUI를 띄우는(크롬, interlij) 작업을 하기위해서 다음과 같은 설정이 필요합니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;ssh-서버-설치--설정&quot;&gt;SSH 서버 설치 &amp;amp; 설정&lt;/h2&gt;
-
-&lt;p&gt;기본으로 설치되어 있는 SSH 서버는 동작을 제대로 하지 못함으로 완전히 제거하고 재설치 한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 설치 전에 APT repository 업데이트
-$&amp;gt; sudo apt-get update
-$&amp;gt; sudo apt-get upgrade
-
-# ssh를 완전히 삭제하고 재설치
-$&amp;gt; sudo apt-get purge openssh-server
-$&amp;gt; sudo apt-get install openssh-server
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;이후 &lt;strong&gt;/etc/ssh/sshd_config&lt;/strong&gt; 파일을 열고 다음 항목들을 설정한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# /etc/ssh/sshd_config 파일 내
-Port 22
-Protocol 2
-PermitRootLogin no
-AuthorizedKeysFile  .ssh/authorized_keys
-PasswordAuthentication yes
-PubkeyAuthentication yes
-ChallengeResponseAuthentication no
-X11Forwarding yes
-UseDNS no
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;마지막으로 ssh 서버를 재시작 하고 나면 ssh에 대한 재설치와 설정은 끝이다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$&amp;gt; sudo service ssh --full-restart
-$&amp;gt; sudo service ssh restart
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;gui-사용하기&quot;&gt;GUI 사용하기&lt;/h2&gt;
-
-&lt;p&gt;다음 명령어를 이용해서 Machine ID를 생성한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# ID 생성
-$&amp;gt; sudo systemd-machine-id-setup
-$&amp;gt; sudo dbus-uuidgen --ensure
-# ID 확인
-$&amp;gt; cat /etc/machine-id
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;x-window 구성요소 설치를 합니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$&amp;gt; sudo apt-get install x11-apps xfonts-base xfonts-100dpi xfonts-75dpi xfonts-cyrillic
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;기본 디스플레이 포트 설정을 위해서 &lt;strong&gt;~/.bashrc&lt;/strong&gt;에 디스플레이 환경변수를 설정합니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# ~/.bashrc
-export DISPLAY=:0
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;이후 다음 명령어를 이용해서 디스플레이가 동작하는지 확인합니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$&amp;gt; xeyes
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;실행이 성공적으로 되면 눈이 뜨면서 마우스를 따라 눈동자를 움직입니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.tuwlab.com/29302&quot;&gt;[WSL] Windows Subsystem for Linux - SSH 서버 세팅하기&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.tuwlab.com/29485&quot;&gt;[WSL] Windows Subsystem for Linux - 디스플레이 서버 설정 및 GUI 사용하기&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="wsl" /><category term="gui" /><summary type="html">그냥 쓰면 안되고 SSH를 통해서 연결후 사용해야 합니다.</summary></entry></feed>
+&lt;h2 id=&quot;개인적인-바램은-다음주도-자택근무-연장이-되었으면-좋겠습니다&quot;&gt;개인적인 바램은 다음주도 자택근무 연장이 되었으면 좋겠습니다.&lt;/h2&gt;</content><category term="단상" /><summary type="html">일주일만에 집밖으로 나왔네요.</summary></entry></feed>
