@@ -1,4 +1,14 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-05-01T15:46:46+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">[Dockerfile] node:Alpine에서 puppeteer 기동 &amp;amp; 한글 깨짐 처리</title><link href="https://lahuman.github.io/dockerfile_alpine_puppeteer/" rel="alternate" type="text/html" title="[Dockerfile] node:Alpine에서 puppeteer 기동 &amp; 한글 깨짐 처리" /><published>2020-04-14T00:00:00+09:00</published><updated>2020-04-14T00:00:00+09:00</updated><id>https://lahuman.github.io/dockerfile_alpine_puppeteer</id><content type="html" xml:base="https://lahuman.github.io/dockerfile_alpine_puppeteer/">&lt;h1 id=&quot;nodealpine-에서-puppeteer-기동-하고-한글-깨짐-처리-하기&quot;&gt;node:Alpine 에서 puppeteer 기동 하고 한글 깨짐 처리 하기&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-05-10T18:36:34+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">동네에 코로나바이러스 확진자가 발생하였습니다.</title><link href="https://lahuman.github.io/20200510/" rel="alternate" type="text/html" title="동네에 코로나바이러스 확진자가 발생하였습니다." /><published>2020-05-10T00:00:00+09:00</published><updated>2020-05-10T00:00:00+09:00</updated><id>https://lahuman.github.io/20200510</id><content type="html" xml:base="https://lahuman.github.io/20200510/">&lt;h1 id=&quot;끝날때까지-끝난게-아니라고-그렇게-이야기-다들-하는데&quot;&gt;끝날때까지 끝난게 아니라고 그렇게 이야기 다들 하는데…&lt;/h1&gt;
+
+&lt;p&gt;몇몇 사람들로 인해서 다시 활성화되고 있습니다.&lt;/p&gt;
+
+&lt;p&gt;클럽에가서 놀고 싶은 마음을 모르는건 아니지만, 시국이 시국인 만큼 참아야 한다는걸 왜 모를까요?&lt;/p&gt;
+
+&lt;p&gt;걸려서 가족에게 옮기기라도 하면 얼마나 큰 후회를 할려고 이러는 걸까요?&lt;/p&gt;
+
+&lt;p&gt;조금만 더 참고 조심해야 합니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;모두-조금만-더-힘내-보아요&quot;&gt;모두 조금만 더 힘내 보아요!&lt;/h2&gt;</content><category term="단상" /><summary type="html">이태원 클럽을 다녀왔다고 하네요.</summary></entry><entry><title type="html">[Dockerfile] node:Alpine에서 puppeteer 기동 &amp;amp; 한글 깨짐 처리</title><link href="https://lahuman.github.io/dockerfile_alpine_puppeteer/" rel="alternate" type="text/html" title="[Dockerfile] node:Alpine에서 puppeteer 기동 &amp; 한글 깨짐 처리" /><published>2020-04-14T00:00:00+09:00</published><updated>2020-04-14T00:00:00+09:00</updated><id>https://lahuman.github.io/dockerfile_alpine_puppeteer</id><content type="html" xml:base="https://lahuman.github.io/dockerfile_alpine_puppeteer/">&lt;h1 id=&quot;nodealpine-에서-puppeteer-기동-하고-한글-깨짐-처리-하기&quot;&gt;node:Alpine 에서 puppeteer 기동 하고 한글 깨짐 처리 하기&lt;/h1&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://www.weave.works/blog/gitops-operations-by-pull-request&quot;&gt;GitOps&lt;/a&gt; 스타일의 지속적인 배포를 구축하여 자동 배포 시스템을 Git ==&amp;gt; jenkins ==&amp;gt; Kubernetes로 구축하여 사용하고 있습니다.&lt;/p&gt;
 
@@ -449,52 +459,4 @@ export DISPLAY=:0
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.tuwlab.com/29302&quot;&gt;[WSL] Windows Subsystem for Linux - SSH 서버 세팅하기&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.tuwlab.com/29485&quot;&gt;[WSL] Windows Subsystem for Linux - 디스플레이 서버 설정 및 GUI 사용하기&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="wsl" /><category term="gui" /><summary type="html">그냥 쓰면 안되고 SSH를 통해서 연결후 사용해야 합니다.</summary></entry><entry><title type="html">VS CODE에서 npm install 시 EACCESS 권한 오류 발생</title><link href="https://lahuman.github.io/wsl_vscode_eaccess/" rel="alternate" type="text/html" title="VS CODE에서 npm install 시 EACCESS 권한 오류 발생" /><published>2020-02-24T00:00:00+09:00</published><updated>2020-02-24T00:00:00+09:00</updated><id>https://lahuman.github.io/wsl_vscode_eaccess</id><content type="html" xml:base="https://lahuman.github.io/wsl_vscode_eaccess/">&lt;h1 id=&quot;vs-code에서-npm-사용시-권한-문제-해결&quot;&gt;VS CODE에서 NPM 사용시 권한 문제 해결&lt;/h1&gt;
-
-&lt;p&gt;Windows 10에서 &lt;a href=&quot;https://docs.microsoft.com/ko-kr/windows/wsl/about&quot;&gt;Windows Subsystem for Linux(WSL)&lt;/a&gt;를 설치 후 node의 개발을 VSCODE를 이용해서 진행하려고 하였습니다.&lt;/p&gt;
-
-&lt;p&gt;문제의 발생은 VSCODE의 terminal에서 npm을 이용해서 모듈을 설치할때 발생하였습니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# IN VS CODE TERMINAL
-$&amp;gt; cd /project
-$&amp;gt; npm i
-npm ERR! code EACCES
-npm ERR! syscall rename
-npm ERR! path /project/node_modules/@samverschueren/stream-to-observable
-npm ERR! dest /project/node_modules/@samverschueren/.stream-to-observable.DELETE
-npm ERR! errno -13
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;sudo 명령어를 이용해서 시도해보고, root 권한으로도 시도 해보았으나, 동일한 오류가 발생했습니다.&lt;/p&gt;
-
-&lt;p&gt;하지만, wsl 터미널에서는 해당 문제가 없이 설치가 진행됩니다.&lt;/p&gt;
-
-&lt;p&gt;npm install 명령어는 자주 사용하기에 해결 방법을 찾아보니, &lt;a href=&quot;https://code.visualstudio.com/docs/remote/wsl&quot;&gt;Developing in WSL&lt;/a&gt;에서 다음과 같은 내용을 찾았습니다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;I see EACCESS: permission denied error trying to rename a folder in the open workspace
-That’s a known problem with the WSL file system implementation (Microsoft/WSL#3395, Microsoft/WSL#1956) caused by the file watcher active by VSCode. The issue will only be fixed in WSL 2.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;To avoid the issue, set remote.WSL.fileWatcher.polling to true. However, polling based has a performance impact for large workspaces.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;For large workspace you want to increase the polling interval: remote.WSL.fileWatcher.pollingInterval and control the folders that are watched: files.watcherExclude.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;WSL 2 does not have that file watcher problem is also not affected by the new setting.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;해당 이슈는 &lt;a href=&quot;https://docs.microsoft.com/ko-kr/windows/wsl/wsl2-index&quot;&gt;WSL 2&lt;/a&gt;에서 해결된다고 합니다.&lt;/p&gt;
-
-&lt;p&gt;우선 간단하게 해당 문제를 피하기 위해서는 vscode에서 설정으로 가서 &lt;strong&gt;remote.WSL.fileWatcher.polling&lt;/strong&gt; 옵션을 true로 체크 해주면 됩니다.&lt;/p&gt;
-
-&lt;p&gt;다른 이슈도 &lt;a href=&quot;https://code.visualstudio.com/docs/remote/wsl&quot;&gt;Developing in WSL&lt;/a&gt;에 잘 정리되어 있습니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://code.visualstudio.com/docs/remote/wsl&quot;&gt;Developing in WSL&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="wsl" /><category term="npm" /><summary type="html">해결방법이 잘 정리가 되어 있네요.</summary></entry></feed>
+&lt;/ul&gt;</content><category term="wsl" /><category term="gui" /><summary type="html">그냥 쓰면 안되고 SSH를 통해서 연결후 사용해야 합니다.</summary></entry></feed>
