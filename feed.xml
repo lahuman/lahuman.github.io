@@ -1,14 +1,122 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-05-10T21:49:19+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">동네에 코로나바이러스 확진자가 발생하였습니다.</title><link href="https://lahuman.github.io/20200510/" rel="alternate" type="text/html" title="동네에 코로나바이러스 확진자가 발생하였습니다." /><published>2020-05-10T00:00:00+09:00</published><updated>2020-05-10T00:00:00+09:00</updated><id>https://lahuman.github.io/20200510</id><content type="html" xml:base="https://lahuman.github.io/20200510/">&lt;h1 id=&quot;끝날때까지-끝난게-아니라고-그렇게-이야기-다들-하는데&quot;&gt;끝날때까지 끝난게 아니라고 그렇게 이야기 다들 하는데…&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-05-11T11:44:22+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">nodeJs] 첨부 파일를 다른 서버로 전달하기</title><link href="https://lahuman.github.io/axios_formdata_file_send/" rel="alternate" type="text/html" title="nodeJs] 첨부 파일를 다른 서버로 전달하기" /><published>2020-05-11T00:00:00+09:00</published><updated>2020-05-11T00:00:00+09:00</updated><id>https://lahuman.github.io/axios_formdata_file_send</id><content type="html" xml:base="https://lahuman.github.io/axios_formdata_file_send/">&lt;h1 id=&quot;첨부파일을-다른-서버로-포워딩-하기&quot;&gt;첨부파일을 다른 서버로 포워딩 하기&lt;/h1&gt;
 
-&lt;p&gt;몇몇 사람들로 인해서 다시 활성화되고 있습니다.&lt;/p&gt;
+&lt;p&gt;첨부 파일을 아래 그림과 같이 API server에서 받아서 다른 내부 서버에 전달을 하려고 합니다.&lt;/p&gt;
 
-&lt;p&gt;클럽에가서 놀고 싶은 마음을 모르는건 아니지만, 시국이 시국인 만큼 참아야 한다는걸 왜 모를까요?&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/file_upload_via_server.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;걸려서 가족에게 옮기기라도 하면 얼마나 큰 후회를 할려고 이러는 걸까요?&lt;/p&gt;
+&lt;p&gt;API 서버에는 따로 첨부파일 정보를 저장하지 않고, buffer를 바로 내부 서버로 전달을 합니다.&lt;/p&gt;
 
-&lt;p&gt;조금만 더 참고 조심해야 합니다.&lt;/p&gt;
+&lt;p&gt;이를 처리하는 방식으로는 2가지가 있습니다.&lt;/p&gt;
 
-&lt;h2 id=&quot;모두-조금만-더-힘내-보아요&quot;&gt;모두 조금만 더 힘내 보아요!&lt;/h2&gt;</content><category term="단상" /><summary type="html">이태원 클럽을 다녀왔다고 하네요.</summary></entry><entry><title type="html">Ubuntu 20.04] npm install sqlite3 설치시 오류 처리</title><link href="https://lahuman.github.io/ubuntu_20.04_npm_sqlite3/" rel="alternate" type="text/html" title="Ubuntu 20.04] npm install sqlite3 설치시 오류 처리" /><published>2020-04-14T00:00:00+09:00</published><updated>2020-04-14T00:00:00+09:00</updated><id>https://lahuman.github.io/ubuntu_20.04_npm_sqlite3</id><content type="html" xml:base="https://lahuman.github.io/ubuntu_20.04_npm_sqlite3/">&lt;h1 id=&quot;ubuntu-2004-npm-install-sqlite3-설치시-오류-처리&quot;&gt;Ubuntu 20.04] npm install sqlite3 설치시 오류 처리&lt;/h1&gt;
+&lt;ol&gt;
+  &lt;li&gt;Proxy 사용&lt;/li&gt;
+  &lt;li&gt;axios와 다른 라이브러리를 이용하여 post 통신&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;1-proxy-사용&quot;&gt;1. Proxy 사용&lt;/h2&gt;
+
+&lt;h4 id=&quot;필요-라이브러리&quot;&gt;필요 라이브러리&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.npmjs.com/package/express-http-proxy&quot;&gt;express-http-proxy&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;사용법&quot;&gt;사용법&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.npmjs.com/package/express-http-proxy&quot;&gt;express-http-proxy&lt;/a&gt;를 다음과 같이 설정하면 해당 주소로 오는 요청의 통신을 설정된 서버로 포워딩 해줍니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 예제
+const proxy = require('express-http-proxy');
+
+const app = require('express')();
+
+app.use('/proxy', proxy('http://proxy_target_domain', {
+  proxyReqPathResolver: async (req) =&amp;gt; {
+    return '/proxy/target/url?id='+req.params.id;
+  },
+  proxyReqOptDecorator: (proxyReqOpts) =&amp;gt; {
+    const newProxyReqOpts = { ...proxyReqOpts };
+    newProxyReqOpts.headers = { host: 'spacial hosts', apikey: 'spacial key' };
+    newProxyReqOpts.rejectUnauthorized = false;
+    return newProxyReqOpts;
+  },
+}));
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;2-axios와-다른-라이브러리를-이용하여-post-통신&quot;&gt;2. axios와 다른 라이브러리를 이용하여 post 통신&lt;/h2&gt;
+
+&lt;h4 id=&quot;필요-라이브러리-1&quot;&gt;필요 라이브러리&lt;/h4&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.npmjs.com/package/axios&quot;&gt;axios&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.npmjs.com/package/multer&quot;&gt;multer&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.npmjs.com/package/form-data&quot;&gt;form-data&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4 id=&quot;사용법-1&quot;&gt;사용법&lt;/h4&gt;
+
+&lt;p&gt;우선 첨부파일을 &lt;a href=&quot;https://www.npmjs.com/package/multer&quot;&gt;multer&lt;/a&gt;를 이용해서 객체로 만들고, 이를 &lt;a href=&quot;https://www.npmjs.com/package/form-data&quot;&gt;form-data&lt;/a&gt;로 감싸서 &lt;a href=&quot;https://www.npmjs.com/package/axios&quot;&gt;axios&lt;/a&gt;를 통해 전송합니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;const axios = require(&quot;axios&quot;);
+const https = require(&quot;https&quot;);
+const multer = require(&quot;multer&quot;);
+const FormData = require(&quot;form-data&quot;);
+const express = require('express');
+
+const app = express();
+const router = express.Router();
+
+app.use('/', router);
+
+const upload = multer();
+router.post(
+  &quot;/upload&quot;,
+  upload.single(&quot;filepond&quot;), // multer를 이용하여 업로드 파일 처리
+  async (req, res, next) =&amp;gt; {
+    try {
+      // buffer를 FormData로 감쌈
+      const formData = new FormData();
+      formData.append(&quot;filepond&quot;, req.file.buffer, {
+        filename: req.file.originalname,
+      });
+
+      // 다른 서버로 전송
+      const result = await axios.post(
+        'http://proxy_target_domain/proxy/target/url',
+        formData,
+        {
+          headers: {
+            ...formData.getHeaders(),
+            &quot;Content-Length&quot;: formData.getLengthSync(),
+            apikey: &quot;apikey&quot;,
+            host: &quot;hosts&quot;,
+          },
+          httpsAgent: new https.Agent({
+            rejectUnauthorized: false,
+          }),
+        }
+      );
+      res.status(200).json(result.data);
+    } catch (err) {
+      logger.error(err);
+      res
+        .status(500)
+        .send(`${err}`);
+    }
+  }
+);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;첨부 파일을 다른 서버로 전송할때 주의 할 것은&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;formData.append(&quot;filepond&quot;, req.file.buffer, {
+        filename: req.file.originalname,
+      });
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이 부분에서 3번째 옵션 파라메터에 filename 이외의 값을 함부로 추가 하면 &lt;strong&gt;400 Bad request&lt;/strong&gt; 가 발생합니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;파일을-전달하는-것이-어려운게-아닌데-명확한-인터페이스를-확인하지-못해서-시간이-많이-지체-되었습니다&quot;&gt;파일을 전달하는 것이 어려운게 아닌데 명확한 인터페이스를 확인하지 못해서 시간이 많이 지체 되었습니다.&lt;/h2&gt;</content><category term="node" /><category term="axios" /><category term="proxy" /><summary type="html">Proxy를 이용하거나, axios와 몇가지 라이브러리를 사용하면 된다.</summary></entry><entry><title type="html">Ubuntu 20.04] npm install sqlite3 설치시 오류 처리</title><link href="https://lahuman.github.io/ubuntu_20.04_npm_sqlite3/" rel="alternate" type="text/html" title="Ubuntu 20.04] npm install sqlite3 설치시 오류 처리" /><published>2020-05-10T00:00:00+09:00</published><updated>2020-05-10T00:00:00+09:00</updated><id>https://lahuman.github.io/ubuntu_20.04_npm_sqlite3</id><content type="html" xml:base="https://lahuman.github.io/ubuntu_20.04_npm_sqlite3/">&lt;h1 id=&quot;ubuntu-2004-npm-install-sqlite3-설치시-오류-처리&quot;&gt;Ubuntu 20.04] npm install sqlite3 설치시 오류 처리&lt;/h1&gt;
 
 &lt;p&gt;WSL에서 Ubuntu 20.04가 제공된다는 이야기를 듣고 바로 설치 하였습니다.&lt;/p&gt;
 
@@ -30,7 +138,7 @@ $ sudo apt-get -y upgrade
 $ sudo apt-get install -y build-essential
 
 # node 12 설치
-$ curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash - 
+$ curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
 $ sudo apt-get install -y nodejs
 
 $ sudo npm install sqlite3
@@ -42,7 +150,17 @@ $ sudo npm install sqlite3
 
 &lt;p&gt;거의 2주간 여러 라이브러리를 설치하고 지우고를 했는데, 결국 포멧후 첨부터 다시하니 쉽게 되네요.&lt;/p&gt;
 
-&lt;h2 id=&quot;역시-최후의-방법은-포멧입니다&quot;&gt;역시 최후의 방법은 포멧입니다.&lt;/h2&gt;</content><category term="ubuntu" /><category term="npm" /><category term="sqlite3" /><summary type="html">돌고 돌아 깔끔 처리</summary></entry><entry><title type="html">[Dockerfile] node:Alpine에서 puppeteer 기동 &amp;amp; 한글 깨짐 처리</title><link href="https://lahuman.github.io/dockerfile_alpine_puppeteer/" rel="alternate" type="text/html" title="[Dockerfile] node:Alpine에서 puppeteer 기동 &amp; 한글 깨짐 처리" /><published>2020-04-14T00:00:00+09:00</published><updated>2020-04-14T00:00:00+09:00</updated><id>https://lahuman.github.io/dockerfile_alpine_puppeteer</id><content type="html" xml:base="https://lahuman.github.io/dockerfile_alpine_puppeteer/">&lt;h1 id=&quot;nodealpine-에서-puppeteer-기동-하고-한글-깨짐-처리-하기&quot;&gt;node:Alpine 에서 puppeteer 기동 하고 한글 깨짐 처리 하기&lt;/h1&gt;
+&lt;h2 id=&quot;역시-최후의-방법은-포멧입니다&quot;&gt;역시 최후의 방법은 포멧입니다.&lt;/h2&gt;</content><category term="ubuntu" /><category term="npm" /><category term="sqlite3" /><summary type="html">돌고 돌아 깔끔 처리</summary></entry><entry><title type="html">동네에 코로나바이러스 확진자가 발생하였습니다.</title><link href="https://lahuman.github.io/20200510/" rel="alternate" type="text/html" title="동네에 코로나바이러스 확진자가 발생하였습니다." /><published>2020-05-10T00:00:00+09:00</published><updated>2020-05-10T00:00:00+09:00</updated><id>https://lahuman.github.io/20200510</id><content type="html" xml:base="https://lahuman.github.io/20200510/">&lt;h1 id=&quot;끝날때까지-끝난게-아니라고-그렇게-이야기-다들-하는데&quot;&gt;끝날때까지 끝난게 아니라고 그렇게 이야기 다들 하는데…&lt;/h1&gt;
+
+&lt;p&gt;몇몇 사람들로 인해서 다시 활성화되고 있습니다.&lt;/p&gt;
+
+&lt;p&gt;클럽에가서 놀고 싶은 마음을 모르는건 아니지만, 시국이 시국인 만큼 참아야 한다는걸 왜 모를까요?&lt;/p&gt;
+
+&lt;p&gt;걸려서 가족에게 옮기기라도 하면 얼마나 큰 후회를 할려고 이러는 걸까요?&lt;/p&gt;
+
+&lt;p&gt;조금만 더 참고 조심해야 합니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;모두-조금만-더-힘내-보아요&quot;&gt;모두 조금만 더 힘내 보아요!&lt;/h2&gt;</content><category term="단상" /><summary type="html">이태원 클럽을 다녀왔다고 하네요.</summary></entry><entry><title type="html">[Dockerfile] node:Alpine에서 puppeteer 기동 &amp;amp; 한글 깨짐 처리</title><link href="https://lahuman.github.io/dockerfile_alpine_puppeteer/" rel="alternate" type="text/html" title="[Dockerfile] node:Alpine에서 puppeteer 기동 &amp; 한글 깨짐 처리" /><published>2020-04-14T00:00:00+09:00</published><updated>2020-04-14T00:00:00+09:00</updated><id>https://lahuman.github.io/dockerfile_alpine_puppeteer</id><content type="html" xml:base="https://lahuman.github.io/dockerfile_alpine_puppeteer/">&lt;h1 id=&quot;nodealpine-에서-puppeteer-기동-하고-한글-깨짐-처리-하기&quot;&gt;node:Alpine 에서 puppeteer 기동 하고 한글 깨짐 처리 하기&lt;/h1&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://www.weave.works/blog/gitops-operations-by-pull-request&quot;&gt;GitOps&lt;/a&gt; 스타일의 지속적인 배포를 구축하여 자동 배포 시스템을 Git ==&amp;gt; jenkins ==&amp;gt; Kubernetes로 구축하여 사용하고 있습니다.&lt;/p&gt;
 
@@ -396,27 +514,4 @@ fi
 
 &lt;p&gt;회사를 다니다 보면 결국 나에게 사람이 남는다.&lt;/p&gt;
 
-&lt;p&gt;호인이 되도록 노력하자!&lt;/p&gt;</content><category term="단상" /><summary type="html">이것만 잘해도 반은 먹고 들어간다.</summary></entry><entry><title type="html">오랜만에 출근하였습니다.</title><link href="https://lahuman.github.io/20200305/" rel="alternate" type="text/html" title="오랜만에 출근하였습니다." /><published>2020-03-05T00:00:00+09:00</published><updated>2020-03-05T00:00:00+09:00</updated><id>https://lahuman.github.io/20200305</id><content type="html" xml:base="https://lahuman.github.io/20200305/">&lt;h1 id=&quot;일주일만에-집밖-나들이를-하였습니다&quot;&gt;일주일만에 집밖 나들이를 하였습니다.&lt;/h1&gt;
-
-&lt;p&gt;2020년 3월 5일 현재의 대한민국은 코로나19로 혼란의 도가니입니다.&lt;/p&gt;
-
-&lt;p&gt;다행이 정부와 기관 또 국민들이 힘을 모아서 조금씩 극복하기 위해 노력하고 있습니다.&lt;/p&gt;
-
-&lt;p&gt;현재 확진자는 5,700여명이고, 사망자는 40명을 넘었습니다.&lt;/p&gt;
-
-&lt;p&gt;대부분의 회사들이 자택근무를 시작하고, 제가 다니는 회사에서도 저번주 2월 27일부터 자택근무를 실행하고 있습니다.&lt;/p&gt;
-
-&lt;p&gt;자택근무를 하면서 처음에는 회사 인프라팀에서도 많이 힘들어하고, 저도 아이들에게 시달리느라 적응하지 못하였습니다.&lt;/p&gt;
-
-&lt;p&gt;다행이 사람은 적응의 동물이라고, 일주일쯤 되자 어느정도 자택근무도 자리를 잡아가고 있습니다.&lt;/p&gt;
-
-&lt;p&gt;다만 강제로 집에 갇혀있게되어 너무 답답하였습니다.&lt;/p&gt;
-
-&lt;p&gt;금일 회의 해야하는 것도 있어서 회사에 출근을 하였는데, 오전 출근을 하면서 자택근무가 편하구나를 깨달았습니다.
-(지옥철은 여전하더라구요)&lt;/p&gt;
-
-&lt;p&gt;요즘 걱정은 아이들 학교 방학이 3월 28일로 늘어졌습니다.&lt;/p&gt;
-
-&lt;p&gt;다음주부터 집에서 혼자 아이들을 돌보아야 하는 아내가 걱정이네요.&lt;/p&gt;
-
-&lt;h2 id=&quot;개인적인-바램은-다음주도-자택근무-연장이-되었으면-좋겠습니다&quot;&gt;개인적인 바램은 다음주도 자택근무 연장이 되었으면 좋겠습니다.&lt;/h2&gt;</content><category term="단상" /><summary type="html">일주일만에 집밖으로 나왔네요.</summary></entry></feed>
+&lt;p&gt;호인이 되도록 노력하자!&lt;/p&gt;</content><category term="단상" /><summary type="html">이것만 잘해도 반은 먹고 들어간다.</summary></entry></feed>
