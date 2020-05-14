@@ -1,4 +1,14 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-05-11T11:44:22+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">nodeJs] 첨부 파일를 다른 서버로 전달하기</title><link href="https://lahuman.github.io/axios_formdata_file_send/" rel="alternate" type="text/html" title="nodeJs] 첨부 파일를 다른 서버로 전달하기" /><published>2020-05-11T00:00:00+09:00</published><updated>2020-05-11T00:00:00+09:00</updated><id>https://lahuman.github.io/axios_formdata_file_send</id><content type="html" xml:base="https://lahuman.github.io/axios_formdata_file_send/">&lt;h1 id=&quot;첨부파일을-다른-서버로-포워딩-하기&quot;&gt;첨부파일을 다른 서버로 포워딩 하기&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-05-15T00:24:33+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">요즘 동료가 제 코드를 리뷰해주고 있습니다.</title><link href="https://lahuman.github.io/20200515/" rel="alternate" type="text/html" title="요즘 동료가 제 코드를 리뷰해주고 있습니다." /><published>2020-05-15T00:00:00+09:00</published><updated>2020-05-15T00:00:00+09:00</updated><id>https://lahuman.github.io/20200515</id><content type="html" xml:base="https://lahuman.github.io/20200515/">&lt;h1 id=&quot;단위-테스트-코드를-작성하고-있습니다&quot;&gt;단위 테스트 코드를 작성하고 있습니다.&lt;/h1&gt;
+
+&lt;p&gt;제 코드를 기반으로 단위 테스트를 작성하면서 명확한 의미를 가지도록 변수명, 메소드 명을 리팩토링 해주고 있습니다.&lt;/p&gt;
+
+&lt;p&gt;그러면서 저에게 현재 변수명의 의미를 묻는데 명확하게 답해주는 것도 있고 두루뭉실하게 답혀주는 것도 있습니다.&lt;/p&gt;
+
+&lt;p&gt;명확하게 답해주는건 리펙토링 대상이 아니지만, 두루뭉실한 것들이 리펙토링 대상이 됩니다.&lt;/p&gt;
+
+&lt;p&gt;같이 이야기 하면서 많이 생각하고 배우게 되네요.&lt;/p&gt;
+
+&lt;h2 id=&quot;늘-내-코드는-볼때마다-부끄럽네요&quot;&gt;늘 내 코드는 볼때마다 부끄럽네요.&lt;/h2&gt;</content><category term="단상" /><summary type="html">제 코드가 부끄러우면서도 도움이 많이 되네요.</summary></entry><entry><title type="html">nodeJs] 첨부 파일를 다른 서버로 전달하기</title><link href="https://lahuman.github.io/axios_formdata_file_send/" rel="alternate" type="text/html" title="nodeJs] 첨부 파일를 다른 서버로 전달하기" /><published>2020-05-11T00:00:00+09:00</published><updated>2020-05-11T00:00:00+09:00</updated><id>https://lahuman.github.io/axios_formdata_file_send</id><content type="html" xml:base="https://lahuman.github.io/axios_formdata_file_send/">&lt;h1 id=&quot;첨부파일을-다른-서버로-포워딩-하기&quot;&gt;첨부파일을 다른 서버로 포워딩 하기&lt;/h1&gt;
 
 &lt;p&gt;첨부 파일을 아래 그림과 같이 API server에서 받아서 다른 내부 서버에 전달을 하려고 합니다.&lt;/p&gt;
 
@@ -476,42 +486,4 @@ fi
 
 &lt;p&gt;아낄껄 아끼자고 이야기 하고 싶네요.&lt;/p&gt;
 
-&lt;h2 id=&quot;오늘은-빡친다&quot;&gt;오늘은 빡친다.&lt;/h2&gt;</content><category term="단상" /><summary type="html">천원이라도 아껴라</summary></entry><entry><title type="html">동료와 일을 할때 중요한 몇가지</title><link href="https://lahuman.github.io/20200313/" rel="alternate" type="text/html" title="동료와 일을 할때 중요한 몇가지" /><published>2020-03-13T00:00:00+09:00</published><updated>2020-03-13T00:00:00+09:00</updated><id>https://lahuman.github.io/20200313</id><content type="html" xml:base="https://lahuman.github.io/20200313/">&lt;h1 id=&quot;조금만-신경쓰면-동료도-편하게-일하고-인정도-받을수-있어요&quot;&gt;조금만 신경쓰면 동료도 편하게 일하고 인정도 받을수 있어요.&lt;/h1&gt;
-
-&lt;h2 id=&quot;1-빠른-피드백&quot;&gt;1. 빠른 피드백&lt;/h2&gt;
-
-&lt;p&gt;빠른 피드백은 누구와 함께 하던 가장 중요합니다.
-피드백 하나로 동료가 다르게 평가되는 일이 종종 있어요.&lt;/p&gt;
-
-&lt;h2 id=&quot;2-변경사항-공유하기&quot;&gt;2. 변경사항 공유하기&lt;/h2&gt;
-
-&lt;p&gt;정확하지 않은 정황으로 혼자 결정하고 공유하면 나중에 뒤통수 맞을수 있어요.
-또 변경되는 사항이 있으면 함께 일하는 동료에게 알려야 하고요.&lt;/p&gt;
-
-&lt;p&gt;동료와 함께 공유는 중요한 사항입니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;3-열심히-일하기&quot;&gt;3. 열심히 일하기&lt;/h2&gt;
-
-&lt;p&gt;안보인다고 생각하지 마세요. 다 보여요.&lt;/p&gt;
-
-&lt;p&gt;열심히 일하는 사람과 놀고 있는 사람은 명확하게 구분되요.&lt;/p&gt;
-
-&lt;p&gt;특히나 같이 일하는 사람이라면요.&lt;/p&gt;
-
-&lt;p&gt;목소리 큰사람이 되기보다는 열심히 일하는 사람이 되도록 노력하세요.&lt;/p&gt;
-
-&lt;h2 id=&quot;4-도움-주기&quot;&gt;4. 도움 주기&lt;/h2&gt;
-
-&lt;p&gt;주변에서 도움이 필요한 분이 있으면 도우세요. 돌아옵니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;5-잔소리-하지-않기&quot;&gt;5. 잔소리 하지 않기&lt;/h2&gt;
-
-&lt;p&gt;도움을 주는 것과 잔소리 하는 것은 다릅니다.&lt;/p&gt;
-
-&lt;p&gt;잔소리 하지 마세요. 해줄꺼(또는 도울꺼) 아니면 오지랍도 떨지 마세요.&lt;/p&gt;
-
-&lt;h2 id=&quot;마지막으로&quot;&gt;마지막으로&lt;/h2&gt;
-
-&lt;p&gt;회사를 다니다 보면 결국 나에게 사람이 남는다.&lt;/p&gt;
-
-&lt;p&gt;호인이 되도록 노력하자!&lt;/p&gt;</content><category term="단상" /><summary type="html">이것만 잘해도 반은 먹고 들어간다.</summary></entry></feed>
+&lt;h2 id=&quot;오늘은-빡친다&quot;&gt;오늘은 빡친다.&lt;/h2&gt;</content><category term="단상" /><summary type="html">천원이라도 아껴라</summary></entry></feed>
