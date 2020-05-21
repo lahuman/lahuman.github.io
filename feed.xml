@@ -1,4 +1,20 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-05-15T00:24:33+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">요즘 동료가 제 코드를 리뷰해주고 있습니다.</title><link href="https://lahuman.github.io/20200515/" rel="alternate" type="text/html" title="요즘 동료가 제 코드를 리뷰해주고 있습니다." /><published>2020-05-15T00:00:00+09:00</published><updated>2020-05-15T00:00:00+09:00</updated><id>https://lahuman.github.io/20200515</id><content type="html" xml:base="https://lahuman.github.io/20200515/">&lt;h1 id=&quot;단위-테스트-코드를-작성하고-있습니다&quot;&gt;단위 테스트 코드를 작성하고 있습니다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-05-22T01:05:40+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">생각이 많아 지는 날입니다.</title><link href="https://lahuman.github.io/20200522/" rel="alternate" type="text/html" title="생각이 많아 지는 날입니다." /><published>2020-05-22T00:00:00+09:00</published><updated>2020-05-22T00:00:00+09:00</updated><id>https://lahuman.github.io/20200522</id><content type="html" xml:base="https://lahuman.github.io/20200522/">&lt;h1 id=&quot;나이가-들면-하드스킬개발-보다-소프트스킬대화에-집중-해야-한다고-하네요&quot;&gt;나이가 들면, 하드스킬(개발) 보다 소프트스킬(대화)에 집중 해야 한다고 하네요.&lt;/h1&gt;
+
+&lt;p&gt;개발을 잘하는 건 아닌데, 꾸준히 노력하고 있습니다.&lt;/p&gt;
+
+&lt;p&gt;나이가 들수록 주위 선배 개발자들은 개발보다는 관리 스킬에 집중하는 모습을 많이 보고 있다.&lt;/p&gt;
+
+&lt;p&gt;이전 회사의 이직 사유는 개발하지 말고 관리를 하라는 이유였다.&lt;/p&gt;
+
+&lt;p&gt;지금 회사도 크게 다르지 않은 느낌이다.&lt;/p&gt;
+
+&lt;p&gt;나이가 들면 개발을 그만두어야 할까?&lt;/p&gt;
+
+&lt;p&gt;이럴때 우리 아들은 이렇게 이야기 한다.&lt;/p&gt;
+
+&lt;p&gt;“싫은데, 내가 왜?” 라고…&lt;/p&gt;
+
+&lt;p&gt;자신있게 이야기 할 수 있는 내가 되도록 잘하자!&lt;/p&gt;</content><category term="단상" /><summary type="html">열심히 보단 잘하는게 중요하지요.</summary></entry><entry><title type="html">요즘 동료가 제 코드를 리뷰해주고 있습니다.</title><link href="https://lahuman.github.io/20200515/" rel="alternate" type="text/html" title="요즘 동료가 제 코드를 리뷰해주고 있습니다." /><published>2020-05-15T00:00:00+09:00</published><updated>2020-05-15T00:00:00+09:00</updated><id>https://lahuman.github.io/20200515</id><content type="html" xml:base="https://lahuman.github.io/20200515/">&lt;h1 id=&quot;단위-테스트-코드를-작성하고-있습니다&quot;&gt;단위 테스트 코드를 작성하고 있습니다.&lt;/h1&gt;
 
 &lt;p&gt;제 코드를 기반으로 단위 테스트를 작성하면서 명확한 의미를 가지도록 변수명, 메소드 명을 리팩토링 해주고 있습니다.&lt;/p&gt;
 
@@ -468,22 +484,4 @@ fi
   &lt;li&gt;&lt;a href=&quot;https://findnew.tistory.com/22&quot;&gt;우분투 서버 한글 설정 및 한글폰트 설치&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://hamonikr.org/board_bFBk25/47893&quot;&gt;한글 입력기 uim-byeoru 패키지 없어짐&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://sigmafelix.wordpress.com/2018/01/25/wsl-ubuntu%EC%97%90%EC%84%9C-%ED%95%9C%EA%B8%80-%EC%9E%85%EB%A0%A5-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/&quot;&gt;WSL (Ubuntu)에서 한글 입력 사용하기&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="wsl" /><category term="uim" /><summary type="html">한글 입력을 하기 위한 설정을 진행합니다.</summary></entry><entry><title type="html">요즘 화두는 비용 절감 입니다.</title><link href="https://lahuman.github.io/20200318/" rel="alternate" type="text/html" title="요즘 화두는 비용 절감 입니다." /><published>2020-03-18T00:00:00+09:00</published><updated>2020-03-18T00:00:00+09:00</updated><id>https://lahuman.github.io/20200318</id><content type="html" xml:base="https://lahuman.github.io/20200318/">&lt;h1 id=&quot;본부내에서-비용절감을-목놓아-외치는-분과-일하고-있습니다&quot;&gt;본부내에서 비용절감을 목놓아 외치는 분과 일하고 있습니다&lt;/h1&gt;
-
-&lt;p&gt;결론만 말해서는 &lt;strong&gt;상당히 피곤&lt;/strong&gt;합니다.&lt;/p&gt;
-
-&lt;p&gt;밑도 끝도없이 비용을 절감해야 한다고 외쳐서 당황스럽습니다.&lt;/p&gt;
-
-&lt;p&gt;현재 상황은 약 30개 이상의 서비스를 AWS에서 관리 하여 사용하고 있습니다.&lt;/p&gt;
-
-&lt;p&gt;월 비용이 약 150만원 전후로 나오기 때문에 상당히 아껴서 사용한다고 생각합니다.&lt;/p&gt;
-
-&lt;p&gt;몇몇 서비스는 평일 아침 8시부터 저녁 8시까지만 운영하도록 하고 있고, 사용율이 떨어지는 서비스 역시 빠르게 종료 하고 있습니다.&lt;/p&gt;
-
-&lt;p&gt;그런데 말입니다.&lt;/p&gt;
-
-&lt;p&gt;천원이라도 아껴야 한다는데…&lt;/p&gt;
-
-&lt;p&gt;아낄껄 아끼자고 이야기 하고 싶네요.&lt;/p&gt;
-
-&lt;h2 id=&quot;오늘은-빡친다&quot;&gt;오늘은 빡친다.&lt;/h2&gt;</content><category term="단상" /><summary type="html">천원이라도 아껴라</summary></entry></feed>
+&lt;/ul&gt;</content><category term="wsl" /><category term="uim" /><summary type="html">한글 입력을 하기 위한 설정을 진행합니다.</summary></entry></feed>
