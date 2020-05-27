@@ -1,4 +1,107 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-05-22T01:05:40+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">생각이 많아 지는 날입니다.</title><link href="https://lahuman.github.io/20200522/" rel="alternate" type="text/html" title="생각이 많아 지는 날입니다." /><published>2020-05-22T00:00:00+09:00</published><updated>2020-05-22T00:00:00+09:00</updated><id>https://lahuman.github.io/20200522</id><content type="html" xml:base="https://lahuman.github.io/20200522/">&lt;h1 id=&quot;나이가-들면-하드스킬개발-보다-소프트스킬대화에-집중-해야-한다고-하네요&quot;&gt;나이가 들면, 하드스킬(개발) 보다 소프트스킬(대화)에 집중 해야 한다고 하네요.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-05-27T23:48:10+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">swagger-node에서 express-session 설정 &amp;amp; 사용하기</title><link href="https://lahuman.github.io/swagger-node_session/" rel="alternate" type="text/html" title="swagger-node에서 express-session 설정 &amp; 사용하기" /><published>2020-05-22T00:00:00+09:00</published><updated>2020-05-22T00:00:00+09:00</updated><id>https://lahuman.github.io/swagger-node_session</id><content type="html" xml:base="https://lahuman.github.io/swagger-node_session/">&lt;h1 id=&quot;swagger-node에서-express-session-설정--사용하기&quot;&gt;swagger-node에서 express-session 설정 &amp;amp; 사용하기&lt;/h1&gt;
+
+&lt;p&gt;기본적으로 &lt;a href=&quot;https://github.com/swagger-api/swagger-node&quot;&gt;swagger-node&lt;/a&gt;는 &lt;a href=&quot;https://expressjs.com/ko/&quot;&gt;express&lt;/a&gt;를 기반으로 동작합니다.&lt;/p&gt;
+
+&lt;p&gt;swagger-node는 API 용으로 이용하기 때문에 기본적으로 session을 발행하지 않습니다.&lt;/p&gt;
+
+&lt;p&gt;다만 필요에 따라 로그인 프로세스 구현을 하게 될 경우 다음 라이브러리를 이용해야 합니다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.npmjs.com/package/express-session&quot;&gt;express-session&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.npmjs.com/package/body-parser&quot;&gt;body-parser&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;app.js 코드에 다음과 같이 설정을 하면 세션을 이용할수 있습니다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;express 4.X 부터는 body-parser를 사용하지 않고 express에서 제공되는 것을 이용합니다.
+또한 &lt;strong&gt;app.use(express.urlencoded({ extended: true }));&lt;/strong&gt; 을 사용하면 fileupload 처리를 이전과 같이 사용할 수 없습니다. 아래 multer를 이용한 예제를 참고 하셔요.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;app.use(
+  require(&quot;express-session&quot;)({
+    secret: &quot;keyboard cat&quot;,
+    cookie: {
+      maxAge: 1000 * 60 * 60 , // 1 hour
+    },
+    resave: false,
+    saveUninitialized: false,
+  })
+);
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;추가로 session 관리를 &lt;a href=&quot;http://www.passportjs.org/&quot;&gt;passport&lt;/a&gt;를 이용해서 쉽게 관리 할수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;다음 예제는 SSO의 방식중 하나인 SAML으로 처리한 예제를 준비 하였습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/lahuman/swagger-node_passport_saml&quot;&gt;예제 코드 바로 보기&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;주요점은-passport는-express-session에서만-동작-하기-때문에-세션-설정을-잘해야-합니다&quot;&gt;주요점은 passport는 express-session에서만 동작 하기 때문에 세션 설정을 잘해야 합니다.&lt;/h4&gt;
+
+&lt;h1 id=&quot;multer를-이용한-첨부-파일-uploade&quot;&gt;Multer를 이용한 첨부 파일 uploade&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;app.use(express.urlencoded({ extended: true }));&lt;/strong&gt;를 설정하면, formData를 바로 접근하지 못하게 됩니다. 이때 다음 샘플을 기준으로 첨부파일을 처리 할 수 있습니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// multer 설정
+const multer = require(&quot;multer&quot;);
+const storage = multer.diskStorage({
+  // upload path
+  destination: function (req, file, cb) {
+    cb(null, &quot;tempfiles&quot;);
+  },
+  // 업로드된 파일 이름
+  filename: function (req, file, cb) {
+    cb(null, `${moment().format(&quot;YYYYMMDDHHmmssSSS&quot;)}${file.originalname}`);
+  },
+});
+
+const upload = multer({
+  storage: storage,
+  limits: { fileSize: 10 * 1024 * 1024 },
+});
+
+... 설정 처리
+
+SwaggerExpress.create(config, function (err, swaggerExpress) {
+  if (err) {
+    throw err;
+  }
+  // swagger-node에서 미들웨어 처리 방법
+  app.use(
+      &quot;/jira/attachments/upload&quot;,
+      upload.single(&quot;filepond&quot;),
+      async (req, res, next) =&amp;gt; {
+        try {
+          const file = req.file;
+          res.status(201).json({
+            status: &quot;OK&quot;,
+            file_nm: file.originalname.normalize(&quot;NFC&quot;),
+            file_path: file.filename,
+          });
+        } catch (e) {
+          logger.error(e);
+          res.status(400).json({ status: &quot;ERROR&quot;, message: e });
+        }
+      }
+    );
+});
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;주요 코드만 표기 하였습니다.
+&lt;a href=&quot;https://github.com/lahuman/swagger-node_passport_saml&quot;&gt;예제 코드 바로 보기&lt;/a&gt;의 &lt;strong&gt;app.js&lt;/strong&gt;를 참고 하면 전체 코드를 작성하실수 있습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/swagger-api/swagger-node&quot;&gt;swagger-node&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://expressjs.com/ko/&quot;&gt;express&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.passportjs.org/&quot;&gt;passport&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/ques-tions/29111571/passports-req-isauthenticated-always-returning-false-even-when-i-hardcode-done&quot;&gt;passport’s req.isAuthenticated always returning false, even when I hardcode done(null, true)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="node" /><category term="swagger" /><category term="session" /><summary type="html">추가로 passport 라이브러리와 연동하여 봅시다.</summary></entry><entry><title type="html">생각이 많아 지는 날입니다.</title><link href="https://lahuman.github.io/20200522/" rel="alternate" type="text/html" title="생각이 많아 지는 날입니다." /><published>2020-05-22T00:00:00+09:00</published><updated>2020-05-22T00:00:00+09:00</updated><id>https://lahuman.github.io/20200522</id><content type="html" xml:base="https://lahuman.github.io/20200522/">&lt;h1 id=&quot;나이가-들면-하드스킬개발-보다-소프트스킬대화에-집중-해야-한다고-하네요&quot;&gt;나이가 들면, 하드스킬(개발) 보다 소프트스킬(대화)에 집중 해야 한다고 하네요.&lt;/h1&gt;
 
 &lt;p&gt;개발을 잘하는 건 아닌데, 꾸준히 노력하고 있습니다.&lt;/p&gt;
 
@@ -405,83 +508,4 @@ https://aka.ms/wslstore
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://github.com/microsoft/WSL/issues/3324&quot;&gt;Error 0x80070003 after manually installing/uninstalling when launching bash.exe #3324&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="wsl" /><category term="uninstall" /><summary type="html">보안 프로그램을 피해서 설치한 WSL을 삭제 하는 방법</summary></entry><entry><title type="html">Windows WSL에서 한글 입력기 설정 하기</title><link href="https://lahuman.github.io/wsl_uim_ko/" rel="alternate" type="text/html" title="Windows WSL에서 한글 입력기 설정 하기" /><published>2020-03-20T00:00:00+09:00</published><updated>2020-03-20T00:00:00+09:00</updated><id>https://lahuman.github.io/wsl_uim_ko</id><content type="html" xml:base="https://lahuman.github.io/wsl_uim_ko/">&lt;h1 id=&quot;한글-입력기-설정&quot;&gt;한글 입력기 설정&lt;/h1&gt;
-
-&lt;p&gt;기본적으로 이전에 진행한 &lt;a href=&quot;https://lahuman.github.io/wsl_useing_gui/&quot;&gt;Windows WSL에서 GUI 사용하기
-&lt;/a&gt;가 적용되어야 합니다.&lt;/p&gt;
-
-&lt;p&gt;우선 아래 명령어를 이용하여 한글 폰트를 설치 해야 합니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ sudo apt-get install fonts-nanum fonts-nanum-coding fonts-nanum-extra
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;폰트가 설치 되었으면 &lt;a href=&quot;https://en.wikipedia.org/wiki/Uim&quot;&gt;uim&lt;/a&gt;을 설치 합니다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;uim 은 “universal input method”로 다국어 입력기 프레임워크 입니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;기존에는 uim-byeoru를 함께 설치 하였는데, ubuntu 18.04에서는 uim-byeoru 패키지가 삭제 되고, uim에 Byeoru가 포함되어 있습니다.
-출처 :  &lt;a href=&quot;https://hamonikr.org/board_bFBk25/47893&quot;&gt;한글 입력기 uim-byeoru 패키지 없어짐&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ sudo apt-get install uim
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;이후 환경 설정에 다음을 추가 해야 합니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ vi ~/.bashrc
-# 가장 밑에 아래 내용을 추가
-
-export XIM=uim
-
-export XMODIFIERS=@im=uim
-
-export UIM_CANDWIN_PROG=uim-candwin-gtk
-
-export GTK_IM_MODULE=uim
-
-export QT_IM_MODULE=uim
-
-#
-
-if [ $SHLVL -eq 1 ]; then
-
-  uim-xim &amp;amp;
-
-fi
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;파일을 저장하고, 다음 명령어로 환경변수를 반영합니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ source ~/.bashrc
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;마지막으로 uim-pref-gtk 명령어를 이용해서 기본 IM을 Byeoru를 설정하고 변환 키를 셋팅 합니다.&lt;/p&gt;
-
-&lt;h3 id=&quot;기본-im을-byeoru로-설정&quot;&gt;기본 IM을 Byeoru로 설정&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/uim_global.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Byeoru 가 선택창 가장 아래부분에 있습니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&quot;전체-키와-벼루-키가-충돌이-일어-날수-있어서-제외&quot;&gt;전체 키와 벼루 키가 충돌이 일어 날수 있어서 제외&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/uim_global_key.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;벼루-키-설정&quot;&gt;벼루 키 설정&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/uim_byeoru_key.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;이후 GUI로 띄운 프로그램에서 한글 입력이 문제 없이 됩니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;오늘도-하나-배웠네요&quot;&gt;오늘도 하나 배웠네요.&lt;/h2&gt;
-
-&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://findnew.tistory.com/22&quot;&gt;우분투 서버 한글 설정 및 한글폰트 설치&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://hamonikr.org/board_bFBk25/47893&quot;&gt;한글 입력기 uim-byeoru 패키지 없어짐&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://sigmafelix.wordpress.com/2018/01/25/wsl-ubuntu%EC%97%90%EC%84%9C-%ED%95%9C%EA%B8%80-%EC%9E%85%EB%A0%A5-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/&quot;&gt;WSL (Ubuntu)에서 한글 입력 사용하기&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="wsl" /><category term="uim" /><summary type="html">한글 입력을 하기 위한 설정을 진행합니다.</summary></entry></feed>
+&lt;/ul&gt;</content><category term="wsl" /><category term="uninstall" /><summary type="html">보안 프로그램을 피해서 설치한 WSL을 삭제 하는 방법</summary></entry></feed>
