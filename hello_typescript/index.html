@@ -1,0 +1,84 @@
+<!DOCTYPE html> <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]--> <!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8"><![endif]--> <!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9"><![endif]--> <!--[if gt IE 8]><!--> <html class="no-js"><!--<![endif]--> <head> <meta charset="UTF-8"> <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"> <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1"> <title>nodejs에서 TYPESCRIPT 사용 tutorial &#8211; lahuman</title> <meta name="description" content="열심히 사는 아저씨"> <meta name="keywords" content="typescript, node"> <!-- Twitter Cards --> <meta name="twitter:card" content="summary"> <meta name="twitter:image" content="https://lahuman.github.io/assets/img/logo.png"> <meta name="twitter:title" content="nodejs에서 TYPESCRIPT 사용 tutorial"> <meta name="twitter:description" content="Typescript를 사용하여 봅니다!"> <!-- Open Graph --> <meta property="og:locale" content="ko_KR"> <meta property="og:type" content="article"> <meta property="og:title" content="nodejs에서 TYPESCRIPT 사용 tutorial"> <meta property="og:description" content="Typescript를 사용하여 봅니다!"> <meta property="og:url" content="https://lahuman.github.io/hello_typescript/"> <meta property="og:site_name" content="lahuman"> <meta property="og:image" content="https://lahuman.github.io/assets/img/logo.png"> <link rel="canonical" href="https://lahuman.github.io/hello_typescript/"> <link href="https://lahuman.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="lahuman Feed"> <!-- Handheld --> <meta name="HandheldFriendly" content="True"> <meta name="MobileOptimized" content="320"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- CSS --> <link rel="stylesheet" href="https://lahuman.github.io/assets/css/main.css"> <!-- JS --> <script src="https://lahuman.github.io/assets/js/modernizr-3.3.1.custom.min.js"></script> <!-- Favicons --> <link rel="apple-touch-icon" href="https://lahuman.github.io/assets/img/favicons/apple-icon-precomposed.png"> <link rel="apple-touch-icon" sizes="72x72" href="https://lahuman.github.io/assets/img/favicons/apple-icon-72x72.png"> <link rel="apple-touch-icon" sizes="114x114" href="https://lahuman.github.io/assets/img/favicons/apple-icon-114x114.png"> <link rel="apple-touch-icon" sizes="144x144" href="https://lahuman.github.io/assets/img/favicons/apple-icon-144x144.png"> <link rel="shortcut icon" type="image/png" href="https://lahuman.github.io/favicon.png" /> <link rel="shortcut icon" href="https://lahuman.github.io/favicon.ico" /> <!-- Background Image --> <style type="text/css">body {background-image:url(https://lahuman.github.io/assets/img/placeholder-big.jpg); background-repeat: no-repeat; background-size: cover; }</style> <!-- Post Feature Image --> </head> <body> <nav id="dl-menu" class="dl-menuwrapper" role="navigation"> <button class="dl-trigger">Open Menu</button> <ul class="dl-menu"> <li><a href="https://lahuman.github.io/">Home</a></li> <li> <a href="#">About</a> <ul class="dl-submenu"> <li> <img src="https://lahuman.github.io/assets/img/logo.png" alt="lahuman photo" class="author-photo"> <h4>lahuman</h4> <p>열심히 사는 아저씨</p> </li> <li><a href="https://lahuman.github.io/about/"><span class="btn btn-inverse">Learn More</span></a></li> <li> <a href="http://facebook.com/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-facebook-square"></i> Facebook</a> </li> <li> <a href="http://github.com/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-github"></i> Github</a> </li> </ul><!-- /.dl-submenu --> </li> <li> <a href="#">Posts</a> <ul class="dl-submenu"> <li><a href="https://lahuman.github.io/posts/">All Posts</a></li> <li><a href="https://lahuman.github.io/tags/">All Tags</a></li> </ul> </li> <li><a href="https://lahuman.github.io/projects/" >Projects</a></li> </ul><!-- /.dl-menu --> </nav><!-- /.dl-menuwrapper --> <!-- Header --> <header class="header" role="banner"> <div class="wrapper animated fadeIn"> <div class="content"> <div class="post-title "> <h1>nodejs에서 TYPESCRIPT 사용 tutorial</h1> <h4>29 May 2020</h4> <p class="reading-time"> <i class="fa fa-clock-o"></i> Reading time ~5 minutes </p><!-- /.entry-reading-time --> <a class="btn zoombtn" href="https://lahuman.github.io/posts/"> <i class="fa fa-chevron-left"></i> </a> </div> <h1 id="nodejs에서-typescript-사용해보기">Nodejs에서 Typescript 사용해보기!</h1> <p>nodejs를 하면서 Typescript에 대하여 어려번 들었습니다.</p> <p>기본적으로 nosejs에 대한 개발을 REPL 기반으로 하고 있습니다.</p> <p>TDD를 하기 위해서는 타입에 대한 검증등 많은 것들을 처리 해야 하는데요. 이는 Typescript와 더 잘 맞습니다.</p> <p>한번 사용해보기 위해서 nodejs에서 Typescript를 사용하는 방법을 설명드리겠습니다.</p> <h2 id="typescript-사용해-보기">Typescript 사용해 보기</h2> <p>평소에는 <a href="https://www.npmjs.com/">npm</a>을 사용하지만, 이번에는 <a href="https://classic.yarnpkg.com/en/">yarn</a>을 사용해보려고 합니다.</p> <h3 id="프로젝트-생성하기">프로젝트 생성하기</h3> <p>먼저 프로젝트 디렉토리를 생성하고 yarn 명령어를 이용해서 초기화 합니다.</p> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ mkdir learn-typescript
+$ cd learn-typescript
+$ yarn init -y
+</code></pre></div></div> <h3 id="typescript-사용을-위한-모듈-설치하기">Typescript 사용을 위한 모듈 설치하기</h3> <ul> <li>typescript : Typescript 라이브러리</li> <li>ts-node : node에서 Typescript를 사용하기 위한 라이브러리</li> </ul> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ yarn add typescript ts-node
+</code></pre></div></div> <h3 id="typescript-설정-파일-생성하기">Typescript 설정 파일 생성하기</h3> <p>타입스크립트에 대한 정보를 가지고 있는 설정파일을 생성합니다.</p> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ yarn run tsc --init
+</code></pre></div></div> <p>실행을 하면 디렉토리에 <strong>tsconfig.json</strong> 파일이 생성됩니다.</p> <p>해당 파일의 내용은 아래와 같습니다.</p> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+  "compilerOptions": {
+    /* Visit https://aka.ms/tsconfig.json to read more about this file */
+
+    /* Basic Options */
+    // "incremental": true,                   /* Enable incremental compilation */
+    "target": "es2016" /* Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017', 'ES2018', 'ES2019', 'ES2020', or 'ESNEXT'. */,
+    "module": "commonjs" /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', 'es2020', or 'ESNext'. */,
+    // "lib": [],                             /* Specify library files to be included in the compilation. */
+    // "allowJs": true,                       /* Allow javascript files to be compiled. */
+    // "checkJs": true,                       /* Report errors in .js files. */
+    // "jsx": "preserve",                     /* Specify JSX code generation: 'preserve', 'react-native', or 'react'. */
+    // "declaration": true,                   /* Generates corresponding '.d.ts' file. */
+    // "declarationMap": true,                /* Generates a sourcemap for each corresponding '.d.ts' file. */
+    // "sourceMap": true,                     /* Generates corresponding '.map' file. */
+    // "outFile": "./",                       /* Concatenate and emit output to single file. */
+    "outDir": "./dist/" /* Redirect output structure to the directory. */,
+    // "rootDir": "./",                       /* Specify the root directory of input files. Use to control the output directory structure with --outDir. */
+    // "composite": true,                     /* Enable project compilation */
+    // "tsBuildInfoFile": "./",               /* Specify file to store incremental compilation information */
+    // "removeComments": true,                /* Do not emit comments to output. */
+    // "noEmit": true,                        /* Do not emit outputs. */
+    // "importHelpers": true,                 /* Import emit helpers from 'tslib'. */
+    // "downlevelIteration": true,            /* Provide full support for iterables in 'for-of', spread, and destructuring when targeting 'ES5' or 'ES3'. */
+    // "isolatedModules": true,               /* Transpile each file as a separate module (similar to 'ts.transpileModule'). */
+
+    /* Strict Type-Checking Options */
+    "strict": true /* Enable all strict type-checking options. */,
+    // "noImplicitAny": true,                 /* Raise error on expressions and declarations with an implied 'any' type. */
+    // "strictNullChecks": true,              /* Enable strict null checks. */
+    // "strictFunctionTypes": true,           /* Enable strict checking of function types. */
+    // "strictBindCallApply": true,           /* Enable strict 'bind', 'call', and 'apply' methods on functions. */
+    // "strictPropertyInitialization": true,  /* Enable strict checking of property initialization in classes. */
+    // "noImplicitThis": true,                /* Raise error on 'this' expressions with an implied 'any' type. */
+    // "alwaysStrict": true,                  /* Parse in strict mode and emit "use strict" for each source file. */
+
+    /* Additional Checks */
+    // "noUnusedLocals": true,                /* Report errors on unused locals. */
+    // "noUnusedParameters": true,            /* Report errors on unused parameters. */
+    // "noImplicitReturns": true,             /* Report error when not all code paths in function return a value. */
+    // "noFallthroughCasesInSwitch": true,    /* Report errors for fallthrough cases in switch statement. */
+
+    /* Module Resolution Options */
+    // "moduleResolution": "node",            /* Specify module resolution strategy: 'node' (Node.js) or 'classic' (TypeScript pre-1.6). */
+    // "baseUrl": "./",                       /* Base directory to resolve non-absolute module names. */
+    // "paths": {},                           /* A series of entries which re-map imports to lookup locations relative to the 'baseUrl'. */
+    // "rootDirs": [],                        /* List of root folders whose combined content represents the structure of the project at runtime. */
+    // "typeRoots": [],                       /* List of folders to include type definitions from. */
+    // "types": [],                           /* Type declaration files to be included in compilation. */
+    // "allowSyntheticDefaultImports": true,  /* Allow default imports from modules with no default export. This does not affect code emit, just typechecking. */
+    "esModuleInterop": true /* Enables emit interoperability between CommonJS and ES Modules via creation of namespace objects for all imports. Implies 'allowSyntheticDefaultImports'. */,
+    // "preserveSymlinks": true,              /* Do not resolve the real path of symlinks. */
+    // "allowUmdGlobalAccess": true,          /* Allow accessing UMD globals from modules. */
+
+    /* Source Map Options */
+    // "sourceRoot": "",                      /* Specify the location where debugger should locate TypeScript files instead of source locations. */
+    // "mapRoot": "",                         /* Specify the location where debugger should locate map files instead of generated locations. */
+    // "inlineSourceMap": true,               /* Emit a single file with source maps instead of having a separate file. */
+    // "inlineSources": true,                 /* Emit the source alongside the sourcemaps within a single file; requires '--inlineSourceMap' or '--sourceMap' to be set. */
+
+    /* Experimental Options */
+    // "experimentalDecorators": true,        /* Enables experimental support for ES7 decorators. */
+    // "emitDecoratorMetadata": true,         /* Enables experimental support for emitting type metadata for decorators. */
+
+    /* Advanced Options */
+    "skipLibCheck": true /* Skip type checking of declaration files. */,
+    "forceConsistentCasingInFileNames": true /* Disallow inconsistently-cased references to the same file. */
+  }
+}
+</code></pre></div></div> <p>물론 명령어 없이 추가해도 됩니다.</p> <h3 id="typescript-컴파일">Typescript 컴파일</h3> <p>다음 명령어로 <strong>.ts</strong> 파일을 컴파일 하여 <strong>.js</strong> 파일로 변환합니다.</p> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ yarn run tsc
+</code></pre></div></div> <p>컴파일 후 기본적으로 같은 디렉토리에 .js파일로 생성됩니다.</p> <p><strong>tsconfig.json</strong> 파일의 <strong>outDir</strong> 값을 이용해서 다른 디렉토리에 생성되도록 변경이 가능합니다.</p> <h3 id="nodejs에서-typescript-실행하기">nodejs에서 Typescript 실행하기</h3> <p>매번 컴파일을 하지 않고 ts-node 명령어를 이용해서 실행할 수 있습니다.</p> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># run ts file
+$ yarn run ts-node ./src/index.ts
+</code></pre></div></div> <p>여기까지 기본적은 Typescript를 nodejs에서 사용하는 명령어를 확인하였습니다.</p> <p>Typescript에 대하여 자세히 알고 싶다면 <a href="https://www.typescriptlang.org/docs/home.html">TypeScript Documentation</a> 문서를 확인하면 됩니다. :)</p> <p>마지막으로 마틴 아저씨가 <a href="http://blog.cleancoder.com/uncle-bob/2020/05/27/ReplDrivenDesign.html">REPL로 개발한 경험</a>을 블로그에 올리셨습니다.</p> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>So I’ve learned my lesson. REPL driven development feels easier and faster than TDD; but it is not. Next time, it’s back to TDD for me.
+
+내 맘대로 직역 :
+
+내가 배운 교훈은 REPL개발은 TDD에 비해 쉽고 빠르게 보이지만, 실제로는 그렇지 않다. 여러 부분에서 더 많은 비용을 들이게 된다.
+그래서 나는 TDD를 다시 사용한다.
+</code></pre></div></div> <p>nodejs에서 명확히 구조화된 프로그램 작성을 위해서는 Typescript를 사용하는 것을 추천합니다. :)</p> <h2 id="참고자료">참고자료</h2> <ul> <li><a href="https://www.typescriptlang.org/docs/home.html">TypeScript Documentation</a></li> <li><a href="http://blog.cleancoder.com/uncle-bob/2020/05/27/ReplDrivenDesign.html">REPL Driven Design</a></li> </ul> <div class="entry-meta"> <br> <hr> <span class="entry-tags"><a href="https://lahuman.github.io/tags/#typescript" title="Pages tagged typescript" class="tag"><span class="term">typescript</span></a><a href="https://lahuman.github.io/tags/#node" title="Pages tagged node" class="tag"><span class="term">node</span></a></span> <span class="social-share"> <a href="https://www.facebook.com/sharer/sharer.php?u=https://lahuman.github.io/hello_typescript/" title="Share on Facebook" class="tag"> <span class="term"><i class="fa fa-facebook-square"></i> Share</span> </a> <a href="https://twitter.com/intent/tweet?text=https://lahuman.github.io/hello_typescript/" title="Share on Twitter" class="tag"> <span class="term"><i class="fa fa-twitter-square"></i> Tweet</span> </a> <a href="https://plus.google.com/share?url=https://lahuman.github.io/hello_typescript/" title="Share on Google+" class="tag"> <span class="term"><i class="fa fa-google-plus-square"></i> +1</span> </a> </span> <div style="clear:both"></div> </div> </div> </div> <section id="disqus_thread" class="animated fadeInUp"></section><!-- /#disqus_thread --> </header> <!-- JS --> <script src="https://lahuman.github.io/assets/js/jquery-1.12.0.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.dlmenu.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.goup.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.magnific-popup.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.fitvid.min.js"></script> <script src="https://lahuman.github.io/assets/js/scripts.js"></script> <!-- Global site tag (gtag.js) - Google Analytics --> <script async src="https://www.googletagmanager.com/gtag/js?id=UA-74095083-1"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-74095083-1'); </script> <script type="text/javascript"> var disqus_shortname = 'daniels-blog'; (function() { var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true; dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js'; (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq); })(); (function () { var s = document.createElement('script'); s.async = true; s.type = 'text/javascript'; s.src = '//' + disqus_shortname + '.disqus.com/count.js'; (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s); }()); </script> <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript> <!-- MathJax --> <script async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> </body> </html>

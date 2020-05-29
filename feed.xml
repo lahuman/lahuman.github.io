@@ -1,4 +1,161 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-05-27T23:48:10+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">swagger-node에서 express-session 설정 &amp;amp; 사용하기</title><link href="https://lahuman.github.io/swagger-node_session/" rel="alternate" type="text/html" title="swagger-node에서 express-session 설정 &amp; 사용하기" /><published>2020-05-22T00:00:00+09:00</published><updated>2020-05-22T00:00:00+09:00</updated><id>https://lahuman.github.io/swagger-node_session</id><content type="html" xml:base="https://lahuman.github.io/swagger-node_session/">&lt;h1 id=&quot;swagger-node에서-express-session-설정--사용하기&quot;&gt;swagger-node에서 express-session 설정 &amp;amp; 사용하기&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-05-29T23:00:24+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">nodejs에서 TYPESCRIPT 사용 tutorial</title><link href="https://lahuman.github.io/hello_typescript/" rel="alternate" type="text/html" title="nodejs에서 TYPESCRIPT 사용 tutorial" /><published>2020-05-29T00:00:00+09:00</published><updated>2020-05-29T00:00:00+09:00</updated><id>https://lahuman.github.io/hello_typescript</id><content type="html" xml:base="https://lahuman.github.io/hello_typescript/">&lt;h1 id=&quot;nodejs에서-typescript-사용해보기&quot;&gt;Nodejs에서 Typescript 사용해보기!&lt;/h1&gt;
+
+&lt;p&gt;nodejs를 하면서 Typescript에 대하여 어려번 들었습니다.&lt;/p&gt;
+
+&lt;p&gt;기본적으로 nosejs에 대한 개발을 REPL 기반으로 하고 있습니다.&lt;/p&gt;
+
+&lt;p&gt;TDD를 하기 위해서는 타입에 대한 검증등 많은 것들을 처리 해야 하는데요. 이는 Typescript와 더 잘 맞습니다.&lt;/p&gt;
+
+&lt;p&gt;한번 사용해보기 위해서 nodejs에서 Typescript를 사용하는 방법을 설명드리겠습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;typescript-사용해-보기&quot;&gt;Typescript 사용해 보기&lt;/h2&gt;
+
+&lt;p&gt;평소에는 &lt;a href=&quot;https://www.npmjs.com/&quot;&gt;npm&lt;/a&gt;을 사용하지만, 이번에는 &lt;a href=&quot;https://classic.yarnpkg.com/en/&quot;&gt;yarn&lt;/a&gt;을 사용해보려고 합니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;프로젝트-생성하기&quot;&gt;프로젝트 생성하기&lt;/h3&gt;
+
+&lt;p&gt;먼저 프로젝트 디렉토리를 생성하고 yarn 명령어를 이용해서 초기화 합니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ mkdir learn-typescript
+$ cd learn-typescript
+$ yarn init -y
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;typescript-사용을-위한-모듈-설치하기&quot;&gt;Typescript 사용을 위한 모듈 설치하기&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;typescript : Typescript 라이브러리&lt;/li&gt;
+  &lt;li&gt;ts-node : node에서 Typescript를 사용하기 위한 라이브러리&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ yarn add typescript ts-node
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;typescript-설정-파일-생성하기&quot;&gt;Typescript 설정 파일 생성하기&lt;/h3&gt;
+
+&lt;p&gt;타입스크립트에 대한 정보를 가지고 있는 설정파일을 생성합니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ yarn run tsc --init
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;실행을 하면 디렉토리에 &lt;strong&gt;tsconfig.json&lt;/strong&gt; 파일이 생성됩니다.&lt;/p&gt;
+
+&lt;p&gt;해당 파일의 내용은 아래와 같습니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{
+  &quot;compilerOptions&quot;: {
+    /* Visit https://aka.ms/tsconfig.json to read more about this file */
+
+    /* Basic Options */
+    // &quot;incremental&quot;: true,                   /* Enable incremental compilation */
+    &quot;target&quot;: &quot;es2016&quot; /* Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017', 'ES2018', 'ES2019', 'ES2020', or 'ESNEXT'. */,
+    &quot;module&quot;: &quot;commonjs&quot; /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', 'es2020', or 'ESNext'. */,
+    // &quot;lib&quot;: [],                             /* Specify library files to be included in the compilation. */
+    // &quot;allowJs&quot;: true,                       /* Allow javascript files to be compiled. */
+    // &quot;checkJs&quot;: true,                       /* Report errors in .js files. */
+    // &quot;jsx&quot;: &quot;preserve&quot;,                     /* Specify JSX code generation: 'preserve', 'react-native', or 'react'. */
+    // &quot;declaration&quot;: true,                   /* Generates corresponding '.d.ts' file. */
+    // &quot;declarationMap&quot;: true,                /* Generates a sourcemap for each corresponding '.d.ts' file. */
+    // &quot;sourceMap&quot;: true,                     /* Generates corresponding '.map' file. */
+    // &quot;outFile&quot;: &quot;./&quot;,                       /* Concatenate and emit output to single file. */
+    &quot;outDir&quot;: &quot;./dist/&quot; /* Redirect output structure to the directory. */,
+    // &quot;rootDir&quot;: &quot;./&quot;,                       /* Specify the root directory of input files. Use to control the output directory structure with --outDir. */
+    // &quot;composite&quot;: true,                     /* Enable project compilation */
+    // &quot;tsBuildInfoFile&quot;: &quot;./&quot;,               /* Specify file to store incremental compilation information */
+    // &quot;removeComments&quot;: true,                /* Do not emit comments to output. */
+    // &quot;noEmit&quot;: true,                        /* Do not emit outputs. */
+    // &quot;importHelpers&quot;: true,                 /* Import emit helpers from 'tslib'. */
+    // &quot;downlevelIteration&quot;: true,            /* Provide full support for iterables in 'for-of', spread, and destructuring when targeting 'ES5' or 'ES3'. */
+    // &quot;isolatedModules&quot;: true,               /* Transpile each file as a separate module (similar to 'ts.transpileModule'). */
+
+    /* Strict Type-Checking Options */
+    &quot;strict&quot;: true /* Enable all strict type-checking options. */,
+    // &quot;noImplicitAny&quot;: true,                 /* Raise error on expressions and declarations with an implied 'any' type. */
+    // &quot;strictNullChecks&quot;: true,              /* Enable strict null checks. */
+    // &quot;strictFunctionTypes&quot;: true,           /* Enable strict checking of function types. */
+    // &quot;strictBindCallApply&quot;: true,           /* Enable strict 'bind', 'call', and 'apply' methods on functions. */
+    // &quot;strictPropertyInitialization&quot;: true,  /* Enable strict checking of property initialization in classes. */
+    // &quot;noImplicitThis&quot;: true,                /* Raise error on 'this' expressions with an implied 'any' type. */
+    // &quot;alwaysStrict&quot;: true,                  /* Parse in strict mode and emit &quot;use strict&quot; for each source file. */
+
+    /* Additional Checks */
+    // &quot;noUnusedLocals&quot;: true,                /* Report errors on unused locals. */
+    // &quot;noUnusedParameters&quot;: true,            /* Report errors on unused parameters. */
+    // &quot;noImplicitReturns&quot;: true,             /* Report error when not all code paths in function return a value. */
+    // &quot;noFallthroughCasesInSwitch&quot;: true,    /* Report errors for fallthrough cases in switch statement. */
+
+    /* Module Resolution Options */
+    // &quot;moduleResolution&quot;: &quot;node&quot;,            /* Specify module resolution strategy: 'node' (Node.js) or 'classic' (TypeScript pre-1.6). */
+    // &quot;baseUrl&quot;: &quot;./&quot;,                       /* Base directory to resolve non-absolute module names. */
+    // &quot;paths&quot;: {},                           /* A series of entries which re-map imports to lookup locations relative to the 'baseUrl'. */
+    // &quot;rootDirs&quot;: [],                        /* List of root folders whose combined content represents the structure of the project at runtime. */
+    // &quot;typeRoots&quot;: [],                       /* List of folders to include type definitions from. */
+    // &quot;types&quot;: [],                           /* Type declaration files to be included in compilation. */
+    // &quot;allowSyntheticDefaultImports&quot;: true,  /* Allow default imports from modules with no default export. This does not affect code emit, just typechecking. */
+    &quot;esModuleInterop&quot;: true /* Enables emit interoperability between CommonJS and ES Modules via creation of namespace objects for all imports. Implies 'allowSyntheticDefaultImports'. */,
+    // &quot;preserveSymlinks&quot;: true,              /* Do not resolve the real path of symlinks. */
+    // &quot;allowUmdGlobalAccess&quot;: true,          /* Allow accessing UMD globals from modules. */
+
+    /* Source Map Options */
+    // &quot;sourceRoot&quot;: &quot;&quot;,                      /* Specify the location where debugger should locate TypeScript files instead of source locations. */
+    // &quot;mapRoot&quot;: &quot;&quot;,                         /* Specify the location where debugger should locate map files instead of generated locations. */
+    // &quot;inlineSourceMap&quot;: true,               /* Emit a single file with source maps instead of having a separate file. */
+    // &quot;inlineSources&quot;: true,                 /* Emit the source alongside the sourcemaps within a single file; requires '--inlineSourceMap' or '--sourceMap' to be set. */
+
+    /* Experimental Options */
+    // &quot;experimentalDecorators&quot;: true,        /* Enables experimental support for ES7 decorators. */
+    // &quot;emitDecoratorMetadata&quot;: true,         /* Enables experimental support for emitting type metadata for decorators. */
+
+    /* Advanced Options */
+    &quot;skipLibCheck&quot;: true /* Skip type checking of declaration files. */,
+    &quot;forceConsistentCasingInFileNames&quot;: true /* Disallow inconsistently-cased references to the same file. */
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;물론 명령어 없이 추가해도 됩니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;typescript-컴파일&quot;&gt;Typescript 컴파일&lt;/h3&gt;
+
+&lt;p&gt;다음 명령어로 &lt;strong&gt;.ts&lt;/strong&gt; 파일을 컴파일 하여 &lt;strong&gt;.js&lt;/strong&gt; 파일로 변환합니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ yarn run tsc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;컴파일 후 기본적으로 같은 디렉토리에 .js파일로 생성됩니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;tsconfig.json&lt;/strong&gt; 파일의 &lt;strong&gt;outDir&lt;/strong&gt; 값을 이용해서 다른 디렉토리에 생성되도록 변경이 가능합니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;nodejs에서-typescript-실행하기&quot;&gt;nodejs에서 Typescript 실행하기&lt;/h3&gt;
+
+&lt;p&gt;매번 컴파일을 하지 않고 ts-node 명령어를 이용해서 실행할 수 있습니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# run ts file
+$ yarn run ts-node ./src/index.ts
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;여기까지 기본적은 Typescript를 nodejs에서 사용하는 명령어를 확인하였습니다.&lt;/p&gt;
+
+&lt;p&gt;Typescript에 대하여 자세히 알고 싶다면 &lt;a href=&quot;https://www.typescriptlang.org/docs/home.html&quot;&gt;TypeScript Documentation&lt;/a&gt; 문서를 확인하면 됩니다. :)&lt;/p&gt;
+
+&lt;p&gt;마지막으로 마틴 아저씨가 &lt;a href=&quot;http://blog.cleancoder.com/uncle-bob/2020/05/27/ReplDrivenDesign.html&quot;&gt;REPL로 개발한 경험&lt;/a&gt;을 블로그에 올리셨습니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;So I’ve learned my lesson. REPL driven development feels easier and faster than TDD; but it is not. Next time, it’s back to TDD for me.
+
+내 맘대로 직역 :
+
+내가 배운 교훈은 REPL개발은 TDD에 비해 쉽고 빠르게 보이지만, 실제로는 그렇지 않다. 여러 부분에서 더 많은 비용을 들이게 된다.
+그래서 나는 TDD를 다시 사용한다.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;nodejs에서 명확히 구조화된 프로그램 작성을 위해서는 Typescript를 사용하는 것을 추천합니다. :)&lt;/p&gt;
+
+&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.typescriptlang.org/docs/home.html&quot;&gt;TypeScript Documentation&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://blog.cleancoder.com/uncle-bob/2020/05/27/ReplDrivenDesign.html&quot;&gt;REPL Driven Design&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="typescript" /><category term="node" /><summary type="html">Typescript를 사용하여 봅니다!</summary></entry><entry><title type="html">swagger-node에서 express-session 설정 &amp;amp; 사용하기</title><link href="https://lahuman.github.io/swagger-node_session/" rel="alternate" type="text/html" title="swagger-node에서 express-session 설정 &amp; 사용하기" /><published>2020-05-22T00:00:00+09:00</published><updated>2020-05-22T00:00:00+09:00</updated><id>https://lahuman.github.io/swagger-node_session</id><content type="html" xml:base="https://lahuman.github.io/swagger-node_session/">&lt;h1 id=&quot;swagger-node에서-express-session-설정--사용하기&quot;&gt;swagger-node에서 express-session 설정 &amp;amp; 사용하기&lt;/h1&gt;
 
 &lt;p&gt;기본적으로 &lt;a href=&quot;https://github.com/swagger-api/swagger-node&quot;&gt;swagger-node&lt;/a&gt;는 &lt;a href=&quot;https://expressjs.com/ko/&quot;&gt;express&lt;/a&gt;를 기반으로 동작합니다.&lt;/p&gt;
 
@@ -105,19 +262,21 @@ SwaggerExpress.create(config, function (err, swaggerExpress) {
 
 &lt;p&gt;개발을 잘하는 건 아닌데, 꾸준히 노력하고 있습니다.&lt;/p&gt;
 
-&lt;p&gt;나이가 들수록 주위 선배 개발자들은 개발보다는 관리 스킬에 집중하는 모습을 많이 보고 있다.&lt;/p&gt;
+&lt;p&gt;나이가 들수록 주위 선배 개발자들은 개발보다는 관리 스킬에 집중하는 모습을 많이 보고 있습니다.&lt;/p&gt;
 
-&lt;p&gt;이전 회사의 이직 사유는 개발하지 말고 관리를 하라는 이유였다.&lt;/p&gt;
+&lt;p&gt;이전 회사의 이직 사유는 개발하지 말고 관리를 하라는 이유였습니다.&lt;/p&gt;
 
-&lt;p&gt;지금 회사도 크게 다르지 않은 느낌이다.&lt;/p&gt;
+&lt;p&gt;지금 회사도 크게 다르지 않은 느낌입니다.&lt;/p&gt;
 
-&lt;p&gt;나이가 들면 개발을 그만두어야 할까?&lt;/p&gt;
+&lt;p&gt;나이가 들면 개발을 그만두어야 할까요?&lt;/p&gt;
 
-&lt;p&gt;이럴때 우리 아들은 이렇게 이야기 한다.&lt;/p&gt;
+&lt;p&gt;이럴때 제 아들은 이렇게 이야기 합니다.&lt;/p&gt;
 
-&lt;p&gt;“싫은데, 내가 왜?” 라고…&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;“싫은데, 내가 왜?”&lt;/strong&gt; 라고…&lt;/p&gt;
 
-&lt;p&gt;자신있게 이야기 할 수 있는 내가 되도록 잘하자!&lt;/p&gt;</content><category term="단상" /><summary type="html">열심히 보단 잘하는게 중요하지요.</summary></entry><entry><title type="html">요즘 동료가 제 코드를 리뷰해주고 있습니다.</title><link href="https://lahuman.github.io/20200515/" rel="alternate" type="text/html" title="요즘 동료가 제 코드를 리뷰해주고 있습니다." /><published>2020-05-15T00:00:00+09:00</published><updated>2020-05-15T00:00:00+09:00</updated><id>https://lahuman.github.io/20200515</id><content type="html" xml:base="https://lahuman.github.io/20200515/">&lt;h1 id=&quot;단위-테스트-코드를-작성하고-있습니다&quot;&gt;단위 테스트 코드를 작성하고 있습니다.&lt;/h1&gt;
+&lt;p&gt;우선 지금 최선을 다해서 하고 싶은 일을 해보려고 합니다.&lt;/p&gt;
+
+&lt;p&gt;그래도 안되면.. 고민해봐야지요. :)&lt;/p&gt;</content><category term="단상" /><summary type="html">열심히 보단 잘하는게 중요하지요.</summary></entry><entry><title type="html">요즘 동료가 제 코드를 리뷰해주고 있습니다.</title><link href="https://lahuman.github.io/20200515/" rel="alternate" type="text/html" title="요즘 동료가 제 코드를 리뷰해주고 있습니다." /><published>2020-05-15T00:00:00+09:00</published><updated>2020-05-15T00:00:00+09:00</updated><id>https://lahuman.github.io/20200515</id><content type="html" xml:base="https://lahuman.github.io/20200515/">&lt;h1 id=&quot;단위-테스트-코드를-작성하고-있습니다&quot;&gt;단위 테스트 코드를 작성하고 있습니다.&lt;/h1&gt;
 
 &lt;p&gt;제 코드를 기반으로 단위 테스트를 작성하면서 명확한 의미를 가지도록 변수명, 메소드 명을 리팩토링 해주고 있습니다.&lt;/p&gt;
 
@@ -236,7 +395,7 @@ router.post(
 );
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;첨부 파일을 다른 서버로 전송할때 주의 할 것은&lt;/p&gt;
+&lt;p&gt;첨부 파일을 다른 서버로 전송할때 주의 하는 부분이 있습니다.&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;formData.append(&quot;filepond&quot;, req.file.buffer, {
         filename: req.file.originalname,
@@ -474,38 +633,4 @@ export default (props) =&amp;gt; {
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://github.com/mui-org/material-ui/issues/10560&quot;&gt;Disabling animations either per-component or globally&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://material-ui.com/customization/theming/&quot;&gt;Theming&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="reactjs" /><category term="materialui" /><summary type="html">저성능 / 구형 디바이스에서 느린 경우 해결 방법</summary></entry><entry><title type="html">수동으로 설치한 WSL을 삭제 하는 방법</title><link href="https://lahuman.github.io/wsl_uninstall/" rel="alternate" type="text/html" title="수동으로 설치한 WSL을 삭제 하는 방법" /><published>2020-03-26T00:00:00+09:00</published><updated>2020-03-26T00:00:00+09:00</updated><id>https://lahuman.github.io/wsl_uninstall</id><content type="html" xml:base="https://lahuman.github.io/wsl_uninstall/">&lt;h1 id=&quot;수동으로-설치한-wsl-삭제-하기&quot;&gt;수동으로 설치한 WSL 삭제 하기&lt;/h1&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://lahuman.github.io/wsl_install_using_command/&quot;&gt;보안프로그램을 피해서 WSL 설치하기!&lt;/a&gt;를 통해서 설치한 경우 제어판 &amp;gt; 앱에 Ubuntu가 표기 되지 않습니다.&lt;/p&gt;
-
-&lt;p&gt;압축을 풀었던 디렉토리를 삭제하고 다시 압축을 풀고 Ubuntu.exe 실행하면 그때부터는 &lt;strong&gt;0x80070003&lt;/strong&gt; 메시지를 만나게 됩니다.&lt;/p&gt;
-
-&lt;p&gt;메뉴얼 삭제시에 windows의 wsl에 등록된 정보를 삭제하지 않았기 때문에 발생하는 문제입니다.&lt;/p&gt;
-
-&lt;p&gt;PowerShell에서 wsl을 삭제해주어야 됩니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 설치된 wsl 목록 확인
-PS C:\Users\admin&amp;gt; wslconfig.exe /l
-Linux 배포용 Windows 하위 시스템:
-Ubuntu-18.04(기본값)
-
-# 설치된 wsl 목록 삭제
-PS C:\Users\admin&amp;gt; wslconfig.exe /u Ubuntu-18.04
-삭제중...
-
-# 이후 확인하면 설치된 wsl목록이 없음
-PS C:\Users\admin&amp;gt; wslconfig.exe /l
-Windows Subsystem for Linux has no installed distributions.
-Distributions can be installed by visiting the Windows Store:
-https://aka.ms/wslstore
-
-# 이후 Ubuntu 디렉토리 삭제 진행
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;메뉴얼-방식으로-설치된-wsl을-삭제를-위해서는-wslconfigexe를-이용한-레지스트리-제거가-필요-합니다&quot;&gt;메뉴얼 방식으로 설치된 WSL을 삭제를 위해서는 &lt;strong&gt;wslconfig.exe&lt;/strong&gt;를 이용한 레지스트리 제거가 필요 합니다.&lt;/h2&gt;
-
-&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/microsoft/WSL/issues/3324&quot;&gt;Error 0x80070003 after manually installing/uninstalling when launching bash.exe #3324&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="wsl" /><category term="uninstall" /><summary type="html">보안 프로그램을 피해서 설치한 WSL을 삭제 하는 방법</summary></entry></feed>
+&lt;/ul&gt;</content><category term="reactjs" /><category term="materialui" /><summary type="html">저성능 / 구형 디바이스에서 느린 경우 해결 방법</summary></entry></feed>
