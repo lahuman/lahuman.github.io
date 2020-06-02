@@ -1,4 +1,52 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-05-29T23:00:24+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">nodejs에서 TYPESCRIPT 사용 tutorial</title><link href="https://lahuman.github.io/hello_typescript/" rel="alternate" type="text/html" title="nodejs에서 TYPESCRIPT 사용 tutorial" /><published>2020-05-29T00:00:00+09:00</published><updated>2020-05-29T00:00:00+09:00</updated><id>https://lahuman.github.io/hello_typescript</id><content type="html" xml:base="https://lahuman.github.io/hello_typescript/">&lt;h1 id=&quot;nodejs에서-typescript-사용해보기&quot;&gt;Nodejs에서 Typescript 사용해보기!&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-06-02T20:04:46+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Sequelize에서 날짜에 대한 타임존 처리 하기</title><link href="https://lahuman.github.io/sequelize_timezone/" rel="alternate" type="text/html" title="Sequelize에서 날짜에 대한 타임존 처리 하기" /><published>2020-06-01T00:00:00+09:00</published><updated>2020-06-01T00:00:00+09:00</updated><id>https://lahuman.github.io/sequelize_timezone</id><content type="html" xml:base="https://lahuman.github.io/sequelize_timezone/">&lt;h1 id=&quot;sequelize에서-날짜에-대한-타임존-처리-하기&quot;&gt;Sequelize에서 날짜에 대한 타임존 처리 하기&lt;/h1&gt;
+
+&lt;p&gt;Sequelize에서 날짜형(date)을 저장시 -9:00 된 값으로 저장이 됩니다.&lt;/p&gt;
+
+&lt;p&gt;EX) 6월 4일 00:00 =&amp;gt; 6월 3일 15:00&lt;/p&gt;
+
+&lt;p&gt;서버의 타임존도 KST이고, DBMS의 타임존도 KST임에도 저장시 -9시간이 됩니다.&lt;/p&gt;
+
+&lt;p&gt;이럴때는 connection에 timezone을 설정하면 처리가 됩니다.&lt;/p&gt;
+
+&lt;p&gt;아래는 처리 하는 Sequelize Connection 예제입니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;const Sequelize = require(&quot;sequelize&quot;);
+
+// Option 1: Passing parameters separately
+const sequelize = new Sequelize(
+  process.env.MYSQL_DB,
+  process.env.MYSQL_USER,
+  process.env.MYSQL_PASS,
+  {
+    host: process.env.MYSQL_URL,
+    dialect: &quot;mysql&quot;,
+    dialectOptions: { charset: &quot;utf8mb4&quot;, dateStrings: true, typeCast: true }, // 날짜의 경우 문자열로 타입 변경 처리
+    timezone: &quot;+09:00&quot;, // 타임존을 설정
+    pool: {
+      max: 5,
+      min: 0,
+      acquire: 30000,
+      idle: 10000,
+    },
+    define: {
+      // The `timestamps` field specify whether or not the `createdAt` and `updatedAt` fields will be created.
+      // This was true by default, but now is false by default
+      timestamps: false,
+      supportBigNumbers: true,
+    },
+  }
+);
+
+module.exports = sequelize;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;주요 설정으로 &lt;strong&gt;타임존과 날짜를 외부에 보낼때 처리&lt;/strong&gt;만 추가 해주면 됩니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://hakurei.tistory.com/214&quot;&gt;[SEQUELIZE] TIMEZONE 세팅&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="sequelize" /><category term="timezone" /><category term="mysql" /><summary type="html">Mysql에 날짜형을 저장시 타임존이 계속 UTC로 처리될때 해결 방법</summary></entry><entry><title type="html">nodejs에서 TYPESCRIPT 사용 tutorial</title><link href="https://lahuman.github.io/hello_typescript/" rel="alternate" type="text/html" title="nodejs에서 TYPESCRIPT 사용 tutorial" /><published>2020-05-29T00:00:00+09:00</published><updated>2020-05-29T00:00:00+09:00</updated><id>https://lahuman.github.io/hello_typescript</id><content type="html" xml:base="https://lahuman.github.io/hello_typescript/">&lt;h1 id=&quot;nodejs에서-typescript-사용해보기&quot;&gt;Nodejs에서 Typescript 사용해보기!&lt;/h1&gt;
 
 &lt;p&gt;nodejs를 하면서 Typescript에 대하여 어려번 들었습니다.&lt;/p&gt;
 
@@ -569,68 +617,4 @@ CMD [&quot;npm&quot;, &quot;start&quot;]
 $&amp;gt; sudo xcode-select --install
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h2 id=&quot;mac-os-종특인듯&quot;&gt;MAC OS 종특인듯…&lt;/h2&gt;</content><category term="mac" /><category term="xcode" /><summary type="html">No Xcode or CLT version detected!</summary></entry><entry><title type="html">[TIP ReactJS] Material-UI에서 애니메이션을 제거하여 성능 향상 처리</title><link href="https://lahuman.github.io/reactjs_materialui_disable_animation/" rel="alternate" type="text/html" title="[TIP ReactJS] Material-UI에서 애니메이션을 제거하여 성능 향상 처리" /><published>2020-04-03T00:00:00+09:00</published><updated>2020-04-03T00:00:00+09:00</updated><id>https://lahuman.github.io/reactjs_materialui_disable_animation</id><content type="html" xml:base="https://lahuman.github.io/reactjs_materialui_disable_animation/">&lt;h1 id=&quot;tip-reactjs-material-ui에서-애니메이션을-제거하여-성능-향상-처리&quot;&gt;[TIP ReactJS] Material-UI에서 애니메이션을 제거하여 성능 향상 처리&lt;/h1&gt;
-
-&lt;p&gt;얼마전 회사 내에서 ReactJS의 디자인 라이브러리에 대한 비교를 하였습니다.&lt;/p&gt;
-
-&lt;h3 id=&quot;비교-디자인-라이브러리-목록&quot;&gt;비교 디자인 라이브러리 목록&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;ant design&lt;/li&gt;
-  &lt;li&gt;Material-ui&lt;/li&gt;
-  &lt;li&gt;React-Bootstrap&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;비교-결과&quot;&gt;비교 결과&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;assets/img/post_img/react_design_performance.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;우선 React-Bootstrap의 경우 애니메이션 효과가 전혀 없기 때문에 동일한 랜더링 결과를 확인할 수 없다고 판단되었습니다.
-따라서 Material-UI에서 애니메이션 효과를 제거하는 코드를 반영해보았습니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&quot;material-ui에서-애니메이션-효과를-제거하는-코드&quot;&gt;Material-UI에서 애니메이션 효과를 제거하는 코드&lt;/h3&gt;
-
-&lt;p&gt;각 컴포넌트마다 애니메이션 효과를 제거할 수도 있고, 전체적으로 제거 할 수 있습니다.&lt;/p&gt;
-
-&lt;p&gt;아래는 모든 컴포넌트에서 애니메이션 효과를 제거하는 코드입니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-import { createMuiTheme, ThemeProvider } from '@material-ui/core';
-
-const theme = createMuiTheme({
-  props: {
-    // Name of the component ⚛️
-    MuiButtonBase: {
-      // The properties to apply
-      disableRipple: true, // No more ripple, on the whole application 💣!
-    },
-  },
-  transitions: {
-    // So we have 'transition: none;' everywhere
-    create: () =&amp;gt; 'none',
-  },
-});
-
-export default (props) =&amp;gt; {
-  &amp;lt;ThemeProvider theme={theme}&amp;gt;
-    &amp;lt;div className={classes.root}&amp;gt;
-    ....
-    &amp;lt;/div&amp;gt;
-  &amp;lt;/ThemeProvider&amp;gt;
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;결과&quot;&gt;결과&lt;/h3&gt;
-
-&lt;p&gt;Material-UI에서 애니메이션 효과를 제거 후 UI 성능은 눈에 띄게 좋아졌습니다.&lt;/p&gt;
-
-&lt;p&gt;추가적으로 저성능 디바이스에서는 애니메이션 효과를 제거하고 사용하는 것을 추천합니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/mui-org/material-ui/issues/10560&quot;&gt;Disabling animations either per-component or globally&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://material-ui.com/customization/theming/&quot;&gt;Theming&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="reactjs" /><category term="materialui" /><summary type="html">저성능 / 구형 디바이스에서 느린 경우 해결 방법</summary></entry></feed>
+&lt;h2 id=&quot;mac-os-종특인듯&quot;&gt;MAC OS 종특인듯…&lt;/h2&gt;</content><category term="mac" /><category term="xcode" /><summary type="html">No Xcode or CLT version detected!</summary></entry></feed>
