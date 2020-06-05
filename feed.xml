@@ -1,4 +1,98 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-06-02T20:04:46+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Sequelize에서 날짜에 대한 타임존 처리 하기</title><link href="https://lahuman.github.io/sequelize_timezone/" rel="alternate" type="text/html" title="Sequelize에서 날짜에 대한 타임존 처리 하기" /><published>2020-06-01T00:00:00+09:00</published><updated>2020-06-01T00:00:00+09:00</updated><id>https://lahuman.github.io/sequelize_timezone</id><content type="html" xml:base="https://lahuman.github.io/sequelize_timezone/">&lt;h1 id=&quot;sequelize에서-날짜에-대한-타임존-처리-하기&quot;&gt;Sequelize에서 날짜에 대한 타임존 처리 하기&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-06-06T00:59:45+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Node] sequelize에서 mysql 8.0 로그인시 unknown plugin sha256_password 오류 발생</title><link href="https://lahuman.github.io/mysql_sha256_login_error/" rel="alternate" type="text/html" title="Node] sequelize에서 mysql 8.0 로그인시 unknown plugin sha256_password 오류 발생" /><published>2020-06-04T00:00:00+09:00</published><updated>2020-06-04T00:00:00+09:00</updated><id>https://lahuman.github.io/mysql_sha256_login_error</id><content type="html" xml:base="https://lahuman.github.io/mysql_sha256_login_error/">&lt;h1 id=&quot;node-sequelize에서-mysql-로그인시-unknown-plugin-sha256_password-오류-발생&quot;&gt;Node] sequelize에서 mysql 로그인시 unknown plugin sha256_password 오류 발생&lt;/h1&gt;
+
+&lt;p&gt;개발서버를 구축하고 테스트를 진행중에 아래와 같은 오류가 발생하였습니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;node:56906) [DEP0097] DeprecationWarning: Using a domain property in MakeCallback is deprecated. Use the async_context variant of MakeCallback or the AsyncResource class instead.
+2020-06-04 03:30:55.384 KST [error]: main - Server requests authentication using unknown plugin sha256_password. See TODO: add plugins doco here on how to configure or author authentication plugins.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;sha256_password 플러그인 설치를 해야 하는건가? 아니면 설정을 추가해야 하는건가 많이 찾아봤는데요.&lt;/p&gt;
+
+&lt;p&gt;결론은 Mysql 8.0 이상에서 계정을 생성할때 비밀번호 생성을 아래와 같이 해서 발생한 문제였습니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;create user '사용자'@'%' identified by '비밀번호';
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;만약 계정을 생성했다면 다음 명령어로 비밀번호를 업데이트 하면 문제가 해결 됩니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ALTER user '사용자'@'%' IDENTIFIED WITH mysql_native_password BY '비밀번호';
+flush privileges;
+
+// 또는
+
+use mysql;
+update user set authentication_string=password('비밀번호'), plugin='mysql_native_password' where user='사용자';
+flush privileges;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;mysql_native_password 은 기존 인증방법으로 보안 수준을 낮추지만, 이전 드라이버와 호환이 가능한 비밀번호 암호화 방식입니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;오늘의-삽질-끝&quot;&gt;오늘의 삽질 끝!&lt;/h3&gt;
+
+&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://oasisbase.tistory.com/43&quot;&gt;Sequelize와 mysql 연결 에러&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://to-dy.tistory.com/58&quot;&gt;MySQL 8.0 비밀번호 변경하기! (MySQL 5.7버전 이상)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="sequelize" /><category term="node" /><category term="error" /><summary type="html">Server requests authentication using unknown plugin sha256_password.</summary></entry><entry><title type="html">Session 인증이 들어간 Axois 통신 사용하기</title><link href="https://lahuman.github.io/cors_axios_session/" rel="alternate" type="text/html" title="Session 인증이 들어간 Axois 통신 사용하기" /><published>2020-06-04T00:00:00+09:00</published><updated>2020-06-04T00:00:00+09:00</updated><id>https://lahuman.github.io/cors_axios_session</id><content type="html" xml:base="https://lahuman.github.io/cors_axios_session/">&lt;h1 id=&quot;session-인증이-들아간-axios-통신-시-유의-사항&quot;&gt;Session 인증이 들아간 Axios 통신 시 유의 사항&lt;/h1&gt;
+
+&lt;p&gt;기본적으로 Axios를 이용한 통신시 인증 쿠키값을 전달하기 위해서는 아래 설정을 추가 해줘야 합니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;const axios = require('axios');
+
+// `withCredentials` indicates whether or not cross-site Access-Control requests
+// should be made using credentials
+// 기본 값은 false 입니다.
+axios.defaults.withCredentials = true;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;그리고 API 서버와 통신을 하면, 다음과 같이 오류가 발생합니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Access to XMLHttpRequest at 'http://lahuman.github.io' from origin 'http://localhost:8080' has been blocked by CORS policy: The value of the 'Access-Control-Allow-Origin' header in the response must not be the wildcard '*' when the request's credentials mode is 'include'. The credentials mode of requests initiated by the XMLHttpRequest is controlled by the withCredentials attribute.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;해당 오류의 원인은 &lt;a href=&quot;https://developer.mozilla.org/ko/docs/Web/HTTP/CORS/Errors/CORSNotSupportingCredentials&quot;&gt;Reason: Credential is not supported if the CORS header ‘Access-Control-Allow-Origin’ is ‘*’&lt;/a&gt; 과 같습니다.&lt;/p&gt;
+
+&lt;p&gt;인증 정보를 포함한 통신시 &lt;strong&gt;Access-Control-Allow-Origin&lt;/strong&gt; 값이 ‘*’ 일 경우 지원을 하지 않습니다.&lt;/p&gt;
+
+&lt;h5 id=&quot;access-control-allow-origin-값이--로-설정된-통신-예제&quot;&gt;Access-Control-Allow-Origin 값이 * 로 설정된 통신 예제&lt;/h5&gt;
+
+&lt;p&gt;&lt;img src=&quot;assets/img/post_img/cors_start.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;결국 각 서버의 호스트 정보를 &lt;a href=&quot;https://www.npmjs.com/package/cors&quot;&gt;cors&lt;/a&gt; 설정에 추가 해야 합니다.&lt;/p&gt;
+
+&lt;p&gt;아래는 인증 정보 샘플 입니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;const express = require(&quot;express&quot;);
+const app = express();
+const cors = require(&quot;cors&quot;);
+app.use(
+  cors({
+    origin: [
+      &quot;http://target.service.com&quot;,
+      &quot;https://lahuman.github.io&quot;,
+      &quot;http://localhost:8080&quot;,
+    ],
+    methods: &quot;GET,HEAD,PUT,PATCH,POST,DELETE&quot;,
+    preflightContinue: false,
+    optionsSuccessStatus: 204,
+    credentials: true,
+  })
+);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h5 id=&quot;access-control-allow-origin-값이-호스트에-알맞게-적용된-통신-예제&quot;&gt;Access-Control-Allow-Origin 값이 호스트에 알맞게 적용된 통신 예제&lt;/h5&gt;
+
+&lt;p&gt;&lt;img src=&quot;assets/img/post_img/cors_localhost.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;원인을-알고-나면-문제의-해결이-쉬워집니다&quot;&gt;원인을 알고 나면 문제의 해결이 쉬워집니다.&lt;/h2&gt;
+
+&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/ko/docs/Web/HTTP/CORS/Errors/CORSNotSupportingCredentials&quot;&gt;Reason: Credential is not supported if the CORS header ‘Access-Control-Allow-Origin’ is ‘*’&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.npmjs.com/package/cors&quot;&gt;cors&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="axios" /><category term="session" /><category term="cors" /><summary type="html">그냥 사용하면 오류가 발생합니다.</summary></entry><entry><title type="html">Sequelize에서 날짜에 대한 타임존 처리 하기</title><link href="https://lahuman.github.io/sequelize_timezone/" rel="alternate" type="text/html" title="Sequelize에서 날짜에 대한 타임존 처리 하기" /><published>2020-06-01T00:00:00+09:00</published><updated>2020-06-01T00:00:00+09:00</updated><id>https://lahuman.github.io/sequelize_timezone</id><content type="html" xml:base="https://lahuman.github.io/sequelize_timezone/">&lt;h1 id=&quot;sequelize에서-날짜에-대한-타임존-처리-하기&quot;&gt;Sequelize에서 날짜에 대한 타임존 처리 하기&lt;/h1&gt;
 
 &lt;p&gt;Sequelize에서 날짜형(date)을 저장시 -9:00 된 값으로 저장이 됩니다.&lt;/p&gt;
 
@@ -496,125 +590,4 @@ $ sudo npm install sqlite3
 
 &lt;p&gt;조금만 더 참고 조심해야 합니다.&lt;/p&gt;
 
-&lt;h2 id=&quot;모두-조금만-더-힘내-보아요&quot;&gt;모두 조금만 더 힘내 보아요!&lt;/h2&gt;</content><category term="단상" /><summary type="html">이태원 클럽을 다녀왔다고 하네요.</summary></entry><entry><title type="html">[Dockerfile] node:Alpine에서 puppeteer 기동 &amp;amp; 한글 깨짐 처리</title><link href="https://lahuman.github.io/dockerfile_alpine_puppeteer/" rel="alternate" type="text/html" title="[Dockerfile] node:Alpine에서 puppeteer 기동 &amp; 한글 깨짐 처리" /><published>2020-04-14T00:00:00+09:00</published><updated>2020-04-14T00:00:00+09:00</updated><id>https://lahuman.github.io/dockerfile_alpine_puppeteer</id><content type="html" xml:base="https://lahuman.github.io/dockerfile_alpine_puppeteer/">&lt;h1 id=&quot;nodealpine-에서-puppeteer-기동-하고-한글-깨짐-처리-하기&quot;&gt;node:Alpine 에서 puppeteer 기동 하고 한글 깨짐 처리 하기&lt;/h1&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.weave.works/blog/gitops-operations-by-pull-request&quot;&gt;GitOps&lt;/a&gt; 스타일의 지속적인 배포를 구축하여 자동 배포 시스템을 Git ==&amp;gt; jenkins ==&amp;gt; Kubernetes로 구축하여 사용하고 있습니다.&lt;/p&gt;
-
-&lt;p&gt;배포가 문제 없이 되었으나 puppeteer를 사용하는 순간 다음과 같은 오류를 만나게 되었습니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;....
-Error: Failed to launch chrome! spawn /app/node_modules/puppeteer/.local-chromium/linux-609904/chrome-linux/chrome ENOENT
-...
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;원인 해결 방법으로 chrome을 설치하고 실행 위치를 강제로 잡아주면 된다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# Dockerfile 내부
-# chromium 설치
-RUN apk add --no-cache udev ttf-freefont chromium
-
-# npm 설치 시 chromium 다운하지 않도록 설정
-ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
-# 설치된 위치를 환경 변수로 설정(node에서 사용)
-ENV CHROMIUM_PATH /usr/bin/chromium-browser
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;이후 puppeteer를 실행하는 곳에서 다음과 같이 처리 해줍니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;puppeteer.launch({
-  executablePath: process.env.CHROMIUM_PATH,
-  args: ['--no-sandbox'], // This was important. Can't remember why
-});
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;이후 다음과 같은 오류가 발생할 수 있습니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Protocol error (IO.read): Invalid parameters handle: string value expected
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;이유는 &lt;code class=&quot;highlighter-rouge&quot;&gt;node:12-alpine&lt;/code&gt;를 사용할 경우 발생하는 오류로 &lt;code class=&quot;highlighter-rouge&quot;&gt;node:13-alpine&lt;/code&gt;를 이용하면 해결 됩니다.&lt;/p&gt;
-
-&lt;p&gt;마지막으로 이렇게 처리 했음에도 한글이 깨지고 맙니다.&lt;/p&gt;
-
-&lt;p&gt;한글 폰트를 다음과 같이 설치하여 줍니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# Dockerfile
-# 한글 폰트 설치
-RUN mkdir /usr/share/fonts/nanumfont
-RUN wget http://cdn.naver.com/naver/NanumFont/fontfiles/NanumFont_TTF_ALL.zip
-RUN unzip NanumFont_TTF_ALL.zip -d /usr/share/fonts/nanumfont
-RUN fc-cache -f -v
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;추가--전체-dockerfile을-예제&quot;&gt;추가 : 전체 Dockerfile을 예제&lt;/h3&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Alpine 이란? 알파인 리눅스는 보안, 단순성 및 자원 효율성을 높이는 고급 사용자를 위해 설계된 범용 리눅스 배포판으로 musl libc와 busybox를 기반으로 하기에 GNU/Linux 배포판 보다 작고 가벼우며 yum이나 apt 같은 패키지 관리자가 아닌 apk라는 자체 패키지 관리자를 가지며 보안에 염두해두고 설계되었기에 모든 바이너리는 독립적인 실행 파일(PIE)로 컴파일 됩니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;FROM node:13.12.0-alpine3.11 as build
-
-USER root
-
-# 앱 디렉터리 생성
-WORKDIR /usr/src/app
-
-COPY . .
-# chromium 설치
-RUN apk add --no-cache udev ttf-freefont chromium
-
-# 한글 폰트 처리
-RUN mkdir /usr/share/fonts/nanumfont
-RUN wget http://cdn.naver.com/naver/NanumFont/fontfiles/NanumFont_TTF_ALL.zip
-RUN unzip NanumFont_TTF_ALL.zip -d /usr/share/fonts/nanumfont
-RUN fc-cache -f -v
-
-# 앱 디렉토리로 다시 이동
-RUN cd /usr/src/app
-# npm install 시 Chromium 다운로드 제외 처리
-ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
-# chromium-browser 설치 위치를 환경 변수에 저장
-ENV CHROMIUM_PATH /usr/bin/chromium-browser
-
-# 시간을 서울로 변경 처리
-RUN apk --no-cache add tzdata &amp;amp;&amp;amp; \
-        cp /usr/share/zoneinfo/Asia/Seoul /etc/localtime &amp;amp;&amp;amp; \
-        echo &quot;Asia/Seoul&quot; &amp;gt; /etc/timezone
-
-# Set the lang
-ENV LANG=ko_KR.UTF-8 \
-    LANGUAGE=ko_KR.UTF-8
-
-# node module 설치
-RUN npm  install --unsafe-perm 
-
-# docker 외부 OPEN 포트
-EXPOSE 3000
-CMD [&quot;npm&quot;, &quot;start&quot;]
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;아마-나중에-다시-만날-문제일꺼-같습니다&quot;&gt;아마 나중에 다시 만날 문제일꺼 같습니다.&lt;/h2&gt;
-
-&lt;p&gt;한글 꺠짐 문제는 늘 한번씩 돌아오네요.&lt;/p&gt;
-
-&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/puppeteer/puppeteer/issues/3994&quot;&gt;Error: Failed to launch chrome! spawn /app/node_modules/puppeteer/.local-chromium/linux-609904/chrome-linux/chrome ENOENT #3994&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/puppeteer/puppeteer/issues/4609&quot;&gt;v1.18.0 Page.pdf - Protocol error (IO.read): Invalid parameters handle: string value expected #4609&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="node" /><category term="alpine" /><category term="docker" /><summary type="html">Docker container에서 puppeteer 기동하고 한글 깨짐 처리</summary></entry><entry><title type="html">[Mac TIP] OS 업데이트 이후 다시 설치해야 하는 xcode 재설치 하는 법!</title><link href="https://lahuman.github.io/mac_xcode_reinstall/" rel="alternate" type="text/html" title="[Mac TIP] OS 업데이트 이후 다시 설치해야 하는 xcode 재설치 하는 법!" /><published>2020-04-09T00:00:00+09:00</published><updated>2020-04-09T00:00:00+09:00</updated><id>https://lahuman.github.io/mac_xcode_reinstall</id><content type="html" xml:base="https://lahuman.github.io/mac_xcode_reinstall/">&lt;h1 id=&quot;mac-tip-os-업데이트-이후-다시-설치해야-하는-xcode-재설치-하는-법&quot;&gt;[Mac TIP] OS 업데이트 이후 다시 설치해야 하는 xcode 재설치 하는 법!&lt;/h1&gt;
-
-&lt;p&gt;Mac의 OS를 업데이트를 하고 나면 꼭 다음과 같은 오류를 만나게 됩니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;assets/img/post_img/mac_no_xcode.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;xcode CommandLineTools을 분명히 설치 했음에도 발생합니다.&lt;/p&gt;
-
-&lt;p&gt;이럴때는 아래의 명령어로 삭제후 재설치 하여야 합니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$&amp;gt; sudo rm -rf /Library/Developer/CommandLineTools
-$&amp;gt; sudo xcode-select --install
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;mac-os-종특인듯&quot;&gt;MAC OS 종특인듯…&lt;/h2&gt;</content><category term="mac" /><category term="xcode" /><summary type="html">No Xcode or CLT version detected!</summary></entry></feed>
+&lt;h2 id=&quot;모두-조금만-더-힘내-보아요&quot;&gt;모두 조금만 더 힘내 보아요!&lt;/h2&gt;</content><category term="단상" /><summary type="html">이태원 클럽을 다녀왔다고 하네요.</summary></entry></feed>
