@@ -1,4 +1,27 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-06-19T21:02:08+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Node] epxress 서버에서 NODE_ENV를 production으로 설정시 앱 성능 3배 향상 됩니다.</title><link href="https://lahuman.github.io/node_env-production/" rel="alternate" type="text/html" title="Node] epxress 서버에서 NODE_ENV를 production으로 설정시 앱 성능 3배 향상 됩니다." /><published>2020-06-15T00:00:00+09:00</published><updated>2020-06-15T00:00:00+09:00</updated><id>https://lahuman.github.io/node_env-production</id><content type="html" xml:base="https://lahuman.github.io/node_env-production/">&lt;h1 id=&quot;node-epxress-서버에서-node_env를-production으로-설정시-앱-성능-3배-향상-됩니다&quot;&gt;Node] epxress 서버에서 NODE_ENV를 production으로 설정시 앱 성능 3배 향상 됩니다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-06-24T22:51:03+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">MSA 관련 토론회를 했다.</title><link href="https://lahuman.github.io/20200624/" rel="alternate" type="text/html" title="MSA 관련 토론회를 했다." /><published>2020-06-24T00:00:00+09:00</published><updated>2020-06-24T00:00:00+09:00</updated><id>https://lahuman.github.io/20200624</id><content type="html" xml:base="https://lahuman.github.io/20200624/">&lt;h1 id=&quot;msa-토론회&quot;&gt;MSA 토론회&lt;/h1&gt;
+
+&lt;p&gt;이번 토론회에서는 외부 초청으로 오신 분이 계셨습니다.&lt;/p&gt;
+
+&lt;p&gt;나이가 지긋하신 분이 오셨는데, 개발이야기를 함께 하기에 연세도 상당히 많이 보이셨습니다.&lt;/p&gt;
+
+&lt;p&gt;소개를 해주셨는데, NEXTREE 대표님이라고 해서 살짝 놀랐습니다.&lt;/p&gt;
+
+&lt;p&gt;개발 이야기를 하는 회사의 대표님는 처음 뵈었습니다.&lt;/p&gt;
+
+&lt;p&gt;우선 이야기 해주신 몇가지 이야기중 기억에 남는 것은 아래와 같습니다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;이벤트 기반으로 개발 해야 한다.&lt;/li&gt;
+  &lt;li&gt;데이터(값)가 아닌 도메인 기준으로 설계 해야 한다.&lt;/li&gt;
+  &lt;li&gt;빅뱅 보단 점진적으로 MSA로 변환하는 것을 추천 한다.&lt;/li&gt;
+  &lt;li&gt;단일 트랜젝션을 사용하지 않으면 성능이 개선된다.&lt;/li&gt;
+  &lt;li&gt;MSA는 FRONTEND와 BACKEND가 쌍으로 구성된다.&lt;/li&gt;
+  &lt;li&gt;동일한 레벨의 API 호출은 안된다.(FRONTEND를 통해서 호출 하거나, 아래 레벨의 API만 호출 할수 있다.)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;그 외에도 많은 이야기를 해주셨는데, 유익한 시간이었습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;즐거운-시간이었습니다&quot;&gt;즐거운 시간이었습니다.&lt;/h2&gt;</content><category term="단상" /><category term="MSA" /><summary type="html">NEXTREE 대표님이 오셔서 토론회를 함께 했습니다.</summary></entry><entry><title type="html">Node] epxress 서버에서 NODE_ENV를 production으로 설정시 앱 성능 3배 향상 됩니다.</title><link href="https://lahuman.github.io/node_env-production/" rel="alternate" type="text/html" title="Node] epxress 서버에서 NODE_ENV를 production으로 설정시 앱 성능 3배 향상 됩니다." /><published>2020-06-15T00:00:00+09:00</published><updated>2020-06-15T00:00:00+09:00</updated><id>https://lahuman.github.io/node_env-production</id><content type="html" xml:base="https://lahuman.github.io/node_env-production/">&lt;h1 id=&quot;node-epxress-서버에서-node_env를-production으로-설정시-앱-성능-3배-향상-됩니다&quot;&gt;Node] epxress 서버에서 NODE_ENV를 production으로 설정시 앱 성능 3배 향상 됩니다.&lt;/h1&gt;
 
 &lt;p&gt;함께 있는 동료에서 &lt;strong&gt;NODE_ENV&lt;/strong&gt;를 &lt;strong&gt;production&lt;/strong&gt;으로만 변경해서 성능 향상이 된다는 이야기를 처음 들었을때는 약간의 의구심이 생겼었습니다.&lt;/p&gt;
 
@@ -37,7 +60,7 @@
 
 &lt;p&gt;계속하는 것이 쉽지 않은 일이지만, 내적인 요소보다 외적인 요소로 지친다는 생각이 많이 든다.&lt;/p&gt;
 
-&lt;h2 id=&quot;그래도-또-하겠지&quot;&gt;그래도 또 하겠지&lt;/h2&gt;</content><category term="단상" /><summary type="html">일을 하면서 가치가 있는 일을 하꼬 있는지 의구심이 생기고 있다</summary></entry><entry><title type="html">회사가 사원을 어떻게 대하느냐에 따라 능률이 달라집니다.</title><link href="https://lahuman.github.io/20200608/" rel="alternate" type="text/html" title="회사가 사원을 어떻게 대하느냐에 따라 능률이 달라집니다." /><published>2020-06-08T00:00:00+09:00</published><updated>2020-06-08T00:00:00+09:00</updated><id>https://lahuman.github.io/20200608</id><content type="html" xml:base="https://lahuman.github.io/20200608/">&lt;h1 id=&quot;요즘의-회사는-직원을-도구처럼-대하고-있다&quot;&gt;요즘의 회사는 직원을 도구처럼 대하고 있다.&lt;/h1&gt;
+&lt;h2 id=&quot;그래도-또-하겠지&quot;&gt;그래도 또 하겠지&lt;/h2&gt;</content><category term="단상" /><summary type="html">일을 하면서 가치가 있는 일을 하고 있는지 의구심이 생기고 있다</summary></entry><entry><title type="html">회사가 사원을 어떻게 대하느냐에 따라 능률이 달라집니다.</title><link href="https://lahuman.github.io/20200608/" rel="alternate" type="text/html" title="회사가 사원을 어떻게 대하느냐에 따라 능률이 달라집니다." /><published>2020-06-08T00:00:00+09:00</published><updated>2020-06-08T00:00:00+09:00</updated><id>https://lahuman.github.io/20200608</id><content type="html" xml:base="https://lahuman.github.io/20200608/">&lt;h1 id=&quot;요즘의-회사는-직원을-도구처럼-대하고-있다&quot;&gt;요즘의 회사는 직원을 도구처럼 대하고 있다.&lt;/h1&gt;
 
 &lt;p&gt;입사 당시에는 이런 분위기까진 아니였는데… 요즘은 하루하루 실망하게 된다.&lt;/p&gt;
 
@@ -470,14 +493,4 @@ SwaggerExpress.create(config, function (err, swaggerExpress) {
 
 &lt;p&gt;우선 지금 최선을 다해서 하고 싶은 일을 해보려고 합니다.&lt;/p&gt;
 
-&lt;p&gt;그래도 안되면.. 고민해봐야지요. :)&lt;/p&gt;</content><category term="단상" /><summary type="html">열심히 보단 잘하는게 중요하지요.</summary></entry><entry><title type="html">요즘 동료가 제 코드를 리뷰해주고 있습니다.</title><link href="https://lahuman.github.io/20200515/" rel="alternate" type="text/html" title="요즘 동료가 제 코드를 리뷰해주고 있습니다." /><published>2020-05-15T00:00:00+09:00</published><updated>2020-05-15T00:00:00+09:00</updated><id>https://lahuman.github.io/20200515</id><content type="html" xml:base="https://lahuman.github.io/20200515/">&lt;h1 id=&quot;단위-테스트-코드를-작성하고-있습니다&quot;&gt;단위 테스트 코드를 작성하고 있습니다.&lt;/h1&gt;
-
-&lt;p&gt;제 코드를 기반으로 단위 테스트를 작성하면서 명확한 의미를 가지도록 변수명, 메소드 명을 리팩토링 해주고 있습니다.&lt;/p&gt;
-
-&lt;p&gt;그러면서 저에게 현재 변수명의 의미를 묻는데 명확하게 답해주는 것도 있고 두루뭉실하게 답혀주는 것도 있습니다.&lt;/p&gt;
-
-&lt;p&gt;명확하게 답해주는건 리펙토링 대상이 아니지만, 두루뭉실한 것들이 리펙토링 대상이 됩니다.&lt;/p&gt;
-
-&lt;p&gt;같이 이야기 하면서 많이 생각하고 배우게 되네요.&lt;/p&gt;
-
-&lt;h2 id=&quot;늘-내-코드는-볼때마다-부끄럽네요&quot;&gt;늘 내 코드는 볼때마다 부끄럽네요.&lt;/h2&gt;</content><category term="단상" /><summary type="html">제 코드가 부끄러우면서도 도움이 많이 되네요.</summary></entry></feed>
+&lt;p&gt;그래도 안되면.. 고민해봐야지요. :)&lt;/p&gt;</content><category term="단상" /><summary type="html">열심히 보단 잘하는게 중요하지요.</summary></entry></feed>
