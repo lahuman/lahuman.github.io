@@ -1,4 +1,64 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-06-24T22:51:03+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">MSA 관련 토론회를 했다.</title><link href="https://lahuman.github.io/20200624/" rel="alternate" type="text/html" title="MSA 관련 토론회를 했다." /><published>2020-06-24T00:00:00+09:00</published><updated>2020-06-24T00:00:00+09:00</updated><id>https://lahuman.github.io/20200624</id><content type="html" xml:base="https://lahuman.github.io/20200624/">&lt;h1 id=&quot;msa-토론회&quot;&gt;MSA 토론회&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-06-27T00:51:39+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Node] Sequelize에서 MSSQL 연동시 RFC 6066  오류 해결 방법</title><link href="https://lahuman.github.io/node_mssql_sequelize/" rel="alternate" type="text/html" title="Node] Sequelize에서 MSSQL 연동시 RFC 6066  오류 해결 방법" /><published>2020-06-26T00:00:00+09:00</published><updated>2020-06-26T00:00:00+09:00</updated><id>https://lahuman.github.io/node_mssql_sequelize</id><content type="html" xml:base="https://lahuman.github.io/node_mssql_sequelize/">&lt;h1 id=&quot;node-sequelize에서-mssql-연동시-rfc-6066-오류-해결-방법&quot;&gt;Node] Sequelize에서 MSSQL 연동시 RFC 6066 오류 해결 방법&lt;/h1&gt;
+
+&lt;p&gt;Sequlize 에서 MSSQL을 연동할때 드라이버로 &lt;strong&gt;tedious@^6.0.0&lt;/strong&gt; 이상을 사용하라고 가이드 합니다.&lt;/p&gt;
+
+&lt;p&gt;설치해서 DBMS에 접근했을때, 다음과 같은 오류가 발생하면,&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(node:95610) [DEP0123] DeprecationWarning: Setting the TLS ServerName to an IP address is not permitted by RFC 6066. This will be ignored in a future version.
+(Use node --trace-deprecation ... to show where the warning was created)
+(node:95610) UnhandledPromiseRejectionWarning: SequelizeConnectionError: Failed to connect to IPADDRESS:1433 - 4438633920:error:1425F102:SSL routines:ssl_choose_client_version:unsupported protocol:../deps/openssl/openssl/ssl/statem/statem_lib.c:1942:
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;db연결 옵션에 encrypt: false을 추가 하면 됩니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&quot;use static&quot;;
+
+const Sequelize = require(&quot;sequelize&quot;);
+
+const mssqlDB = new Sequelize(
+  process.env.HOMENET_MSSQL_DB,
+  process.env.HOMENET_MSSQL_USER,
+  process.env.HOMENET_MSSQL_PASS,
+  {
+    host: process.env.HOMENET_MSSQL_URL,
+    port: process.env.HOMENET_MSSQL_PORT || &quot;1433&quot;,
+    dialect: &quot;mssql&quot;,
+    dialectOptions: {
+      options: {
+        useUTC: false,
+        dateFirst: 1,
+        encrypt: false, // 오류 발생시 추가 한 부분!
+      },
+    },
+    pool: {
+      max: 5,
+      min: 0,
+      acquire: 30000,
+      idle: 10000,
+    },
+    define: {
+      // The `timestamps` field specify whether or not the `createdAt` and `updatedAt` fields will be created.
+      // This was true by default, but now is false by default
+      timestamps: false,
+      supportBigNumbers: true,
+    },
+  }
+);
+
+module.exports = {
+    mssqlDB
+};
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이렇게 하면 문제없이 조회가 됩니다!!&lt;/p&gt;
+
+&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://sequelize.org/v5/manual/dialects.html&quot;&gt;Dialects&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/tediousjs/node-mssql/issues/884&quot;&gt;DeprecationWarning: Setting the TLS ServerName to an IP address is not permitted by RFC 6066. #884&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="express" /><category term="tedious" /><category term="sequelize" /><summary type="html">mssql 드라이버로 mssql이 아니라 tedious 라이브러리를 쓰라고 하네요!</summary></entry><entry><title type="html">MSA 관련 토론회를 했다.</title><link href="https://lahuman.github.io/20200624/" rel="alternate" type="text/html" title="MSA 관련 토론회를 했다." /><published>2020-06-24T00:00:00+09:00</published><updated>2020-06-24T00:00:00+09:00</updated><id>https://lahuman.github.io/20200624</id><content type="html" xml:base="https://lahuman.github.io/20200624/">&lt;h1 id=&quot;msa-토론회&quot;&gt;MSA 토론회&lt;/h1&gt;
 
 &lt;p&gt;이번 토론회에서는 외부 초청으로 오신 분이 계셨습니다.&lt;/p&gt;
 
@@ -475,22 +535,4 @@ SwaggerExpress.create(config, function (err, swaggerExpress) {
   &lt;li&gt;&lt;a href=&quot;https://expressjs.com/ko/&quot;&gt;express&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;http://www.passportjs.org/&quot;&gt;passport&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/ques-tions/29111571/passports-req-isauthenticated-always-returning-false-even-when-i-hardcode-done&quot;&gt;passport’s req.isAuthenticated always returning false, even when I hardcode done(null, true)&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="node" /><category term="swagger" /><category term="session" /><summary type="html">추가로 passport 라이브러리와 연동하여 봅시다.</summary></entry><entry><title type="html">생각이 많아 지는 날입니다.</title><link href="https://lahuman.github.io/20200522/" rel="alternate" type="text/html" title="생각이 많아 지는 날입니다." /><published>2020-05-22T00:00:00+09:00</published><updated>2020-05-22T00:00:00+09:00</updated><id>https://lahuman.github.io/20200522</id><content type="html" xml:base="https://lahuman.github.io/20200522/">&lt;h1 id=&quot;나이가-들면-하드스킬개발-보다-소프트스킬대화에-집중-해야-한다고-하네요&quot;&gt;나이가 들면, 하드스킬(개발) 보다 소프트스킬(대화)에 집중 해야 한다고 하네요.&lt;/h1&gt;
-
-&lt;p&gt;개발을 잘하는 건 아닌데, 꾸준히 노력하고 있습니다.&lt;/p&gt;
-
-&lt;p&gt;나이가 들수록 주위 선배 개발자들은 개발보다는 관리 스킬에 집중하는 모습을 많이 보고 있습니다.&lt;/p&gt;
-
-&lt;p&gt;이전 회사의 이직 사유는 개발하지 말고 관리를 하라는 이유였습니다.&lt;/p&gt;
-
-&lt;p&gt;지금 회사도 크게 다르지 않은 느낌입니다.&lt;/p&gt;
-
-&lt;p&gt;나이가 들면 개발을 그만두어야 할까요?&lt;/p&gt;
-
-&lt;p&gt;이럴때 제 아들은 이렇게 이야기 합니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;“싫은데, 내가 왜?”&lt;/strong&gt; 라고…&lt;/p&gt;
-
-&lt;p&gt;우선 지금 최선을 다해서 하고 싶은 일을 해보려고 합니다.&lt;/p&gt;
-
-&lt;p&gt;그래도 안되면.. 고민해봐야지요. :)&lt;/p&gt;</content><category term="단상" /><summary type="html">열심히 보단 잘하는게 중요하지요.</summary></entry></feed>
+&lt;/ul&gt;</content><category term="node" /><category term="swagger" /><category term="session" /><summary type="html">추가로 passport 라이브러리와 연동하여 봅시다.</summary></entry></feed>
