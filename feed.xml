@@ -1,4 +1,76 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-06-28T22:47:37+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Node] Sequelize에서 MSSQL 연동시 RFC 6066  오류 해결 방법</title><link href="https://lahuman.github.io/node_mssql_sequelize/" rel="alternate" type="text/html" title="Node] Sequelize에서 MSSQL 연동시 RFC 6066  오류 해결 방법" /><published>2020-06-26T00:00:00+09:00</published><updated>2020-06-26T00:00:00+09:00</updated><id>https://lahuman.github.io/node_mssql_sequelize</id><content type="html" xml:base="https://lahuman.github.io/node_mssql_sequelize/">&lt;h1 id=&quot;node-sequelize에서-mssql-연동시-rfc-6066-오류-해결-방법&quot;&gt;Node] Sequelize에서 MSSQL 연동시 RFC 6066 오류 해결 방법&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-07-11T22:53:02+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">엄청 심하게 체해서 한동안 두통과 소화 불량에 시달렸습니다.</title><link href="https://lahuman.github.io/20200707/" rel="alternate" type="text/html" title="엄청 심하게 체해서 한동안 두통과 소화 불량에 시달렸습니다." /><published>2020-07-07T00:00:00+09:00</published><updated>2020-07-07T00:00:00+09:00</updated><id>https://lahuman.github.io/20200707</id><content type="html" xml:base="https://lahuman.github.io/20200707/">&lt;h1 id=&quot;점심때-먹은-돼지비계를-씹는-순간-느낌이-싸했습니다&quot;&gt;점심때 먹은 돼지비계를 씹는 순간 느낌이 싸했습니다.&lt;/h1&gt;
+
+&lt;p&gt;이거 먹으면 속이 안 좋을 느낌이 강하게 왔습니다.&lt;/p&gt;
+
+&lt;p&gt;하지만 이미 반이상을 뜯어서 입에 넣고 씹는 중이라 뱉어내기 보다 그냥 삼켰습니다.&lt;/p&gt;
+
+&lt;p&gt;이게 원인이 아닐까 생각합니다. 3시를 넘는 시점부터 머리가 아프고 눈앞이 빙글빙글 돌았습니다.&lt;/p&gt;
+
+&lt;p&gt;6시 퇴근 시간이 되지 마자 집으로 달려갔습니다. 가는 동안도 너무 힘들었습니다.&lt;/p&gt;
+
+&lt;p&gt;집에 도착해서 아내에게 몸이 안 좋다고 이야기하고 바로 침대에 누웠습니다.&lt;/p&gt;
+
+&lt;p&gt;오한과 두통, 몸살까지 와서 저를 괴롭혔습니다.&lt;/p&gt;
+
+&lt;p&gt;지옥 같던 밤이 지나고 아침이 되었지만, 속이 여전히 좋지 않았습니다.&lt;/p&gt;
+
+&lt;p&gt;병원에 가서 진료를 받고 약을 받아서 회사에서 근무를 시작했지만, 컨디션이 정상이 아니라서 많이 힘들었습니다.&lt;/p&gt;
+
+&lt;p&gt;금요일이 되어서야 두통과 속이 괜찮아졌습니다.&lt;/p&gt;
+
+&lt;p&gt;아픈 동안 동료들이 걱정도 해주고, 약도 나눠 주고 감사함을 많이 느낀 시간이었습니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;하지만-체기가-일주일을-간-건-처음이라서-늙음-때문인가-하는-자괴감이-드는-시간이었습니다&quot;&gt;하지만, 체기가 일주일을 간 건 처음이라서 늙음 때문인가 하는 자괴감이 드는 시간이었습니다.&lt;/h3&gt;</content><category term="단상" /><category term="급체" /><summary type="html">지난 일주일이 어떻게 지나갔는지 모를 정도로 아팠어요....</summary></entry><entry><title type="html">반복되는 일상에서의 자동화 도입기</title><link href="https://lahuman.github.io/20200703/" rel="alternate" type="text/html" title="반복되는 일상에서의 자동화 도입기" /><published>2020-07-03T00:00:00+09:00</published><updated>2020-07-03T00:00:00+09:00</updated><id>https://lahuman.github.io/20200703</id><content type="html" xml:base="https://lahuman.github.io/20200703/">&lt;h1 id=&quot;반복되는-일상에서의-자동화-도입기&quot;&gt;반복되는 일상에서의 자동화 도입기&lt;/h1&gt;
+
+&lt;p&gt;7년 전 SI(System Integrator)를 끝내고, 유지보수 업무를 진행했을 때의 일입니다.&lt;/p&gt;
+
+&lt;p&gt;유지보수 진행이 3개월쯤 지나자 하루의 80%를 반복되는 업무로 소비하게 되었습니다.&lt;/p&gt;
+
+&lt;p&gt;반복되는 일들은 아래와 같았습니다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;약 30대의 서버의 점검을 진행하고 특이사항을 보고하는 &lt;strong&gt;일일 점검&lt;/strong&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;소프트웨어의 특이사항을 확인하고 물리 서버를 육안으로 점검하는 &lt;strong&gt;월별 점검&lt;/strong&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;외부 (Oracle, Tmax, 등…) 소프트웨어 담당자들이 내부에 방문해서 점검을 하고 이슈사항 공유와 해결 방안을 제안하는 &lt;strong&gt;분기별 점검&lt;/strong&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;매일매일 서버를 점검하고 보고서를 작성해 고객에게 보고를 하고 나면 하루의 반이 지나갔습니다.&lt;/p&gt;
+
+&lt;p&gt;반복되는 일상이 계속되자 함께 유지보수를 하는 동료들도 쉽게 지쳤고 업무에 대한 집중과 관심도 역시 떨어졌습니다.&lt;/p&gt;
+
+&lt;p&gt;고객의 추가 개발 요청은 물론이고 수정조차도 진행을 할 수 없는 하루하루가 계속되었습니다.&lt;/p&gt;
+
+&lt;p&gt;결국 4개월쯤 지났을때, 한 명의 동료가 떠났고 남은 동료들은 떠난 동료의 업무를 분담했지만, 인수인계가 잘 이루어지지 않아서 고생을 할 수밖에 없었습니다.&lt;/p&gt;
+
+&lt;p&gt;결국 남은 동료들과 이런 문제를 해결하기 위한 논의를 했고, 그때 나온 방안이 반복 업무에 대한 자동화였습니다.&lt;/p&gt;
+
+&lt;p&gt;논의 결과 자동화로 할 수 있는 일들은 다음과 같았습니다.&lt;/p&gt;
+
+&lt;p&gt;일일 서버 점검 프로그램&lt;/p&gt;
+
+&lt;p&gt;보고서 작성 관리 시스템&lt;/p&gt;
+
+&lt;p&gt;일일 서버 점검 프로그램은 서버 담당자가 매일 30개의 서버에서 이벤트를 체크하고 문서를 작성하는 일을 정리해 주었고, 저는 프로그램으로 자동화 처리를 지원하였습니다.&lt;/p&gt;
+
+&lt;p&gt;자동화가 이루어지자 오전 업무량의 50%가 줄었습니다.&lt;/p&gt;
+
+&lt;p&gt;당시 고객사에는 따로 보고서 양식이 있어서 요청사항을 매번 문서로 작성하는데 많은 시간을 소비하였습니다. 하지만 미리 만든 템플릿에 내용을 작성하면 자동으로 문서를 만들어주는 시스템을 적용 후 요청사항에 대한 관리와 문서에 대한 부담감을 줄일 수 있게 되었고 그 외 업무에 더욱 집중할 수 있었습니다.&lt;/p&gt;
+
+&lt;p&gt;이 일은 저 혼자의 능력만으로는 이루기 어려운 일이었습니다. 동료들의 지지와 협력이 있기에 가능했습니다.&lt;/p&gt;
+
+&lt;p&gt;만약 이 일을 시작할 때 누군가 부정적인 반응을 보였거나, 함께 하려고 하지 않았다면 진행하지 못하였을 것입니다.&lt;/p&gt;
+
+&lt;p&gt;결국 변화는 혼자 일어낼 수 없고 &lt;strong&gt;“동료”&lt;/strong&gt;와 함께 해야 한다고 생각합니다.&lt;/p&gt;
+
+&lt;p&gt;그래서 이 글을 보시는 분들께 여쭤보고 싶습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;지금-동료들과-즐겁게-일하고-계신가요&quot;&gt;지금 동료들과 즐겁게 일하고 계신가요?&lt;/h2&gt;</content><category term="단상" /><category term="자동화" /><summary type="html">지나간 과거의 일을 회상하면서...</summary></entry><entry><title type="html">Node] Sequelize에서 MSSQL 연동시 RFC 6066  오류 해결 방법</title><link href="https://lahuman.github.io/node_mssql_sequelize/" rel="alternate" type="text/html" title="Node] Sequelize에서 MSSQL 연동시 RFC 6066  오류 해결 방법" /><published>2020-06-26T00:00:00+09:00</published><updated>2020-06-26T00:00:00+09:00</updated><id>https://lahuman.github.io/node_mssql_sequelize</id><content type="html" xml:base="https://lahuman.github.io/node_mssql_sequelize/">&lt;h1 id=&quot;node-sequelize에서-mssql-연동시-rfc-6066-오류-해결-방법&quot;&gt;Node] Sequelize에서 MSSQL 연동시 RFC 6066 오류 해결 방법&lt;/h1&gt;
 
 &lt;p&gt;Sequlize 에서 MSSQL을 연동할때 드라이버로 &lt;strong&gt;tedious@^6.0.0&lt;/strong&gt; 이상을 사용하라고 가이드 합니다.&lt;/p&gt;
 
@@ -275,264 +347,4 @@ module.exports = sequelize;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://hakurei.tistory.com/214&quot;&gt;[SEQUELIZE] TIMEZONE 세팅&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="sequelize" /><category term="timezone" /><category term="mysql" /><summary type="html">Mysql에 날짜형을 저장시 타임존이 계속 UTC로 처리될때 해결 방법</summary></entry><entry><title type="html">nodejs에서 TYPESCRIPT 사용 tutorial</title><link href="https://lahuman.github.io/hello_typescript/" rel="alternate" type="text/html" title="nodejs에서 TYPESCRIPT 사용 tutorial" /><published>2020-05-29T00:00:00+09:00</published><updated>2020-05-29T00:00:00+09:00</updated><id>https://lahuman.github.io/hello_typescript</id><content type="html" xml:base="https://lahuman.github.io/hello_typescript/">&lt;h1 id=&quot;nodejs에서-typescript-사용해보기&quot;&gt;Nodejs에서 Typescript 사용해보기!&lt;/h1&gt;
-
-&lt;p&gt;nodejs를 하면서 Typescript에 대하여 어려번 들었습니다.&lt;/p&gt;
-
-&lt;p&gt;기본적으로 nosejs에 대한 개발을 REPL 기반으로 하고 있습니다.&lt;/p&gt;
-
-&lt;p&gt;TDD를 하기 위해서는 타입에 대한 검증등 많은 것들을 처리 해야 하는데요. 이는 Typescript와 더 잘 맞습니다.&lt;/p&gt;
-
-&lt;p&gt;한번 사용해보기 위해서 nodejs에서 Typescript를 사용하는 방법을 설명드리겠습니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;typescript-사용해-보기&quot;&gt;Typescript 사용해 보기&lt;/h2&gt;
-
-&lt;p&gt;평소에는 &lt;a href=&quot;https://www.npmjs.com/&quot;&gt;npm&lt;/a&gt;을 사용하지만, 이번에는 &lt;a href=&quot;https://classic.yarnpkg.com/en/&quot;&gt;yarn&lt;/a&gt;을 사용해보려고 합니다.&lt;/p&gt;
-
-&lt;h3 id=&quot;프로젝트-생성하기&quot;&gt;프로젝트 생성하기&lt;/h3&gt;
-
-&lt;p&gt;먼저 프로젝트 디렉토리를 생성하고 yarn 명령어를 이용해서 초기화 합니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ mkdir learn-typescript
-$ cd learn-typescript
-$ yarn init -y
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;typescript-사용을-위한-모듈-설치하기&quot;&gt;Typescript 사용을 위한 모듈 설치하기&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;typescript : Typescript 라이브러리&lt;/li&gt;
-  &lt;li&gt;ts-node : node에서 Typescript를 사용하기 위한 라이브러리&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ yarn add typescript ts-node
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;typescript-설정-파일-생성하기&quot;&gt;Typescript 설정 파일 생성하기&lt;/h3&gt;
-
-&lt;p&gt;타입스크립트에 대한 정보를 가지고 있는 설정파일을 생성합니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ yarn run tsc --init
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;실행을 하면 디렉토리에 &lt;strong&gt;tsconfig.json&lt;/strong&gt; 파일이 생성됩니다.&lt;/p&gt;
-
-&lt;p&gt;해당 파일의 내용은 아래와 같습니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{
-  &quot;compilerOptions&quot;: {
-    /* Visit https://aka.ms/tsconfig.json to read more about this file */
-
-    /* Basic Options */
-    // &quot;incremental&quot;: true,                   /* Enable incremental compilation */
-    &quot;target&quot;: &quot;es2016&quot; /* Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017', 'ES2018', 'ES2019', 'ES2020', or 'ESNEXT'. */,
-    &quot;module&quot;: &quot;commonjs&quot; /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', 'es2020', or 'ESNext'. */,
-    // &quot;lib&quot;: [],                             /* Specify library files to be included in the compilation. */
-    // &quot;allowJs&quot;: true,                       /* Allow javascript files to be compiled. */
-    // &quot;checkJs&quot;: true,                       /* Report errors in .js files. */
-    // &quot;jsx&quot;: &quot;preserve&quot;,                     /* Specify JSX code generation: 'preserve', 'react-native', or 'react'. */
-    // &quot;declaration&quot;: true,                   /* Generates corresponding '.d.ts' file. */
-    // &quot;declarationMap&quot;: true,                /* Generates a sourcemap for each corresponding '.d.ts' file. */
-    // &quot;sourceMap&quot;: true,                     /* Generates corresponding '.map' file. */
-    // &quot;outFile&quot;: &quot;./&quot;,                       /* Concatenate and emit output to single file. */
-    &quot;outDir&quot;: &quot;./dist/&quot; /* Redirect output structure to the directory. */,
-    // &quot;rootDir&quot;: &quot;./&quot;,                       /* Specify the root directory of input files. Use to control the output directory structure with --outDir. */
-    // &quot;composite&quot;: true,                     /* Enable project compilation */
-    // &quot;tsBuildInfoFile&quot;: &quot;./&quot;,               /* Specify file to store incremental compilation information */
-    // &quot;removeComments&quot;: true,                /* Do not emit comments to output. */
-    // &quot;noEmit&quot;: true,                        /* Do not emit outputs. */
-    // &quot;importHelpers&quot;: true,                 /* Import emit helpers from 'tslib'. */
-    // &quot;downlevelIteration&quot;: true,            /* Provide full support for iterables in 'for-of', spread, and destructuring when targeting 'ES5' or 'ES3'. */
-    // &quot;isolatedModules&quot;: true,               /* Transpile each file as a separate module (similar to 'ts.transpileModule'). */
-
-    /* Strict Type-Checking Options */
-    &quot;strict&quot;: true /* Enable all strict type-checking options. */,
-    // &quot;noImplicitAny&quot;: true,                 /* Raise error on expressions and declarations with an implied 'any' type. */
-    // &quot;strictNullChecks&quot;: true,              /* Enable strict null checks. */
-    // &quot;strictFunctionTypes&quot;: true,           /* Enable strict checking of function types. */
-    // &quot;strictBindCallApply&quot;: true,           /* Enable strict 'bind', 'call', and 'apply' methods on functions. */
-    // &quot;strictPropertyInitialization&quot;: true,  /* Enable strict checking of property initialization in classes. */
-    // &quot;noImplicitThis&quot;: true,                /* Raise error on 'this' expressions with an implied 'any' type. */
-    // &quot;alwaysStrict&quot;: true,                  /* Parse in strict mode and emit &quot;use strict&quot; for each source file. */
-
-    /* Additional Checks */
-    // &quot;noUnusedLocals&quot;: true,                /* Report errors on unused locals. */
-    // &quot;noUnusedParameters&quot;: true,            /* Report errors on unused parameters. */
-    // &quot;noImplicitReturns&quot;: true,             /* Report error when not all code paths in function return a value. */
-    // &quot;noFallthroughCasesInSwitch&quot;: true,    /* Report errors for fallthrough cases in switch statement. */
-
-    /* Module Resolution Options */
-    // &quot;moduleResolution&quot;: &quot;node&quot;,            /* Specify module resolution strategy: 'node' (Node.js) or 'classic' (TypeScript pre-1.6). */
-    // &quot;baseUrl&quot;: &quot;./&quot;,                       /* Base directory to resolve non-absolute module names. */
-    // &quot;paths&quot;: {},                           /* A series of entries which re-map imports to lookup locations relative to the 'baseUrl'. */
-    // &quot;rootDirs&quot;: [],                        /* List of root folders whose combined content represents the structure of the project at runtime. */
-    // &quot;typeRoots&quot;: [],                       /* List of folders to include type definitions from. */
-    // &quot;types&quot;: [],                           /* Type declaration files to be included in compilation. */
-    // &quot;allowSyntheticDefaultImports&quot;: true,  /* Allow default imports from modules with no default export. This does not affect code emit, just typechecking. */
-    &quot;esModuleInterop&quot;: true /* Enables emit interoperability between CommonJS and ES Modules via creation of namespace objects for all imports. Implies 'allowSyntheticDefaultImports'. */,
-    // &quot;preserveSymlinks&quot;: true,              /* Do not resolve the real path of symlinks. */
-    // &quot;allowUmdGlobalAccess&quot;: true,          /* Allow accessing UMD globals from modules. */
-
-    /* Source Map Options */
-    // &quot;sourceRoot&quot;: &quot;&quot;,                      /* Specify the location where debugger should locate TypeScript files instead of source locations. */
-    // &quot;mapRoot&quot;: &quot;&quot;,                         /* Specify the location where debugger should locate map files instead of generated locations. */
-    // &quot;inlineSourceMap&quot;: true,               /* Emit a single file with source maps instead of having a separate file. */
-    // &quot;inlineSources&quot;: true,                 /* Emit the source alongside the sourcemaps within a single file; requires '--inlineSourceMap' or '--sourceMap' to be set. */
-
-    /* Experimental Options */
-    // &quot;experimentalDecorators&quot;: true,        /* Enables experimental support for ES7 decorators. */
-    // &quot;emitDecoratorMetadata&quot;: true,         /* Enables experimental support for emitting type metadata for decorators. */
-
-    /* Advanced Options */
-    &quot;skipLibCheck&quot;: true /* Skip type checking of declaration files. */,
-    &quot;forceConsistentCasingInFileNames&quot;: true /* Disallow inconsistently-cased references to the same file. */
-  }
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;물론 명령어 없이 추가해도 됩니다.&lt;/p&gt;
-
-&lt;h3 id=&quot;typescript-컴파일&quot;&gt;Typescript 컴파일&lt;/h3&gt;
-
-&lt;p&gt;다음 명령어로 &lt;strong&gt;.ts&lt;/strong&gt; 파일을 컴파일 하여 &lt;strong&gt;.js&lt;/strong&gt; 파일로 변환합니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ yarn run tsc
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;컴파일 후 기본적으로 같은 디렉토리에 .js파일로 생성됩니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;tsconfig.json&lt;/strong&gt; 파일의 &lt;strong&gt;outDir&lt;/strong&gt; 값을 이용해서 다른 디렉토리에 생성되도록 변경이 가능합니다.&lt;/p&gt;
-
-&lt;h3 id=&quot;nodejs에서-typescript-실행하기&quot;&gt;nodejs에서 Typescript 실행하기&lt;/h3&gt;
-
-&lt;p&gt;매번 컴파일을 하지 않고 ts-node 명령어를 이용해서 실행할 수 있습니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# run ts file
-$ yarn run ts-node ./src/index.ts
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;여기까지 기본적은 Typescript를 nodejs에서 사용하는 명령어를 확인하였습니다.&lt;/p&gt;
-
-&lt;p&gt;Typescript에 대하여 자세히 알고 싶다면 &lt;a href=&quot;https://www.typescriptlang.org/docs/home.html&quot;&gt;TypeScript Documentation&lt;/a&gt; 문서를 확인하면 됩니다. :)&lt;/p&gt;
-
-&lt;p&gt;마지막으로 마틴 아저씨가 &lt;a href=&quot;http://blog.cleancoder.com/uncle-bob/2020/05/27/ReplDrivenDesign.html&quot;&gt;REPL로 개발한 경험&lt;/a&gt;을 블로그에 올리셨습니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;So I’ve learned my lesson. REPL driven development feels easier and faster than TDD; but it is not. Next time, it’s back to TDD for me.
-
-내 맘대로 직역 :
-
-내가 배운 교훈은 REPL개발은 TDD에 비해 쉽고 빠르게 보이지만, 실제로는 그렇지 않다. 여러 부분에서 더 많은 비용을 들이게 된다.
-그래서 나는 TDD를 다시 사용한다.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;nodejs에서 명확히 구조화된 프로그램 작성을 위해서는 Typescript를 사용하는 것을 추천합니다. :)&lt;/p&gt;
-
-&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.typescriptlang.org/docs/home.html&quot;&gt;TypeScript Documentation&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://blog.cleancoder.com/uncle-bob/2020/05/27/ReplDrivenDesign.html&quot;&gt;REPL Driven Design&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="typescript" /><category term="node" /><summary type="html">Typescript를 사용하여 봅니다!</summary></entry><entry><title type="html">swagger-node에서 express-session 설정 &amp;amp; 사용하기</title><link href="https://lahuman.github.io/swagger-node_session/" rel="alternate" type="text/html" title="swagger-node에서 express-session 설정 &amp; 사용하기" /><published>2020-05-22T00:00:00+09:00</published><updated>2020-05-22T00:00:00+09:00</updated><id>https://lahuman.github.io/swagger-node_session</id><content type="html" xml:base="https://lahuman.github.io/swagger-node_session/">&lt;h1 id=&quot;swagger-node에서-express-session-설정--사용하기&quot;&gt;swagger-node에서 express-session 설정 &amp;amp; 사용하기&lt;/h1&gt;
-
-&lt;p&gt;기본적으로 &lt;a href=&quot;https://github.com/swagger-api/swagger-node&quot;&gt;swagger-node&lt;/a&gt;는 &lt;a href=&quot;https://expressjs.com/ko/&quot;&gt;express&lt;/a&gt;를 기반으로 동작합니다.&lt;/p&gt;
-
-&lt;p&gt;swagger-node는 API 용으로 이용하기 때문에 기본적으로 session을 발행하지 않습니다.&lt;/p&gt;
-
-&lt;p&gt;다만 필요에 따라 로그인 프로세스 구현을 하게 될 경우 다음 라이브러리를 이용해야 합니다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.npmjs.com/package/express-session&quot;&gt;express-session&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.npmjs.com/package/body-parser&quot;&gt;body-parser&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;app.js 코드에 다음과 같이 설정을 하면 세션을 이용할수 있습니다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;express 4.X 부터는 body-parser를 사용하지 않고 express에서 제공되는 것을 이용합니다.
-또한 &lt;strong&gt;app.use(express.urlencoded({ extended: true }));&lt;/strong&gt; 을 사용하면 fileupload 처리를 이전과 같이 사용할 수 없습니다. 아래 multer를 이용한 예제를 참고 하셔요.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;app.use(
-  require(&quot;express-session&quot;)({
-    secret: &quot;keyboard cat&quot;,
-    cookie: {
-      maxAge: 1000 * 60 * 60 , // 1 hour
-    },
-    resave: false,
-    saveUninitialized: false,
-  })
-);
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;추가로 session 관리를 &lt;a href=&quot;http://www.passportjs.org/&quot;&gt;passport&lt;/a&gt;를 이용해서 쉽게 관리 할수 있습니다.&lt;/p&gt;
-
-&lt;p&gt;다음 예제는 SSO의 방식중 하나인 SAML으로 처리한 예제를 준비 하였습니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/lahuman/swagger-node_passport_saml&quot;&gt;예제 코드 바로 보기&lt;/a&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;주요점은-passport는-express-session에서만-동작-하기-때문에-세션-설정을-잘해야-합니다&quot;&gt;주요점은 passport는 express-session에서만 동작 하기 때문에 세션 설정을 잘해야 합니다.&lt;/h4&gt;
-
-&lt;h1 id=&quot;multer를-이용한-첨부-파일-uploade&quot;&gt;Multer를 이용한 첨부 파일 uploade&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;app.use(express.urlencoded({ extended: true }));&lt;/strong&gt;를 설정하면, formData를 바로 접근하지 못하게 됩니다. 이때 다음 샘플을 기준으로 첨부파일을 처리 할 수 있습니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// multer 설정
-const multer = require(&quot;multer&quot;);
-const storage = multer.diskStorage({
-  // upload path
-  destination: function (req, file, cb) {
-    cb(null, &quot;tempfiles&quot;);
-  },
-  // 업로드된 파일 이름
-  filename: function (req, file, cb) {
-    cb(null, `${moment().format(&quot;YYYYMMDDHHmmssSSS&quot;)}${file.originalname}`);
-  },
-});
-
-const upload = multer({
-  storage: storage,
-  limits: { fileSize: 10 * 1024 * 1024 },
-});
-
-... 설정 처리
-
-SwaggerExpress.create(config, function (err, swaggerExpress) {
-  if (err) {
-    throw err;
-  }
-  // swagger-node에서 미들웨어 처리 방법
-  app.use(
-      &quot;/jira/attachments/upload&quot;,
-      upload.single(&quot;filepond&quot;),
-      async (req, res, next) =&amp;gt; {
-        try {
-          const file = req.file;
-          res.status(201).json({
-            status: &quot;OK&quot;,
-            file_nm: file.originalname.normalize(&quot;NFC&quot;),
-            file_path: file.filename,
-          });
-        } catch (e) {
-          logger.error(e);
-          res.status(400).json({ status: &quot;ERROR&quot;, message: e });
-        }
-      }
-    );
-});
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;주요 코드만 표기 하였습니다.
-&lt;a href=&quot;https://github.com/lahuman/swagger-node_passport_saml&quot;&gt;예제 코드 바로 보기&lt;/a&gt;의 &lt;strong&gt;app.js&lt;/strong&gt;를 참고 하면 전체 코드를 작성하실수 있습니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/swagger-api/swagger-node&quot;&gt;swagger-node&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://expressjs.com/ko/&quot;&gt;express&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.passportjs.org/&quot;&gt;passport&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/ques-tions/29111571/passports-req-isauthenticated-always-returning-false-even-when-i-hardcode-done&quot;&gt;passport’s req.isAuthenticated always returning false, even when I hardcode done(null, true)&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="node" /><category term="swagger" /><category term="session" /><summary type="html">추가로 passport 라이브러리와 연동하여 봅시다.</summary></entry></feed>
+&lt;/ul&gt;</content><category term="sequelize" /><category term="timezone" /><category term="mysql" /><summary type="html">Mysql에 날짜형을 저장시 타임존이 계속 UTC로 처리될때 해결 방법</summary></entry></feed>
