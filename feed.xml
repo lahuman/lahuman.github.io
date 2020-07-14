@@ -1,4 +1,141 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-07-11T22:56:48+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">엄청 심하게 체해서 한동안 두통과 소화 불량에 시달렸습니다.</title><link href="https://lahuman.github.io/20200707/" rel="alternate" type="text/html" title="엄청 심하게 체해서 한동안 두통과 소화 불량에 시달렸습니다." /><published>2020-07-07T00:00:00+09:00</published><updated>2020-07-07T00:00:00+09:00</updated><id>https://lahuman.github.io/20200707</id><content type="html" xml:base="https://lahuman.github.io/20200707/">&lt;h1 id=&quot;점심때-먹은-돼지비계를-씹는-순간-느낌이-싸했습니다&quot;&gt;점심때 먹은 돼지비계를 씹는 순간 느낌이 싸했습니다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-07-14T23:30:50+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Swagger? OAS? with NodeJS</title><link href="https://lahuman.github.io/oas3.0-nodejs/" rel="alternate" type="text/html" title="Swagger? OAS? with NodeJS" /><published>2020-07-13T00:00:00+09:00</published><updated>2020-07-13T00:00:00+09:00</updated><id>https://lahuman.github.io/oas3.0-nodejs</id><content type="html" xml:base="https://lahuman.github.io/oas3.0-nodejs/">&lt;h1 id=&quot;swagger-oas-with-nodejs&quot;&gt;Swagger? OAS? with NodeJS&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;what-is-swagger&quot;&gt;What is Swagger?&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;스웨거(Swagger)는 개발자가 REST 웹 서비스를 설계, 빌드, 문서화, 소비하는 일을 도와주는 대형 도구 생태계의 지원을 받는 오픈 소스 소프트웨어 프레임워크이다. 대부분의 사용자들은 스웨거 UI 도구를 통해 스웨거를 식별하며 스웨거 툴셋에는 자동화된 문서화, 코드 생성, 테스트 케이스 생성 지원이 포함된다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Swagger는 REST API를 설계, 빌드, 문서화 및 소비하는 데 도움이되는 OpenAPI 사양을 기반으로 구축 된 오픈 소스 도구 세트입니다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;swagger-특징&quot;&gt;Swagger 특징&lt;/h1&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;API 디자인 
+ Swagger-editor를 통해 api를 문서화하고 빠르게 명세할 수 있습니다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;API Development 
+Swagger-codegen을 통해 작성된 문서를 통해 SDK를 생성하여 빌드 프로세스를 간소화 할 수 있도록 도와줍니다. 문서를 통해 실행하면 프로토 타입 코드를 생성해주는데 파일 구조가 정해져있는것 같습니다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;API Documentation 
+Swagger-UI를 통해 작성된 API를 시각화시켜 줍니다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;API Testing 
+Swagger-Inspector를 통해 API를 시각화 하고 빠른 테스팅을 진행할 수 있습니다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Standardize 
+Swagger-hub를 통해 개인, 팀원들이 API정보를 공유하는 Hub입니다.
+—&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&quot;swagger-20-vs-openapi-30&quot;&gt;Swagger 2.0 VS OpenApi 3.0&lt;/h1&gt;
+
+&lt;h4 id=&quot;사실은-openapi-20-2014년-20-발의-과-302017년-발의&quot;&gt;사실은 OpenApi &lt;a href=&quot;https://swagger.io/specification/v2/&quot;&gt;2.0 (2014년 2.0 발의)&lt;/a&gt; 과 &lt;a href=&quot;[https://swagger.io/specification/&quot;&gt;3.0(2017년 발의)&lt;/a&gt;&lt;/h4&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;open-api-reversion&quot;&gt;OPEN API Reversion&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&quot;openapi_revsion.png&quot; alt=&quot;bg right 100%&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h1 id=&quot;swagger-node&quot;&gt;&lt;a href=&quot;https://github.com/swagger-api/swagger-node&quot;&gt;Swagger-node&lt;/a&gt;&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Node.js에서 Swagger 호환 API를 디자인하고 빌드하기위한 도구를 제공합니다. Express, Hapi, Restify 및 Sails를 비롯하여 널리 사용되는 Node.js 서버와 모든 Connect 기반 미들웨어와 통합됩니다. swagger를 사용하면 랩톱에서 API를 처음부터 지정, 빌드 및 테스트 할 수 있습니다. 구현 논리를 다시 쓰지 않고도 디자인을 변경하고 반복 할 수 있습니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;swagger-node-특징&quot;&gt;Swagger-node 특징&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Swagger 2.0 지원&lt;/li&gt;
+  &lt;li&gt;오래되었음
+    &lt;ul&gt;
+      &lt;li&gt;5년 이상됨 (2015년 시작)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;업데이트가 빈번하지 않음
+    &lt;ul&gt;
+      &lt;li&gt;2018년이 마지막 업뎃&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;1년 이상 51Scrum에서 사용됨&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+&lt;h1 id=&quot;oas-tools&quot;&gt;&lt;a href=&quot;https://github.com/isa-group/oas-tools#readme&quot;&gt;oas-tools&lt;/a&gt;&lt;/h1&gt;
+
+&lt;p&gt;Express 서버에서 OpenAPI 3.0 사양으로 정의 된 RESTfull API 관리를 지원합니다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;oas-tools-특징&quot;&gt;Oas-tools 특징&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;OpenApi 3.0 지원
+    &lt;ul&gt;
+      &lt;li&gt;최신 스펙을 제공&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;2018년 시작된 프로젝트&lt;/li&gt;
+  &lt;li&gt;업데이트가 빈번함
+    &lt;ul&gt;
+      &lt;li&gt;2020년 7월 13일 기준 2020년 6월 18일이 마지막 업데이트&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;현재 1개의 프로젝트에서 사용됨 (issue_finder, new Collector)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;사용해보기&quot;&gt;사용해보기&lt;/h1&gt;
+
+&lt;h2 id=&quot;swagger-node-1&quot;&gt;&lt;a href=&quot;https://github.com/swagger-api/swagger-node&quot;&gt;Swagger-node&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;oas-generator&quot;&gt;&lt;a href=&quot;https://github.com/isa-group/oas-generator&quot;&gt;oas-generator&lt;/a&gt;&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;https://ko.wikipedia.org/wiki/%EC%8A%A4%EC%9B%A8%EA%B1%B0_(%EC%86%8C%ED%94%84%ED%8A%B8%EC%9B%A8%EC%96%B4)&lt;/li&gt;
+  &lt;li&gt;https://real-dongsoo7.tistory.com/58&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://swagger.io/specification/v2/&quot;&gt;Openapi 2.0 (2014년 2.0 발의)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;[https://swagger.io/specification/&quot;&gt;Openapi 3.0(2017년 발의)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/swagger-api/swagger-node&quot;&gt;Swagger-node&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/isa-group/oas-tools#readme&quot;&gt;oas-tools&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/isa-group/oas-generator&quot;&gt;oas-generator&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="express" /><category term="oas" /><category term="swagger" /><summary type="html">OAS-tools 를 이용해서 프로젝트를 진행하여 보자!</summary></entry><entry><title type="html">우리는 수평적인 조직을 지향하고 있습니다.</title><link href="https://lahuman.github.io/20200708/" rel="alternate" type="text/html" title="우리는 수평적인 조직을 지향하고 있습니다." /><published>2020-07-08T00:00:00+09:00</published><updated>2020-07-08T00:00:00+09:00</updated><id>https://lahuman.github.io/20200708</id><content type="html" xml:base="https://lahuman.github.io/20200708/">&lt;h1 id=&quot;우리는-수평적인-조직을-지향하고-있습니다&quot;&gt;우리는 수평적인 조직을 지향하고 있습니다.&lt;/h1&gt;
+
+&lt;p&gt;수평적인 문화의 특징으로 누구나 자유롭게 &lt;strong&gt;의견&lt;/strong&gt;을 낼 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;또한 누구도 의견에 대하여 틀렸거나 잘못되었다고 &lt;strong&gt;비난&lt;/strong&gt;하지 않습니다.&lt;/p&gt;
+
+&lt;p&gt;서로의 의견이 상충될 때는 눈높이를 맞추기 위해서 &lt;strong&gt;UT(User Test)&lt;/strong&gt;를 진행하거나 &lt;strong&gt;프로토타입(Prototype)&lt;/strong&gt;을 작성하여 &lt;strong&gt;검증&lt;/strong&gt;을 합니다.&lt;/p&gt;
+
+&lt;p&gt;검증을 할 때는 서로가 경함 한 노하우는 공유하고 다른 동료의 의견을 받아들여서 새로운 시선으로 문제를 바라보도록 노력합니다.&lt;/p&gt;
+
+&lt;p&gt;이때에 팀원의 나이와 경험이 많고 적고는 중요하지 않습니다.&lt;/p&gt;
+
+&lt;p&gt;모두들 적극적으로 의견을 제시하고 서로의 의견을 빠르게 받아들이기 위해 노력합니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;del&gt;물론 모든 일이 이렇게 매끄럽게 되지는 않습니다.&lt;/del&gt;&lt;/p&gt;
+
+&lt;p&gt;중요한 건 팀원 간의 의견이 &lt;strong&gt;틀린 게 아니라 다름을 인정&lt;/strong&gt;하고 적재적소에 필요한 &lt;strong&gt;인력&lt;/strong&gt;과 &lt;strong&gt;기술&lt;/strong&gt; 사용에 대하여 공감하고 이해하도록 노력한다는 사실입니다.&lt;/p&gt;
+
+&lt;p&gt;결국 수직적인 조직과 수평적인 조직의 큰 차이는 업무에 대한 &lt;strong&gt;공감&lt;/strong&gt;과 &lt;strong&gt;소통&lt;/strong&gt;이라고 생각합니다.&lt;/p&gt;</content><category term="단상" /><category term="조직" /><summary type="html">지향은 하고 있지만 수평적인 조직이라고는 하지 않았다...</summary></entry><entry><title type="html">엄청 심하게 체해서 한동안 두통과 소화 불량에 시달렸습니다.</title><link href="https://lahuman.github.io/20200707/" rel="alternate" type="text/html" title="엄청 심하게 체해서 한동안 두통과 소화 불량에 시달렸습니다." /><published>2020-07-07T00:00:00+09:00</published><updated>2020-07-07T00:00:00+09:00</updated><id>https://lahuman.github.io/20200707</id><content type="html" xml:base="https://lahuman.github.io/20200707/">&lt;h1 id=&quot;점심때-먹은-돼지비계를-씹는-순간-느낌이-싸했습니다&quot;&gt;점심때 먹은 돼지비계를 씹는 순간 느낌이 싸했습니다.&lt;/h1&gt;
 
 &lt;p&gt;이거 먹으면 속이 안 좋을 느낌이 강하게 왔습니다.&lt;/p&gt;
 
@@ -225,98 +362,4 @@ module.exports = {
 
 &lt;p&gt;또 이직을 꿈꾸는 사람들이 꽤 생겼다.&lt;/p&gt;
 
-&lt;h2 id=&quot;아쉽지만-이-것-또한-지나가겠지&quot;&gt;아쉽지만 이 것 또한 지나가겠지…&lt;/h2&gt;</content><category term="단상" /><summary type="html">교체 가능한 도구로만 대하면 딱 그만큼만 일하고 싶어지네요.</summary></entry><entry><title type="html">Node] sequelize에서 mysql 8.0 로그인시 unknown plugin sha256_password 오류 발생</title><link href="https://lahuman.github.io/mysql_sha256_login_error/" rel="alternate" type="text/html" title="Node] sequelize에서 mysql 8.0 로그인시 unknown plugin sha256_password 오류 발생" /><published>2020-06-04T00:00:00+09:00</published><updated>2020-06-04T00:00:00+09:00</updated><id>https://lahuman.github.io/mysql_sha256_login_error</id><content type="html" xml:base="https://lahuman.github.io/mysql_sha256_login_error/">&lt;h1 id=&quot;node-sequelize에서-mysql-로그인시-unknown-plugin-sha256_password-오류-발생&quot;&gt;Node] sequelize에서 mysql 로그인시 unknown plugin sha256_password 오류 발생&lt;/h1&gt;
-
-&lt;p&gt;개발서버를 구축하고 테스트를 진행중에 아래와 같은 오류가 발생하였습니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;node:56906) [DEP0097] DeprecationWarning: Using a domain property in MakeCallback is deprecated. Use the async_context variant of MakeCallback or the AsyncResource class instead.
-2020-06-04 03:30:55.384 KST [error]: main - Server requests authentication using unknown plugin sha256_password. See TODO: add plugins doco here on how to configure or author authentication plugins.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;sha256_password 플러그인 설치를 해야 하는건가? 아니면 설정을 추가해야 하는건가 많이 찾아봤는데요.&lt;/p&gt;
-
-&lt;p&gt;결론은 Mysql 8.0 이상에서 계정을 생성할때 비밀번호 생성을 아래와 같이 해서 발생한 문제였습니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;create user '사용자'@'%' identified by '비밀번호';
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;만약 계정을 생성했다면 다음 명령어로 비밀번호를 업데이트 하면 문제가 해결 됩니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ALTER user '사용자'@'%' IDENTIFIED WITH mysql_native_password BY '비밀번호';
-flush privileges;
-
-// 또는
-
-use mysql;
-update user set authentication_string=password('비밀번호'), plugin='mysql_native_password' where user='사용자';
-flush privileges;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;mysql_native_password 은 기존 인증방법으로 보안 수준을 낮추지만, 이전 드라이버와 호환이 가능한 비밀번호 암호화 방식입니다.&lt;/p&gt;
-
-&lt;h3 id=&quot;오늘의-삽질-끝&quot;&gt;오늘의 삽질 끝!&lt;/h3&gt;
-
-&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://oasisbase.tistory.com/43&quot;&gt;Sequelize와 mysql 연결 에러&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://to-dy.tistory.com/58&quot;&gt;MySQL 8.0 비밀번호 변경하기! (MySQL 5.7버전 이상)&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="sequelize" /><category term="node" /><category term="error" /><summary type="html">Server requests authentication using unknown plugin sha256_password.</summary></entry><entry><title type="html">Session 인증이 들어간 Axois 통신 사용하기</title><link href="https://lahuman.github.io/cors_axios_session/" rel="alternate" type="text/html" title="Session 인증이 들어간 Axois 통신 사용하기" /><published>2020-06-04T00:00:00+09:00</published><updated>2020-06-04T00:00:00+09:00</updated><id>https://lahuman.github.io/cors_axios_session</id><content type="html" xml:base="https://lahuman.github.io/cors_axios_session/">&lt;h1 id=&quot;session-인증이-들아간-axios-통신-시-유의-사항&quot;&gt;Session 인증이 들아간 Axios 통신 시 유의 사항&lt;/h1&gt;
-
-&lt;p&gt;기본적으로 Axios를 이용한 통신시 인증 쿠키값을 전달하기 위해서는 아래 설정을 추가 해줘야 합니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;const axios = require('axios');
-
-// `withCredentials` indicates whether or not cross-site Access-Control requests
-// should be made using credentials
-// 기본 값은 false 입니다.
-axios.defaults.withCredentials = true;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;그리고 API 서버와 통신을 하면, 다음과 같이 오류가 발생합니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Access to XMLHttpRequest at 'http://lahuman.github.io' from origin 'http://localhost:8080' has been blocked by CORS policy: The value of the 'Access-Control-Allow-Origin' header in the response must not be the wildcard '*' when the request's credentials mode is 'include'. The credentials mode of requests initiated by the XMLHttpRequest is controlled by the withCredentials attribute.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;해당 오류의 원인은 &lt;a href=&quot;https://developer.mozilla.org/ko/docs/Web/HTTP/CORS/Errors/CORSNotSupportingCredentials&quot;&gt;Reason: Credential is not supported if the CORS header ‘Access-Control-Allow-Origin’ is ‘*’&lt;/a&gt; 과 같습니다.&lt;/p&gt;
-
-&lt;p&gt;인증 정보를 포함한 통신시 &lt;strong&gt;Access-Control-Allow-Origin&lt;/strong&gt; 값이 ‘*’ 일 경우 지원을 하지 않습니다.&lt;/p&gt;
-
-&lt;h5 id=&quot;access-control-allow-origin-값이--로-설정된-통신-예제&quot;&gt;Access-Control-Allow-Origin 값이 * 로 설정된 통신 예제&lt;/h5&gt;
-
-&lt;p&gt;&lt;img src=&quot;assets/img/post_img/cors_start.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;결국 각 서버의 호스트 정보를 &lt;a href=&quot;https://www.npmjs.com/package/cors&quot;&gt;cors&lt;/a&gt; 설정에 추가 해야 합니다.&lt;/p&gt;
-
-&lt;p&gt;아래는 인증 정보 샘플 입니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;const express = require(&quot;express&quot;);
-const app = express();
-const cors = require(&quot;cors&quot;);
-app.use(
-  cors({
-    origin: [
-      &quot;http://target.service.com&quot;,
-      &quot;https://lahuman.github.io&quot;,
-      &quot;http://localhost:8080&quot;,
-    ],
-    methods: &quot;GET,HEAD,PUT,PATCH,POST,DELETE&quot;,
-    preflightContinue: false,
-    optionsSuccessStatus: 204,
-    credentials: true,
-  })
-);
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h5 id=&quot;access-control-allow-origin-값이-호스트에-알맞게-적용된-통신-예제&quot;&gt;Access-Control-Allow-Origin 값이 호스트에 알맞게 적용된 통신 예제&lt;/h5&gt;
-
-&lt;p&gt;&lt;img src=&quot;assets/img/post_img/cors_localhost.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;원인을-알고-나면-문제의-해결이-쉬워집니다&quot;&gt;원인을 알고 나면 문제의 해결이 쉬워집니다.&lt;/h2&gt;
-
-&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/ko/docs/Web/HTTP/CORS/Errors/CORSNotSupportingCredentials&quot;&gt;Reason: Credential is not supported if the CORS header ‘Access-Control-Allow-Origin’ is ‘*’&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.npmjs.com/package/cors&quot;&gt;cors&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="axios" /><category term="session" /><category term="cors" /><summary type="html">그냥 사용하면 오류가 발생합니다.</summary></entry></feed>
+&lt;h2 id=&quot;아쉽지만-이-것-또한-지나가겠지&quot;&gt;아쉽지만 이 것 또한 지나가겠지…&lt;/h2&gt;</content><category term="단상" /><summary type="html">교체 가능한 도구로만 대하면 딱 그만큼만 일하고 싶어지네요.</summary></entry></feed>
