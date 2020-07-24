@@ -1,4 +1,47 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-07-19T18:56:41+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">swagger 2.0에서 OAS 3.0으로 변환시 body 값이 undefined로 표출 되는 현상 처리</title><link href="https://lahuman.github.io/oas3.0_body_name_setting/" rel="alternate" type="text/html" title="swagger 2.0에서 OAS 3.0으로 변환시 body 값이 undefined로 표출 되는 현상 처리" /><published>2020-07-18T00:00:00+09:00</published><updated>2020-07-18T00:00:00+09:00</updated><id>https://lahuman.github.io/oas3.0_body_name_setting</id><content type="html" xml:base="https://lahuman.github.io/oas3.0_body_name_setting/">&lt;h1 id=&quot;swagger-20에서-oas-30으로-변환시-body-값이-undefined로-표출-되는-현상-처리&quot;&gt;swagger 2.0에서 OAS 3.0으로 변환시 body 값이 undefined로 표출 되는 현상 처리&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-07-24T21:28:55+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Express 에서 ReactJS 소스 코드 구동</title><link href="https://lahuman.github.io/reactjs_on_express/" rel="alternate" type="text/html" title="Express 에서 ReactJS 소스 코드 구동" /><published>2020-07-21T00:00:00+09:00</published><updated>2020-07-21T00:00:00+09:00</updated><id>https://lahuman.github.io/reactjs_on_express</id><content type="html" xml:base="https://lahuman.github.io/reactjs_on_express/">&lt;h1 id=&quot;express-에서-reactjs-소스-코드-구동&quot;&gt;Express 에서 ReactJS 소스 코드 구동&lt;/h1&gt;
+
+&lt;p&gt;ReactJS 프로젝트에서 다음의 명령어로 build를 하면 build 라는 디렉토리가 생성됩니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$&amp;gt; npm run build
+... building
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;build 디렉토리를 express 의 ROOT 디렉토리로 복사를 합니다.&lt;/p&gt;
+
+&lt;p&gt;이후 아래와 같은 설정을 하여 ReactJS의 결과를 표출 하도록 지원 합니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;const express = require('express');
+const path = require('path');
+
+const app = express();
+
+// Serve the static files from the React app
+app.use(express.static(path.join(__dirname, 'client/build')));
+
+// An api endpoint that returns a short list of items
+app.get('/api/getList', (req,res) =&amp;gt; {
+    var list = [&quot;item1&quot;, &quot;item2&quot;, &quot;item3&quot;];
+    res.json(list);
+    console.log('Sent list of items');
+});
+
+// Handles any requests that don't match the ones above
+app.get('*', (req,res) =&amp;gt;{
+    res.sendFile(path.join(__dirname+'/client/build/index.html'));
+});
+
+const port = process.env.PORT || 5000;
+app.listen(port);
+
+console.log('App is listening on port ' + port);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;참고 자료를 보면 더 정리된 내용이 있습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://dev.to/nburgess/creating-a-react-app-with-react-router-and-an-express-backend-33l3&quot;&gt;Deploying a React app with React-Router and an Express Backend&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="express" /><category term="reactjs" /><summary type="html">하나의 Express에서 backend/frontend 처리하기</summary></entry><entry><title type="html">swagger 2.0에서 OAS 3.0으로 변환시 body 값이 undefined로 표출 되는 현상 처리</title><link href="https://lahuman.github.io/oas3.0_body_name_setting/" rel="alternate" type="text/html" title="swagger 2.0에서 OAS 3.0으로 변환시 body 값이 undefined로 표출 되는 현상 처리" /><published>2020-07-18T00:00:00+09:00</published><updated>2020-07-18T00:00:00+09:00</updated><id>https://lahuman.github.io/oas3.0_body_name_setting</id><content type="html" xml:base="https://lahuman.github.io/oas3.0_body_name_setting/">&lt;h1 id=&quot;swagger-20에서-oas-30으로-변환시-body-값이-undefined로-표출-되는-현상-처리&quot;&gt;swagger 2.0에서 OAS 3.0으로 변환시 body 값이 undefined로 표출 되는 현상 처리&lt;/h1&gt;
 
 &lt;p&gt;이전에 작성했던 Swagger 2.0으로 된 프로젝트를 새로 배운 OAS 3.0으로 변환하는 작업을 해보았습니다.&lt;/p&gt;
 
@@ -411,27 +454,4 @@ module.exports = {
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://sequelize.org/v5/manual/dialects.html&quot;&gt;Dialects&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://github.com/tediousjs/node-mssql/issues/884&quot;&gt;DeprecationWarning: Setting the TLS ServerName to an IP address is not permitted by RFC 6066. #884&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="express" /><category term="tedious" /><category term="sequelize" /><summary type="html">mssql 드라이버로 mssql이 아니라 tedious 라이브러리를 쓰라고 하네요!</summary></entry><entry><title type="html">MSA 관련 토론회를 했다.</title><link href="https://lahuman.github.io/20200624/" rel="alternate" type="text/html" title="MSA 관련 토론회를 했다." /><published>2020-06-24T00:00:00+09:00</published><updated>2020-06-24T00:00:00+09:00</updated><id>https://lahuman.github.io/20200624</id><content type="html" xml:base="https://lahuman.github.io/20200624/">&lt;h1 id=&quot;msa-토론회&quot;&gt;MSA 토론회&lt;/h1&gt;
-
-&lt;p&gt;이번 토론회에서는 외부 초청으로 오신 분이 계셨습니다.&lt;/p&gt;
-
-&lt;p&gt;나이가 지긋하신 분이 오셨는데, 개발이야기를 함께 하기에 연세도 상당히 많이 보이셨습니다.&lt;/p&gt;
-
-&lt;p&gt;소개를 해주셨는데, NEXTREE 대표님이라고 해서 살짝 놀랐습니다.&lt;/p&gt;
-
-&lt;p&gt;개발 이야기를 하는 회사의 대표님는 처음 뵈었습니다.&lt;/p&gt;
-
-&lt;p&gt;우선 이야기 해주신 몇가지 이야기중 기억에 남는 것은 아래와 같습니다.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;이벤트 기반으로 개발 해야 한다.&lt;/li&gt;
-  &lt;li&gt;데이터(값)가 아닌 도메인 기준으로 설계 해야 한다.&lt;/li&gt;
-  &lt;li&gt;빅뱅 보단 점진적으로 MSA로 변환하는 것을 추천 한다.&lt;/li&gt;
-  &lt;li&gt;단일 트랜젝션을 사용하지 않으면 성능이 개선된다.&lt;/li&gt;
-  &lt;li&gt;MSA는 FRONTEND와 BACKEND가 쌍으로 구성된다.&lt;/li&gt;
-  &lt;li&gt;동일한 레벨의 API 호출은 안된다.(FRONTEND를 통해서 호출 하거나, 아래 레벨의 API만 호출 할수 있다.)&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;그 외에도 많은 이야기를 해주셨는데, 유익한 시간이었습니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;즐거운-시간이었습니다&quot;&gt;즐거운 시간이었습니다.&lt;/h2&gt;</content><category term="단상" /><category term="MSA" /><summary type="html">NEXTREE 대표님이 오셔서 토론회를 함께 했습니다.</summary></entry></feed>
+&lt;/ul&gt;</content><category term="express" /><category term="tedious" /><category term="sequelize" /><summary type="html">mssql 드라이버로 mssql이 아니라 tedious 라이브러리를 쓰라고 하네요!</summary></entry></feed>
