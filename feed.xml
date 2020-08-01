@@ -1,4 +1,19 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-07-29T15:58:38+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Express 에서 ReactJS 소스 코드 구동</title><link href="https://lahuman.github.io/reactjs_on_express/" rel="alternate" type="text/html" title="Express 에서 ReactJS 소스 코드 구동" /><published>2020-07-21T00:00:00+09:00</published><updated>2020-07-21T00:00:00+09:00</updated><id>https://lahuman.github.io/reactjs_on_express</id><content type="html" xml:base="https://lahuman.github.io/reactjs_on_express/">&lt;h1 id=&quot;express-에서-reactjs-소스-코드-구동&quot;&gt;Express 에서 ReactJS 소스 코드 구동&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-08-01T09:36:59+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">일희일비 하지 말자</title><link href="https://lahuman.github.io/20200801/" rel="alternate" type="text/html" title="일희일비 하지 말자" /><published>2020-08-01T00:00:00+09:00</published><updated>2020-08-01T00:00:00+09:00</updated><id>https://lahuman.github.io/20200801</id><content type="html" xml:base="https://lahuman.github.io/20200801/">&lt;h1 id=&quot;일희일비-하지-않도록-노력하자&quot;&gt;일희일비 하지 않도록 노력하자.&lt;/h1&gt;
+
+&lt;p&gt;누군가에게 실망하고, 화나고, 감사하는 등의 많은 일들이 나를 지나가고 있습니다.&lt;/p&gt;
+
+&lt;p&gt;20대에는 여유가 없고 불안함이 커서 고마운 일을 기억하기보다는 실망하고 화나는 일들을 더 많이 기억하고 행동하였습니다. 
+30대에는 조금 여유가 생겨서 고마운 일들을 기억하고 행동할 수 있었습니다.&lt;/p&gt;
+
+&lt;p&gt;40대에 이르러서는 모든 일에 일희일비하는 게 의미 없음을 깨달았습니다.&lt;/p&gt;
+
+&lt;p&gt;나에게 잘해주는 척 뒤통수를 치는 사람도 있었고, 
+묵묵히 열심히 자신의 일을 하는 사람인데 알려지지 않았던 분도 있었습니다.&lt;/p&gt;
+
+&lt;p&gt;실망감을 주는 사람에게 아쉬워하기보다는 그냥 그런 사람인가 보구나 라고 생각하고, 
+내가 생각하지 못한 도움을 주는 사람에게는 꼭 갚아주자 생각하고 있습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;이것-또한-지나가리라&quot;&gt;이것 또한 지나가리라.&lt;/h2&gt;</content><category term="단상" /><category term="조직" /><summary type="html">많은 일들을 겪고 느끼고 있다.</summary></entry><entry><title type="html">Express 에서 ReactJS 소스 코드 구동</title><link href="https://lahuman.github.io/reactjs_on_express/" rel="alternate" type="text/html" title="Express 에서 ReactJS 소스 코드 구동" /><published>2020-07-21T00:00:00+09:00</published><updated>2020-07-21T00:00:00+09:00</updated><id>https://lahuman.github.io/reactjs_on_express</id><content type="html" xml:base="https://lahuman.github.io/reactjs_on_express/">&lt;h1 id=&quot;express-에서-reactjs-소스-코드-구동&quot;&gt;Express 에서 ReactJS 소스 코드 구동&lt;/h1&gt;
 
 &lt;p&gt;ReactJS 프로젝트에서 다음의 명령어로 build를 하면 build 라는 디렉토리가 생성됩니다.&lt;/p&gt;
 
@@ -394,64 +409,4 @@ Swagger-hub를 통해 개인, 팀원들이 API정보를 공유하는 Hub입니�
 
 &lt;p&gt;그래서 이 글을 보시는 분들께 여쭤보고 싶습니다.&lt;/p&gt;
 
-&lt;h2 id=&quot;지금-동료들과-즐겁게-일하고-계신가요&quot;&gt;지금 동료들과 즐겁게 일하고 계신가요?&lt;/h2&gt;</content><category term="단상" /><category term="자동화" /><summary type="html">지나간 과거의 일을 회상하면서...</summary></entry><entry><title type="html">Node] Sequelize에서 MSSQL 연동시 RFC 6066  오류 해결 방법</title><link href="https://lahuman.github.io/node_mssql_sequelize/" rel="alternate" type="text/html" title="Node] Sequelize에서 MSSQL 연동시 RFC 6066  오류 해결 방법" /><published>2020-06-26T00:00:00+09:00</published><updated>2020-06-26T00:00:00+09:00</updated><id>https://lahuman.github.io/node_mssql_sequelize</id><content type="html" xml:base="https://lahuman.github.io/node_mssql_sequelize/">&lt;h1 id=&quot;node-sequelize에서-mssql-연동시-rfc-6066-오류-해결-방법&quot;&gt;Node] Sequelize에서 MSSQL 연동시 RFC 6066 오류 해결 방법&lt;/h1&gt;
-
-&lt;p&gt;Sequlize 에서 MSSQL을 연동할때 드라이버로 &lt;strong&gt;tedious@^6.0.0&lt;/strong&gt; 이상을 사용하라고 가이드 합니다.&lt;/p&gt;
-
-&lt;p&gt;설치해서 DBMS에 접근했을때, 다음과 같은 오류가 발생하면,&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(node:95610) [DEP0123] DeprecationWarning: Setting the TLS ServerName to an IP address is not permitted by RFC 6066. This will be ignored in a future version.
-(Use node --trace-deprecation ... to show where the warning was created)
-(node:95610) UnhandledPromiseRejectionWarning: SequelizeConnectionError: Failed to connect to IPADDRESS:1433 - 4438633920:error:1425F102:SSL routines:ssl_choose_client_version:unsupported protocol:../deps/openssl/openssl/ssl/statem/statem_lib.c:1942:
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;db연결 옵션에 encrypt: false을 추가 하면 됩니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&quot;use static&quot;;
-
-const Sequelize = require(&quot;sequelize&quot;);
-
-const mssqlDB = new Sequelize(
-  process.env.HOMENET_MSSQL_DB,
-  process.env.HOMENET_MSSQL_USER,
-  process.env.HOMENET_MSSQL_PASS,
-  {
-    host: process.env.HOMENET_MSSQL_URL,
-    port: process.env.HOMENET_MSSQL_PORT || &quot;1433&quot;,
-    dialect: &quot;mssql&quot;,
-    dialectOptions: {
-      options: {
-        useUTC: false,
-        dateFirst: 1,
-        encrypt: false, // 오류 발생시 추가 한 부분!
-      },
-    },
-    pool: {
-      max: 5,
-      min: 0,
-      acquire: 30000,
-      idle: 10000,
-    },
-    define: {
-      // The `timestamps` field specify whether or not the `createdAt` and `updatedAt` fields will be created.
-      // This was true by default, but now is false by default
-      timestamps: false,
-      supportBigNumbers: true,
-    },
-  }
-);
-
-module.exports = {
-    mssqlDB
-};
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;이렇게 하면 문제없이 조회가 됩니다!!&lt;/p&gt;
-
-&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://sequelize.org/v5/manual/dialects.html&quot;&gt;Dialects&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/tediousjs/node-mssql/issues/884&quot;&gt;DeprecationWarning: Setting the TLS ServerName to an IP address is not permitted by RFC 6066. #884&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="express" /><category term="tedious" /><category term="sequelize" /><summary type="html">mssql 드라이버로 mssql이 아니라 tedious 라이브러리를 쓰라고 하네요!</summary></entry></feed>
+&lt;h2 id=&quot;지금-동료들과-즐겁게-일하고-계신가요&quot;&gt;지금 동료들과 즐겁게 일하고 계신가요?&lt;/h2&gt;</content><category term="단상" /><category term="자동화" /><summary type="html">지나간 과거의 일을 회상하면서...</summary></entry></feed>
