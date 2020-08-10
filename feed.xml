@@ -1,4 +1,172 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-08-08T22:02:31+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">wsl2를 이용시 localhost:port로 접근 해결방법</title><link href="https://lahuman.github.io/wsl2_port_open/" rel="alternate" type="text/html" title="wsl2를 이용시 localhost:port로 접근 해결방법" /><published>2020-08-08T00:00:00+09:00</published><updated>2020-08-08T00:00:00+09:00</updated><id>https://lahuman.github.io/wsl2_port_open</id><content type="html" xml:base="https://lahuman.github.io/wsl2_port_open/">&lt;h1 id=&quot;wsl2를-이용시-localhostport로-접근-해결방법&quot;&gt;wsl2를 이용시 localhost:port로 접근 해결방법&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-08-10T22:12:05+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">ReactJS 101</title><link href="https://lahuman.github.io/reactjs_101/" rel="alternate" type="text/html" title="ReactJS 101" /><published>2020-08-10T00:00:00+09:00</published><updated>2020-08-10T00:00:00+09:00</updated><id>https://lahuman.github.io/reactjs_101</id><content type="html" xml:base="https://lahuman.github.io/reactjs_101/">&lt;h1 id=&quot;reactjs-101&quot;&gt;ReactJS 101&lt;/h1&gt;
+
+&lt;iframe src=&quot;//www.slideshare.net/slideshow/embed_code/key/nMqZ9QvnW7vgqp&quot; width=&quot;595&quot; height=&quot;485&quot; frameborder=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; scrolling=&quot;no&quot; style=&quot;border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&quot; allowfullscreen=&quot;&quot;&gt; &lt;/iframe&gt;
+&lt;div style=&quot;margin-bottom:5px&quot;&gt; &lt;strong&gt; &lt;a href=&quot;//www.slideshare.net/lahuman1/1react-101&quot; title=&quot;1.react 101&quot; target=&quot;_blank&quot;&gt;1.react 101&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&quot;https://www.slideshare.net/lahuman1&quot; target=&quot;_blank&quot;&gt;Daniel Lim&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/reactjs.png&quot; alt=&quot;bg right h:400&quot; /&gt;
+임광규&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;왜-리액트인가&quot;&gt;왜 리액트인가?&lt;/h1&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;자바스크립트 사용
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://www.tiobe.com/tiobe-index/&quot;&gt;개발 언어 순위 7위 랭킹&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Front-end 구조화 제공
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://swimjiy.github.io/2019-05-28-web-mvc-mvp-mvvm&quot;&gt;MVC, MVP, MVVM&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;리액트의-이해&quot;&gt;리액트의 이해&lt;/h1&gt;
+
+&lt;h3 id=&quot;reactjs-목표&quot;&gt;ReactJS 목표&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;페이스북 개발팀이 최대한 성능을 아끼고 편안한 사용자 경험을 제공하면서 구현하고자 개발&lt;/li&gt;
+  &lt;li&gt;지속적으로 데이터가 변화하는 대규모 애플리케이션 구축&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;특징&quot;&gt;특징&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;MVC, MVP 등과 달리 오직 &lt;strong&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;V(View)&lt;/code&gt;만 신경 쓰는 라이브러리&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;컴포넌트 기반의 동작과 정의&lt;/li&gt;
+  &lt;li&gt;최적의 성능을 위한 &lt;strong&gt;랜더링&lt;/strong&gt; 지원&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;랜더링&quot;&gt;&lt;a href=&quot;https://ko.reactjs.org/docs/reconciliation.html&quot;&gt;랜더링&lt;/a&gt;&lt;/h1&gt;
+
+&lt;p&gt;초기 랜더링 ⇒ 조화 과정(업데이트 과정)&lt;/p&gt;
+
+&lt;p&gt;랜더링은 render 함수를 통해 이루어 집니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;render&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;초기 랜더시 컴포넌트를 랜더링 하고 이를 HTML 마크업으로 만들고, DOM 요소 안에 주입합니다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;virtual-dom---1&quot;&gt;Virtual DOM - 1&lt;/h1&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;DOM&lt;/code&gt; ⇒ Document Object Model 객체로 문서 구조를 표현하는 방법(HTML, XML)&lt;/li&gt;
+  &lt;li&gt;DOM은 동적 UI에 최적화 되어 있지 않음&lt;/li&gt;
+  &lt;li&gt;웹 브라우저가 DOM의 변화가 일어나면 많은 시간 허비
+    &lt;ol&gt;
+      &lt;li&gt;CSS를 다시 연산 ⇒ 레이아웃 구성 ⇒ 페이지 리페인트&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;리액트는 Virtual DOM 방식으로 DOM 업데이트를 추상화 하여 DOM 처리 횟수를 최소화 하고 효율적으로 진행&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;virtual-dom---2&quot;&gt;Virtual Dom - 2&lt;/h1&gt;
+
+&lt;h3 id=&quot;리액트에서-데이터가-변하여-실제-dom을-업데이트-할때-다음-절차-진행&quot;&gt;리액트에서 데이터가 변하여 실제 DOM을 업데이트 할때 다음 절차 진행&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;데이터를 업데이트하면 전체 UI Virtual DOM에 리렌더링&lt;/li&gt;
+  &lt;li&gt;이전 Virtual DOM에 있던 내용과 현재 내용 비교&lt;/li&gt;
+  &lt;li&gt;바뀐 부분만 실제 DOM에 적용&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4 id=&quot;virtual-dom-사용한다고-무조건-빠른-것은-아님&quot;&gt;Virtual DOM 사용한다고 무조건 빠른 것은 아님!&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://localvoid.github.io/uibench/&quot;&gt;React 16.9.0 VS Vanilla[WC] 1.0.0&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;기타-특징&quot;&gt;기타 특징&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;수많은 라이브러리 제공&lt;/li&gt;
+  &lt;li&gt;ReactJS + 다른 프레임워크 혼용 가능&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;작업-환경-준비&quot;&gt;작업 환경 준비&lt;/h1&gt;
+
+&lt;h2 id=&quot;ubuntu-2004-기준&quot;&gt;Ubuntu 20.04 기준&lt;/h2&gt;
+&lt;h3 id=&quot;nodejs--npm-설치&quot;&gt;Node.js &amp;amp; npm 설치&lt;/h3&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl &lt;span class=&quot;nt&quot;&gt;-sL&lt;/span&gt; https://deb.nodesource.com/setup_14.x &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; nodesource_setup.sh
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;bash nodesource_setup.sh
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;nodejs
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;yarn-설치&quot;&gt;Yarn 설치&lt;/h3&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl &lt;span class=&quot;nt&quot;&gt;-sL&lt;/span&gt; https://dl.yarnpkg.com/debian/pubkey.gpg | &lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-key add -
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;deb https://dl.yarnpkg.com/debian/ stable main&quot;&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;sudo tee&lt;/span&gt; /etc/apt/sources.list.d/yarn.list
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get update &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;yarn
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;vscode-설치&quot;&gt;VSCODE 설치&lt;/h3&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;snap &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--classic&lt;/span&gt; code
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;vscode-추천-확장-프로그램&quot;&gt;VSCODE 추천 확장 프로그램&lt;/h4&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;ESLint&lt;/li&gt;
+  &lt;li&gt;Reactjs Code Snippets&lt;/li&gt;
+  &lt;li&gt;Prettier-code formatter&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;git-설치&quot;&gt;GIT 설치&lt;/h3&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;git-all
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;reactjs-프로젝트-생성&quot;&gt;ReactJS 프로젝트 생성&lt;/h1&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yarn create react-app hello-react
+&lt;span class=&quot;c&quot;&gt;# OR&lt;/span&gt;
+npx create-react-app hello-react
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;뽀나스&quot;&gt;뽀나스&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://codesandbox.io/&quot;&gt;온라인 ReactJS 개발&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;추천-책--사이트&quot;&gt;추천 책 &amp;amp; 사이트&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://velopert.com/&quot;&gt;velopert.log&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;
+    &lt;table&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;[개정판&lt;/td&gt;
+          &lt;td&gt;리액트를 다루는 기술](https://ridibooks.com/books/754026976)&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><category term="reactjs" /><summary type="html">reactJS 기초입니다.</summary></entry><entry><title type="html">wsl2를 이용시 localhost:port로 접근 해결방법</title><link href="https://lahuman.github.io/wsl2_port_open/" rel="alternate" type="text/html" title="wsl2를 이용시 localhost:port로 접근 해결방법" /><published>2020-08-08T00:00:00+09:00</published><updated>2020-08-08T00:00:00+09:00</updated><id>https://lahuman.github.io/wsl2_port_open</id><content type="html" xml:base="https://lahuman.github.io/wsl2_port_open/">&lt;h1 id=&quot;wsl2를-이용시-localhostport로-접근-해결방법&quot;&gt;wsl2를 이용시 localhost:port로 접근 해결방법&lt;/h1&gt;
 
 &lt;p&gt;오늘 갑자기 node로 띄운 후 접근이 안되었습니다.&lt;/p&gt;
 
@@ -548,22 +716,4 @@ Swagger-hub를 통해 개인, 팀원들이 API정보를 공유하는 Hub입니�
   &lt;li&gt;&lt;a href=&quot;https://github.com/swagger-api/swagger-node&quot;&gt;Swagger-node&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://github.com/isa-group/oas-tools#readme&quot;&gt;oas-tools&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://github.com/isa-group/oas-generator&quot;&gt;oas-generator&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="express" /><category term="oas" /><category term="swagger" /><summary type="html">OAS-tools 를 이용해서 프로젝트를 진행하여 보자!</summary></entry><entry><title type="html">우리는 수평적인 조직을 지향하고 있습니다.</title><link href="https://lahuman.github.io/20200708/" rel="alternate" type="text/html" title="우리는 수평적인 조직을 지향하고 있습니다." /><published>2020-07-08T00:00:00+09:00</published><updated>2020-07-08T00:00:00+09:00</updated><id>https://lahuman.github.io/20200708</id><content type="html" xml:base="https://lahuman.github.io/20200708/">&lt;h1 id=&quot;우리는-수평적인-조직을-지향하고-있습니다&quot;&gt;우리는 수평적인 조직을 지향하고 있습니다.&lt;/h1&gt;
-
-&lt;p&gt;수평적인 문화의 특징으로 누구나 자유롭게 &lt;strong&gt;의견&lt;/strong&gt;을 낼 수 있습니다.&lt;/p&gt;
-
-&lt;p&gt;또한 누구도 의견에 대하여 틀렸거나 잘못되었다고 &lt;strong&gt;비난&lt;/strong&gt;하지 않습니다.&lt;/p&gt;
-
-&lt;p&gt;서로의 의견이 상충될 때는 눈높이를 맞추기 위해서 &lt;strong&gt;UT(User Test)&lt;/strong&gt;를 진행하거나 &lt;strong&gt;프로토타입(Prototype)&lt;/strong&gt;을 작성하여 &lt;strong&gt;검증&lt;/strong&gt;을 합니다.&lt;/p&gt;
-
-&lt;p&gt;검증을 할 때는 서로가 경함 한 노하우는 공유하고 다른 동료의 의견을 받아들여서 새로운 시선으로 문제를 바라보도록 노력합니다.&lt;/p&gt;
-
-&lt;p&gt;이때에 팀원의 나이와 경험이 많고 적고는 중요하지 않습니다.&lt;/p&gt;
-
-&lt;p&gt;모두들 적극적으로 의견을 제시하고 서로의 의견을 빠르게 받아들이기 위해 노력합니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;del&gt;물론 모든 일이 이렇게 매끄럽게 되지는 않습니다.&lt;/del&gt;&lt;/p&gt;
-
-&lt;p&gt;중요한 건 팀원 간의 의견이 &lt;strong&gt;틀린 게 아니라 다름을 인정&lt;/strong&gt;하고 적재적소에 필요한 &lt;strong&gt;인력&lt;/strong&gt;과 &lt;strong&gt;기술&lt;/strong&gt; 사용에 대하여 공감하고 이해하도록 노력한다는 사실입니다.&lt;/p&gt;
-
-&lt;p&gt;결국 수직적인 조직과 수평적인 조직의 큰 차이는 업무에 대한 &lt;strong&gt;공감&lt;/strong&gt;과 &lt;strong&gt;소통&lt;/strong&gt;이라고 생각합니다.&lt;/p&gt;</content><category term="단상" /><category term="조직" /><summary type="html">지향은 하고 있지만 수평적인 조직이라고는 하지 않았다...</summary></entry></feed>
+&lt;/ul&gt;</content><category term="express" /><category term="oas" /><category term="swagger" /><summary type="html">OAS-tools 를 이용해서 프로젝트를 진행하여 보자!</summary></entry></feed>
