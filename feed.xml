@@ -1,4 +1,57 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-08-10T22:12:05+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">ReactJS 101</title><link href="https://lahuman.github.io/reactjs_101/" rel="alternate" type="text/html" title="ReactJS 101" /><published>2020-08-10T00:00:00+09:00</published><updated>2020-08-10T00:00:00+09:00</updated><id>https://lahuman.github.io/reactjs_101</id><content type="html" xml:base="https://lahuman.github.io/reactjs_101/">&lt;h1 id=&quot;reactjs-101&quot;&gt;ReactJS 101&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-08-12T00:10:42+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Centos7 swap 메모리 설정</title><link href="https://lahuman.github.io/centos7_swap_setting/" rel="alternate" type="text/html" title="Centos7 swap 메모리 설정" /><published>2020-08-11T00:00:00+09:00</published><updated>2020-08-11T00:00:00+09:00</updated><id>https://lahuman.github.io/centos7_swap_setting</id><content type="html" xml:base="https://lahuman.github.io/centos7_swap_setting/">&lt;h1 id=&quot;centos7-swap-메모리-설정&quot;&gt;Centos7 swap 메모리 설정&lt;/h1&gt;
+
+&lt;h2 id=&quot;1-swapfile-생성&quot;&gt;1. swapfile 생성&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ fallocate -l 2GB /swapfile
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;fallocate 명령어로 생성 안될 경우 아래 명령어로 생성. count 뒷부분이 swap file 용량&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ dd if=/dev/zero of=/swapfile count=5096 bs=1MiB
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;2-swap-file-권한-설정&quot;&gt;2. swap file 권한 설정&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ chmod 600 /swapfile
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;3-스왑-포맷-형태로-파일-변환&quot;&gt;3. 스왑 포맷 형태로 파일 변환&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ mkswap /swapfile
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;4-스왑-파일-시스템-등록&quot;&gt;4. 스왑 파일 시스템 등록&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ swapon /swapfile
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;5-등록된-swap-memory-확인&quot;&gt;5. 등록된 swap memory 확인&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ swapon --summary
+$ free -h
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;6-스왑-파일-삭제&quot;&gt;6. 스왑 파일 삭제&lt;/h2&gt;
+
+&lt;h3 id=&quot;6-1-스왑-사용-비활성화&quot;&gt;6-1. 스왑 사용 비활성화&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ swapoff swapfile
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;6-2-스왑-파일-삭제&quot;&gt;6-2. 스왑 파일 삭제&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ rm /swapfile
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;다음 부팅시 스왑 공간을 사용하지 않게 /etc/fstab 에 등록된 항목도 삭제 해야 합니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://enesto.github.io/2018/11/19/181119_Swap%20Memory%20%EC%B6%94%EA%B0%80/&quot;&gt;Swap Memory 추가하기 (CentOS 7)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="centos7" /><category term="swap" /><summary type="html">Centos7 swap 메모리 설정을 합니다.</summary></entry><entry><title type="html">ReactJS 101</title><link href="https://lahuman.github.io/reactjs_101/" rel="alternate" type="text/html" title="ReactJS 101" /><published>2020-08-10T00:00:00+09:00</published><updated>2020-08-10T00:00:00+09:00</updated><id>https://lahuman.github.io/reactjs_101</id><content type="html" xml:base="https://lahuman.github.io/reactjs_101/">&lt;h1 id=&quot;reactjs-101&quot;&gt;ReactJS 101&lt;/h1&gt;
 
 &lt;iframe src=&quot;//www.slideshare.net/slideshow/embed_code/key/nMqZ9QvnW7vgqp&quot; width=&quot;595&quot; height=&quot;485&quot; frameborder=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; scrolling=&quot;no&quot; style=&quot;border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&quot; allowfullscreen=&quot;&quot;&gt; &lt;/iframe&gt;
 &lt;div style=&quot;margin-bottom:5px&quot;&gt; &lt;strong&gt; &lt;a href=&quot;//www.slideshare.net/lahuman1/1react-101&quot; title=&quot;1.react 101&quot; target=&quot;_blank&quot;&gt;1.react 101&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&quot;https://www.slideshare.net/lahuman1&quot; target=&quot;_blank&quot;&gt;Daniel Lim&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;
@@ -592,128 +645,4 @@ location ~* \.(gif|jpg|jpeg)$ {
 
 &lt;p&gt;다른 것보다 에세이를 작성하면서 꽤 많은 생각을 하게 되어서 즐거웠습니다.&lt;/p&gt;
 
-&lt;h2 id=&quot;즐거웠던-프로그램-종료&quot;&gt;즐거웠던 프로그램 종료&lt;/h2&gt;</content><category term="52g" /><category term="catalyst" /><summary type="html">GS 그룹사에서 진행한 문제를 찾고 해결하는 조직</summary></entry><entry><title type="html">Swagger? OAS? with NodeJS</title><link href="https://lahuman.github.io/oas3.0-nodejs/" rel="alternate" type="text/html" title="Swagger? OAS? with NodeJS" /><published>2020-07-13T00:00:00+09:00</published><updated>2020-07-13T00:00:00+09:00</updated><id>https://lahuman.github.io/oas3.0-nodejs</id><content type="html" xml:base="https://lahuman.github.io/oas3.0-nodejs/">&lt;h1 id=&quot;swagger-oas-with-nodejs&quot;&gt;Swagger? OAS? with NodeJS&lt;/h1&gt;
-
-&lt;hr /&gt;
-
-&lt;iframe src=&quot;//www.slideshare.net/slideshow/embed_code/key/buiPEVCt5Dxs1t&quot; width=&quot;595&quot; height=&quot;485&quot; frameborder=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; scrolling=&quot;no&quot; style=&quot;border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&quot; allowfullscreen=&quot;&quot;&gt; &lt;/iframe&gt;
-&lt;div style=&quot;margin-bottom:5px&quot;&gt; &lt;strong&gt; &lt;a href=&quot;//www.slideshare.net/lahuman1/swagger-oas-with-nodejs-236847971&quot; title=&quot;Swagger? OAS? with NodeJS&quot; target=&quot;_blank&quot;&gt;Swagger? OAS? with NodeJS&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&quot;https://www.slideshare.net/lahuman1&quot; target=&quot;_blank&quot;&gt;Daniel Lim&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;what-is-swagger&quot;&gt;What is Swagger?&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;스웨거(Swagger)는 개발자가 REST 웹 서비스를 설계, 빌드, 문서화, 소비하는 일을 도와주는 대형 도구 생태계의 지원을 받는 오픈 소스 소프트웨어 프레임워크이다. 대부분의 사용자들은 스웨거 UI 도구를 통해 스웨거를 식별하며 스웨거 툴셋에는 자동화된 문서화, 코드 생성, 테스트 케이스 생성 지원이 포함된다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Swagger는 REST API를 설계, 빌드, 문서화 및 소비하는 데 도움이되는 OpenAPI 사양을 기반으로 구축 된 오픈 소스 도구 세트입니다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;swagger-특징&quot;&gt;Swagger 특징&lt;/h1&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;API 디자인 
- Swagger-editor를 통해 api를 문서화하고 빠르게 명세할 수 있습니다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;API Development 
-Swagger-codegen을 통해 작성된 문서를 통해 SDK를 생성하여 빌드 프로세스를 간소화 할 수 있도록 도와줍니다. 문서를 통해 실행하면 프로토 타입 코드를 생성해주는데 파일 구조가 정해져있는것 같습니다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;API Documentation 
-Swagger-UI를 통해 작성된 API를 시각화시켜 줍니다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;API Testing 
-Swagger-Inspector를 통해 API를 시각화 하고 빠른 테스팅을 진행할 수 있습니다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Standardize 
-Swagger-hub를 통해 개인, 팀원들이 API정보를 공유하는 Hub입니다.
-—&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h1 id=&quot;swagger-20-vs-openapi-30&quot;&gt;Swagger 2.0 VS OpenApi 3.0&lt;/h1&gt;
-
-&lt;h4 id=&quot;사실은-openapi-20-2014년-20-발의-과-302017년-발의&quot;&gt;사실은 OpenApi &lt;a href=&quot;https://swagger.io/specification/v2/&quot;&gt;2.0 (2014년 2.0 발의)&lt;/a&gt; 과 &lt;a href=&quot;[https://swagger.io/specification/&quot;&gt;3.0(2017년 발의)&lt;/a&gt;&lt;/h4&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;open-api-reversion&quot;&gt;OPEN API Reversion&lt;/h1&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/openapi_revsion.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;h1 id=&quot;swagger-node&quot;&gt;&lt;a href=&quot;https://github.com/swagger-api/swagger-node&quot;&gt;Swagger-node&lt;/a&gt;&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Node.js에서 Swagger 호환 API를 디자인하고 빌드하기위한 도구를 제공합니다. Express, Hapi, Restify 및 Sails를 비롯하여 널리 사용되는 Node.js 서버와 모든 Connect 기반 미들웨어와 통합됩니다. swagger를 사용하면 랩톱에서 API를 처음부터 지정, 빌드 및 테스트 할 수 있습니다. 구현 논리를 다시 쓰지 않고도 디자인을 변경하고 반복 할 수 있습니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;swagger-node-특징&quot;&gt;Swagger-node 특징&lt;/h1&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Swagger 2.0 지원&lt;/li&gt;
-  &lt;li&gt;오래되었음
-    &lt;ul&gt;
-      &lt;li&gt;5년 이상됨 (2015년 시작)&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;업데이트가 빈번하지 않음
-    &lt;ul&gt;
-      &lt;li&gt;2018년이 마지막 업뎃&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;1년 이상 51Scrum에서 사용됨&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-&lt;h1 id=&quot;oas-tools&quot;&gt;&lt;a href=&quot;https://github.com/isa-group/oas-tools#readme&quot;&gt;oas-tools&lt;/a&gt;&lt;/h1&gt;
-
-&lt;p&gt;Express 서버에서 OpenAPI 3.0 사양으로 정의 된 RESTfull API 관리를 지원합니다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;oas-tools-특징&quot;&gt;Oas-tools 특징&lt;/h1&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;OpenApi 3.0 지원
-    &lt;ul&gt;
-      &lt;li&gt;최신 스펙을 제공&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;2018년 시작된 프로젝트&lt;/li&gt;
-  &lt;li&gt;업데이트가 빈번함
-    &lt;ul&gt;
-      &lt;li&gt;2020년 7월 13일 기준 2020년 6월 18일이 마지막 업데이트&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;현재 1개의 프로젝트에서 사용됨 (issue_finder, new Collector)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;사용해보기&quot;&gt;사용해보기&lt;/h1&gt;
-
-&lt;h2 id=&quot;swagger-node-1&quot;&gt;&lt;a href=&quot;https://github.com/swagger-api/swagger-node&quot;&gt;Swagger-node&lt;/a&gt;&lt;/h2&gt;
-&lt;h2 id=&quot;oas-generator&quot;&gt;&lt;a href=&quot;https://github.com/isa-group/oas-generator&quot;&gt;oas-generator&lt;/a&gt;&lt;/h2&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h1&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;https://ko.wikipedia.org/wiki/%EC%8A%A4%EC%9B%A8%EA%B1%B0_(%EC%86%8C%ED%94%84%ED%8A%B8%EC%9B%A8%EC%96%B4)&lt;/li&gt;
-  &lt;li&gt;https://real-dongsoo7.tistory.com/58&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://swagger.io/specification/v2/&quot;&gt;Openapi 2.0 (2014년 2.0 발의)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;[https://swagger.io/specification/&quot;&gt;Openapi 3.0(2017년 발의)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/swagger-api/swagger-node&quot;&gt;Swagger-node&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/isa-group/oas-tools#readme&quot;&gt;oas-tools&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/isa-group/oas-generator&quot;&gt;oas-generator&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="express" /><category term="oas" /><category term="swagger" /><summary type="html">OAS-tools 를 이용해서 프로젝트를 진행하여 보자!</summary></entry></feed>
+&lt;h2 id=&quot;즐거웠던-프로그램-종료&quot;&gt;즐거웠던 프로그램 종료&lt;/h2&gt;</content><category term="52g" /><category term="catalyst" /><summary type="html">GS 그룹사에서 진행한 문제를 찾고 해결하는 조직</summary></entry></feed>
