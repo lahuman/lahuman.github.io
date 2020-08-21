@@ -1,4 +1,382 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-08-18T21:55:23+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">ReactJS Hooks 101</title><link href="https://lahuman.github.io/hooks_101/" rel="alternate" type="text/html" title="ReactJS Hooks 101" /><published>2020-08-17T00:00:00+09:00</published><updated>2020-08-17T00:00:00+09:00</updated><id>https://lahuman.github.io/hooks_101</id><content type="html" xml:base="https://lahuman.github.io/hooks_101/">&lt;h1 id=&quot;reactjs-hooks-101&quot;&gt;ReactJS Hooks 101&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-08-22T00:13:07+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">ReactJS component optimization</title><link href="https://lahuman.github.io/component_optimization/" rel="alternate" type="text/html" title="ReactJS component optimization" /><published>2020-08-20T00:00:00+09:00</published><updated>2020-08-20T00:00:00+09:00</updated><id>https://lahuman.github.io/component_optimization</id><content type="html" xml:base="https://lahuman.github.io/component_optimization/">&lt;h1 id=&quot;reactjs-component-style&quot;&gt;ReactJS component style&lt;/h1&gt;
+
+&lt;iframe src=&quot;//www.slideshare.net/slideshow/embed_code/key/xTwre4O3s2UVih&quot; width=&quot;595&quot; height=&quot;485&quot; frameborder=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; scrolling=&quot;no&quot; style=&quot;border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&quot; allowfullscreen=&quot;&quot;&gt; &lt;/iframe&gt;
+&lt;div style=&quot;margin-bottom:5px&quot;&gt; &lt;strong&gt; &lt;a href=&quot;//www.slideshare.net/lahuman1/10component-optimization&quot; title=&quot;10.component optimization&quot; target=&quot;_blank&quot;&gt;10.component optimization&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&quot;https://www.slideshare.net/lahuman1&quot; target=&quot;_blank&quot;&gt;Daniel Lim&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/jsx.png&quot; alt=&quot;bg right h:270&quot; /&gt;
+임광규&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;많은-데이터-랜더링-하기&quot;&gt;많은 데이터 랜더링 하기&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;데이터가 무수히 많아지면, 애플리케이션이 느려지는 것을 체감할 수 있을 정도로 지연이 발생합니다.
+성능을 분석해야 할 때는 느려졌다는 느낌만으로는 충분하지 않습니다. 정확히 몇 초가 걸리는지 확인해야 합니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;크롬-개발자-도구를-통한-성능-모니터링&quot;&gt;크롬 개발자 도구를 통한 성능 모니터링&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;크롬 개발자 도구의 Performance 탭을 사용하여 측정하면 정확히 몇 초가 걸리는지 확인 가능합니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;사용법&quot;&gt;사용법&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;크롬 개발자 도구를 켭니다.&lt;/li&gt;
+  &lt;li&gt;Performance 탭의 녹화 버튼을 누릅니다.&lt;/li&gt;
+  &lt;li&gt;성능을 분석하려는 동작을 합니다.&lt;/li&gt;
+  &lt;li&gt;중지(STOP) 버튼을 누르고 성능 분석 결과를 확인 합니다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;performance-예제-function-call에-550ms가-소요된-이벤트-캡처&quot;&gt;Performance 예제 (Function Call에 550ms가 소요된 이벤트 캡처)&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/perfomance_chrome.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;느려지는-원인-분석&quot;&gt;느려지는 원인 분석&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;일반적으로 ReactJS에서 느려지는 원인은 리랜더링과 연관성이 높습니다.
+이때 컴포넌트 리랜더링 성능을 최적화 해주는 작업으로, 
+리랜더링이 불필요할 때는 리랜더링을 방지해 주어야 합니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;다음과-같은-상황에서-리랜더링이-발생합니다&quot;&gt;다음과 같은 상황에서 리랜더링이 발생합니다.&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;자신이 전달받은 props가 변경될 때&lt;/li&gt;
+  &lt;li&gt;자신의 state가 바뀔 때&lt;/li&gt;
+  &lt;li&gt;부모 컴포넌트가 리랜더링될 때&lt;/li&gt;
+  &lt;li&gt;forceUpdate 함수가 실행될 때&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;reactmemo를-사용하여-컴포넌트-성능-최적화&quot;&gt;React.memo를 사용하여 컴포넌트 성능 최적화&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;컴포넌트의 props가 바뀌지 않으면 리랜더링 하지 않도록 설정하여 함수형 컴포넌트의 리랜더링 성능을 최적화 해줄 수 있습니다.
+사용법은 아주 간단하게 컴포넌트를 감싸 주기만 하면 됩니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;React&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'react'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;React&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;memo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(({&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;cm&quot;&gt;/* a,b,c 가 바뀌지 않으면 리랜더링을 하지 않습니다. */&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;reactusecallback를-사용하여-함수-재사용하기&quot;&gt;React.useCallback를 사용하여 함수 재사용하기&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;리랜더링 될때마다  함수가 새로 만들어 집니다. 이렇게 함수가 계속 만들어지는 상황을 방지하는 방법은 두가지입니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;useState의 함수형 업데이트 기능을 사용&lt;/li&gt;
+  &lt;li&gt;useReducer를 사용&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;setstate에서-reactusecallback-이용-하기-예제&quot;&gt;setState에서 React.useCallback 이용 하기 (예제)&lt;/h3&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;setVal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;React&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;useState&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;초기값&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;changeValue&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;React&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;useCallback&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;setVal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;변경값&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;},[]);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;useCallbakc에서 setVal을 사용할 때 그 안에 &lt;code class=&quot;highlighter-rouge&quot;&gt;val =&amp;gt;&lt;/code&gt; 을 넣어주면 두번째 파라미터를 빈 배열로 처리할 수 있습니다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;usereducer에서-reactusecallback-이용-하기-예제&quot;&gt;useReducer에서 React.useCallback 이용 하기 (예제)&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;useReducer를 사용할 때 원래 두 번째 파라미터에 초기 상태를 넣어줘야 하는데, undefined를 넣고 세 번째 파라미터에 초기 상태를 만들어 주는 함수(&lt;code class=&quot;highlighter-rouge&quot;&gt;initalValue&lt;/code&gt;)를 넣어습니다.
+이렇게 하면 컴포넌트가 맨 처음 랜더링 될때만 initalValue 함수가 호출됩니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;initalValue&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;초기 값&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;dispatch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;React&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;useReducer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;reducer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;undefined&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;initalValue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;changeValue&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;React&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;useCallback&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;dispatch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;TYPE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;CHANGE&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;},[]);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;불변성-유지&quot;&gt;불변성 유지&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;리액트 컴포넌트에서 상태를 업데이트할 때 불변성을 지키는 것은 매우 중요합니다.
+불변성이 지켜지지 않으면 객체 내부의 값이 새로워져도 바뀐 것을 감지하지 못합니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;전개 연산자(… 문법)을 사용하여 객체나 배열 내부의 값을 복사할 때는 얕은 복사(shallow copy)를 하게 됩니다. 
+즉 내부 값이 완전히 새로 복사되는 것이 아니라 가장 바깥쪽에 있는 값만 복사 됩니다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;react-virtualized를-사용한-랜더링-최적화&quot;&gt;&lt;a href=&quot;https://www.npmjs.com/package/react-virtualized&quot;&gt;react-virtualized&lt;/a&gt;를 사용한 랜더링 최적화&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;a href=&quot;https://www.npmjs.com/package/react-virtualized&quot;&gt;react-virtualized&lt;/a&gt;를 사용하면 리스트 컴포넌트에서 스크롤되기 전에 보이지 않는 컴포넌트는 랜더링 되지 않고 크기만 차지하게 할수 있습니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;자세한-사용법은-예제를-참고하셔요&quot;&gt;자세한 사용법은 &lt;a href=&quot;https://codesandbox.io/s/react-virtualized-table-forked-one2q?file=/index.js&quot;&gt;예제&lt;/a&gt;를 참고하셔요.&lt;/h2&gt;</content><category term="reactjs" /><summary type="html">reactJS에서 컴포넌트 최적화에 대한 내용입니다.</summary></entry><entry><title type="html">ReactJS component style</title><link href="https://lahuman.github.io/component_style/" rel="alternate" type="text/html" title="ReactJS component style" /><published>2020-08-19T00:00:00+09:00</published><updated>2020-08-19T00:00:00+09:00</updated><id>https://lahuman.github.io/component_style</id><content type="html" xml:base="https://lahuman.github.io/component_style/">&lt;h1 id=&quot;reactjs-component-style&quot;&gt;ReactJS component style&lt;/h1&gt;
+
+&lt;iframe src=&quot;//www.slideshare.net/slideshow/embed_code/key/vpcPFtW6gjMnc5&quot; width=&quot;595&quot; height=&quot;485&quot; frameborder=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; scrolling=&quot;no&quot; style=&quot;border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&quot; allowfullscreen=&quot;&quot;&gt; &lt;/iframe&gt;
+&lt;div style=&quot;margin-bottom:5px&quot;&gt; &lt;strong&gt; &lt;a href=&quot;//www.slideshare.net/lahuman1/9component-style&quot; title=&quot;9.component style&quot; target=&quot;_blank&quot;&gt;9.component style&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&quot;https://www.slideshare.net/lahuman1&quot; target=&quot;_blank&quot;&gt;Daniel Lim&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/jsx.png&quot; alt=&quot;bg right h:270&quot; /&gt;
+임광규&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;스타일링-방식&quot;&gt;스타일링 방식&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;컴포넌트에 대한 스타일링 방식 중 다음에 대하여 알아 봅니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;일반 CSS&lt;/strong&gt; : 컴포넌트를 스타일링하는 가장 기본적인 방식&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Sass&lt;/strong&gt; : 자주 사용되는 CSS 전처리기(per-processor) 중 하나로 확장된 CSS 문법을 사용하여 CSS 코드를 더욱 쉽게 작성할 수 있도록 지원&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;CSS Module&lt;/strong&gt; : 스타일을 작성할 때 CSS 클래스가 다른 CSS 클래스의 이름과 절대 퉁돌하지 않도록 고유한 이름을 자동으로 생성해주는 옵션&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;styled-components&lt;/strong&gt; : 스타일을 자바스크립트 파일에 내장시키는 방식으로 스타일을 작성함과 동시에 해당 스타일이 적용된 컴포넌트를 만들수 있도록 지원&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;일반-css&quot;&gt;일반 CSS&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;css 파일을 import 하여 사용하는 방식입니다.
+className(html에서는 class) 이름이나 TAG, id 등을 기반으로 스타일을 정의합니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;사용법&quot;&gt;사용법&lt;/h2&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'./App.css'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;sass&quot;&gt;Sass&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Sass(Syntactically Awesome Style Sheets)는 CSS 전처리기로 복잡한 작업을 쉽게 할 수 있도록 해주고 스타일 코드의 재활용성을 높여 줄 뿐만 아니라 코드의 가독성을 높여서 유지 보수를 더욱 쉽게 합니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;파일 확장자는 .sass 또는 .scss로 구분되며 두 확장자의 문법이 다릅니다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;sass-vs-scss&quot;&gt;.sass vs .scss&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Sass는 두가지 확장자를 지원합니다. 두 문법의 차이는 .sass는 중괄호({})와 세미콜론(;)을 사용하지 않습니다. 반면 .scss는 기존 CSS를 작성하는 방식과 문법이 크게 다르지 않습니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;sass-1&quot;&gt;.sass&lt;/h3&gt;
+&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;font-stack&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;sans-serif&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;body&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;front&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;font-stack&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;scss&quot;&gt;.scss&lt;/h3&gt;
+&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;font-stack&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;sans-serif&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;body&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;py&quot;&gt;front&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100%&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;font-stack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;node-sass-설치&quot;&gt;node-sass 설치&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Sass를 사용하기 위해서는 node-sass라는 라이브러리를 설치해 주어야 합니다.
+이 라이르버리는 Sass를 CSS로 변환해 줍니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;yarn add node-sass
+or
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;npm i node-sass 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+&lt;h1 id=&quot;css-module&quot;&gt;CSS Module&lt;/h1&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;CSS Module는 CSS를 불러와서 사용할 때 클래스 이름을 고유한 값, [파일이름]_[클래스이름]__[해시값] 형태로 만들어서 컴포넌트 스타일 클래스 이름이 중첩되는 현상을 방지해 주는 기술 입니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;따로 설정 필요 없이 확장자를 &lt;code class=&quot;highlighter-rouge&quot;&gt;[컴포넌트이름].module.css&lt;/code&gt;로 저장하면 적용 됩니다.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h2 id=&quot;사용-예제&quot;&gt;사용 예제&lt;/h2&gt;
+
+&lt;h2 id=&quot;cssmodulemodulecss&quot;&gt;CSSModule.module.css&lt;/h2&gt;
+&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nc&quot;&gt;.wrapper&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;background&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;black&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;padding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1rem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;white&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h2 id=&quot;cssmodulejs&quot;&gt;CSSModule.js&lt;/h2&gt;
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;React&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'react'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;styles&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'./CSSModule.module.css'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;styles&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;className&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;styles&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;wrapper&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;안녕하세요&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/div&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;결과-예제&quot;&gt;결과 예제&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;styles 객체에는 css를 key-value 형태로 변환한 JSON 객체가 있습니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;wrapper&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;CSSModule.wrapper__2DaeQ&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;sass와-함께-사용이-가능합니다&quot;&gt;sass와 함께 사용이 가능합니다.&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;sass를 사용할 때도 파일 이름 뒤에 .module.scss 확장자를 사용해주면 CSS Module로 사용할 수 있습니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;classnames&quot;&gt;classnames&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;classnames 라이브러리는 CSS 클래스를 조건부로 설정할 때 매우 유용한 라이브러리 입니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;yarn add classnames
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h3 id=&quot;사용예&quot;&gt;사용예&lt;/h3&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;classNames&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'classnames'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;classNames&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'one'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'two'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// = 'one two'&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;classNames&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'one'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;two&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// = 'one two'&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;classNames&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'one'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;two&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// = 'one'&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;classNames&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'one'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'two'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'three'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// = 'one two three'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+&lt;h2 id=&quot;local-global&quot;&gt;local global&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;:global : 웹 페이지 전역에서 사용되는 경우 사용&lt;/li&gt;
+  &lt;li&gt;:local : CSS Module이 아닌 파일에서 CSS Module 사용할 경우 사용&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;:global&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;.wrapper&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;c&quot;&gt;/* 스타일 */&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nd&quot;&gt;:local&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;.wrapper&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;c&quot;&gt;/* 스타일 */&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;styled-components&quot;&gt;styled-components&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;자바스크립트 파일 안에 스타일을 선언하는 방식입니다.
+여러 방식을 &lt;a href=&quot;https://github.com/MicheleBertoli/css-in-js&quot;&gt;CSS-in-JS&lt;/a&gt;라고 부르며 이와 관련된 라이브러는 정말 많습니다.
+이 중 &lt;a href=&quot;https://github.com/styled-components/styled-components&quot;&gt;styled-components&lt;/a&gt;는 가장 많이 사용되고 있습니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;설치&quot;&gt;설치&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ yarn add styled-components
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+&lt;h1 id=&quot;사용-예&quot;&gt;사용 예&lt;/h1&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;React&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'react'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;styled&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;css&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'styled-components'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Box&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;styled&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`
+  /* props로 넣어 준 값을 직접 전달해 줄 수 있습니다. */
+  background: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;props&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;props&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;color&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'blue'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;;
+  padding: 1rem;
+  display: flex;
+`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Box&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;black&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;테스트&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/Box&amp;gt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; 
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;hr /&gt;
+&lt;h2 id=&quot;styled-components-장점&quot;&gt;styled-components 장점&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;props를 이용할 수 있다.
+    &lt;ul&gt;
+      &lt;li&gt;props로 전달 받은 값을 쉽게 스타일에 적용 가능&lt;/li&gt;
+      &lt;li&gt;props를 참조하여 조건부 스타일링 가능&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;스타일된 컴포넌트를 제작할 수 있다.
+    &lt;ul&gt;
+      &lt;li&gt;재활용이 가능한 컴포넌트를 생성&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;템플릿 문자를 이용하여 중복되는 부분을 간단하게 사용&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://velog.io/@velopert/react-component-styling&quot;&gt;다양한 방식의 리액트 컴포넌트 스타일링 방식 CSS, Sass, CSS Module, styled-components&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="reactjs" /><summary type="html">reactJS에서 스타일 처리 방법입니다.</summary></entry><entry><title type="html">요즘 우울하다.</title><link href="https://lahuman.github.io/20200818/" rel="alternate" type="text/html" title="요즘 우울하다." /><published>2020-08-18T00:00:00+09:00</published><updated>2020-08-18T00:00:00+09:00</updated><id>https://lahuman.github.io/20200818</id><content type="html" xml:base="https://lahuman.github.io/20200818/">&lt;h1 id=&quot;일을-많이-하고-있다고-생각한다&quot;&gt;일을 많이 하고 있다고 생각한다.&lt;/h1&gt;
+
+&lt;p&gt;나에게 남는게 없이 일을 한다고 느껴진다.&lt;/p&gt;
+
+&lt;p&gt;공부를 많이 하는 것도 아니고 매일 시간에 쫓겨서 급하게 업무를 진행하다보니 그렇게 일하는게 버릇이 되어 버린거 같다.&lt;/p&gt;
+
+&lt;p&gt;생각도 많이하고 즐겁게 일한다고 생각했는데…&lt;/p&gt;
+
+&lt;p&gt;요즘은 그냥 누군가의 도구가 된 느낌이다.&lt;/p&gt;
+
+&lt;p&gt;어쩌면…&lt;/p&gt;
+
+&lt;p&gt;내가 욕심이 많아서 힘들어 하는게 아닐까?&lt;/p&gt;
+
+&lt;p&gt;목적을 향해가는 긴 여정에 답답함을 느끼고, 
+수없이 변화하는 방향성에 실망을 하게 된다.&lt;/p&gt;
+
+&lt;p&gt;다시 생각해보면 
+결국 욕심이 넘쳐서 내 분수에 맞지 않는 것을 바라고, 
+내가 했었던 일들이 의미 없다고 부정당하는 생각이든다.&lt;/p&gt;
+
+&lt;h2 id=&quot;욕심을-내려놓고-현재를-즐기자&quot;&gt;욕심을 내려놓고 현재를 즐기자.&lt;/h2&gt;</content><category term="단상" /><summary type="html">일을 많이 할 수록 일만 많아 진다.</summary></entry><entry><title type="html">ReactJS Hooks 101</title><link href="https://lahuman.github.io/hooks_101/" rel="alternate" type="text/html" title="ReactJS Hooks 101" /><published>2020-08-17T00:00:00+09:00</published><updated>2020-08-17T00:00:00+09:00</updated><id>https://lahuman.github.io/hooks_101</id><content type="html" xml:base="https://lahuman.github.io/hooks_101/">&lt;h1 id=&quot;reactjs-hooks-101&quot;&gt;ReactJS Hooks 101&lt;/h1&gt;
 
 &lt;iframe src=&quot;//www.slideshare.net/slideshow/embed_code/key/rebKKyzN620xdf&quot; width=&quot;595&quot; height=&quot;485&quot; frameborder=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; scrolling=&quot;no&quot; style=&quot;border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&quot; allowfullscreen=&quot;&quot;&gt; &lt;/iframe&gt;
 &lt;div style=&quot;margin-bottom:5px&quot;&gt; &lt;strong&gt; &lt;a href=&quot;//www.slideshare.net/lahuman1/8hooks&quot; title=&quot;8.hooks&quot; target=&quot;_blank&quot;&gt;8.hooks&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&quot;https://www.slideshare.net/lahuman1&quot; target=&quot;_blank&quot;&gt;Daniel Lim&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;
@@ -1251,537 +1629,4 @@ props는 컴포넌트가 사용되는 과정에서 부모 컴포넌트가 설정
 &lt;h1 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h1&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://kim-solshar.tistory.com/57&quot;&gt;[자바스크립트] arrow function과 this&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="reactjs" /><summary type="html">reactJS에서 사용되는 Component의 기초입니다.</summary></entry><entry><title type="html">ReactJS JSX 101</title><link href="https://lahuman.github.io/jsx_101/" rel="alternate" type="text/html" title="ReactJS JSX 101" /><published>2020-08-12T00:00:00+09:00</published><updated>2020-08-12T00:00:00+09:00</updated><id>https://lahuman.github.io/jsx_101</id><content type="html" xml:base="https://lahuman.github.io/jsx_101/">&lt;h1 id=&quot;reactjs-jsx-101&quot;&gt;ReactJS JSX 101&lt;/h1&gt;
-
-&lt;iframe src=&quot;//www.slideshare.net/slideshow/embed_code/key/51LZUf8DXJu3td&quot; width=&quot;595&quot; height=&quot;485&quot; frameborder=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; scrolling=&quot;no&quot; style=&quot;border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&quot; allowfullscreen=&quot;&quot;&gt; &lt;/iframe&gt;
-&lt;div style=&quot;margin-bottom:5px&quot;&gt; &lt;strong&gt; &lt;a href=&quot;//www.slideshare.net/lahuman1/2jsx-101&quot; title=&quot;2.jsx 101&quot; target=&quot;_blank&quot;&gt;2.jsx 101&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&quot;https://www.slideshare.net/lahuman1&quot; target=&quot;_blank&quot;&gt;Daniel Lim&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/jsx.png&quot; alt=&quot;bg right h:270&quot; /&gt;
-임광규&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;reactjs-기본-코드-설명appjs&quot;&gt;ReactJS 기본 코드 설명(App.js)&lt;/h1&gt;
-&lt;div class=&quot;language-jsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// 리액트를 불러와서 사용할수 있게 지원&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;React&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'react'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;// SVG(https://ko.wikipedia.org/wiki/%EC%8A%A4%EC%BC%80%EC%9D%BC%EB%9F%AC%EB%B8%94_%EB%B2%A1%ED%84%B0_%EA%B7%B8%EB%9E%98%ED%94%BD%EC%8A%A4)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;// 스케일러블 벡터 그래픽스 파일 &lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;logo&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'./logo.svg'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;// CSS 로드&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'./App.css'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;// App 컴포넌트 생성 코드&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;App&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;className=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;App&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;header&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;className=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;App-header&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;logo&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;className=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;App-logo&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alt=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;logo&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;/&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
-          Edit &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;code&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;src/App.js&lt;span class=&quot;p&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;code&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; and save to reload.
-        &lt;span class=&quot;p&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;a&lt;/span&gt;
-          &lt;span class=&quot;na&quot;&gt;className=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;App-link&quot;&lt;/span&gt;
-          &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;https://reactjs.org&quot;&lt;/span&gt;
-          &lt;span class=&quot;na&quot;&gt;target=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;_blank&quot;&lt;/span&gt;
-          &lt;span class=&quot;na&quot;&gt;rel=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;noopener noreferrer&quot;&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
-          Learn React
-        &lt;span class=&quot;p&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;p&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;header&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;App&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;jsx-변환&quot;&gt;JSX 변환&lt;/h1&gt;
-
-&lt;p&gt;JSX는 &lt;a href=&quot;https://babeljs.io/&quot;&gt;babel&lt;/a&gt;을 통해서 일반 자바스크립트 형태의 코드로 변화 됩니다.&lt;/p&gt;
-
-&lt;div class=&quot;language-jsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// JSX&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;element&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;React&lt;span class=&quot;p&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;// 자바 스크립트&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;element&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;React&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;createElement&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;div&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;React&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://stackoverflow.com/questions/39461805/what-does-jsx-stand-for/39461887&quot;&gt;JSX의 뜻은 stands for JavaScript XML 입니다.&lt;/a&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;jsx-장점&quot;&gt;JSX 장점&lt;/h1&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;보기 쉽고 익숙하다&lt;/li&gt;
-  &lt;li&gt;활용도가 높다.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;render-설명indexjs&quot;&gt;render 설명(index.js)&lt;/h1&gt;
-
-&lt;p&gt;ReactDOM.render 는 컴포넌트를 페이지에 &lt;code class=&quot;highlighter-rouge&quot;&gt;랜더링&lt;/code&gt; 하는 역할이며, 
-react-dom 모듈을 불러와 사용 함수의 첫번째 파라메터는 랜더링할 내용을 &lt;code class=&quot;highlighter-rouge&quot;&gt;JSX&lt;/code&gt;형태로 작성하고, 
-두번째는 JSX를 랜더링할 &lt;code class=&quot;highlighter-rouge&quot;&gt;document&lt;/code&gt; 내부 요소를 설정&lt;/p&gt;
-
-&lt;div class=&quot;language-jsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;ReactDOM&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;render&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;React&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;StrictMode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;App&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;/&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;React&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;StrictMode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;,&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'root'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;reactstrictmode&quot;&gt;&lt;a href=&quot;https://ko.reactjs.org/docs/strict-mode.html&quot;&gt;React.StrictMode&lt;/a&gt;&lt;/h1&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://ko.reactjs.org/docs/strict-mode.html&quot;&gt;React.StrictMode&lt;/a&gt; 는 애플리케이션 내의 잠재적인 문제를 알아내기 위한 도구&lt;/p&gt;
-
-&lt;p&gt;개발 모드에서만 활성화되기 때문에 &lt;code class=&quot;highlighter-rouge&quot;&gt;프로덕션&lt;/code&gt; &amp;amp; &lt;code class=&quot;highlighter-rouge&quot;&gt;빌드&lt;/code&gt;에 영향을  끼치지 않습니다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;strictmode는-아래와-같은-부분에서-도움이-됩니다&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;StrictMode&lt;/code&gt;는 아래와 같은 부분에서 도움이 됩니다.&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://ko.reactjs.org/docs/strict-mode.html#identifying-unsafe-lifecycles&quot;&gt;안전하지 않은 생명주기를 사용하는 컴포넌트 발견&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://ko.reactjs.org/docs/strict-mode.html#warning-about-legacy-string-ref-api-usage&quot;&gt;레거시 문자열 ref 사용에 대한 경고&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://ko.reactjs.org/docs/strict-mode.html#warning-about-deprecated-finddomnode-usage&quot;&gt;권장되지 않는 findDOMNode 사용에 대한 경고&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://ko.reactjs.org/docs/strict-mode.html#detecting-unexpected-side-effects&quot;&gt;예상치 못한 부작용 검사&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://ko.reactjs.org/docs/strict-mode.html#detecting-legacy-context-api&quot;&gt;레거시 context API 검사&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;jsx-문법---1&quot;&gt;JSX 문법 - 1&lt;/h1&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;감싸인 요소
- return 에는 꼭 &lt;strong&gt;한개&lt;/strong&gt;의 DOM만 return 해야 한다.
-    &lt;blockquote&gt;
-      &lt;p&gt;&amp;lt;&amp;gt;&amp;lt;/&amp;gt;, &lt;React.Fragment&gt;&lt;/React.Fragment&gt; 사용&lt;/p&gt;
-    &lt;/blockquote&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;자바스크립트 표현&lt;/p&gt;
-
-    &lt;div class=&quot;language-jsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;React&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'react'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
- &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;App&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
- 	&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'리액트'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
- 	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&amp;lt;&amp;gt;&lt;/span&gt;
- 		&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;h1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt; 안녕!&lt;span class=&quot;p&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;h1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
- 		&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;h2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;동작 테스트&lt;span class=&quot;p&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;h2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
- 		&lt;span class=&quot;p&quot;&gt;&amp;lt;/&amp;gt;);&lt;/span&gt;
- &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
- &lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;App&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-    &lt;hr /&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h1 id=&quot;jsx-문법---2&quot;&gt;JSX 문법 - 2&lt;/h1&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;if 문 대신 조건부 연산자&lt;/p&gt;
-
-    &lt;div class=&quot;language-jsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;React&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'react'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
- &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;App&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
- 	&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'리액트'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
- 	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&amp;lt;&amp;gt;&lt;/span&gt;
- 		&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'리액트'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?&lt;/span&gt;
- 			&lt;span class=&quot;p&quot;&gt;(&amp;lt;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;h1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;리액트 입니다.&lt;span class=&quot;p&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;h1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;):&lt;/span&gt;
- 			&lt;span class=&quot;p&quot;&gt;(&amp;lt;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;h1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;리액트가 아닙니다.&lt;span class=&quot;p&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;h1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;)&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;
- 		&lt;span class=&quot;p&quot;&gt;&amp;lt;/&amp;gt;);&lt;/span&gt;
- &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
- &lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;App&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-    &lt;hr /&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h1 id=&quot;jsx-문법---3&quot;&gt;JSX 문법 - 3&lt;/h1&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;AND 연산자(&amp;amp;&amp;amp;)를 이용한 조건부 랜더링&lt;/p&gt;
-
-    &lt;div class=&quot;language-jsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;React&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'react'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
- &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;App&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
- 	&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'리액트'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
- 	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&amp;lt;&amp;gt;&lt;/span&gt;
- 		&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'리액트'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;h1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;리액트 입니다.&lt;span class=&quot;p&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;h1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;
- 		&lt;span class=&quot;p&quot;&gt;&amp;lt;/&amp;gt;);&lt;/span&gt;
- &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
- &lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;App&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;jsx-문법---4&quot;&gt;JSX 문법 - 4&lt;/h1&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;table&gt;
-      &lt;tbody&gt;
-        &lt;tr&gt;
-          &lt;td&gt;undefined를 랜더링하지 않기 ( OR 연산자(&lt;/td&gt;
-          &lt;td&gt; &lt;/td&gt;
-          &lt;td&gt;) 이용)&lt;/td&gt;
-        &lt;/tr&gt;
-      &lt;/tbody&gt;
-    &lt;/table&gt;
-
-    &lt;div class=&quot;language-jsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;React&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'react'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
- &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;App&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
- 	&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;undefined&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
- 	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'값이 undefined 입니다.'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
- &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
- &lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;App&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-    &lt;hr /&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h1 id=&quot;jsx-문법---5&quot;&gt;JSX 문법 - 5&lt;/h1&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;인라인 스타일링&lt;/p&gt;
-
-    &lt;div class=&quot;language-jsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;React&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'react'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
- &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;App&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
- 	&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'리액트'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
- 	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&amp;lt;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
- 			&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;
- 		&lt;span class=&quot;p&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;);&lt;/span&gt;
- &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
- &lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;App&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;jsx-문법---6&quot;&gt;JSX 문법 - 6&lt;/h1&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;class대신 className&lt;/p&gt;
-
-    &lt;div class=&quot;language-jsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;React&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'react'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
- &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;App&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
- 	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;className=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;react&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;리액트 입니다.&lt;span class=&quot;p&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;;&lt;/span&gt;
- &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
- &lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;App&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;jsx-문법---7&quot;&gt;JSX 문법 - 7&lt;/h1&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;꼭 닫아야 하는 태그&lt;/p&gt;
-
-    &lt;div class=&quot;language-jsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;React&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'react'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
- &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;App&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
- 	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
- 		&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;input&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;/&amp;gt;&lt;/span&gt;
- 		&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;br&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;/&amp;gt;&lt;/span&gt;
- 		&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;input&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
- 	&lt;span class=&quot;p&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;;&lt;/span&gt;
- &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
- &lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;App&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;jsx-문법---8&quot;&gt;JSX 문법 - 8&lt;/h1&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;주석&lt;/p&gt;
-
-    &lt;div class=&quot;language-jsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;React&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'react'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
- &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;App&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-
- 	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;div&lt;/span&gt; 
- 			&lt;span class=&quot;na&quot;&gt;className=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;react&quot;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 시작 태그를 여러줄 작성하게 된다면 여기에 작성 할수 있음&lt;/span&gt;
- 		&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;리액트 입니다.
- 		&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;cm&quot;&gt;/* 주석은 이렇게 작성합니다. */&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;
- 		&lt;span class=&quot;p&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;;&lt;/span&gt;
- &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
- &lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;App&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;eslint와-prettier&quot;&gt;ESLint와 Prettier&lt;/h1&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;ESLint : 문법 검사 도구&lt;/li&gt;
-  &lt;li&gt;Prettier : 코드 스타일 자동 정리 도구&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;뽀나스&quot;&gt;뽀나스&lt;/h1&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://medium.com/@euncho/dom-101-ed14cff6e2ce&quot;&gt;DOM 101&lt;/a&gt; : DOM 기초&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://ko.reactjs.org/docs/getting-started.html&quot;&gt;React 101&lt;/a&gt; : React 기초&lt;/li&gt;
-&lt;/ul&gt;</content><category term="reactjs" /><summary type="html">reactJS에서 사용되는 JSX의 기초입니다.</summary></entry><entry><title type="html">Centos7 swap 메모리 설정</title><link href="https://lahuman.github.io/centos7_swap_setting/" rel="alternate" type="text/html" title="Centos7 swap 메모리 설정" /><published>2020-08-11T00:00:00+09:00</published><updated>2020-08-11T00:00:00+09:00</updated><id>https://lahuman.github.io/centos7_swap_setting</id><content type="html" xml:base="https://lahuman.github.io/centos7_swap_setting/">&lt;h1 id=&quot;centos7-swap-메모리-설정&quot;&gt;Centos7 swap 메모리 설정&lt;/h1&gt;
-
-&lt;h2 id=&quot;1-swapfile-생성&quot;&gt;1. swapfile 생성&lt;/h2&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ fallocate -l 2GB /swapfile
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;fallocate 명령어로 생성 안될 경우 아래 명령어로 생성. count 뒷부분이 swap file 용량&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ dd if=/dev/zero of=/swapfile count=5096 bs=1MiB
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;2-swap-file-권한-설정&quot;&gt;2. swap file 권한 설정&lt;/h2&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ chmod 600 /swapfile
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;3-스왑-포맷-형태로-파일-변환&quot;&gt;3. 스왑 포맷 형태로 파일 변환&lt;/h2&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ mkswap /swapfile
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;4-스왑-파일-시스템-등록&quot;&gt;4. 스왑 파일 시스템 등록&lt;/h2&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ swapon /swapfile
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;5-등록된-swap-memory-확인&quot;&gt;5. 등록된 swap memory 확인&lt;/h2&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ swapon --summary
-$ free -h
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;6-스왑-파일-삭제&quot;&gt;6. 스왑 파일 삭제&lt;/h2&gt;
-
-&lt;h3 id=&quot;6-1-스왑-사용-비활성화&quot;&gt;6-1. 스왑 사용 비활성화&lt;/h3&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ swapoff swapfile
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;6-2-스왑-파일-삭제&quot;&gt;6-2. 스왑 파일 삭제&lt;/h3&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ rm /swapfile
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;다음 부팅시 스왑 공간을 사용하지 않게 /etc/fstab 에 등록된 항목도 삭제 해야 합니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://enesto.github.io/2018/11/19/181119_Swap%20Memory%20%EC%B6%94%EA%B0%80/&quot;&gt;Swap Memory 추가하기 (CentOS 7)&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="centos7" /><category term="swap" /><summary type="html">Centos7 swap 메모리 설정을 합니다.</summary></entry><entry><title type="html">ReactJS 101</title><link href="https://lahuman.github.io/reactjs_101/" rel="alternate" type="text/html" title="ReactJS 101" /><published>2020-08-10T00:00:00+09:00</published><updated>2020-08-10T00:00:00+09:00</updated><id>https://lahuman.github.io/reactjs_101</id><content type="html" xml:base="https://lahuman.github.io/reactjs_101/">&lt;h1 id=&quot;reactjs-101&quot;&gt;ReactJS 101&lt;/h1&gt;
-
-&lt;iframe src=&quot;//www.slideshare.net/slideshow/embed_code/key/nMqZ9QvnW7vgqp&quot; width=&quot;595&quot; height=&quot;485&quot; frameborder=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; scrolling=&quot;no&quot; style=&quot;border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&quot; allowfullscreen=&quot;&quot;&gt; &lt;/iframe&gt;
-&lt;div style=&quot;margin-bottom:5px&quot;&gt; &lt;strong&gt; &lt;a href=&quot;//www.slideshare.net/lahuman1/1react-101&quot; title=&quot;1.react 101&quot; target=&quot;_blank&quot;&gt;1.react 101&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&quot;https://www.slideshare.net/lahuman1&quot; target=&quot;_blank&quot;&gt;Daniel Lim&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/reactjs.png&quot; alt=&quot;bg right h:400&quot; /&gt;
-임광규&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;왜-리액트인가&quot;&gt;왜 리액트인가?&lt;/h1&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;자바스크립트 사용
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://www.tiobe.com/tiobe-index/&quot;&gt;개발 언어 순위 7위 랭킹&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Front-end 구조화 제공
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://swimjiy.github.io/2019-05-28-web-mvc-mvp-mvvm&quot;&gt;MVC, MVP, MVVM&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;리액트의-이해&quot;&gt;리액트의 이해&lt;/h1&gt;
-
-&lt;h3 id=&quot;reactjs-목표&quot;&gt;ReactJS 목표&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;페이스북 개발팀이 최대한 성능을 아끼고 편안한 사용자 경험을 제공하면서 구현하고자 개발&lt;/li&gt;
-  &lt;li&gt;지속적으로 데이터가 변화하는 대규모 애플리케이션 구축&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;특징&quot;&gt;특징&lt;/h3&gt;
-&lt;ol&gt;
-  &lt;li&gt;MVC, MVP 등과 달리 오직 &lt;strong&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;V(View)&lt;/code&gt;만 신경 쓰는 라이브러리&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;컴포넌트 기반의 동작과 정의&lt;/li&gt;
-  &lt;li&gt;최적의 성능을 위한 &lt;strong&gt;랜더링&lt;/strong&gt; 지원&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;랜더링&quot;&gt;&lt;a href=&quot;https://ko.reactjs.org/docs/reconciliation.html&quot;&gt;랜더링&lt;/a&gt;&lt;/h1&gt;
-
-&lt;p&gt;초기 랜더링 ⇒ 조화 과정(업데이트 과정)&lt;/p&gt;
-
-&lt;p&gt;랜더링은 render 함수를 통해 이루어 집니다.&lt;/p&gt;
-
-&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;render&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;초기 랜더시 컴포넌트를 랜더링 하고 이를 HTML 마크업으로 만들고, DOM 요소 안에 주입합니다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;virtual-dom---1&quot;&gt;Virtual DOM - 1&lt;/h1&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;DOM&lt;/code&gt; ⇒ Document Object Model 객체로 문서 구조를 표현하는 방법(HTML, XML)&lt;/li&gt;
-  &lt;li&gt;DOM은 동적 UI에 최적화 되어 있지 않음&lt;/li&gt;
-  &lt;li&gt;웹 브라우저가 DOM의 변화가 일어나면 많은 시간 허비
-    &lt;ol&gt;
-      &lt;li&gt;CSS를 다시 연산 ⇒ 레이아웃 구성 ⇒ 페이지 리페인트&lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
-  &lt;li&gt;리액트는 Virtual DOM 방식으로 DOM 업데이트를 추상화 하여 DOM 처리 횟수를 최소화 하고 효율적으로 진행&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;virtual-dom---2&quot;&gt;Virtual Dom - 2&lt;/h1&gt;
-
-&lt;h3 id=&quot;리액트에서-데이터가-변하여-실제-dom을-업데이트-할때-다음-절차-진행&quot;&gt;리액트에서 데이터가 변하여 실제 DOM을 업데이트 할때 다음 절차 진행&lt;/h3&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;데이터를 업데이트하면 전체 UI Virtual DOM에 리렌더링&lt;/li&gt;
-  &lt;li&gt;이전 Virtual DOM에 있던 내용과 현재 내용 비교&lt;/li&gt;
-  &lt;li&gt;바뀐 부분만 실제 DOM에 적용&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h4 id=&quot;virtual-dom-사용한다고-무조건-빠른-것은-아님&quot;&gt;Virtual DOM 사용한다고 무조건 빠른 것은 아님!&lt;/h4&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://localvoid.github.io/uibench/&quot;&gt;React 16.9.0 VS Vanilla[WC] 1.0.0&lt;/a&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;기타-특징&quot;&gt;기타 특징&lt;/h1&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;수많은 라이브러리 제공&lt;/li&gt;
-  &lt;li&gt;ReactJS + 다른 프레임워크 혼용 가능&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;작업-환경-준비&quot;&gt;작업 환경 준비&lt;/h1&gt;
-
-&lt;h2 id=&quot;ubuntu-2004-기준&quot;&gt;Ubuntu 20.04 기준&lt;/h2&gt;
-&lt;h3 id=&quot;nodejs--npm-설치&quot;&gt;Node.js &amp;amp; npm 설치&lt;/h3&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl &lt;span class=&quot;nt&quot;&gt;-sL&lt;/span&gt; https://deb.nodesource.com/setup_14.x &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; nodesource_setup.sh
-&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;bash nodesource_setup.sh
-&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;nodejs
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;yarn-설치&quot;&gt;Yarn 설치&lt;/h3&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl &lt;span class=&quot;nt&quot;&gt;-sL&lt;/span&gt; https://dl.yarnpkg.com/debian/pubkey.gpg | &lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-key add -
-&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;deb https://dl.yarnpkg.com/debian/ stable main&quot;&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;sudo tee&lt;/span&gt; /etc/apt/sources.list.d/yarn.list
-&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get update &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;yarn
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;vscode-설치&quot;&gt;VSCODE 설치&lt;/h3&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;snap &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--classic&lt;/span&gt; code
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h4 id=&quot;vscode-추천-확장-프로그램&quot;&gt;VSCODE 추천 확장 프로그램&lt;/h4&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;ESLint&lt;/li&gt;
-  &lt;li&gt;Reactjs Code Snippets&lt;/li&gt;
-  &lt;li&gt;Prettier-code formatter&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;git-설치&quot;&gt;GIT 설치&lt;/h3&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;git-all
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;reactjs-프로젝트-생성&quot;&gt;ReactJS 프로젝트 생성&lt;/h1&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yarn create react-app hello-react
-&lt;span class=&quot;c&quot;&gt;# OR&lt;/span&gt;
-npx create-react-app hello-react
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;뽀나스&quot;&gt;뽀나스&lt;/h1&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://codesandbox.io/&quot;&gt;온라인 ReactJS 개발&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;추천-책--사이트&quot;&gt;추천 책 &amp;amp; 사이트&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://velopert.com/&quot;&gt;velopert.log&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;
-    &lt;table&gt;
-      &lt;tbody&gt;
-        &lt;tr&gt;
-          &lt;td&gt;[개정판&lt;/td&gt;
-          &lt;td&gt;리액트를 다루는 기술](https://ridibooks.com/books/754026976)&lt;/td&gt;
-        &lt;/tr&gt;
-      &lt;/tbody&gt;
-    &lt;/table&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;</content><category term="reactjs" /><summary type="html">reactJS 기초입니다.</summary></entry></feed>
+&lt;/ul&gt;</content><category term="reactjs" /><summary type="html">reactJS에서 사용되는 Component의 기초입니다.</summary></entry></feed>
