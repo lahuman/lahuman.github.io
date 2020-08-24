@@ -1,4 +1,210 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-08-22T00:28:55+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">ReactJS Context API</title><link href="https://lahuman.github.io/react_context_api/" rel="alternate" type="text/html" title="ReactJS Context API" /><published>2020-08-22T00:00:00+09:00</published><updated>2020-08-22T00:00:00+09:00</updated><id>https://lahuman.github.io/react_context_api</id><content type="html" xml:base="https://lahuman.github.io/react_context_api/">&lt;h1 id=&quot;reactjs-router-dom&quot;&gt;ReactJS Router Dom&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-08-24T23:29:53+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">ReactJS code split</title><link href="https://lahuman.github.io/code_split/" rel="alternate" type="text/html" title="ReactJS code split" /><published>2020-08-22T00:00:00+09:00</published><updated>2020-08-22T00:00:00+09:00</updated><id>https://lahuman.github.io/code_split</id><content type="html" xml:base="https://lahuman.github.io/code_split/">&lt;h1 id=&quot;reactjs-router-dom&quot;&gt;ReactJS Router Dom&lt;/h1&gt;
+
+&lt;iframe src=&quot;//www.slideshare.net/slideshow/embed_code/key/Ai18pJrTDS56Eq&quot; width=&quot;595&quot; height=&quot;485&quot; frameborder=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; scrolling=&quot;no&quot; style=&quot;border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&quot; allowfullscreen=&quot;&quot;&gt; &lt;/iframe&gt;
+&lt;div style=&quot;margin-bottom:5px&quot;&gt; &lt;strong&gt; &lt;a href=&quot;//www.slideshare.net/lahuman1/13code-split&quot; title=&quot;13.code split&quot; target=&quot;_blank&quot;&gt;13.code split&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&quot;https://www.slideshare.net/lahuman1&quot; target=&quot;_blank&quot;&gt;Daniel Lim&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/jsx.png&quot; alt=&quot;bg right h:270&quot; /&gt;
+임광규&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;code-split&quot;&gt;code split&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;리액트 프로젝트를 완성하여 사용자에게 제공할 때는 &lt;code class=&quot;highlighter-rouge&quot;&gt;빌드&lt;/code&gt; 작업을 거쳐서 배포 합니다.
+빌드 작업을 통해 프로젝트에서 사용되는 자바스크립트 파일 안에서 불필요한 &lt;code class=&quot;highlighter-rouge&quot;&gt;주석&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;경고 메시지&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;공백&lt;/code&gt; 등을 제거하여 파일 크기를 최소화하고 브라우저에서 JSX문법이나 다른 최신 자바스크립트 문법이 원활하게 실행되도록 코드의 &lt;code class=&quot;highlighter-rouge&quot;&gt;트랜스파일&lt;/code&gt; 작업도 합니다.
+이런 작업은 &lt;a href=&quot;https://webpack.js.org/&quot;&gt;웹팩(webpack)&lt;/a&gt;이라는 도구를 사용합니다.
+웹펙에서 별도의 설정을 하지 않으면 프로젝트에서 사용중인 모든 자바스크립트 파일이 하나의 파일로 합쳐지고, 모든 CSS 파일도 하나의 파일로 합처집니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;react-standard-code-split&quot;&gt;react standard code split&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;a href=&quot;https://create-react-app.dev/docs/getting-started/&quot;&gt;Create-React-app&lt;/a&gt;을 이용하여 프로젝트를 생성하면 최소 두개 이상의 자바스크립트 파일이 생성됩니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;기본 설정에는 SplitChunks라는 기능이 적용되어 node_modules에서 불러온 파일, 일정 크기 이상의 파일, 여러 파일 간의 공유돈 파일을 자동으로 따로 분리시켜서 캐싱의 효과를 제공합니다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;build-결과&quot;&gt;build 결과&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;/build/static/js 밑에 2.XXXX로 시작하는 파일이 포함되어 있습니다.
+2로 시작하는 파일에는 React, ReactDOM 등 node_modules에서 불러온 라이브러리 관련 코드가 들어 있고, main으로 시작하는 파일에는 직접 프로젝트에 작성하는 App 같은 컴포넌트에 대한 코드가 들어있습니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;소스 코드를 수정 후 다시 빌드를 해도 node_modules의 변경 없이 2.XXXX 파일명은 변하지 않습니다.&lt;/p&gt;
+
+&lt;p&gt;이렇게 파일을 분리하는 작업을 코드 스프리팅이라고 합니다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;react-code-split&quot;&gt;React code split&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;a href=&quot;https://create-react-app.dev/docs/getting-started/&quot;&gt;Create-React-app&lt;/a&gt;으로 생성된 프로젝트에는 단순히 효율적인 캐싱 효과만 있습니다.
+A, B, C로 구성되었고 A 페이지에서는 B 페이지와 C 페이지에서 사용하는 컴포넌트는 필요하지 않습니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;하지만 리액트 프로젝트에서 별도로 설정하지 않으면 A, B, C 컴포넌트에 대한 코드가 모두 한 파일(main)에 저장됩니다.&lt;/p&gt;
+
+&lt;p&gt;애플리케이션의 규모가 커지면 지금 당장 필요하지 않는 컴포넌트 정보도 모두 불러서 파일 크기가 매우 커집니다.&lt;/p&gt;
+
+&lt;p&gt;이런 문제를 해결해 줄 수 있는 방법이 바로 &lt;code class=&quot;highlighter-rouge&quot;&gt;코드 비동기 로딩&lt;/code&gt;입니다.
+코드 비동기 로딩을 통해 자바스크립트 함수, 객체 혹은 컴포넌트를 처음에는 불러오지 않고 필요한 시점에 불러와서 사용할 수 있습니다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;자바스크립트-함수-비동기-로딩&quot;&gt;자바스크립트 함수 비동기 로딩&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;일반 자바스크립트 함수를 스플리팅해본니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;hi.js&lt;/p&gt;
+  &lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;hi&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;  &lt;/div&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;일반 호출
+```js
+import React from ‘react’;
+import SayHi from ‘./hi’;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;export default () = {
+  const onClick = () =&amp;gt; sayHi();
+  return &amp;lt;div onClick={onClick}&amp;gt;HI&amp;lt;/div&amp;gt;;
+}&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;---
+
+&amp;gt; 비동기 로딩
+
+```js
+import React from 'react';
+
+export default () =&amp;gt; {
+  const onClick = () =&amp;gt; {
+   import('./hi').then(result =&amp;gt; result.default());
+  };
+  return &amp;lt;div onClick={onClick}&amp;gt;HI&amp;lt;/div&amp;gt;;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이렇게 import를 함수로 사용하는 문법은 아직 표준 자바스크립트가 아니지만 dynamic import라는 문법입니다. 현재 웹팩에서 지원하고 있음으로 별도의 설정없이 프로젝트에 바로 사용할수 있습니다.
+이렇게 불러온 모듈에서 default로 내보낸 것은 result.default로 참조해야 사용할 수 있습니다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;reactlazy와-suspense를-이용한-컴포넌트-코드-스플리팅&quot;&gt;React.lazy와 Suspense를 이용한 컴포넌트 코드 스플리팅&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;React.lazy와 Suspense 기능은 리액트 v16.6에 도입 되었습니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;React&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Suspense&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'react'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;SayHi&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;React&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;lazy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;import&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'./hi'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;visible&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;setVisible&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;React&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;useState&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;onClick&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;setVisible&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;onClick&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;onClick&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;HI&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/p&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;      &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Suspense&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fallback&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;loading&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/div&amp;gt;}&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;visible&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;SayHi&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/Suspense&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;    &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/div&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;  &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;loadable-components를-통한-코드-스플리팅&quot;&gt;Loadable Components를 통한 코드 스플리팅&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Loadable Components는 코드 스플리팅을 편하게 하도록 도와주는 서드파티 라이브러리 입니다.
+이 라이브러리의 장점은 서버사이느 랜더링(SRR)을 지원한다는 것입니다.
+또한 랜더링 하기 전에 필요한 스프리팅된 파일을 미리 불러올 수 있는 기능도 제공합니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h6 id=&quot;서버-사이드-랜더링이란-웹-서비스의-초기-로딩-속도-개선-캐시-및-검색-엔진-최적화를-가능하게-해주는-기술입니다-서버-사이드-랜더링을-사용하면-웹서비스의-초기-랜더링을-사용자의-브라우정가-아닌-서버-쪽에서-처리-합니다&quot;&gt;서버 사이드 랜더링이란 웹 서비스의 초기 로딩 속도 개선, 캐시 및 검색 엔진 최적화를 가능하게 해주는 기술입니다. 서버 사이드 랜더링을 사용하면 웹서비스의 초기 랜더링을 사용자의 브라우정가 아닌 서버 쪽에서 처리 합니다.&lt;/h6&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;설치--사용-예&quot;&gt;설치 &amp;amp; 사용 예&lt;/h2&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;yarn add @loadable/component
+or
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;npm &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt; @loadable/component &lt;span class=&quot;nt&quot;&gt;--save&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;React&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'react'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;loadable&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'@loadable/component'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;SayHi&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;loadable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;import&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'./hi'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;visible&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;setVisible&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;React&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;useState&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;onClick&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;setVisible&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;onClick&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;onClick&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;HI&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/p&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;visible&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;SayHi&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/div&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;  &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;로딩-중-다른-ui를-보여주고-싶다면-loadable를-사용하는-부분을-다음과-같이-수정합니다&quot;&gt;로딩 중 다른 UI를 보여주고 싶다면 loadable를 사용하는 부분을 다음과 같이 수정합니다.&lt;/h2&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;SayHi&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;loadable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;import&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'./hi'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;fallback&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;loading&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/div&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;컴포넌트-미리-불러오기&quot;&gt;컴포넌트 미리 불러오기&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;마우스 커서를 올리기만 해도 로딩이 시작됩니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;React&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'react'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;loadable&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'@loadable/component'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;SayHi&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;loadable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;import&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'./hi'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;visible&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;setVisible&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;React&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;useState&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;onClick&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;setVisible&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;onMouseOver&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;SayHi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;preload&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;onClick&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;onClick&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;onMouseOver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;onMouseOver&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;HI&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/p&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;visible&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;SayHi&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/div&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;  &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;마치며&quot;&gt;마치며&lt;/h1&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;React.lazy&lt;/code&gt; /  &lt;code class=&quot;highlighter-rouge&quot;&gt;Suspese&lt;/code&gt;와 &lt;code class=&quot;highlighter-rouge&quot;&gt;Loadable Components&lt;/code&gt;의 가장 큰 차이는 서버 사이드 랜더링(SRR)입니다.&lt;/p&gt;
+
+&lt;p&gt;서버 사이드 랜더링을 구현할 예정이면 Loadable Components를 사용하도록 래엑트 공식 문서에도 권장하고 있습니다.&lt;/p&gt;</content><category term="reactjs" /><summary type="html">reactJS에서 코드를 분활하는 방법</summary></entry><entry><title type="html">ReactJS Context API</title><link href="https://lahuman.github.io/react_context_api/" rel="alternate" type="text/html" title="ReactJS Context API" /><published>2020-08-22T00:00:00+09:00</published><updated>2020-08-22T00:00:00+09:00</updated><id>https://lahuman.github.io/react_context_api</id><content type="html" xml:base="https://lahuman.github.io/react_context_api/">&lt;h1 id=&quot;reactjs-router-dom&quot;&gt;ReactJS Router Dom&lt;/h1&gt;
 
 &lt;iframe src=&quot;//www.slideshare.net/slideshow/embed_code/key/e0ABjIuvPDoepN&quot; width=&quot;595&quot; height=&quot;485&quot; frameborder=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; scrolling=&quot;no&quot; style=&quot;border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&quot; allowfullscreen=&quot;&quot;&gt; &lt;/iframe&gt;
 &lt;div style=&quot;margin-bottom:5px&quot;&gt; &lt;strong&gt; &lt;a href=&quot;//www.slideshare.net/lahuman1/12context-api&quot; title=&quot;12.context api&quot; target=&quot;_blank&quot;&gt;12.context api&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&quot;https://www.slideshare.net/lahuman1&quot; target=&quot;_blank&quot;&gt;Daniel Lim&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;
@@ -1752,32 +1958,4 @@ import React from ‘react’;&lt;/p&gt;
   &lt;p&gt;리액트 사상에 어긋난 설계이며, 앱 규모가 커지면 스파게티처럼 데이터고 꼬여 버려서 유지보수가 어려워집니다.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;컴포넌트간 데이터 교류는 언제나 데이터를 부모 &amp;lt;-&amp;gt; 자식 흐름으로 교류 해야 합니다.&lt;/p&gt;</content><category term="reactjs" /><summary type="html">reactJS에서 사용되는 ref의 기초입니다.</summary></entry><entry><title type="html">왜, ref에 데이터를 넣어야 하나요? 그냥 변수를 사용하면 안되나요?</title><link href="https://lahuman.github.io/react_ref/" rel="alternate" type="text/html" title="왜, ref에 데이터를 넣어야 하나요? 그냥 변수를 사용하면 안되나요?" /><published>2020-08-14T00:00:00+09:00</published><updated>2020-08-14T00:00:00+09:00</updated><id>https://lahuman.github.io/react_ref</id><content type="html" xml:base="https://lahuman.github.io/react_ref/">&lt;h1 id=&quot;왜-ref에-데이터를-넣어야-하나요-그냥-변수를-사용하면-안되나요&quot;&gt;왜, ref에 데이터를 넣어야 하나요? 그냥 변수를 사용하면 안되나요?&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;회사에서 진행중인 ReactJS 스터디중  ref 관련 진행시 동료 한분이&lt;br /&gt;
-“왜, ref에 데이터를 넣어야 하나요? 그냥 변수를 사용하면 안되나요?” 
-라는 의견을 주셨습니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;저도 변수에 데이터를 담아서 사용했던 경험이 있어서 이유를 찾아보고 예제를 만들어 보았습니다.&lt;/p&gt;
-
-&lt;p&gt;아래와 같이 4종류의 변수 타입을 만들었습니다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;state : useState 를 사용&lt;/li&gt;
-  &lt;li&gt;ref : useRef 를 사용&lt;/li&gt;
-  &lt;li&gt;local : 컴포넌트 내에 변수 사용&lt;/li&gt;
-  &lt;li&gt;global : 컴포넌트 밖에 변수 사용&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;해당 변수에 값을 변경하고 리랜더링 해보고 언마운트를 해봤을때 다음과 같은 결과를 얻었습니다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;리랜더링시 데이터 유지 : state, ref, outside&lt;/li&gt;
-  &lt;li&gt;언 마운트시 데이터 유지 : outside&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;결론--컴포넌트의-라이프사이클에서-안전하게-동작하는-것은-state와-ref입니다&quot;&gt;결론 : 컴포넌트의 라이프사이클에서 안전하게 동작하는 것은 &lt;code class=&quot;highlighter-rouge&quot;&gt;state&lt;/code&gt;와 &lt;code class=&quot;highlighter-rouge&quot;&gt;ref&lt;/code&gt;입니다.&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://codesandbox.io/s/mystifying-oskar-15ew1?file=%2Fsrc%2FMyComponent.jsx&amp;amp;fbclid=IwAR0djveNmUY4oaqcosZf6zJBfG36_m5u_qGdZ6z88nOHLMSKCBvlwymPWM8&quot;&gt;코드 확인하기&lt;/a&gt;&lt;/p&gt;</content><category term="reactjs" /><category term="ref" /><summary type="html">왜냐면 말입니다...</summary></entry></feed>
+&lt;p&gt;컴포넌트간 데이터 교류는 언제나 데이터를 부모 &amp;lt;-&amp;gt; 자식 흐름으로 교류 해야 합니다.&lt;/p&gt;</content><category term="reactjs" /><summary type="html">reactJS에서 사용되는 ref의 기초입니다.</summary></entry></feed>
