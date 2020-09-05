@@ -1,4 +1,34 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-09-03T10:08:52+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">react-staripts build에서 메모리 설정 하는 방법</title><link href="https://lahuman.github.io/react_build_heap_momory/" rel="alternate" type="text/html" title="react-staripts build에서 메모리 설정 하는 방법" /><published>2020-09-02T00:00:00+09:00</published><updated>2020-09-02T00:00:00+09:00</updated><id>https://lahuman.github.io/react_build_heap_momory</id><content type="html" xml:base="https://lahuman.github.io/react_build_heap_momory/">&lt;h1 id=&quot;react-staripts-build에서-메모리-설정-하는-방법&quot;&gt;react-staripts build에서 메모리 설정 하는 방법&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-09-05T19:56:54+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">WSL 에서 JAVA SPRINGFRAMEWORK를 VSCODE로 구동해보자</title><link href="https://lahuman.github.io/wsl_vscode_java_springframework/" rel="alternate" type="text/html" title="WSL 에서 JAVA SPRINGFRAMEWORK를 VSCODE로 구동해보자" /><published>2020-09-05T00:00:00+09:00</published><updated>2020-09-05T00:00:00+09:00</updated><id>https://lahuman.github.io/wsl_vscode_java_springframework</id><content type="html" xml:base="https://lahuman.github.io/wsl_vscode_java_springframework/">&lt;h1 id=&quot;wsl-에서-java-springframework를-vscode로-구동해보자&quot;&gt;WSL 에서 JAVA SPRINGFRAMEWORK를 VSCODE로 구동해보자&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://zianlog.tistory.com/m/entry/VS-Code%EC%97%90%EC%84%9C-WSL-Remote%ED%99%98%EA%B2%BD%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%98%EC%97%AC-Java%EA%B0%9C%EB%B0%9C-%ED%99%98%EA%B2%BD-%EA%B5%AC%EC%84%B1%ED%95%98%EA%B8%B0?category=853895&quot;&gt;VS Code에서 WSL Remote환경을 이용하여 Java개발 환경 구성하기&lt;/a&gt;에 정리가 잘되어 있어서 따로 추가 작성하지는 않습니다.&lt;/p&gt;
+
+&lt;p&gt;사용해본 경험만 작성하면 다음과 같습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;강점&quot;&gt;강점&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;정말 가벼운 개발 환경&lt;/li&gt;
+  &lt;li&gt;maven, debuging 지원&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;약점&quot;&gt;약점&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;가볍기만한 개발환경
+    &lt;ul&gt;
+      &lt;li&gt;개발할때 손이 많이 간다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;초기 구축시 손이 많이감&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;결론&quot;&gt;결론&lt;/h2&gt;
+
+&lt;p&gt;현재 사용하는 노트북이 i5 cpu에 4GB 메모리를 가지고 있습니다.
+IntelliJ나 Elipse를 사용하기에는 살짝쿵 메모리가 부족한데 간단한 개발 한다고 하면 추천 합니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://zianlog.tistory.com/m/entry/VS-Code%EC%97%90%EC%84%9C-WSL-Remote%ED%99%98%EA%B2%BD%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%98%EC%97%AC-Java%EA%B0%9C%EB%B0%9C-%ED%99%98%EA%B2%BD-%EA%B5%AC%EC%84%B1%ED%95%98%EA%B8%B0?category=853895&quot;&gt;VS Code에서 WSL Remote환경을 이용하여 Java개발 환경 구성하기&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="wsl" /><category term="java" /><category term="vscode" /><summary type="html">가벼운 개발 툴 그러나, 손이 많이 갑니다.</summary></entry><entry><title type="html">react-staripts build에서 메모리 설정 하는 방법</title><link href="https://lahuman.github.io/react_build_heap_momory/" rel="alternate" type="text/html" title="react-staripts build에서 메모리 설정 하는 방법" /><published>2020-09-02T00:00:00+09:00</published><updated>2020-09-02T00:00:00+09:00</updated><id>https://lahuman.github.io/react_build_heap_momory</id><content type="html" xml:base="https://lahuman.github.io/react_build_heap_momory/">&lt;h1 id=&quot;react-staripts-build에서-메모리-설정-하는-방법&quot;&gt;react-staripts build에서 메모리 설정 하는 방법&lt;/h1&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;npm run build&lt;/code&gt; 명령을 날리자 다음과 같은 오류가 발생하였습니다.&lt;/p&gt;
 
@@ -1641,217 +1671,4 @@ export default () =&amp;gt; {
 &lt;blockquote&gt;
   &lt;p&gt;리액트에서 Hooks 패턴을 사용하면 클래스형 컴포넌트를 작성하지 않고도 대부분의 기능을 구현 할 수 있습니다.
 또한 메뉴얼에서는 새로 작성하는 컴포넌트의 경우 &lt;a href=&quot;https://ko.reactjs.org/docs/hooks-intro.html#motivation&quot;&gt;함수형 컴포넌트와 Hooks를 사용할 것을 권장&lt;/a&gt;하고 있습니다.&lt;/p&gt;
-&lt;/blockquote&gt;</content><category term="reactjs" /><summary type="html">reactJS에서 함수형 컴포넌트에서 사용하는 Hooks의 정보 입니다.</summary></entry><entry><title type="html">ReactJS component life cycle</title><link href="https://lahuman.github.io/component_life_cycle/" rel="alternate" type="text/html" title="ReactJS component life cycle" /><published>2020-08-16T00:00:00+09:00</published><updated>2020-08-16T00:00:00+09:00</updated><id>https://lahuman.github.io/component_life_cycle</id><content type="html" xml:base="https://lahuman.github.io/component_life_cycle/">&lt;h1 id=&quot;reactjs-component-life-cycle&quot;&gt;ReactJS component life cycle&lt;/h1&gt;
-
-&lt;iframe src=&quot;//www.slideshare.net/slideshow/embed_code/key/lSKiJQaCQuV2sf&quot; width=&quot;595&quot; height=&quot;485&quot; frameborder=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; scrolling=&quot;no&quot; style=&quot;border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&quot; allowfullscreen=&quot;&quot;&gt; &lt;/iframe&gt;
-&lt;div style=&quot;margin-bottom:5px&quot;&gt; &lt;strong&gt; &lt;a href=&quot;//www.slideshare.net/lahuman1/7component-life-cycle&quot; title=&quot;7.component life cycle&quot; target=&quot;_blank&quot;&gt;7.component life cycle&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&quot;https://www.slideshare.net/lahuman1&quot; target=&quot;_blank&quot;&gt;Daniel Lim&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/jsx.png&quot; alt=&quot;bg right h:270&quot; /&gt;
-임광규&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;라이프사이클-메소드의-이해&quot;&gt;라이프사이클 메소드의 이해&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;모든 리액트 컴포넌트에는 라이프사이클(수명 주기)이 존재합니다. 컴포넌트의 수명은 페이지에 랜더링되기 전 준비 과정에서 시작하여 페이지에서 사리질 때 끝납니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;참고로 라이프사이클 메소드는 클래스형 컴포넌트에서만 사용할 수 있습니다.
-함수형 컴포넌트에서는 사용할 수 없는데요.&lt;/p&gt;
-
-&lt;p&gt;그 대신에 &lt;code class=&quot;highlighter-rouge&quot;&gt;Hooks&lt;/code&gt; 기능을 사용하여 비슷한 작업을 처리 할 수 있습니다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;라이프사이클-메소드&quot;&gt;라이프사이클 메소드&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;라이프 사이클 메소드의 종류는 총 9개 입니다. Will 접두사가 붙은 메소드는 어떤 작업의 &lt;code class=&quot;highlighter-rouge&quot;&gt;시작전&lt;/code&gt;에 실행되는 메소드이고, Did 접두사가 붙은 메소드는 어떤 &lt;code class=&quot;highlighter-rouge&quot;&gt;작업 후&lt;/code&gt; 에 실행되는 메소드 입니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;라이프사이클은 총 세가지, 즉 &lt;code class=&quot;highlighter-rouge&quot;&gt;마운트&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;업데이트&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;언마운트&lt;/code&gt; 카테고리로 나뉩니다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;마운트&quot;&gt;마운트&lt;/h1&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;constructor&lt;/code&gt; : 컴포넌트를 새로 만들때 마다 호출되는 클래스 생성자 메소드&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;getDerivedStateFromProps&lt;/code&gt; : props에 있는 값을 state에 넣을때 사용하는 메소드&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;render&lt;/code&gt; : 우리가 준비한 UI를 랜더링하는 메소드&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;componentDidMount&lt;/code&gt; : 컴포넌트가 웹 브라우저상에 나타난 후 호출되는 메소드&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;마운트시-동작-순서&quot;&gt;마운트시 동작 순서&lt;/h1&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/mount_life_cycle.png&quot; alt=&quot;bg right h:100%&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;업데이트-발생-조건&quot;&gt;업데이트 발생 조건&lt;/h1&gt;
-
-&lt;p&gt;컴포넌트는 다음의 경우에 업데이트 합니다.&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;props가 바뀔 때&lt;/li&gt;
-  &lt;li&gt;state가 바뀔 때&lt;/li&gt;
-  &lt;li&gt;부모 컴포넌트가 리랜더링될 때&lt;/li&gt;
-  &lt;li&gt;this.forceUpdate로 강제로 랜더링을 트리거 할때&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;업데이트&quot;&gt;업데이트&lt;/h1&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;getDerivedStateFromProps&lt;/code&gt; : 마운트시에도 호출, 업데이트 시작전 호출&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;shouldComponentUpdate&lt;/code&gt; : 컴포넌트가 리렌더링을 해야 할지 결정할때 사용
-      - 이 메소드는 true, false를 반환
-      - &lt;code class=&quot;highlighter-rouge&quot;&gt;true&lt;/code&gt; 를 반환할 경우 다음 라이프 사이클 메소드를 실행하고, false일 경우 작업을 중지&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;render&lt;/code&gt; : 컴포넌트를 리랜더링&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;getSnapshotBeforeUpdate&lt;/code&gt; : 컴포넌트 변화를 DOM에 반영하기 바로 직전에 호출하는 메소드&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;componentDidUpdate&lt;/code&gt; : 컴포넌트 업데이트 작업이 끝난 후 호출하는 메소드&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;업데이트시-동작-순서도&quot;&gt;업데이트시 동작 순서도&lt;/h1&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/update_life_cycle.png&quot; alt=&quot;bg right h:100%&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;언마운트&quot;&gt;언마운트&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;마운트의 반대 과정, 즉 컴포넌트를 DOM에서 제거하는 것을 언마운트(unmount) 라고 합니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;componentWillUnmount&lt;/code&gt; : 컴포넌트가 웹 브라우저상에서 사라지기 전에 호출 하는 메소드&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;언마운트시-동작-순서도&quot;&gt;언마운트시 동작 순서도&lt;/h1&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/unmount_life_cycle.png&quot; alt=&quot;bg right h:300&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;render&quot;&gt;render()&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;컴포넌트의 모양새를 정의 라이프 사이클 메소드중 유일한 필수 메소드&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;이 메소드 안에서는 this.props와 this.state에 접근할 수 있으며, 리액트 요소를 반환&lt;/li&gt;
-  &lt;li&gt;아무것도 보여주고 싶지 않다면 null 값이나 false값을 반환&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;### 주의 사항&lt;/p&gt;
-
-&lt;p&gt;이벤트 설정이 아닌 곳에서 setState를 사용하면 안 되며, 브라우저의 DOM에 접근해서도 안됩니다.
-DOM 정보를 가져오거나 state에 변화를 줄 때는 componentDidMount에서 처리해야 합니다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;constructor&quot;&gt;constructor&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;컴포넌트 생성자로 컴포넌트를 만들 때 처음 실행됩니다.
-이 메소드에서는 초기 state를 정할수 있습니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;getderivedstatefromprops&quot;&gt;getDerivedStateFromProps&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;리액트 v16.3 이후에 새로 만든 라이프사이클 매소드로 
-props로 받아 온 값을 state에 동기화 시키는 용도로 사용되며, 컴포넌트가 마운트 될 때와 업데이트 될때 호출됩니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;componentdidmount&quot;&gt;componentDidMount&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;컴포넌트를 만들고 첫 랜더링을 다 마친 후 실행
-다른 자바스크립트 라이브러리 또는 프레임워크의 함수를 호출하거나, 이벤트 등록,
-setTimeout, setInterval, 네트워크 요청 같은 비동작 작업을 처리 합니다&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;shouldcomponentupdate&quot;&gt;shouldComponentUpdate&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;props 또는 state를 변경했을 때, 리랜더링을 시작할지 여부를 지정하는 메소드입니다.
-이 메소드에서는 반드시 true, false를 반환해야 합니다.
-컴포넌트 생성시 이 메소드를 생성하지 않으면 기본적으로 언제나 true를 반환합니다.
-만약 false 값을 반환하면 업데이트 과정은 여기서 중지 됩니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;getsnapshotbeforeupdate&quot;&gt;getSnapshotBeforeUpdate&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;리액트 v16.3 이후 생긴 메소드로 render에서 만들어진 결과물이 브라우저에 실제로 반영되기
-직전에 호출됩니다.
-이 메소드에서 반환하는 값은 componentDidUpdate에서 세 번째 파라미터인 snapshot 값으로 전달 받을수 있습니다.
-주로 업데이트 하기 직전 값을 참고할 일이 있을때 활용됩니다.(ex : 스크롤바 위치 유지 등)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;getSnapshotBeforeUpdate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;prevProps&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;preState&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;prevState&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;array&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;state&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;scrollTop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;scrollHeight&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;scrollTop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;scrollHeight&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;componentdidupdate&quot;&gt;componentDidUpdate&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;리랜더링을 완료한 후 실행합니다.
-업데이트가 끝난 직후이므로, DOM 관련 처리를 해도 무방합니다.
-prevProps 또는 prevState를 사용하여 컴포넌트가 이전에 가졌던 데이터에 접근이 가능합니다.
-getSnapshotBeforeUpdate에서 반환한 값이 있다면여기서 snapshot 값을 전달 받을 수 있습니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;componentwillunmount&quot;&gt;componentWillUnmount&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;컴포넌트를 DOM에서 제거할 때 실행합니다. 
-componentDidMount에서 등록한 이벤트, 타이머, 직접 생성한 DOM이 있다면 여기서 제거 잡업을 합니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;componentdidcatch&quot;&gt;componentDidCatch&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;리액트 v16에서 새롭게 도입되었으며, 컴포넌트 랜더링 도중에 에러가 발생했을 때 애플리케이션이 먹통이 되지 않고 오류 UI를 보여줄 수 있게 해줍니다&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;componentDidCatch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;setState&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;참고-자료--라이프-사이클-표시&quot;&gt;&lt;a href=&quot;https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/&quot;&gt;참고 자료 : 라이프 사이클 표시&lt;/a&gt;&lt;/h1&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/react_life_cycle.png&quot; alt=&quot;h:80%&quot; /&gt;&lt;/p&gt;</content><category term="reactjs" /><summary type="html">reactJS에서 컴포넌트의 라이프사이클에 대한 내용입니다.</summary></entry></feed>
+&lt;/blockquote&gt;</content><category term="reactjs" /><summary type="html">reactJS에서 함수형 컴포넌트에서 사용하는 Hooks의 정보 입니다.</summary></entry></feed>
