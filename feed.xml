@@ -1,4 +1,303 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-09-14T18:52:29+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">번아웃이 훅 온다.</title><link href="https://lahuman.github.io/20200914/" rel="alternate" type="text/html" title="번아웃이 훅 온다." /><published>2020-09-14T00:00:00+09:00</published><updated>2020-09-14T00:00:00+09:00</updated><id>https://lahuman.github.io/20200914</id><content type="html" xml:base="https://lahuman.github.io/20200914/">&lt;h1 id=&quot;번아웃이-온다&quot;&gt;번아웃이 온다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-09-20T11:21:37+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">워크플레이스 게시글 반응 조회</title><link href="https://lahuman.github.io/workplace_post_reaction/" rel="alternate" type="text/html" title="워크플레이스 게시글 반응 조회" /><published>2020-09-20T00:00:00+09:00</published><updated>2020-09-20T00:00:00+09:00</updated><id>https://lahuman.github.io/workplace_post_reaction</id><content type="html" xml:base="https://lahuman.github.io/workplace_post_reaction/">&lt;h1 id=&quot;workplace-게시물-반응-조회&quot;&gt;&lt;a href=&quot;https://work.workplace.com/&quot;&gt;Workplace&lt;/a&gt; 게시물 반응 조회&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;워크플레이스의 관리자에서는 특정 게시물의 상세 반응 정보를 제공하지 안습니다.
+때문에 이벤트성 게시물에 대한 반응정보를 요청받으면, GRAPH API를 이용해서 excel 형태로 제공했었습니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;워크플레이스에서 작성된 게시물에 대한 반응 정보에 대하여 아래 그림처럼 표기해줍니다.
+반응 정보는 게시물의 반응 정보와 댓글에 대한 반응 정보로 나뉩니다.
+모든 반응 정보는 excel 형식으로 다운로드가능합니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Screen&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;게시물-정보-조회&quot;&gt;게시물 정보 조회&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;게시물 ID를 입력하거나, 게시물의 주소를 넣으면 자동으로 게시물 ID로 변환합니다.
+&lt;img src=&quot;https://github.com/lahuman/wp-reaction/blob/master/screenshot.png?raw=true&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;게시물-반응-상세-조회&quot;&gt;게시물 반응 상세 조회&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;https://github.com/lahuman/wp-reaction/blob/master/screenshot_1.png?raw=true&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;게시물-댓글-정보-조회&quot;&gt;게시물 댓글 정보 조회&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;https://github.com/lahuman/wp-reaction/blob/master/screenshot_2.png?raw=true&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;게시물-댓글-상세-조회&quot;&gt;게시물 댓글 상세 조회&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;https://github.com/lahuman/wp-reaction/blob/master/screenshot_3.png?raw=true&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;table-of-contents&quot;&gt;Table of Contents&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;사용된 프로그램과 설정&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#installation&quot;&gt;Installation&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#workplace&quot;&gt;Workplace&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#dockerfile&quot;&gt;Dockerfile&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#version&quot;&gt;Version&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#license&quot;&gt;License&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;installation&quot;&gt;Installation&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;설치를 위해서는 기본적으로 NODEJS 12.x 이상의 버젼이 필요합니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;backend&quot;&gt;Backend&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://swagger.io/specification/&quot;&gt;Oas 3.0&lt;/a&gt; 기반으로 작성되었습니다.&lt;/li&gt;
+  &lt;li&gt;PATH : &lt;strong&gt;report_backend&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;.env 설정은 _env 파일을 .env로 변경하여서 Key에 알맞은 값을 설정 하면 됩니다.
+또는 아래 샘플을 이용하셔요.
+ANALYTICS_ACCESS_KEY는 workplace 관리자 화면에서 생성한 맞춤 통합의 토큰 값입니다
+해당 통합은 게시물, 댓글 사용자의 정보를 조회하는 권한을 주어야 합니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;NODE_ENV=deploment
+SERVER_PORT=10010
+ANALYTICS_ACCESS_KEY=
+WP_API_HOST=https://graph.facebook.com
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;실행&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ npm run start
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;서버가 문제 없이 기동이 되면 &lt;a href=&quot;http://localhost:10010/docs&quot;&gt;Swagger UI&lt;/a&gt;을 확인하세요.&lt;/p&gt;
+
+&lt;h3 id=&quot;frontend&quot;&gt;Frontend&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://reactjs.org/&quot;&gt;ReactJS&lt;/a&gt;로 작성되어 있습니다.&lt;/li&gt;
+  &lt;li&gt;PATH : &lt;strong&gt;report_frontend&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;.env 설정은 _env 파일을 .env로 변경하여서 Key에 알맞은 값을 설정 하면 됩니다.
+또는 아래 샘플을 이용하셔요.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;REACT_APP_API=http://localhost:10010/api # API SERVER 주소
+REACT_APP_WP_URL=https://{domain}.workplace.com # workplace 주소
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;실행&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ npm install
+# npm run start
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;workplace&quot;&gt;&lt;a href=&quot;https://work.workplace.com/&quot;&gt;Workplace&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;a href=&quot;https://work.workplace.com/&quot;&gt;Workplace&lt;/a&gt;은 페이스북에서 개발한 엔터프라이즈 연결 플랫폼입니다. 
+그룹 사용, 인스턴스 메시징 및 뉴스 피드를 포함합니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;게시물의 반응을 확인하기 위해서 관리자 페이지에서 맞춤 통합을 생성해야 합니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://github.com/lahuman/wp-reaction/blob/master/wp_admin_panel.png?raw=true&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;통합 생성후 다음 3개의 통합 권한(그룹 콘텐츠 읽기, 사용자 이메일 읽기, 그룹 멤버 읽기)을 할당해야 합니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://github.com/lahuman/wp-reaction/blob/master/wp_admin_auth.png?raw=true&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;dockerfile&quot;&gt;Dockerfile&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;docker image 생성 파일 제공&lt;/li&gt;
+  &lt;li&gt;Dockerfile 참조&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;이미지 생성&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# docker build -t ${image-name}:${version} .
+
+$ docker build -t wp-reaction:1.0 .
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;이미지 실행&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# docker run -p 8888:80 --rm ${image-name}:${version}
+
+$ docker run -p 8888:80 --rm wp-reaction:1.0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://lahuman.github.io/reactjs-dockerfile/&quot;&gt;Dockerfile 더 자세히 알아보기&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;version&quot;&gt;Version&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;v1.0 : workplace 게시물 반응 정보 조회&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;license&quot;&gt;License&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://badges.mit-license.org&quot;&gt;&lt;img src=&quot;http://img.shields.io/:license-mit-blue.svg?style=flat-square&quot; alt=&quot;License&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;http://opensource.org/licenses/mit-license.php&quot;&gt;MIT license&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;Copyright 2020 © &lt;a href=&quot;https://lahuman.github.io&quot; target=&quot;_blank&quot;&gt;lahuman&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;</content><category term="workplace" /><category term="post" /><category term="reaction" /><summary type="html">워크플레이스의 게시글 반응을 제공하는 서비스 개발</summary></entry><entry><title type="html">JIRA REPORT</title><link href="https://lahuman.github.io/jira_work_log_report/" rel="alternate" type="text/html" title="JIRA REPORT" /><published>2020-09-15T00:00:00+09:00</published><updated>2020-09-15T00:00:00+09:00</updated><id>https://lahuman.github.io/jira_work_log_report</id><content type="html" xml:base="https://lahuman.github.io/jira_work_log_report/">&lt;h1 id=&quot;jira-work-log-report-git-바로가기&quot;&gt;&lt;a href=&quot;https://github.com/lahuman/jira-report&quot;&gt;Jira Work log Report GIT 바로가기&lt;/a&gt;&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;지라에서 작성한 work log를 아래 그림과 같이 날짜 기준으로 표기해 줍니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Screen&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://github.com/lahuman/jira-report/blob/master/snapshot.png?raw=true&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;table-of-contents&quot;&gt;Table of Contents&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;사용된 프로그램과 설정시 중요 내용&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#installation&quot;&gt;Installation&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#jiracloud&quot;&gt;JiraCloud&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#dockerfile&quot;&gt;Dockerfile&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#license&quot;&gt;License&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;installation&quot;&gt;Installation&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;설치를 위해서는 기본적으로 NODEJS 12.x 이상의 버젼이 필요합니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;backend&quot;&gt;Backend&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://swagger.io/specification/&quot;&gt;Oas 3.0&lt;/a&gt; 기반으로 작성되었습니다.&lt;/li&gt;
+  &lt;li&gt;PATH : &lt;strong&gt;report_backend&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;.env 설정은 _env 파일을 .env로 변경하여서 Key에 알맞은 값을 설정 하면 됩니다.
+또는 아래 샘플을 이용하셔요.
+TOKEN_KEY는 API 토큰입니다. JIRA CLOUD에 가입이 되어 있다면, API 토큰은 &lt;a href=&quot;https://id.atlassian.com/manage-profile/security/api-tokens&quot;&gt;여기에서&lt;/a&gt;에서 생성이 가능합니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;JIRA_HOST=https://lahuman.atlassian.net # jira host 정보
+JIRA_ID=lahuman@emaim.com # JIRA ID
+TOKEN_KEY=abcde # JIRA API TOKEN
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;실행&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ npm run start
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;서버가 문제 없이 기동이 되면 &lt;a href=&quot;http://localhost:8080/docs&quot;&gt;Swagger UI&lt;/a&gt;을 확인하세요.&lt;/p&gt;
+
+&lt;h3 id=&quot;frontend&quot;&gt;Frontend&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://reactjs.org/&quot;&gt;ReactJS&lt;/a&gt;로 작성되어 있습니다.&lt;/li&gt;
+  &lt;li&gt;PATH : &lt;strong&gt;report_frontend&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;.env 설정은 _env 파일을 .env로 변경하여서 Key에 알맞은 값을 설정 하면 됩니다.
+또는 아래 샘플을 이용하셔요.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;REACT_APP_API_URL=http://localhost:8080  # backend server 주소
+REACT_APP_API_JIRA_BROWSE=https://lahuman.atlassian.net/browse/ #jira의 browse 주소
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;실행&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ npm instlal
+# npm run start
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;jiracloud&quot;&gt;JiraCloud&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;a href=&quot;https://www.atlassian.com/ko/software/free#plan-and-track&quot;&gt;JIRA Cloud&lt;/a&gt;는 무료로 사용이 가능한 플랜이 있습니다
+가입을 하면 다음과 같이 사용이 가능합니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://github.com/lahuman/jira-report/blob/master/jira_cloud.png?raw=true&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;https://lahuman.atlassian.net&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;dockerfile&quot;&gt;Dockerfile&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;docker image 생성 파일 제공&lt;/li&gt;
+  &lt;li&gt;Dockerfile 참조&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;이미지 생성&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# docker build -t ${image-name}:${version} .
+
+$ docker build -t jira-report:1.0 .
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;이미지 실행&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# docker run -p 8888:80 --rm ${image-name}:${version}
+
+$ docker run -p 8888:80 --rm jira-report:1.0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://lahuman.github.io/reactjs-dockerfile/&quot;&gt;Dockerfile 더 자세히 알아보기&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;license&quot;&gt;License&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://badges.mit-license.org&quot;&gt;&lt;img src=&quot;http://img.shields.io/:license-mit-blue.svg?style=flat-square&quot; alt=&quot;License&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;http://opensource.org/licenses/mit-license.php&quot;&gt;MIT license&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;Copyright 2020 © &lt;a href=&quot;https://lahuman.github.io&quot; target=&quot;_blank&quot;&gt;lahuman&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;</content><category term="jira" /><category term="worklog" /><category term="timetracking" /><summary type="html">JIRA work log를 Time tracking 형식으로 도식화 처리</summary></entry><entry><title type="html">번아웃이 훅 온다.</title><link href="https://lahuman.github.io/20200914/" rel="alternate" type="text/html" title="번아웃이 훅 온다." /><published>2020-09-14T00:00:00+09:00</published><updated>2020-09-14T00:00:00+09:00</updated><id>https://lahuman.github.io/20200914</id><content type="html" xml:base="https://lahuman.github.io/20200914/">&lt;h1 id=&quot;번아웃이-온다&quot;&gt;번아웃이 온다.&lt;/h1&gt;
 
 &lt;p&gt;주말내내 회사일을 했다.&lt;/p&gt;
 
@@ -1121,245 +1420,4 @@ or
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;자세한-사용법은-예제를-참고하셔요&quot;&gt;자세한 사용법은 &lt;a href=&quot;https://codesandbox.io/s/react-virtualized-table-forked-one2q?file=/index.js&quot;&gt;예제&lt;/a&gt;를 참고하셔요.&lt;/h2&gt;</content><category term="reactjs" /><summary type="html">reactJS에서 컴포넌트 최적화에 대한 내용입니다.</summary></entry><entry><title type="html">ReactJS component style</title><link href="https://lahuman.github.io/component_style/" rel="alternate" type="text/html" title="ReactJS component style" /><published>2020-08-19T00:00:00+09:00</published><updated>2020-08-19T00:00:00+09:00</updated><id>https://lahuman.github.io/component_style</id><content type="html" xml:base="https://lahuman.github.io/component_style/">&lt;h1 id=&quot;reactjs-component-style&quot;&gt;ReactJS component style&lt;/h1&gt;
-
-&lt;iframe src=&quot;//www.slideshare.net/slideshow/embed_code/key/vpcPFtW6gjMnc5&quot; width=&quot;595&quot; height=&quot;485&quot; frameborder=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; scrolling=&quot;no&quot; style=&quot;border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&quot; allowfullscreen=&quot;&quot;&gt; &lt;/iframe&gt;
-&lt;div style=&quot;margin-bottom:5px&quot;&gt; &lt;strong&gt; &lt;a href=&quot;//www.slideshare.net/lahuman1/9component-style&quot; title=&quot;9.component style&quot; target=&quot;_blank&quot;&gt;9.component style&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&quot;https://www.slideshare.net/lahuman1&quot; target=&quot;_blank&quot;&gt;Daniel Lim&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/jsx.png&quot; alt=&quot;bg right h:270&quot; /&gt;
-임광규&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;스타일링-방식&quot;&gt;스타일링 방식&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;컴포넌트에 대한 스타일링 방식 중 다음에 대하여 알아 봅니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;일반 CSS&lt;/strong&gt; : 컴포넌트를 스타일링하는 가장 기본적인 방식&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Sass&lt;/strong&gt; : 자주 사용되는 CSS 전처리기(per-processor) 중 하나로 확장된 CSS 문법을 사용하여 CSS 코드를 더욱 쉽게 작성할 수 있도록 지원&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;CSS Module&lt;/strong&gt; : 스타일을 작성할 때 CSS 클래스가 다른 CSS 클래스의 이름과 절대 퉁돌하지 않도록 고유한 이름을 자동으로 생성해주는 옵션&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;styled-components&lt;/strong&gt; : 스타일을 자바스크립트 파일에 내장시키는 방식으로 스타일을 작성함과 동시에 해당 스타일이 적용된 컴포넌트를 만들수 있도록 지원&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;일반-css&quot;&gt;일반 CSS&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;css 파일을 import 하여 사용하는 방식입니다.
-className(html에서는 class) 이름이나 TAG, id 등을 기반으로 스타일을 정의합니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;사용법&quot;&gt;사용법&lt;/h2&gt;
-
-&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'./App.css'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;sass&quot;&gt;Sass&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Sass(Syntactically Awesome Style Sheets)는 CSS 전처리기로 복잡한 작업을 쉽게 할 수 있도록 해주고 스타일 코드의 재활용성을 높여 줄 뿐만 아니라 코드의 가독성을 높여서 유지 보수를 더욱 쉽게 합니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;파일 확장자는 .sass 또는 .scss로 구분되며 두 확장자의 문법이 다릅니다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;sass-vs-scss&quot;&gt;.sass vs .scss&lt;/h2&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Sass는 두가지 확장자를 지원합니다. 두 문법의 차이는 .sass는 중괄호({})와 세미콜론(;)을 사용하지 않습니다. 반면 .scss는 기존 CSS를 작성하는 방식과 문법이 크게 다르지 않습니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&quot;sass-1&quot;&gt;.sass&lt;/h3&gt;
-&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;font-stack&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;sans-serif&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;body&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;front&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;font-stack&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;scss&quot;&gt;.scss&lt;/h3&gt;
-&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;font-stack&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;sans-serif&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;body&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;py&quot;&gt;front&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100%&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;font-stack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;node-sass-설치&quot;&gt;node-sass 설치&lt;/h2&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Sass를 사용하기 위해서는 node-sass라는 라이브러리를 설치해 주어야 합니다.
-이 라이르버리는 Sass를 CSS로 변환해 줍니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;yarn add node-sass
-or
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;npm i node-sass 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;hr /&gt;
-&lt;h1 id=&quot;css-module&quot;&gt;CSS Module&lt;/h1&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;CSS Module는 CSS를 불러와서 사용할 때 클래스 이름을 고유한 값, [파일이름]_[클래스이름]__[해시값] 형태로 만들어서 컴포넌트 스타일 클래스 이름이 중첩되는 현상을 방지해 주는 기술 입니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;따로 설정 필요 없이 확장자를 &lt;code class=&quot;highlighter-rouge&quot;&gt;[컴포넌트이름].module.css&lt;/code&gt;로 저장하면 적용 됩니다.&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;h2 id=&quot;사용-예제&quot;&gt;사용 예제&lt;/h2&gt;
-
-&lt;h2 id=&quot;cssmodulemodulecss&quot;&gt;CSSModule.module.css&lt;/h2&gt;
-&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nc&quot;&gt;.wrapper&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;background&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;black&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;padding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1rem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;white&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;h2 id=&quot;cssmodulejs&quot;&gt;CSSModule.js&lt;/h2&gt;
-&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;React&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'react'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;styles&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'./CSSModule.module.css'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;styles&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;className&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;styles&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;wrapper&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;안녕하세요&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/div&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;결과-예제&quot;&gt;결과 예제&lt;/h2&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;styles 객체에는 css를 key-value 형태로 변환한 JSON 객체가 있습니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;wrapper&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;CSSModule.wrapper__2DaeQ&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;sass와-함께-사용이-가능합니다&quot;&gt;sass와 함께 사용이 가능합니다.&lt;/h2&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;sass를 사용할 때도 파일 이름 뒤에 .module.scss 확장자를 사용해주면 CSS Module로 사용할 수 있습니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;classnames&quot;&gt;classnames&lt;/h2&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;classnames 라이브러리는 CSS 클래스를 조건부로 설정할 때 매우 유용한 라이브러리 입니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;yarn add classnames
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;h3 id=&quot;사용예&quot;&gt;사용예&lt;/h3&gt;
-
-&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;classNames&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'classnames'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;nx&quot;&gt;classNames&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'one'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'two'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// = 'one two'&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;classNames&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'one'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;two&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// = 'one two'&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;classNames&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'one'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;two&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// = 'one'&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;classNames&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'one'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'two'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'three'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// = 'one two three'&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;hr /&gt;
-&lt;h2 id=&quot;local-global&quot;&gt;local global&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;:global : 웹 페이지 전역에서 사용되는 경우 사용&lt;/li&gt;
-  &lt;li&gt;:local : CSS Module이 아닌 파일에서 CSS Module 사용할 경우 사용&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;:global&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;.wrapper&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;c&quot;&gt;/* 스타일 */&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;nd&quot;&gt;:local&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;.wrapper&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;c&quot;&gt;/* 스타일 */&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;styled-components&quot;&gt;styled-components&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;자바스크립트 파일 안에 스타일을 선언하는 방식입니다.
-여러 방식을 &lt;a href=&quot;https://github.com/MicheleBertoli/css-in-js&quot;&gt;CSS-in-JS&lt;/a&gt;라고 부르며 이와 관련된 라이브러는 정말 많습니다.
-이 중 &lt;a href=&quot;https://github.com/styled-components/styled-components&quot;&gt;styled-components&lt;/a&gt;는 가장 많이 사용되고 있습니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;설치&quot;&gt;설치&lt;/h2&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ yarn add styled-components
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;hr /&gt;
-&lt;h1 id=&quot;사용-예&quot;&gt;사용 예&lt;/h1&gt;
-
-&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;React&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'react'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;styled&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;css&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'styled-components'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Box&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;styled&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`
-  /* props로 넣어 준 값을 직접 전달해 줄 수 있습니다. */
-  background: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;props&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;props&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;color&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'blue'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;;
-  padding: 1rem;
-  display: flex;
-`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Box&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;black&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;테스트&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/Box&amp;gt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; 
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;hr /&gt;
-&lt;h2 id=&quot;styled-components-장점&quot;&gt;styled-components 장점&lt;/h2&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;props를 이용할 수 있다.
-    &lt;ul&gt;
-      &lt;li&gt;props로 전달 받은 값을 쉽게 스타일에 적용 가능&lt;/li&gt;
-      &lt;li&gt;props를 참조하여 조건부 스타일링 가능&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;스타일된 컴포넌트를 제작할 수 있다.
-    &lt;ul&gt;
-      &lt;li&gt;재활용이 가능한 컴포넌트를 생성&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;템플릿 문자를 이용하여 중복되는 부분을 간단하게 사용&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h1&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://velog.io/@velopert/react-component-styling&quot;&gt;다양한 방식의 리액트 컴포넌트 스타일링 방식 CSS, Sass, CSS Module, styled-components&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="reactjs" /><summary type="html">reactJS에서 스타일 처리 방법입니다.</summary></entry><entry><title type="html">요즘 우울하다.</title><link href="https://lahuman.github.io/20200818/" rel="alternate" type="text/html" title="요즘 우울하다." /><published>2020-08-18T00:00:00+09:00</published><updated>2020-08-18T00:00:00+09:00</updated><id>https://lahuman.github.io/20200818</id><content type="html" xml:base="https://lahuman.github.io/20200818/">&lt;h1 id=&quot;일을-많이-하고-있다고-생각한다&quot;&gt;일을 많이 하고 있다고 생각한다.&lt;/h1&gt;
-
-&lt;p&gt;나에게 남는게 없이 일을 한다고 느껴진다.&lt;/p&gt;
-
-&lt;p&gt;공부를 많이 하는 것도 아니고 매일 시간에 쫓겨서 급하게 업무를 진행하다보니 그렇게 일하는게 버릇이 되어 버린거 같다.&lt;/p&gt;
-
-&lt;p&gt;생각도 많이하고 즐겁게 일한다고 생각했는데…&lt;/p&gt;
-
-&lt;p&gt;요즘은 그냥 누군가의 도구가 된 느낌이다.&lt;/p&gt;
-
-&lt;p&gt;어쩌면…&lt;/p&gt;
-
-&lt;p&gt;내가 욕심이 많아서 힘들어 하는게 아닐까?&lt;/p&gt;
-
-&lt;p&gt;목적을 향해가는 긴 여정에 답답함을 느끼고, 
-수없이 변화하는 방향성에 실망을 하게 된다.&lt;/p&gt;
-
-&lt;p&gt;다시 생각해보면 
-결국 욕심이 넘쳐서 내 분수에 맞지 않는 것을 바라고, 
-내가 했었던 일들이 의미 없다고 부정당하는 생각이든다.&lt;/p&gt;
-
-&lt;h2 id=&quot;욕심을-내려놓고-현재를-즐기자&quot;&gt;욕심을 내려놓고 현재를 즐기자.&lt;/h2&gt;</content><category term="단상" /><summary type="html">일을 많이 할 수록 일만 많아 진다.</summary></entry></feed>
+&lt;h2 id=&quot;자세한-사용법은-예제를-참고하셔요&quot;&gt;자세한 사용법은 &lt;a href=&quot;https://codesandbox.io/s/react-virtualized-table-forked-one2q?file=/index.js&quot;&gt;예제&lt;/a&gt;를 참고하셔요.&lt;/h2&gt;</content><category term="reactjs" /><summary type="html">reactJS에서 컴포넌트 최적화에 대한 내용입니다.</summary></entry></feed>
