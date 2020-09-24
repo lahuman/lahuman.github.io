@@ -1,4 +1,22 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-09-20T11:21:37+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">워크플레이스 게시글 반응 조회</title><link href="https://lahuman.github.io/workplace_post_reaction/" rel="alternate" type="text/html" title="워크플레이스 게시글 반응 조회" /><published>2020-09-20T00:00:00+09:00</published><updated>2020-09-20T00:00:00+09:00</updated><id>https://lahuman.github.io/workplace_post_reaction</id><content type="html" xml:base="https://lahuman.github.io/workplace_post_reaction/">&lt;h1 id=&quot;workplace-게시물-반응-조회&quot;&gt;&lt;a href=&quot;https://work.workplace.com/&quot;&gt;Workplace&lt;/a&gt; 게시물 반응 조회&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-09-24T20:56:45+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">자택근무에 적응이 잘되어 갑니다.</title><link href="https://lahuman.github.io/20200924/" rel="alternate" type="text/html" title="자택근무에 적응이 잘되어 갑니다." /><published>2020-09-24T00:00:00+09:00</published><updated>2020-09-24T00:00:00+09:00</updated><id>https://lahuman.github.io/20200924</id><content type="html" xml:base="https://lahuman.github.io/20200924/">&lt;h1 id=&quot;번아웃이-한번-지나가고-폭풍일을-했습니다&quot;&gt;번아웃이 한번 지나가고 폭풍일을 했습니다.&lt;/h1&gt;
+
+&lt;p&gt;번아웃이 언제 왔냐는 듯이 폭풍 일을 했습니다.&lt;/p&gt;
+
+&lt;p&gt;개인 프로젝트 2개를 빡시게 진행하고 또 회사 일도 열심히 하였습니다.&lt;/p&gt;
+
+&lt;p&gt;특히 오늘은 “행봇” 프로젝트의 리펙토링을 진행하였습니다.&lt;/p&gt;
+
+&lt;p&gt;평소 조회 시간이 &lt;code class=&quot;highlighter-rouge&quot;&gt;20초 정도가 걸리는 목록조회를 1초&lt;/code&gt;로 줄였습니다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;인덱스 생성&lt;/li&gt;
+  &lt;li&gt;네트워크 통신 데이터 경량화&lt;/li&gt;
+  &lt;li&gt;조회 기간 최소화&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;UI는 리액트로 많이 하는데 “행봇”은 뷰로 되어 있어서 하나씩 까면서 수정하였습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;바닥을-치고-나니-최고점을-찍네요&quot;&gt;바닥을 치고 나니 최고점을 찍네요.&lt;/h2&gt;</content><category term="단상" /><summary type="html">집에서 어떻게 일해야 하는지 알고, 더 잘하게 되네요.</summary></entry><entry><title type="html">워크플레이스 게시글 반응 조회</title><link href="https://lahuman.github.io/workplace_post_reaction/" rel="alternate" type="text/html" title="워크플레이스 게시글 반응 조회" /><published>2020-09-20T00:00:00+09:00</published><updated>2020-09-20T00:00:00+09:00</updated><id>https://lahuman.github.io/workplace_post_reaction</id><content type="html" xml:base="https://lahuman.github.io/workplace_post_reaction/">&lt;h1 id=&quot;workplace-게시물-반응-조회&quot;&gt;&lt;a href=&quot;https://work.workplace.com/&quot;&gt;Workplace&lt;/a&gt; 게시물 반응 조회&lt;/h1&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;워크플레이스의 관리자에서는 특정 게시물의 상세 반응 정보를 제공하지 안습니다.
@@ -1283,141 +1301,4 @@ or
 &lt;/span&gt;    &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/div&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
 &lt;/span&gt;  &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><category term="reactjs" /><summary type="html">reactJS에서 Router 처리에 대한 내용입니다.</summary></entry><entry><title type="html">ReactJS component optimization</title><link href="https://lahuman.github.io/component_optimization/" rel="alternate" type="text/html" title="ReactJS component optimization" /><published>2020-08-20T00:00:00+09:00</published><updated>2020-08-20T00:00:00+09:00</updated><id>https://lahuman.github.io/component_optimization</id><content type="html" xml:base="https://lahuman.github.io/component_optimization/">&lt;h1 id=&quot;reactjs-component-style&quot;&gt;ReactJS component style&lt;/h1&gt;
-
-&lt;iframe src=&quot;//www.slideshare.net/slideshow/embed_code/key/xTwre4O3s2UVih&quot; width=&quot;595&quot; height=&quot;485&quot; frameborder=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; scrolling=&quot;no&quot; style=&quot;border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&quot; allowfullscreen=&quot;&quot;&gt; &lt;/iframe&gt;
-&lt;div style=&quot;margin-bottom:5px&quot;&gt; &lt;strong&gt; &lt;a href=&quot;//www.slideshare.net/lahuman1/10component-optimization&quot; title=&quot;10.component optimization&quot; target=&quot;_blank&quot;&gt;10.component optimization&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&quot;https://www.slideshare.net/lahuman1&quot; target=&quot;_blank&quot;&gt;Daniel Lim&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/jsx.png&quot; alt=&quot;bg right h:270&quot; /&gt;
-임광규&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;많은-데이터-랜더링-하기&quot;&gt;많은 데이터 랜더링 하기&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;데이터가 무수히 많아지면, 애플리케이션이 느려지는 것을 체감할 수 있을 정도로 지연이 발생합니다.
-성능을 분석해야 할 때는 느려졌다는 느낌만으로는 충분하지 않습니다. 정확히 몇 초가 걸리는지 확인해야 합니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;크롬-개발자-도구를-통한-성능-모니터링&quot;&gt;크롬 개발자 도구를 통한 성능 모니터링&lt;/h2&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;크롬 개발자 도구의 Performance 탭을 사용하여 측정하면 정확히 몇 초가 걸리는지 확인 가능합니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&quot;사용법&quot;&gt;사용법&lt;/h3&gt;
-&lt;ol&gt;
-  &lt;li&gt;크롬 개발자 도구를 켭니다.&lt;/li&gt;
-  &lt;li&gt;Performance 탭의 녹화 버튼을 누릅니다.&lt;/li&gt;
-  &lt;li&gt;성능을 분석하려는 동작을 합니다.&lt;/li&gt;
-  &lt;li&gt;중지(STOP) 버튼을 누르고 성능 분석 결과를 확인 합니다.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;performance-예제-function-call에-550ms가-소요된-이벤트-캡처&quot;&gt;Performance 예제 (Function Call에 550ms가 소요된 이벤트 캡처)&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/perfomance_chrome.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;느려지는-원인-분석&quot;&gt;느려지는 원인 분석&lt;/h2&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;일반적으로 ReactJS에서 느려지는 원인은 리랜더링과 연관성이 높습니다.
-이때 컴포넌트 리랜더링 성능을 최적화 해주는 작업으로, 
-리랜더링이 불필요할 때는 리랜더링을 방지해 주어야 합니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&quot;다음과-같은-상황에서-리랜더링이-발생합니다&quot;&gt;다음과 같은 상황에서 리랜더링이 발생합니다.&lt;/h3&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;자신이 전달받은 props가 변경될 때&lt;/li&gt;
-  &lt;li&gt;자신의 state가 바뀔 때&lt;/li&gt;
-  &lt;li&gt;부모 컴포넌트가 리랜더링될 때&lt;/li&gt;
-  &lt;li&gt;forceUpdate 함수가 실행될 때&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;reactmemo를-사용하여-컴포넌트-성능-최적화&quot;&gt;React.memo를 사용하여 컴포넌트 성능 최적화&lt;/h2&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;컴포넌트의 props가 바뀌지 않으면 리랜더링 하지 않도록 설정하여 함수형 컴포넌트의 리랜더링 성능을 최적화 해줄 수 있습니다.
-사용법은 아주 간단하게 컴포넌트를 감싸 주기만 하면 됩니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;React&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'react'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;React&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;memo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(({&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;cm&quot;&gt;/* a,b,c 가 바뀌지 않으면 리랜더링을 하지 않습니다. */&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;reactusecallback를-사용하여-함수-재사용하기&quot;&gt;React.useCallback를 사용하여 함수 재사용하기&lt;/h2&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;리랜더링 될때마다  함수가 새로 만들어 집니다. 이렇게 함수가 계속 만들어지는 상황을 방지하는 방법은 두가지입니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;useState의 함수형 업데이트 기능을 사용&lt;/li&gt;
-  &lt;li&gt;useReducer를 사용&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;setstate에서-reactusecallback-이용-하기-예제&quot;&gt;setState에서 React.useCallback 이용 하기 (예제)&lt;/h3&gt;
-
-&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;setVal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;React&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;useState&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;초기값&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;changeValue&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;React&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;useCallback&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;setVal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;변경값&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;},[]);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;useCallbakc에서 setVal을 사용할 때 그 안에 &lt;code class=&quot;highlighter-rouge&quot;&gt;val =&amp;gt;&lt;/code&gt; 을 넣어주면 두번째 파라미터를 빈 배열로 처리할 수 있습니다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;usereducer에서-reactusecallback-이용-하기-예제&quot;&gt;useReducer에서 React.useCallback 이용 하기 (예제)&lt;/h3&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;useReducer를 사용할 때 원래 두 번째 파라미터에 초기 상태를 넣어줘야 하는데, undefined를 넣고 세 번째 파라미터에 초기 상태를 만들어 주는 함수(&lt;code class=&quot;highlighter-rouge&quot;&gt;initalValue&lt;/code&gt;)를 넣어습니다.
-이렇게 하면 컴포넌트가 맨 처음 랜더링 될때만 initalValue 함수가 호출됩니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;initalValue&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;초기 값&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;dispatch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;React&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;useReducer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;reducer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;undefined&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;initalValue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;changeValue&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;React&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;useCallback&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;dispatch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;TYPE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;CHANGE&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;},[]);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;불변성-유지&quot;&gt;불변성 유지&lt;/h2&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;리액트 컴포넌트에서 상태를 업데이트할 때 불변성을 지키는 것은 매우 중요합니다.
-불변성이 지켜지지 않으면 객체 내부의 값이 새로워져도 바뀐 것을 감지하지 못합니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;전개 연산자(… 문법)을 사용하여 객체나 배열 내부의 값을 복사할 때는 얕은 복사(shallow copy)를 하게 됩니다. 
-즉 내부 값이 완전히 새로 복사되는 것이 아니라 가장 바깥쪽에 있는 값만 복사 됩니다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;react-virtualized를-사용한-랜더링-최적화&quot;&gt;&lt;a href=&quot;https://www.npmjs.com/package/react-virtualized&quot;&gt;react-virtualized&lt;/a&gt;를 사용한 랜더링 최적화&lt;/h2&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;a href=&quot;https://www.npmjs.com/package/react-virtualized&quot;&gt;react-virtualized&lt;/a&gt;를 사용하면 리스트 컴포넌트에서 스크롤되기 전에 보이지 않는 컴포넌트는 랜더링 되지 않고 크기만 차지하게 할수 있습니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;자세한-사용법은-예제를-참고하셔요&quot;&gt;자세한 사용법은 &lt;a href=&quot;https://codesandbox.io/s/react-virtualized-table-forked-one2q?file=/index.js&quot;&gt;예제&lt;/a&gt;를 참고하셔요.&lt;/h2&gt;</content><category term="reactjs" /><summary type="html">reactJS에서 컴포넌트 최적화에 대한 내용입니다.</summary></entry></feed>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><category term="reactjs" /><summary type="html">reactJS에서 Router 처리에 대한 내용입니다.</summary></entry></feed>
