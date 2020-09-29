@@ -1,4 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-09-30T07:37:13+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">자바 열공 중!</title><link href="https://lahuman.github.io/20200927/" rel="alternate" type="text/html" title="자바 열공 중!" /><published>2020-09-27T00:00:00+09:00</published><updated>2020-09-27T00:00:00+09:00</updated><id>https://lahuman.github.io/20200927</id><content type="html" xml:base="https://lahuman.github.io/20200927/">&lt;h1 id=&quot;한국에서는-아직까지-java--springframework-가-대세입니다&quot;&gt;한국에서는 아직까지 JAVA + Springframework 가 대세입니다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-09-30T07:44:19+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">개인프로젝트의 공유</title><link href="https://lahuman.github.io/20200930/" rel="alternate" type="text/html" title="개인프로젝트의 공유" /><published>2020-09-30T00:00:00+09:00</published><updated>2020-09-30T00:00:00+09:00</updated><id>https://lahuman.github.io/20200930</id><content type="html" xml:base="https://lahuman.github.io/20200930/">&lt;h1 id=&quot;워크플레이스-반응-조회-서비스를-공유-하였습니다&quot;&gt;워크플레이스 반응 조회 서비스를 공유 하였습니다.&lt;/h1&gt;
+
+&lt;p&gt;좋은 아이디어를 받았는데, 바로 00명 무작위 선정입니다.&lt;/p&gt;
+
+&lt;p&gt;댓글에서 선정 하거나, 반응에서 선정하는 방식으로 버튼을 만들어서 처리 해봐야겠습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;추석동안-해보면-되겠네요&quot;&gt;추석동안 해보면 되겠네요.&lt;/h2&gt;
+&lt;h2 id=&quot;뭔가-ui가-그럴듯하게-구성해보려고-합니다&quot;&gt;뭔가 UI가 그럴듯하게 구성해보려고 합니다.&lt;/h2&gt;</content><category term="단상" /><summary type="html">진행한 개인 프로젝트를 공유하고 좋은 아이디어를 받았다.</summary></entry><entry><title type="html">자바 열공 중!</title><link href="https://lahuman.github.io/20200927/" rel="alternate" type="text/html" title="자바 열공 중!" /><published>2020-09-27T00:00:00+09:00</published><updated>2020-09-27T00:00:00+09:00</updated><id>https://lahuman.github.io/20200927</id><content type="html" xml:base="https://lahuman.github.io/20200927/">&lt;h1 id=&quot;한국에서는-아직까지-java--springframework-가-대세입니다&quot;&gt;한국에서는 아직까지 JAVA + Springframework 가 대세입니다.&lt;/h1&gt;
 
 &lt;p&gt;하지만… 최근 3년간은 python과 nodejs를 주로 사용하고 있습니다.&lt;/p&gt;
 
@@ -492,18 +499,4 @@ GENERATE_SOURCEMAP=false # .map 파일을 생성하지 않는 옵션입니다. b
 &lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/44046366/increase-javascript-heap-size-in-create-react-app-project&quot;&gt;Increase JavaScript Heap size in create-react-app project&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="reactjs" /><category term="build" /><category term="memory" /><summary type="html">npm run build 대신 node --max_old_space_size=4096 node_modules/.bin/react-scripts build 를 사용하세요</summary></entry><entry><title type="html">수연이가 JETSON NANO CASE를 만들어 주었다!</title><link href="https://lahuman.github.io/20200829/" rel="alternate" type="text/html" title="수연이가 JETSON NANO CASE를 만들어 주었다!" /><published>2020-08-29T00:00:00+09:00</published><updated>2020-08-29T00:00:00+09:00</updated><id>https://lahuman.github.io/20200829</id><content type="html" xml:base="https://lahuman.github.io/20200829/">&lt;h1 id=&quot;오늘-간간히-가지고-놀고-있는-jetson-nano에-fan을-부착하였습니다&quot;&gt;오늘 간간히 가지고 놀고 있는 Jetson nano에 fan을 부착하였습니다.&lt;/h1&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://developer.nvidia.com/embedded/jetson-nano-developer-kit&quot;&gt;Jetson Nano Developer Kit&lt;/a&gt;을 간간히 가지고 놀 때, 조금만 오래 가지고 놀면 발열이 심해서 Fan을 구매 하였습니다.&lt;/p&gt;
-
-&lt;p&gt;Fan을 연결하고 보니까 기존 상자에 넣을 수 없었습니다.&lt;/p&gt;
-
-&lt;p&gt;케이스를 사야 하나 고민을 하는 와중에 금손 수연이에게 기존 상자를 활용할 수 없을까 물어보니
-바로 뚝딱 만들어 주었습니다.&lt;/p&gt;
-
-&lt;p&gt;아주 만족스러운 케이스가 탄생하였습니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/jetson_nano_case.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;대만족&quot;&gt;대만족&lt;/h2&gt;
-&lt;h2 id=&quot;금손아내&quot;&gt;금손아내&lt;/h2&gt;</content><category term="단상" /><summary type="html">금손 아내를 자랑합니다.</summary></entry></feed>
+&lt;/ul&gt;</content><category term="reactjs" /><category term="build" /><category term="memory" /><summary type="html">npm run build 대신 node --max_old_space_size=4096 node_modules/.bin/react-scripts build 를 사용하세요</summary></entry></feed>
