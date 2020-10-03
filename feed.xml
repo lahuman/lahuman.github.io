@@ -1,4 +1,42 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-09-30T07:44:19+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">개인프로젝트의 공유</title><link href="https://lahuman.github.io/20200930/" rel="alternate" type="text/html" title="개인프로젝트의 공유" /><published>2020-09-30T00:00:00+09:00</published><updated>2020-09-30T00:00:00+09:00</updated><id>https://lahuman.github.io/20200930</id><content type="html" xml:base="https://lahuman.github.io/20200930/">&lt;h1 id=&quot;워크플레이스-반응-조회-서비스를-공유-하였습니다&quot;&gt;워크플레이스 반응 조회 서비스를 공유 하였습니다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-10-03T13:54:57+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">중복 파일 검색</title><link href="https://lahuman.github.io/duplication_file_search/" rel="alternate" type="text/html" title="중복 파일 검색" /><published>2020-10-03T00:00:00+09:00</published><updated>2020-10-03T00:00:00+09:00</updated><id>https://lahuman.github.io/duplication_file_search</id><content type="html" xml:base="https://lahuman.github.io/duplication_file_search/">&lt;h1 id=&quot;중복-파일-검색&quot;&gt;중복 파일 검색&lt;/h1&gt;
+
+&lt;p&gt;파일 관리를 잘 안하기 때문에 특정 디렉토리의 경우 중복된 파일이 다수 존재 합니다.&lt;/p&gt;
+
+&lt;p&gt;이를 확인하는 단순한 로직을 작성하였습니다.&lt;/p&gt;
+
+&lt;p&gt;md5 hash를 이용해서 파일의 hash정보로 비교 하여 더 정확하게 중복된 파일을 확인합니다.&lt;/p&gt;
+
+&lt;p&gt;사용법 : node index.js ./검색디렉토리/검색파일형식&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$&amp;gt; node index.js ./searchPath/**/*.txt
+$&amp;gt; node index.js **/*
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;시작 디렉테로를 상위로 이동시키기 위해서는 &lt;code class=&quot;highlighter-rouge&quot;&gt;../../&lt;/code&gt; (한 개만 사용하면 동작 안함)를 사용해야 한다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;LINUX에서는 상대 경로만 동작한다. (윈도우에서는 절대 경로도 잘 동작함)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;todo-&quot;&gt;TODO :&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;LINUX 절대 경로 동작 처리 &amp;amp; 상위 디렉토리 이상 동작 원인 분석 &amp;amp; 처리
+  =&amp;gt; WSL 에서만 이상 동작하고 나머진 정상 동작 확인&lt;/li&gt;
+  &lt;li&gt;md5 hash 파일 처리는 청크(Chunk) 사이즈 처리를 해서 성능을 개선한다.
+  =&amp;gt; 초기 100000byte (0.1MB) 만 로드 하여 hash 처리 후 비교 한다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;license&quot;&gt;License&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://badges.mit-license.org&quot;&gt;&lt;img src=&quot;http://img.shields.io/:license-mit-blue.svg?style=flat-square&quot; alt=&quot;License&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;http://opensource.org/licenses/mit-license.php&quot;&gt;MIT license&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;Copyright 2020 © &lt;a href=&quot;https://lahuman.github.io&quot; target=&quot;_blank&quot;&gt;lahuman&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;</content><category term="duplication" /><category term="file" /><category term="search" /><summary type="html">디렉토리에서 중복된 파일을 찾을때 사용합니다.</summary></entry><entry><title type="html">개인프로젝트의 공유</title><link href="https://lahuman.github.io/20200930/" rel="alternate" type="text/html" title="개인프로젝트의 공유" /><published>2020-09-30T00:00:00+09:00</published><updated>2020-09-30T00:00:00+09:00</updated><id>https://lahuman.github.io/20200930</id><content type="html" xml:base="https://lahuman.github.io/20200930/">&lt;h1 id=&quot;워크플레이스-반응-조회-서비스를-공유-하였습니다&quot;&gt;워크플레이스 반응 조회 서비스를 공유 하였습니다.&lt;/h1&gt;
 
 &lt;p&gt;좋은 아이디어를 받았는데, 바로 00명 무작위 선정입니다.&lt;/p&gt;
 
@@ -408,95 +446,4 @@ IntelliJ나 Elipse를 사용하기에는 살짝쿵 메모리가 부족한데 간
 &lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://zianlog.tistory.com/m/entry/VS-Code%EC%97%90%EC%84%9C-WSL-Remote%ED%99%98%EA%B2%BD%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%98%EC%97%AC-Java%EA%B0%9C%EB%B0%9C-%ED%99%98%EA%B2%BD-%EA%B5%AC%EC%84%B1%ED%95%98%EA%B8%B0?category=853895&quot;&gt;VS Code에서 WSL Remote환경을 이용하여 Java개발 환경 구성하기&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="wsl" /><category term="java" /><category term="vscode" /><summary type="html">가벼운 개발 툴 그러나, 손이 많이 갑니다.</summary></entry><entry><title type="html">react-staripts build에서 메모리 설정 하는 방법</title><link href="https://lahuman.github.io/react_build_heap_momory/" rel="alternate" type="text/html" title="react-staripts build에서 메모리 설정 하는 방법" /><published>2020-09-02T00:00:00+09:00</published><updated>2020-09-02T00:00:00+09:00</updated><id>https://lahuman.github.io/react_build_heap_momory</id><content type="html" xml:base="https://lahuman.github.io/react_build_heap_momory/">&lt;h1 id=&quot;react-staripts-build에서-메모리-설정-하는-방법&quot;&gt;react-staripts build에서 메모리 설정 하는 방법&lt;/h1&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;npm run build&lt;/code&gt; 명령을 날리자 다음과 같은 오류가 발생하였습니다.&lt;/p&gt;
-
-&lt;h3 id=&quot;오류&quot;&gt;오류&lt;/h3&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[service@ip-10-52-00-00 project]$ npm run build
-
-&amp;gt; project@0.1.0 build /home/service/project
-&amp;gt; react-scripts build
-
-Creating an optimized production build...
-
-&amp;lt;--- Last few GCs ---&amp;gt;
-n [29108:0x45b8410]    54463 ms: Mark-sweep 479.1 (483.6) -&amp;gt; 478.3 (483.3) MB, 402.1 / 0.0 ms  (+ 67.4 ms in 21 steps since start of marking, biggest step 12.2 ms, walltime since start of marking 503 ms) (average mu = 0.133, current mu = 0.067) allocation f[29108:0x45b8410]    54947 ms: Mark-sweep 479.3 (483.3) -&amp;gt; 478.7 (483.8) MB, 435.5 / 0.0 ms  (+ 39.2 ms in 14 steps since start of marking, biggest step 4.6 ms, walltime since start of marking 484 ms) (average mu = 0.078, current mu = 0.019) allocation fa
-
-&amp;lt;--- JS stacktrace ---&amp;gt;
-
-==== JS stack trace =========================================
-
-    0: ExitFrame [pc: 0x13cf019]
-Security context: 0x1b71cb9008d1 &amp;lt;JSObject&amp;gt;
-    1: SourceNode_walk [0x1294ddf74e79] [/home/service/project/node_modules/source-map/lib/source-node.js:~221] [pc=0x3a5fedf8af45](this=0x0243dcd9f6a9 &amp;lt;SourceNode map = 0x3369f2e15c99&amp;gt;,0x17faadf40119 &amp;lt;JSFunction (sfi = 0x333914477ba1)&amp;gt;)
-    2: SourceNode_walk [0x1294ddf74e79] [/home/service/project/node_modules/source-map/lib/source-nod...
-
-FATAL ERROR: Ineffective mark-compacts near heap limit Allocation failed - JavaScript heap out of memory
- 1: 0xa093f0 node::Abort() [node]
- 2: 0xa097fc node::OnFatalError(char const*, char const*) [node]
- 3: 0xb842ae v8::Utils::ReportOOMFailure(v8::internal::Isolate*, char const*, bool) [node]
- 4: 0xb84629 v8::internal::V8::FatalProcessOutOfMemory(v8::internal::Isolate*, char const*, bool) [node]
- 5: 0xd30fe5  [node]
- 6: 0xd31676 v8::internal::Heap::RecomputeLimits(v8::internal::GarbageCollector) [node]
- 7: 0xd3def5 v8::internal::Heap::PerformGarbageCollection(v8::internal::GarbageCollector, v8::GCCallbackFlags) [node]
- 8: 0xd3eda5 v8::internal::Heap::CollectGarbage(v8::internal::AllocationSpace, v8::internal::GarbageCollectionReason, v8::GCCallbackFlags) [node]
- 9: 0xd4185c v8::internal::Heap::AllocateRawWithRetryOrFail(int, v8::internal::AllocationType, v8::internal::AllocationOrigin, v8::internal::AllocationAlignment) [node]
-10: 0xd0830b v8::internal::Factory::NewFillerObject(int, bool, v8::internal::AllocationType, v8::internal::AllocationOrigin) [node]
-11: 0x1049f4e v8::internal::Runtime_AllocateInYoungGeneration(int, unsigned long*, v8::internal::Isolate*) [node]
-12: 0x13cf019  [node]
-npm ERR! code ELIFECYCLE
-npm ERR! errno 1
-npm ERR! project@0.1.0 build: `react-scripts build`
-npm ERR! Exit status 1
-npm ERR!
-npm ERR! Failed at the project@0.1.0 build script.
-npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
-
-npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/service/.npm/_logs/2020-09-02T10_23_38_254Z-debug.log
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;heap 메모리 부족이라 일반적으로는 다음 명령어로 처리 했습니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$&amp;gt; node --max_old_space_size=4096 app.js
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;하지만 create-react-app 으로 생성한 프로젝트라 build 명령이 다음과 같았습니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&quot;scripts&quot;: {
-    &quot;start&quot;: &quot;react-scripts start&quot;,
-    &quot;build&quot;: &quot;react-scripts build&quot;,
-    &quot;test&quot;: &quot;react-scripts test&quot;,
-    &quot;eject&quot;: &quot;react-scripts eject&quot;
-  },
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;검색을 해보니 react-scripts 가 &lt;code class=&quot;highlighter-rouge&quot;&gt;node_modules/.bin/react-scripts&lt;/code&gt;에 있었습니다.&lt;/p&gt;
-
-&lt;p&gt;따라서 다음과 같이 메모리 옵션을 주면 됩니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$&amp;gt; node --max_old_space_size=4096 node_modules/.bin/react-scripts build
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;그러면 메모리를 더 할당해서 실행을 하게 됩니다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;라고 했지만 제대로 동작 하지 않았습니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;추가-처리-내역입니다&quot;&gt;추가 처리 내역입니다.&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.npmjs.com/package/dotenv&quot;&gt;dotenv&lt;/a&gt; 모듈이 설치 되어 있어야 합니다.&lt;/p&gt;
-
-&lt;p&gt;.env 파일에 아래 내용을 추가해주세요.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;NODE_OPTIONS=&quot;--max-old-space-size=4096&quot; # 메모리 할당합니다.
-GENERATE_SOURCEMAP=false # .map 파일을 생성하지 않는 옵션입니다. build시 메모리 사용을 줄입니다.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/44046366/increase-javascript-heap-size-in-create-react-app-project&quot;&gt;Increase JavaScript Heap size in create-react-app project&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="reactjs" /><category term="build" /><category term="memory" /><summary type="html">npm run build 대신 node --max_old_space_size=4096 node_modules/.bin/react-scripts build 를 사용하세요</summary></entry></feed>
+&lt;/ul&gt;</content><category term="wsl" /><category term="java" /><category term="vscode" /><summary type="html">가벼운 개발 툴 그러나, 손이 많이 갑니다.</summary></entry></feed>
