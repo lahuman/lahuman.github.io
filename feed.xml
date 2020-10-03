@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-10-03T13:54:57+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">중복 파일 검색</title><link href="https://lahuman.github.io/duplication_file_search/" rel="alternate" type="text/html" title="중복 파일 검색" /><published>2020-10-03T00:00:00+09:00</published><updated>2020-10-03T00:00:00+09:00</updated><id>https://lahuman.github.io/duplication_file_search</id><content type="html" xml:base="https://lahuman.github.io/duplication_file_search/">&lt;h1 id=&quot;중복-파일-검색&quot;&gt;중복 파일 검색&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-10-03T19:04:23+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">중복 파일 검색</title><link href="https://lahuman.github.io/duplication_file_search/" rel="alternate" type="text/html" title="중복 파일 검색" /><published>2020-10-03T00:00:00+09:00</published><updated>2020-10-03T00:00:00+09:00</updated><id>https://lahuman.github.io/duplication_file_search</id><content type="html" xml:base="https://lahuman.github.io/duplication_file_search/">&lt;h1 id=&quot;중복-파일-검색&quot;&gt;&lt;a href=&quot;https://github.com/lahuman/dirInFiles&quot;&gt;중복 파일 검색&lt;/a&gt;&lt;/h1&gt;
+
+&lt;h2 id=&quot;프로젝트-바로가기&quot;&gt;&lt;a href=&quot;https://github.com/lahuman/dirInFiles&quot;&gt;프로젝트 바로가기&lt;/a&gt;&lt;/h2&gt;
 
 &lt;p&gt;파일 관리를 잘 안하기 때문에 특정 디렉토리의 경우 중복된 파일이 다수 존재 합니다.&lt;/p&gt;
 
@@ -24,10 +26,29 @@ $&amp;gt; node index.js **/*
 
 &lt;ol&gt;
   &lt;li&gt;LINUX 절대 경로 동작 처리 &amp;amp; 상위 디렉토리 이상 동작 원인 분석 &amp;amp; 처리
-  =&amp;gt; WSL 에서만 이상 동작하고 나머진 정상 동작 확인&lt;/li&gt;
+    &lt;ul&gt;
+      &lt;li&gt;WSL 에서만 이상 동작하고 나머진 정상 동작 확인&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
   &lt;li&gt;md5 hash 파일 처리는 청크(Chunk) 사이즈 처리를 해서 성능을 개선한다.
-  =&amp;gt; 초기 100000byte (0.1MB) 만 로드 하여 hash 처리 후 비교 한다.&lt;/li&gt;
+    &lt;ul&gt;
+      &lt;li&gt;초기 100000byte (0.1MB) 만 로드 하여 hash 처리 후 비교 한다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
 &lt;/ol&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// liteMd5는 0.1MB만 md5 hash로 변환한다.
+
+const FIRST_SIZE = 100000;
+
+const liteMd5 = (filePath) =&amp;gt; {
+    const res = fs.openSync(filePath, 'r');
+
+    let buffer = Buffer.alloc(FIRST_SIZE);
+    fs.readSync(res, buffer, 0, FIRST_SIZE, 0,);
+    return md5(buffer);
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;license&quot;&gt;License&lt;/h2&gt;
 
