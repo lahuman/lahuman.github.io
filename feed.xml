@@ -1,4 +1,47 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-10-11T14:51:16+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">하루종일 짜증이 나는 날입니다.</title><link href="https://lahuman.github.io/20201011/" rel="alternate" type="text/html" title="하루종일 짜증이 나는 날입니다." /><published>2020-10-11T00:00:00+09:00</published><updated>2020-10-11T00:00:00+09:00</updated><id>https://lahuman.github.io/20201011</id><content type="html" xml:base="https://lahuman.github.io/20201011/">&lt;h1 id=&quot;날씨가-꾸릿해서인지-기분이-안좋다&quot;&gt;날씨가 꾸릿해서인지, 기분이 안좋다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-10-20T00:04:06+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">어떤 일을 해야 하는가?</title><link href="https://lahuman.github.io/20201020/" rel="alternate" type="text/html" title="어떤 일을 해야 하는가?" /><published>2020-10-20T00:00:00+09:00</published><updated>2020-10-20T00:00:00+09:00</updated><id>https://lahuman.github.io/20201020</id><content type="html" xml:base="https://lahuman.github.io/20201020/">&lt;h1 id=&quot;지금은-많은-일을-하고-있습니다&quot;&gt;지금은 많은 일을 하고 있습니다.&lt;/h1&gt;
+
+&lt;p&gt;일의 가치를 따지기 보다 나에게 할당되는 일을 빠르게 많이 하고 있습니다.&lt;/p&gt;
+
+&lt;p&gt;일을 하다 보면 사공이 여러명일 경우가 종종 있습니다.&lt;/p&gt;
+
+&lt;p&gt;누구의 의견이 가치가 있는지 사실 판단하기 매우 어렵습니다.&lt;/p&gt;
+
+&lt;p&gt;서로의 의견이 틀린게 아니라 다르기 때문인데요.&lt;/p&gt;
+
+&lt;p&gt;보다 어떤 것이 가치가 있을지는 사실 시간이 지나봐야 알 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;결국 쉽게 구현이 가능한 A안으로 구현하고 사용해보다 불편하면 좀 어려운 구현인 B안으로 변경하는게 가장 좋은 방안으로 생각됩니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;일단-해보고-결정합니다&quot;&gt;일단 해보고 결정합니다.&lt;/h2&gt;</content><category term="단상" /><summary type="html">나에게 가치 있는 일이란 무엇인가?</summary></entry><entry><title type="html">Docker image로 vue build 시 오류 원인</title><link href="https://lahuman.github.io/docker_image_vue_error/" rel="alternate" type="text/html" title="Docker image로 vue build 시 오류 원인" /><published>2020-10-19T00:00:00+09:00</published><updated>2020-10-19T00:00:00+09:00</updated><id>https://lahuman.github.io/docker_image_vue_error</id><content type="html" xml:base="https://lahuman.github.io/docker_image_vue_error/">&lt;h1 id=&quot;docker-image로-vue-build-시-오류-원인&quot;&gt;Docker image로 vue build 시 오류 원인&lt;/h1&gt;
+
+&lt;p&gt;갑자기 빌드시 아래와 같은 오류가 발생했습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/vue-cli-service_not_found.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;원인은 yarn 설치시 NODE_ENV 를 &lt;code class=&quot;highlighter-rouge&quot;&gt;production&lt;/code&gt;으로 설정되어 발생합니다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;a href=&quot;https://github.com/vuejs/vue-cli/issues/5107?fbclid=IwAR1PUFDqZZFcsWymlBTqqV-V_wOkYm_OydqAddZHnXxvDSfG14Q8x_QrpyM#issuecomment-586701382&quot;&gt;I found my problem. I was inadvertently setting NODE_ENV to production in my docker-compose so all NPM dev dependencies (including vue-cli-service) were not being installed.&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;를 보면, &lt;code class=&quot;highlighter-rouge&quot;&gt;yarn install&lt;/code&gt; 시 &lt;code class=&quot;highlighter-rouge&quot;&gt;vue-cli-servie&lt;/code&gt;를 설치 하지 않아서 발생합니다.&lt;/p&gt;
+
+&lt;p&gt;해결 방법으로는 ENV (환경변수)를 yarn install 후 build 하기 전에 설정하세요&lt;/p&gt;
+
+&lt;h2 id=&quot;해결-된-dockerfile&quot;&gt;해결 된 Dockerfile&lt;/h2&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;...
+RUN npm install -g yarn
+RUN yarn install
+
+ENV NODE_ENV production
+RUN yarn build
+...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/vuejs/vue-cli/issues/5107?fbclid=IwAR1PUFDqZZFcsWymlBTqqV-V_wOkYm_OydqAddZHnXxvDSfG14Q8x_QrpyM#issuecomment-586701382&quot;&gt;I found my problem. I was inadvertently setting NODE_ENV to production in my docker-compose so all NPM dev dependencies (including vue-cli-service) were not being installed.&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="vue" /><category term="docker" /><category term="build" /><summary type="html">/bin/sh: vue-cli-service: not found</summary></entry><entry><title type="html">하루종일 짜증이 나는 날입니다.</title><link href="https://lahuman.github.io/20201011/" rel="alternate" type="text/html" title="하루종일 짜증이 나는 날입니다." /><published>2020-10-11T00:00:00+09:00</published><updated>2020-10-11T00:00:00+09:00</updated><id>https://lahuman.github.io/20201011</id><content type="html" xml:base="https://lahuman.github.io/20201011/">&lt;h1 id=&quot;날씨가-꾸릿해서인지-기분이-안좋다&quot;&gt;날씨가 꾸릿해서인지, 기분이 안좋다.&lt;/h1&gt;
 
 &lt;p&gt;안 좋은 기분이 가족에게도 영향을 끼친다.&lt;/p&gt;
 
@@ -302,155 +345,4 @@ $ docker run -p 8888:80 --rm wp-reaction:1.0
 &lt;ul&gt;
   &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;http://opensource.org/licenses/mit-license.php&quot;&gt;MIT license&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
   &lt;li&gt;Copyright 2020 © &lt;a href=&quot;https://lahuman.github.io&quot; target=&quot;_blank&quot;&gt;lahuman&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;</content><category term="workplace" /><category term="post" /><category term="reaction" /><summary type="html">워크플레이스의 게시글 반응을 제공하는 서비스 개발</summary></entry><entry><title type="html">JIRA REPORT</title><link href="https://lahuman.github.io/jira_work_log_report/" rel="alternate" type="text/html" title="JIRA REPORT" /><published>2020-09-15T00:00:00+09:00</published><updated>2020-09-15T00:00:00+09:00</updated><id>https://lahuman.github.io/jira_work_log_report</id><content type="html" xml:base="https://lahuman.github.io/jira_work_log_report/">&lt;h1 id=&quot;jira-work-log-report-git-바로가기&quot;&gt;&lt;a href=&quot;https://github.com/lahuman/jira-report&quot;&gt;Jira Work log Report GIT 바로가기&lt;/a&gt;&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;지라에서 작성한 work log를 아래 그림과 같이 날짜 기준으로 표기해 줍니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Screen&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://github.com/lahuman/jira-report/blob/master/snapshot.png?raw=true&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;table-of-contents&quot;&gt;Table of Contents&lt;/h2&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;사용된 프로그램과 설정시 중요 내용&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;#installation&quot;&gt;Installation&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#jiracloud&quot;&gt;JiraCloud&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#dockerfile&quot;&gt;Dockerfile&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#license&quot;&gt;License&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;installation&quot;&gt;Installation&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;설치를 위해서는 기본적으로 NODEJS 12.x 이상의 버젼이 필요합니다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;backend&quot;&gt;Backend&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://swagger.io/specification/&quot;&gt;Oas 3.0&lt;/a&gt; 기반으로 작성되었습니다.&lt;/li&gt;
-  &lt;li&gt;PATH : &lt;strong&gt;report_backend&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;.env 설정은 _env 파일을 .env로 변경하여서 Key에 알맞은 값을 설정 하면 됩니다.
-또는 아래 샘플을 이용하셔요.
-TOKEN_KEY는 API 토큰입니다. JIRA CLOUD에 가입이 되어 있다면, API 토큰은 &lt;a href=&quot;https://id.atlassian.com/manage-profile/security/api-tokens&quot;&gt;여기에서&lt;/a&gt;에서 생성이 가능합니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;JIRA_HOST=https://lahuman.atlassian.net # jira host 정보
-JIRA_ID=lahuman@emaim.com # JIRA ID
-TOKEN_KEY=abcde # JIRA API TOKEN
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;실행&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ npm run start
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;서버가 문제 없이 기동이 되면 &lt;a href=&quot;http://localhost:8080/docs&quot;&gt;Swagger UI&lt;/a&gt;을 확인하세요.&lt;/p&gt;
-
-&lt;h3 id=&quot;frontend&quot;&gt;Frontend&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://reactjs.org/&quot;&gt;ReactJS&lt;/a&gt;로 작성되어 있습니다.&lt;/li&gt;
-  &lt;li&gt;PATH : &lt;strong&gt;report_frontend&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;.env 설정은 _env 파일을 .env로 변경하여서 Key에 알맞은 값을 설정 하면 됩니다.
-또는 아래 샘플을 이용하셔요.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;REACT_APP_API_URL=http://localhost:8080  # backend server 주소
-REACT_APP_API_JIRA_BROWSE=https://lahuman.atlassian.net/browse/ #jira의 browse 주소
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;실행&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ npm instlal
-# npm run start
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;jiracloud&quot;&gt;JiraCloud&lt;/h2&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;a href=&quot;https://www.atlassian.com/ko/software/free#plan-and-track&quot;&gt;JIRA Cloud&lt;/a&gt;는 무료로 사용이 가능한 플랜이 있습니다
-가입을 하면 다음과 같이 사용이 가능합니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://github.com/lahuman/jira-report/blob/master/jira_cloud.png?raw=true&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;https://lahuman.atlassian.net&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;dockerfile&quot;&gt;Dockerfile&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;docker image 생성 파일 제공&lt;/li&gt;
-  &lt;li&gt;Dockerfile 참조&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;이미지 생성&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# docker build -t ${image-name}:${version} .
-
-$ docker build -t jira-report:1.0 .
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;이미지 실행&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# docker run -p 8888:80 --rm ${image-name}:${version}
-
-$ docker run -p 8888:80 --rm jira-report:1.0
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://lahuman.github.io/reactjs-dockerfile/&quot;&gt;Dockerfile 더 자세히 알아보기&lt;/a&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;license&quot;&gt;License&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://badges.mit-license.org&quot;&gt;&lt;img src=&quot;http://img.shields.io/:license-mit-blue.svg?style=flat-square&quot; alt=&quot;License&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;http://opensource.org/licenses/mit-license.php&quot;&gt;MIT license&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;Copyright 2020 © &lt;a href=&quot;https://lahuman.github.io&quot; target=&quot;_blank&quot;&gt;lahuman&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;</content><category term="jira" /><category term="worklog" /><category term="timetracking" /><summary type="html">JIRA work log를 Time tracking 형식으로 도식화 처리</summary></entry><entry><title type="html">번아웃이 훅 온다.</title><link href="https://lahuman.github.io/20200914/" rel="alternate" type="text/html" title="번아웃이 훅 온다." /><published>2020-09-14T00:00:00+09:00</published><updated>2020-09-14T00:00:00+09:00</updated><id>https://lahuman.github.io/20200914</id><content type="html" xml:base="https://lahuman.github.io/20200914/">&lt;h1 id=&quot;번아웃이-온다&quot;&gt;번아웃이 온다.&lt;/h1&gt;
-
-&lt;p&gt;주말내내 회사일을 했다.&lt;/p&gt;
-
-&lt;p&gt;급하다는 이야기를 듣고 주말도 반납하고 일을 했다.&lt;/p&gt;
-
-&lt;p&gt;그러고 월요일이 되니 잘했으니 다음 일을 하자고 한다. 그것도 2개 3개를 이야기 하니 맥이 풀리고 숨이 막힌다.&lt;/p&gt;
-
-&lt;p&gt;그리고 주말내내 일한게 후회가 된다.&lt;/p&gt;
-
-&lt;p&gt;그냥 아이들과 더 놀아줄껄…&lt;/p&gt;
-
-&lt;p&gt;보상을 바라고 주말에 일을 한건 아니지만, 이렇게 숨막히게 일을 몰아줄지는 몰랐다.&lt;/p&gt;
-
-&lt;p&gt;이게 회사의 문제인지, 관리의 문제인지… 그것도 아니면 내가 문제인지 생각하게 된다.&lt;/p&gt;
-
-&lt;p&gt;다들 적당히 조용히 일하는데, 혼자 나서서 잘난척 하는건 아닌지…&lt;/p&gt;
-
-&lt;h2 id=&quot;나대지말고-적당히-일하자-싶은-생각이-문득-든다&quot;&gt;나대지말고 적당히 일하자 싶은 생각이 문득 든다.&lt;/h2&gt;</content><category term="단상" /><summary type="html">일이 끝나고 다음일이 오는게 아니라 파도 오듯이 미친듯 밀려온다.</summary></entry></feed>
+&lt;/ul&gt;</content><category term="workplace" /><category term="post" /><category term="reaction" /><summary type="html">워크플레이스의 게시글 반응을 제공하는 서비스 개발</summary></entry></feed>
