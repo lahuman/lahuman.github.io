@@ -1,4 +1,24 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-10-23T00:19:01+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Node에서 mssql 사용하기</title><link href="https://lahuman.github.io/node_use_mssql/" rel="alternate" type="text/html" title="Node에서 mssql 사용하기" /><published>2020-10-23T00:00:00+09:00</published><updated>2020-10-23T00:00:00+09:00</updated><id>https://lahuman.github.io/node_use_mssql</id><content type="html" xml:base="https://lahuman.github.io/node_use_mssql/">&lt;h1 id=&quot;node에서-mssql-사용하기&quot;&gt;Node에서 mssql 사용하기&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-10-28T20:23:03+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Node express에서 Content Security Policy(CSP) 처리 하기</title><link href="https://lahuman.github.io/node_csp_error/" rel="alternate" type="text/html" title="Node express에서 Content Security Policy(CSP) 처리 하기" /><published>2020-10-28T00:00:00+09:00</published><updated>2020-10-28T00:00:00+09:00</updated><id>https://lahuman.github.io/node_csp_error</id><content type="html" xml:base="https://lahuman.github.io/node_csp_error/">&lt;h1 id=&quot;node-express에서-content-security-policycsp-처리-하기&quot;&gt;Node express에서 Content Security Policy(CSP) 처리 하기&lt;/h1&gt;
+
+&lt;p&gt;Google Analytics를 사용하면 CSP 오류가 발생하기도 합니다.&lt;/p&gt;
+
+&lt;p&gt;이때 쉽게 처리 하기 위해서는 helmet 라이브러리의 contentSecurityPolicy 옵션을 false로 변경하면 됩니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;app.use(
+  helmet({
+    contentSecurityPolicy: false,
+  })
+);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Google Analytics에서는 inline script를 사용하기 때문에, 일반적으로 CSP 처리를 위해 복잡한 설정을 사용하게 됩니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP&quot;&gt;Content Security Policy (CSP)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://analytics.google.com/analytics/web/&quot;&gt;Google Analytics&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.npmjs.com/package/helmet&quot;&gt;helmet&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="express" /><category term="node" /><category term="helmet" /><category term="csp" /><summary type="html">helmet을 사용하면 쉽게 처리 가능합니다</summary></entry><entry><title type="html">Node에서 mssql 사용하기</title><link href="https://lahuman.github.io/node_use_mssql/" rel="alternate" type="text/html" title="Node에서 mssql 사용하기" /><published>2020-10-23T00:00:00+09:00</published><updated>2020-10-23T00:00:00+09:00</updated><id>https://lahuman.github.io/node_use_mssql</id><content type="html" xml:base="https://lahuman.github.io/node_use_mssql/">&lt;h1 id=&quot;node에서-mssql-사용하기&quot;&gt;Node에서 mssql 사용하기&lt;/h1&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;단독으로 mssql을 사용할 경우 참고하세요.&lt;/p&gt;
@@ -68,7 +88,9 @@ async () =&amp;gt; {
 &lt;p&gt;위와 같이 사용할 경우 오류가 발생하지는 않았습니다.&lt;/p&gt;
 
 &lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
-&lt;p&gt;-&lt;a href=&quot;https://www.npmjs.com/package/mssql&quot;&gt;mssql&lt;/a&gt;&lt;/p&gt;</content><category term="mssql" /><category term="node" /><summary type="html">단독으로 mssql을 사용할 경우 참조하셔요.</summary></entry><entry><title type="html">어떤 일을 해야 하는가?</title><link href="https://lahuman.github.io/20201020/" rel="alternate" type="text/html" title="어떤 일을 해야 하는가?" /><published>2020-10-20T00:00:00+09:00</published><updated>2020-10-20T00:00:00+09:00</updated><id>https://lahuman.github.io/20201020</id><content type="html" xml:base="https://lahuman.github.io/20201020/">&lt;h1 id=&quot;지금은-많은-일을-하고-있습니다&quot;&gt;지금은 많은 일을 하고 있습니다.&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.npmjs.com/package/mssql&quot;&gt;mssql&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="mssql" /><category term="node" /><summary type="html">단독으로 mssql을 사용할 경우 참조하셔요.</summary></entry><entry><title type="html">어떤 일을 해야 하는가?</title><link href="https://lahuman.github.io/20201020/" rel="alternate" type="text/html" title="어떤 일을 해야 하는가?" /><published>2020-10-20T00:00:00+09:00</published><updated>2020-10-20T00:00:00+09:00</updated><id>https://lahuman.github.io/20201020</id><content type="html" xml:base="https://lahuman.github.io/20201020/">&lt;h1 id=&quot;지금은-많은-일을-하고-있습니다&quot;&gt;지금은 많은 일을 하고 있습니다.&lt;/h1&gt;
 
 &lt;p&gt;일의 가치를 따지기 보다 나에게 할당되는 일을 빠르게 많이 하고 있습니다.&lt;/p&gt;
 
@@ -231,22 +253,4 @@ const liteMd5 = (filePath) =&amp;gt; {
 
 &lt;p&gt;누군가 떠나고, 또 다른 누군가는 새롭게 만나면서 살아갑니다.&lt;/p&gt;
 
-&lt;h2 id=&quot;오늘은-아내와-함께-맥주-한잔-해야겠습니다&quot;&gt;오늘은 아내와 함께 맥주 한잔 해야겠습니다.&lt;/h2&gt;</content><category term="단상" /><summary type="html">1년 이상 함께 일하던 베트남 개발자가 오늘 이직을 하였습니다.</summary></entry><entry><title type="html">자택근무에 적응이 잘되어 갑니다.</title><link href="https://lahuman.github.io/20200924/" rel="alternate" type="text/html" title="자택근무에 적응이 잘되어 갑니다." /><published>2020-09-24T00:00:00+09:00</published><updated>2020-09-24T00:00:00+09:00</updated><id>https://lahuman.github.io/20200924</id><content type="html" xml:base="https://lahuman.github.io/20200924/">&lt;h1 id=&quot;번아웃이-한번-지나가고-폭풍일을-했습니다&quot;&gt;번아웃이 한번 지나가고 폭풍일을 했습니다.&lt;/h1&gt;
-
-&lt;p&gt;번아웃이 언제 왔냐는 듯이 폭풍 일을 했습니다.&lt;/p&gt;
-
-&lt;p&gt;개인 프로젝트 2개를 빡시게 진행하고 또 회사 일도 열심히 하였습니다.&lt;/p&gt;
-
-&lt;p&gt;특히 오늘은 “행봇” 프로젝트의 리펙토링을 진행하였습니다.&lt;/p&gt;
-
-&lt;p&gt;평소 조회 시간이 &lt;code class=&quot;highlighter-rouge&quot;&gt;20초 정도가 걸리는 목록조회를 1초&lt;/code&gt;로 줄였습니다.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;인덱스 생성&lt;/li&gt;
-  &lt;li&gt;네트워크 통신 데이터 경량화&lt;/li&gt;
-  &lt;li&gt;조회 기간 최소화&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;UI는 리액트로 많이 하는데 “행봇”은 뷰로 되어 있어서 하나씩 까면서 수정하였습니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;바닥을-치고-나니-최고점을-찍네요&quot;&gt;바닥을 치고 나니 최고점을 찍네요.&lt;/h2&gt;</content><category term="단상" /><summary type="html">집에서 어떻게 일해야 하는지 알고, 더 잘하게 되네요.</summary></entry></feed>
+&lt;h2 id=&quot;오늘은-아내와-함께-맥주-한잔-해야겠습니다&quot;&gt;오늘은 아내와 함께 맥주 한잔 해야겠습니다.&lt;/h2&gt;</content><category term="단상" /><summary type="html">1년 이상 함께 일하던 베트남 개발자가 오늘 이직을 하였습니다.</summary></entry></feed>
