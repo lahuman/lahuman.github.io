@@ -1,4 +1,91 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-10-28T20:23:03+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Node express에서 Content Security Policy(CSP) 처리 하기</title><link href="https://lahuman.github.io/node_csp_error/" rel="alternate" type="text/html" title="Node express에서 Content Security Policy(CSP) 처리 하기" /><published>2020-10-28T00:00:00+09:00</published><updated>2020-10-28T00:00:00+09:00</updated><id>https://lahuman.github.io/node_csp_error</id><content type="html" xml:base="https://lahuman.github.io/node_csp_error/">&lt;h1 id=&quot;node-express에서-content-security-policycsp-처리-하기&quot;&gt;Node express에서 Content Security Policy(CSP) 처리 하기&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-11-08T14:13:10+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">JS] typeof를 이용해서 선언되지 않은 변수 확인</title><link href="https://lahuman.github.io/js_typeof/" rel="alternate" type="text/html" title="JS] typeof를 이용해서 선언되지 않은 변수 확인" /><published>2020-11-08T00:00:00+09:00</published><updated>2020-11-08T00:00:00+09:00</updated><id>https://lahuman.github.io/js_typeof</id><content type="html" xml:base="https://lahuman.github.io/js_typeof/">&lt;h1 id=&quot;js-typeof를-이용해서-선언되지-않은-변수-확인&quot;&gt;JS] typeof를 이용해서 선언되지 않은 변수 확인&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;typeof 연산자는 피연산자의 평가 전 자료형을 나타내는 문자열을 반환합니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;값이 없는 변수와 선언되지 않은 변수에 대한 처리를 어떻게 하시나요?&lt;/p&gt;
+
+&lt;p&gt;일반적으로 값이 없는 변수는 undefined를 가지고 있습니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var a;
+
+console.log(a); // undefined
+
+// 처리 방법 
+
+// a의 값이 있을 때만 처리
+if(a){
+
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;자 그럼, 선언되지 않은 변수를 사용하면 어떻게 될까요?&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;console.log(b); // ReferenceError: b is not defined
+
+// ReferenceError: b is not defined
+if(b) {
+  console.log('b');
+}
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;선언되지 않는 변수와 값이 없는 변수는 다른 개념이며 오류가 발생하면 이후 실행이 안됩니다.&lt;/p&gt;
+
+&lt;p&gt;그럼, 선언되지 않은 변수를 확인 하는 방법이 무엇일까요?&lt;/p&gt;
+
+&lt;p&gt;바로 &lt;code class=&quot;highlighter-rouge&quot;&gt;typeof&lt;/code&gt;를 이용하면 됩니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// 선언되었으나 값이 없는 변수
+typeof a; // 'undefined'
+// 선언하지 않은 변수
+typeof b; // 'undefined'
+
+// 조건으로 사용시
+if(typeof b === 'undefined') {
+  console.log('b 는 값이 없거나, 선언되지 않았습니다.');
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;어디에 활용 할까요?&lt;/p&gt;
+
+&lt;p&gt;특정 브라우저에서 지원하지 기능을 구현할때 사용하면 됩니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// atob 가 없을 경우 구현 처리 
+// 선언자(var, const, let)를 사용하지 않아야 전역으로 사용 가능하다.
+if(typeof atob === &quot;undefined&quot;) {
+  atob = function () { /* ... */ };
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/typeof&quot;&gt;typeof&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="javascipt" /><category term="typeof" /><summary type="html">undefined와 ReferenceError에 대한 처리시 유용</summary></entry><entry><title type="html">회사의 가치는 어디서 올까요?</title><link href="https://lahuman.github.io/20201101/" rel="alternate" type="text/html" title="회사의 가치는 어디서 올까요?" /><published>2020-11-01T00:00:00+09:00</published><updated>2020-11-01T00:00:00+09:00</updated><id>https://lahuman.github.io/20201101</id><content type="html" xml:base="https://lahuman.github.io/20201101/">&lt;h1 id=&quot;내가-생각하는-좋은-회사란&quot;&gt;내가 생각하는 좋은 회사란?&lt;/h1&gt;
+
+&lt;h3 id=&quot;q-회사의-가치는-어디서-올까요&quot;&gt;Q. 회사의 가치는 어디서 올까요?&lt;/h3&gt;
+
+&lt;p&gt;제가 생각하는 회사의 가장 큰 가치는 동료입니다.&lt;/p&gt;
+
+&lt;p&gt;물론 연봉이나 복지도 중요하지만, 지속적인 발전과 변화를 위해서는 함께 일하는 사람이 가장 중요합니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;q-어떤-동료가-좋은-동료인가요&quot;&gt;Q. 어떤 동료가 좋은 동료인가요?&lt;/h3&gt;
+
+&lt;p&gt;틀림이 아니라 다름을 인정 할 수 있어야 하고, 모두에게 배울수 있어야 합니다.&lt;/p&gt;
+
+&lt;p&gt;나이, 경력, 학벌에 상관없이 서로 배우고 가끔은 자극제가 되기도 해야하며, 믿고 기댈 수 있는 지지자가 되어야 합니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;q-좋은-동료와-일하면-어떻게-다른가요&quot;&gt;Q. 좋은 동료와 일하면 어떻게 다른가요?&lt;/h3&gt;
+
+&lt;p&gt;새로운 시도를 피하지 않게 됩니다.
+나를 믿고, 또는 동료를 믿고 실패해도 실패에 대한 경험을 공유 하면 됩니다.&lt;/p&gt;
+
+&lt;p&gt;내가 실패한 시도가 거름이 되어 다음 시도를 한 동료는 성공 합니다.&lt;/p&gt;
+
+&lt;p&gt;한발자국씩이라도 발전하는 하루하루를 보내게 됩니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;좋은-회사를-들어가는-방법도-있지만-지금-일하는-회사를-좋은-회사로-발전-시키는-방법도-있습니다&quot;&gt;좋은 회사를 들어가는 방법도 있지만, 지금 일하는 회사를 좋은 회사로 발전 시키는 방법도 있습니다.&lt;/h2&gt;</content><category term="단상" /><category term="회사" /><category term="동료" /><summary type="html">내가 생각하는 좋은 회사의 조건</summary></entry><entry><title type="html">Node express에서 Content Security Policy(CSP) 처리 하기</title><link href="https://lahuman.github.io/node_csp_error/" rel="alternate" type="text/html" title="Node express에서 Content Security Policy(CSP) 처리 하기" /><published>2020-10-28T00:00:00+09:00</published><updated>2020-10-28T00:00:00+09:00</updated><id>https://lahuman.github.io/node_csp_error</id><content type="html" xml:base="https://lahuman.github.io/node_csp_error/">&lt;h1 id=&quot;node-express에서-content-security-policycsp-처리-하기&quot;&gt;Node express에서 Content Security Policy(CSP) 처리 하기&lt;/h1&gt;
 
 &lt;p&gt;Google Analytics를 사용하면 CSP 오류가 발생하기도 합니다.&lt;/p&gt;
 
@@ -121,13 +208,12 @@ async () =&amp;gt; {
 &lt;p&gt;해결 방법으로는 ENV (환경변수)를 yarn install 후 build 하기 전에 설정하세요&lt;/p&gt;
 
 &lt;h2 id=&quot;해결-된-dockerfile&quot;&gt;해결 된 Dockerfile&lt;/h2&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;...
-RUN npm install -g yarn
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;RUN npm install -g yarn
 RUN yarn install
 
 ENV NODE_ENV production
 RUN yarn build
-...
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
@@ -231,26 +317,4 @@ const liteMd5 = (filePath) =&amp;gt; {
 
 &lt;p&gt;생각보다 쉽게 이해되는 것도 있고, 왜 이렇게 돌아서 써야 하는지 이해 못할때도 있다.&lt;/p&gt;
 
-&lt;h2 id=&quot;그래도-오랜만에-보는-java는-재미있다&quot;&gt;그래도 오랜만에 보는 JAVA는 재미있다.&lt;/h2&gt;</content><category term="단상" /><summary type="html">최근 3년간 자바로 프로젝트를 하지 않았다. :(</summary></entry><entry><title type="html">딸아이와 나눔에 대하여 이야기 하였습니다.</title><link href="https://lahuman.github.io/20200926/" rel="alternate" type="text/html" title="딸아이와 나눔에 대하여 이야기 하였습니다." /><published>2020-09-26T00:00:00+09:00</published><updated>2020-09-26T00:00:00+09:00</updated><id>https://lahuman.github.io/20200926</id><content type="html" xml:base="https://lahuman.github.io/20200926/">&lt;h1 id=&quot;딸아이와-나는-운이-좋았다&quot;&gt;딸아이와 나는 운이 좋았다.&lt;/h1&gt;
-
-&lt;p&gt;우리는 운이 좋다.&lt;/p&gt;
-
-&lt;p&gt;우리를 사랑하는 부모님과 안정적인 환경덕에 큰 부족함 없이 커간다.&lt;/p&gt;
-
-&lt;p&gt;배를 곪거나, 병이 있어도 치료받지 못하는 환경에 사는 친구들이 있다.&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;나와 딸아이의 행운과 행복을 힘든 친구들과 나누면 어떨까?&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;딸아이는 긍정적으로 생각해본다고 합니다.&lt;/p&gt;
-
-&lt;p&gt;마음이 착한 딸아이가 나눌수 있는게 무엇일지 생각하고 고민 하는게 이쁘네요.&lt;/p&gt;
-
-&lt;h2 id=&quot;마음이-아름다운-사람&quot;&gt;마음이 아름다운 사람&lt;/h2&gt;</content><category term="단상" /><summary type="html">우리는 운이 좋았다. 우리의 행운과 행복을 다른 사람과 나누면 어떨까?</summary></entry><entry><title type="html">많은 이들이 떠나간다.</title><link href="https://lahuman.github.io/20200925/" rel="alternate" type="text/html" title="많은 이들이 떠나간다." /><published>2020-09-25T00:00:00+09:00</published><updated>2020-09-25T00:00:00+09:00</updated><id>https://lahuman.github.io/20200925</id><content type="html" xml:base="https://lahuman.github.io/20200925/">&lt;h1 id=&quot;잘가-타이&quot;&gt;잘가 타이&lt;/h1&gt;
-
-&lt;p&gt;처음 나에게 ReactJS를 알려주고, 함께 소규모 프로젝트를 5개를 진행하였고, 1년 이상 함께 하던 베트남 개발자가 오늘을 마지막으로 다른 회사로 이직을 하였습니다.&lt;/p&gt;
-
-&lt;p&gt;떠나는 친구에게 잘가라고 인사하고 그동안 고마웠다고 이야기 했습니다.&lt;/p&gt;
-
-&lt;p&gt;누군가 떠나고, 또 다른 누군가는 새롭게 만나면서 살아갑니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;오늘은-아내와-함께-맥주-한잔-해야겠습니다&quot;&gt;오늘은 아내와 함께 맥주 한잔 해야겠습니다.&lt;/h2&gt;</content><category term="단상" /><summary type="html">1년 이상 함께 일하던 베트남 개발자가 오늘 이직을 하였습니다.</summary></entry></feed>
+&lt;h2 id=&quot;그래도-오랜만에-보는-java는-재미있다&quot;&gt;그래도 오랜만에 보는 JAVA는 재미있다.&lt;/h2&gt;</content><category term="단상" /><summary type="html">최근 3년간 자바로 프로젝트를 하지 않았다. :(</summary></entry></feed>
