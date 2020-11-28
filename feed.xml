@@ -1,4 +1,139 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-11-20T00:06:53+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">nestjs에서 passport 연동하기</title><link href="https://lahuman.github.io/nestjs_passport_swagger/" rel="alternate" type="text/html" title="nestjs에서 passport 연동하기" /><published>2020-11-19T00:00:00+09:00</published><updated>2020-11-19T00:00:00+09:00</updated><id>https://lahuman.github.io/nestjs_passport_swagger</id><content type="html" xml:base="https://lahuman.github.io/nestjs_passport_swagger/">&lt;h1 id=&quot;nestjs에서-passport를-이용해서-로그인-하는-기능을-확인해보았습니다&quot;&gt;nestjs에서 passport를 이용해서 로그인 하는 기능을 확인해보았습니다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-11-28T21:46:50+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Reactjs의 setState는 비동기(asynchronous)로 동작 합니다.</title><link href="https://lahuman.github.io/reactjs_setState_async/" rel="alternate" type="text/html" title="Reactjs의 setState는 비동기(asynchronous)로 동작 합니다." /><published>2020-11-28T00:00:00+09:00</published><updated>2020-11-28T00:00:00+09:00</updated><id>https://lahuman.github.io/reactjs_setState_async</id><content type="html" xml:base="https://lahuman.github.io/reactjs_setState_async/">&lt;h1 id=&quot;reactjs의-setstate는-비동기asynchronous로-동작-합니다&quot;&gt;Reactjs의 setState는 비동기(asynchronous)로 동작 합니다.&lt;/h1&gt;
+
+&lt;p&gt;ReactJS의 useState는 비동기로 동작합니다.&lt;/p&gt;
+
+&lt;p&gt;다음의 코드는 이전 값으로 통신을 하게 됩니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import React from &quot;react&quot;;
+import &quot;./styles.css&quot;;
+
+export default function App() {
+  const [val, setVal] = React.useState(&quot;&quot;);
+
+  const callAjax = () =&amp;gt; {
+    console.log(val);
+  };
+  const changeVal = (cVal) =&amp;gt; {
+    setVal(cVal);
+    callAjax();
+  };
+  return (
+    &amp;lt;div className=&quot;App&quot;&amp;gt;
+      &amp;lt;h1&amp;gt;Reactjs setState is asynchronous&amp;lt;/h1&amp;gt;
+      &amp;lt;select value={val} onChange={(e) =&amp;gt; changeVal(e.target.value)}&amp;gt;
+        &amp;lt;option value=&quot;&quot;&amp;gt;ALL&amp;lt;/option&amp;gt;
+        &amp;lt;option value=&quot;A&quot;&amp;gt;A&amp;lt;/option&amp;gt;
+        &amp;lt;option value=&quot;B&quot;&amp;gt;B&amp;lt;/option&amp;gt;
+        &amp;lt;option value=&quot;C&quot;&amp;gt;C&amp;lt;/option&amp;gt;
+      &amp;lt;/select&amp;gt;
+    &amp;lt;/div&amp;gt;
+  );
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;그럼 어떻게 해야 할까요?&lt;/p&gt;
+
+&lt;p&gt;바로 useEffect로 val 값의 변화를 감지해서 호출하도록 수정해야 합니다.&lt;/p&gt;
+
+&lt;p&gt;아래와 같이 수정해야 정상적으로 동작합니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import React from &quot;react&quot;;
+import &quot;./styles.css&quot;;
+
+export default function App() {
+  const [val, setVal] = React.useState(&quot;&quot;);
+
+  React.useEffect(() =&amp;gt; {
+    const callAjax = () =&amp;gt; {
+      console.log(val);
+    };
+
+    callAjax();
+  }, [val]);
+
+  const changeVal = (cVal) =&amp;gt; {
+    setVal(cVal);
+  };
+  return (
+    &amp;lt;div className=&quot;App&quot;&amp;gt;
+      &amp;lt;h1&amp;gt;Reactjs setState is asynchronous&amp;lt;/h1&amp;gt;
+      &amp;lt;select value={val} onChange={(e) =&amp;gt; changeVal(e.target.value)}&amp;gt;
+        &amp;lt;option value=&quot;&quot;&amp;gt;ALL&amp;lt;/option&amp;gt;
+        &amp;lt;option value=&quot;A&quot;&amp;gt;A&amp;lt;/option&amp;gt;
+        &amp;lt;option value=&quot;B&quot;&amp;gt;B&amp;lt;/option&amp;gt;
+        &amp;lt;option value=&quot;C&quot;&amp;gt;C&amp;lt;/option&amp;gt;
+      &amp;lt;/select&amp;gt;
+    &amp;lt;/div&amp;gt;
+  );
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;usestate를-사용할때-꼭-기억하세요&quot;&gt;useState를 사용할때 꼭 기억하세요!&lt;/h2&gt;</content><category term="reactjs" /><category term="usestate" /><category term="asynchronous" /><summary type="html">setState로 값이 변경되면 처리 되는 방법</summary></entry><entry><title type="html">Mongoose에서 Array 내용 수정 후 .save()를 호출해도 동작하지 않는 현상</title><link href="https://lahuman.github.io/mongoose_modify_array_inside/" rel="alternate" type="text/html" title="Mongoose에서 Array 내용 수정 후 .save()를 호출해도 동작하지 않는 현상" /><published>2020-11-26T00:00:00+09:00</published><updated>2020-11-26T00:00:00+09:00</updated><id>https://lahuman.github.io/mongoose_modify_array_inside</id><content type="html" xml:base="https://lahuman.github.io/mongoose_modify_array_inside/">&lt;h1 id=&quot;mongoose에서-array-내용-수정-후-save를-호출해도-동작하지-않는-현상&quot;&gt;Mongoose에서 Array 내용 수정 후 .save()를 호출해도 동작하지 않는 현상&lt;/h1&gt;
+
+&lt;p&gt;다음과 같은 mongo Model이 존재 할때,&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;const mongoose = require('mongoose');
+
+const { Schema } = mongoose;
+
+const Confirm = new Schema({
+  type: { type: String, require: true, index: true },
+  pgm_id: { type: Number, require: true, index: true },
+  confirm: { type: Array, index: true },
+  brd_dtm: { type: Date, require: true, index: true },
+}, { timestamps: true });
+
+module.exports = mongoose.model('Confirm', Confirm);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;다음과 같은 데이터가 있다고 가정했을때,&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{
+    type: 'A',
+    pgm_id: 1234,
+    confirm:[0,0,0],
+    brd_dtm:  ISODate(&quot;2020-11-26T05:51:37.970Z&quot;)
+
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;모델을 조회 후 수정하였고, 저장했다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;const result = await Confirm.findOne({pgm_id: '1234'});
+
+result.confirm[3] = 10;
+
+await result.save();
+
+console.log(await Confirm.findOne({pgm_id: '1234'}));
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;결과는 데이터가 변경되지 않습니다.&lt;/p&gt;
+
+&lt;p&gt;Array의 경우 수정을 하고 저장을 해도 처리가 되지 않습니다.
+단 Array를 새로 만들어서 넣을 경우는 반영됩니다.&lt;/p&gt;
+
+&lt;p&gt;하지만 매번 Array를 새로 만들기 보다 쉽게 하는 방법은 다음과 같습니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;const result = await Confirm.findOne({pgm_id: '1234'});
+
+result.confirm[3] = 10;
+
+//변경된 사항을 강제 처리
+result.markModified('confirm');
+
+await result.save();
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;이렇게-하는-방식도-있다&quot;&gt;이렇게 하는 방식도 있다!&lt;/h2&gt;
+
+&lt;h1 id=&quot;참고자료&quot;&gt;참고자료&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/35733647/mongoose-instance-save-not-working&quot;&gt;Mongoose instance .save() not working&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="nestjs" /><category term="mongoose" /><category term="save" /><summary type="html">수정을 하고 저장을 해도 수정되지 않는 현상</summary></entry><entry><title type="html">nestjs에서 passport 연동하기</title><link href="https://lahuman.github.io/nestjs_passport_swagger/" rel="alternate" type="text/html" title="nestjs에서 passport 연동하기" /><published>2020-11-19T00:00:00+09:00</published><updated>2020-11-19T00:00:00+09:00</updated><id>https://lahuman.github.io/nestjs_passport_swagger</id><content type="html" xml:base="https://lahuman.github.io/nestjs_passport_swagger/">&lt;h1 id=&quot;nestjs에서-passport를-이용해서-로그인-하는-기능을-확인해보았습니다&quot;&gt;nestjs에서 passport를 이용해서 로그인 하는 기능을 확인해보았습니다.&lt;/h1&gt;
 
 &lt;p&gt;오늘은 &lt;a href=&quot;https://github.com/nestjsplus/test-auth-chapter-sample&quot;&gt;nestjs에서 passport(Local) 예제&lt;/a&gt;에 &lt;a href=&quot;https://github.com/nestjsplus/test-auth-chapter-sample/pull/13&quot;&gt;SAML 연동 예제를 작성해서 PR&lt;/a&gt;을 보냈습니다.&lt;/p&gt;
 
@@ -243,48 +378,4 @@ async () =&amp;gt; {
 
 &lt;p&gt;결국 쉽게 구현이 가능한 A안으로 구현하고 사용해보다 불편하면 좀 어려운 구현인 B안으로 변경하는게 가장 좋은 방안으로 생각됩니다.&lt;/p&gt;
 
-&lt;h2 id=&quot;일단-해보고-결정합니다&quot;&gt;일단 해보고 결정합니다.&lt;/h2&gt;</content><category term="단상" /><summary type="html">나에게 가치 있는 일이란 무엇인가?</summary></entry><entry><title type="html">Docker image로 vue build 시 오류 원인</title><link href="https://lahuman.github.io/docker_image_vue_error/" rel="alternate" type="text/html" title="Docker image로 vue build 시 오류 원인" /><published>2020-10-19T00:00:00+09:00</published><updated>2020-10-19T00:00:00+09:00</updated><id>https://lahuman.github.io/docker_image_vue_error</id><content type="html" xml:base="https://lahuman.github.io/docker_image_vue_error/">&lt;h1 id=&quot;docker-image로-vue-build-시-오류-원인&quot;&gt;Docker image로 vue build 시 오류 원인&lt;/h1&gt;
-
-&lt;p&gt;갑자기 빌드시 아래와 같은 오류가 발생했습니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/vue-cli-service_not_found.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;원인은 yarn 설치시 NODE_ENV 를 &lt;code class=&quot;highlighter-rouge&quot;&gt;production&lt;/code&gt;으로 설정되어 발생합니다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;a href=&quot;https://github.com/vuejs/vue-cli/issues/5107?fbclid=IwAR1PUFDqZZFcsWymlBTqqV-V_wOkYm_OydqAddZHnXxvDSfG14Q8x_QrpyM#issuecomment-586701382&quot;&gt;I found my problem. I was inadvertently setting NODE_ENV to production in my docker-compose so all NPM dev dependencies (including vue-cli-service) were not being installed.&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;를 보면, &lt;code class=&quot;highlighter-rouge&quot;&gt;yarn install&lt;/code&gt; 시 &lt;code class=&quot;highlighter-rouge&quot;&gt;vue-cli-servie&lt;/code&gt;를 설치 하지 않아서 발생합니다.&lt;/p&gt;
-
-&lt;p&gt;해결 방법으로는 ENV (환경변수)를 yarn install 후 build 하기 전에 설정하세요&lt;/p&gt;
-
-&lt;h2 id=&quot;해결-된-dockerfile&quot;&gt;해결 된 Dockerfile&lt;/h2&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;RUN npm install -g yarn
-RUN yarn install
-
-ENV NODE_ENV production
-RUN yarn build
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/vuejs/vue-cli/issues/5107?fbclid=IwAR1PUFDqZZFcsWymlBTqqV-V_wOkYm_OydqAddZHnXxvDSfG14Q8x_QrpyM#issuecomment-586701382&quot;&gt;I found my problem. I was inadvertently setting NODE_ENV to production in my docker-compose so all NPM dev dependencies (including vue-cli-service) were not being installed.&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="vue" /><category term="docker" /><category term="build" /><summary type="html">/bin/sh: vue-cli-service: not found</summary></entry><entry><title type="html">하루종일 짜증이 나는 날입니다.</title><link href="https://lahuman.github.io/20201011/" rel="alternate" type="text/html" title="하루종일 짜증이 나는 날입니다." /><published>2020-10-11T00:00:00+09:00</published><updated>2020-10-11T00:00:00+09:00</updated><id>https://lahuman.github.io/20201011</id><content type="html" xml:base="https://lahuman.github.io/20201011/">&lt;h1 id=&quot;날씨가-꾸릿해서인지-기분이-안좋다&quot;&gt;날씨가 꾸릿해서인지, 기분이 안좋다.&lt;/h1&gt;
-
-&lt;p&gt;안 좋은 기분이 가족에게도 영향을 끼친다.&lt;/p&gt;
-
-&lt;p&gt;아내도 기분이 안좋아서 아침부터 나가버렸다.&lt;/p&gt;
-
-&lt;p&gt;아이들은 엄마가 없으니 나에게 많은 것을 요구한다.&lt;/p&gt;
-
-&lt;p&gt;어제는 갑자기 늙은 개발자의 가치가 무엇인가에 대한 고민을 했다.&lt;/p&gt;
-
-&lt;p&gt;왜? 갑자기? 이런 생각이 들었는지 모르겠다.&lt;/p&gt;
-
-&lt;p&gt;그냥 젊은 개발자(?)들이 부러워서? 또는 내 가치를 모르겠어서?&lt;/p&gt;
-
-&lt;p&gt;근데 꼭 나의 가치를 회사를 통해서만 알아내는게 아니라는 이야기들 듣고 마음이 편해졌다.&lt;/p&gt;
-
-&lt;h2 id=&quot;기분-좋게-변하도록-노력해야겠다&quot;&gt;기분 좋게 변하도록 노력해야겠다.&lt;/h2&gt;</content><category term="단상" /><summary type="html">기분이 내려가서 올라오지 않는 날...</summary></entry></feed>
+&lt;h2 id=&quot;일단-해보고-결정합니다&quot;&gt;일단 해보고 결정합니다.&lt;/h2&gt;</content><category term="단상" /><summary type="html">나에게 가치 있는 일이란 무엇인가?</summary></entry></feed>
