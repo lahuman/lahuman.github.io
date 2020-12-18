@@ -1,4 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-12-09T17:38:36+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Nestjs 듀토리얼 따라하기</title><link href="https://lahuman.github.io/nestjs_tutorial/" rel="alternate" type="text/html" title="Nestjs 듀토리얼 따라하기" /><published>2020-12-09T00:00:00+09:00</published><updated>2020-12-09T00:00:00+09:00</updated><id>https://lahuman.github.io/nestjs_tutorial</id><content type="html" xml:base="https://lahuman.github.io/nestjs_tutorial/">&lt;h1 id=&quot;nestjs-tutorial&quot;&gt;Nestjs tutorial&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-12-19T02:47:51+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">욕심 내려놓기 그리고…</title><link href="https://lahuman.github.io/20201219/" rel="alternate" type="text/html" title="욕심 내려놓기 그리고..." /><published>2020-12-19T00:00:00+09:00</published><updated>2020-12-19T00:00:00+09:00</updated><id>https://lahuman.github.io/20201219</id><content type="html" xml:base="https://lahuman.github.io/20201219/">&lt;h1 id=&quot;인생은-b와-d-사이의-c라고-하지-않았는가&quot;&gt;인생은 B와 D 사이의 C라고 하지 않았는가?&lt;/h1&gt;
+
+&lt;p&gt;인생은 삶(Birth)과 죽음(Death)사이의 선택(Choice)라고 &lt;code class=&quot;highlighter-rouge&quot;&gt;장 폴 사르트르&lt;/code&gt;가 이야기 했다고 합니다.&lt;/p&gt;
+
+&lt;p&gt;40대가 되면서, 욕심을 내려놓고 제가 집중할 수 있는 것에 집중하려고 노력하고 있습니다.&lt;/p&gt;</content><category term="단상" /><summary type="html">능력은 없는데 욕심이 계속 난다.</summary></entry><entry><title type="html">Nestjs 듀토리얼 따라하기</title><link href="https://lahuman.github.io/nestjs_tutorial/" rel="alternate" type="text/html" title="Nestjs 듀토리얼 따라하기" /><published>2020-12-09T00:00:00+09:00</published><updated>2020-12-09T00:00:00+09:00</updated><id>https://lahuman.github.io/nestjs_tutorial</id><content type="html" xml:base="https://lahuman.github.io/nestjs_tutorial/">&lt;h1 id=&quot;nestjs-tutorial&quot;&gt;Nestjs tutorial&lt;/h1&gt;
 
 &lt;h2 id=&quot;1-프로젝트-생성하기&quot;&gt;1. 프로젝트 생성하기&lt;/h2&gt;
 
@@ -371,25 +375,7 @@ export default function App() {
 
 &lt;h2 id=&quot;usestate를-사용할때-꼭-기억하세요&quot;&gt;useState를 사용할때 꼭 기억하세요!&lt;/h2&gt;
 
-&lt;p&gt;«««&amp;lt; HEAD
-&lt;a href=&quot;https://codesandbox.io/s/reactjssetstateasync-8dce3&quot;&gt;전체 예제 코드&lt;/a&gt;
-=======&lt;/p&gt;
-&lt;h2 id=&quot;예제바로보기&quot;&gt;&lt;a href=&quot;https://codesandbox.io/s/reactjssetstateasync-8dce3&quot;&gt;예제바로보기&lt;/a&gt;&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;blockquote&gt;
-    &lt;blockquote&gt;
-      &lt;blockquote&gt;
-        &lt;blockquote&gt;
-          &lt;blockquote&gt;
-            &lt;blockquote&gt;
-              &lt;p&gt;1929e69c5d42ea9b5cc4eee0f8373fb8c39c491c&lt;/p&gt;
-            &lt;/blockquote&gt;
-          &lt;/blockquote&gt;
-        &lt;/blockquote&gt;
-      &lt;/blockquote&gt;
-    &lt;/blockquote&gt;
-  &lt;/blockquote&gt;
-&lt;/blockquote&gt;</content><category term="reactjs" /><category term="usestate" /><category term="asynchronous" /><summary type="html">setState로 값이 변경되면 처리 되는 방법</summary></entry><entry><title type="html">Mongoose에서 Array 내용 수정 후 .save()를 호출해도 동작하지 않는 현상</title><link href="https://lahuman.github.io/mongoose_modify_array_inside/" rel="alternate" type="text/html" title="Mongoose에서 Array 내용 수정 후 .save()를 호출해도 동작하지 않는 현상" /><published>2020-11-26T00:00:00+09:00</published><updated>2020-11-26T00:00:00+09:00</updated><id>https://lahuman.github.io/mongoose_modify_array_inside</id><content type="html" xml:base="https://lahuman.github.io/mongoose_modify_array_inside/">&lt;h1 id=&quot;mongoose에서-array-내용-수정-후-save를-호출해도-동작하지-않는-현상&quot;&gt;Mongoose에서 Array 내용 수정 후 .save()를 호출해도 동작하지 않는 현상&lt;/h1&gt;
+&lt;h2 id=&quot;예제바로보기&quot;&gt;&lt;a href=&quot;https://codesandbox.io/s/reactjssetstateasync-8dce3&quot;&gt;예제바로보기&lt;/a&gt;&lt;/h2&gt;</content><category term="reactjs" /><category term="usestate" /><category term="asynchronous" /><summary type="html">setState로 값이 변경되면 처리 되는 방법</summary></entry><entry><title type="html">Mongoose에서 Array 내용 수정 후 .save()를 호출해도 동작하지 않는 현상</title><link href="https://lahuman.github.io/mongoose_modify_array_inside/" rel="alternate" type="text/html" title="Mongoose에서 Array 내용 수정 후 .save()를 호출해도 동작하지 않는 현상" /><published>2020-11-26T00:00:00+09:00</published><updated>2020-11-26T00:00:00+09:00</updated><id>https://lahuman.github.io/mongoose_modify_array_inside</id><content type="html" xml:base="https://lahuman.github.io/mongoose_modify_array_inside/">&lt;h1 id=&quot;mongoose에서-array-내용-수정-후-save를-호출해도-동작하지-않는-현상&quot;&gt;Mongoose에서 Array 내용 수정 후 .save()를 호출해도 동작하지 않는 현상&lt;/h1&gt;
 
 &lt;p&gt;다음과 같은 mongo Model이 존재 할때,&lt;/p&gt;
 
@@ -490,7 +476,7 @@ await result.save();
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://github.com/lujakob/nestjs-realworld-example-app&quot;&gt;nestjs-realworld-example-app&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="nestjs" /><category term="swagger" /><summary type="html">예제에 swagger body/param/query가 표기 안되어서 수정함</summary></entry><entry><title type="html">javascript에 대한 단상</title><link href="https://lahuman.github.io/20201114/" rel="alternate" type="text/html" title="javascript에 대한 단상" /><published>2020-11-14T00:00:00+09:00</published><updated>2020-11-14T00:00:00+09:00</updated><id>https://lahuman.github.io/20201114</id><content type="html" xml:base="https://lahuman.github.io/20201114/">&lt;h1 id=&quot;1-javascript&quot;&gt;1 Javascript&lt;/h1&gt;
+&lt;/ul&gt;</content><category term="nestjs" /><category term="swagger" /><summary type="html">예제에 swagger body/param/query가 표기 안되어서 수정함</summary></entry><entry><title type="html">javascript에 대한 단상</title><link href="https://lahuman.github.io/20201114/" rel="alternate" type="text/html" title="javascript에 대한 단상" /><published>2020-11-14T00:00:00+09:00</published><updated>2020-11-14T00:00:00+09:00</updated><id>https://lahuman.github.io/20201114</id><content type="html" xml:base="https://lahuman.github.io/20201114/">&lt;h1 id=&quot;javascript&quot;&gt;Javascript&lt;/h1&gt;
 
 &lt;p&gt;10여년전 javascript는 나에게 계륵과 같은 존재였습니다.
 언어라고 하기에는 뭔가 애매하게 동작하는 부분들이 있었습니다.
@@ -593,24 +579,4 @@ if(typeof atob === &quot;undefined&quot;) {
 
 &lt;p&gt;한발자국씩이라도 발전하는 하루하루를 보내게 됩니다.&lt;/p&gt;
 
-&lt;h2 id=&quot;좋은-회사에-들어가는-방법도-있지만-지금-일하는-곳을-좋은-회사로-발전-시키는-방법도-있습니다&quot;&gt;좋은 회사에 들어가는 방법도 있지만, 지금 일하는 곳을 좋은 회사로 발전 시키는 방법도 있습니다.&lt;/h2&gt;</content><category term="단상" /><category term="회사" /><category term="동료" /><summary type="html">내가 생각하는 좋은 회사의 조건</summary></entry><entry><title type="html">Node express에서 Content Security Policy(CSP) 처리 하기</title><link href="https://lahuman.github.io/node_csp_error/" rel="alternate" type="text/html" title="Node express에서 Content Security Policy(CSP) 처리 하기" /><published>2020-10-28T00:00:00+09:00</published><updated>2020-10-28T00:00:00+09:00</updated><id>https://lahuman.github.io/node_csp_error</id><content type="html" xml:base="https://lahuman.github.io/node_csp_error/">&lt;h1 id=&quot;node-express에서-content-security-policycsp-처리-하기&quot;&gt;Node express에서 Content Security Policy(CSP) 처리 하기&lt;/h1&gt;
-
-&lt;p&gt;Google Analytics를 사용하면 CSP 오류가 발생하기도 합니다.&lt;/p&gt;
-
-&lt;p&gt;이때 쉽게 처리 하기 위해서는 helmet 라이브러리의 contentSecurityPolicy 옵션을 false로 변경하면 됩니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;app.use(
-  helmet({
-    contentSecurityPolicy: false,
-  })
-);
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Google Analytics에서는 inline script를 사용하기 때문에, 일반적으로 CSP 처리를 위해 복잡한 설정을 사용하게 됩니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP&quot;&gt;Content Security Policy (CSP)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://analytics.google.com/analytics/web/&quot;&gt;Google Analytics&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.npmjs.com/package/helmet&quot;&gt;helmet&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="express" /><category term="node" /><category term="helmet" /><category term="csp" /><summary type="html">helmet을 사용하면 쉽게 처리 가능합니다</summary></entry></feed>
+&lt;h2 id=&quot;좋은-회사에-들어가는-방법도-있지만-지금-일하는-곳을-좋은-회사로-발전-시키는-방법도-있습니다&quot;&gt;좋은 회사에 들어가는 방법도 있지만, 지금 일하는 곳을 좋은 회사로 발전 시키는 방법도 있습니다.&lt;/h2&gt;</content><category term="단상" /><category term="회사" /><category term="동료" /><summary type="html">내가 생각하는 좋은 회사의 조건</summary></entry></feed>
