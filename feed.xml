@@ -1,4 +1,152 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-12-19T03:30:45+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">욕심 내려놓기 그리고…</title><link href="https://lahuman.github.io/20201219/" rel="alternate" type="text/html" title="욕심 내려놓기 그리고..." /><published>2020-12-19T00:00:00+09:00</published><updated>2020-12-19T00:00:00+09:00</updated><id>https://lahuman.github.io/20201219</id><content type="html" xml:base="https://lahuman.github.io/20201219/">&lt;h1 id=&quot;인생은-b와-d-사이의-c라고-하지-않았는가&quot;&gt;인생은 B와 D 사이의 C라고 하지 않았는가?&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2020-12-31T14:26:46+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">MSSQL POOL을 Express 환경에서 사용하기</title><link href="https://lahuman.github.io/mssql_pool_express/" rel="alternate" type="text/html" title="MSSQL POOL을 Express 환경에서 사용하기" /><published>2020-12-24T00:00:00+09:00</published><updated>2020-12-24T00:00:00+09:00</updated><id>https://lahuman.github.io/mssql_pool_express</id><content type="html" xml:base="https://lahuman.github.io/mssql_pool_express/">&lt;h1 id=&quot;mssql-pool을-express-환경에서-사용하기&quot;&gt;MSSQL POOL을 Express 환경에서 사용하기&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.npmjs.com/package/mssql&quot;&gt;node-mssql&lt;/a&gt;의 예제를 참고로 다음과 같이 사용하고 있었습니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;sql&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'mssql'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// async/await style:&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;pool1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sql&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ConnectionPool&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;pool1Connect&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;pool1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;connect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;pool1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'error'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// ... error handler&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;messageHandler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;pool1Connect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// ensures that the pool has been created&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;try&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;request&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;pool1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// or: new sql.Request(pool1)&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;query&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'select 1 as number'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;dir&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'SQL error'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;문제는 간간히 - &lt;a href=&quot;https://github.com/tediousjs/node-mssql/issues/895&quot;&gt;Error: Already connecting to database&lt;/a&gt; 와 같은 오류가 발생했습니다.&lt;/p&gt;
+
+&lt;p&gt;이유로 매번 요청시마다, connect를 연결하려고 하였기 때문이었습니다.&lt;/p&gt;
+
+&lt;p&gt;해결 방법으로는 &lt;a href=&quot;https://stackoverflow.com/questions/30356148/how-can-i-use-a-single-mssql-connection-pool-across-several-routes-in-an-express&quot;&gt;How can I use a single mssql connection pool across several routes in an Express 4 web application?&lt;/a&gt;에서 제공하는 &lt;code class=&quot;highlighter-rouge&quot;&gt;db.js&lt;/code&gt;를 만들어서 사용하면 됩니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;const sql = require(&quot;mssql&quot;);
+const config = {
+  user: process.env.DB_MSSQL_USER,
+  password: process.env.DB_MSSQL_PASSWORD,
+  server: process.env.DB_MSSQL_IP, // You can use 'localhost\\instance' to connect to named instance
+  database: process.env.DB_MSSQL_DB,
+  options: {
+    encrypt: true, // Use this if you're on Windows Azure
+  },
+  pool: {
+    max: 5,
+    min: 1,
+    idleTimeoutMillis: 30000,
+  },
+};
+
+const poolPromise = new sql.ConnectionPool(config)
+  .connect()
+  .then((pool) =&amp;gt; {
+    console.log(&quot;Connected to MSSQL&quot;);
+    return pool;
+  })
+  .catch((err) =&amp;gt; console.log(&quot;Database Connection Failed! Bad Config: &quot;, err));
+
+module.exports = {
+  sql,
+  poolPromise,
+};
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;오늘의-삽질도-끝&quot;&gt;오늘의 삽질도 끝~&lt;/h2&gt;
+
+&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.npmjs.com/package/mssql&quot;&gt;node-mssql&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/30356148/how-can-i-use-a-single-mssql-connection-pool-across-several-routes-in-an-express&quot;&gt;How can I use a single mssql connection pool across several routes in an Express 4 web application?&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/tediousjs/node-mssql/issues/895&quot;&gt;Error: Already connecting to database&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="express" /><category term="mssql" /><category term="pool" /><summary type="html">예제를 잘보고 사용하자</summary></entry><entry><title type="html">NAVER CLOUD PLATFORM API를 Typescript 기반에서 사용하기</title><link href="https://lahuman.github.io/typescript_ncloud_api/" rel="alternate" type="text/html" title="NAVER CLOUD PLATFORM API를 Typescript 기반에서 사용하기" /><published>2020-12-21T00:00:00+09:00</published><updated>2020-12-21T00:00:00+09:00</updated><id>https://lahuman.github.io/typescript_ncloud_api</id><content type="html" xml:base="https://lahuman.github.io/typescript_ncloud_api/">&lt;h1 id=&quot;naver-cloud-platform-api를-typescript-기반에서-사용하기&quot;&gt;NAVER CLOUD PLATFORM API를 Typescript 기반에서 사용하기&lt;/h1&gt;
+
+&lt;p&gt;회사의 메일 발송은 NAVER CLOUD PLATFORM API를 이용하고 있습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://apidocs.ncloud.com/ko/common/ncpapi/&quot;&gt;NAVER CLOUD PLATFORM API&lt;/a&gt;를 참조하면 인증키를 생성해서 API를 호출 해야 합니다.&lt;/p&gt;
+
+&lt;p&gt;자바를 사용할 경우 쉽게 만들수 있는데, javascript 버젼의 경우 &lt;a href=&quot;https://code.google.com/archive/p/crypto-js/&quot;&gt;CryptoJS v3.1.2&lt;/a&gt;를 사용하는 가이드를 주고 있습니다.&lt;/p&gt;
+
+&lt;p&gt;문제는 nodejs기반에선는 &lt;a href=&quot;https://code.google.com/archive/p/crypto-js/&quot;&gt;CryptoJS v3.1.2&lt;/a&gt;보다는 &lt;a href=&quot;https://www.npmjs.com/package/crypto-js&quot;&gt;crypto-js&lt;/a&gt;를 많이 사용합니다.&lt;/p&gt;
+
+&lt;p&gt;다음 코드는 &lt;a href=&quot;https://www.npmjs.com/package/crypto-js&quot;&gt;crypto-js&lt;/a&gt;를 사용해서 &lt;a href=&quot;https://apidocs.ncloud.com/ko/common/ncpapi/&quot;&gt;NAVER CLOUD PLATFORM API&lt;/a&gt;를 연동한 예제 입니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;메일-발송-예제&quot;&gt;메일 발송 예제&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import { HttpException, HttpStatus, Injectable, Logger } from '@nestjs/common';
+import { SendMailDto } from './dto/sendmail.dto';
+import { MailResultDto } from './dto/mailresult.dto';
+import CryptoJS = require(&quot;crypto-js&quot;);
+import Base64 = require('crypto-js/enc-base64');
+import { HttpService } from &quot;@nestjs/common&quot;;
+
+@Injectable()
+export class MailService {
+  constructor(private httpService: HttpService) { }
+
+  private makeSignature(timestamp: string): string {
+    const space = &quot; &quot;;				// one space
+    const newLine = &quot;\n&quot;;				// new line
+    const method = &quot;POST&quot;;				// method
+    const url = &quot;/api/v1/mails&quot;;	// url (include query string)
+    // const timestamp = new Date().getTime();			// current timestamp (epoch)
+    const accessKey = process.env.MAIL_ACCESS_KEY;			// access key id (from portal or Sub Account)
+    const secretKey = process.env.MAIL_SECRET_KEY;			// secret key (from portal or Sub Account)
+    let baseSignature = (method);
+    baseSignature += (space);
+    baseSignature += (url);
+    baseSignature += (newLine);
+    baseSignature += (timestamp);
+    baseSignature += (newLine);
+    baseSignature += (accessKey);
+
+    const hmac = CryptoJS.HmacSHA256(baseSignature, secretKey);
+    return Base64.stringify(hmac);
+  }
+
+  public async sendMail(sendMailDto: SendMailDto): Promise&amp;lt;MailResultDto&amp;gt; {
+    const timestamp: string = new Date().getTime().toString();
+    return this.httpService.post('https://mail.apigw.ntruss.com/api/v1/mails', sendMailDto, {
+      headers: {
+        &quot;x-ncp-apigw-timestamp&quot;: timestamp,
+        &quot;x-ncp-iam-access-key&quot;: process.env.MAIL_ACCESS_KEY,
+        &quot;x-ncp-apigw-signature-v2&quot;: this.makeSignature(timestamp),
+        &quot;Content-Type&quot;: &quot;application/json&quot;
+      }
+    }).toPromise().then(({ data }) =&amp;gt; data)
+      .catch(e =&amp;gt; {
+        this.logger.error(e);
+        throw new HttpException(&quot;Bad Request.&quot;, HttpStatus.BAD_REQUEST);
+      });
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.npmjs.com/package/crypto-js&quot;&gt;crypto-js&lt;/a&gt;를 Typescript 기반에서 사용할때 주의할 것은, import 방식을 다음과 같이 사용하여야 합니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import CryptoJS = require(&quot;crypto-js&quot;);
+import Base64 = require('crypto-js/enc-base64');
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;어렵고도쉬운문제&quot;&gt;어렵고도쉬운문제&lt;/h2&gt;
+
+&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://apidocs.ncloud.com/ko/common/ncpapi/&quot;&gt;NAVER CLOUD PLATFORM API&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.npmjs.com/package/crypto-js&quot;&gt;crypto-js with npm&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://code.google.com/archive/p/crypto-js/&quot;&gt;crypto-js with google&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/52618158/typeerror-sha256-1-default-is-not-a-function&quot;&gt;TypeError: sha256_1.default is not a function&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="naver" /><category term="api" /><category term="typescript" /><summary type="html">Typescript with NAVER CLOUD PLATFORM API</summary></entry><entry><title type="html">욕심 내려놓기 그리고…</title><link href="https://lahuman.github.io/20201219/" rel="alternate" type="text/html" title="욕심 내려놓기 그리고..." /><published>2020-12-19T00:00:00+09:00</published><updated>2020-12-19T00:00:00+09:00</updated><id>https://lahuman.github.io/20201219</id><content type="html" xml:base="https://lahuman.github.io/20201219/">&lt;h1 id=&quot;인생은-b와-d-사이의-c라고-하지-않았는가&quot;&gt;인생은 B와 D 사이의 C라고 하지 않았는가?&lt;/h1&gt;
 
 &lt;p&gt;인생은 삶(Birth)과 죽음(Death)사이의 선택(Choice)라고 &lt;code class=&quot;highlighter-rouge&quot;&gt;장 폴 사르트르&lt;/code&gt;가 이야기 했다고 합니다.&lt;/p&gt;
 
@@ -492,91 +640,4 @@ await result.save();
 
 &lt;p&gt;시간이 지나 현재의 고민은 좀더 탄탄하고 빠르게 프로그램을 개발하는 일입니다.&lt;/p&gt;
 
-&lt;p&gt;그러기 위해서 &lt;a href=&quot;https://www.typescriptlang.org/&quot;&gt;typescript&lt;/a&gt;를 도입하려고 합니다.&lt;/p&gt;</content><category term="단상" /><category term="개발" /><summary type="html">빠르게 게발하기 + 단단해지기에 대하여</summary></entry><entry><title type="html">JS] typeof를 이용해서 선언되지 않은 변수 확인</title><link href="https://lahuman.github.io/js_typeof/" rel="alternate" type="text/html" title="JS] typeof를 이용해서 선언되지 않은 변수 확인" /><published>2020-11-08T00:00:00+09:00</published><updated>2020-11-08T00:00:00+09:00</updated><id>https://lahuman.github.io/js_typeof</id><content type="html" xml:base="https://lahuman.github.io/js_typeof/">&lt;h1 id=&quot;js-typeof를-이용해서-선언되지-않은-변수-확인&quot;&gt;JS] typeof를 이용해서 선언되지 않은 변수 확인&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;typeof 연산자는 피연산자의 평가 전 자료형을 나타내는 문자열을 반환합니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;값이 없는 변수와 선언되지 않은 변수에 대한 처리를 어떻게 하시나요?&lt;/p&gt;
-
-&lt;p&gt;일반적으로 값이 없는 변수는 undefined를 가지고 있습니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var a;
-
-console.log(a); // undefined
-
-// 처리 방법 
-
-// a의 값이 있을 때만 처리
-if(a){
-
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;자 그럼, 선언되지 않은 변수를 사용하면 어떻게 될까요?&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;console.log(b); // ReferenceError: b is not defined
-
-// ReferenceError: b is not defined
-if(b) {
-  console.log('b');
-}
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;선언되지 않는 변수와 값이 없는 변수는 다른 개념이며 오류가 발생하면 이후 실행이 안됩니다.&lt;/p&gt;
-
-&lt;p&gt;그럼, 선언되지 않은 변수를 확인 하는 방법이 무엇일까요?&lt;/p&gt;
-
-&lt;p&gt;바로 &lt;code class=&quot;highlighter-rouge&quot;&gt;typeof&lt;/code&gt;를 이용하면 됩니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// 선언되었으나 값이 없는 변수
-typeof a; // 'undefined'
-// 선언하지 않은 변수
-typeof b; // 'undefined'
-
-// 조건으로 사용시
-if(typeof b === 'undefined') {
-  console.log('b 는 값이 없거나, 선언되지 않았습니다.');
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;어디에 활용 할까요?&lt;/p&gt;
-
-&lt;p&gt;특정 브라우저에서 지원하지 기능을 구현할때 사용하면 됩니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// atob 가 없을 경우 구현 처리 
-// 선언자(var, const, let)를 사용하지 않아야 전역으로 사용 가능하다.
-if(typeof atob === &quot;undefined&quot;) {
-  atob = function () { /* ... */ };
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/typeof&quot;&gt;typeof&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="javascipt" /><category term="typeof" /><summary type="html">undefined와 ReferenceError에 대한 처리시 유용</summary></entry><entry><title type="html">회사의 가치는 어디서 올까요?</title><link href="https://lahuman.github.io/20201101/" rel="alternate" type="text/html" title="회사의 가치는 어디서 올까요?" /><published>2020-11-01T00:00:00+09:00</published><updated>2020-11-01T00:00:00+09:00</updated><id>https://lahuman.github.io/20201101</id><content type="html" xml:base="https://lahuman.github.io/20201101/">&lt;h1 id=&quot;내가-생각하는-좋은-회사란&quot;&gt;내가 생각하는 좋은 회사란?&lt;/h1&gt;
-
-&lt;h3 id=&quot;q-회사의-가치는-어디서-올까요&quot;&gt;Q. 회사의 가치는 어디서 올까요?&lt;/h3&gt;
-
-&lt;p&gt;제가 생각하는 회사의 가장 큰 가치는 동료입니다.&lt;/p&gt;
-
-&lt;p&gt;물론 연봉이나 복지도 중요하지만, 지속적인 발전과 변화를 위해서는 함께 일하는 사람이 가장 중요합니다.&lt;/p&gt;
-
-&lt;h3 id=&quot;q-어떤-동료가-좋은-동료인가요&quot;&gt;Q. 어떤 동료가 좋은 동료인가요?&lt;/h3&gt;
-
-&lt;p&gt;틀림이 아니라 다름을 인정 할 수 있어야 하고, 모두에게 배울수 있어야 합니다.&lt;/p&gt;
-
-&lt;p&gt;나이, 경력, 학벌에 상관없이 서로 배우고 가끔은 자극제가 되기도 해야하며, 믿고 기댈 수 있는 지지자가 되어야 합니다.&lt;/p&gt;
-
-&lt;h3 id=&quot;q-좋은-동료와-일하면-어떻게-다른가요&quot;&gt;Q. 좋은 동료와 일하면 어떻게 다른가요?&lt;/h3&gt;
-
-&lt;p&gt;새로운 시도를 피하지 않게 됩니다.
-나를 믿고, 또는 동료를 믿고 실패해도 실패에 대한 경험을 공유 하면 됩니다.&lt;/p&gt;
-
-&lt;p&gt;내가 실패한 시도가 거름이 되어 다음 시도를 한 동료는 성공 합니다.&lt;/p&gt;
-
-&lt;p&gt;한발자국씩이라도 발전하는 하루하루를 보내게 됩니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;좋은-회사에-들어가는-방법도-있지만-지금-일하는-곳을-좋은-회사로-발전-시키는-방법도-있습니다&quot;&gt;좋은 회사에 들어가는 방법도 있지만, 지금 일하는 곳을 좋은 회사로 발전 시키는 방법도 있습니다.&lt;/h2&gt;</content><category term="단상" /><category term="회사" /><category term="동료" /><summary type="html">내가 생각하는 좋은 회사의 조건</summary></entry></feed>
+&lt;p&gt;그러기 위해서 &lt;a href=&quot;https://www.typescriptlang.org/&quot;&gt;typescript&lt;/a&gt;를 도입하려고 합니다.&lt;/p&gt;</content><category term="단상" /><category term="개발" /><summary type="html">빠르게 게발하기 + 단단해지기에 대하여</summary></entry></feed>
