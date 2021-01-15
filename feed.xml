@@ -1,4 +1,102 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2021-01-15T07:25:55+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">라즈베리파이에 k3s 설치 하기</title><link href="https://lahuman.github.io/raspberrypi_k3s/" rel="alternate" type="text/html" title="라즈베리파이에 k3s 설치 하기" /><published>2021-01-13T00:00:00+09:00</published><updated>2021-01-13T00:00:00+09:00</updated><id>https://lahuman.github.io/raspberrypi_k3s</id><content type="html" xml:base="https://lahuman.github.io/raspberrypi_k3s/">&lt;h1 id=&quot;라즈베리파이에-k3s-설치-하기&quot;&gt;라즈베리파이에 k3s 설치 하기&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2021-01-15T20:49:17+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">라즈베리파이에 ubuntu 설치 하기</title><link href="https://lahuman.github.io/raspberrypi_ubuntu/" rel="alternate" type="text/html" title="라즈베리파이에 ubuntu 설치 하기" /><published>2021-01-15T00:00:00+09:00</published><updated>2021-01-15T00:00:00+09:00</updated><id>https://lahuman.github.io/raspberrypi_ubuntu</id><content type="html" xml:base="https://lahuman.github.io/raspberrypi_ubuntu/">&lt;h1 id=&quot;라즈베리파이에-ubuntu-설치하기&quot;&gt;라즈베리파이에 ubuntu 설치하기&lt;/h1&gt;
+
+&lt;h2 id=&quot;ubuntu-2004-다운로드&quot;&gt;Ubuntu 20.04 다운로드&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://ubuntu.com/download/raspberry-pi&quot;&gt;Install Ubuntu on a Raspberry Pi 2, 3 or 4&lt;/a&gt;에서 본인의 라즈베리파이에 맞는 이미지를 다운로드 받습니다.&lt;/p&gt;
+
+&lt;p&gt;제 경우는 라즈베리파이 3+ 와 4를 가지고 있어서, 64bit로 다운받았습니다.&lt;/p&gt;
+
+&lt;p&gt;이전 포스트와 마찬가지오 SD카드에 다운 받은 이미지를 굽습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;wifi-연결&quot;&gt;WIFI 연결&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;설정은 root 권한으로 진행해야 하기에 sudo를 사용합니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;라즈베리파이에서 wif로 연결을 하기 위해서는 먼저 wifi 국가를 JP로 설정해야 됩니다.
+JP로 설정하면 대부분의 공유기 wifi를 지원합니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 영구적으로 wifi 국가 정보를 변경합니다.
+sudo vi  /etc/default/crda 
+
+REGDOMAIN=JP
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;wifi-설정&quot;&gt;wifi 설정&lt;/h3&gt;
+
+&lt;p&gt;netplan을 이용해서 wifi의 정보를 설정하고 반영합니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo vi /etc/netplan/50-cloud-init.yaml
+
+network:
+    ethernets:
+        eth0:
+            dhcp4: true
+            optional: true
+# wifi 설정            
+    wifis:
+        wlan0:
+            dhcp4: no
+            optional: true
+# static ip 설정
+            addresses: [192.168.0.31/24]
+            gateway4: 192.168.0.1
+            nameservers:
+                addresses: [8.8.8.8,8.8.4.4]
+# wifi access point 정보 
+            access-points:
+                &quot;DL2&quot;:
+                    password: &quot;99876543@!q&quot;
+    version: 2
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;위의 내용을 저장하고 netplan 정보를 생성하고 반영합니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 정보 생성
+sudo netplan generate
+# 정보 반영
+sudo netplan apply
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;설정중 오류가 발생하면 &lt;a href=&quot;https://linuxhint.com/wi-fi_connecting_issues_raspberry_pi/&quot;&gt;Raspberry Pi Not Connecting to Wi-Fi&lt;/a&gt; 여기에서 정보를 확인 해보셔요.&lt;/p&gt;
+
+&lt;h2 id=&quot;sshd-설치--설정&quot;&gt;sshd 설치 &amp;amp; 설정&lt;/h2&gt;
+
+&lt;p&gt;마지막으로 sshd로 다른 PC에서 접근하기 위해서 sshd 설치하고 설정합니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# sshd 설치
+sudo apt install openssh-server
+# 설정 변경
+sudo vi /etc/ssh/sshd_config
+# 부팅시 sshd 실행
+sudo  systemctl enable sshd
+# 변경된 설정 반영
+sudo  systemctl restart sshd
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;여기까지 ubuntu의 기본 설정을 마무리합니다.&lt;/p&gt;
+
+&lt;p&gt;다음으로 k3s 를 재설치 해보고 테스트 해볼 예정입니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://ubuntu.com/download/raspberry-pi&quot;&gt;Install Ubuntu on a Raspberry Pi 2, 3 or 4&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://linuxhint.com/wi-fi_connecting_issues_raspberry_pi/&quot;&gt;Raspberry Pi Not Connecting to Wi-Fi&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.lesstif.com/lpt/sshd-server-24445601.html&quot;&gt;우분투 데스크탑 sshd server 활성화&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="raspberrypi" /><category term="ubuntu" /><summary type="html">k3s 재설치를 위한 1보 후퇴</summary></entry><entry><title type="html">회사를 나가는 분이 감사하다고 이야기 했다.</title><link href="https://lahuman.github.io/20210115/" rel="alternate" type="text/html" title="회사를 나가는 분이 감사하다고 이야기 했다." /><published>2021-01-15T00:00:00+09:00</published><updated>2021-01-15T00:00:00+09:00</updated><id>https://lahuman.github.io/20210115</id><content type="html" xml:base="https://lahuman.github.io/20210115/">&lt;h1 id=&quot;선임으로-많은-것을-해주지-못해서-미안하고-좋은-곳으로-가게-되어서-축하드려요&quot;&gt;선임으로 많은 것을 해주지 못해서 미안하고, 좋은 곳으로 가게 되어서 축하드려요.&lt;/h1&gt;
+
+&lt;p&gt;작년에는 같은 팀이 었지만, 다른 팀으로 전배를 하게된 분이 있습니다.&lt;/p&gt;
+
+&lt;p&gt;저와 친하게 지냈고, 성격도 활발해서 즐겁게 일했던 기억을 가지고 있는 분입니다.&lt;/p&gt;
+
+&lt;p&gt;조용히 저에게 와서 그동안 고마웠다고 이야기 하시네요.&lt;/p&gt;
+
+&lt;p&gt;전배이후 좀 힘들어 했는데, 잘된거 같습니다.&lt;/p&gt;
+
+&lt;p&gt;좋은 사람들이 떠나는 건 늘 아쉬운 마음이 드네요.&lt;/p&gt;
+
+&lt;h2 id=&quot;잘가요-고생했어요&quot;&gt;잘가요 고생했어요.&lt;/h2&gt;</content><category term="단상" /><summary type="html">그동안 고마웠다고, 그리고 계속 연락하자고</summary></entry><entry><title type="html">라즈베리파이에 k3s 설치 하기</title><link href="https://lahuman.github.io/raspberrypi_k3s/" rel="alternate" type="text/html" title="라즈베리파이에 k3s 설치 하기" /><published>2021-01-13T00:00:00+09:00</published><updated>2021-01-13T00:00:00+09:00</updated><id>https://lahuman.github.io/raspberrypi_k3s</id><content type="html" xml:base="https://lahuman.github.io/raspberrypi_k3s/">&lt;h1 id=&quot;라즈베리파이에-k3s-설치-하기&quot;&gt;라즈베리파이에 k3s 설치 하기&lt;/h1&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;이 포스팅은 실패를 적은 것입니다.&lt;/p&gt;
@@ -106,7 +204,7 @@ curl -sfL https://get.k3s.io | sudo sh -
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo kubectl get nodes
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/raspberry_os_download.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/k3s_install.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;worker-node-설치&quot;&gt;worker node 설치&lt;/h3&gt;
 
@@ -172,7 +270,7 @@ console=serial0,115200 console=tty1 root=PARTUUID=dd5ac5d2-02 rootfstype=ext4 el
   &lt;li&gt;&lt;a href=&quot;https://opensource.com/article/20/3/kubernetes-raspberry-pi-k3s&quot;&gt;Run Kubernetes on a Raspberry Pi with k3s&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://github.com/k3s-io/k3s/issues/294&quot;&gt;k3s causes a high load average&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://blog.codybunch.com/2020/07/31/Fixing-cgroup-memory-on-Raspbian-Buster-for-Kernel-54x/&quot;&gt;Fixing cgroup memory on Raspbian Buster for Kernel 5.4.x&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="raspberrypi" /><category term="k3s" /><summary type="html">망한 k3s 설치 괴담...</summary></entry><entry><title type="html">MSSQL POOL을 Express 환경에서 사용하기</title><link href="https://lahuman.github.io/mssql_pool_express/" rel="alternate" type="text/html" title="MSSQL POOL을 Express 환경에서 사용하기" /><published>2020-12-24T00:00:00+09:00</published><updated>2020-12-24T00:00:00+09:00</updated><id>https://lahuman.github.io/mssql_pool_express</id><content type="html" xml:base="https://lahuman.github.io/mssql_pool_express/">&lt;h1 id=&quot;mssql-pool을-express-환경에서-사용하기&quot;&gt;MSSQL POOL을 Express 환경에서 사용하기&lt;/h1&gt;
+&lt;/ul&gt;</content><category term="raspberrypi" /><category term="k3s" /><summary type="html">망한 k3s 설치 괴담입니다. 설치했으나.. 제대로 동작하지 않아요.</summary></entry><entry><title type="html">MSSQL POOL을 Express 환경에서 사용하기</title><link href="https://lahuman.github.io/mssql_pool_express/" rel="alternate" type="text/html" title="MSSQL POOL을 Express 환경에서 사용하기" /><published>2020-12-24T00:00:00+09:00</published><updated>2020-12-24T00:00:00+09:00</updated><id>https://lahuman.github.io/mssql_pool_express</id><content type="html" xml:base="https://lahuman.github.io/mssql_pool_express/">&lt;h1 id=&quot;mssql-pool을-express-환경에서-사용하기&quot;&gt;MSSQL POOL을 Express 환경에서 사용하기&lt;/h1&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://www.npmjs.com/package/mssql&quot;&gt;node-mssql&lt;/a&gt;의 예제를 참고로 다음과 같이 사용하고 있었습니다.&lt;/p&gt;
 
@@ -322,7 +420,11 @@ import Base64 = require('crypto-js/enc-base64');
   &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/52618158/typeerror-sha256-1-default-is-not-a-function&quot;&gt;TypeError: sha256_1.default is not a function&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</content><category term="naver" /><category term="api" /><category term="typescript" /><summary type="html">Typescript with NAVER CLOUD PLATFORM API</summary></entry><entry><title type="html">욕심 내려놓기 그리고…</title><link href="https://lahuman.github.io/20201219/" rel="alternate" type="text/html" title="욕심 내려놓기 그리고..." /><published>2020-12-19T00:00:00+09:00</published><updated>2020-12-19T00:00:00+09:00</updated><id>https://lahuman.github.io/20201219</id><content type="html" xml:base="https://lahuman.github.io/20201219/">&lt;h1 id=&quot;인생은-b와-d-사이의-c라고-하지-않았는가&quot;&gt;인생은 B와 D 사이의 C라고 하지 않았는가?&lt;/h1&gt;
 
-&lt;p&gt;인생은 삶(Birth)과 죽음(Death)사이의 선택(Choice)라고 &lt;code class=&quot;highlighter-rouge&quot;&gt;장 폴 사르트르&lt;/code&gt;가 이야기 했다고 합니다.&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;인생은 삶(Birth)과 죽음(Death)사이의 선택(Choice)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;이라고&lt;code class=&quot;highlighter-rouge&quot;&gt;장 폴 사르트르&lt;/code&gt;가 이야기 했다고 합니다.&lt;/p&gt;
 
 &lt;p&gt;40대가 되면서, 욕심을 내려놓고 제가 집중할 수 있는 것에 집중하려고 노력하고 있습니다.&lt;/p&gt;</content><category term="단상" /><summary type="html">능력은 없는데 욕심이 계속 난다.</summary></entry><entry><title type="html">Nestjs 듀토리얼 따라하기</title><link href="https://lahuman.github.io/nestjs_tutorial/" rel="alternate" type="text/html" title="Nestjs 듀토리얼 따라하기" /><published>2020-12-09T00:00:00+09:00</published><updated>2020-12-09T00:00:00+09:00</updated><id>https://lahuman.github.io/nestjs_tutorial</id><content type="html" xml:base="https://lahuman.github.io/nestjs_tutorial/">&lt;h1 id=&quot;nestjs-tutorial&quot;&gt;Nestjs tutorial&lt;/h1&gt;
 
@@ -762,40 +864,4 @@ await result.save();
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/35733647/mongoose-instance-save-not-working&quot;&gt;Mongoose instance .save() not working&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="nestjs" /><category term="mongoose" /><category term="save" /><summary type="html">수정을 하고 저장을 해도 수정되지 않는 현상</summary></entry><entry><title type="html">nestjs에서 passport 연동하기</title><link href="https://lahuman.github.io/nestjs_passport_swagger/" rel="alternate" type="text/html" title="nestjs에서 passport 연동하기" /><published>2020-11-19T00:00:00+09:00</published><updated>2020-11-19T00:00:00+09:00</updated><id>https://lahuman.github.io/nestjs_passport_swagger</id><content type="html" xml:base="https://lahuman.github.io/nestjs_passport_swagger/">&lt;h1 id=&quot;nestjs에서-passport를-이용해서-로그인-하는-기능을-확인해보았습니다&quot;&gt;nestjs에서 passport를 이용해서 로그인 하는 기능을 확인해보았습니다.&lt;/h1&gt;
-
-&lt;p&gt;오늘은 &lt;a href=&quot;https://github.com/nestjsplus/test-auth-chapter-sample&quot;&gt;nestjs에서 passport(Local) 예제&lt;/a&gt;에 &lt;a href=&quot;https://github.com/nestjsplus/test-auth-chapter-sample/pull/13&quot;&gt;SAML 연동 예제를 작성해서 PR&lt;/a&gt;을 보냈습니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/rucken/core-nestjs&quot;&gt;다른 예제&lt;/a&gt;도 있었지만, 이 예제가 가장 심플하게 구성되어 있네요.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;도움받은 것을 다시 나누기 위해서 요즘 PR을 열심히 작성하고 있습니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;혹시 nestjs에서 passport 연동을 테스트 해보고 싶으시면 &lt;a href=&quot;https://github.com/nestjsplus/test-auth-chapter-sample&quot;&gt;예제&lt;/a&gt;를 보셔요&lt;/p&gt;
-
-&lt;p&gt;물론 &lt;a href=&quot;https://docs.nestjs.com/techniques/authentication&quot;&gt;nestjs에서 제공되는 샘플&lt;/a&gt;이 있지만, 조각 코드라 실제로 구동하긴 어렵습니다.&lt;/p&gt;
-
-&lt;p&gt;또한 각 url의 설명을 Swagger document를 이용해서 작성했습니다.&lt;/p&gt;
-
-&lt;h1 id=&quot;참고자료&quot;&gt;참고자료&lt;/h1&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/nestjsplus/test-auth-chapter-sample&quot;&gt;test-auth-chapter-sample&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/nestjs/docs.nestjs.com/issues/237&quot;&gt;NestJS Authenticated sessions documentation has major gaps and is seemingly wrong #237&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/rucken/core-nestjs&quot;&gt;core-nestjs&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="nestjs" /><category term="passport" /><category term="auth" /><summary type="html">nestjs + passport</summary></entry><entry><title type="html">nestjs 예제 추천</title><link href="https://lahuman.github.io/nestjs_example_swagger/" rel="alternate" type="text/html" title="nestjs 예제 추천" /><published>2020-11-15T00:00:00+09:00</published><updated>2020-11-15T00:00:00+09:00</updated><id>https://lahuman.github.io/nestjs_example_swagger</id><content type="html" xml:base="https://lahuman.github.io/nestjs_example_swagger/">&lt;h1 id=&quot;nestjs-예제-추천&quot;&gt;nestjs 예제 추천&lt;/h1&gt;
-
-&lt;p&gt;nestjs기반으로 Backend 를 개발하고 있습니다.&lt;/p&gt;
-
-&lt;p&gt;예제로 &lt;a href=&quot;https://github.com/lujakob/nestjs-realworld-example-app&quot;&gt;nestjs-realworld-example-app&lt;/a&gt; 프로젝트를 참고 하였습니다.&lt;/p&gt;
-
-&lt;p&gt;해당 프로젝트에서 아쉽게도 Swagger-docs에 body나 param/query 등이 제대로 표기되지 않아서 수정을 하였습니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/lujakob/nestjs-realworld-example-app/pull/52?&quot;&gt;pull request&lt;/a&gt;를 날리긴 했는데, 받아들여질지는 모르겠습니다.&lt;/p&gt;
-
-&lt;h1 id=&quot;참고자료&quot;&gt;참고자료&lt;/h1&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/lujakob/nestjs-realworld-example-app&quot;&gt;nestjs-realworld-example-app&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="nestjs" /><category term="swagger" /><summary type="html">예제에 swagger body/param/query가 표기 안되어서 수정함</summary></entry></feed>
+&lt;/ul&gt;</content><category term="nestjs" /><category term="mongoose" /><category term="save" /><summary type="html">수정을 하고 저장을 해도 수정되지 않는 현상</summary></entry></feed>
