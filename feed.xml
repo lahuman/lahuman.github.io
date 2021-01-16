@@ -1,12 +1,16 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2021-01-15T20:49:17+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">라즈베리파이에 ubuntu 설치 하기</title><link href="https://lahuman.github.io/raspberrypi_ubuntu/" rel="alternate" type="text/html" title="라즈베리파이에 ubuntu 설치 하기" /><published>2021-01-15T00:00:00+09:00</published><updated>2021-01-15T00:00:00+09:00</updated><id>https://lahuman.github.io/raspberrypi_ubuntu</id><content type="html" xml:base="https://lahuman.github.io/raspberrypi_ubuntu/">&lt;h1 id=&quot;라즈베리파이에-ubuntu-설치하기&quot;&gt;라즈베리파이에 ubuntu 설치하기&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2021-01-16T09:37:22+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">라즈베리파이에 ubuntu 설치 하기</title><link href="https://lahuman.github.io/raspberrypi_ubuntu/" rel="alternate" type="text/html" title="라즈베리파이에 ubuntu 설치 하기" /><published>2021-01-15T00:00:00+09:00</published><updated>2021-01-15T00:00:00+09:00</updated><id>https://lahuman.github.io/raspberrypi_ubuntu</id><content type="html" xml:base="https://lahuman.github.io/raspberrypi_ubuntu/">&lt;h1 id=&quot;라즈베리파이에-ubuntu-설치하기&quot;&gt;라즈베리파이에 ubuntu 설치하기&lt;/h1&gt;
 
 &lt;h2 id=&quot;ubuntu-2004-다운로드&quot;&gt;Ubuntu 20.04 다운로드&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://ubuntu.com/download/raspberry-pi&quot;&gt;Install Ubuntu on a Raspberry Pi 2, 3 or 4&lt;/a&gt;에서 본인의 라즈베리파이에 맞는 이미지를 다운로드 받습니다.&lt;/p&gt;
 
-&lt;p&gt;제 경우는 라즈베리파이 3+ 와 4를 가지고 있어서, 64bit로 다운받았습니다.&lt;/p&gt;
+&lt;p&gt;제 경우는 라즈베리파이 3+ 와 4를 가지고 있어서, Ubuntu Server 20.04.1 LTS 64bit로 다운받았습니다.&lt;/p&gt;
 
 &lt;p&gt;이전 포스트와 마찬가지오 SD카드에 다운 받은 이미지를 굽습니다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;초기 아이디 / 비밀번호는 ubuntu / ubuntu 를 입력하면 됩니다. 설정 후 해당 계정을 삭제 하시는 것을 추천 드려요.&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;h2 id=&quot;wifi-연결&quot;&gt;WIFI 연결&lt;/h2&gt;
 
