@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2021-01-22T10:35:45+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Workplace Export</title><link href="https://lahuman.github.io/workplace_export/" rel="alternate" type="text/html" title="Workplace Export" /><published>2021-01-22T00:00:00+09:00</published><updated>2021-01-22T00:00:00+09:00</updated><id>https://lahuman.github.io/workplace_export</id><content type="html" xml:base="https://lahuman.github.io/workplace_export/">&lt;h1 id=&quot;workplace-export&quot;&gt;&lt;a href=&quot;https://github.com/lahuman/workplace_export&quot;&gt;Workplace Export&lt;/a&gt;&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2021-01-22T21:01:51+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Workplace Export</title><link href="https://lahuman.github.io/workplace_export/" rel="alternate" type="text/html" title="Workplace Export" /><published>2021-01-22T00:00:00+09:00</published><updated>2021-01-22T00:00:00+09:00</updated><id>https://lahuman.github.io/workplace_export</id><content type="html" xml:base="https://lahuman.github.io/workplace_export/">&lt;h1 id=&quot;workplace-export&quot;&gt;&lt;a href=&quot;https://github.com/lahuman/workplace_export&quot;&gt;Workplace Export&lt;/a&gt;&lt;/h1&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;워크플레이스의 관리자 패널에서는 특정 Group의 게시글을 export를 제공하지 않습니다.&lt;/p&gt;
@@ -150,7 +150,84 @@ REACT_APP_LIMIT=100 # 게시글 다운수 (backend와 같은 수 화면 표기�
 &lt;ul&gt;
   &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;http://opensource.org/licenses/mit-license.php&quot;&gt;MIT license&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
   &lt;li&gt;Copyright 2020 © &lt;a href=&quot;https://lahuman.github.io&quot; target=&quot;_blank&quot;&gt;lahuman&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;</content><category term="workplace" /><category term="export" /><category term="xlsx" /><summary type="html">워크 플레이스의 게시글을 Exprot 하는 프로젝트입니다.</summary></entry><entry><title type="html">hp-15s-eq1156au 노트북 리뷰</title><link href="https://lahuman.github.io/20210121/" rel="alternate" type="text/html" title="hp-15s-eq1156au 노트북 리뷰" /><published>2021-01-21T00:00:00+09:00</published><updated>2021-01-21T00:00:00+09:00</updated><id>https://lahuman.github.io/20210121</id><content type="html" xml:base="https://lahuman.github.io/20210121/">&lt;h1 id=&quot;구매는-2020년-11월-11일에-했고-1월-20일에-제품을-받았습니다&quot;&gt;구매는 2020년 11월 11일에 했고, 1월 20일에 제품을 받았습니다.&lt;/h1&gt;
+&lt;/ul&gt;</content><category term="workplace" /><category term="export" /><category term="xlsx" /><summary type="html">워크 플레이스의 게시글을 Exprot 하는 프로젝트입니다.</summary></entry><entry><title type="html">ReactJS에서 JSON 데이터를 xlsx로 다운로드 하기</title><link href="https://lahuman.github.io/frontend_xlsx_filesaver/" rel="alternate" type="text/html" title="ReactJS에서 JSON 데이터를 xlsx로 다운로드 하기" /><published>2021-01-22T00:00:00+09:00</published><updated>2021-01-22T00:00:00+09:00</updated><id>https://lahuman.github.io/frontend_xlsx_filesaver</id><content type="html" xml:base="https://lahuman.github.io/frontend_xlsx_filesaver/">&lt;h1 id=&quot;json-데이터를-xlxs-형식으로-다운로드-하기-by-reactjs&quot;&gt;JSON 데이터를 xlxs 형식으로 다운로드 하기 by ReactJS&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;일반적으로 json 데이터를 xlsx로 서버단에서 변환하고 response로 쏘아서 다운로드를 하고 있습니다.
+ReactJS를 사용하면서, 화면내에 있는 데이터를 xlsx로 다운로드 하고 싶어서 찾아보니, &lt;a href=&quot;https://www.npmjs.com/package/file-saver&quot;&gt;file-saver&lt;/a&gt;라는 모듈이 있네요.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;jons을 XLSX형식으로 변환하는 모듈은 &lt;a href=&quot;https://www.npmjs.com/package/xlsx&quot;&gt;xlsx&lt;/a&gt;을 사용하였습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;예제&quot;&gt;예제&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#index.jsx
+import &quot;./styles.css&quot;;
+import { saveAs } from &quot;file-saver&quot;;
+import * as XLSX from 'xlsx';
+
+export default function App() {
+  const fileType =
+    &quot;application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8&quot;;
+  const fileExtension = &quot;.xlsx&quot;;
+  const ws = XLSX.utils.json_to_sheet([
+    {
+      id: 1,
+      name: &quot;Daniel&quot;,
+      age: &quot;20&quot;,
+      sex: &quot;M&quot;
+    },
+    {
+      id: 2,
+      name: &quot;Kim&quot;,
+      age: &quot;30&quot;,
+      sex: &quot;M&quot;
+    },
+    {
+      id: 3,
+      name: &quot;Lee&quot;,
+      age: &quot;33&quot;,
+      sex: &quot;M&quot;
+    },
+    {
+      id: 4,
+      name: &quot;Min&quot;,
+      age: &quot;50&quot;,
+      sex: &quot;F&quot;
+    },
+    {
+      id: 5,
+      name: &quot;Yun&quot;,
+      age: &quot;20&quot;,
+      sex: &quot;F&quot;
+    }
+  ]);
+
+  const fileDownload = () =&amp;gt; {
+    const wb = { Sheets: { data: ws }, SheetNames: [&quot;data&quot;] };
+    const excelBuffer = XLSX.write(wb, { bookType: &quot;xlsx&quot;, type: &quot;array&quot; });
+    const data = new Blob([excelBuffer], { type: fileType });
+    saveAs(data, `file${fileExtension}`);
+  };
+
+  return (
+    &amp;lt;div className=&quot;App&quot;&amp;gt;
+      &amp;lt;h1&amp;gt;JSON to XLSX&amp;lt;/h1&amp;gt;
+      &amp;lt;button onClick={fileDownload}&amp;gt;FILE DONWLOAD&amp;lt;/button&amp;gt;
+    &amp;lt;/div&amp;gt;
+  );
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://codesandbox.io/s/json2xlsx-download-ny0kt?file=/src/App.js:0-1120&quot;&gt;예제 바로가기&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;이전에는 더 복잡하게 처리 했었는데, &lt;a href=&quot;https://www.npmjs.com/package/file-saver&quot;&gt;file-saver&lt;/a&gt;를 사용하면 쉽게 frontend에서도 다운로드 구현이 가능합니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.npmjs.com/package/xlsx&quot;&gt;xlsx&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.npmjs.com/package/file-saver&quot;&gt;file-saver&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="json" /><category term="xlsx" /><category term="download" /><summary type="html">Frontend에서 xlsx 다운로드 모듈을 사용한 예제입니다.</summary></entry><entry><title type="html">hp-15s-eq1156au 노트북 리뷰</title><link href="https://lahuman.github.io/20210121/" rel="alternate" type="text/html" title="hp-15s-eq1156au 노트북 리뷰" /><published>2021-01-21T00:00:00+09:00</published><updated>2021-01-21T00:00:00+09:00</updated><id>https://lahuman.github.io/20210121</id><content type="html" xml:base="https://lahuman.github.io/20210121/">&lt;h1 id=&quot;구매는-2020년-11월-11일에-했고-1월-20일에-제품을-받았습니다&quot;&gt;구매는 2020년 11월 11일에 했고, 1월 20일에 제품을 받았습니다.&lt;/h1&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/img/post_img/hp-15s-eq1156au.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
@@ -847,81 +924,4 @@ module.exports = {
   &lt;li&gt;&lt;a href=&quot;https://www.npmjs.com/package/mssql&quot;&gt;node-mssql&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/30356148/how-can-i-use-a-single-mssql-connection-pool-across-several-routes-in-an-express&quot;&gt;How can I use a single mssql connection pool across several routes in an Express 4 web application?&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://github.com/tediousjs/node-mssql/issues/895&quot;&gt;Error: Already connecting to database&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="express" /><category term="mssql" /><category term="pool" /><summary type="html">예제를 잘보고 사용하자</summary></entry><entry><title type="html">NAVER CLOUD PLATFORM API를 Typescript 기반에서 사용하기</title><link href="https://lahuman.github.io/typescript_ncloud_api/" rel="alternate" type="text/html" title="NAVER CLOUD PLATFORM API를 Typescript 기반에서 사용하기" /><published>2020-12-21T00:00:00+09:00</published><updated>2020-12-21T00:00:00+09:00</updated><id>https://lahuman.github.io/typescript_ncloud_api</id><content type="html" xml:base="https://lahuman.github.io/typescript_ncloud_api/">&lt;h1 id=&quot;naver-cloud-platform-api를-typescript-기반에서-사용하기&quot;&gt;NAVER CLOUD PLATFORM API를 Typescript 기반에서 사용하기&lt;/h1&gt;
-
-&lt;p&gt;회사의 메일 발송은 NAVER CLOUD PLATFORM API를 이용하고 있습니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://apidocs.ncloud.com/ko/common/ncpapi/&quot;&gt;NAVER CLOUD PLATFORM API&lt;/a&gt;를 참조하면 인증키를 생성해서 API를 호출 해야 합니다.&lt;/p&gt;
-
-&lt;p&gt;자바를 사용할 경우 쉽게 만들수 있는데, javascript 버젼의 경우 &lt;a href=&quot;https://code.google.com/archive/p/crypto-js/&quot;&gt;CryptoJS v3.1.2&lt;/a&gt;를 사용하는 가이드를 주고 있습니다.&lt;/p&gt;
-
-&lt;p&gt;문제는 nodejs기반에선는 &lt;a href=&quot;https://code.google.com/archive/p/crypto-js/&quot;&gt;CryptoJS v3.1.2&lt;/a&gt;보다는 &lt;a href=&quot;https://www.npmjs.com/package/crypto-js&quot;&gt;crypto-js&lt;/a&gt;를 많이 사용합니다.&lt;/p&gt;
-
-&lt;p&gt;다음 코드는 &lt;a href=&quot;https://www.npmjs.com/package/crypto-js&quot;&gt;crypto-js&lt;/a&gt;를 사용해서 &lt;a href=&quot;https://apidocs.ncloud.com/ko/common/ncpapi/&quot;&gt;NAVER CLOUD PLATFORM API&lt;/a&gt;를 연동한 예제 입니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;메일-발송-예제&quot;&gt;메일 발송 예제&lt;/h2&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import { HttpException, HttpStatus, Injectable, Logger } from '@nestjs/common';
-import { SendMailDto } from './dto/sendmail.dto';
-import { MailResultDto } from './dto/mailresult.dto';
-import CryptoJS = require(&quot;crypto-js&quot;);
-import Base64 = require('crypto-js/enc-base64');
-import { HttpService } from &quot;@nestjs/common&quot;;
-
-@Injectable()
-export class MailService {
-  constructor(private httpService: HttpService) { }
-
-  private makeSignature(timestamp: string): string {
-    const space = &quot; &quot;;				// one space
-    const newLine = &quot;\n&quot;;				// new line
-    const method = &quot;POST&quot;;				// method
-    const url = &quot;/api/v1/mails&quot;;	// url (include query string)
-    // const timestamp = new Date().getTime();			// current timestamp (epoch)
-    const accessKey = process.env.MAIL_ACCESS_KEY;			// access key id (from portal or Sub Account)
-    const secretKey = process.env.MAIL_SECRET_KEY;			// secret key (from portal or Sub Account)
-    let baseSignature = (method);
-    baseSignature += (space);
-    baseSignature += (url);
-    baseSignature += (newLine);
-    baseSignature += (timestamp);
-    baseSignature += (newLine);
-    baseSignature += (accessKey);
-
-    const hmac = CryptoJS.HmacSHA256(baseSignature, secretKey);
-    return Base64.stringify(hmac);
-  }
-
-  public async sendMail(sendMailDto: SendMailDto): Promise&amp;lt;MailResultDto&amp;gt; {
-    const timestamp: string = new Date().getTime().toString();
-    return this.httpService.post('https://mail.apigw.ntruss.com/api/v1/mails', sendMailDto, {
-      headers: {
-        &quot;x-ncp-apigw-timestamp&quot;: timestamp,
-        &quot;x-ncp-iam-access-key&quot;: process.env.MAIL_ACCESS_KEY,
-        &quot;x-ncp-apigw-signature-v2&quot;: this.makeSignature(timestamp),
-        &quot;Content-Type&quot;: &quot;application/json&quot;
-      }
-    }).toPromise().then(({ data }) =&amp;gt; data)
-      .catch(e =&amp;gt; {
-        this.logger.error(e);
-        throw new HttpException(&quot;Bad Request.&quot;, HttpStatus.BAD_REQUEST);
-      });
-  }
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.npmjs.com/package/crypto-js&quot;&gt;crypto-js&lt;/a&gt;를 Typescript 기반에서 사용할때 주의할 것은, import 방식을 다음과 같이 사용하여야 합니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import CryptoJS = require(&quot;crypto-js&quot;);
-import Base64 = require('crypto-js/enc-base64');
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;어렵고도쉬운문제&quot;&gt;어렵고도쉬운문제&lt;/h2&gt;
-
-&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://apidocs.ncloud.com/ko/common/ncpapi/&quot;&gt;NAVER CLOUD PLATFORM API&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.npmjs.com/package/crypto-js&quot;&gt;crypto-js with npm&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://code.google.com/archive/p/crypto-js/&quot;&gt;crypto-js with google&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/52618158/typeerror-sha256-1-default-is-not-a-function&quot;&gt;TypeError: sha256_1.default is not a function&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="naver" /><category term="api" /><category term="typescript" /><summary type="html">Typescript with NAVER CLOUD PLATFORM API</summary></entry></feed>
+&lt;/ul&gt;</content><category term="express" /><category term="mssql" /><category term="pool" /><summary type="html">예제를 잘보고 사용하자</summary></entry></feed>
