@@ -1,4 +1,42 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2021-01-22T21:01:51+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Workplace Export</title><link href="https://lahuman.github.io/workplace_export/" rel="alternate" type="text/html" title="Workplace Export" /><published>2021-01-22T00:00:00+09:00</published><updated>2021-01-22T00:00:00+09:00</updated><id>https://lahuman.github.io/workplace_export</id><content type="html" xml:base="https://lahuman.github.io/workplace_export/">&lt;h1 id=&quot;workplace-export&quot;&gt;&lt;a href=&quot;https://github.com/lahuman/workplace_export&quot;&gt;Workplace Export&lt;/a&gt;&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2021-01-23T21:56:59+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">OBS 설정 &amp;amp; youtube 스트리밍 연결</title><link href="https://lahuman.github.io/OBS_setting/" rel="alternate" type="text/html" title="OBS 설정 &amp; youtube 스트리밍 연결" /><published>2021-01-23T00:00:00+09:00</published><updated>2021-01-23T00:00:00+09:00</updated><id>https://lahuman.github.io/OBS_setting</id><content type="html" xml:base="https://lahuman.github.io/OBS_setting/">&lt;h1 id=&quot;노트북에서-방송을-하기-위해서-사용하는-obs를-테스트-사용하여보기&quot;&gt;노트북에서 방송을 하기 위해서 사용하는 OBS를 테스트 사용하여보기&lt;/h1&gt;
+
+&lt;p&gt;많은 사람들이 방송을 하고 있습니다. 
+자신만의 컨텐츠를 만들고, 공유하고, 돈을 벌기도 하는데요.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;그래서 오늘은 OBS (Open Broadcaster Software) 라고 하는 방송 소프트웨어를 설정해보려고 합니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;먼저 &lt;a href=&quot;https://obsproject.com/&quot;&gt;OBS 사이트&lt;/a&gt;로 이동합니다.&lt;/p&gt;
+
+&lt;p&gt;그리고, 자신의 OS 버젼에 맞는 프로그램을 다운 받아 설치 합니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/obs_download.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;설정은 그냥 간단하게 &lt;code class=&quot;highlighter-rouge&quot;&gt;다음&lt;/code&gt;버튼을 누르면 됩니다.&lt;/p&gt;
+
+&lt;p&gt;그러면, 방송 소스를 선택해야 하는데요.&lt;/p&gt;
+
+&lt;p&gt;여기서 Youtube를 선택합니다.&lt;/p&gt;
+
+&lt;p&gt;그리고 유투브에서 &lt;code class=&quot;highlighter-rouge&quot;&gt;만들기&lt;/code&gt;를 누르고, &lt;code class=&quot;highlighter-rouge&quot;&gt;실시간 스트리밍 시작&lt;/code&gt;을 선택한 다음,  &lt;code class=&quot;highlighter-rouge&quot;&gt;소프트웨어롤 통한 방송&lt;/code&gt;을 선택합니다.&lt;/p&gt;
+
+&lt;p&gt;방송이 시작되면 스트리밍 키를 복사해서 OBS에 붙여 넣으면 준비가 끝입니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/youtube_stream_key.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;자, OBS 오른쪽 하단에 &lt;code class=&quot;highlighter-rouge&quot;&gt;방송 시작&lt;/code&gt; 버튼을 누르셔요.&lt;/p&gt;
+
+&lt;p&gt;그러면 방송이 시작됩니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.digitaltrends.com/computing/how-to-live-stream-on-youtube-with-obs/&quot;&gt;How to livestream on YouTube with OBS&lt;/a&gt;를 보면 화면 캡쳐가 잘되어있어서 영어를 못해도 쉽게 따라 하실 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;방송을 종료 후 Youtube에서도 방송을 종료 하여야 합니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.digitaltrends.com/computing/how-to-live-stream-on-youtube-with-obs/&quot;&gt;How to livestream on YouTube with OBS&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="단상" /><summary type="html">OBS 설정 &amp; youtube 방송 하기</summary></entry><entry><title type="html">Workplace Export</title><link href="https://lahuman.github.io/workplace_export/" rel="alternate" type="text/html" title="Workplace Export" /><published>2021-01-22T00:00:00+09:00</published><updated>2021-01-22T00:00:00+09:00</updated><id>https://lahuman.github.io/workplace_export</id><content type="html" xml:base="https://lahuman.github.io/workplace_export/">&lt;h1 id=&quot;workplace-export&quot;&gt;&lt;a href=&quot;https://github.com/lahuman/workplace_export&quot;&gt;Workplace Export&lt;/a&gt;&lt;/h1&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;워크플레이스의 관리자 패널에서는 특정 Group의 게시글을 export를 제공하지 않습니다.&lt;/p&gt;
@@ -853,75 +891,4 @@ console=serial0,115200 console=tty1 root=PARTUUID=dd5ac5d2-02 rootfstype=ext4 el
   &lt;li&gt;&lt;a href=&quot;https://opensource.com/article/20/3/kubernetes-raspberry-pi-k3s&quot;&gt;Run Kubernetes on a Raspberry Pi with k3s&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://github.com/k3s-io/k3s/issues/294&quot;&gt;k3s causes a high load average&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://blog.codybunch.com/2020/07/31/Fixing-cgroup-memory-on-Raspbian-Buster-for-Kernel-54x/&quot;&gt;Fixing cgroup memory on Raspbian Buster for Kernel 5.4.x&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="raspberrypi" /><category term="k3s" /><summary type="html">망한 k3s 설치 괴담입니다. 설치했으나.. 제대로 동작하지 않아요.</summary></entry><entry><title type="html">MSSQL POOL을 Express 환경에서 사용하기</title><link href="https://lahuman.github.io/mssql_pool_express/" rel="alternate" type="text/html" title="MSSQL POOL을 Express 환경에서 사용하기" /><published>2020-12-24T00:00:00+09:00</published><updated>2020-12-24T00:00:00+09:00</updated><id>https://lahuman.github.io/mssql_pool_express</id><content type="html" xml:base="https://lahuman.github.io/mssql_pool_express/">&lt;h1 id=&quot;mssql-pool을-express-환경에서-사용하기&quot;&gt;MSSQL POOL을 Express 환경에서 사용하기&lt;/h1&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.npmjs.com/package/mssql&quot;&gt;node-mssql&lt;/a&gt;의 예제를 참고로 다음과 같이 사용하고 있었습니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;sql&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'mssql'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;// async/await style:&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;pool1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sql&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ConnectionPool&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;pool1Connect&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;pool1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;connect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-
-&lt;span class=&quot;nx&quot;&gt;pool1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'error'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;// ... error handler&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;messageHandler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;pool1Connect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// ensures that the pool has been created&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;try&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;request&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;pool1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// or: new sql.Request(pool1)&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;query&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'select 1 as number'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;dir&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'SQL error'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;문제는 간간히 - &lt;a href=&quot;https://github.com/tediousjs/node-mssql/issues/895&quot;&gt;Error: Already connecting to database&lt;/a&gt; 와 같은 오류가 발생했습니다.&lt;/p&gt;
-
-&lt;p&gt;이유로 매번 요청시마다, connect를 연결하려고 하였기 때문이었습니다.&lt;/p&gt;
-
-&lt;p&gt;해결 방법으로는 &lt;a href=&quot;https://stackoverflow.com/questions/30356148/how-can-i-use-a-single-mssql-connection-pool-across-several-routes-in-an-express&quot;&gt;How can I use a single mssql connection pool across several routes in an Express 4 web application?&lt;/a&gt;에서 제공하는 &lt;code class=&quot;highlighter-rouge&quot;&gt;db.js&lt;/code&gt;를 만들어서 사용하면 됩니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;const sql = require(&quot;mssql&quot;);
-const config = {
-  user: process.env.DB_MSSQL_USER,
-  password: process.env.DB_MSSQL_PASSWORD,
-  server: process.env.DB_MSSQL_IP, // You can use 'localhost\\instance' to connect to named instance
-  database: process.env.DB_MSSQL_DB,
-  options: {
-    encrypt: true, // Use this if you're on Windows Azure
-  },
-  pool: {
-    max: 5,
-    min: 1,
-    idleTimeoutMillis: 30000,
-  },
-};
-
-const poolPromise = new sql.ConnectionPool(config)
-  .connect()
-  .then((pool) =&amp;gt; {
-    console.log(&quot;Connected to MSSQL&quot;);
-    return pool;
-  })
-  .catch((err) =&amp;gt; console.log(&quot;Database Connection Failed! Bad Config: &quot;, err));
-
-module.exports = {
-  sql,
-  poolPromise,
-};
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;오늘의-삽질도-끝&quot;&gt;오늘의 삽질도 끝~&lt;/h2&gt;
-
-&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.npmjs.com/package/mssql&quot;&gt;node-mssql&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/30356148/how-can-i-use-a-single-mssql-connection-pool-across-several-routes-in-an-express&quot;&gt;How can I use a single mssql connection pool across several routes in an Express 4 web application?&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/tediousjs/node-mssql/issues/895&quot;&gt;Error: Already connecting to database&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="express" /><category term="mssql" /><category term="pool" /><summary type="html">예제를 잘보고 사용하자</summary></entry></feed>
+&lt;/ul&gt;</content><category term="raspberrypi" /><category term="k3s" /><summary type="html">망한 k3s 설치 괴담입니다. 설치했으나.. 제대로 동작하지 않아요.</summary></entry></feed>
