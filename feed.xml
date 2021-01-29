@@ -1,4 +1,26 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2021-01-23T22:05:20+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">OBS 설정 &amp;amp; youtube 스트리밍 연결</title><link href="https://lahuman.github.io/OBS_setting/" rel="alternate" type="text/html" title="OBS 설정 &amp; youtube 스트리밍 연결" /><published>2021-01-23T00:00:00+09:00</published><updated>2021-01-23T00:00:00+09:00</updated><id>https://lahuman.github.io/OBS_setting</id><content type="html" xml:base="https://lahuman.github.io/OBS_setting/">&lt;h1 id=&quot;노트북에서-방송을-하기-위해서-사용하는-obs를-테스트-사용하여보기&quot;&gt;노트북에서 방송을 하기 위해서 사용하는 OBS를 테스트 사용하여보기&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2021-01-30T08:23:15+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">근래에 회사내 퇴직하시는 분들이 많습니다.</title><link href="https://lahuman.github.io/20210128/" rel="alternate" type="text/html" title="근래에 회사내 퇴직하시는 분들이 많습니다." /><published>2021-01-28T00:00:00+09:00</published><updated>2021-01-28T00:00:00+09:00</updated><id>https://lahuman.github.io/20210128</id><content type="html" xml:base="https://lahuman.github.io/20210128/">&lt;h1 id=&quot;근래-퇴사율이-치솟고-있습니다&quot;&gt;근래 퇴사율이 치솟고 있습니다.&lt;/h1&gt;
+
+&lt;p&gt;창발적인 사고와 유연한 근무환경을 자랑했지만,&lt;/p&gt;
+
+&lt;p&gt;모사와의 흡수합병, 많은 경쟁사 출현으로 래드오션이 되어버린 시장, 회사내 정치와 보여주기 식의 장표 기반의 업무…&lt;/p&gt;
+
+&lt;p&gt;물론 이러한 단점만이 있는 것은 아닙니다.&lt;/p&gt;
+
+&lt;p&gt;얼마전 회사를 되돌아보는 자료를 만들었는데,&lt;/p&gt;
+
+&lt;p&gt;앞으로 많은 기회를 가질 수 있을꺼라 생각합니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;회사-소개-자료&quot;&gt;&lt;a href=&quot;https://docs.google.com/presentation/d/1kdfp994EJfizXwFqigcE-MLVdNoZFIttrwINiafDDk0/edit#slide=id.gafcd1e5e41_1_17&quot;&gt;회사 소개 자료&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;다만, 좋은 사람들이 떠나가는게 가장 아쉽네요.&lt;/p&gt;
+
+&lt;p&gt;남은 내가 모자른 사람같은 느낌이 드는게 자괴감이 들고요.
+(다들 &lt;code class=&quot;highlighter-rouge&quot;&gt;네카라쿠베&lt;/code&gt;로 이직하시니… 능력자들!)&lt;/p&gt;
+
+&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://kreditjob.com/&quot;&gt;크래딧잡&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="단상" /><summary type="html">발전하는 것과 퇴보하는 것이 공존하며, 현황에 실망감을 느끼는 사람들이 많네요.</summary></entry><entry><title type="html">OBS 설정 &amp;amp; youtube 스트리밍 연결</title><link href="https://lahuman.github.io/OBS_setting/" rel="alternate" type="text/html" title="OBS 설정 &amp; youtube 스트리밍 연결" /><published>2021-01-23T00:00:00+09:00</published><updated>2021-01-23T00:00:00+09:00</updated><id>https://lahuman.github.io/OBS_setting</id><content type="html" xml:base="https://lahuman.github.io/OBS_setting/">&lt;h1 id=&quot;노트북에서-방송을-하기-위해서-사용하는-obs를-테스트-사용하여보기&quot;&gt;노트북에서 방송을 하기 위해서 사용하는 OBS를 테스트 사용하여보기&lt;/h1&gt;
 
 &lt;p&gt;많은 사람들이 방송을 하고 있습니다. 
 자신만의 컨텐츠를 만들고, 공유하고, 돈을 벌기도 하는데요.&lt;/p&gt;
@@ -36,7 +58,7 @@
 &lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.digitaltrends.com/computing/how-to-live-stream-on-youtube-with-obs/&quot;&gt;How to livestream on YouTube with OBS&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="단상" /><summary type="html">OBS 설정 &amp; youtube 방송 하기</summary></entry><entry><title type="html">Workplace Export</title><link href="https://lahuman.github.io/workplace_export/" rel="alternate" type="text/html" title="Workplace Export" /><published>2021-01-22T00:00:00+09:00</published><updated>2021-01-22T00:00:00+09:00</updated><id>https://lahuman.github.io/workplace_export</id><content type="html" xml:base="https://lahuman.github.io/workplace_export/">&lt;h1 id=&quot;workplace-export&quot;&gt;&lt;a href=&quot;https://github.com/lahuman/workplace_export&quot;&gt;Workplace Export&lt;/a&gt;&lt;/h1&gt;
+&lt;/ul&gt;</content><category term="단상" /><category term="OBS" /><summary type="html">OBS 설정 &amp; youtube 방송 하기</summary></entry><entry><title type="html">Workplace Export</title><link href="https://lahuman.github.io/workplace_export/" rel="alternate" type="text/html" title="Workplace Export" /><published>2021-01-22T00:00:00+09:00</published><updated>2021-01-22T00:00:00+09:00</updated><id>https://lahuman.github.io/workplace_export</id><content type="html" xml:base="https://lahuman.github.io/workplace_export/">&lt;h1 id=&quot;workplace-export&quot;&gt;&lt;a href=&quot;https://github.com/lahuman/workplace_export&quot;&gt;Workplace Export&lt;/a&gt;&lt;/h1&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;워크플레이스의 관리자 패널에서는 특정 Group의 게시글을 export를 제공하지 않습니다.&lt;/p&gt;
@@ -717,178 +739,4 @@ sudo  systemctl restart sshd
 
 &lt;p&gt;좋은 사람들이 떠나는 건 늘 아쉬운 마음이 드네요.&lt;/p&gt;
 
-&lt;h2 id=&quot;잘가요-고생했어요&quot;&gt;잘가요 고생했어요.&lt;/h2&gt;</content><category term="단상" /><summary type="html">그동안 고마웠다고, 그리고 계속 연락하자고</summary></entry><entry><title type="html">라즈베리파이에 k3s 설치 하기 - 실패기</title><link href="https://lahuman.github.io/raspberrypi_k3s/" rel="alternate" type="text/html" title="라즈베리파이에 k3s 설치 하기 - 실패기" /><published>2021-01-13T00:00:00+09:00</published><updated>2021-01-13T00:00:00+09:00</updated><id>https://lahuman.github.io/raspberrypi_k3s</id><content type="html" xml:base="https://lahuman.github.io/raspberrypi_k3s/">&lt;h1 id=&quot;라즈베리파이에-k3s-설치-하기---실패기&quot;&gt;라즈베리파이에 k3s 설치 하기 - 실패기&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;이 포스팅은 실패를 적은 것입니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;1-라즈베리파이에-os-설치하기&quot;&gt;1. 라즈베리파이에 OS 설치하기&lt;/h2&gt;
-
-&lt;p&gt;그림과 같이 &lt;a href=&quot;https://www.raspberrypi.org/software/operating-systems/#raspberry-pi-os-32-bit&quot;&gt;Raspberry Pi OS 다운로드&lt;/a&gt;페이지에서 &lt;code class=&quot;highlighter-rouge&quot;&gt;Raspberry Pi OS Lite&lt;/code&gt; 버젼을 받습니다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;다른 버젼을 사용해도 되지만, 서버용으로 GUI 없이 사용하기 위해서는 Lite 버젼이면 충분합니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/raspberry_os_download.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;그리고 SD 카드에 해당 이미지를 구워줍니다.&lt;/p&gt;
-
-&lt;p&gt;그리고 부팅을 하고 몇가지 설정을 합니다.&lt;/p&gt;
-
-&lt;p&gt;대부분의 설정은 부팅 후 &lt;code class=&quot;highlighter-rouge&quot;&gt;raspi-config&lt;/code&gt; 명령어를 이용하면 쉽게 할 수 있습니다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;인터넷 연결(WIFI)&lt;/li&gt;
-  &lt;li&gt;GPU Memory 64M =&amp;gt; 16M&lt;/li&gt;
-  &lt;li&gt;hostname 변경(main, worker1, worker2 등)&lt;/li&gt;
-  &lt;li&gt;SSH 활성화&lt;/li&gt;
-  &lt;li&gt;iptables 사용하도록 설정(k3s는 네트워킹 기능은 내부적으로 iptables 를 사용합니다)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo iptables -F
-sudo update-alternatives --set iptables /usr/sbin/iptables-legacy
-sudo update-alternatives --set ip6tables /usr/sbin/ip6tables-legacy
-sudo reboot
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;IP 고정&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;vi /etc/dhcpcd.conf
-
-# 본인 환경에 맞게 수정
-interface wlan0
-static ip_address=192.168.0.30
-static routers=192.168.0.1
-static domain_name_servers=8.8.8.8 1.1.1.1
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;ulimit 설정&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;vi /etc/security/limits.conf
-
-*       -       nofile  32768
-*       -       nproc   65536
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;새로운 계정 생성 &amp;amp; pi 계정 삭제&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# root 로 로그인
-sudo -i
-
-# lahuman 계정 생성
-adduser lahuman
-# lahuman 계정에 sudo 권한 부여
-adduser lahuman sudo
-
-# 재부팅 후 lahuman 계정으로 로그인하고 pi 계정을 삭제 합니다.
-deluser pi
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;여기까지 진행했다면, 라즈베리파이의 설정은 완료 되었습니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;k3s-설치&quot;&gt;k3s 설치&lt;/h2&gt;
-
-&lt;h3 id=&quot;mian-node-설치&quot;&gt;mian node 설치&lt;/h3&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Standard Raspbian Buster installations do not start with cgroups enabled.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Raspbian Buster(Lite 포함)은 cgroups 가 활성화 되어 있지 않아서 다음 설정을 해야 합니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;/boot/cmdline.txt&lt;/code&gt; 에 다음을 추가 합니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;vi /boot/cmdline.txt
-
-# 기존 값이 console=serial0,115200 console=tty1 root=PARTUUID=afe9a4ef-02 rootfstype=ext4 elevator=deadline fsck.repair=yes rootwait  입니다. 
-# cgroup_enable=cpuset cgroup_memory=1 cgroup_enable=memory 을 뒤에 추가 하면 됩니다.
-
-console=serial0,115200 console=tty1 root=PARTUUID=afe9a4ef-02 rootfstype=ext4 elevator=deadline fsck.repair=yes rootwait cgroup_enable=cpuset cgroup_memory=1 cgroup_enable=memory
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;이제 main node에 k3s를 스크립트를 이용해서 설치 합니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 홈페이지에는 sudo 옵션이 없지만, 해당 옵션이 없으면 설치가 안됩니다.
-curl -sfL https://get.k3s.io | sudo sh -
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;설치가 완료되었다면, node를 다음 명령어로 확인해 볼 수 있습니다&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo kubectl get nodes
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/k3s_install.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;worker-node-설치&quot;&gt;worker node 설치&lt;/h3&gt;
-
-&lt;p&gt;먼저, &lt;code class=&quot;highlighter-rouge&quot;&gt;main node의 k3s설치 스크립트 실행 전까지&lt;/code&gt;와 동일한 작업을 진행합니다.
-그리고 설치 main node의 토큰 값을 준비합니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# main 노드에서 실행
-sudo cat /var/lib/rancher/k3s/server/node-token
-K10098666be0809d3fe6d02354bd433fb84b67dcb747c73efacc4c2ca12cac38961::server:1f4bfcbf8cf3985a4554a706c9ad704f
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;worker node에 k3s 설치를 진행합니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl -sfL http://get.k3s.io | K3S_URL=https://192.168.0.30:6443 K3S_TOKEN=K10098666be0809d3fe6d02354bd433fb84b67dcb747c73efacc4c2ca12cac38961::server:1f4bfcbf8cf3985a4554a706c9ad704f  sudo sh -
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;k3s-삭제&quot;&gt;k3s 삭제&lt;/h3&gt;
-
-&lt;p&gt;삭제는 다음 명령어로 쉽게 삭제가 가능합니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# main node
-sudo /usr/local/bin/k3s-uninstall.sh
-
-# worker node
-sudo /usr/local/bin/k3s-agent-uninstall.sh
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;k3s의-cpu-점유율이-장시간-동안-50-이상을-넘기고-있을-경우-처리-방안&quot;&gt;k3s의 CPU 점유율이 장시간 동안 50% 이상을 넘기고 있을 경우 처리 방안&lt;/h3&gt;
-
-&lt;p&gt;원인을 모르겠지만, 계속 켜놓을 경우 CPU의 점유율이 50%를 넘기면서 nodes 조회가 안되는 현상이 있었습니다.&lt;/p&gt;
-
-&lt;p&gt;검색을 통해서 알아보니, cpu 사용에 limit을 설정 할 수 있다고 하네요.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;vi /etc/systemd/system/k3s.service
-
-CPUQuota=30%
-CPUQuotaPeriodSec=50ms
-AllowedCPUs=0
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;하지만, 이렇게 설정해도 동일한 오류가 발생했습니다.&lt;/p&gt;
-
-&lt;p&gt;다른 이유로는 &lt;a href=&quot;https://blog.codybunch.com/2020/07/31/Fixing-cgroup-memory-on-Raspbian-Buster-for-Kernel-54x/&quot;&gt;Fixing cgroup memory on Raspbian Buster for Kernel 5.4.x&lt;/a&gt;의 내용과 같이 커널 버그라고 합니다.&lt;/p&gt;
-
-&lt;p&gt;이를 해결하기 위해서는 커널을 업데이트 해야 하는데요.&lt;/p&gt;
-
-&lt;p&gt;/boot/cmdline.txt 내용으 다음과 같이 수정하고,&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cat /boot/cmdline.txt
-console=serial0,115200 console=tty1 root=PARTUUID=dd5ac5d2-02 rootfstype=ext4 elevator=deadline fsck.repair=yes rootwait cgroup_enable=1 cgroup_memory=1 swapaccount=1 cgroup_enable=memory dwc_otg.lpm_enable=0
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;다음의 명령어로 커널을 업데이트 합니다&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo PRUNE_MODULES=1 RPI_REBOOT=1 SKIP_WARNING=1 rpi-update
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;하지만-아무리-해봐도-동일한-현상도-나오며-worker-node를-추가-할-수-없었습니다-대부분의-이야기에서는-ubuntu를-이용하라는-내용이-많이-있네요&quot;&gt;하지만… 아무리 해봐도 동일한 현상도 나오며, worker node를 추가 할 수 없었습니다. 대부분의 이야기에서는 ubuntu를 이용하라는 내용이 많이 있네요.&lt;/h2&gt;
-
-&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://rancher.com/docs/k3s/latest/en/installation/installation-requirements/&quot;&gt;Installation Requirements&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://opensource.com/article/20/3/kubernetes-raspberry-pi-k3s&quot;&gt;Run Kubernetes on a Raspberry Pi with k3s&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/k3s-io/k3s/issues/294&quot;&gt;k3s causes a high load average&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://blog.codybunch.com/2020/07/31/Fixing-cgroup-memory-on-Raspbian-Buster-for-Kernel-54x/&quot;&gt;Fixing cgroup memory on Raspbian Buster for Kernel 5.4.x&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="raspberrypi" /><category term="k3s" /><summary type="html">망한 k3s 설치 괴담입니다. 설치했으나.. 제대로 동작하지 않아요.</summary></entry></feed>
+&lt;h2 id=&quot;잘가요-고생했어요&quot;&gt;잘가요 고생했어요.&lt;/h2&gt;</content><category term="단상" /><summary type="html">그동안 고마웠다고, 그리고 계속 연락하자고</summary></entry></feed>
