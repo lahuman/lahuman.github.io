@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2021-02-08T20:54:28+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">MongoDB 설치 하기</title><link href="https://lahuman.github.io/mongodb_install/" rel="alternate" type="text/html" title="MongoDB 설치 하기" /><published>2021-02-07T00:00:00+09:00</published><updated>2021-02-07T00:00:00+09:00</updated><id>https://lahuman.github.io/mongodb_install</id><content type="html" xml:base="https://lahuman.github.io/mongodb_install/">&lt;h1 id=&quot;오랜만에-mongodb를-설치해야-할-일이-생겼습니다&quot;&gt;오랜만에 MongoDB를 설치해야 할 일이 생겼습니다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2021-02-13T22:01:22+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">MongoDB 설치 하기</title><link href="https://lahuman.github.io/mongodb_install/" rel="alternate" type="text/html" title="MongoDB 설치 하기" /><published>2021-02-07T00:00:00+09:00</published><updated>2021-02-07T00:00:00+09:00</updated><id>https://lahuman.github.io/mongodb_install</id><content type="html" xml:base="https://lahuman.github.io/mongodb_install/">&lt;h1 id=&quot;오랜만에-mongodb를-설치해야-할-일이-생겼습니다&quot;&gt;오랜만에 MongoDB를 설치해야 할 일이 생겼습니다.&lt;/h1&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;기존의 MongoDB를 이전설치해야 할 일이 발생했습니다. 기존의 경우 shard와 mongos(router)로 사용했지만, sharding을 하지 않아서 P(Primary)-S(slave)-S(slave) 형식으로 구성하기로 했습니다.&lt;/p&gt;
@@ -227,7 +227,248 @@ db.auth('rootUser', 'rootPass');
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://docs.mongodb.com/manual/installation/&quot;&gt;Install MongoDB&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://docs.ncloud.com/ko/database/database-10-3.html&quot;&gt;MongoDB 구성하기&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="mongodb" /><summary type="html">오랜만에 다시 설치할 일이 생겼다.</summary></entry><entry><title type="html">근래에 회사내 퇴직하시는 분들이 많습니다.</title><link href="https://lahuman.github.io/20210128/" rel="alternate" type="text/html" title="근래에 회사내 퇴직하시는 분들이 많습니다." /><published>2021-01-28T00:00:00+09:00</published><updated>2021-01-28T00:00:00+09:00</updated><id>https://lahuman.github.io/20210128</id><content type="html" xml:base="https://lahuman.github.io/20210128/">&lt;h1 id=&quot;근래-퇴사율이-치솟고-있습니다&quot;&gt;근래 퇴사율이 치솟고 있습니다.&lt;/h1&gt;
+&lt;/ul&gt;</content><category term="mongodb" /><summary type="html">오랜만에 다시 설치할 일이 생겼다.</summary></entry><entry><title type="html">tailwindcss with ReactJS</title><link href="https://lahuman.github.io/tailwindcss_react/" rel="alternate" type="text/html" title="tailwindcss with ReactJS" /><published>2021-02-07T00:00:00+09:00</published><updated>2021-02-07T00:00:00+09:00</updated><id>https://lahuman.github.io/tailwindcss_react</id><content type="html" xml:base="https://lahuman.github.io/tailwindcss_react/">&lt;h1 id=&quot;tailwindcss-with-reactjs&quot;&gt;tailwindcss with ReactJS&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;a href=&quot;https://tailwindcss.com/&quot;&gt;tailwindcss&lt;/a&gt;는 html에 class를 이용해서 화면을 구성하는 방식의 css 라이브러리 입니다.
+이 방식의 장점은 HTML만으로 직관적인 화면을 구성 할 수 있습니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;ReactJS에서 tailwindcss를 사용하기 위해서는 몇가지 설정을 해야 합니다.&lt;/p&gt;
+
+&lt;p&gt;다음 설정을 따라 하면 tailwindcss를 사용할 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;작업을 시작하기 전에 다음 사항을 유의하셔요.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;nodejs 12.13.x 이상 버젼만 가능합니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;1-react-프로젝트-생성하기&quot;&gt;1. react 프로젝트 생성하기&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npx create-react-app my-project
+cd my-project
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;2-tailwind-css-설정하기&quot;&gt;2. tailwind css 설정하기&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm install tailwindcss@npm:@tailwindcss/postcss7-compat @tailwindcss/postcss7-compat postcss@^7 autoprefixer@^9
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Create React App은 아직 postcss8을 지원하지 않습니다. 따라서 postcss7을 이용합니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;3-craco-설치--설정&quot;&gt;3. CRACO 설치 &amp;amp; 설정&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm install @craco/craco
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Create React App에서 postcss 설정을 지원 하지 않습니다. tailwind 설정을 위해서 craco를 사용합니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;package.json&lt;/code&gt;에서 &lt;code class=&quot;highlighter-rouge&quot;&gt;start, build, test&lt;/code&gt; 명령어를 다음과 같이 설정을 변경 합니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{
+    // ...
+    &quot;scripts&quot;: {
+     &quot;start&quot;: &quot;craco start&quot;,
+     &quot;build&quot;: &quot;craco build&quot;,
+     &quot;test&quot;: &quot;craco test&quot;,
+      &quot;eject&quot;: &quot;react-scripts eject&quot;
+    },
+  }
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;그리고 &lt;code class=&quot;highlighter-rouge&quot;&gt;craco.config.js&lt;/code&gt; 파일을 생성합니다.
+해당 파일에서는 &lt;code class=&quot;highlighter-rouge&quot;&gt;tailwindcss&lt;/code&gt; 와 &lt;code class=&quot;highlighter-rouge&quot;&gt;autoprefixer&lt;/code&gt; plugin을 설정합니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// craco.config.js
+module.exports = {
+  style: {
+    postcss: {
+      plugins: [
+        require('tailwindcss'),
+        require('autoprefixer'),
+      ],
+    },
+  },
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;4-tailwind-설정-파일-생성&quot;&gt;4. tailwind 설정 파일 생성&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;tailwind.config.js&lt;/code&gt; 파일을 생성합니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npx tailwindcss init
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;최상의 디렉토리에  최소 설정이된 &lt;code class=&quot;highlighter-rouge&quot;&gt;tailwind.config.js&lt;/code&gt; 파일이 생성됩니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;module.exports = {
+  purge: [],
+  darkMode: false, // or 'media' or 'class'
+  theme: {
+    extend: {},
+  },
+  variants: {
+    extend: {},
+  },
+  plugins: [],
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;여기에 purge 설정을 추가 합니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; // tailwind.config.js
+  module.exports = {
+   purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
+    darkMode: false, // or 'media' or 'class'
+    theme: {
+      extend: {},
+    },
+    variants: {
+      extend: {},
+    },
+    plugins: [],
+  }
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;5-tailwind-css-반영&quot;&gt;5. tailwind css 반영&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;./src/index.css&lt;/code&gt; 에 다음을 추가 합니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/* ./src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;tailwind의 &lt;a href=&quot;https://tailwindcss.com/docs/adding-base-styles&quot;&gt;base&lt;/a&gt;, &lt;a href=&quot;https://tailwindcss.com/docs/extracting-components&quot;&gt;components&lt;/a&gt;, &lt;a href=&quot;https://tailwindcss.com/docs/adding-new-utilities&quot;&gt;utilities&lt;/a&gt;를 사용하도록 설정이 되었습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;6-tailwind-css-예제-사용&quot;&gt;6. tailwind css 예제 사용&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;App.js&lt;/code&gt; 에 다음 코드를 추가 합니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;py-12 bg-white&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;max-w-7xl mx-auto px-4 sm:px-6 lg:px-8&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;lg:text-center&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+          &lt;span class=&quot;nt&quot;&gt;&amp;lt;h2&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text-base text-indigo-600 font-semibold tracking-wide uppercase&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Transactions&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h2&amp;gt;&lt;/span&gt;
+          &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+            A better way to send money
+          &lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+          &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+            Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam voluptatum cupiditate veritatis in accusamus quisquam.
+          &lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;mt-10&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+          &lt;span class=&quot;nt&quot;&gt;&amp;lt;dl&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;flex&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+              &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;flex-shrink-0&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+                  
+                  &lt;span class=&quot;nt&quot;&gt;&amp;lt;svg&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;h-6 w-6&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://www.w3.org/2000/svg&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;fill=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;none&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;viewBox=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;0 0 24 24&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;stroke=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;currentColor&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;aria-hidden=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;true&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+                    &lt;span class=&quot;nt&quot;&gt;&amp;lt;path&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;stroke-linecap=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;round&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;stroke-linejoin=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;round&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;stroke-width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;2&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;d=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+                  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/svg&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+              &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+              &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;ml-4&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;dt&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text-lg leading-6 font-medium text-gray-900&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+                  Competitive exchange rates
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dt&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;dd&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;mt-2 text-base text-gray-500&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dd&amp;gt;&lt;/span&gt;
+              &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;flex&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+              &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;flex-shrink-0&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+                  
+                  &lt;span class=&quot;nt&quot;&gt;&amp;lt;svg&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;h-6 w-6&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://www.w3.org/2000/svg&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;fill=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;none&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;viewBox=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;0 0 24 24&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;stroke=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;currentColor&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;aria-hidden=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;true&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+                    &lt;span class=&quot;nt&quot;&gt;&amp;lt;path&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;stroke-linecap=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;round&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;stroke-linejoin=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;round&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;stroke-width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;2&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;d=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+                  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/svg&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+              &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+              &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;ml-4&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;dt&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text-lg leading-6 font-medium text-gray-900&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+                  No hidden fees
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dt&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;dd&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;mt-2 text-base text-gray-500&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dd&amp;gt;&lt;/span&gt;
+              &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;flex&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+              &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;flex-shrink-0&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+                  
+                  &lt;span class=&quot;nt&quot;&gt;&amp;lt;svg&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;h-6 w-6&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://www.w3.org/2000/svg&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;fill=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;none&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;viewBox=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;0 0 24 24&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;stroke=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;currentColor&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;aria-hidden=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;true&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+                    &lt;span class=&quot;nt&quot;&gt;&amp;lt;path&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;stroke-linecap=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;round&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;stroke-linejoin=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;round&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;stroke-width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;2&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;d=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;M13 10V3L4 14h7v7l9-11h-7z&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+                  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/svg&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+              &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+              &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;ml-4&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;dt&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text-lg leading-6 font-medium text-gray-900&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+                  Transfers are instant
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dt&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;dd&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;mt-2 text-base text-gray-500&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dd&amp;gt;&lt;/span&gt;
+              &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;flex&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+              &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;flex-shrink-0&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+                  
+                  &lt;span class=&quot;nt&quot;&gt;&amp;lt;svg&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;h-6 w-6&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://www.w3.org/2000/svg&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;fill=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;none&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;viewBox=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;0 0 24 24&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;stroke=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;currentColor&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;aria-hidden=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;true&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+                    &lt;span class=&quot;nt&quot;&gt;&amp;lt;path&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;stroke-linecap=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;round&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;stroke-linejoin=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;round&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;stroke-width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;2&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;d=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+                  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/svg&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+              &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+              &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;ml-4&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;dt&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text-lg leading-6 font-medium text-gray-900&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+                  Mobile notifications
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dt&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;dd&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;mt-2 text-base text-gray-500&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dd&amp;gt;&lt;/span&gt;
+              &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+          &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dl&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;7-결과-확인&quot;&gt;7. 결과 확인&lt;/h2&gt;
+
+&lt;p&gt;localhost 서버를 띄어서 확인해봅니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm run start
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;http://localhost:3000 으로 접근 하면 다음과 같은 화면을 확인 할 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/tailwind_example.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;마치며&quot;&gt;마치며&lt;/h2&gt;
+
+&lt;p&gt;위에 정리한 내용은 &lt;a href=&quot;https://tailwindcss.com/docs/guides/create-react-app&quot;&gt;Install Tailwind CSS with Create React App&lt;/a&gt;을 보고 따라 하였습니다.&lt;/p&gt;
+
+&lt;p&gt;코드를 보면서 직관적인 부분이 장점으로 다가오지만, html의 class가 너무 길어져서 불편하게 느껴지기도 했습니다.
+또한, React에서는 class 를 className으로 Attribute를 변경해야합니다.&lt;/p&gt;
+
+&lt;p&gt;현재 많은 예제들이 나오고 있는 시점이라, 더 발전이 될지도 모르겠습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://tailwindcss.com/docs/guides/create-react-app&quot;&gt;Install Tailwind CSS with Create React App&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="reactjs" /><category term="tailwindcss" /><summary type="html">tailwindcss를 ReactJS에서 사용하기 위한 설정</summary></entry><entry><title type="html">근래에 회사내 퇴직하시는 분들이 많습니다.</title><link href="https://lahuman.github.io/20210128/" rel="alternate" type="text/html" title="근래에 회사내 퇴직하시는 분들이 많습니다." /><published>2021-01-28T00:00:00+09:00</published><updated>2021-01-28T00:00:00+09:00</updated><id>https://lahuman.github.io/20210128</id><content type="html" xml:base="https://lahuman.github.io/20210128/">&lt;h1 id=&quot;근래-퇴사율이-치솟고-있습니다&quot;&gt;근래 퇴사율이 치솟고 있습니다.&lt;/h1&gt;
 
 &lt;p&gt;창발적인 사고와 유연한 근무환경을 자랑했지만,&lt;/p&gt;
 
@@ -866,94 +1107,4 @@ Hostname: k3s-demo-65c8cf57c-2s2tr
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://medium.com/@amadmalik/installing-kubernetes-on-raspberry-pi-k3s-and-docker-on-ubuntu-20-04-ef51e5e56&quot;&gt;Installing Kubernetes on Raspberry Pi, K3s and Docker on Ubuntu 20.04&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://sysadmins.co.za/develop-build-and-deploy-a-golang-app-to-k3s/&quot;&gt;Develop Build and Deploy a Golang App to K3S&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="raspberrypi" /><category term="ubuntu" /><category term="k3s" /><summary type="html">'라즈베리파이에 ubuntu 설치하기'에 이어서 진행됩니다.</summary></entry><entry><title type="html">라즈베리파이에 ubuntu 설치 하기</title><link href="https://lahuman.github.io/raspberrypi_ubuntu/" rel="alternate" type="text/html" title="라즈베리파이에 ubuntu 설치 하기" /><published>2021-01-15T00:00:00+09:00</published><updated>2021-01-15T00:00:00+09:00</updated><id>https://lahuman.github.io/raspberrypi_ubuntu</id><content type="html" xml:base="https://lahuman.github.io/raspberrypi_ubuntu/">&lt;h1 id=&quot;라즈베리파이에-ubuntu-설치하기&quot;&gt;라즈베리파이에 ubuntu 설치하기&lt;/h1&gt;
-
-&lt;h2 id=&quot;ubuntu-2004-다운로드&quot;&gt;Ubuntu 20.04 다운로드&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://ubuntu.com/download/raspberry-pi&quot;&gt;Install Ubuntu on a Raspberry Pi 2, 3 or 4&lt;/a&gt;에서 본인의 라즈베리파이에 맞는 이미지를 다운로드 받습니다.&lt;/p&gt;
-
-&lt;p&gt;제 경우는 라즈베리파이 3+ 와 4를 가지고 있어서, Ubuntu Server 20.04.1 LTS 64bit로 다운받았습니다.&lt;/p&gt;
-
-&lt;p&gt;이전 포스트와 마찬가지오 SD카드에 다운 받은 이미지를 굽습니다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;초기 아이디 / 비밀번호는 ubuntu / ubuntu 를 입력하면 됩니다. 설정 후 해당 계정을 삭제 하시는 것을 추천 드려요.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;wifi-연결&quot;&gt;WIFI 연결&lt;/h2&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;설정은 root 권한으로 진행해야 하기에 sudo를 사용합니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;라즈베리파이에서 wif로 연결을 하기 위해서는 먼저 wifi 국가를 JP로 설정해야 됩니다.
-JP로 설정하면 대부분의 공유기 wifi를 지원합니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 영구적으로 wifi 국가 정보를 변경합니다.
-sudo vi  /etc/default/crda 
-
-REGDOMAIN=JP
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;wifi-설정&quot;&gt;wifi 설정&lt;/h3&gt;
-
-&lt;p&gt;netplan을 이용해서 wifi의 정보를 설정하고 반영합니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo vi /etc/netplan/50-cloud-init.yaml
-
-network:
-    ethernets:
-        eth0:
-            dhcp4: true
-            optional: true
-# wifi 설정            
-    wifis:
-        wlan0:
-            dhcp4: no
-            optional: true
-# static ip 설정
-            addresses: [192.168.0.31/24]
-            gateway4: 192.168.0.1
-            nameservers:
-                addresses: [8.8.8.8,8.8.4.4]
-# wifi access point 정보 
-            access-points:
-                &quot;DL2&quot;:
-                    password: &quot;99876543@!q&quot;
-    version: 2
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;위의 내용을 저장하고 netplan 정보를 생성하고 반영합니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 정보 생성
-sudo netplan generate
-# 정보 반영
-sudo netplan apply
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;설정중 오류가 발생하면 &lt;a href=&quot;https://linuxhint.com/wi-fi_connecting_issues_raspberry_pi/&quot;&gt;Raspberry Pi Not Connecting to Wi-Fi&lt;/a&gt; 여기에서 정보를 확인 해보셔요.&lt;/p&gt;
-
-&lt;h2 id=&quot;sshd-설치--설정&quot;&gt;sshd 설치 &amp;amp; 설정&lt;/h2&gt;
-
-&lt;p&gt;마지막으로 sshd로 다른 PC에서 접근하기 위해서 sshd 설치하고 설정합니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# sshd 설치
-sudo apt install openssh-server
-# 설정 변경
-sudo vi /etc/ssh/sshd_config
-# 부팅시 sshd 실행
-sudo  systemctl enable sshd
-# 변경된 설정 반영
-sudo  systemctl restart sshd
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;여기까지 ubuntu의 기본 설정을 마무리합니다.&lt;/p&gt;
-
-&lt;p&gt;다음으로 k3s 를 재설치 해보고 테스트 해볼 예정입니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://ubuntu.com/download/raspberry-pi&quot;&gt;Install Ubuntu on a Raspberry Pi 2, 3 or 4&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://linuxhint.com/wi-fi_connecting_issues_raspberry_pi/&quot;&gt;Raspberry Pi Not Connecting to Wi-Fi&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.lesstif.com/lpt/sshd-server-24445601.html&quot;&gt;우분투 데스크탑 sshd server 활성화&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="raspberrypi" /><category term="ubuntu" /><summary type="html">k3s 재설치를 위한 1보 후퇴</summary></entry></feed>
+&lt;/ul&gt;</content><category term="raspberrypi" /><category term="ubuntu" /><category term="k3s" /><summary type="html">'라즈베리파이에 ubuntu 설치하기'에 이어서 진행됩니다.</summary></entry></feed>

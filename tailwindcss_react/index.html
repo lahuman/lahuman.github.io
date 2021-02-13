@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]--><!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8"><![endif]--><!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9"><![endif]--><!--[if gt IE 8]><!--><html class="no-js">
+<!--<![endif]--> <head> <meta charset="UTF-8"> <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"> <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> <title>tailwindcss with ReactJS – lahuman</title> <meta name="description" content="열심히 사는 아저씨"> <meta name="keywords" content="reactjs, tailwindcss"> <!-- Twitter Cards --> <meta name="twitter:card" content="summary"> <meta name="twitter:image" content="https://lahuman.github.io/assets/img/logo.png"> <meta name="twitter:title" content="tailwindcss with ReactJS"> <meta name="twitter:description" content="tailwindcss를 ReactJS에서 사용하기 위한 설정"> <!-- Open Graph --> <meta property="og:locale" content="ko_KR"> <meta property="og:type" content="article"> <meta property="og:title" content="tailwindcss with ReactJS"> <meta property="og:description" content="tailwindcss를 ReactJS에서 사용하기 위한 설정"> <meta property="og:url" content="https://lahuman.github.io/tailwindcss_react/"> <meta property="og:site_name" content="lahuman"> <meta property="og:image" content="https://lahuman.github.io/assets/img/logo.png"> <link rel="canonical" href="https://lahuman.github.io/tailwindcss_react/"> <link href="https://lahuman.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="lahuman Feed"> <!-- Handheld --> <meta name="HandheldFriendly" content="True"> <meta name="MobileOptimized" content="320"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- CSS --> <link rel="stylesheet" href="https://lahuman.github.io/assets/css/main.css"> <!-- JS --> <script src="https://lahuman.github.io/assets/js/modernizr-3.3.1.custom.min.js"></script> <!-- Favicons --> <link rel="apple-touch-icon" href="https://lahuman.github.io/assets/img/favicons/apple-icon-precomposed.png"> <link rel="apple-touch-icon" sizes="72x72" href="https://lahuman.github.io/assets/img/favicons/apple-icon-72x72.png"> <link rel="apple-touch-icon" sizes="114x114" href="https://lahuman.github.io/assets/img/favicons/apple-icon-114x114.png"> <link rel="apple-touch-icon" sizes="144x144" href="https://lahuman.github.io/assets/img/favicons/apple-icon-144x144.png"> <link rel="shortcut icon" type="image/png" href="https://lahuman.github.io/favicon.png"> <link rel="shortcut icon" href="https://lahuman.github.io/favicon.ico"> <!-- Background Image --> <style type="text/css">body {background-image:url(https://lahuman.github.io/assets/img/placeholder-big.jpg); background-repeat: no-repeat; background-size: cover; }</style> <!-- Post Feature Image --> </head> <body> <nav id="dl-menu" class="dl-menuwrapper" role="navigation"> <button class="dl-trigger">Open Menu</button> <ul class="dl-menu"> <li><a href="https://lahuman.github.io/">Home</a></li> <li> <a href="#">About</a> <ul class="dl-submenu"> <li> <img src="https://lahuman.github.io/assets/img/logo.png" alt="lahuman photo" class="author-photo"> <h4>lahuman</h4> <p>열심히 사는 아저씨</p> </li> <li><a href="https://lahuman.github.io/about/"><span class="btn btn-inverse">Learn More</span></a></li> <li> <a href="http://facebook.com/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-facebook-square"></i> Facebook</a> </li> <li> <a href="http://linkedin.com/in/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-linkedin-square"></i> LinkedIn</a> </li> <li> <a href="http://github.com/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-github"></i> Github</a> </li> </ul>
+<!-- /.dl-submenu --> </li> <li> <a href="#">Posts</a> <ul class="dl-submenu"> <li><a href="https://lahuman.github.io/posts/">All Posts</a></li> <li><a href="https://lahuman.github.io/tags/">All Tags</a></li> </ul> </li> <li><a href="https://lahuman.github.io/projects/">Projects</a></li> </ul>
+<!-- /.dl-menu --> </nav><!-- /.dl-menuwrapper --> <!-- Header --> <header class="header" role="banner"> <div class="wrapper animated fadeIn"> <div class="content"> <div class="post-title "> <h1>tailwindcss with ReactJS</h1> <h4>07 Feb 2021</h4> <p class="reading-time"> <i class="fa fa-clock-o"></i> Reading time ~4 minutes </p>
+<!-- /.entry-reading-time --> <a class="btn zoombtn" href="https://lahuman.github.io/posts/"> <i class="fa fa-chevron-left"></i> </a> </div> <h1 id="tailwindcss-with-reactjs">tailwindcss with ReactJS</h1> <blockquote> <p><a href="https://tailwindcss.com/">tailwindcss</a>는 html에 class를 이용해서 화면을 구성하는 방식의 css 라이브러리 입니다. 이 방식의 장점은 HTML만으로 직관적인 화면을 구성 할 수 있습니다.</p> </blockquote> <p>ReactJS에서 tailwindcss를 사용하기 위해서는 몇가지 설정을 해야 합니다.</p> <p>다음 설정을 따라 하면 tailwindcss를 사용할 수 있습니다.</p> <p>작업을 시작하기 전에 다음 사항을 유의하셔요.</p> <ul> <li>nodejs 12.13.x 이상 버젼만 가능합니다.</li> </ul> <h2 id="1-react-프로젝트-생성하기">1. react 프로젝트 생성하기</h2> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npx create-react-app my-project
+cd my-project
+</code></pre></div></div> <h2 id="2-tailwind-css-설정하기">2. tailwind css 설정하기</h2> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm install tailwindcss@npm:@tailwindcss/postcss7-compat @tailwindcss/postcss7-compat postcss@^7 autoprefixer@^9
+</code></pre></div></div> <blockquote> <p>Create React App은 아직 postcss8을 지원하지 않습니다. 따라서 postcss7을 이용합니다.</p> </blockquote> <h2 id="3-craco-설치--설정">3. CRACO 설치 &amp; 설정</h2> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm install @craco/craco
+</code></pre></div></div> <blockquote> <p>Create React App에서 postcss 설정을 지원 하지 않습니다. tailwind 설정을 위해서 craco를 사용합니다.</p> </blockquote> <p><code class="highlighter-rouge">package.json</code>에서 <code class="highlighter-rouge">start, build, test</code> 명령어를 다음과 같이 설정을 변경 합니다.</p> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+    // ...
+    "scripts": {
+     "start": "craco start",
+     "build": "craco build",
+     "test": "craco test",
+      "eject": "react-scripts eject"
+    },
+  }
+</code></pre></div></div> <p>그리고 <code class="highlighter-rouge">craco.config.js</code> 파일을 생성합니다. 해당 파일에서는 <code class="highlighter-rouge">tailwindcss</code> 와 <code class="highlighter-rouge">autoprefixer</code> plugin을 설정합니다.</p> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// craco.config.js
+module.exports = {
+  style: {
+    postcss: {
+      plugins: [
+        require('tailwindcss'),
+        require('autoprefixer'),
+      ],
+    },
+  },
+}
+</code></pre></div></div> <h2 id="4-tailwind-설정-파일-생성">4. tailwind 설정 파일 생성</h2> <p><code class="highlighter-rouge">tailwind.config.js</code> 파일을 생성합니다.</p> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npx tailwindcss init
+</code></pre></div></div> <p>최상의 디렉토리에 최소 설정이된 <code class="highlighter-rouge">tailwind.config.js</code> 파일이 생성됩니다.</p> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>module.exports = {
+  purge: [],
+  darkMode: false, // or 'media' or 'class'
+  theme: {
+    extend: {},
+  },
+  variants: {
+    extend: {},
+  },
+  plugins: [],
+}
+</code></pre></div></div> <p>여기에 purge 설정을 추가 합니다.</p> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> // tailwind.config.js
+  module.exports = {
+   purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
+    darkMode: false, // or 'media' or 'class'
+    theme: {
+      extend: {},
+    },
+    variants: {
+      extend: {},
+    },
+    plugins: [],
+  }
+</code></pre></div></div> <h2 id="5-tailwind-css-반영">5. tailwind css 반영</h2> <p><code class="highlighter-rouge">./src/index.css</code> 에 다음을 추가 합니다.</p> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/* ./src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+</code></pre></div></div> <p>tailwind의 <a href="https://tailwindcss.com/docs/adding-base-styles">base</a>, <a href="https://tailwindcss.com/docs/extracting-components">components</a>, <a href="https://tailwindcss.com/docs/adding-new-utilities">utilities</a>를 사용하도록 설정이 되었습니다.</p> <h2 id="6-tailwind-css-예제-사용">6. tailwind css 예제 사용</h2> <p><code class="highlighter-rouge">App.js</code> 에 다음 코드를 추가 합니다.</p> <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"py-12 bg-white"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"lg:text-center"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">"text-base text-indigo-600 font-semibold tracking-wide uppercase"</span><span class="nt">&gt;</span>Transactions<span class="nt">&lt;/h2&gt;</span>
+          <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl"</span><span class="nt">&gt;</span>
+            A better way to send money
+          <span class="nt">&lt;/p&gt;</span>
+          <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto"</span><span class="nt">&gt;</span>
+            Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam voluptatum cupiditate veritatis in accusamus quisquam.
+          <span class="nt">&lt;/p&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"mt-10"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;dl</span> <span class="na">class=</span><span class="s">"space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"flex"</span><span class="nt">&gt;</span>
+              <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"flex-shrink-0"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white"</span><span class="nt">&gt;</span>
+                  
+                  <span class="nt">&lt;svg</span> <span class="na">class=</span><span class="s">"h-6 w-6"</span> <span class="na">xmlns=</span><span class="s">"http://www.w3.org/2000/svg"</span> <span class="na">fill=</span><span class="s">"none"</span> <span class="na">viewBox=</span><span class="s">"0 0 24 24"</span> <span class="na">stroke=</span><span class="s">"currentColor"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;path</span> <span class="na">stroke-linecap=</span><span class="s">"round"</span> <span class="na">stroke-linejoin=</span><span class="s">"round"</span> <span class="na">stroke-width=</span><span class="s">"2"</span> <span class="na">d=</span><span class="s">"M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"</span> <span class="nt">/&gt;</span>
+                  <span class="nt">&lt;/svg&gt;</span>
+                <span class="nt">&lt;/div&gt;</span>
+              <span class="nt">&lt;/div&gt;</span>
+              <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"ml-4"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;dt</span> <span class="na">class=</span><span class="s">"text-lg leading-6 font-medium text-gray-900"</span><span class="nt">&gt;</span>
+                  Competitive exchange rates
+                <span class="nt">&lt;/dt&gt;</span>
+                <span class="nt">&lt;dd</span> <span class="na">class=</span><span class="s">"mt-2 text-base text-gray-500"</span><span class="nt">&gt;</span>
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.
+                <span class="nt">&lt;/dd&gt;</span>
+              <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+    
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"flex"</span><span class="nt">&gt;</span>
+              <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"flex-shrink-0"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white"</span><span class="nt">&gt;</span>
+                  
+                  <span class="nt">&lt;svg</span> <span class="na">class=</span><span class="s">"h-6 w-6"</span> <span class="na">xmlns=</span><span class="s">"http://www.w3.org/2000/svg"</span> <span class="na">fill=</span><span class="s">"none"</span> <span class="na">viewBox=</span><span class="s">"0 0 24 24"</span> <span class="na">stroke=</span><span class="s">"currentColor"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;path</span> <span class="na">stroke-linecap=</span><span class="s">"round"</span> <span class="na">stroke-linejoin=</span><span class="s">"round"</span> <span class="na">stroke-width=</span><span class="s">"2"</span> <span class="na">d=</span><span class="s">"M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"</span> <span class="nt">/&gt;</span>
+                  <span class="nt">&lt;/svg&gt;</span>
+                <span class="nt">&lt;/div&gt;</span>
+              <span class="nt">&lt;/div&gt;</span>
+              <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"ml-4"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;dt</span> <span class="na">class=</span><span class="s">"text-lg leading-6 font-medium text-gray-900"</span><span class="nt">&gt;</span>
+                  No hidden fees
+                <span class="nt">&lt;/dt&gt;</span>
+                <span class="nt">&lt;dd</span> <span class="na">class=</span><span class="s">"mt-2 text-base text-gray-500"</span><span class="nt">&gt;</span>
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.
+                <span class="nt">&lt;/dd&gt;</span>
+              <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+    
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"flex"</span><span class="nt">&gt;</span>
+              <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"flex-shrink-0"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white"</span><span class="nt">&gt;</span>
+                  
+                  <span class="nt">&lt;svg</span> <span class="na">class=</span><span class="s">"h-6 w-6"</span> <span class="na">xmlns=</span><span class="s">"http://www.w3.org/2000/svg"</span> <span class="na">fill=</span><span class="s">"none"</span> <span class="na">viewBox=</span><span class="s">"0 0 24 24"</span> <span class="na">stroke=</span><span class="s">"currentColor"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;path</span> <span class="na">stroke-linecap=</span><span class="s">"round"</span> <span class="na">stroke-linejoin=</span><span class="s">"round"</span> <span class="na">stroke-width=</span><span class="s">"2"</span> <span class="na">d=</span><span class="s">"M13 10V3L4 14h7v7l9-11h-7z"</span> <span class="nt">/&gt;</span>
+                  <span class="nt">&lt;/svg&gt;</span>
+                <span class="nt">&lt;/div&gt;</span>
+              <span class="nt">&lt;/div&gt;</span>
+              <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"ml-4"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;dt</span> <span class="na">class=</span><span class="s">"text-lg leading-6 font-medium text-gray-900"</span><span class="nt">&gt;</span>
+                  Transfers are instant
+                <span class="nt">&lt;/dt&gt;</span>
+                <span class="nt">&lt;dd</span> <span class="na">class=</span><span class="s">"mt-2 text-base text-gray-500"</span><span class="nt">&gt;</span>
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.
+                <span class="nt">&lt;/dd&gt;</span>
+              <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+    
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"flex"</span><span class="nt">&gt;</span>
+              <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"flex-shrink-0"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white"</span><span class="nt">&gt;</span>
+                  
+                  <span class="nt">&lt;svg</span> <span class="na">class=</span><span class="s">"h-6 w-6"</span> <span class="na">xmlns=</span><span class="s">"http://www.w3.org/2000/svg"</span> <span class="na">fill=</span><span class="s">"none"</span> <span class="na">viewBox=</span><span class="s">"0 0 24 24"</span> <span class="na">stroke=</span><span class="s">"currentColor"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;path</span> <span class="na">stroke-linecap=</span><span class="s">"round"</span> <span class="na">stroke-linejoin=</span><span class="s">"round"</span> <span class="na">stroke-width=</span><span class="s">"2"</span> <span class="na">d=</span><span class="s">"M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"</span> <span class="nt">/&gt;</span>
+                  <span class="nt">&lt;/svg&gt;</span>
+                <span class="nt">&lt;/div&gt;</span>
+              <span class="nt">&lt;/div&gt;</span>
+              <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"ml-4"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;dt</span> <span class="na">class=</span><span class="s">"text-lg leading-6 font-medium text-gray-900"</span><span class="nt">&gt;</span>
+                  Mobile notifications
+                <span class="nt">&lt;/dt&gt;</span>
+                <span class="nt">&lt;dd</span> <span class="na">class=</span><span class="s">"mt-2 text-base text-gray-500"</span><span class="nt">&gt;</span>
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.
+                <span class="nt">&lt;/dd&gt;</span>
+              <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;/dl&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div> <h2 id="7-결과-확인">7. 결과 확인</h2> <p>localhost 서버를 띄어서 확인해봅니다.</p> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm run start
+</code></pre></div></div> <p>http://localhost:3000 으로 접근 하면 다음과 같은 화면을 확인 할 수 있습니다.</p> <p><img src="/assets/img/post_img/tailwind_example.png" alt=""></p> <h2 id="마치며">마치며</h2> <p>위에 정리한 내용은 <a href="https://tailwindcss.com/docs/guides/create-react-app">Install Tailwind CSS with Create React App</a>을 보고 따라 하였습니다.</p> <p>코드를 보면서 직관적인 부분이 장점으로 다가오지만, html의 class가 너무 길어져서 불편하게 느껴지기도 했습니다. 또한, React에서는 class 를 className으로 Attribute를 변경해야합니다.</p> <p>현재 많은 예제들이 나오고 있는 시점이라, 더 발전이 될지도 모르겠습니다.</p> <h2 id="참고자료">참고자료</h2> <ul> <li><a href="https://tailwindcss.com/docs/guides/create-react-app">Install Tailwind CSS with Create React App</a></li> </ul> <div class="entry-meta"> <br> <hr> <span class="entry-tags"><a href="https://lahuman.github.io/tags/#reactjs" title="Pages tagged reactjs" class="tag"><span class="term">reactjs</span></a><a href="https://lahuman.github.io/tags/#tailwindcss" title="Pages tagged tailwindcss" class="tag"><span class="term">tailwindcss</span></a></span> <span class="social-share"> <a href="https://www.facebook.com/sharer/sharer.php?u=https://lahuman.github.io/tailwindcss_react/" title="Share on Facebook" class="tag"> <span class="term"><i class="fa fa-facebook-square"></i> Share</span> </a> <a href="https://twitter.com/intent/tweet?text=https://lahuman.github.io/tailwindcss_react/" title="Share on Twitter" class="tag"> <span class="term"><i class="fa fa-twitter-square"></i> Tweet</span> </a> <a href="https://plus.google.com/share?url=https://lahuman.github.io/tailwindcss_react/" title="Share on Google+" class="tag"> <span class="term"><i class="fa fa-google-plus-square"></i> +1</span> </a> </span> <div style="clear:both"></div> </div> <ins class="kakao_ad_area" style="display:none;" data-ad-unit="DAN-ubp67fs9s850" data-ad-width="320" data-ad-height="100"></ins> <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script> </div> </div> <section id="disqus_thread" class="animated fadeInUp"></section><!-- /#disqus_thread --> </header> <!-- JS --> <script src="https://lahuman.github.io/assets/js/jquery-1.12.0.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.dlmenu.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.goup.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.magnific-popup.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.fitvid.min.js"></script> <script src="https://lahuman.github.io/assets/js/scripts.js"></script> <!-- Global site tag (gtag.js) - Google Analytics --> <script async src="https://www.googletagmanager.com/gtag/js?id=UA-74095083-1"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-74095083-1'); </script> <script type="text/javascript"> var disqus_shortname = 'daniels-blog'; (function() { var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true; dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js'; (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq); })(); (function () { var s = document.createElement('script'); s.async = true; s.type = 'text/javascript'; s.src = '//' + disqus_shortname + '.disqus.com/count.js'; (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s); }()); </script> <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript> <!-- MathJax --> <script async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> </body> </html>
