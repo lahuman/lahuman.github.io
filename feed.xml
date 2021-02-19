@@ -1,4 +1,125 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2021-02-13T22:01:22+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">MongoDB 설치 하기</title><link href="https://lahuman.github.io/mongodb_install/" rel="alternate" type="text/html" title="MongoDB 설치 하기" /><published>2021-02-07T00:00:00+09:00</published><updated>2021-02-07T00:00:00+09:00</updated><id>https://lahuman.github.io/mongodb_install</id><content type="html" xml:base="https://lahuman.github.io/mongodb_install/">&lt;h1 id=&quot;오랜만에-mongodb를-설치해야-할-일이-생겼습니다&quot;&gt;오랜만에 MongoDB를 설치해야 할 일이 생겼습니다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2021-02-20T04:50:26+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Typescript 기반의 React에서 css module 사용 설정</title><link href="https://lahuman.github.io/storybook_css_module/" rel="alternate" type="text/html" title="Typescript 기반의 React에서 css module 사용 설정" /><published>2021-02-18T00:00:00+09:00</published><updated>2021-02-18T00:00:00+09:00</updated><id>https://lahuman.github.io/storybook_css_module</id><content type="html" xml:base="https://lahuman.github.io/storybook_css_module/">&lt;h1 id=&quot;react-기반의-storybook에서-css-module-사용-설정&quot;&gt;React 기반의 Storybook에서 css module 사용 설정&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;기간계 디자인 시스템을 진행하면서 &lt;a href=&quot;https://storybook.js.org/&quot;&gt;storybook&lt;/a&gt; 을 이용하고 있습니다.
+이번에 css module을 사용하기 위해서 몇가지 설정을 했는데, 검색에 많은 시간이 걸렸습니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;들어가기에-앞서서&quot;&gt;들어가기에 앞서서&lt;/h2&gt;
+
+&lt;p&gt;크게 storybook 설정과 typescript + rollup 설정으로 나뉩니다.
+typescript + rollup의 경우 배포와 관련이 있습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;storybook-설정하기&quot;&gt;storybook 설정하기&lt;/h2&gt;
+
+&lt;p&gt;sotrybook설정은 &lt;a href=&quot;https://github.com/storybookjs/storybook/issues/6055&quot;&gt;Add loader for .module.css to load CSS modules&lt;/a&gt; 내용을 참고하면 쉽게 됩니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;//  ./storybook/main.js 
+
+module.exports = {
+  stories: ['../stories/**/*.stories.js'],
+  addons: ['@storybook/addon-actions', '@storybook/addon-links'],
+  webpackFinal: async (config, { configType }) =&amp;gt; {
+
+    // get index of css rule
+    const ruleCssIndex = config.module.rules.findIndex(rule =&amp;gt; rule.test.toString() === '/\\.css$/');
+
+    // map over the 'use' array of the css rule and set the 'module' option to true
+    config.module.rules[ruleCssIndex].use.map(item =&amp;gt; {
+      if (item.loader &amp;amp;&amp;amp; item.loader.includes('/css-loader/')) {
+        item.options.modules = {
+          mode: 'local',
+          localIdentName: configType === 'PRODUCTION' ? '[local]--[hash:base64:5]' : '[name]__[local]--[hash:base64:5]',
+        };
+      }
+      return item;
+    })
+
+    // Return the altered config
+    return config;
+  }
+};
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;typescript--rollup-설정&quot;&gt;typescript + rollup 설정&lt;/h2&gt;
+
+&lt;p&gt;먼저 typescript 설정을 위해서 &lt;a href=&quot;https://github.com/mrmckeb/typescript-plugin-css-modules#customRenderer&quot;&gt;typescript-plugin-css-modules&lt;/a&gt; 모듈을 사용하여야 합니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 설치 
+yarn add -D typescript-plugin-css-modules
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;tsconfig.json&lt;/code&gt; 파일에 아래 설정을 추가 합니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{
+  &quot;compilerOptions&quot;: {
+    &quot;plugins&quot;: [{ &quot;name&quot;: &quot;typescript-plugin-css-modules&quot; }]
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이것으로 typescript 설정이 완료 되었습니다.&lt;/p&gt;
+
+&lt;p&gt;그리고 rollup 설정은 &lt;a href=&quot;https://florian.ec/blog/rollup-scss-css-modules/&quot;&gt;Bundle Libraries With SCSS and CSS Modules Using Rollup&lt;/a&gt; 를 따라서 설정하면 쉽게 됩니다.&lt;/p&gt;
+
+&lt;p&gt;제 경우는 &lt;code class=&quot;highlighter-rouge&quot;&gt;postcss&lt;/code&gt;의 옵션만 추가 해서 설정을 완료 하였습니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// rollup.config.js
+import babel from 'rollup-plugin-babel';
+import resolve from 'rollup-plugin-node-resolve';
+import commonjs from 'rollup-plugin-commonjs';
+import postcss from 'rollup-plugin-postcss';
+import peerDepsExternal from 'rollup-plugin-peer-deps-external';
+
+export default {
+  input: './src/index.js',
+
+  output: [
+    {
+      name: 'comlib',
+      sourcemap: true,
+      file: './dist/index.js',
+      format: 'umd',
+      globals: { react: 'React' },
+    },
+  ],
+
+  plugins: [
+    peerDepsExternal(),
+    postcss({
+      // 옵션 추가 처리
+      extract: false,
+      modules: true,
+      use: ['sass'],
+    }),
+    babel({ exclude: 'node_modules/**' }),
+    resolve(),
+    commonjs(),
+  ],
+
+  external: ['react', 'react-dom'],
+};
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이후 배포를 하면 css module도 함께 처리가 된 것을 확인 할 수 있습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;css-module이-적용된-예제&quot;&gt;css module이 적용된 예제&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/react-rollup-storybook.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;위의 그림과 같이 &lt;code class=&quot;highlighter-rouge&quot;&gt;GuiButton-module_formWrap__2zPLQ&lt;/code&gt;가 적용된 것을 확인 할 수 있습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;마치며&quot;&gt;마치며&lt;/h2&gt;
+
+&lt;p&gt;정리해놓은 자료가 다른 누군가에게 도움이 되기를 바랍니다. 
+저와 같이 하루종일 고생하지 않으시길…&lt;/p&gt;
+
+&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/storybookjs/storybook/issues/6055&quot;&gt;Add loader for .module.css to load CSS modules&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/mrmckeb/typescript-plugin-css-modules#customRenderer&quot;&gt;typescript-plugin-css-modules&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://florian.ec/blog/rollup-scss-css-modules/&quot;&gt;Bundle Libraries With SCSS and CSS Modules Using Rollup&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="storybook" /><category term="react" /><category term="css module" /><summary type="html">sotrybook과 함께 사용하고 있습니다. 검색이 가장 어려웠어요.</summary></entry><entry><title type="html">MongoDB 설치 하기</title><link href="https://lahuman.github.io/mongodb_install/" rel="alternate" type="text/html" title="MongoDB 설치 하기" /><published>2021-02-07T00:00:00+09:00</published><updated>2021-02-07T00:00:00+09:00</updated><id>https://lahuman.github.io/mongodb_install</id><content type="html" xml:base="https://lahuman.github.io/mongodb_install/">&lt;h1 id=&quot;오랜만에-mongodb를-설치해야-할-일이-생겼습니다&quot;&gt;오랜만에 MongoDB를 설치해야 할 일이 생겼습니다.&lt;/h1&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;기존의 MongoDB를 이전설치해야 할 일이 발생했습니다. 기존의 경우 shard와 mongos(router)로 사용했지만, sharding을 하지 않아서 P(Primary)-S(slave)-S(slave) 형식으로 구성하기로 했습니다.&lt;/p&gt;
@@ -854,257 +975,4 @@ bower &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;md5-lite &lt;span cl
 &lt;ul&gt;
   &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;http://opensource.org/licenses/mit-license.php&quot;&gt;MIT license&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
   &lt;li&gt;Copyright 2020 © &lt;a href=&quot;https://lahuman.github.io&quot; target=&quot;_blank&quot;&gt;lahuman&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;</content><category term="duplication" /><category term="file" /><category term="md5" /><summary type="html">중복 파일 검색에서 나온 아이디어를 npm 모듈로 제작해서 배포해보았다.</summary></entry><entry><title type="html">라즈베리파이에 ubuntu에 k3S 설치 하기</title><link href="https://lahuman.github.io/raspberrypi_ubuntu_k3s/" rel="alternate" type="text/html" title="라즈베리파이에 ubuntu에 k3S 설치 하기" /><published>2021-01-16T00:00:00+09:00</published><updated>2021-01-16T00:00:00+09:00</updated><id>https://lahuman.github.io/raspberrypi_ubuntu_k3s</id><content type="html" xml:base="https://lahuman.github.io/raspberrypi_ubuntu_k3s/">&lt;h1 id=&quot;라즈베리파이에-ubuntu에-k3s-설치-하기&quot;&gt;라즈베리파이에 ubuntu에 k3S 설치 하기&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;이 글을 읽기 전에 &lt;a href=&quot;https://lahuman.github.io/raspberrypi_k3s/&quot;&gt;라즈베리파이에 k3s 설치 하기 - 실패기&lt;/a&gt; 와 &lt;a href=&quot;https://lahuman.github.io/raspberrypi_ubuntu/&quot;&gt;라즈베리파이에 ubuntu 설치 하기&lt;/a&gt; 를 읽어 보시기를 추천 드립니다.
-또한 &lt;a href=&quot;https://lahuman.github.io/raspberrypi_ubuntu/&quot;&gt;라즈베리파이에 ubuntu 설치 하기&lt;/a&gt;의 설정 이후 진행 하셔야 합니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;hostsname-설정하기&quot;&gt;hostsname 설정하기&lt;/h2&gt;
-
-&lt;p&gt;저는 2대의 라즈베리 파이를 가지고 main(라즈베리4)과 node1(라즈베리3+)으로 구성을 하려고 합니다.
-먼저 구분을 하기 위해서 사용하려는 라즈베리파이의 hostname을 변경합니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo vi /etc/hosts
-
-# mian / node1 으로 수정
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;그리고 다른 모듈에서 hostsname을 변경하지 못하도록 &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/cloud/cloud.cfg&lt;/code&gt; 파일의 &lt;code class=&quot;highlighter-rouge&quot;&gt;preserve_hostname&lt;/code&gt; 옵션을 &lt;code class=&quot;highlighter-rouge&quot;&gt;true&lt;/code&gt;로 변경합니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# The top level settings are used as module
-# and system configuration.
-
-# A set of users which may be applied and/or used by various modules
-# when a 'default' entry is found it will reference the 'default_user'
-# from the distro configuration specified below
-users:
-   - default
-
-# If this is set, 'root' will not be able to ssh in and they
-# will get a message to login instead as the default $user
-disable_root: true
-
-# This will cause the set+update hostname module to not operate (if true)
-# 여기를 true로 변경
-preserve_hostname: true
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;linux-컨테이너-기능-활성화&quot;&gt;Linux 컨테이너 기능 활성화&lt;/h2&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;/boot/firmware/cmdline.txt&lt;/code&gt; 파일의 마지막에 라인에 &lt;code class=&quot;highlighter-rouge&quot;&gt;cgroup_enable=cpuset cgroup_memory=1 cgroup_enable=memory&lt;/code&gt; 을 이어서 작성합니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo vi /boot/firmware/cmdline.txt
-
-# 라인 마지막에 추가 처리 
-net.ifnames=0 dwc_otg.lpm_enable=0 console=serial0,115200 console=tty1 root=LABEL=writable rootfstype=ext4 elevator=deadline rootwait fixrtc cgroup_enable=cpuset cgroup_memory=1 cgroup_enable=memory
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;그리고 재부팅을 해야 합니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo reboot
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;docker-설치&quot;&gt;docker 설치&lt;/h2&gt;
-
-&lt;p&gt;k3s 설치 이전에 docker를 설치 합니다.
-docker 설치와 활성화는 다음의 명령어로 쉽게 할 수 있습니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# docker 설치
-sudo apt install docker.io 
-
-# docker 서비스 시작
-sudo systemctl start docker
-
-# 부팅시 docker 서비스 시작
-sudo systemctl enable docker
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;k3s-설치&quot;&gt;k3s 설치&lt;/h2&gt;
-
-&lt;p&gt;k3s 설치도 다음 스크립트로 쉽게 설치 할 수 있습니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 설치 스크립트
-curl -sfL https://get.k3s.io | sh -s - --docker
-
-# 서비스 확인
-sudo systemctl status k3s
-● k3s.service - Lightweight Kubernetes
-     Loaded: loaded (/etc/systemd/system/k3s.service; enabled; vendor preset: enabled)
-     Active: active (running) since Sat 2021-01-16 13:26:34 UTC; 14min ago
-       Docs: https://k3s.io
-    Process: 1697 ExecStartPre=/sbin/modprobe br_netfilter (code=exited, status=0/SUCCESS)
-    Process: 1733 ExecStartPre=/sbin/modprobe overlay (code=exited, status=0/SUCCESS)
-   Main PID: 1734 (k3s-server)
-      Tasks: 29
-     Memory: 571.3M
-     CGroup: /system.slice/k3s.service
-             └─1734 /usr/local/bin/k3s server
-
-Jan 16 13:36:39 main k3s[1734]: W0116 13:36:39.184245    1734 machine.go:253] Cannot determine CPU /sys/bus/cpu/devices&amp;gt;
-Jan 16 13:36:39 main k3s[1734]: W0116 13:36:39.184308    1734 machine.go:253] Cannot determine CPU /sys/bus/cpu/devices&amp;gt;
-Jan 16 13:36:39 main k3s[1734]: W0116 13:36:39.184360    1734 machine.go:253] Cannot determine CPU /sys/bus/cpu/devices&amp;gt;
-Jan 16 13:36:39 main k3s[1734]: W0116 13:36:39.184412    1734 machine.go:253] Cannot determine CPU /sys/bus/cpu/devices&amp;gt;
-Jan 16 13:36:39 main k3s[1734]: E0116 13:36:39.184432    1734 machine.go:72] Cannot read number of physical cores corre&amp;gt;
-Jan 16 13:36:39 main k3s[1734]: W0116 13:36:39.184669    1734 machine.go:253] Cannot determine CPU /sys/bus/cpu/devices&amp;gt;
-Jan 16 13:36:39 main k3s[1734]: W0116 13:36:39.184720    1734 machine.go:253] Cannot determine CPU /sys/bus/cpu/devices&amp;gt;
-Jan 16 13:36:39 main k3s[1734]: W0116 13:36:39.184768    1734 machine.go:253] Cannot determine CPU /sys/bus/cpu/devices&amp;gt;
-Jan 16 13:36:39 main k3s[1734]: W0116 13:36:39.184816    1734 machine.go:253] Cannot determine CPU /sys/bus/cpu/devices&amp;gt;
-Jan 16 13:36:39 main k3s[1734]: E0116 13:36:39.184836    1734 machine.go:86] Cannot read number of sockets correctly, n&amp;gt;
-lines 1-22/22 (END)
-
-# k3s node 상태 확인
-sudo kubectl get ndoes
-sudo kubectl get nodes
-NAME    STATUS     ROLES                  AGE   VERSION
-main    Ready      control-plane,master   24h   v1.20.0+k3s2
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;방화벽-비활성화&quot;&gt;방화벽 비활성화&lt;/h2&gt;
-
-&lt;p&gt;이제 main node의 설정이 끝났습니다.&lt;/p&gt;
-
-&lt;p&gt;worker node와 통신을 위해서 방화벽을 내려둡니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 방화벽 비활성화
-sudo ufw disable
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;“축하합니다!” 여기까지 진행이 되었다면, main node의 설치가 완료 한 것입니다. 이제 worker node 설치를 진행합니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;woker node를 설치하기 위해서는 main node의 token이 필요 합니다.&lt;/p&gt;
-
-&lt;p&gt;token은 다음의 명령어로 확인이 가능합니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo cat /var/lib/rancher/k3s/server/node-token
-K10db4cc46dfccb627942c905744dce8ee3099f1153d85c741f21b8c9420febc9db::server:58054e0acd0a3508bc4381e43e74b2ef
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;worker-node-설치-하기&quot;&gt;worker node 설치 하기&lt;/h2&gt;
-
-&lt;p&gt;우선 main node에서 진행했던, &lt;code class=&quot;highlighter-rouge&quot;&gt;linux 컨테이너 활성화&lt;/code&gt;와 &lt;code class=&quot;highlighter-rouge&quot;&gt;docker&lt;/code&gt;를 설치해줍니다. 그리고 &lt;code class=&quot;highlighter-rouge&quot;&gt;방화벽 비활성화&lt;/code&gt;처리 합니다.&lt;/p&gt;
-
-&lt;p&gt;위의 단계가 끝났다면, worker node를 다음의 명령어로 설치합니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# curl -sfL http://get.k3s.io | K3S_URL=https://&amp;lt;master_IP&amp;gt;:6443 K3S_TOKEN=&amp;lt;join_token&amp;gt; sh -s - --docker
-curl -sfL http://get.k3s.io | K3S_URL=https://192.168.0.30:6443 K3S_TOKEN=K10db4cc46dfccb627942c905744dce8ee3099f1153d85c741f21b8c9420febc9db::server:58054e0acd0a3508bc4381e43e74b2ef sh -s - --docker
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;설치가 완료되었다면, 다음 명령어로 상태를 확인하세요.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo systemctl status k3s-agent
-● k3s-agent.service - Lightweight Kubernetes
-     Loaded: loaded (/etc/systemd/system/k3s-agent.service; enabled; vendor preset: enabled)
-     Active: active (running) since Fri 2021-01-15 13:35:53 UTC; 24h ago
-       Docs: https://k3s.io
-    Process: 1674 ExecStartPre=/sbin/modprobe br_netfilter (code=exited, status=0/SUCCESS)
-    Process: 1706 ExecStartPre=/sbin/modprobe overlay (code=exited, status=0/SUCCESS)
-   Main PID: 1707 (k3s-agent)
-      Tasks: 16
-     Memory: 143.6M
-     CGroup: /system.slice/k3s-agent.service
-             └─1707 /usr/local/bin/k3s agent
-
-Jan 16 13:54:00 node1 k3s[1707]: I0116 13:54:00.243366    1707 policy_none.go:43] [cpumanager] none policy: Start
-Jan 16 13:54:00 node1 k3s[1707]: E0116 13:54:00.265387    1707 kubelet.go:1823] skipping pod synchronization - containe&amp;gt;
-Jan 16 13:54:00 node1 k3s[1707]: W0116 13:54:00.322546    1707 manager.go:594] Failed to retrieve checkpoint for &quot;kubel&amp;gt;
-Jan 16 13:54:00 node1 k3s[1707]: I0116 13:54:00.340881    1707 plugin_manager.go:114] Starting Kubelet Plugin Manager
-Jan 16 13:54:01 node1 k3s[1707]: I0116 13:54:01.066655    1707 topology_manager.go:187] [topologymanager] Topology Admi&amp;gt;
-Jan 16 13:54:01 node1 k3s[1707]: W0116 13:54:01.067797    1707 pod_container_deletor.go:79] Container &quot;3d18023da3813e1c&amp;gt;
-Jan 16 13:54:01 node1 k3s[1707]: I0116 13:54:01.253297    1707 reconciler.go:224] operationExecutor.VerifyControllerAtt&amp;gt;
-Jan 16 13:54:01 node1 k3s[1707]: I0116 13:54:01.253506    1707 reconciler.go:157] Reconciler: start to sync state
-Jan 16 13:54:01 node1 k3s[1707]: W0116 13:54:01.718236    1707 cni.go:333] CNI failed to retrieve network namespace pat&amp;gt;
-Jan 16 13:54:04 node1 k3s[1707]: W0116 13:54:04.529789    1707 pod_container_deletor.go:79] Container &quot;5124f74a4a45f4e
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;main node에서 worker node가 연결되었는지 확인합니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# node1 이 연결되어 있는 것을 확인합니다.
-sudo kubectl get nodes
-NAME    STATUS   ROLES                  AGE   VERSION
-node1   Ready    &amp;lt;none&amp;gt;                 24h   v1.20.0+k3s2
-main    Ready    control-plane,master   24h   v1.20.0+k3s2
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;서비스-올려-보기&quot;&gt;서비스 올려 보기&lt;/h2&gt;
-
-&lt;p&gt;먼저 서비스 yaml 파일을 생성합니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# k3s-demo.yaml
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: k3s-demo
-  namespace: default
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: k3s-demo
-  template:
-    metadata:
-      labels:
-        app: k3s-demo
-    spec:
-      containers:
-      - name: k3s-demo
-        image: ruanbekker/rpi-hostname:latest
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: k3s-demo
-  namespace: default
-spec:
-  ports:
-  - name: http
-    targetPort: 8000
-    port: 80
-  selector:
-    app: k3s-demo
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: k3s-demo
-  annotations:
-    kubernetes.io/ingress.class: &quot;traefik&quot;
-
-spec:
-  rules:
-  - host: k3s-demo.192.168.0.30.xip.io
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service: 
-            name: k3s-demo
-            port: 
-              number: 80
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;k3s-demo.192.168.0.30.xip.io&lt;/code&gt;에서 사용한 xip.io는 서브 도메인에 설정된 IP로 루프백 해주는 서비스입니다.
-도메인기반으로 동작하는 Ingress에서 활용하면 하나의 서비스에 여러 서브 도메인을 테스트 할때 좋습니다.
-&lt;code class=&quot;highlighter-rouge&quot;&gt;k3s-demo.192.168.0.30.xip.io&lt;/code&gt; 을 호출하면 192.168.0.30으로 전달합니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 서비스 배포
-sudo kubectl apply -f k3s-demo.yaml
-
-# 배포된 서비스 확인 (웹 브라우저에서도 확인이 가능합니다.)
-curl http://k3s-demo.192.168.0.30.xip.io/
-Hostname: k3s-demo-65c8cf57c-2s2tr
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;여기까지-k3s-설치를-마칩니다&quot;&gt;여기까지 k3s 설치를 마칩니다.&lt;/h2&gt;
-
-&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://medium.com/@amadmalik/installing-kubernetes-on-raspberry-pi-k3s-and-docker-on-ubuntu-20-04-ef51e5e56&quot;&gt;Installing Kubernetes on Raspberry Pi, K3s and Docker on Ubuntu 20.04&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://sysadmins.co.za/develop-build-and-deploy-a-golang-app-to-k3s/&quot;&gt;Develop Build and Deploy a Golang App to K3S&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="raspberrypi" /><category term="ubuntu" /><category term="k3s" /><summary type="html">'라즈베리파이에 ubuntu 설치하기'에 이어서 진행됩니다.</summary></entry></feed>
+&lt;/ul&gt;</content><category term="duplication" /><category term="file" /><category term="md5" /><summary type="html">중복 파일 검색에서 나온 아이디어를 npm 모듈로 제작해서 배포해보았다.</summary></entry></feed>
