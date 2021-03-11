@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]--><!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8"><![endif]--><!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9"><![endif]--><!--[if gt IE 8]><!--><html class="no-js">
+<!--<![endif]--> <head> <meta charset="UTF-8"> <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"> <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> <title>SpringBatch에서 Mutlti datasource 설정 – lahuman</title> <meta name="description" content="열심히 사는 아저씨"> <meta name="keywords" content="spring, datasource"> <!-- Twitter Cards --> <meta name="twitter:card" content="summary"> <meta name="twitter:image" content="https://lahuman.github.io/assets/img/logo.png"> <meta name="twitter:title" content="SpringBatch에서 Mutlti datasource 설정"> <meta name="twitter:description" content="오랜만에 진행하는 Java Project 입니다."> <!-- Open Graph --> <meta property="og:locale" content="ko_KR"> <meta property="og:type" content="article"> <meta property="og:title" content="SpringBatch에서 Mutlti datasource 설정"> <meta property="og:description" content="오랜만에 진행하는 Java Project 입니다."> <meta property="og:url" content="https://lahuman.github.io/springboot_multi_datasource/"> <meta property="og:site_name" content="lahuman"> <meta property="og:image" content="https://lahuman.github.io/assets/img/logo.png"> <link rel="canonical" href="https://lahuman.github.io/springboot_multi_datasource/"> <link href="https://lahuman.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="lahuman Feed"> <!-- Handheld --> <meta name="HandheldFriendly" content="True"> <meta name="MobileOptimized" content="320"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- CSS --> <link rel="stylesheet" href="https://lahuman.github.io/assets/css/main.css"> <!-- JS --> <script src="https://lahuman.github.io/assets/js/modernizr-3.3.1.custom.min.js"></script> <!-- Favicons --> <link rel="apple-touch-icon" href="https://lahuman.github.io/assets/img/favicons/apple-icon-precomposed.png"> <link rel="apple-touch-icon" sizes="72x72" href="https://lahuman.github.io/assets/img/favicons/apple-icon-72x72.png"> <link rel="apple-touch-icon" sizes="114x114" href="https://lahuman.github.io/assets/img/favicons/apple-icon-114x114.png"> <link rel="apple-touch-icon" sizes="144x144" href="https://lahuman.github.io/assets/img/favicons/apple-icon-144x144.png"> <link rel="shortcut icon" type="image/png" href="https://lahuman.github.io/favicon.png"> <link rel="shortcut icon" href="https://lahuman.github.io/favicon.ico"> <!-- Background Image --> <style type="text/css">body {background-image:url(https://lahuman.github.io/assets/img/placeholder-big.jpg); background-repeat: no-repeat; background-size: cover; }</style> <!-- Post Feature Image --> </head> <body> <nav id="dl-menu" class="dl-menuwrapper" role="navigation"> <button class="dl-trigger">Open Menu</button> <ul class="dl-menu"> <li><a href="https://lahuman.github.io/">Home</a></li> <li> <a href="#">About</a> <ul class="dl-submenu"> <li> <img src="https://lahuman.github.io/assets/img/logo.png" alt="lahuman photo" class="author-photo"> <h4>lahuman</h4> <p>열심히 사는 아저씨</p> </li> <li><a href="https://lahuman.github.io/about/"><span class="btn btn-inverse">Learn More</span></a></li> <li> <a href="http://facebook.com/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-facebook-square"></i> Facebook</a> </li> <li> <a href="http://linkedin.com/in/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-linkedin-square"></i> LinkedIn</a> </li> <li> <a href="http://github.com/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-github"></i> Github</a> </li> </ul>
+<!-- /.dl-submenu --> </li> <li> <a href="#">Posts</a> <ul class="dl-submenu"> <li><a href="https://lahuman.github.io/posts/">All Posts</a></li> <li><a href="https://lahuman.github.io/tags/">All Tags</a></li> </ul> </li> <li><a href="https://lahuman.github.io/projects/">Projects</a></li> </ul>
+<!-- /.dl-menu --> </nav><!-- /.dl-menuwrapper --> <!-- Header --> <header class="header" role="banner"> <div class="wrapper animated fadeIn"> <div class="content"> <div class="post-title "> <h1>SpringBatch에서 Mutlti datasource 설정</h1> <h4>04 Mar 2021</h4> <p class="reading-time"> <i class="fa fa-clock-o"></i> Reading time ~4 minutes </p>
+<!-- /.entry-reading-time --> <a class="btn zoombtn" href="https://lahuman.github.io/posts/"> <i class="fa fa-chevron-left"></i> </a> </div> <h1 id="springbatch에서-mutlti-datasource-설정">SpringBatch에서 Mutlti datasource 설정</h1> <blockquote> <p>회사내에서 배치 작업을 잠시 하게 되었습니다. 오랜만에 자바를 사용해보는거라 재미있네요. 스프링 설정은 이젠 javaconfig 만으로 웬만한 설정은 다 할수 있습니다.</p> </blockquote> <p><strong>추가 정보 : 스프링 배치에 대한 문서는 토리맘님의 한글 라이즈 프로젝트에 한글로 번역된 문서가 있습니다.</strong></p> <ul> <li><a href="https://godekdls.github.io/Spring%20Batch/introduction/">Spring Batch Introduction</a></li> </ul> <h2 id="spring-initializr를-활용한-프로젝트-생성">
+<a href="https://start.spring.io/">spring initializr</a>를 활용한 프로젝트 생성</h2> <p>SpringBatch의 초기 프로젝트를 <a href="https://start.spring.io/">spring initializr</a>에서 생성 합니다.</p> <p>제가 준 옵션은 아래와 같습니다.</p> <p><img src="assets/img/post_img/springbatch_initializr.png" alt=""></p> <p>Gradle을 사용하고, Jdk는 1.8을 지정하였습니다. Mysql은 Spring Batch의 Meta데이터를 저장하는 용도이며, H2 DB는 개발용으로, Oracle는 배치 데이터의 조회 &amp; 적재용으로 사용하게 됩니다. 개발툴은 intellij 기준으로 진행합니다.</p> <h2 id="초기-환경-구성-진행">초기 환경 구성 진행</h2> <ol> <li> <p><a href="https://start.spring.io/">spring initializr</a> 에서 프로젝트 정보를 입력하고 생성 &amp; 다운로드합니다.</p> </li> <li>다운로드한 파일의 압축을 풉니다.</li> <li>intellij에서 open 을 선택하고 압축 푼 디렉토리를 선택합니다. <img src="assets/img/post_img/springbatch_intellij_open.png" alt="">
+</li> <li>Gradle에서 관련 모듈 다운로드가 완료되기를 기다립니다.</li> </ol> <h2 id="spring-batch-설정">Spring Batch 설정</h2> <blockquote> <p>기본적인 Spring Batch에 대한 내용은 <a href="https://godekdls.github.io/Spring%20Batch/introduction/">Spring Batch Introduction</a>을 읽어보시기를 권장합니다.</p> </blockquote> <p><img src="assets/img/post_img/spring-batch-reference-model.png" alt=""></p> <p>Spring Batch는 Job, Step, 사용자가 개발하는 처리 유닛으로 나누어져 있습니다. 이렇게 구현함으로 다음과 같은 장점을 얻을 수 있습니다.</p> <ul> <li>명확한 관심사 분리</li> <li>인터페이스로 제공하는 명확한 아키텍처 레이어와 서비스</li> <li>빠르게 적용하고 쉽게 응용할 수 있는 간단한 디폴트 구현체</li> <li>크게 향상된 확장성</li> </ul> <h3 id="creating-a-batch-service를-기준으로-코드를-작성-할-예정입니다">
+<a href="https://spring.io/guides/gs/batch-processing/">Creating a Batch Service</a>를 기준으로 코드를 작성 할 예정입니다.</h3> <p><code class="highlighter-rouge">src/main/resources/sample-data.cvs</code>에 아래 내용을 작성하고 저장합니다.</p> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Jill,Doe
+Joe,Doe
+Justin,Doe
+Jane,Doe
+John,Doe
+</code></pre></div></div> <p>데이터가 적재될 table을 생성하는 스크립트를 <code class="highlighter-rouge">src/main/resources/schema-all.sql</code>에 아래 내용을 작성하고 저장합니다.</p> <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">DROP</span> <span class="k">TABLE</span> <span class="n">people</span> <span class="n">IF</span> <span class="k">EXISTS</span><span class="p">;</span>
+
+<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">people</span>  <span class="p">(</span>
+    <span class="n">person_id</span> <span class="n">BIGINT</span> <span class="k">IDENTITY</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">,</span>
+    <span class="n">first_name</span> <span class="n">VARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">),</span>
+    <span class="n">last_name</span> <span class="n">VARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="p">);</span>
+</code></pre></div></div> <blockquote> <p>Spring Boot는 <code class="highlighter-rouge">schema-@@platform@@.sql</code> 파일을 시작시 실행합니다. <code class="highlighter-rouge">-all</code>은 모든 플랫폼을 의미합니다.</p> </blockquote> <p>저장 데이터 구조가 되는 <code class="highlighter-rouge">Person.java</code>를 생성합니다.</p> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">gsshop</span><span class="o">.</span><span class="na">batch</span><span class="o">.</span><span class="na">work</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Person</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">lastName</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">firstName</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">Person</span><span class="o">()</span> <span class="o">{</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="nf">Person</span><span class="o">(</span><span class="n">String</span> <span class="n">firstName</span><span class="o">,</span> <span class="n">String</span> <span class="n">lastName</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">firstName</span> <span class="o">=</span> <span class="n">firstName</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">lastName</span> <span class="o">=</span> <span class="n">lastName</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setFirstName</span><span class="o">(</span><span class="n">String</span> <span class="n">firstName</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">firstName</span> <span class="o">=</span> <span class="n">firstName</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getFirstName</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">firstName</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getLastName</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">lastName</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setLastName</span><span class="o">(</span><span class="n">String</span> <span class="n">lastName</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">lastName</span> <span class="o">=</span> <span class="n">lastName</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="s">"firstName: "</span> <span class="o">+</span> <span class="n">firstName</span> <span class="o">+</span> <span class="s">", lastName: "</span> <span class="o">+</span> <span class="n">lastName</span><span class="o">;</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</code></pre></div></div> <p>데이터를 받아서 대문자로 처리 하는 PersonItemProcessor을 생성합니다.</p> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">gsshop</span><span class="o">.</span><span class="na">batch</span><span class="o">.</span><span class="na">work</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.slf4j.Logger</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.slf4j.LoggerFactory</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.springframework.batch.item.ItemProcessor</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">PersonItemProcessor</span> <span class="kd">implements</span> <span class="n">ItemProcessor</span><span class="o">&lt;</span><span class="n">Person</span><span class="o">,</span> <span class="n">Person</span><span class="o">&gt;</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">Logger</span> <span class="n">log</span> <span class="o">=</span> <span class="n">LoggerFactory</span><span class="o">.</span><span class="na">getLogger</span><span class="o">(</span><span class="n">PersonItemProcessor</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">Person</span> <span class="nf">process</span><span class="o">(</span><span class="kd">final</span> <span class="n">Person</span> <span class="n">person</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+        <span class="kd">final</span> <span class="n">String</span> <span class="n">firstName</span> <span class="o">=</span> <span class="n">person</span><span class="o">.</span><span class="na">getFirstName</span><span class="o">().</span><span class="na">toUpperCase</span><span class="o">();</span>
+        <span class="kd">final</span> <span class="n">String</span> <span class="n">lastName</span> <span class="o">=</span> <span class="n">person</span><span class="o">.</span><span class="na">getLastName</span><span class="o">().</span><span class="na">toUpperCase</span><span class="o">();</span>
+
+        <span class="kd">final</span> <span class="n">Person</span> <span class="n">transformedPerson</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Person</span><span class="o">(</span><span class="n">firstName</span><span class="o">,</span> <span class="n">lastName</span><span class="o">);</span>
+
+        <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"Converting ("</span> <span class="o">+</span> <span class="n">person</span> <span class="o">+</span> <span class="s">") into ("</span> <span class="o">+</span> <span class="n">transformedPerson</span> <span class="o">+</span> <span class="s">")"</span><span class="o">);</span>
+
+        <span class="k">return</span> <span class="n">transformedPerson</span><span class="o">;</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</code></pre></div></div> <p>작업에 대한 처리가 완료 되었을대 확인이 가능한 리스너를 제작합니다. 해당 리스너의 역할은 단순히 작업이 완료 되었을 경우 저장된 데이터를 출력하게 됩니다.</p> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">gsshop</span><span class="o">.</span><span class="na">batch</span><span class="o">.</span><span class="na">work</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.slf4j.Logger</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.slf4j.LoggerFactory</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.batch.core.BatchStatus</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.batch.core.JobExecution</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.batch.core.listener.JobExecutionListenerSupport</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.beans.factory.annotation.Autowired</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.jdbc.core.JdbcTemplate</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Component</span><span class="o">;</span>
+
+<span class="nd">@Component</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">JobCompletionNotificationListener</span> <span class="kd">extends</span> <span class="n">JobExecutionListenerSupport</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">Logger</span> <span class="n">log</span> <span class="o">=</span> <span class="n">LoggerFactory</span><span class="o">.</span><span class="na">getLogger</span><span class="o">(</span><span class="n">JobCompletionNotificationListener</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+
+    <span class="kd">private</span> <span class="kd">final</span> <span class="n">JdbcTemplate</span> <span class="n">jdbcTemplate</span><span class="o">;</span>
+
+    <span class="nd">@Autowired</span>
+    <span class="kd">public</span> <span class="nf">JobCompletionNotificationListener</span><span class="o">(</span><span class="n">JdbcTemplate</span> <span class="n">jdbcTemplate</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">jdbcTemplate</span> <span class="o">=</span> <span class="n">jdbcTemplate</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">afterJob</span><span class="o">(</span><span class="n">JobExecution</span> <span class="n">jobExecution</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">jobExecution</span><span class="o">.</span><span class="na">getStatus</span><span class="o">()</span> <span class="o">==</span> <span class="n">BatchStatus</span><span class="o">.</span><span class="na">COMPLETED</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"!!! JOB FINISHED! Time to verify the results"</span><span class="o">);</span>
+
+            <span class="n">jdbcTemplate</span><span class="o">.</span><span class="na">query</span><span class="o">(</span><span class="s">"SELECT first_name, last_name FROM people"</span><span class="o">,</span>
+                    <span class="o">(</span><span class="n">rs</span><span class="o">,</span> <span class="n">row</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="k">new</span> <span class="n">Person</span><span class="o">(</span>
+                            <span class="n">rs</span><span class="o">.</span><span class="na">getString</span><span class="o">(</span><span class="mi">1</span><span class="o">),</span>
+                            <span class="n">rs</span><span class="o">.</span><span class="na">getString</span><span class="o">(</span><span class="mi">2</span><span class="o">))</span>
+            <span class="o">).</span><span class="na">forEach</span><span class="o">(</span><span class="n">person</span> <span class="o">-&gt;</span> <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"Found &lt;"</span> <span class="o">+</span> <span class="n">person</span> <span class="o">+</span> <span class="s">"&gt; in the database."</span><span class="o">));</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div> <p>Batch의 시작점인 BatchConfiguration을 작성합니다. 해당 내용에는 reader, processor, writer, 조립 설정 등이 포함 됩니다.</p> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">gsshop</span><span class="o">.</span><span class="na">batch</span><span class="o">.</span><span class="na">work</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.springframework.batch.core.Job</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.batch.core.Step</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.batch.core.configuration.annotation.EnableBatchProcessing</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.batch.core.configuration.annotation.JobBuilderFactory</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.batch.core.configuration.annotation.StepBuilderFactory</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.batch.core.launch.support.RunIdIncrementer</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.batch.item.database.BeanPropertyItemSqlParameterSourceProvider</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.batch.item.database.JdbcBatchItemWriter</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.batch.item.database.builder.JdbcBatchItemWriterBuilder</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.batch.item.file.FlatFileItemReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.batch.item.file.builder.FlatFileItemReaderBuilder</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.batch.item.file.mapping.BeanWrapperFieldSetMapper</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.beans.factory.annotation.Autowired</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.context.annotation.Bean</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.context.annotation.Configuration</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.core.io.ClassPathResource</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.sql.DataSource</span><span class="o">;</span>
+
+<span class="nd">@Configuration</span>
+<span class="nd">@EnableBatchProcessing</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">BatchConfiguration</span> <span class="o">{</span>
+    <span class="nd">@Autowired</span>
+    <span class="kd">public</span> <span class="n">JobBuilderFactory</span> <span class="n">jobBuilderFactory</span><span class="o">;</span>
+    <span class="nd">@Autowired</span>
+    <span class="kd">public</span> <span class="n">StepBuilderFactory</span> <span class="n">stepBuilderFactory</span><span class="o">;</span>
+
+    <span class="nd">@Bean</span>
+    <span class="kd">public</span> <span class="n">FlatFileItemReader</span><span class="o">&lt;</span><span class="n">Person</span><span class="o">&gt;</span> <span class="nf">reader</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">FlatFileItemReaderBuilder</span><span class="o">&lt;</span><span class="n">Person</span><span class="o">&gt;()</span>
+                <span class="o">.</span><span class="na">name</span><span class="o">(</span><span class="s">"personItemReader"</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">resource</span><span class="o">(</span><span class="k">new</span> <span class="n">ClassPathResource</span><span class="o">(</span><span class="s">"sample-data.csv"</span><span class="o">))</span>
+                <span class="o">.</span><span class="na">delimited</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">names</span><span class="o">(</span><span class="k">new</span> <span class="n">String</span><span class="o">[]{</span><span class="s">"firstName"</span><span class="o">,</span> <span class="s">"lastName"</span><span class="o">})</span>
+                <span class="o">.</span><span class="na">fieldSetMapper</span><span class="o">(</span><span class="k">new</span> <span class="n">BeanWrapperFieldSetMapper</span><span class="o">&lt;</span><span class="n">Person</span><span class="o">&gt;()</span> <span class="o">)</span>
+                <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Bean</span>
+    <span class="kd">public</span> <span class="n">PersonItemProcessor</span> <span class="nf">processor</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nf">PersonItemProcessor</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Bean</span>
+    <span class="kd">public</span> <span class="n">JdbcBatchItemWriter</span><span class="o">&lt;</span><span class="n">Person</span><span class="o">&gt;</span> <span class="nf">writer</span><span class="o">(</span><span class="n">DataSource</span> <span class="n">dataSource</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">JdbcBatchItemWriterBuilder</span><span class="o">&lt;</span><span class="n">Person</span><span class="o">&gt;()</span>
+                <span class="o">.</span><span class="na">itemSqlParameterSourceProvider</span><span class="o">(</span><span class="k">new</span> <span class="n">BeanPropertyItemSqlParameterSourceProvider</span><span class="o">&lt;&gt;())</span>
+                <span class="o">.</span><span class="na">sql</span><span class="o">(</span><span class="s">"INSERT INTO people (first_name, last_name) VALUES (:firstName, :lastName)"</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">dataSource</span><span class="o">(</span><span class="n">dataSource</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Bean</span>
+    <span class="kd">public</span> <span class="n">Job</span> <span class="nf">importUserJob</span><span class="o">(</span><span class="n">JobCompletionNotificationListener</span> <span class="n">listener</span><span class="o">,</span> <span class="n">Step</span> <span class="n">step1</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">jobBuilderFactory</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"importUserJob"</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">incrementer</span><span class="o">(</span><span class="k">new</span> <span class="n">RunIdIncrementer</span><span class="o">())</span>
+                <span class="o">.</span><span class="na">listener</span><span class="o">(</span><span class="n">listener</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">flow</span><span class="o">(</span><span class="n">step1</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">end</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Bean</span>
+    <span class="kd">public</span> <span class="n">Step</span> <span class="nf">step1</span><span class="o">(</span><span class="n">JdbcBatchItemWriter</span><span class="o">&lt;</span><span class="n">Person</span><span class="o">&gt;</span> <span class="n">writer</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">stepBuilderFactory</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"step1"</span><span class="o">)</span>
+                <span class="o">.&lt;</span><span class="n">Person</span><span class="o">,</span> <span class="n">Person</span><span class="o">&gt;</span> <span class="nf">chunk</span><span class="o">(</span><span class="mi">10</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">reader</span><span class="o">(</span><span class="n">reader</span><span class="o">())</span>
+                <span class="o">.</span><span class="na">processor</span><span class="o">(</span><span class="n">processor</span><span class="o">())</span>
+                <span class="o">.</span><span class="na">writer</span><span class="o">(</span><span class="n">writer</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div> <p>여기까지 설정하고 실행하면 잘 동작하는 것을 확인 할 수 있습니다.</p> <h2 id="multi-datasoruce-설정">Multi Datasoruce 설정</h2> <p>Multi datasource는 springboot의 multi Datasource를 사용하는 것과 동일합니다.</p> <p>Datasource 생성을 하는 설정파일을 생성합니다.</p> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">gsshop</span><span class="o">.</span><span class="na">batch</span><span class="o">.</span><span class="na">config</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">com.zaxxer.hikari.HikariDataSource</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.boot.autoconfigure.batch.BatchDataSource</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.boot.context.properties.ConfigurationProperties</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.boot.jdbc.DataSourceBuilder</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.context.annotation.Bean</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.context.annotation.Configuration</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.context.annotation.Primary</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.data.transaction.ChainedTransactionManager</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.jdbc.datasource.DataSourceTransactionManager</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.transaction.PlatformTransactionManager</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.sql.DataSource</span><span class="o">;</span>
+
+<span class="nd">@Configuration</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">DatabaseConfig</span> <span class="o">{</span>
+    <span class="nd">@Bean</span>
+    <span class="nd">@Primary</span>
+    <span class="nd">@ConfigurationProperties</span><span class="o">(</span><span class="s">"spring.datasource.default"</span><span class="o">)</span>
+    <span class="n">DataSource</span> <span class="nf">springBatchDb</span><span class="o">(){</span>
+        <span class="n">DataSourceBuilder</span> <span class="n">builder</span> <span class="o">=</span> <span class="n">DataSourceBuilder</span><span class="o">.</span><span class="na">create</span><span class="o">();</span>
+        <span class="n">builder</span><span class="o">.</span><span class="na">type</span><span class="o">(</span><span class="n">HikariDataSource</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+        <span class="k">return</span> <span class="n">builder</span><span class="o">.</span><span class="na">build</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Bean</span>
+    <span class="nd">@BatchDataSource</span>
+    <span class="nd">@ConfigurationProperties</span><span class="o">(</span><span class="s">"spring.datasource.work"</span><span class="o">)</span>
+    <span class="n">DataSource</span> <span class="nf">workDb</span><span class="o">(){</span>
+        <span class="n">DataSourceBuilder</span> <span class="n">builder</span> <span class="o">=</span> <span class="n">DataSourceBuilder</span><span class="o">.</span><span class="na">create</span><span class="o">();</span>
+        <span class="n">builder</span><span class="o">.</span><span class="na">type</span><span class="o">(</span><span class="n">HikariDataSource</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+        <span class="k">return</span> <span class="n">builder</span><span class="o">.</span><span class="na">build</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="c1">// Transaction Setting</span>
+
+    <span class="nd">@Bean</span>
+    <span class="n">PlatformTransactionManager</span> <span class="nf">springBatchTxManager</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nf">DataSourceTransactionManager</span><span class="o">(</span><span class="n">springBatchDb</span><span class="o">());</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Bean</span>
+    <span class="n">PlatformTransactionManager</span> <span class="nf">workTxManager</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nf">DataSourceTransactionManager</span><span class="o">(</span><span class="n">workDb</span><span class="o">());</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Bean</span>
+    <span class="n">PlatformTransactionManager</span> <span class="nf">chainTxManager</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">ChainedTransactionManager</span> <span class="n">txManager</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ChainedTransactionManager</span><span class="o">(</span><span class="n">springBatchTxManager</span><span class="o">(),</span> <span class="n">workTxManager</span><span class="o">());</span>
+        <span class="k">return</span> <span class="n">txManager</span><span class="o">;</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</code></pre></div></div> <ul> <li>
+<code class="highlighter-rouge">@Primary</code>는 기본으로 DatasSource를 이용할 경우 자동으로 주입되는 DataSource 입니다.</li> <li>
+<code class="highlighter-rouge">@BatchDataSource</code> 는 SpringBatch의 Meta정보를 저장할 때 사용하는 DataSsource 입니다.</li> </ul> <p>특정 DataSource 사용할 경우 <code class="highlighter-rouge">@Qualifier</code>를 이용합니다. 다음 예제를 확인하셔요.</p> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Bean</span>
+<span class="kd">public</span> <span class="n">JdbcBatchItemWriter</span><span class="o">&lt;</span><span class="n">Person</span><span class="o">&gt;</span> <span class="nf">writer</span><span class="o">(</span><span class="nd">@Qualifier</span><span class="o">(</span><span class="s">"workDb"</span><span class="o">)</span> <span class="n">DataSource</span> <span class="n">dataSource</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="n">JdbcBatchItemWriterBuilder</span><span class="o">&lt;</span><span class="n">Person</span><span class="o">&gt;()</span>
+            <span class="o">.</span><span class="na">itemSqlParameterSourceProvider</span><span class="o">(</span><span class="k">new</span> <span class="n">BeanPropertyItemSqlParameterSourceProvider</span><span class="o">&lt;&gt;())</span>
+            <span class="o">.</span><span class="na">sql</span><span class="o">(</span><span class="s">"INSERT INTO people (first_name, last_name) VALUES (:firstName, :lastName)"</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">dataSource</span><span class="o">(</span><span class="n">dataSource</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre></div></div> <h2 id="전체-코드-확인하기"><a href="https://github.com/lahuman/spring_batch_multi_datasource">전체 코드 확인하기</a></h2> <h2 id="참고자료">참고자료</h2> <ul> <li><a href="https://godekdls.github.io/Spring%20Batch/introduction/">Spring Batch Introduction</a></li> <li><a href="https://start.spring.io/">spring initializr</a></li> <li><a href="https://medium.com/official-podo/spring-batch-%EB%A1%9C-%EB%8B%A4%EC%A4%91-data-source-%EC%A0%91%EA%B7%BC%ED%95%98%EA%B8%B0-%EB%A7%A4%EC%9A%B0-%EA%B0%84%EB%8B%A8-%EC%A3%BC%EC%9D%98-7332f2a5f7f8">Spring Batch 로 다중 Data Source 접근하기(매우 간단 주의)</a></li> <li><a href="https://docs.spring.io/spring-boot/docs/current/reference/html/howto.html">12. Batch Applications</a></li> <li><a href="https://medium.com/swlh/working-with-spring-batch-and-distributed-transaction-772de2219e60">Working With Spring Batch and Distributed Transaction</a></li> <li><a href="https://spring.io/guides/gs/batch-processing/">Creating a Batch Service</a></li> </ul> <div class="entry-meta"> <br> <hr> <span class="entry-tags"><a href="https://lahuman.github.io/tags/#spring" title="Pages tagged spring" class="tag"><span class="term">spring</span></a><a href="https://lahuman.github.io/tags/#datasource" title="Pages tagged datasource" class="tag"><span class="term">datasource</span></a></span> <span class="social-share"> <a href="https://www.facebook.com/sharer/sharer.php?u=https://lahuman.github.io/springboot_multi_datasource/" title="Share on Facebook" class="tag"> <span class="term"><i class="fa fa-facebook-square"></i> Share</span> </a> <a href="https://twitter.com/intent/tweet?text=https://lahuman.github.io/springboot_multi_datasource/" title="Share on Twitter" class="tag"> <span class="term"><i class="fa fa-twitter-square"></i> Tweet</span> </a> <a href="https://plus.google.com/share?url=https://lahuman.github.io/springboot_multi_datasource/" title="Share on Google+" class="tag"> <span class="term"><i class="fa fa-google-plus-square"></i> +1</span> </a> </span> <div style="clear:both"></div> </div> <ins class="kakao_ad_area" style="display:none;" data-ad-unit="DAN-ubp67fs9s850" data-ad-width="320" data-ad-height="100"></ins> <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script> </div> </div> <section id="disqus_thread" class="animated fadeInUp"></section><!-- /#disqus_thread --> </header> <!-- JS --> <script src="https://lahuman.github.io/assets/js/jquery-1.12.0.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.dlmenu.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.goup.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.magnific-popup.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.fitvid.min.js"></script> <script src="https://lahuman.github.io/assets/js/scripts.js"></script> <!-- Global site tag (gtag.js) - Google Analytics --> <script async src="https://www.googletagmanager.com/gtag/js?id=UA-74095083-1"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-74095083-1'); </script> <script type="text/javascript"> var disqus_shortname = 'daniels-blog'; (function() { var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true; dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js'; (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq); })(); (function () { var s = document.createElement('script'); s.async = true; s.type = 'text/javascript'; s.src = '//' + disqus_shortname + '.disqus.com/count.js'; (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s); }()); </script> <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript> <!-- MathJax --> <script async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> </body> </html>
