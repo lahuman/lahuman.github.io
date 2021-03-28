@@ -9,13 +9,14 @@ $ sudo yum remove java-1.7.0-openjdk
 $ sudo yum install java-1.8.0
 
 # 업데이트 진행
-$ sudo yum update –y
+$ sudo yum update -y
 
 # jenkins repo 추가
 $ sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo
 
-# jenkins-ci key를 추가해서 설치가 가능하도록 설정
-$ sudo rpm — import http://pkg.jenkins-ci.org/redhat/jenkins-ci.org.key
+# jenkins key를 추가해서 설치가 가능하도록 설정
+$ sudo rpm --import http://pkg.jenkins-ci.org/redhat/jenkins-ci.org.key
+$ sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
 
 # jenkins 설치
 $ sudo yum install jenkins -y
