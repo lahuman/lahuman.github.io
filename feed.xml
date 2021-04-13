@@ -1,4 +1,14 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2021-04-13T21:38:00+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Raspberry PI 8G OS 선택 가이드</title><link href="https://lahuman.github.io/raspberry_pi_8g_os/" rel="alternate" type="text/html" title="Raspberry PI 8G OS 선택 가이드" /><published>2021-04-12T00:00:00+09:00</published><updated>2021-04-12T00:00:00+09:00</updated><id>https://lahuman.github.io/raspberry_pi_8g_os</id><content type="html" xml:base="https://lahuman.github.io/raspberry_pi_8g_os/">&lt;h1 id=&quot;raspberry-pi-8g-os-선택-가이드&quot;&gt;Raspberry PI 8G OS 선택 가이드&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2021-04-13T21:53:19+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">안타까운 시간이 흐르고 있다.</title><link href="https://lahuman.github.io/20210410/" rel="alternate" type="text/html" title="안타까운 시간이 흐르고 있다." /><published>2021-04-13T00:00:00+09:00</published><updated>2021-04-13T00:00:00+09:00</updated><id>https://lahuman.github.io/20210410</id><content type="html" xml:base="https://lahuman.github.io/20210410/">&lt;h1 id=&quot;열심히-하는게-의미가-있을까&quot;&gt;열심히 하는게 의미가 있을까?&lt;/h1&gt;
+
+&lt;p&gt;최선을 다하고 열심히 하는게 아무 의미가 없게 느껴질때가 있다.&lt;/p&gt;
+
+&lt;p&gt;특히 주변에서 노력을 하는 사람의 실패를 볼때면 이런 생각이 더욱 강하게 든다.&lt;/p&gt;
+
+&lt;p&gt;최선을 다하여 발버둥 치면서 살아가고 있다. 하지만 가끔씩 먹먹함과 허무함이 몰려온다.&lt;/p&gt;
+
+&lt;p&gt;그냥 잠시 시간을 흘려보내고 싶은 생각이다.&lt;/p&gt;
+
+&lt;h2 id=&quot;내일은-내일의-태양이-뜨니-오늘은-흘려보내보자&quot;&gt;내일은 내일의 태양이 뜨니 오늘은 흘려보내보자.&lt;/h2&gt;</content><category term="단상" /><summary type="html">열심히 하는게 의미가 있는지 모르겠다.</summary></entry><entry><title type="html">Raspberry PI 8G OS 선택 가이드</title><link href="https://lahuman.github.io/raspberry_pi_8g_os/" rel="alternate" type="text/html" title="Raspberry PI 8G OS 선택 가이드" /><published>2021-04-12T00:00:00+09:00</published><updated>2021-04-12T00:00:00+09:00</updated><id>https://lahuman.github.io/raspberry_pi_8g_os</id><content type="html" xml:base="https://lahuman.github.io/raspberry_pi_8g_os/">&lt;h1 id=&quot;raspberry-pi-8g-os-선택-가이드&quot;&gt;Raspberry PI 8G OS 선택 가이드&lt;/h1&gt;
 
 &lt;h2 id=&quot;설치-전-안내&quot;&gt;설치 전 안내&lt;/h2&gt;
 
@@ -50,7 +60,7 @@ Ubuntu Desktop(&lt;a href=&quot;https://ubuntu.com/download/raspberry-pi&quot;&g
 
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl &lt;span class=&quot;nt&quot;&gt;-sL&lt;/span&gt; https://deb.nodesource.com/setup_14.x | &lt;span class=&quot;nb&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-E&lt;/span&gt; bash -
 &lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt; nodejs
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><category term="raspberry" /><category term="os" /><summary type="html">8G 메모리를 가진 라즈베리파이의 OS 선택 기준</summary></entry><entry><title type="html">사람 마다 생각이 다르고, 지향점이 다르다.</title><link href="https://lahuman.github.io/20210410/" rel="alternate" type="text/html" title="사람 마다 생각이 다르고, 지향점이 다르다." /><published>2021-04-10T00:00:00+09:00</published><updated>2021-04-10T00:00:00+09:00</updated><id>https://lahuman.github.io/20210410</id><content type="html" xml:base="https://lahuman.github.io/20210410/">&lt;h1 id=&quot;다름을-이해는-하지만-받아들이기는-쉽지-않네요&quot;&gt;다름을 이해는 하지만, 받아들이기는 쉽지 않네요.&lt;/h1&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><category term="raspberry" /><category term="os" /><summary type="html">8G 메모리를 가진 라즈베리파이의 OS 선택 기준</summary></entry><entry><title type="html">사람 마다 생각이 다르고, 지향점이 다르다.</title><link href="https://lahuman.github.io/20210413/" rel="alternate" type="text/html" title="사람 마다 생각이 다르고, 지향점이 다르다." /><published>2021-04-10T00:00:00+09:00</published><updated>2021-04-10T00:00:00+09:00</updated><id>https://lahuman.github.io/20210413</id><content type="html" xml:base="https://lahuman.github.io/20210413/">&lt;h1 id=&quot;다름을-이해는-하지만-받아들이기는-쉽지-않네요&quot;&gt;다름을 이해는 하지만, 받아들이기는 쉽지 않네요.&lt;/h1&gt;
 
 &lt;p&gt;사람마다 다른 삶을 살아왔기 때문에 세상을 바라보는 시각이 다릅니다.&lt;/p&gt;
 
@@ -1308,42 +1318,4 @@ module.exports = {
 &lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://kreditjob.com/&quot;&gt;크래딧잡&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="단상" /><summary type="html">발전하는 것과 퇴보하는 것이 공존하며, 현황에 실망감을 느끼는 사람들이 많네요.</summary></entry><entry><title type="html">OBS 설정 &amp;amp; youtube 스트리밍 연결</title><link href="https://lahuman.github.io/OBS_setting/" rel="alternate" type="text/html" title="OBS 설정 &amp; youtube 스트리밍 연결" /><published>2021-01-23T00:00:00+09:00</published><updated>2021-01-23T00:00:00+09:00</updated><id>https://lahuman.github.io/OBS_setting</id><content type="html" xml:base="https://lahuman.github.io/OBS_setting/">&lt;h1 id=&quot;노트북에서-방송을-하기-위해서-사용하는-obs를-테스트-사용하여보기&quot;&gt;노트북에서 방송을 하기 위해서 사용하는 OBS를 테스트 사용하여보기&lt;/h1&gt;
-
-&lt;p&gt;많은 사람들이 방송을 하고 있습니다. 
-자신만의 컨텐츠를 만들고, 공유하고, 돈을 벌기도 하는데요.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;그래서 오늘은 OBS (Open Broadcaster Software) 라고 하는 방송 소프트웨어를 설정해보려고 합니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;먼저 &lt;a href=&quot;https://obsproject.com/&quot;&gt;OBS 사이트&lt;/a&gt;로 이동합니다.&lt;/p&gt;
-
-&lt;p&gt;그리고, 자신의 OS 버젼에 맞는 프로그램을 다운 받아 설치 합니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/obs_download.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;설정은 그냥 간단하게 &lt;code class=&quot;highlighter-rouge&quot;&gt;다음&lt;/code&gt;버튼을 누르면 됩니다.&lt;/p&gt;
-
-&lt;p&gt;그러면, 방송 소스를 선택해야 하는데요.&lt;/p&gt;
-
-&lt;p&gt;여기서 Youtube를 선택합니다.&lt;/p&gt;
-
-&lt;p&gt;그리고 유투브에서 &lt;code class=&quot;highlighter-rouge&quot;&gt;만들기&lt;/code&gt;를 누르고, &lt;code class=&quot;highlighter-rouge&quot;&gt;실시간 스트리밍 시작&lt;/code&gt;을 선택한 다음,  &lt;code class=&quot;highlighter-rouge&quot;&gt;소프트웨어롤 통한 방송&lt;/code&gt;을 선택합니다.&lt;/p&gt;
-
-&lt;p&gt;방송이 시작되면 스트리밍 키를 복사해서 OBS에 붙여 넣으면 준비가 끝입니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/youtube_stream_key.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;자, OBS 오른쪽 하단에 &lt;code class=&quot;highlighter-rouge&quot;&gt;방송 시작&lt;/code&gt; 버튼을 누르셔요.&lt;/p&gt;
-
-&lt;p&gt;그러면 방송이 시작됩니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.digitaltrends.com/computing/how-to-live-stream-on-youtube-with-obs/&quot;&gt;How to livestream on YouTube with OBS&lt;/a&gt;를 보면 화면 캡쳐가 잘되어있어서 영어를 못해도 쉽게 따라 하실 수 있습니다.&lt;/p&gt;
-
-&lt;p&gt;방송을 종료 후 Youtube에서도 방송을 종료 하여야 합니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.digitaltrends.com/computing/how-to-live-stream-on-youtube-with-obs/&quot;&gt;How to livestream on YouTube with OBS&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="단상" /><category term="OBS" /><summary type="html">OBS 설정 &amp; youtube 방송 하기</summary></entry></feed>
+&lt;/ul&gt;</content><category term="단상" /><summary type="html">발전하는 것과 퇴보하는 것이 공존하며, 현황에 실망감을 느끼는 사람들이 많네요.</summary></entry></feed>
