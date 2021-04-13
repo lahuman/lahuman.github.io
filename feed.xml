@@ -1,4 +1,56 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2021-04-10T19:08:58+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">사람 마다 생각이 다르고, 지향점이 다르다.</title><link href="https://lahuman.github.io/20210410/" rel="alternate" type="text/html" title="사람 마다 생각이 다르고, 지향점이 다르다." /><published>2021-04-10T00:00:00+09:00</published><updated>2021-04-10T00:00:00+09:00</updated><id>https://lahuman.github.io/20210410</id><content type="html" xml:base="https://lahuman.github.io/20210410/">&lt;h1 id=&quot;다름을-이해는-하지만-받아들이기는-쉽지-않네요&quot;&gt;다름을 이해는 하지만, 받아들이기는 쉽지 않네요.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2021-04-13T21:38:00+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Raspberry PI 8G OS 선택 가이드</title><link href="https://lahuman.github.io/raspberry_pi_8g_os/" rel="alternate" type="text/html" title="Raspberry PI 8G OS 선택 가이드" /><published>2021-04-12T00:00:00+09:00</published><updated>2021-04-12T00:00:00+09:00</updated><id>https://lahuman.github.io/raspberry_pi_8g_os</id><content type="html" xml:base="https://lahuman.github.io/raspberry_pi_8g_os/">&lt;h1 id=&quot;raspberry-pi-8g-os-선택-가이드&quot;&gt;Raspberry PI 8G OS 선택 가이드&lt;/h1&gt;
+
+&lt;h2 id=&quot;설치-전-안내&quot;&gt;설치 전 안내&lt;/h2&gt;
+
+&lt;p&gt;안정성과 가벼움, 제공되는 프로그램들의 연동은 Raspberry PI OS 기본 &lt;a href=&quot;https://www.raspberrypi.org/software/operating-systems/&quot;&gt;32bit&lt;/a&gt;를 추천 합니다.&lt;/p&gt;
+
+&lt;p&gt;성능을 원한다면 &lt;a href=&quot;https://downloads.raspberrypi.org/raspios_arm64/images/&quot;&gt;64bit&lt;/a&gt;를 설치하셔요.&lt;/p&gt;
+
+&lt;p&gt;범용적인 서버로 사용하신다면, &lt;a href=&quot;https://ubuntu.com/download/raspberry-pi&quot;&gt;Ubuntu 64 bit&lt;/a&gt;를 추천합니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://hackaday.com/2020/01/28/raspberry-pi-4-benchmarks-32-vs-64-bits/&quot;&gt;RASPBERRY PI 4 BENCHMARKS: 32- VS 64-BITS&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;os-다운로드-주소&quot;&gt;OS 다운로드 주소&lt;/h2&gt;
+
+&lt;p&gt;Raspberry PI OS(기본 &lt;a href=&quot;https://www.raspberrypi.org/software/operating-systems/&quot;&gt;32bit&lt;/a&gt; / &lt;a href=&quot;https://downloads.raspberrypi.org/raspios_arm64/images/&quot;&gt;64bit&lt;/a&gt;)
+Ubuntu Desktop(&lt;a href=&quot;https://ubuntu.com/download/raspberry-pi&quot;&gt;32/64bit&lt;/a&gt; 제공)&lt;/p&gt;
+
+&lt;h2 id=&quot;한글-설정&quot;&gt;한글 설정&lt;/h2&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;fcitx fcitx-hangul
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;참고 자료 : https://knds.tistory.com/7&lt;/p&gt;
+
+&lt;h2 id=&quot;netflex-play-on-default-chromeraspberry-pi-os-64bit는-안되네요---32bit-동작-확인&quot;&gt;Netflex play on default chrome(Raspberry PI OS 64bit는 안되네요. - 32bit 동작 확인)&lt;/h2&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt update 
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt full-upgrade 
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;libwidevinecdm0 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;참고-자료-&quot;&gt;참고 자료 : &lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;https://www.tomshardware.com/news/raspberry-pi-widevine&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;vscode-설치&quot;&gt;VSCODE 설치&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Mac M1 출시 이후 많은 App 들이 arm CPU를 지원해주고 있습니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;code
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;node-설치&quot;&gt;node 설치&lt;/h2&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl &lt;span class=&quot;nt&quot;&gt;-sL&lt;/span&gt; https://deb.nodesource.com/setup_14.x | &lt;span class=&quot;nb&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-E&lt;/span&gt; bash -
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt; nodejs
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><category term="raspberry" /><category term="os" /><summary type="html">8G 메모리를 가진 라즈베리파이의 OS 선택 기준</summary></entry><entry><title type="html">사람 마다 생각이 다르고, 지향점이 다르다.</title><link href="https://lahuman.github.io/20210410/" rel="alternate" type="text/html" title="사람 마다 생각이 다르고, 지향점이 다르다." /><published>2021-04-10T00:00:00+09:00</published><updated>2021-04-10T00:00:00+09:00</updated><id>https://lahuman.github.io/20210410</id><content type="html" xml:base="https://lahuman.github.io/20210410/">&lt;h1 id=&quot;다름을-이해는-하지만-받아들이기는-쉽지-않네요&quot;&gt;다름을 이해는 하지만, 받아들이기는 쉽지 않네요.&lt;/h1&gt;
 
 &lt;p&gt;사람마다 다른 삶을 살아왔기 때문에 세상을 바라보는 시각이 다릅니다.&lt;/p&gt;
 
@@ -1294,156 +1346,4 @@ module.exports = {
 &lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.digitaltrends.com/computing/how-to-live-stream-on-youtube-with-obs/&quot;&gt;How to livestream on YouTube with OBS&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="단상" /><category term="OBS" /><summary type="html">OBS 설정 &amp; youtube 방송 하기</summary></entry><entry><title type="html">Workplace Export</title><link href="https://lahuman.github.io/workplace_export/" rel="alternate" type="text/html" title="Workplace Export" /><published>2021-01-22T00:00:00+09:00</published><updated>2021-01-22T00:00:00+09:00</updated><id>https://lahuman.github.io/workplace_export</id><content type="html" xml:base="https://lahuman.github.io/workplace_export/">&lt;h1 id=&quot;workplace-export&quot;&gt;&lt;a href=&quot;https://github.com/lahuman/workplace_export&quot;&gt;Workplace Export&lt;/a&gt;&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;워크플레이스의 관리자 패널에서는 특정 Group의 게시글을 export를 제공하지 않습니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;이 프로젝트는 Workplace의 특정 Group의 게시글을 다운 받는 기능을 제공합니다.
-한번에 다운받을 게시글의 수는 .env에서 변경이 가능합니다. 너무 큰 숫자의 경우 Workplace 서버에서 오류가 발생할 수 있습니다.
-(권장: 100, 최대 : 500, 테스트에서는 1000도 가능하였으나, 오류가 간간히 발생했습니다.)
-workplace 게시글 + 댓글을 xlsx 형식으로 다운로드 합니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Screen&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;그룹-정보-조회&quot;&gt;그룹 정보 조회&lt;/h4&gt;
-&lt;ul&gt;
-  &lt;li&gt;그룹 ID를 기준으로 그룹 정보가 표기&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://github.com/lahuman/workplace_export/raw/main/workplace_export.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;1번째-이후-게시글-다운로드-시&quot;&gt;1번째 이후 게시글 다운로드 시&lt;/h4&gt;
-&lt;ul&gt;
-  &lt;li&gt;게시글 다운로드 &lt;strong&gt;다음&lt;/strong&gt; 으로 UI 변경&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://github.com/lahuman/workplace_export/raw/main/workplace_export2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;모든-게시글-다운로드-시&quot;&gt;모든 게시글 다운로드 시&lt;/h4&gt;
-&lt;ul&gt;
-  &lt;li&gt;알림 표기&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://github.com/lahuman/workplace_export/raw/main/export_finish.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;잘못된-그룹-id-입력시&quot;&gt;잘못된 그룹 ID 입력시&lt;/h4&gt;
-&lt;p&gt;&lt;img src=&quot;https://github.com/lahuman/workplace_export/raw/main/wrong_group_id.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;결과-예제&quot;&gt;결과 예제&lt;/h4&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://raw.githubusercontent.com/lahuman/workplace_export/main/322853118694054_1.xlsx&quot; download=&quot;&quot;&gt;Export Example&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;table-of-contents&quot;&gt;Table of Contents&lt;/h2&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;설치 &amp;amp; 설정 &amp;amp; 정보&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;#Installation&quot;&gt;Installation&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#Workplace&quot;&gt;Workplace&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#History&quot;&gt;History&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#License&quot;&gt;License&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;installation&quot;&gt;Installation&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;설치를 위해서는 기본적으로 NODEJS 14.x 이상의 버젼이 필요합니다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;backend&quot;&gt;Backend&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://nestjs.com/&quot;&gt;nestjs&lt;/a&gt; 기반으로 작성되었습니다.&lt;/li&gt;
-  &lt;li&gt;PATH : &lt;strong&gt;backend&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;.env 설정은 _env 파일을 .env로 변경하여서 Key에 알맞은 값을 설정 하면 됩니다.
-또는 아래 샘플을 이용하셔요.
-WP_TOKEN는 workplace 관리자 화면에서 생성한 맞춤 통합의 토큰 값입니다
-해당 통합은 게시물, 댓글 사용자의 정보를 조회하는 권한을 주어야 합니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;NODE_ENV=deployment
-PORT=3000
-WP_GRAPH_URL=https://graph.facebook.com
-WP_TOKEN= # workplace Token 발급 필요
-DEFAULT_LIMIT=100
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;실행&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ npm install
-$ npm run start
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;서버가 문제 없이 기동이 되면 &lt;a href=&quot;http://localhost:3000/docs&quot;&gt;Swagger UI&lt;/a&gt;을 확인하세요.&lt;/p&gt;
-
-&lt;h3 id=&quot;frontend&quot;&gt;Frontend&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://reactjs.org/&quot;&gt;ReactJS&lt;/a&gt;로 작성되어 있습니다.&lt;/li&gt;
-  &lt;li&gt;PATH : &lt;strong&gt;frontend&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;.env 설정은 _env 파일을 .env로 변경하여서 Key에 알맞은 값을 설정 하면 됩니다.
-또는 아래 샘플을 이용하셔요.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;REACT_APP_API=http://localhost:8080 # API SERVER 주소 
-REACT_APP_WORKPLACE=https://{domain}.workplace.com # workplace 주소
-REACT_APP_LIMIT=100 # 게시글 다운수 (backend와 같은 수 화면 표기용)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;실행&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ npm install
-# npm run start
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;workplace&quot;&gt;&lt;a href=&quot;https://work.workplace.com/&quot;&gt;Workplace&lt;/a&gt;&lt;/h2&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;a href=&quot;https://work.workplace.com/&quot;&gt;Workplace&lt;/a&gt;은 페이스북에서 개발한 엔터프라이즈 연결 플랫폼입니다. 
-그룹 사용, 인스턴스 메시징 및 뉴스 피드를 포함합니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;게시물의 반응을 확인하기 위해서 관리자 페이지에서 맞춤 통합을 생성해야 합니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://github.com/lahuman/wp-reaction/raw/master/wp_admin_panel.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;통합 생성후 다음 3개의 통합 권한(그룹 콘텐츠 읽기(필수), 사용자 이메일 읽기(옵션), 그룹 멤버 읽기(옵션))을 할당해야 합니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://github.com/lahuman/wp-reaction/raw/master/wp_admin_auth.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;history&quot;&gt;History&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;v1.0 : workplace Export&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;license&quot;&gt;License&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://badges.mit-license.org&quot;&gt;&lt;img src=&quot;http://img.shields.io/:license-mit-blue.svg?style=flat-square&quot; alt=&quot;License&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;http://opensource.org/licenses/mit-license.php&quot;&gt;MIT license&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;Copyright 2020 © &lt;a href=&quot;https://lahuman.github.io&quot; target=&quot;_blank&quot;&gt;lahuman&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;</content><category term="workplace" /><category term="export" /><category term="xlsx" /><summary type="html">워크 플레이스의 게시글을 Exprot 하는 프로젝트입니다.</summary></entry></feed>
+&lt;/ul&gt;</content><category term="단상" /><category term="OBS" /><summary type="html">OBS 설정 &amp; youtube 방송 하기</summary></entry></feed>
