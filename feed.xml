@@ -1,4 +1,66 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2021-04-13T21:53:19+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">안타까운 시간이 흐르고 있다.</title><link href="https://lahuman.github.io/20210410/" rel="alternate" type="text/html" title="안타까운 시간이 흐르고 있다." /><published>2021-04-13T00:00:00+09:00</published><updated>2021-04-13T00:00:00+09:00</updated><id>https://lahuman.github.io/20210410</id><content type="html" xml:base="https://lahuman.github.io/20210410/">&lt;h1 id=&quot;열심히-하는게-의미가-있을까&quot;&gt;열심히 하는게 의미가 있을까?&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2021-04-17T17:19:48+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Raspberry PI를 게임기로 사용하기 위한 ROM 다운로드</title><link href="https://lahuman.github.io/raspberry_pi_game_rom/" rel="alternate" type="text/html" title="Raspberry PI를 게임기로 사용하기 위한 ROM 다운로드" /><published>2021-04-17T00:00:00+09:00</published><updated>2021-04-17T00:00:00+09:00</updated><id>https://lahuman.github.io/raspberry_pi_game_rom</id><content type="html" xml:base="https://lahuman.github.io/raspberry_pi_game_rom/">&lt;h1 id=&quot;raspberry-pi를-게임기로-사용하기-위한-rom-다운로드&quot;&gt;Raspberry PI를 게임기로 사용하기 위한 ROM 다운로드&lt;/h1&gt;
+
+&lt;p&gt;https://www.arcadepunks.com 라는 사이트에서 GAME ROM을 다운로드 할 수 있습니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;pi-3용-게임-다운로드-바로가기&quot;&gt;&lt;a href=&quot;https://www.arcadepunks.com/pi-images-downloads-page/&quot;&gt;PI 3용 게임 다운로드 바로가기&lt;/a&gt;&lt;/h3&gt;
+
+&lt;h3 id=&quot;pi-4용-게임-다운로드-바로가기&quot;&gt;&lt;a href=&quot;https://www.arcadepunks.com/download-raspberry-pi-4-images/&quot;&gt;PI 4용 게임 다운로드 바로가기&lt;/a&gt;&lt;/h3&gt;</content><category term="raspberry" /><category term="game" /><category term="rom" /><summary type="html">PI 3/4 에서 사용이 가능한 ROM 정보 입니다.</summary></entry><entry><title type="html">현재의 나에 대하여 간략하게 소개하여 봅니다.</title><link href="https://lahuman.github.io/20210417/" rel="alternate" type="text/html" title="현재의 나에 대하여 간략하게 소개하여 봅니다." /><published>2021-04-17T00:00:00+09:00</published><updated>2021-04-17T00:00:00+09:00</updated><id>https://lahuman.github.io/20210417</id><content type="html" xml:base="https://lahuman.github.io/20210417/">&lt;h1 id=&quot;간략한-자기소개&quot;&gt;간략한 자기소개&lt;/h1&gt;
+
+&lt;p&gt;안녕하세요. GSSHOP IT 개발팀에서 근무하고 있는 임광규입니다.
+GSSHOP에는 2018년 11월에 입사하였습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;q1-현재-하는-일은-어떤-것인지&quot;&gt;Q1. 현재 하는 일은 어떤 것인지?&lt;/h2&gt;
+
+&lt;p&gt;현재 하는 일은 회사 내에서 발생하는 문제에 대하여 공감하고 함께 고민하고 해결하는 파트에서 근무하고 있습니다.&lt;/p&gt;
+
+&lt;p&gt;진행했던 프로젝트는&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;상품 상태를 한눈에 볼 수 있게 하는 &lt;strong&gt;상품360&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;쇼핑호스트, PD, MD에게 방송 심의 정보를 제공하는 &lt;strong&gt;심의 포털&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;복잡한 CSR 대신 간편하가 요청 하는 &lt;strong&gt;행봇&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;생방송 주문/SR/시청율을 한눈에 볼수 있는 &lt;strong&gt;스르르&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;생방송 자막을 적재 하고, 심의에 문제가 되는 정보를 제공하는 &lt;strong&gt;진정방송봇&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;등이 있습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;q2-회사를-다니면서-언제-가장-보람을-느끼는지&quot;&gt;Q2. 회사를 다니면서 언제 가장 보람을 느끼는지?&lt;/h2&gt;
+
+&lt;p&gt;제가 만든 서비스를 사람들이 유용하게 사용할때 보람을 느끼고 있습니다.
+또 동료와 함께 일을 하면서 동료에게 도움이 될때도 보람을 느낍니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;q3-개발한-서비스-혹은-진행한-프로젝트-중-가장-기억에-남는-것과-그-이유는&quot;&gt;Q3. 개발한 서비스 혹은 진행한 프로젝트 중 가장 기억에 남는 것과 그 이유는?&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;행봇&lt;/strong&gt;이라는 서비스가 가장 기억에 남습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;행봇&lt;/strong&gt;의 뜻은 &lt;strong&gt;실행하는 봇&lt;/strong&gt;을 의미합니다.
+CSR(Customer Specific Requirements)라고 하는 복잡한 요구사항을 받던 시스템을 간략하게 만든 서비스입니다.
+내부적으로는 JIRA와 연계되어 업무 담당자들의 리소스 및 진행사항을 관리 하도록 지원합니다.
+&lt;br /&gt;
+행봇은 가장 활발하게 쓰이고 있으며, 요청자와 담당자에게 많은 도움이 되고 있습니다.
+&lt;br /&gt;
+특히 사용자 입장에서 기존 복잡한 요구사항을 제목과 내용으로 단순화 하였고, 
+진행사항에 대하여 workpalce로 알림을 받을 수 있어서 만족도가 높은 서비스 입니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;q4-회사-기업문화와-업무할-때의-분위기는-어떤지&quot;&gt;Q4. 회사 기업문화와 업무할 때의 분위기는 어떤지?&lt;/h2&gt;
+
+&lt;p&gt;팀별로 다르긴 하지만 전사 기준으로 직급은 &lt;strong&gt;매니저&lt;/strong&gt;로 통일 되어 있고, 
+저희 파트의 경우 영어 이름을 사용하고 있어서 다른 동료분과 대화시 좀 더 편하게 자신의 생각을 이야기 할 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;또한 회사내에 소소한 재미를 주는 이벤트가 자주 일어 납니다.
+코로나로 인해서 예전보단 축소되었지만 매년 축제도 진행하고, 어린이 날, 어버이 날, 나무심기 등등의 이벤트도 진행하였습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;q5-가장-만족하는-복지는&quot;&gt;Q5. 가장 만족하는 복지는?&lt;/h2&gt;
+
+&lt;p&gt;가장 만족스러웠던 복지는 회사 축제 입니다.
+아쉽게도 작년 올해는 코로나로 온라인으로 진행되었지만, 
+전사 직원들과 만나서 소통하고 즐기는 말 그대로 축제의 시간이었습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;q6-함께-일하고-싶은-동료는-어떤-사람인지&quot;&gt;Q6. 함께 일하고 싶은 동료는 어떤 사람인지?&lt;/h2&gt;
+
+&lt;p&gt;개발을 좋아하는 사람이고, 꾸준한 자기개발을 하는 사람이면 좋겠습니다.
+그리고 새로운 도전을 즐길 수 있는 사람이었으면 좋겠습니다.&lt;/p&gt;</content><category term="인터뷰" /><category term="aboutme" /><summary type="html">간단한 자기 소개</summary></entry><entry><title type="html">안타까운 시간이 흐르고 있다.</title><link href="https://lahuman.github.io/20210410/" rel="alternate" type="text/html" title="안타까운 시간이 흐르고 있다." /><published>2021-04-13T00:00:00+09:00</published><updated>2021-04-13T00:00:00+09:00</updated><id>https://lahuman.github.io/20210410</id><content type="html" xml:base="https://lahuman.github.io/20210410/">&lt;h1 id=&quot;열심히-하는게-의미가-있을까&quot;&gt;열심히 하는게 의미가 있을까?&lt;/h1&gt;
 
 &lt;p&gt;최선을 다하고 열심히 하는게 아무 의미가 없게 느껴질때가 있다.&lt;/p&gt;
 
@@ -17,6 +79,11 @@
 &lt;p&gt;성능을 원한다면 &lt;a href=&quot;https://downloads.raspberrypi.org/raspios_arm64/images/&quot;&gt;64bit&lt;/a&gt;를 설치하셔요.&lt;/p&gt;
 
 &lt;p&gt;범용적인 서버로 사용하신다면, &lt;a href=&quot;https://ubuntu.com/download/raspberry-pi&quot;&gt;Ubuntu 64 bit&lt;/a&gt;를 추천합니다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;추가 TIP!
+Ubuntu Desktop으로 사용하는 것은 추천하지 않습니다. GUI 환경에서는 Raspberry PI OS가 가장 빠릅니다.&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;h3 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h3&gt;
 
@@ -70,7 +137,7 @@ Ubuntu Desktop(&lt;a href=&quot;https://ubuntu.com/download/raspberry-pi&quot;&g
 
 &lt;p&gt;사람들의 다름은 이해하지만, 몇몇 사람의 다름은 받아들이기 쉽지 않네요.&lt;/p&gt;
 
-&lt;h2 id=&quot;내가-호구로-보이나&quot;&gt;내가 호구로 보이나?&lt;/h2&gt;
+&lt;h2 id=&quot;가끔-호구가-되기도하고&quot;&gt;가끔 호구가 되기도하고…&lt;/h2&gt;
 &lt;h2 id=&quot;적당히-하지&quot;&gt;적당히 하지…&lt;/h2&gt;</content><category term="단상" /><summary type="html">살아온 삶이 다르기에 이해하지 못하는 경우가 종종있다.</summary></entry><entry><title type="html">Spring Batch Meta Dashboard</title><link href="https://lahuman.github.io/springbatch_meta_lookup/" rel="alternate" type="text/html" title="Spring Batch Meta Dashboard" /><published>2021-03-28T00:00:00+09:00</published><updated>2021-03-28T00:00:00+09:00</updated><id>https://lahuman.github.io/springbatch_meta_lookup</id><content type="html" xml:base="https://lahuman.github.io/springbatch_meta_lookup/">&lt;h1 id=&quot;spring-batch-meta-dashboard&quot;&gt;&lt;a href=&quot;https://github.com/lahuman/springbatch-dashboard&quot;&gt;Spring Batch Meta Dashboard&lt;/a&gt;&lt;/h1&gt;
 
 &lt;p&gt;Spring Batch의 Meta 정보 검색 기능을 개발했습니다.
@@ -1055,267 +1122,4 @@ db.auth('rootUser', 'rootPass');
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://docs.mongodb.com/manual/installation/&quot;&gt;Install MongoDB&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://docs.ncloud.com/ko/database/database-10-3.html&quot;&gt;MongoDB 구성하기&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="mongodb" /><summary type="html">오랜만에 다시 설치할 일이 생겼다.</summary></entry><entry><title type="html">tailwindcss with ReactJS</title><link href="https://lahuman.github.io/tailwindcss_react/" rel="alternate" type="text/html" title="tailwindcss with ReactJS" /><published>2021-02-07T00:00:00+09:00</published><updated>2021-02-07T00:00:00+09:00</updated><id>https://lahuman.github.io/tailwindcss_react</id><content type="html" xml:base="https://lahuman.github.io/tailwindcss_react/">&lt;h1 id=&quot;tailwindcss-with-reactjs&quot;&gt;tailwindcss with ReactJS&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;a href=&quot;https://tailwindcss.com/&quot;&gt;tailwindcss&lt;/a&gt;는 html에 class를 이용해서 화면을 구성하는 방식의 css 라이브러리 입니다.
-이 방식의 장점은 HTML만으로 직관적인 화면을 구성 할 수 있습니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;ReactJS에서 tailwindcss를 사용하기 위해서는 몇가지 설정을 해야 합니다.&lt;/p&gt;
-
-&lt;p&gt;다음 설정을 따라 하면 tailwindcss를 사용할 수 있습니다.&lt;/p&gt;
-
-&lt;p&gt;작업을 시작하기 전에 다음 사항을 유의하셔요.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;nodejs 12.13.x 이상 버젼만 가능합니다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;1-react-프로젝트-생성하기&quot;&gt;1. react 프로젝트 생성하기&lt;/h2&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npx create-react-app my-project
-cd my-project
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;2-tailwind-css-설정하기&quot;&gt;2. tailwind css 설정하기&lt;/h2&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm install tailwindcss@npm:@tailwindcss/postcss7-compat @tailwindcss/postcss7-compat postcss@^7 autoprefixer@^9
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Create React App은 아직 postcss8을 지원하지 않습니다. 따라서 postcss7을 이용합니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;3-craco-설치--설정&quot;&gt;3. CRACO 설치 &amp;amp; 설정&lt;/h2&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm install @craco/craco
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Create React App에서 postcss 설정을 지원 하지 않습니다. tailwind 설정을 위해서 craco를 사용합니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;package.json&lt;/code&gt;에서 &lt;code class=&quot;highlighter-rouge&quot;&gt;start, build, test&lt;/code&gt; 명령어를 다음과 같이 설정을 변경 합니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{
-    // ...
-    &quot;scripts&quot;: {
-     &quot;start&quot;: &quot;craco start&quot;,
-     &quot;build&quot;: &quot;craco build&quot;,
-     &quot;test&quot;: &quot;craco test&quot;,
-      &quot;eject&quot;: &quot;react-scripts eject&quot;
-    },
-  }
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;그리고 &lt;code class=&quot;highlighter-rouge&quot;&gt;craco.config.js&lt;/code&gt; 파일을 생성합니다.
-해당 파일에서는 &lt;code class=&quot;highlighter-rouge&quot;&gt;tailwindcss&lt;/code&gt; 와 &lt;code class=&quot;highlighter-rouge&quot;&gt;autoprefixer&lt;/code&gt; plugin을 설정합니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// craco.config.js
-module.exports = {
-  style: {
-    postcss: {
-      plugins: [
-        require('tailwindcss'),
-        require('autoprefixer'),
-      ],
-    },
-  },
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;4-tailwind-설정-파일-생성&quot;&gt;4. tailwind 설정 파일 생성&lt;/h2&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;tailwind.config.js&lt;/code&gt; 파일을 생성합니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npx tailwindcss init
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;최상의 디렉토리에  최소 설정이된 &lt;code class=&quot;highlighter-rouge&quot;&gt;tailwind.config.js&lt;/code&gt; 파일이 생성됩니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;module.exports = {
-  purge: [],
-  darkMode: false, // or 'media' or 'class'
-  theme: {
-    extend: {},
-  },
-  variants: {
-    extend: {},
-  },
-  plugins: [],
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;여기에 purge 설정을 추가 합니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; // tailwind.config.js
-  module.exports = {
-   purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
-    darkMode: false, // or 'media' or 'class'
-    theme: {
-      extend: {},
-    },
-    variants: {
-      extend: {},
-    },
-    plugins: [],
-  }
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;5-tailwind-css-반영&quot;&gt;5. tailwind css 반영&lt;/h2&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;./src/index.css&lt;/code&gt; 에 다음을 추가 합니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/* ./src/index.css */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;tailwind의 &lt;a href=&quot;https://tailwindcss.com/docs/adding-base-styles&quot;&gt;base&lt;/a&gt;, &lt;a href=&quot;https://tailwindcss.com/docs/extracting-components&quot;&gt;components&lt;/a&gt;, &lt;a href=&quot;https://tailwindcss.com/docs/adding-new-utilities&quot;&gt;utilities&lt;/a&gt;를 사용하도록 설정이 되었습니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;6-tailwind-css-예제-사용&quot;&gt;6. tailwind css 예제 사용&lt;/h2&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;App.js&lt;/code&gt; 에 다음 코드를 추가 합니다.&lt;/p&gt;
-
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;py-12 bg-white&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;max-w-7xl mx-auto px-4 sm:px-6 lg:px-8&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;lg:text-center&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-          &lt;span class=&quot;nt&quot;&gt;&amp;lt;h2&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text-base text-indigo-600 font-semibold tracking-wide uppercase&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Transactions&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h2&amp;gt;&lt;/span&gt;
-          &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-            A better way to send money
-          &lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
-          &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-            Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam voluptatum cupiditate veritatis in accusamus quisquam.
-          &lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-    
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;mt-10&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-          &lt;span class=&quot;nt&quot;&gt;&amp;lt;dl&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;flex&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-              &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;flex-shrink-0&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-                &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-                  
-                  &lt;span class=&quot;nt&quot;&gt;&amp;lt;svg&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;h-6 w-6&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://www.w3.org/2000/svg&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;fill=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;none&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;viewBox=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;0 0 24 24&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;stroke=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;currentColor&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;aria-hidden=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;true&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-                    &lt;span class=&quot;nt&quot;&gt;&amp;lt;path&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;stroke-linecap=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;round&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;stroke-linejoin=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;round&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;stroke-width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;2&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;d=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-                  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/svg&amp;gt;&lt;/span&gt;
-                &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-              &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-              &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;ml-4&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-                &lt;span class=&quot;nt&quot;&gt;&amp;lt;dt&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text-lg leading-6 font-medium text-gray-900&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-                  Competitive exchange rates
-                &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dt&amp;gt;&lt;/span&gt;
-                &lt;span class=&quot;nt&quot;&gt;&amp;lt;dd&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;mt-2 text-base text-gray-500&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.
-                &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dd&amp;gt;&lt;/span&gt;
-              &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-    
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;flex&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-              &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;flex-shrink-0&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-                &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-                  
-                  &lt;span class=&quot;nt&quot;&gt;&amp;lt;svg&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;h-6 w-6&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://www.w3.org/2000/svg&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;fill=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;none&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;viewBox=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;0 0 24 24&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;stroke=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;currentColor&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;aria-hidden=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;true&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-                    &lt;span class=&quot;nt&quot;&gt;&amp;lt;path&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;stroke-linecap=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;round&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;stroke-linejoin=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;round&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;stroke-width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;2&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;d=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-                  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/svg&amp;gt;&lt;/span&gt;
-                &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-              &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-              &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;ml-4&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-                &lt;span class=&quot;nt&quot;&gt;&amp;lt;dt&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text-lg leading-6 font-medium text-gray-900&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-                  No hidden fees
-                &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dt&amp;gt;&lt;/span&gt;
-                &lt;span class=&quot;nt&quot;&gt;&amp;lt;dd&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;mt-2 text-base text-gray-500&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.
-                &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dd&amp;gt;&lt;/span&gt;
-              &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-    
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;flex&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-              &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;flex-shrink-0&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-                &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-                  
-                  &lt;span class=&quot;nt&quot;&gt;&amp;lt;svg&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;h-6 w-6&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://www.w3.org/2000/svg&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;fill=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;none&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;viewBox=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;0 0 24 24&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;stroke=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;currentColor&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;aria-hidden=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;true&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-                    &lt;span class=&quot;nt&quot;&gt;&amp;lt;path&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;stroke-linecap=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;round&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;stroke-linejoin=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;round&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;stroke-width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;2&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;d=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;M13 10V3L4 14h7v7l9-11h-7z&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-                  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/svg&amp;gt;&lt;/span&gt;
-                &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-              &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-              &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;ml-4&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-                &lt;span class=&quot;nt&quot;&gt;&amp;lt;dt&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text-lg leading-6 font-medium text-gray-900&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-                  Transfers are instant
-                &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dt&amp;gt;&lt;/span&gt;
-                &lt;span class=&quot;nt&quot;&gt;&amp;lt;dd&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;mt-2 text-base text-gray-500&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.
-                &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dd&amp;gt;&lt;/span&gt;
-              &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-    
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;flex&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-              &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;flex-shrink-0&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-                &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-                  
-                  &lt;span class=&quot;nt&quot;&gt;&amp;lt;svg&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;h-6 w-6&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://www.w3.org/2000/svg&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;fill=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;none&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;viewBox=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;0 0 24 24&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;stroke=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;currentColor&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;aria-hidden=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;true&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-                    &lt;span class=&quot;nt&quot;&gt;&amp;lt;path&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;stroke-linecap=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;round&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;stroke-linejoin=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;round&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;stroke-width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;2&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;d=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-                  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/svg&amp;gt;&lt;/span&gt;
-                &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-              &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-              &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;ml-4&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-                &lt;span class=&quot;nt&quot;&gt;&amp;lt;dt&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text-lg leading-6 font-medium text-gray-900&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-                  Mobile notifications
-                &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dt&amp;gt;&lt;/span&gt;
-                &lt;span class=&quot;nt&quot;&gt;&amp;lt;dd&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;mt-2 text-base text-gray-500&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.
-                &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dd&amp;gt;&lt;/span&gt;
-              &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-          &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dl&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;7-결과-확인&quot;&gt;7. 결과 확인&lt;/h2&gt;
-
-&lt;p&gt;localhost 서버를 띄어서 확인해봅니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm run start
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;http://localhost:3000 으로 접근 하면 다음과 같은 화면을 확인 할 수 있습니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/tailwind_example.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;마치며&quot;&gt;마치며&lt;/h2&gt;
-
-&lt;p&gt;위에 정리한 내용은 &lt;a href=&quot;https://tailwindcss.com/docs/guides/create-react-app&quot;&gt;Install Tailwind CSS with Create React App&lt;/a&gt;을 보고 따라 하였습니다.&lt;/p&gt;
-
-&lt;p&gt;코드를 보면서 직관적인 부분이 장점으로 다가오지만, html의 class가 너무 길어져서 불편하게 느껴지기도 했습니다.
-또한, React에서는 class 를 className으로 Attribute를 변경해야합니다.&lt;/p&gt;
-
-&lt;p&gt;현재 많은 예제들이 나오고 있는 시점이라, 더 발전이 될지도 모르겠습니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://tailwindcss.com/docs/guides/create-react-app&quot;&gt;Install Tailwind CSS with Create React App&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="reactjs" /><category term="tailwindcss" /><summary type="html">tailwindcss를 ReactJS에서 사용하기 위한 설정</summary></entry><entry><title type="html">근래에 회사내 퇴직하시는 분들이 많습니다.</title><link href="https://lahuman.github.io/20210128/" rel="alternate" type="text/html" title="근래에 회사내 퇴직하시는 분들이 많습니다." /><published>2021-01-28T00:00:00+09:00</published><updated>2021-01-28T00:00:00+09:00</updated><id>https://lahuman.github.io/20210128</id><content type="html" xml:base="https://lahuman.github.io/20210128/">&lt;h1 id=&quot;근래-퇴사율이-치솟고-있습니다&quot;&gt;근래 퇴사율이 치솟고 있습니다.&lt;/h1&gt;
-
-&lt;p&gt;창발적인 사고와 유연한 근무환경을 자랑했지만,&lt;/p&gt;
-
-&lt;p&gt;모사와의 흡수합병, 많은 경쟁사 출현으로 래드오션이 되어버린 시장, 회사내 정치와 보여주기 식의 장표 기반의 업무…&lt;/p&gt;
-
-&lt;p&gt;물론 이러한 단점만이 있는 것은 아닙니다.&lt;/p&gt;
-
-&lt;p&gt;얼마전 회사를 되돌아보는 자료를 만들었는데,&lt;/p&gt;
-
-&lt;p&gt;앞으로 많은 기회를 가질 수 있을꺼라 생각합니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;회사-소개-자료&quot;&gt;&lt;a href=&quot;https://docs.google.com/presentation/d/1kdfp994EJfizXwFqigcE-MLVdNoZFIttrwINiafDDk0/edit#slide=id.gafcd1e5e41_1_17&quot;&gt;회사 소개 자료&lt;/a&gt;&lt;/h2&gt;
-
-&lt;p&gt;다만, 좋은 사람들이 떠나가는게 가장 아쉽네요.&lt;/p&gt;
-
-&lt;p&gt;남은 내가 모자른 사람같은 느낌이 드는게 자괴감이 들고요.
-(다들 &lt;code class=&quot;highlighter-rouge&quot;&gt;네카라쿠베&lt;/code&gt;로 이직하시니… 능력자들!)&lt;/p&gt;
-
-&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://kreditjob.com/&quot;&gt;크래딧잡&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="단상" /><summary type="html">발전하는 것과 퇴보하는 것이 공존하며, 현황에 실망감을 느끼는 사람들이 많네요.</summary></entry></feed>
+&lt;/ul&gt;</content><category term="mongodb" /><summary type="html">오랜만에 다시 설치할 일이 생겼다.</summary></entry></feed>
