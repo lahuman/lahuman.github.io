@@ -1,4 +1,218 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2021-05-15T22:54:54+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">말을 조심해야 합니다.</title><link href="https://lahuman.github.io/20210515/" rel="alternate" type="text/html" title="말을 조심해야 합니다." /><published>2021-05-15T00:00:00+09:00</published><updated>2021-05-15T00:00:00+09:00</updated><id>https://lahuman.github.io/20210515</id><content type="html" xml:base="https://lahuman.github.io/20210515/">&lt;h1 id=&quot;누군가를-믿고-이야기-하면-소문이-이미-나있다&quot;&gt;누군가를 믿고 이야기 하면… 소문이 이미 나있다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2021-05-18T00:27:30+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">성과라는 말의 의미</title><link href="https://lahuman.github.io/20210518/" rel="alternate" type="text/html" title="성과라는 말의 의미" /><published>2021-05-18T00:00:00+09:00</published><updated>2021-05-18T00:00:00+09:00</updated><id>https://lahuman.github.io/20210518</id><content type="html" xml:base="https://lahuman.github.io/20210518/">&lt;h1 id=&quot;성과가-좋다는-이야기를-많이-들었습니다-하지만&quot;&gt;성과가 좋다는 이야기를 많이 들었습니다. 하지만,&lt;/h1&gt;
+
+&lt;p&gt;회사에서 성과가 좋다는 의미가 어떤 뜻일까요?&lt;/p&gt;
+
+&lt;p&gt;해낸 일이 많다는 뜻일까요?&lt;/p&gt;
+
+&lt;p&gt;연봉 상승율 높거나 또는 인센을 많이 준다는 뜻일까요?&lt;/p&gt;
+
+&lt;p&gt;여러 의미를 가지고 있는 성과에 대한 거부감이 생겼습니다.&lt;/p&gt;
+
+&lt;p&gt;그냥 일은 일이고, 일이 되게 하면 된다고 생각하고 있습니다.&lt;/p&gt;
+
+&lt;p&gt;성과가 좋다는 이야기를 많이 듣다보니 주위 시선도 부담스럽게 변합니다.&lt;/p&gt;
+
+&lt;p&gt;정작 제가 실제로 얻은 것은 없는데요.&lt;/p&gt;
+
+&lt;p&gt;괜한 성과이야기로 마음도 몸도 불편해지는 날입니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;어려운-성과-이야기&quot;&gt;어려운 성과 이야기&lt;/h2&gt;</content><category term="단상" /><summary type="html">일이 이루어진 결과. 순화어는 `보람'.</summary></entry><entry><title type="html">Linux] find 명령어를 이용해서 5개가 넘는 디렉토리 중 1개만 지우기</title><link href="https://lahuman.github.io/linux_find_count_remove/" rel="alternate" type="text/html" title="Linux] find 명령어를 이용해서 5개가 넘는 디렉토리 중 1개만 지우기" /><published>2021-05-17T00:00:00+09:00</published><updated>2021-05-17T00:00:00+09:00</updated><id>https://lahuman.github.io/linux_find_count_remove</id><content type="html" xml:base="https://lahuman.github.io/linux_find_count_remove/">&lt;h1 id=&quot;linux-find-명령어를-이용해서-오래된-디렉토리-중-1개만-지우기&quot;&gt;Linux] find 명령어를 이용해서 오래된 디렉토리 중 1개만 지우기&lt;/h1&gt;
+
+&lt;p&gt;오래된 디렉토리을 5개만 남겨놓고 지우고 싶을때 사용합니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;if [[ $(find /build/${PRJ_NAME}_* -type d | wc -l) -gt 5 ]]
+then
+  find /build/${PRJ_NAME}_* -type d | head -n 1 | xargs rm -rf
+fi
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;command로 넣어도 되고, shell script로 사용해도 됩니다. :)&lt;/p&gt;</content><category term="find" /><category term="linux" /><category term="command" /><summary type="html">디렉토리명에 날짜가 붙어서 정렬이 필요 없는 경우</summary></entry><entry><title type="html">couchDB –&amp;gt; logstash –&amp;gt; kafka</title><link href="https://lahuman.github.io/couchdb_logstash_kafka/" rel="alternate" type="text/html" title="couchDB --&gt; logstash --&gt; kafka" /><published>2021-05-17T00:00:00+09:00</published><updated>2021-05-17T00:00:00+09:00</updated><id>https://lahuman.github.io/couchdb_logstash_kafka</id><content type="html" xml:base="https://lahuman.github.io/couchdb_logstash_kafka/">&lt;h1 id=&quot;logstash가-모든-일을-다합니다&quot;&gt;logstash가 모든 일을 다합니다.&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/couchdb_logstash_kafka.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;couchDB의 변경내역이 발생할 경우 kafka로 해당 데이터를 전송해야 하는 연계성 요청이 들어왔습니다.&lt;/p&gt;
+
+&lt;p&gt;여러 가지 방안을 고민하였으나, 확장성과 유연성을 위해서 logstash를 선택하였습니다.&lt;/p&gt;
+
+&lt;p&gt;실제로 가능한지 테스트 하기 위해서 개발 환경을 docker 기반으로 구성하여 테스트 했습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;시작하기-전에&quot;&gt;시작하기 전에&lt;/h2&gt;
+
+&lt;p&gt;docker 간의 통신을 위해서 docker network를 추가 합니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;myHome&lt;/strong&gt; 이름으로 네트워크를 생성 합니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ docker network create myHome
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;자세한 docker network 설명은 &lt;a href=&quot;https://www.daleseo.com/docker-networks/&quot;&gt;Docker 네트워크 사용법&lt;/a&gt;을 참조하셔요.&lt;/p&gt;
+
+&lt;h2 id=&quot;couchdb-설정&quot;&gt;couchdb 설정&lt;/h2&gt;
+
+&lt;p&gt;couchdb는 docker에서 bitnami 에서 제공하는 이미지로 생성하였습니다.&lt;/p&gt;
+
+&lt;p&gt;다음 명령어로 image를 다운받고 실행합니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ docker run --network myHome  -p 5984:5984 --name  couchdb bitnami/couchdb:latest
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;추후 테스트를 위해서 5984 port를 연결합니다.&lt;/p&gt;
+
+&lt;p&gt;docker가 온전하게 기동되었다면, http://localhost:5984 에 접근하면 아래와 같은 내용을 확인 할 수 있습니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{
+  &quot;couchdb&quot;: &quot;Welcome&quot;,
+  &quot;version&quot;: &quot;3.1.1&quot;,
+  &quot;git_sha&quot;: &quot;ce596c65d&quot;,
+  &quot;uuid&quot;: &quot;b7449ad8eda14515e4e0782a84c41f5d&quot;,
+  &quot;features&quot;: [
+    &quot;access-ready&quot;,
+    &quot;partitioned&quot;,
+    &quot;pluggable-storage-engines&quot;,
+    &quot;reshard&quot;,
+    &quot;scheduler&quot;
+  ],
+  &quot;vendor&quot;: {
+    &quot;name&quot;: &quot;The Apache Software Foundation&quot;
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;kafka-설정&quot;&gt;kafka 설정&lt;/h2&gt;
+
+&lt;p&gt;kafka의 경우 기본적으로 zookeeper가 필요 하게 됩니다. 
+이를 쉽게 처리 하기 위해서 docker-compose를 이용합니다.&lt;/p&gt;
+
+&lt;p&gt;docker-compose.yml 파일을 생성합니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;version: &quot;2&quot;
+
+networks:
+  default:
+    external: true
+    name: myHome
+
+services:
+  zookeeper:
+    image: docker.io/bitnami/zookeeper:3
+    ports:
+      - &quot;2181:2181&quot;
+    volumes:
+      - &quot;zookeeper_data:/bitnami&quot;
+    environment:
+      - ALLOW_ANONYMOUS_LOGIN=yes
+  kafka:
+    image: docker.io/bitnami/kafka:2
+    ports:
+      - &quot;9092:9092&quot;
+    volumes:
+      - &quot;kafka_data:/bitnami&quot;
+    environment:
+      - KAFKA_CFG_ZOOKEEPER_CONNECT=zookeeper:2181
+      - ALLOW_PLAINTEXT_LISTENER=yes
+    depends_on:
+      - zookeeper
+
+volumes:
+  zookeeper_data:
+    driver: local
+  kafka_data:
+    driver: local
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;해당 파일의 생성이 완료 되었다면, 다음 명령어로 기동 합니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ docker-compose up
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;기동이 문제 없이 되었다면 아래와 같은 로그가 확인 됩니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;kafka_1      | [2021-05-17 03:39:13,937] INFO [GroupMetadataManager brokerId=1001] Finished loading offsets and group metadata from __consumer_offsets-48 in 103 milliseconds, of which 102 milliseconds was spent in the scheduler. (kafka.coordinator.group.GroupMetadataManager)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;logstash-설정&quot;&gt;logstash 설정&lt;/h2&gt;
+
+&lt;p&gt;먼저 pipline 디렉토리를 생성한 후 &lt;strong&gt;logstash.conf&lt;/strong&gt; 파일을 생성합니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ mkdir pipline
+$ vi logstash.conf
+# logstash.conf 파일 내용
+input {
+  couchdb_changes {
+    id =&amp;gt; &quot;my_plugin_id&quot;
+    host =&amp;gt; &quot;couchdb&quot;
+    username =&amp;gt; &quot;admin&quot;
+    password =&amp;gt; &quot;couchdb&quot;
+    port =&amp;gt; &quot;5984&quot;
+    db =&amp;gt; &quot;test&quot;
+  }
+}
+
+output {
+	stdout { codec =&amp;gt; &quot;rubydebug&quot; }
+
+     kafka {
+       codec =&amp;gt; &quot;json&quot;
+       topic_id =&amp;gt; &quot;test_topic&quot;
+       bootstrap_servers =&amp;gt; &quot;logstash_kafka_1:9092&quot;
+     }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;주요 정보는 input과 output에 대한 정의 이며, 이후 db 종류가 많이 생기면, input에 추가 하면 됩니다.
+kafka 나, couchdb의 host는 docker ps 정보에서 이름을 활용하면 됩니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ docker ps
+CONTAINER ID   IMAGE                                            COMMAND                  CREATED          STATUS          PORTS                                                                     NAMES
+03bb311bf431   docker.elastic.co/logstash/logstash-oss:7.12.1   &quot;/usr/local/bin/dock…&quot;   50 seconds ago   Up 48 seconds   5044/tcp, 9600/tcp                                                        compassionate_yonath
+28a0315d2422   bitnami/kafka:2                                  &quot;/opt/bitnami/script…&quot;   4 days ago       Up 4 minutes    0.0.0.0:9092-&amp;gt;9092/tcp, :::9092-&amp;gt;9092/tcp                                 logstash_kafka_1
+fa1b5e62784b   bitnami/zookeeper:3                              &quot;/opt/bitnami/script…&quot;   4 days ago       Up 4 minutes    2888/tcp, 3888/tcp, 0.0.0.0:2181-&amp;gt;2181/tcp, :::2181-&amp;gt;2181/tcp, 8080/tcp   logstash_zookeeper_1
+786c603b9ae2   bitnami/couchdb:latest                           &quot;/opt/bitnami/script…&quot;   4 days ago       Up 3 hours      4369/tcp, 9100/tcp, 0.0.0.0:5984-&amp;gt;5984/tcp, :::5984-&amp;gt;5984/tcp             couchdb
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;준비가 다 되었다면, pipeline 디렉토리 주소를 알맞게 설정후 다음 명령어로 docker 를 기동 합니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ docker run --rm -it -v /Users/admin/DEV/test/logstash/pipeline/:/usr/share/logstash/pipeline/ --network myHome  docker.elastic.co/logstash/logstash-oss:7.12.1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;테스트&quot;&gt;테스트&lt;/h2&gt;
+
+&lt;p&gt;couchdb의 utils를 이용해서 데이터를 적제 할 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;접근 주소 : http://localhost:5984/_utils/&lt;/p&gt;
+
+&lt;p&gt;해당 주소에 접근하여 &lt;strong&gt;test&lt;/strong&gt; database를 생성하고 documents를 생성합니다.&lt;/p&gt;
+
+&lt;p&gt;데이터를 생성 하였으면, kafka에 제대로 적재 되었는지 확인해봅니다.&lt;/p&gt;
+
+&lt;p&gt;docker exec 명령어를 이용해서 kafka 내부로 접근합니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ docker exec -it  logstash_kafka_1 /bin/bash
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;첫번째로 topic의 목록을 조회 해봅니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ kafka-topics.sh --list --bootstrap-server localhost:9092
+__consumer_offsets
+mytopic
+test_topic
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;logstash를 이용하여 생성한 &lt;strong&gt;test_topic&lt;/strong&gt; 이 확인되었다면, 데이터도 console로 확인해봅니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test_topic --from-beginning
+{&quot;@timestamp&quot;:&quot;2021-05-12T09:22:28.111Z&quot;,&quot;doc_as_upsert&quot;:true,&quot;doc&quot;:{&quot;test&quot;:&quot;test&quot;},&quot;@version&quot;:&quot;1&quot;}
+{&quot;@timestamp&quot;:&quot;2021-05-17T00:35:33.135Z&quot;,&quot;doc_as_upsert&quot;:true,&quot;doc&quot;:{&quot;helo&quot;:&quot;kafka&quot;},&quot;@version&quot;:&quot;1&quot;}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이로서 연동 테스트가 완료 되었습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.daleseo.com/docker-networks/&quot;&gt;Docker 네트워크 사용법&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/bitnami/bitnami-docker-couchdb&quot;&gt;bitnami-docker-couchdb&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://kimseunghyun76.tistory.com/463&quot;&gt;Kafka 한번 살펴보자… Quickstart&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="kafka" /><category term="logstash" /><category term="couchDB" /><summary type="html">변경 내역을 logstash를 통해서 kafka에 전송하기</summary></entry><entry><title type="html">말을 조심해야 합니다.</title><link href="https://lahuman.github.io/20210515/" rel="alternate" type="text/html" title="말을 조심해야 합니다." /><published>2021-05-15T00:00:00+09:00</published><updated>2021-05-15T00:00:00+09:00</updated><id>https://lahuman.github.io/20210515</id><content type="html" xml:base="https://lahuman.github.io/20210515/">&lt;h1 id=&quot;누군가를-믿고-이야기-하면-소문이-이미-나있다&quot;&gt;누군가를 믿고 이야기 하면… 소문이 이미 나있다.&lt;/h1&gt;
 
 &lt;p&gt;세상에 비밀은 없다. 또 말 조심을 해야 한다.&lt;/p&gt;
 
@@ -153,82 +367,4 @@ CSR(Customer Specific Requirements)라고 하는 복잡한 요구사항을 받�
 &lt;h2 id=&quot;q6-함께-일하고-싶은-동료는-어떤-사람인지&quot;&gt;Q6. 함께 일하고 싶은 동료는 어떤 사람인지?&lt;/h2&gt;
 
 &lt;p&gt;개발을 좋아하는 사람이고, 꾸준한 자기개발을 하는 사람이면 좋겠습니다.
-그리고 새로운 도전을 즐길 수 있는 사람이었으면 좋겠습니다.&lt;/p&gt;</content><category term="인터뷰" /><category term="aboutme" /><summary type="html">간단한 자기 소개</summary></entry><entry><title type="html">안타까운 시간이 흐르고 있다.</title><link href="https://lahuman.github.io/20210410/" rel="alternate" type="text/html" title="안타까운 시간이 흐르고 있다." /><published>2021-04-13T00:00:00+09:00</published><updated>2021-04-13T00:00:00+09:00</updated><id>https://lahuman.github.io/20210410</id><content type="html" xml:base="https://lahuman.github.io/20210410/">&lt;h1 id=&quot;열심히-하는게-의미가-있을까&quot;&gt;열심히 하는게 의미가 있을까?&lt;/h1&gt;
-
-&lt;p&gt;최선을 다하고 열심히 하는게 아무 의미가 없게 느껴질때가 있다.&lt;/p&gt;
-
-&lt;p&gt;특히 주변에서 노력을 하는 사람의 실패를 볼때면 이런 생각이 더욱 강하게 든다.&lt;/p&gt;
-
-&lt;p&gt;최선을 다하여 발버둥 치면서 살아가고 있다. 하지만 가끔씩 먹먹함과 허무함이 몰려온다.&lt;/p&gt;
-
-&lt;p&gt;그냥 잠시 시간을 흘려보내고 싶은 생각이다.&lt;/p&gt;
-
-&lt;h2 id=&quot;내일은-내일의-태양이-뜨니-오늘은-흘려보내보자&quot;&gt;내일은 내일의 태양이 뜨니 오늘은 흘려보내보자.&lt;/h2&gt;</content><category term="단상" /><summary type="html">열심히 하는게 의미가 있는지 모르겠다.</summary></entry><entry><title type="html">Raspberry PI 8G OS 선택 가이드</title><link href="https://lahuman.github.io/raspberry_pi_8g_os/" rel="alternate" type="text/html" title="Raspberry PI 8G OS 선택 가이드" /><published>2021-04-12T00:00:00+09:00</published><updated>2021-04-12T00:00:00+09:00</updated><id>https://lahuman.github.io/raspberry_pi_8g_os</id><content type="html" xml:base="https://lahuman.github.io/raspberry_pi_8g_os/">&lt;h1 id=&quot;raspberry-pi-8g-os-선택-가이드&quot;&gt;Raspberry PI 8G OS 선택 가이드&lt;/h1&gt;
-
-&lt;h2 id=&quot;설치-전-안내&quot;&gt;설치 전 안내&lt;/h2&gt;
-
-&lt;p&gt;안정성과 가벼움, 제공되는 프로그램들의 연동은 Raspberry PI OS 기본 &lt;a href=&quot;https://www.raspberrypi.org/software/operating-systems/&quot;&gt;32bit&lt;/a&gt;를 추천 합니다.&lt;/p&gt;
-
-&lt;p&gt;성능을 원한다면 &lt;a href=&quot;https://downloads.raspberrypi.org/raspios_arm64/images/&quot;&gt;64bit&lt;/a&gt;를 설치하셔요.&lt;/p&gt;
-
-&lt;p&gt;범용적인 서버로 사용하신다면, &lt;a href=&quot;https://ubuntu.com/download/raspberry-pi&quot;&gt;Ubuntu 64 bit&lt;/a&gt;를 추천합니다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;추가 TIP!
-Ubuntu Desktop으로 사용하는 것은 추천하지 않습니다. GUI 환경에서는 Raspberry PI OS가 가장 빠릅니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://hackaday.com/2020/01/28/raspberry-pi-4-benchmarks-32-vs-64-bits/&quot;&gt;RASPBERRY PI 4 BENCHMARKS: 32- VS 64-BITS&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;os-다운로드-주소&quot;&gt;OS 다운로드 주소&lt;/h2&gt;
-
-&lt;p&gt;Raspberry PI OS(기본 &lt;a href=&quot;https://www.raspberrypi.org/software/operating-systems/&quot;&gt;32bit&lt;/a&gt; / &lt;a href=&quot;https://downloads.raspberrypi.org/raspios_arm64/images/&quot;&gt;64bit&lt;/a&gt;)
-Ubuntu Desktop(&lt;a href=&quot;https://ubuntu.com/download/raspberry-pi&quot;&gt;32/64bit&lt;/a&gt; 제공)&lt;/p&gt;
-
-&lt;h2 id=&quot;한글-설정&quot;&gt;한글 설정&lt;/h2&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;fcitx fcitx-hangul
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;참고 자료 : https://knds.tistory.com/7&lt;/p&gt;
-
-&lt;h2 id=&quot;netflex-play-on-default-chromeraspberry-pi-os-64bit는-안되네요---32bit-동작-확인&quot;&gt;Netflex play on default chrome(Raspberry PI OS 64bit는 안되네요. - 32bit 동작 확인)&lt;/h2&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt update 
-&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt full-upgrade 
-&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;libwidevinecdm0 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;참고-자료-&quot;&gt;참고 자료 : &lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;https://www.tomshardware.com/news/raspberry-pi-widevine&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;vscode-설치&quot;&gt;VSCODE 설치&lt;/h2&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Mac M1 출시 이후 많은 App 들이 arm CPU를 지원해주고 있습니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;code
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;node-설치&quot;&gt;node 설치&lt;/h2&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl &lt;span class=&quot;nt&quot;&gt;-sL&lt;/span&gt; https://deb.nodesource.com/setup_14.x | &lt;span class=&quot;nb&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-E&lt;/span&gt; bash -
-&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt; nodejs
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><category term="raspberry" /><category term="os" /><summary type="html">8G 메모리를 가진 라즈베리파이의 OS 선택 기준</summary></entry><entry><title type="html">사람 마다 생각이 다르고, 지향점이 다르다.</title><link href="https://lahuman.github.io/20210413/" rel="alternate" type="text/html" title="사람 마다 생각이 다르고, 지향점이 다르다." /><published>2021-04-10T00:00:00+09:00</published><updated>2021-04-10T00:00:00+09:00</updated><id>https://lahuman.github.io/20210413</id><content type="html" xml:base="https://lahuman.github.io/20210413/">&lt;h1 id=&quot;다름을-이해는-하지만-받아들이기는-쉽지-않네요&quot;&gt;다름을 이해는 하지만, 받아들이기는 쉽지 않네요.&lt;/h1&gt;
-
-&lt;p&gt;사람마다 다른 삶을 살아왔기 때문에 세상을 바라보는 시각이 다릅니다.&lt;/p&gt;
-
-&lt;p&gt;얌체로 보이는 사람도 있고, 욕심쟁이로 보이는 사람도 있습니다.&lt;/p&gt;
-
-&lt;p&gt;또한.. 너무 착해서 호구로 보이는 사람도 있습니다.&lt;/p&gt;
-
-&lt;p&gt;사람들의 다름은 이해하지만, 몇몇 사람의 다름은 받아들이기 쉽지 않네요.&lt;/p&gt;
-
-&lt;h2 id=&quot;가끔-호구가-되기도하고&quot;&gt;가끔 호구가 되기도하고…&lt;/h2&gt;
-&lt;h2 id=&quot;적당히-하지&quot;&gt;적당히 하지…&lt;/h2&gt;</content><category term="단상" /><summary type="html">살아온 삶이 다르기에 이해하지 못하는 경우가 종종있다.</summary></entry></feed>
+그리고 새로운 도전을 즐길 수 있는 사람이었으면 좋겠습니다.&lt;/p&gt;</content><category term="인터뷰" /><category term="aboutme" /><summary type="html">간단한 자기 소개</summary></entry></feed>
