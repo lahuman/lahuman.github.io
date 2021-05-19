@@ -1,4 +1,92 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2021-05-19T11:21:59+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">예의를 지키는 사람들이 많았으면 좋겠다.</title><link href="https://lahuman.github.io/20210519/" rel="alternate" type="text/html" title="예의를 지키는 사람들이 많았으면 좋겠다." /><published>2021-05-19T00:00:00+09:00</published><updated>2021-05-19T00:00:00+09:00</updated><id>https://lahuman.github.io/20210519</id><content type="html" xml:base="https://lahuman.github.io/20210519/">&lt;h1 id=&quot;다르다는-것은-틀린-것이-아니다&quot;&gt;다르다는 것은 틀린 것이 아니다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2021-05-19T20:12:44+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">JAVA 1.5 에서 TLS 1.2 를 사용하는 HTTPS 통신 하는 방법</title><link href="https://lahuman.github.io/jdk5_tls1_2/" rel="alternate" type="text/html" title="JAVA 1.5 에서 TLS 1.2 를 사용하는 HTTPS 통신 하는 방법" /><published>2021-05-19T00:00:00+09:00</published><updated>2021-05-19T00:00:00+09:00</updated><id>https://lahuman.github.io/jdk5_tls1_2</id><content type="html" xml:base="https://lahuman.github.io/jdk5_tls1_2/">&lt;h1 id=&quot;하루-종일-jdk5와-https-tls12-랑-씨름을-하고-있다&quot;&gt;하루 종일 jdk5와 https tls1.2 랑 씨름을 하고 있다.&lt;/h1&gt;
+
+&lt;p&gt;우선 jdk5에서 tls1.2 연결을 위해서 &lt;a href=&quot;https://www.bouncycastle.org/&quot;&gt;bouncy castle&lt;/a&gt;를 사용해보았습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.bouncycastle.org/docs/tlsdocs1.5on/org/bouncycastle/tls/test/TlsClientTest.html&quot;&gt;TlsClientTest&lt;/a&gt; 소스로 테스트를 해보았지만, 결국 아래와 같은 오류를 만나고 말았습니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;TLS client negotiated TLS 1.2
+TLS client received server certificate chain of length 3
+    fingerprint:SHA-256 83:9E:08:A5:4F:CC:73:F7:F8:DE:2E:23:89:DB:40:E1:B5:E1:E4:9E:6C:33:4C:A8:EE:30:68:01:76:4F:ED:69 (C=KR,ST=Seoul,L=Yeongdeungpo-gu,O=GS Ho                                                                              me Shopping Inc.,OU=IT Team,CN=*.gsshop.com)
+    fingerprint:SHA-256 9A:5E:EC:EE:9C:7D:89:8B:D8:1D:C3:BF:06:6D:AF:6A:EF:B8:DB                                                                              :1C:59:67:62:06:D2:BF:DD:68:23:12:C6:F6 (C=US,O=DigiCert Inc,OU=www.digicert.com                                                                              ,CN=Thawte RSA CA 2018)
+    fingerprint:SHA-256 43:48:A0:E9:44:4C:78:CB:26:5E:05:8D:5E:89:44:B4:D8:4F:96                                                                              :62:BD:26:DB:25:7F:89:34:A4:43:C7:01:61 (C=US,O=DigiCert Inc,OU=www.digicert.com                                                                              ,CN=DigiCert Global Root CA)
+TLS client raised alert: fatal(2), internal_error(80)
+&amp;gt; Failed to read record
+java.lang.NullPointerException
+        at java.io.Reader.&amp;lt;init&amp;gt;(Reader.java:61)
+        at java.io.InputStreamReader.&amp;lt;init&amp;gt;(InputStreamReader.java:55)
+        at TlsTestUtils.loadPemResource(TlsTestUtils.java:478)
+        at TlsTestUtils.loadCertificateResource(TlsTestUtils.java:368)
+        at TlsTestUtils.getTrustedCertPath(TlsTestUtils.java:502)
+        at MockTlsClient$1.notifyServerCertificate(MockTlsClient.java:128)
+        at org.bouncycastle.tls.TlsUtils.processServerCertificate(Unknown Source                                                                              )
+        at org.bouncycastle.tls.TlsClientProtocol.handleServerCertificate(Unknow                                                                              n Source)
+        at org.bouncycastle.tls.TlsClientProtocol.handleHandshakeMessage(Unknown                                                                               Source)
+        at org.bouncycastle.tls.TlsProtocol.processHandshakeQueue(Unknown Source                                                                              )
+        at org.bouncycastle.tls.TlsProtocol.processRecord(Unknown Source)
+        at org.bouncycastle.tls.RecordStream.readRecord(Unknown Source)
+        at org.bouncycastle.tls.TlsProtocol.safeReadRecord(Unknown Source)
+        at org.bouncycastle.tls.TlsProtocol.blockForHandshake(Unknown Source)
+        at org.bouncycastle.tls.TlsClientProtocol.connect(Unknown Source)
+        at TlsClientTest.openTlsConnection(TlsClientTest.java:62)
+        at TlsClientTest.main(TlsClientTest.java:30)
+Exception in thread &quot;main&quot; org.bouncycastle.tls.TlsFatalAlert: internal_error(80)
+        at org.bouncycastle.tls.TlsProtocol.safeReadRecord(Unknown Source)
+        at org.bouncycastle.tls.TlsProtocol.blockForHandshake(Unknown Source)
+        at org.bouncycastle.tls.TlsClientProtocol.connect(Unknown Source)
+        at TlsClientTest.openTlsConnection(TlsClientTest.java:62)
+        at TlsClientTest.main(TlsClientTest.java:30)
+Caused by: java.lang.NullPointerException
+        at java.io.Reader.&amp;lt;init&amp;gt;(Reader.java:61)
+        at java.io.InputStreamReader.&amp;lt;init&amp;gt;(InputStreamReader.java:55)
+        at TlsTestUtils.loadPemResource(TlsTestUtils.java:478)
+        at TlsTestUtils.loadCertificateResource(TlsTestUtils.java:368)
+        at TlsTestUtils.getTrustedCertPath(TlsTestUtils.java:502)
+        at MockTlsClient$1.notifyServerCertificate(MockTlsClient.java:128)
+        at org.bouncycastle.tls.TlsUtils.processServerCertificate(Unknown Source)
+        at org.bouncycastle.tls.TlsClientProtocol.handleServerCertificate(Unknown Source)
+        at org.bouncycastle.tls.TlsClientProtocol.handleHandshakeMessage(Unknown Source)
+        at org.bouncycastle.tls.TlsProtocol.processHandshakeQueue(Unknown Source)
+        at org.bouncycastle.tls.TlsProtocol.processRecord(Unknown Source)
+        at org.bouncycastle.tls.RecordStream.readRecord(Unknown Source)
+        ... 5 more
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;많은 삽질을 하며 시간을 보내다가, 
+다시 원점으로 돌아가서 &lt;strong&gt;왜&lt;/strong&gt;와 &lt;strong&gt;환경&lt;/strong&gt;에 대하여 고민하였습니다.&lt;/p&gt;
+
+&lt;p&gt;꼭 jdk5 에서 접근해야 할까? Linux환경이라면 curl이라는 훌륭한 툴을 이용하면 어떨까?&lt;/p&gt;
+
+&lt;p&gt;결국 Curl을 Java에서 Command Line으로 실행하는 코드를 만들었습니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import java.lang.Process;
+import java.lang.Runtime;
+import java.io.InputStreamReader;
+import java.io.BufferedReader;
+import java.io.IOException;
+
+public class CurlJavaTest {
+    public static void main(String[] args) throws java.lang.InterruptedException {
+        String output = &quot;&quot;;
+        String command = &quot;curl -k http://gsshop.com&quot;;
+        try {
+            Process p = Runtime.getRuntime().exec(command);
+            p.waitFor();
+            BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
+            String line = &quot;&quot;;
+            while ((line = reader.readLine()) != null) {
+                output = output.concat(line + &quot;\n&quot;);
+            }
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        System.out.println(output);
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;생각의-관점을-바꾸어서-시도해보면-좋은-결과가-나오기도-하네요&quot;&gt;생각의 관점을 바꾸어서 시도해보면 좋은 결과가 나오기도 하네요.&lt;/h2&gt;</content><category term="jdk5" /><category term="tls" /><category term="https" /><summary type="html">개똥 손이 많이 간다고 하는 내용이 많습니다.</summary></entry><entry><title type="html">예의를 지키는 사람들이 많았으면 좋겠다.</title><link href="https://lahuman.github.io/20210519/" rel="alternate" type="text/html" title="예의를 지키는 사람들이 많았으면 좋겠다." /><published>2021-05-19T00:00:00+09:00</published><updated>2021-05-19T00:00:00+09:00</updated><id>https://lahuman.github.io/20210519</id><content type="html" xml:base="https://lahuman.github.io/20210519/">&lt;h1 id=&quot;다르다는-것은-틀린-것이-아니다&quot;&gt;다르다는 것은 틀린 것이 아니다.&lt;/h1&gt;
 
 &lt;p&gt;누군가와 불쾌한 경험을 하게 되면 이후 나의 행동은 2가지로 나뉘게 됩니다.&lt;/p&gt;
 
@@ -324,10 +412,4 @@ sudo apt install realvnc-vnc-server:arm64
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# dev profile을 사용하여 packaging 진행
 java -jar -Dspring.profiles.active=dev result.jar 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><category term="springboot" /><category term="maven" /><summary type="html">이후 실행시도 해당 옵션을 동일하게 사용합니다.</summary></entry><entry><title type="html">Raspberry PI를 게임기로 사용하기 위한 ROM 다운로드</title><link href="https://lahuman.github.io/raspberry_pi_game_rom/" rel="alternate" type="text/html" title="Raspberry PI를 게임기로 사용하기 위한 ROM 다운로드" /><published>2021-04-17T00:00:00+09:00</published><updated>2021-04-17T00:00:00+09:00</updated><id>https://lahuman.github.io/raspberry_pi_game_rom</id><content type="html" xml:base="https://lahuman.github.io/raspberry_pi_game_rom/">&lt;h1 id=&quot;raspberry-pi를-게임기로-사용하기-위한-rom-다운로드&quot;&gt;Raspberry PI를 게임기로 사용하기 위한 ROM 다운로드&lt;/h1&gt;
-
-&lt;p&gt;https://www.arcadepunks.com 라는 사이트에서 GAME ROM을 다운로드 할 수 있습니다.&lt;/p&gt;
-
-&lt;h3 id=&quot;pi-3용-게임-다운로드-바로가기&quot;&gt;&lt;a href=&quot;https://www.arcadepunks.com/pi-images-downloads-page/&quot;&gt;PI 3용 게임 다운로드 바로가기&lt;/a&gt;&lt;/h3&gt;
-
-&lt;h3 id=&quot;pi-4용-게임-다운로드-바로가기&quot;&gt;&lt;a href=&quot;https://www.arcadepunks.com/download-raspberry-pi-4-images/&quot;&gt;PI 4용 게임 다운로드 바로가기&lt;/a&gt;&lt;/h3&gt;</content><category term="raspberry" /><category term="game" /><category term="rom" /><summary type="html">PI 3/4 에서 사용이 가능한 ROM 정보 입니다.</summary></entry></feed>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><category term="springboot" /><category term="maven" /><summary type="html">이후 실행시도 해당 옵션을 동일하게 사용합니다.</summary></entry></feed>
