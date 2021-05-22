@@ -1,4 +1,20 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2021-05-19T20:12:44+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">JAVA 1.5 에서 TLS 1.2 를 사용하는 HTTPS 통신 하는 방법</title><link href="https://lahuman.github.io/jdk5_tls1_2/" rel="alternate" type="text/html" title="JAVA 1.5 에서 TLS 1.2 를 사용하는 HTTPS 통신 하는 방법" /><published>2021-05-19T00:00:00+09:00</published><updated>2021-05-19T00:00:00+09:00</updated><id>https://lahuman.github.io/jdk5_tls1_2</id><content type="html" xml:base="https://lahuman.github.io/jdk5_tls1_2/">&lt;h1 id=&quot;하루-종일-jdk5와-https-tls12-랑-씨름을-하고-있다&quot;&gt;하루 종일 jdk5와 https tls1.2 랑 씨름을 하고 있다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2021-05-22T22:14:25+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">좋은 문화를 가진 팀의 문화를 다른 팀에 전파를 할 수 있을까?</title><link href="https://lahuman.github.io/20210522/" rel="alternate" type="text/html" title="좋은 문화를 가진 팀의 문화를 다른 팀에 전파를 할 수 있을까?" /><published>2021-05-22T00:00:00+09:00</published><updated>2021-05-22T00:00:00+09:00</updated><id>https://lahuman.github.io/20210522</id><content type="html" xml:base="https://lahuman.github.io/20210522/">&lt;h1 id=&quot;문화를-어떻게-전파-할-수-있을까&quot;&gt;문화를 어떻게 전파 할 수 있을까?&lt;/h1&gt;
+
+&lt;p&gt;특정 팀의 문화를 다른 팀에 전파하려면 어떻게 해야 할까요?&lt;/p&gt;
+
+&lt;p&gt;저희 팀의 문화가 좋다며, 다른 팀에 전파를 하라는 미션이 떨어졌습니다.&lt;/p&gt;
+
+&lt;p&gt;개인적으로는 팀의 문화는 해당 팀의 상황과 환경 그리고 사람에 따라 달라진다고 생각됩니다.&lt;/p&gt;
+
+&lt;p&gt;한명의 사람이 팀을 변화시키지 위해서는 많은 권한을 제공해야 합니다.&lt;/p&gt;
+
+&lt;p&gt;하지만 이는 자발적인 변화가 아닌 강제적인 변화로 기존 팀원들에게 부담감과 변화에 대한 반발이 생기게 됩니다.&lt;/p&gt;
+
+&lt;p&gt;이것들이 변화를 위한 과정일까요? 그리고 변화가 가능한 걸까요?&lt;/p&gt;
+
+&lt;p&gt;마지막으로 특정 특출난 동료가 있다는 건 좋은 일일까요? 나쁜 일일까요?&lt;/p&gt;
+
+&lt;h2 id=&quot;많은-생각이-드는-저녁&quot;&gt;많은 생각이 드는 저녁&lt;/h2&gt;</content><category term="단상" /><category term="문화" /><summary type="html">모종 처럼 좋은 문화를 가진 팀원을 다른 팀에 넣으면 변할까?</summary></entry><entry><title type="html">JAVA 1.5 에서 TLS 1.2 를 사용하는 HTTPS 통신 하는 방법</title><link href="https://lahuman.github.io/jdk5_tls1_2/" rel="alternate" type="text/html" title="JAVA 1.5 에서 TLS 1.2 를 사용하는 HTTPS 통신 하는 방법" /><published>2021-05-19T00:00:00+09:00</published><updated>2021-05-19T00:00:00+09:00</updated><id>https://lahuman.github.io/jdk5_tls1_2</id><content type="html" xml:base="https://lahuman.github.io/jdk5_tls1_2/">&lt;h1 id=&quot;하루-종일-jdk5와-https-tls12-랑-씨름을-하고-있다&quot;&gt;하루 종일 jdk5와 https tls1.2 랑 씨름을 하고 있다.&lt;/h1&gt;
 
 &lt;p&gt;우선 jdk5에서 tls1.2 연결을 위해서 &lt;a href=&quot;https://www.bouncycastle.org/&quot;&gt;bouncy castle&lt;/a&gt;를 사용해보았습니다.&lt;/p&gt;
 
@@ -398,18 +414,4 @@ sudo apt install realvnc-vnc-server:arm64
 
 &lt;p&gt;재부팅을 하고 나면 VNC 아이콘이 오른쪽 상단에 보입니다.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;realvnc에 로그인하면, public IP를 가지지 않아도 외부에서 접근이 가능&lt;/strong&gt;합니다.&lt;/p&gt;</content><category term="raspberry" /><category term="realvnc" /><category term="64bit" /><summary type="html">64bit 용 OS를 설치했을 경우 REALVNC가 기본적으로 동작 하지 않는다.</summary></entry><entry><title type="html">SpringBoot 프로젝트에서 Maven Build 시 profile 선택</title><link href="https://lahuman.github.io/maven_build_spring_profile/" rel="alternate" type="text/html" title="SpringBoot 프로젝트에서 Maven Build 시 profile 선택" /><published>2021-04-23T00:00:00+09:00</published><updated>2021-04-23T00:00:00+09:00</updated><id>https://lahuman.github.io/maven_build_spring_profile</id><content type="html" xml:base="https://lahuman.github.io/maven_build_spring_profile/">&lt;h1 id=&quot;springboot-프로젝트에서-maven-build-시-profile-선택&quot;&gt;SpringBoot 프로젝트에서 Maven Build 시 profile 선택&lt;/h1&gt;
-
-&lt;p&gt;프로젝트 내에 여러 profile이 있을 경우 Mavne 빌드시 하나를 선택해야 합니다.&lt;/p&gt;
-
-&lt;p&gt;Maven 프로젝트의 Root 디렉토리에서 다음 명령어로 packaging 을 하면 TEST 코드에 대하여 profile을 적용하게 됩니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# dev profile을 사용하여 packaging 진행
-./mvnw clean package -Dspring.profiles.active=dev
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;이후 결과 jar 파일을 실행시 profile을 설정하는 것도 동일 합니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# dev profile을 사용하여 packaging 진행
-java -jar -Dspring.profiles.active=dev result.jar 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><category term="springboot" /><category term="maven" /><summary type="html">이후 실행시도 해당 옵션을 동일하게 사용합니다.</summary></entry></feed>
+&lt;p&gt;&lt;strong&gt;realvnc에 로그인하면, public IP를 가지지 않아도 외부에서 접근이 가능&lt;/strong&gt;합니다.&lt;/p&gt;</content><category term="raspberry" /><category term="realvnc" /><category term="64bit" /><summary type="html">64bit 용 OS를 설치했을 경우 REALVNC가 기본적으로 동작 하지 않는다.</summary></entry></feed>
