@@ -1,4 +1,43 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2021-05-22T22:14:25+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">좋은 문화를 가진 팀의 문화를 다른 팀에 전파를 할 수 있을까?</title><link href="https://lahuman.github.io/20210522/" rel="alternate" type="text/html" title="좋은 문화를 가진 팀의 문화를 다른 팀에 전파를 할 수 있을까?" /><published>2021-05-22T00:00:00+09:00</published><updated>2021-05-22T00:00:00+09:00</updated><id>https://lahuman.github.io/20210522</id><content type="html" xml:base="https://lahuman.github.io/20210522/">&lt;h1 id=&quot;문화를-어떻게-전파-할-수-있을까&quot;&gt;문화를 어떻게 전파 할 수 있을까?&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2021-05-24T21:27:11+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">ReactJS composition(합성) 사용하기</title><link href="https://lahuman.github.io/react_composition/" rel="alternate" type="text/html" title="ReactJS composition(합성) 사용하기" /><published>2021-05-24T00:00:00+09:00</published><updated>2021-05-24T00:00:00+09:00</updated><id>https://lahuman.github.io/react_composition</id><content type="html" xml:base="https://lahuman.github.io/react_composition/">&lt;h1 id=&quot;reactjs-합성-사용하기&quot;&gt;reactjs 합성 사용하기&lt;/h1&gt;
+
+&lt;p&gt;Reactjs에서는 상속보다 더 강력한 합성을 제공합니다.
+상속 대신 합성을 사용하면 컴포넌트 간에 코드를 재활용하기 펼리합니다.&lt;/p&gt;
+
+&lt;p&gt;합성의 사용 예제는 아래와 같습니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function SplitPane(props) {
+  return (
+    &amp;lt;div className=&quot;SplitPane&quot;&amp;gt;
+      &amp;lt;div className=&quot;SplitPane-left&quot;&amp;gt;
+        {props.left}
+      &amp;lt;/div&amp;gt;
+      &amp;lt;div className=&quot;SplitPane-right&quot;&amp;gt;
+        {props.right}
+      &amp;lt;/div&amp;gt;
+    &amp;lt;/div&amp;gt;
+  );
+}
+
+function App() {
+  return (
+    &amp;lt;SplitPane
+      left={
+        &amp;lt;Contacts /&amp;gt;
+      }
+      right={
+        &amp;lt;Chat /&amp;gt;
+      } /&amp;gt;
+  );
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;Contacts /&gt;
+&lt;p&gt;와 &lt;Chat&gt;&lt;/Chat&gt; 동일한 React 엘리먼트는 단지 객체이기 때문에 다른 데이터처럼 rpop로 전달할 수 있습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://ko.reactjs.org/docs/composition-vs-inheritance.html&quot;&gt;합성 (Composition) vs 상속 (Inheritance)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="reactjs" /><category term="composition" /><summary type="html">컴포넌트에서 상속보다 합성 사용하기</summary></entry><entry><title type="html">좋은 문화를 가진 팀의 문화를 다른 팀에 전파를 할 수 있을까?</title><link href="https://lahuman.github.io/20210522/" rel="alternate" type="text/html" title="좋은 문화를 가진 팀의 문화를 다른 팀에 전파를 할 수 있을까?" /><published>2021-05-22T00:00:00+09:00</published><updated>2021-05-22T00:00:00+09:00</updated><id>https://lahuman.github.io/20210522</id><content type="html" xml:base="https://lahuman.github.io/20210522/">&lt;h1 id=&quot;문화를-어떻게-전파-할-수-있을까&quot;&gt;문화를 어떻게 전파 할 수 있을까?&lt;/h1&gt;
 
 &lt;p&gt;특정 팀의 문화를 다른 팀에 전파하려면 어떻게 해야 할까요?&lt;/p&gt;
 
@@ -389,29 +428,4 @@ test_topic
 
 &lt;p&gt;촬영을 진행하는 동안에 도움을 주신 분들이 많이 있습니다.&lt;/p&gt;
 
-&lt;p&gt;잠시지만, 연애인이 되어본 기분이었네요. :)&lt;/p&gt;</content><category term="단상" /><summary type="html">4분 35초부터 출연하였습니다</summary></entry><entry><title type="html">Raspberry PI 64bit 에서 REALVNC 사용하기</title><link href="https://lahuman.github.io/raspberry_pi64_realvnc/" rel="alternate" type="text/html" title="Raspberry PI 64bit 에서 REALVNC 사용하기" /><published>2021-04-26T00:00:00+09:00</published><updated>2021-04-26T00:00:00+09:00</updated><id>https://lahuman.github.io/raspberry_pi64_realvnc</id><content type="html" xml:base="https://lahuman.github.io/raspberry_pi64_realvnc/">&lt;h1 id=&quot;raspberry-pi-64bit-에서-realvnc-사용하기&quot;&gt;Raspberry PI 64bit 에서 REALVNC 사용하기&lt;/h1&gt;
-
-&lt;p&gt;Raspberry PI 에서 &lt;a href=&quot;https://www.realvnc.com/en/&quot;&gt;realvnc&lt;/a&gt;를 무료로 사용할 수 있습니다. 또한 기본적으로 VNC가 설치되어 사용할 수 있습니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.realvnc.com/en/raspberrypi/&quot;&gt;realvnc는 Raspberry PI에 대하여 개인용으로 최대 5개의 기기까지 무료로 사용할 수 있습니다.&lt;/a&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Control your Raspberry PI from anywhere with VNC Connect remote access software: it’s completely free for personal use and up to 5 devices. If you need to use VNC Connect commercially or you want to connect to more than 5 devices, start a trial today.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&quot;그런데-말입니다&quot;&gt;그런데 말입니다,&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://downloads.raspberrypi.org/raspios_arm64/images/&quot;&gt;Raspberry PI 64bit OS&lt;/a&gt;에서는 VNC가 동작하지 않습니다.
-이를 해결 하기 위해서는 다음의 명령어를 이용해서 기존의 realvnc server를 삭제 하고 arm64 용으로 재설치 해야 합니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt remove realvnc-vnc-server
-sudo apt install realvnc-vnc-server:arm64
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;다음 작업으로 vnc를 활성화 시켜야합니다.&lt;/p&gt;
-
-&lt;p&gt;시작 메뉴 &amp;gt; 기본 설정 &amp;gt; Raspberry Pi Configuration &amp;gt; Interface &amp;gt; VNC ==&amp;gt; Enable&lt;/p&gt;
-
-&lt;p&gt;재부팅을 하고 나면 VNC 아이콘이 오른쪽 상단에 보입니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;realvnc에 로그인하면, public IP를 가지지 않아도 외부에서 접근이 가능&lt;/strong&gt;합니다.&lt;/p&gt;</content><category term="raspberry" /><category term="realvnc" /><category term="64bit" /><summary type="html">64bit 용 OS를 설치했을 경우 REALVNC가 기본적으로 동작 하지 않는다.</summary></entry></feed>
+&lt;p&gt;잠시지만, 연애인이 되어본 기분이었네요. :)&lt;/p&gt;</content><category term="단상" /><summary type="html">4분 35초부터 출연하였습니다</summary></entry></feed>
