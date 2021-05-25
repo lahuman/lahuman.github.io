@@ -1,4 +1,61 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2021-05-24T21:27:11+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">ReactJS composition(합성) 사용하기</title><link href="https://lahuman.github.io/react_composition/" rel="alternate" type="text/html" title="ReactJS composition(합성) 사용하기" /><published>2021-05-24T00:00:00+09:00</published><updated>2021-05-24T00:00:00+09:00</updated><id>https://lahuman.github.io/react_composition</id><content type="html" xml:base="https://lahuman.github.io/react_composition/">&lt;h1 id=&quot;reactjs-합성-사용하기&quot;&gt;reactjs 합성 사용하기&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2021-05-25T23:03:27+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">nodejs에서 middleware 처리 방법</title><link href="https://lahuman.github.io/nodejs_middleware/" rel="alternate" type="text/html" title="nodejs에서 middleware 처리 방법" /><published>2021-05-25T00:00:00+09:00</published><updated>2021-05-25T00:00:00+09:00</updated><id>https://lahuman.github.io/nodejs_middleware</id><content type="html" xml:base="https://lahuman.github.io/nodejs_middleware/">&lt;h1 id=&quot;nodejs에서-middleware-처리-방법&quot;&gt;nodejs에서 middleware 처리 방법&lt;/h1&gt;
+
+&lt;p&gt;기존 function에서 오류가 날 경우 봇으로 메시지 발송 기능을 구현 하려고 합니다.&lt;/p&gt;
+
+&lt;p&gt;express에서는 middleware를 활용했었는데, 순수한 javascript에서는 어떻게 해야할지 검색을 해보니 &lt;a href=&quot;https://stackoverflow.com/questions/11742067/is-there-a-way-to-add-try-catch-to-every-function-in-javascript&quot;&gt;Is there a way to add try-catch to every function in Javascript?&lt;/a&gt; 를 확인 할 수 있었습니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var tcWrapper = function(f) {
+    return function() {
+        try {
+            f.apply(this, arguments);
+        } catch(e) {
+            customErrorHandler(e)
+        }
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;위 예제의 문제는&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;결과 값 return 처리가 안되었다.&lt;/li&gt;
+  &lt;li&gt;async (비동기) 처리에서 오류 발생시 catch가 안됩니다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;이를 해결하기 위해서 다음과 같이 해결하였습니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var wrapper = function (f) {
+  return async function () {
+    try {
+      return await f.apply(this, arguments);
+    } catch (err) {
+      const { statusCode: status } = JSON.parse(err);
+      if (status &amp;gt; 400) {
+        await botFailMessageSnd(`연동시 오류가 발생하였습니다. http status code : [${status}]`);
+      }
+      throw err;
+    }
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;return 구문 추가로 최종 결과값 전달&lt;/li&gt;
+  &lt;li&gt;async, await 키워드 추가로 비동기에 오류 누락 문제 해결&lt;/li&gt;
+  &lt;li&gt;throw 구문으로 오류 전파&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;사용은 &lt;code class=&quot;highlighter-rouge&quot;&gt;module.export&lt;/code&gt; 시 &lt;code class=&quot;highlighter-rouge&quot;&gt;function을 감싸서 처리&lt;/code&gt; 합니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;module.exports = {
+  getUsers: wrapper(getUsers),
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/11742067/is-there-a-way-to-add-try-catch-to-every-function-in-javascript&quot;&gt;Is there a way to add try-catch to every function in Javascript?&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="nodejs" /><category term="middleware" /><summary type="html">express 없이 순수 javascript 에서 처리 하는 방법</summary></entry><entry><title type="html">ReactJS composition(합성) 사용하기</title><link href="https://lahuman.github.io/react_composition/" rel="alternate" type="text/html" title="ReactJS composition(합성) 사용하기" /><published>2021-05-24T00:00:00+09:00</published><updated>2021-05-24T00:00:00+09:00</updated><id>https://lahuman.github.io/react_composition</id><content type="html" xml:base="https://lahuman.github.io/react_composition/">&lt;h1 id=&quot;reactjs-합성-사용하기&quot;&gt;reactjs 합성 사용하기&lt;/h1&gt;
 
 &lt;p&gt;Reactjs에서는 상속보다 더 강력한 합성을 제공합니다.
 상속 대신 합성을 사용하면 컴포넌트 간에 코드를 재활용하기 펼리합니다.&lt;/p&gt;
@@ -32,7 +89,7 @@ function App() {
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;Contacts /&gt;
-&lt;p&gt;와 &lt;Chat&gt;&lt;/Chat&gt; 동일한 React 엘리먼트는 단지 객체이기 때문에 다른 데이터처럼 rpop로 전달할 수 있습니다.&lt;/p&gt;
+&lt;p&gt;와 &lt;Chat&gt;&lt;/Chat&gt; 동일한 React 엘리먼트는 단지 객체이기 때문에 다른 데이터처럼 props로 전달할 수 있습니다.&lt;/p&gt;
 
 &lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
 &lt;ul&gt;
@@ -420,12 +477,4 @@ test_topic
 
 &lt;blockquote&gt;
   &lt;p&gt;이외에도 여러가지 기술과 Tool을 배우는 즐거운 시간이었습니다.&lt;/p&gt;
-&lt;/blockquote&gt;</content><category term="koofa" /><category term="퍼실리테이터" /><summary type="html">구기욱 퍼실리테이터님에게 교육을 받은 후기입니다.</summary></entry><entry><title type="html">IT 직군 직무 소개 영상</title><link href="https://lahuman.github.io/20210509/" rel="alternate" type="text/html" title="IT 직군 직무 소개 영상" /><published>2021-05-09T00:00:00+09:00</published><updated>2021-05-09T00:00:00+09:00</updated><id>https://lahuman.github.io/20210509</id><content type="html" xml:base="https://lahuman.github.io/20210509/">&lt;h1 id=&quot;it-직군-직무-소개-영상을-촬영하였습니다&quot;&gt;IT 직군 직무 소개 영상을 촬영하였습니다.&lt;/h1&gt;
-
-&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/xN_E_UvR2Nk?start=275&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
-
-&lt;p&gt;입사한지 3년이 다 되어가는 시점에 회사에서 IT 직군 소개의 기회를 받아서 진행하였습니다.&lt;/p&gt;
-
-&lt;p&gt;촬영을 진행하는 동안에 도움을 주신 분들이 많이 있습니다.&lt;/p&gt;
-
-&lt;p&gt;잠시지만, 연애인이 되어본 기분이었네요. :)&lt;/p&gt;</content><category term="단상" /><summary type="html">4분 35초부터 출연하였습니다</summary></entry></feed>
+&lt;/blockquote&gt;</content><category term="koofa" /><category term="퍼실리테이터" /><summary type="html">구기욱 퍼실리테이터님에게 교육을 받은 후기입니다.</summary></entry></feed>
