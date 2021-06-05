@@ -1,4 +1,19 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2021-05-28T00:06:21+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">육아가 힘들다.</title><link href="https://lahuman.github.io/20210528/" rel="alternate" type="text/html" title="육아가 힘들다." /><published>2021-05-28T00:00:00+09:00</published><updated>2021-05-28T00:00:00+09:00</updated><id>https://lahuman.github.io/20210528</id><content type="html" xml:base="https://lahuman.github.io/20210528/">&lt;h1 id=&quot;아이를-키우는-일이-쉽지-않다&quot;&gt;아이를 키우는 일이 쉽지 않다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2021-06-05T17:29:44+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">관점을 변경하는 쉬운 방법은 실행 + 경험이다.</title><link href="https://lahuman.github.io/20210605/" rel="alternate" type="text/html" title="관점을 변경하는 쉬운 방법은 실행 + 경험이다." /><published>2021-06-05T00:00:00+09:00</published><updated>2021-06-05T00:00:00+09:00</updated><id>https://lahuman.github.io/20210605</id><content type="html" xml:base="https://lahuman.github.io/20210605/">&lt;h1 id=&quot;관점을-변경하는-쉬운-방법&quot;&gt;관점을 변경하는 쉬운 방법&lt;/h1&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;들은 것은 잊어버리고, 본 것은 기억하고, 직접 해본 것은 이해한다.
+- 공자
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;관점을 변경하는 일은 쉽지 않다.&lt;/p&gt;
+
+&lt;p&gt;새로운 관점을 받아 들이기 위해서는 경험해야 한다.&lt;/p&gt;
+
+&lt;p&gt;들은 것은 잊기 쉽고, 본 것은 이해하지 못할 수 있다.
+마지막으로 직접 해본 일 이어야만 이해할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;내 경우는 공자의 말씀처럼 해보지 못한 일은 쉽게 잊거나, 이해를 못하게 된다.&lt;/p&gt;
+
+&lt;p&gt;실패를 두려워하지 않고 시도해보자! 그리고 즐기자!&lt;/p&gt;</content><category term="단상" /><category term="관점" /><summary type="html">책으로만 경험해본 관점은 죽은 지식과 같다.</summary></entry><entry><title type="html">육아가 힘들다.</title><link href="https://lahuman.github.io/20210528/" rel="alternate" type="text/html" title="육아가 힘들다." /><published>2021-05-28T00:00:00+09:00</published><updated>2021-05-28T00:00:00+09:00</updated><id>https://lahuman.github.io/20210528</id><content type="html" xml:base="https://lahuman.github.io/20210528/">&lt;h1 id=&quot;아이를-키우는-일이-쉽지-않다&quot;&gt;아이를 키우는 일이 쉽지 않다.&lt;/h1&gt;
 
 &lt;p&gt;정말 어렵다. 어려워.&lt;/p&gt;
 
@@ -451,12 +466,4 @@ test_topic
   &lt;li&gt;&lt;a href=&quot;https://www.daleseo.com/docker-networks/&quot;&gt;Docker 네트워크 사용법&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://github.com/bitnami/bitnami-docker-couchdb&quot;&gt;bitnami-docker-couchdb&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://kimseunghyun76.tistory.com/463&quot;&gt;Kafka 한번 살펴보자… Quickstart&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="kafka" /><category term="logstash" /><category term="couchDB" /><summary type="html">변경 내역을 logstash를 통해서 kafka에 전송하기</summary></entry><entry><title type="html">말을 조심해야 합니다.</title><link href="https://lahuman.github.io/20210515/" rel="alternate" type="text/html" title="말을 조심해야 합니다." /><published>2021-05-15T00:00:00+09:00</published><updated>2021-05-15T00:00:00+09:00</updated><id>https://lahuman.github.io/20210515</id><content type="html" xml:base="https://lahuman.github.io/20210515/">&lt;h1 id=&quot;누군가를-믿고-이야기-하면-소문이-이미-나있다&quot;&gt;누군가를 믿고 이야기 하면… 소문이 이미 나있다.&lt;/h1&gt;
-
-&lt;p&gt;세상에 비밀은 없다. 또 말 조심을 해야 한다.&lt;/p&gt;
-
-&lt;p&gt;내 속마음을 누군가에게 털어 놓는다는 건 그 속마음이 다른 사람에게 퍼질 수 있다는 걸 다시 깨달았다.&lt;/p&gt;
-
-&lt;p&gt;꼭 속마음을 이야기 해야 한다면, 부모님 또는 배우자에게만 털어 놓자.&lt;/p&gt;
-
-&lt;h2 id=&quot;화가-나기-보다는-당황스럽다&quot;&gt;화가 나기 보다는 당황스럽다.&lt;/h2&gt;</content><category term="단상" /><summary type="html">발 없는 말이 천리 간다.</summary></entry></feed>
+&lt;/ul&gt;</content><category term="kafka" /><category term="logstash" /><category term="couchDB" /><summary type="html">변경 내역을 logstash를 통해서 kafka에 전송하기</summary></entry></feed>
