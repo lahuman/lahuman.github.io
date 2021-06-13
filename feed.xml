@@ -1,4 +1,20 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2021-06-06T08:25:15+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">쉬운데 어렵다.</title><link href="https://lahuman.github.io/20210606/" rel="alternate" type="text/html" title="쉬운데 어렵다." /><published>2021-06-06T00:00:00+09:00</published><updated>2021-06-06T00:00:00+09:00</updated><id>https://lahuman.github.io/20210606</id><content type="html" xml:base="https://lahuman.github.io/20210606/">&lt;h1 id=&quot;요즘-모든-일들이-쉬운데-어렵다&quot;&gt;요즘 모든 일들이 쉬운데 어렵다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2021-06-13T23:27:46+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">jest를 이용한 테스트 케이스를 작성해보고 있다.</title><link href="https://lahuman.github.io/20210613/" rel="alternate" type="text/html" title="jest를 이용한 테스트 케이스를 작성해보고 있다." /><published>2021-06-13T00:00:00+09:00</published><updated>2021-06-13T00:00:00+09:00</updated><id>https://lahuman.github.io/20210613</id><content type="html" xml:base="https://lahuman.github.io/20210613/">&lt;h1 id=&quot;백문이불여일타라는-개발자의-말이-있듯해보는-중이다&quot;&gt;백문이불여일타라는 개발자의 말이 있듯해보는 중이다.&lt;/h1&gt;
+
+&lt;p&gt;일단 해보고 이상하다고 느껴지는 부분을 다시 고찰하여 보자!&lt;/p&gt;
+
+&lt;p&gt;일단 고~&lt;/p&gt;
+
+&lt;h2 id=&quot;못먹어도-고&quot;&gt;못먹어도 고!&lt;/h2&gt;</content><category term="단상" /><summary type="html">DB 연결을 직접 하지 않고, Mock 객체를 주입하여 테스트를 해보고 있다.</summary></entry><entry><title type="html">이해를 못하는건가? 이해가 안되는건가?</title><link href="https://lahuman.github.io/20210608/" rel="alternate" type="text/html" title="이해를 못하는건가? 이해가 안되는건가?" /><published>2021-06-08T00:00:00+09:00</published><updated>2021-06-08T00:00:00+09:00</updated><id>https://lahuman.github.io/20210608</id><content type="html" xml:base="https://lahuman.github.io/20210608/">&lt;h1 id=&quot;이해를-못하는건지-안-하는건지&quot;&gt;이해를 못하는건지, 안 하는건지…&lt;/h1&gt;
+
+&lt;p&gt;어떤 문제에 대하여 이해를 못하는 건지, 안하는 건지…&lt;/p&gt;
+
+&lt;p&gt;계속 같은 실수를 반복하는 건지?&lt;/p&gt;
+
+&lt;p&gt;나는 여기서 무엇을 하고 있는건지?&lt;/p&gt;
+
+&lt;p&gt;답답한 마음에 아무것도 하기 싫어진다.&lt;/p&gt;
+
+&lt;h2 id=&quot;답답함아-물러가라&quot;&gt;답답함아 물러가라!&lt;/h2&gt;</content><category term="단상" /><summary type="html">답답한 마음에 일이 안된다.</summary></entry><entry><title type="html">쉬운데 어렵다.</title><link href="https://lahuman.github.io/20210606/" rel="alternate" type="text/html" title="쉬운데 어렵다." /><published>2021-06-06T00:00:00+09:00</published><updated>2021-06-06T00:00:00+09:00</updated><id>https://lahuman.github.io/20210606</id><content type="html" xml:base="https://lahuman.github.io/20210606/">&lt;h1 id=&quot;요즘-모든-일들이-쉬운데-어렵다&quot;&gt;요즘 모든 일들이 쉬운데 어렵다.&lt;/h1&gt;
 
 &lt;p&gt;일 자체는 쉽지만, 욕심을 부리게 되어서 어려워 진다.&lt;/p&gt;
 
@@ -258,32 +274,4 @@ public class CurlJavaTest {
   &lt;p&gt;“매너가 사람을 만든다.” - 킹스맨&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h2 id=&quot;똥은-피해라&quot;&gt;똥은 피해라&lt;/h2&gt;</content><category term="단상" /><summary type="html">다른 관점이 존재한다는 것을 이해하고 받아들여야 한다.</summary></entry><entry><title type="html">성과라는 말의 의미</title><link href="https://lahuman.github.io/20210518/" rel="alternate" type="text/html" title="성과라는 말의 의미" /><published>2021-05-18T00:00:00+09:00</published><updated>2021-05-18T00:00:00+09:00</updated><id>https://lahuman.github.io/20210518</id><content type="html" xml:base="https://lahuman.github.io/20210518/">&lt;h1 id=&quot;성과가-좋다는-이야기를-많이-들었습니다-하지만&quot;&gt;성과가 좋다는 이야기를 많이 들었습니다. 하지만,&lt;/h1&gt;
-
-&lt;p&gt;회사에서 성과가 좋다는 의미가 어떤 뜻일까요?&lt;/p&gt;
-
-&lt;p&gt;해낸 일이 많다는 뜻일까요?&lt;/p&gt;
-
-&lt;p&gt;연봉 상승율 높거나 또는 인센을 많이 준다는 뜻일까요?&lt;/p&gt;
-
-&lt;p&gt;여러 의미를 가지고 있는 성과에 대한 거부감이 생겼습니다.&lt;/p&gt;
-
-&lt;p&gt;그냥 일은 일이고, 일이 되게 하면 된다고 생각하고 있습니다.&lt;/p&gt;
-
-&lt;p&gt;성과가 좋다는 이야기를 많이 듣다보니 주위 시선도 부담스럽게 변합니다.&lt;/p&gt;
-
-&lt;p&gt;정작 제가 실제로 얻은 것은 없는데요.&lt;/p&gt;
-
-&lt;p&gt;괜한 성과이야기로 마음도 몸도 불편해지는 날입니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;어려운-성과-이야기&quot;&gt;어려운 성과 이야기&lt;/h2&gt;</content><category term="단상" /><summary type="html">일이 이루어진 결과. 순화어는 `보람'.</summary></entry><entry><title type="html">Linux] find 명령어를 이용해서 5개가 넘는 디렉토리 중 1개만 지우기</title><link href="https://lahuman.github.io/linux_find_count_remove/" rel="alternate" type="text/html" title="Linux] find 명령어를 이용해서 5개가 넘는 디렉토리 중 1개만 지우기" /><published>2021-05-17T00:00:00+09:00</published><updated>2021-05-17T00:00:00+09:00</updated><id>https://lahuman.github.io/linux_find_count_remove</id><content type="html" xml:base="https://lahuman.github.io/linux_find_count_remove/">&lt;h1 id=&quot;linux-find-명령어를-이용해서-오래된-디렉토리-중-1개만-지우기&quot;&gt;Linux] find 명령어를 이용해서 오래된 디렉토리 중 1개만 지우기&lt;/h1&gt;
-
-&lt;p&gt;오래된 디렉토리을 5개만 남겨놓고 지우고 싶을때 사용합니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;if [[ $(find /build/${PRJ_NAME}_* -type d | wc -l) -gt 5 ]]
-then
-  find /build/${PRJ_NAME}_* -type d | head -n 1 | xargs rm -rf
-fi
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;command로 넣어도 되고, shell script로 사용해도 됩니다. :)&lt;/p&gt;</content><category term="find" /><category term="linux" /><category term="command" /><summary type="html">디렉토리명에 날짜가 붙어서 정렬이 필요 없는 경우</summary></entry></feed>
+&lt;h2 id=&quot;똥은-피해라&quot;&gt;똥은 피해라&lt;/h2&gt;</content><category term="단상" /><summary type="html">다른 관점이 존재한다는 것을 이해하고 받아들여야 한다.</summary></entry></feed>
