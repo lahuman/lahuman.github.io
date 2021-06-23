@@ -1,4 +1,49 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2021-06-19T07:02:30+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">nestjs + passport(local strategy) + typeorm(sqlite)</title><link href="https://lahuman.github.io/nestjs_passport_typeorm/" rel="alternate" type="text/html" title="nestjs + passport(local strategy) + typeorm(sqlite)" /><published>2021-06-17T00:00:00+09:00</published><updated>2021-06-17T00:00:00+09:00</updated><id>https://lahuman.github.io/nestjs_passport_typeorm</id><content type="html" xml:base="https://lahuman.github.io/nestjs_passport_typeorm/">&lt;h1 id=&quot;로그인--db-연결-예제-추가20210617&quot;&gt;로그인 &amp;amp; DB 연결 예제 추가(2021.06.17)&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2021-06-23T12:38:51+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">자바에 대하여 공부하기</title><link href="https://lahuman.github.io/20210623/" rel="alternate" type="text/html" title="자바에 대하여 공부하기" /><published>2021-06-23T00:00:00+09:00</published><updated>2021-06-23T00:00:00+09:00</updated><id>https://lahuman.github.io/20210623</id><content type="html" xml:base="https://lahuman.github.io/20210623/">&lt;h1 id=&quot;자바라-쓰고-springframework를-공부한다&quot;&gt;자바라 쓰고 Springframework를 공부한다.&lt;/h1&gt;
+
+&lt;p&gt;Spring의 주요 3가지 컨셉은 아래와 같습니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;1) IOC : 제어의 역전 / 의존성 주입
+2) AOP : 관심의 분리
+3) PSA : 일관성 있는 추상화
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;그럼 실제로 어떻게 사용될까?&lt;/p&gt;
+
+&lt;h2 id=&quot;ioc--제어의-역전--의존성-주입-사용-예제&quot;&gt;IOC : 제어의 역전 / 의존성 주입 사용 예제&lt;/h2&gt;
+
+&lt;p&gt;Bean은 IoC 컨테이너 안에 등록된 객체들을 의미 합니다. 
+모든 클래스의 객체가 Bean으로 등록되지 않습니다. @Repository, @Component, @Service, @Bean 등의 어노테이션을 통해서 Bean으로 등록 가능합니다.&lt;/p&gt;
+
+&lt;p&gt;사용 예로는 &lt;code class=&quot;highlighter-rouge&quot;&gt;@Autowired&lt;/code&gt; 어노테이션을 이용해서 Bean을 주입할 수 있습니다.
+Bean 주입이 주는 이점은, 객체의 관리를 스프링 컨테이너가 하기에 개발자가 언제 빈을 생성하고 소멸시킬지 신경쓰지 않아도 됩니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;aop--관심의-분리-예제&quot;&gt;AOP : 관심의 분리 예제&lt;/h2&gt;
+
+&lt;p&gt;가장 큰 예로 &lt;code class=&quot;highlighter-rouge&quot;&gt;@Transctional&lt;/code&gt;을 이야기 할 수 있습니다.
+connection에 대하여 rollback, commit등을 신경쓰지 않고 처리 하게 됩니다.
+결국 트렌젝션 처리는 위임하고 구현 기능에 집중하는 코드를 작성하면 됩니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;psa--일관성-있는-추상화&quot;&gt;PSA : 일관성 있는 추상화&lt;/h2&gt;
+
+&lt;p&gt;Service Abstraction으로 제공되는 기술을 다른 기술 스택으로 간편하게 바꿀 수 있는 확장성을 갖고 있는 것이 Portable Service Abstraction. 줄여서 PSA라고 합니다.
+예로는 서블릿을 직접 사용하는 것이 아니라, Controller의 @GetMapping이나 @PostMapping을 통해 특정 url로 요청이 들어왔을 때, 해당 블록이 요청을 처리하도록 구현 되어 있습니다.
+이렇게 추상화 계층을 사용해 어떤 기술을 내부에 숨기고 개발자에게 편의성을 제공하는 것을 Service Abstraction이라고 합니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;스프링은 MVC&lt;/code&gt;라는 추상화 기법을 사용. Spring Web MVC를 사용하면 서블릿을 low level로 직접 구현할 필요가 없어진다.&lt;/p&gt;
+
+&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://zion830.tistory.com/109&quot;&gt;[예제로 배우는 스프링 입문] Spring IoC, AOP, PSA&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://lazymankook.tistory.com/27&quot;&gt;Annotation과 Bean&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="자바" /><category term="공부" /><summary type="html">오랜만에 자바 공부 진행</summary></entry><entry><title type="html">기분 좋은 날이 지나갑니다.</title><link href="https://lahuman.github.io/20210618/" rel="alternate" type="text/html" title="기분 좋은 날이 지나갑니다." /><published>2021-06-18T00:00:00+09:00</published><updated>2021-06-18T00:00:00+09:00</updated><id>https://lahuman.github.io/20210618</id><content type="html" xml:base="https://lahuman.github.io/20210618/">&lt;h1 id=&quot;함께-근무했었던-동료분들과-만났습니다&quot;&gt;함께 근무했었던 동료분들과 만났습니다.&lt;/h1&gt;
+
+&lt;p&gt;오랜만에 뵈어서 기분이 좋네요.&lt;/p&gt;
+
+&lt;p&gt;즐거운 시간이었습니다.&lt;/p&gt;
+
+&lt;p&gt;또 나를 잊지 않고 만나러 와주셔서 행복하네요!&lt;/p&gt;
+
+&lt;h2 id=&quot;기부니가-매우-좋아&quot;&gt;기부니가 매우 좋아!&lt;/h2&gt;</content><category term="단상" /><summary type="html">거의 3년만에 만나본 분들과 즐겁게 대화하고 헤어짐</summary></entry><entry><title type="html">nestjs + passport(local strategy) + typeorm(sqlite)</title><link href="https://lahuman.github.io/nestjs_passport_typeorm/" rel="alternate" type="text/html" title="nestjs + passport(local strategy) + typeorm(sqlite)" /><published>2021-06-17T00:00:00+09:00</published><updated>2021-06-17T00:00:00+09:00</updated><id>https://lahuman.github.io/nestjs_passport_typeorm</id><content type="html" xml:base="https://lahuman.github.io/nestjs_passport_typeorm/">&lt;h1 id=&quot;로그인--db-연결-예제-추가20210617&quot;&gt;로그인 &amp;amp; DB 연결 예제 추가(2021.06.17)&lt;/h1&gt;
 
 &lt;ul&gt;
   &lt;li&gt;typeorm + sqlite 조합의 사용자 CRUD 구현&lt;/li&gt;
@@ -255,116 +300,4 @@ const mockAuthGuard: CanActivate = {
 
 &lt;p&gt;정말 어렵다. 어려워.&lt;/p&gt;
 
-&lt;p&gt;이젠 2춘기부터 시작인지.. 벌써부터 피곤하게 만든다&lt;/p&gt;</content><category term="단상" /><category term="육아" /><summary type="html">이젠 2춘기부터 시작인가</summary></entry><entry><title type="html">nodejs에서 middleware 처리 방법</title><link href="https://lahuman.github.io/nodejs_middleware/" rel="alternate" type="text/html" title="nodejs에서 middleware 처리 방법" /><published>2021-05-25T00:00:00+09:00</published><updated>2021-05-25T00:00:00+09:00</updated><id>https://lahuman.github.io/nodejs_middleware</id><content type="html" xml:base="https://lahuman.github.io/nodejs_middleware/">&lt;h1 id=&quot;nodejs에서-middleware-처리-방법&quot;&gt;nodejs에서 middleware 처리 방법&lt;/h1&gt;
-
-&lt;p&gt;기존 function에서 오류가 날 경우 봇으로 메시지 발송 기능을 구현 하려고 합니다.&lt;/p&gt;
-
-&lt;p&gt;express에서는 middleware를 활용했었는데, 순수한 javascript에서는 어떻게 해야할지 검색을 해보니 &lt;a href=&quot;https://stackoverflow.com/questions/11742067/is-there-a-way-to-add-try-catch-to-every-function-in-javascript&quot;&gt;Is there a way to add try-catch to every function in Javascript?&lt;/a&gt; 를 확인 할 수 있었습니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var tcWrapper = function(f) {
-    return function() {
-        try {
-            f.apply(this, arguments);
-        } catch(e) {
-            customErrorHandler(e)
-        }
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;위 예제의 문제는&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;결과 값 return 처리가 안되었다.&lt;/li&gt;
-  &lt;li&gt;async (비동기) 처리에서 오류 발생시 catch가 안됩니다.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;이를 해결하기 위해서 다음과 같이 해결하였습니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// 예제 function
-const example = function ({ data }) {
-  return new Promise((res, rej) =&amp;gt; setTimeout(() =&amp;gt; { rej({ status: 100, id: data.id, name: &quot;임광규&quot; }) }, 1000));
-}
-
-// middleware 구현
-const wrapper = function (f) {
-  return async function () {
-    try {
-      return await f.apply(this, arguments);
-    } catch (err) {
-      try {
-        const { statusCode: status } = JSON.parse(err);
-        if (status &amp;gt; 400) {
-          console.log(&quot;status is over the 400&quot;)
-        }
-      } catch (e) { console.log(e) };
-
-      throw err;
-    }
-  }
-};
-
-// 사용 예제 
-(async () =&amp;gt; {
-  const fnc = wrapper(example);
-  const result = await fnc({ data: { id: &quot;23201&quot; } });
-  console.log(result)
-})();
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;return 구문 추가로 최종 결과값 전달&lt;/li&gt;
-  &lt;li&gt;async, await 키워드 추가로 비동기에 오류 누락 문제 해결&lt;/li&gt;
-  &lt;li&gt;throw 구문으로 오류 전파&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;사용은 &lt;code class=&quot;highlighter-rouge&quot;&gt;module.export&lt;/code&gt; 시 &lt;code class=&quot;highlighter-rouge&quot;&gt;function을 감싸서 처리&lt;/code&gt; 합니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;module.exports = {
-  getUsers: wrapper(getUsers),
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/11742067/is-there-a-way-to-add-try-catch-to-every-function-in-javascript&quot;&gt;Is there a way to add try-catch to every function in Javascript?&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="nodejs" /><category term="middleware" /><summary type="html">express 없이 순수 javascript 에서 처리 하는 방법</summary></entry><entry><title type="html">ReactJS composition(합성) 사용하기</title><link href="https://lahuman.github.io/react_composition/" rel="alternate" type="text/html" title="ReactJS composition(합성) 사용하기" /><published>2021-05-24T00:00:00+09:00</published><updated>2021-05-24T00:00:00+09:00</updated><id>https://lahuman.github.io/react_composition</id><content type="html" xml:base="https://lahuman.github.io/react_composition/">&lt;h1 id=&quot;reactjs-합성-사용하기&quot;&gt;reactjs 합성 사용하기&lt;/h1&gt;
-
-&lt;p&gt;Reactjs에서는 상속보다 더 강력한 합성을 제공합니다.
-상속 대신 합성을 사용하면 컴포넌트 간에 코드를 재활용하기 펼리합니다.&lt;/p&gt;
-
-&lt;p&gt;합성의 사용 예제는 아래와 같습니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function SplitPane(props) {
-  return (
-    &amp;lt;div className=&quot;SplitPane&quot;&amp;gt;
-      &amp;lt;div className=&quot;SplitPane-left&quot;&amp;gt;
-        {props.left}
-      &amp;lt;/div&amp;gt;
-      &amp;lt;div className=&quot;SplitPane-right&quot;&amp;gt;
-        {props.right}
-      &amp;lt;/div&amp;gt;
-    &amp;lt;/div&amp;gt;
-  );
-}
-
-function App() {
-  return (
-    &amp;lt;SplitPane
-      left={
-        &amp;lt;Contacts /&amp;gt;
-      }
-      right={
-        &amp;lt;Chat /&amp;gt;
-      } /&amp;gt;
-  );
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;Contacts /&gt;
-&lt;p&gt;와 &lt;Chat&gt;&lt;/Chat&gt; 동일한 React 엘리먼트는 단지 객체이기 때문에 다른 데이터처럼 props로 전달할 수 있습니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://ko.reactjs.org/docs/composition-vs-inheritance.html&quot;&gt;합성 (Composition) vs 상속 (Inheritance)&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="reactjs" /><category term="composition" /><summary type="html">컴포넌트에서 상속보다 합성 사용하기</summary></entry></feed>
+&lt;p&gt;이젠 2춘기부터 시작인지.. 벌써부터 피곤하게 만든다&lt;/p&gt;</content><category term="단상" /><category term="육아" /><summary type="html">이젠 2춘기부터 시작인가</summary></entry></feed>
