@@ -1,4 +1,29 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2021-06-23T12:38:51+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">자바에 대하여 공부하기</title><link href="https://lahuman.github.io/20210623/" rel="alternate" type="text/html" title="자바에 대하여 공부하기" /><published>2021-06-23T00:00:00+09:00</published><updated>2021-06-23T00:00:00+09:00</updated><id>https://lahuman.github.io/20210623</id><content type="html" xml:base="https://lahuman.github.io/20210623/">&lt;h1 id=&quot;자바라-쓰고-springframework를-공부한다&quot;&gt;자바라 쓰고 Springframework를 공부한다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2021-06-23T18:03:31+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">nestjs에서 jest를 이용한 End2End 테스트 케이스를 작성</title><link href="https://lahuman.github.io/nestjs_testcase_mock/" rel="alternate" type="text/html" title="nestjs에서 jest를 이용한 End2End 테스트 케이스를 작성" /><published>2021-06-23T00:00:00+09:00</published><updated>2021-06-23T00:00:00+09:00</updated><id>https://lahuman.github.io/nestjs_testcase_mock</id><content type="html" xml:base="https://lahuman.github.io/nestjs_testcase_mock/">&lt;h1 id=&quot;테스트-케이스-작성하기&quot;&gt;테스트 케이스 작성하기&lt;/h1&gt;
+
+&lt;p&gt;오늘은 nestjs에서 jest를 이용한 End2End 테스트 케이스를 작성하였습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;src/user/user.controller.spec.ts&lt;/code&gt; 파일에 사용자 추가/수정/삭제/조회에 대한 테스트 케이스를 작성하였습니다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;End2End 데이터 기준의 validate 테스트&lt;/li&gt;
+  &lt;li&gt;로그인 Mock 객체 주입 테스트&lt;/li&gt;
+  &lt;li&gt;repository Mock 객체 테스트&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;전체 테스트 케이스 실행은 다음의 명령어로 할 수 있습니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;node run test
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;특정 테스트 케이스 실행은 다음 명령어로 할 수 있습니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;node node_modules/jest/bin/jest.js src/user/user.controller.spec.ts 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;테스트 케이스를 이용하면 코드의 오류를 빠르게 찾아낼 수 있습니다.
+그 외에도 플로우차트 기반으로 테스트 케이스를 작성하여 명세에 알맞은 프로그램을 작성할 수도 있고요!&lt;/p&gt;
+
+&lt;h2 id=&quot;전체-코드-바로-가기--httpsgithubcomlahumannestjs_101&quot;&gt;전체 코드 바로 가기 : https://github.com/lahuman/nestjs_101&lt;/h2&gt;</content><category term="nestjs" /><category term="testcase" /><category term="mock" /><category term="jest" /><summary type="html">테스트 케이스 작성하기</summary></entry><entry><title type="html">자바에 대하여 공부하기</title><link href="https://lahuman.github.io/java_srping_basic/" rel="alternate" type="text/html" title="자바에 대하여 공부하기" /><published>2021-06-23T00:00:00+09:00</published><updated>2021-06-23T00:00:00+09:00</updated><id>https://lahuman.github.io/java_srping_basic</id><content type="html" xml:base="https://lahuman.github.io/java_srping_basic/">&lt;h1 id=&quot;자바라-쓰고-springframework를-공부한다&quot;&gt;자바라 쓰고 Springframework를 공부한다.&lt;/h1&gt;
 
 &lt;p&gt;Spring의 주요 3가지 컨셉은 아래와 같습니다.&lt;/p&gt;
 
@@ -29,7 +54,7 @@ connection에 대하여 rollback, commit등을 신경쓰지 않고 처리 하게
 예로는 서블릿을 직접 사용하는 것이 아니라, Controller의 @GetMapping이나 @PostMapping을 통해 특정 url로 요청이 들어왔을 때, 해당 블록이 요청을 처리하도록 구현 되어 있습니다.
 이렇게 추상화 계층을 사용해 어떤 기술을 내부에 숨기고 개발자에게 편의성을 제공하는 것을 Service Abstraction이라고 합니다.&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;스프링은 MVC&lt;/code&gt;라는 추상화 기법을 사용. Spring Web MVC를 사용하면 서블릿을 low level로 직접 구현할 필요가 없어진다.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;스프링은 MVC&lt;/code&gt;라는 추상화 기법을 사용. Spring Web MVC를 사용하면 서블릿을 직접 구현할 필요가 없습니다.&lt;/p&gt;
 
 &lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
 &lt;ul&gt;
@@ -296,8 +321,4 @@ const mockAuthGuard: CanActivate = {
 
 &lt;p&gt;내 경우는 공자의 말씀처럼 해보지 못한 일은 쉽게 잊거나, 이해를 못하게 된다.&lt;/p&gt;
 
-&lt;p&gt;실패를 두려워하지 않고 시도해보자! 그리고 즐기자!&lt;/p&gt;</content><category term="단상" /><category term="관점" /><summary type="html">책으로만 경험해본 관점은 죽은 지식과 같다.</summary></entry><entry><title type="html">육아가 힘들다.</title><link href="https://lahuman.github.io/20210528/" rel="alternate" type="text/html" title="육아가 힘들다." /><published>2021-05-28T00:00:00+09:00</published><updated>2021-05-28T00:00:00+09:00</updated><id>https://lahuman.github.io/20210528</id><content type="html" xml:base="https://lahuman.github.io/20210528/">&lt;h1 id=&quot;아이를-키우는-일이-쉽지-않다&quot;&gt;아이를 키우는 일이 쉽지 않다.&lt;/h1&gt;
-
-&lt;p&gt;정말 어렵다. 어려워.&lt;/p&gt;
-
-&lt;p&gt;이젠 2춘기부터 시작인지.. 벌써부터 피곤하게 만든다&lt;/p&gt;</content><category term="단상" /><category term="육아" /><summary type="html">이젠 2춘기부터 시작인가</summary></entry></feed>
+&lt;p&gt;실패를 두려워하지 않고 시도해보자! 그리고 즐기자!&lt;/p&gt;</content><category term="단상" /><category term="관점" /><summary type="html">책으로만 경험해본 관점은 죽은 지식과 같다.</summary></entry></feed>
