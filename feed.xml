@@ -1,4 +1,18 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2021-06-28T20:51:46+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">nestjs에서 passport + SAML 로그인시 오류 발생 처리</title><link href="https://lahuman.github.io/passport_saml_error/" rel="alternate" type="text/html" title="nestjs에서 passport + SAML 로그인시 오류 발생 처리" /><published>2021-06-28T00:00:00+09:00</published><updated>2021-06-28T00:00:00+09:00</updated><id>https://lahuman.github.io/passport_saml_error</id><content type="html" xml:base="https://lahuman.github.io/passport_saml_error/">&lt;h1 id=&quot;saml-assertion-expired&quot;&gt;SAML assertion expired&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2021-07-01T18:35:27+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">서비스 종료일</title><link href="https://lahuman.github.io/20210701/" rel="alternate" type="text/html" title="서비스 종료일" /><published>2021-07-01T00:00:00+09:00</published><updated>2021-07-01T00:00:00+09:00</updated><id>https://lahuman.github.io/20210701</id><content type="html" xml:base="https://lahuman.github.io/20210701/">&lt;h1 id=&quot;2019년에-입사를-해서-지금까지-30여개의-서비스를-만들었습니다&quot;&gt;2019년에 입사를 해서 지금까지 30여개의 서비스를 만들었습니다.&lt;/h1&gt;
+
+&lt;p&gt;회사내의 문제를 발견하고 작게 만들어서 빠르게 실패하고, 다시 만드는 디자인 싱킹 기반의 개발을 하였습니다.&lt;/p&gt;
+
+&lt;p&gt;2주안에 결과를 내야 하는 스크럼을 진행도 하면서 가끔은 너무 힘들었습니다.&lt;/p&gt;
+
+&lt;p&gt;그리고 오늘 그 동안 만들었던 서비스 중 사용자가 적은 서비스를 종료 하는 날이 왔습니다.&lt;/p&gt;
+
+&lt;p&gt;자식을 잃는 기분이네요.&lt;/p&gt;
+
+&lt;p&gt;더 발전 시킬 수 있는데, 더 잘 만들 수 있는데, 충분히 매력적인 서비스인데…&lt;/p&gt;
+
+&lt;p&gt;아쉽고, 슬픈 하루입니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;잘가-그리고-너희를-만들면서-즐거웠어&quot;&gt;잘가 그리고 너희를 만들면서 즐거웠어.&lt;/h2&gt;</content><category term="단상" /><summary type="html">3년간 만들었던 서비스 중 몇개가 종료되는 날입니다.</summary></entry><entry><title type="html">nestjs에서 passport + SAML 로그인시 오류 발생 처리</title><link href="https://lahuman.github.io/passport_saml_error/" rel="alternate" type="text/html" title="nestjs에서 passport + SAML 로그인시 오류 발생 처리" /><published>2021-06-28T00:00:00+09:00</published><updated>2021-06-28T00:00:00+09:00</updated><id>https://lahuman.github.io/passport_saml_error</id><content type="html" xml:base="https://lahuman.github.io/passport_saml_error/">&lt;h1 id=&quot;saml-assertion-expired&quot;&gt;SAML assertion expired&lt;/h1&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[Nest] 32582   - 2021-06-25 15:24:29   [ExceptionsHandler] SAML assertion expired +40568ms
 Error: SAML assertion expired
@@ -315,10 +329,4 @@ const mockAuthGuard: CanActivate = {
 
 &lt;p&gt;답답한 마음에 아무것도 하기 싫어진다.&lt;/p&gt;
 
-&lt;h2 id=&quot;답답함아-물러가라&quot;&gt;답답함아 물러가라!&lt;/h2&gt;</content><category term="단상" /><summary type="html">답답한 마음에 일이 안된다.</summary></entry><entry><title type="html">쉬운데 어렵다.</title><link href="https://lahuman.github.io/20210606/" rel="alternate" type="text/html" title="쉬운데 어렵다." /><published>2021-06-06T00:00:00+09:00</published><updated>2021-06-06T00:00:00+09:00</updated><id>https://lahuman.github.io/20210606</id><content type="html" xml:base="https://lahuman.github.io/20210606/">&lt;h1 id=&quot;요즘-모든-일들이-쉬운데-어렵다&quot;&gt;요즘 모든 일들이 쉬운데 어렵다.&lt;/h1&gt;
-
-&lt;p&gt;일 자체는 쉽지만, 욕심을 부리게 되어서 어려워 진다.&lt;/p&gt;
-
-&lt;p&gt;쉽게 할 수 있는 일을 어렵게 하게 되는 욕심을 내려놓자.&lt;/p&gt;
-
-&lt;h2 id=&quot;욕심아-사라져라&quot;&gt;욕심아 사라져라!&lt;/h2&gt;</content><category term="단상" /><summary type="html">요즘 일들이 쉬운데 어렵다.</summary></entry></feed>
+&lt;h2 id=&quot;답답함아-물러가라&quot;&gt;답답함아 물러가라!&lt;/h2&gt;</content><category term="단상" /><summary type="html">답답한 마음에 일이 안된다.</summary></entry></feed>
