@@ -1,10 +1,63 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2021-07-01T18:35:27+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">서비스 종료일</title><link href="https://lahuman.github.io/20210701/" rel="alternate" type="text/html" title="서비스 종료일" /><published>2021-07-01T00:00:00+09:00</published><updated>2021-07-01T00:00:00+09:00</updated><id>https://lahuman.github.io/20210701</id><content type="html" xml:base="https://lahuman.github.io/20210701/">&lt;h1 id=&quot;2019년에-입사를-해서-지금까지-30여개의-서비스를-만들었습니다&quot;&gt;2019년에 입사를 해서 지금까지 30여개의 서비스를 만들었습니다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2021-07-05T22:38:36+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Raspberry pi 4에 windows 11 설치</title><link href="https://lahuman.github.io/raspberry_windows11/" rel="alternate" type="text/html" title="Raspberry pi 4에 windows 11 설치" /><published>2021-07-05T00:00:00+09:00</published><updated>2021-07-05T00:00:00+09:00</updated><id>https://lahuman.github.io/raspberry_windows11</id><content type="html" xml:base="https://lahuman.github.io/raspberry_windows11/">&lt;h1 id=&quot;raspberry-pi-4에-windows-11을-설치해서-사용해봤습니다&quot;&gt;Raspberry pi 4에 windows 11을 설치해서 사용해봤습니다.&lt;/h1&gt;
 
-&lt;p&gt;회사내의 문제를 발견하고 작게 만들어서 빠르게 실패하고, 다시 만드는 디자인 싱킹 기반의 개발을 하였습니다.&lt;/p&gt;
+&lt;p&gt;집에 있는 삼성 프린터가 네트워크를 지원하지 않아서, 방안을 고심중에 Raspberry PI 4에 windows 11이 설치되고 상당히 쓸만 하다는 글을 읽게 되었습니다.&lt;/p&gt;
 
-&lt;p&gt;2주안에 결과를 내야 하는 스크럼을 진행도 하면서 가끔은 너무 힘들었습니다.&lt;/p&gt;
+&lt;p&gt;설치는 &lt;a href=&quot;https://www.tomshardware.com/how-to/install-windows-11-raspberry-pi&quot;&gt;How to Install Windows 11 on a Raspberry Pi 4&lt;/a&gt; 글을 따라하면 쉽게 가능합니다.&lt;/p&gt;
 
-&lt;p&gt;그리고 오늘 그 동안 만들었던 서비스 중 사용자가 적은 서비스를 종료 하는 날이 왔습니다.&lt;/p&gt;
+&lt;p&gt;그리고 장점과 단점으로 구분해서 후기를 정리 하면 다음과 같습니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;장점&quot;&gt;장점&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;생각보다 빠릿(?)하다
+    &lt;ul&gt;
+      &lt;li&gt;느리다는 느낌이 들지 않습니다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;단점&quot;&gt;단점&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;부팅이 정말 오래 걸린다.
+    &lt;ul&gt;
+      &lt;li&gt;Raspberry pi 4G 기준으로 약 5분 정도 걸립니다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;사운드는 해드셋 잭으로만 나온다.&lt;/li&gt;
+  &lt;li&gt;다이소 wifi 모듈 인식이 안된다.
+    &lt;ul&gt;
+      &lt;li&gt;이게 가장 크리티컬하네요.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;원격 데스크탑(서버) 지원이 안된다.
+    &lt;ul&gt;
+      &lt;li&gt;프리뷰모드라 그런듯 합니다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;삼성 드라이버 설치가 안된다.
+    &lt;ul&gt;
+      &lt;li&gt;ARM CPU라 그런지, windows 11이라 그런지, 제가 원한 가장 중요한 기능이 안되네요. :(&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;프리뷰 버젼이니 완성도가 떨어져서 안되는게 있을꺼라 생각됩니다.
+정식 버젼이 나오면 다시 테스트 해봐야겠네요.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.tomshardware.com/how-to/install-windows-11-raspberry-pi&quot;&gt;How to Install Windows 11 on a Raspberry Pi 4&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="raspberry" /><category term="windows" /><summary type="html">잠시 사용해본 후기 입니다.</summary></entry><entry><title type="html">서비스 종료일</title><link href="https://lahuman.github.io/20210701/" rel="alternate" type="text/html" title="서비스 종료일" /><published>2021-07-01T00:00:00+09:00</published><updated>2021-07-01T00:00:00+09:00</updated><id>https://lahuman.github.io/20210701</id><content type="html" xml:base="https://lahuman.github.io/20210701/">&lt;h1 id=&quot;2019년에-입사를-해서-지금까지-30여개의-서비스를-만들었습니다&quot;&gt;2019년에 입사를 해서 지금까지 30여개의 서비스를 만들었습니다.&lt;/h1&gt;
+
+&lt;p&gt;회사내의 문제를 발견하고 작게 만들어서 빠르게 실패하고, 다시 만드는 디자인 싱킹과 애자일 기반의 활동을 하였습니다.&lt;/p&gt;
+
+&lt;p&gt;물론 매 2주안에 결과를 내야 하는 스크럼 진행으로 가끔은 너무 지치고 힘들었습니다.&lt;/p&gt;
+
+&lt;p&gt;오늘 회사 합병과 개인 업무 재분배, 팀 이동 등의  이유로 그 동안 만들었던 서비스 중 사용자가 적은 서비스를 종료 하는 날이 왔습니다.&lt;/p&gt;
 
 &lt;p&gt;자식을 잃는 기분이네요.&lt;/p&gt;
 
@@ -12,7 +65,11 @@
 
 &lt;p&gt;아쉽고, 슬픈 하루입니다.&lt;/p&gt;
 
-&lt;h2 id=&quot;잘가-그리고-너희를-만들면서-즐거웠어&quot;&gt;잘가 그리고 너희를 만들면서 즐거웠어.&lt;/h2&gt;</content><category term="단상" /><summary type="html">3년간 만들었던 서비스 중 몇개가 종료되는 날입니다.</summary></entry><entry><title type="html">nestjs에서 passport + SAML 로그인시 오류 발생 처리</title><link href="https://lahuman.github.io/passport_saml_error/" rel="alternate" type="text/html" title="nestjs에서 passport + SAML 로그인시 오류 발생 처리" /><published>2021-06-28T00:00:00+09:00</published><updated>2021-06-28T00:00:00+09:00</updated><id>https://lahuman.github.io/passport_saml_error</id><content type="html" xml:base="https://lahuman.github.io/passport_saml_error/">&lt;h1 id=&quot;saml-assertion-expired&quot;&gt;SAML assertion expired&lt;/h1&gt;
+&lt;h2 id=&quot;잘가-그리고-너희를-만들면서-즐거웠어&quot;&gt;잘가 그리고 너희를 만들면서 즐거웠어.&lt;/h2&gt;
+
+&lt;h2 id=&quot;ps-75-업데이트-상황&quot;&gt;PS. 7/5 업데이트 상황&lt;/h2&gt;
+
+&lt;p&gt;사용자가 적지만, 꼭 필요한 서비스라고 연락이 와서 다시 살리는 서비스도 있었습니다. :)&lt;/p&gt;</content><category term="단상" /><summary type="html">3년간 만들었던 서비스 중 몇개가 종료되는 날입니다.</summary></entry><entry><title type="html">nestjs에서 passport + SAML 로그인시 오류 발생 처리</title><link href="https://lahuman.github.io/passport_saml_error/" rel="alternate" type="text/html" title="nestjs에서 passport + SAML 로그인시 오류 발생 처리" /><published>2021-06-28T00:00:00+09:00</published><updated>2021-06-28T00:00:00+09:00</updated><id>https://lahuman.github.io/passport_saml_error</id><content type="html" xml:base="https://lahuman.github.io/passport_saml_error/">&lt;h1 id=&quot;saml-assertion-expired&quot;&gt;SAML assertion expired&lt;/h1&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[Nest] 32582   - 2021-06-25 15:24:29   [ExceptionsHandler] SAML assertion expired +40568ms
 Error: SAML assertion expired
@@ -319,14 +376,4 @@ const mockAuthGuard: CanActivate = {
 
 &lt;p&gt;일단 고~&lt;/p&gt;
 
-&lt;h2 id=&quot;못먹어도-고&quot;&gt;못먹어도 고!&lt;/h2&gt;</content><category term="단상" /><summary type="html">DB 연결을 직접 하지 않고, Mock 객체를 주입하여 테스트를 해보고 있다.</summary></entry><entry><title type="html">이해를 못하는건가? 이해가 안되는건가?</title><link href="https://lahuman.github.io/20210608/" rel="alternate" type="text/html" title="이해를 못하는건가? 이해가 안되는건가?" /><published>2021-06-08T00:00:00+09:00</published><updated>2021-06-08T00:00:00+09:00</updated><id>https://lahuman.github.io/20210608</id><content type="html" xml:base="https://lahuman.github.io/20210608/">&lt;h1 id=&quot;이해를-못하는건지-안-하는건지&quot;&gt;이해를 못하는건지, 안 하는건지…&lt;/h1&gt;
-
-&lt;p&gt;어떤 문제에 대하여 이해를 못하는 건지, 안하는 건지…&lt;/p&gt;
-
-&lt;p&gt;계속 같은 실수를 반복하는 건지?&lt;/p&gt;
-
-&lt;p&gt;나는 여기서 무엇을 하고 있는건지?&lt;/p&gt;
-
-&lt;p&gt;답답한 마음에 아무것도 하기 싫어진다.&lt;/p&gt;
-
-&lt;h2 id=&quot;답답함아-물러가라&quot;&gt;답답함아 물러가라!&lt;/h2&gt;</content><category term="단상" /><summary type="html">답답한 마음에 일이 안된다.</summary></entry></feed>
+&lt;h2 id=&quot;못먹어도-고&quot;&gt;못먹어도 고!&lt;/h2&gt;</content><category term="단상" /><summary type="html">DB 연결을 직접 하지 않고, Mock 객체를 주입하여 테스트를 해보고 있다.</summary></entry></feed>
