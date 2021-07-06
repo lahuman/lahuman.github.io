@@ -1,22 +1,23 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2021-07-06T18:27:09+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">동시성, 컨커런시, LOCK, 메모리, 모니터링 메트릭스</title><link href="https://lahuman.github.io/20210706/" rel="alternate" type="text/html" title="동시성, 컨커런시, LOCK, 메모리, 모니터링 메트릭스" /><published>2021-07-06T00:00:00+09:00</published><updated>2021-07-06T00:00:00+09:00</updated><id>https://lahuman.github.io/20210706</id><content type="html" xml:base="https://lahuman.github.io/20210706/">&lt;h1 id=&quot;오늘-몇가지-질문을-받았는데-명확하게-이야기-하지-못했다&quot;&gt;오늘 몇가지 질문을 받았는데, 명확하게 이야기 하지 못했다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2021-07-07T05:12:32+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">동시성, 컨커런시, LOCK, 메모리, 모니터링 메트릭스</title><link href="https://lahuman.github.io/20210706/" rel="alternate" type="text/html" title="동시성, 컨커런시, LOCK, 메모리, 모니터링 메트릭스" /><published>2021-07-06T00:00:00+09:00</published><updated>2021-07-06T00:00:00+09:00</updated><id>https://lahuman.github.io/20210706</id><content type="html" xml:base="https://lahuman.github.io/20210706/">&lt;h1 id=&quot;오늘-몇가지-질문을-받았는데-명확하게-이야기-하지-못했다&quot;&gt;오늘 몇가지 질문을 받았는데, 명확하게 이야기 하지 못했다.&lt;/h1&gt;
 
 &lt;h3 id=&quot;첫번째-질문-동시성-컨커런시-lock&quot;&gt;첫번째 질문, 동시성, 컨커런시, LOCK&lt;/h3&gt;
 
 &lt;p&gt;동시성, 컨커런시, LOCK 관련 질문을 많이 받았는데, 사실 크게 신경쓰지 않고 프로그램을 했었다.
 왜냐고 묻는다면, 좋은 프레임워크들과 모듈들이 잘 관리 해주니 내가 신경쓸 일은 없었다.&lt;/p&gt;
 
-&lt;p&gt;옛~날 10여년 전에는 synchronized를 이용해서 관리했었지만, 지금은 사실 Singleton 생성할때 말고는 써보지 않았다.&lt;/p&gt;
+&lt;p&gt;직접 Thread를 생성하고 프로그램을 짤던 10여년 전에는 synchronized를 이용해서 관리했었지만, 지금은 사실 Singleton 생성할때 말고는 써보지 않았다.&lt;/p&gt;
 
-&lt;p&gt;그리고 함수형을 사용하면서, 가능하면 공유 자원을 이용하는게 아니라, 일급 객체를 이용하는 방식으로 개발을 하고 있다.
-(뭐 꼭 함수형이 아니더라도…)&lt;/p&gt;
+&lt;p&gt;그리고 가능하면 공유 자원을 최소화 하는 방식으로 개발을 하고 있다.&lt;/p&gt;
+
+&lt;p&gt;병렬성에서 중요한건 실수를 줄일 수 있고 관심에 분리를 하는 환경을 만들어 주어야 한다.&lt;/p&gt;
 
 &lt;p&gt;일일이 동시성과 LOCK을 걸면서 프로그램을 한다면 생각보다 비효율적일꺼 같은데 그리고 어떤 경우에 그런게 필요할까?&lt;/p&gt;
 
-&lt;p&gt;곰곰히 생각해봤는데, 실제 Thread를 관리하고 병렬처리를 하는 프로그램을 짠다면 필요할 꺼 같다.&lt;/p&gt;
+&lt;p&gt;곰곰히 생각해봤는데, 실제 Thread를 관리하고 병렬처리를 하는 프로그램을 만들어야 한다면 필요하겠다.&lt;/p&gt;
 
-&lt;p&gt;내가 경험한 웹에서는 Connection Pool, 상수, Singleton 생성 등을 제외 하면 어디서 어떻게 사용할까?&lt;/p&gt;
+&lt;p&gt;내가 경험한 웹에서는 Connection Pool, 상수, Singleton 생성 등을 제외 하면 사용이 극히 제한적이다.&lt;/p&gt;
 
-&lt;p&gt;또 Spring 을 쓴다면 기본적으로 객체에 대한 관리는 framework에서 해줄텐데…&lt;/p&gt;
+&lt;p&gt;또 Spring 을 쓴다면 기본적으로 객체에 대한 관리는 framework에서 해주기에 크게 신경을 쓰지 않도록 해준다.&lt;/p&gt;
 
 &lt;p&gt;물론 내가 알지 못하는 부분에서 활발하게 쓰일수 있다. 예제 코드를 좀 찾아봐야겠다.&lt;/p&gt;
 
@@ -24,19 +25,21 @@
 
 &lt;p&gt;APP과 OS의 메모리를 실제로 덤프를 뜨거나, 확인한 적이 있는가의 질문이었다.&lt;/p&gt;
 
-&lt;p&gt;음, 대답부터 하면 안해봤다. 잘해야 OOM 발생으로 메모리 스텍트레이스 정도 확인해본 경험이 전부다.&lt;/p&gt;
+&lt;p&gt;잘해야 OOM 발생으로 메모리 스택트레이스 정도 확인해본 경험이 전부다.&lt;/p&gt;
+
+&lt;p&gt;좀더 곰곰히 생각하면 메모리 덤프를 스냅샷으로 파일로 떨구서 본 기억이 있는 정도이다.&lt;/p&gt;
 
 &lt;p&gt;문제가 있는것도 아니고 잘 돌아가는 상황에서 확인할 여유도 이유도 없었다.&lt;/p&gt;
 
-&lt;p&gt;함께 일하는 사람중에 확인하는 사람도 보지 못했다&lt;/p&gt;
-
-&lt;p&gt;다만 모니터링 프로그램을 통해서 메모리에 대한 정보를 확인하는 것은 보았다.&lt;/p&gt;
+&lt;p&gt;추가로 모니터링 프로그램을 통해서 메모리에 대한 정보를 확인한 경험도 있다.&lt;/p&gt;
 
 &lt;p&gt;이 부분은 질문자와 의견이 많이 달랐는데, 이걸 모르면 안된다고 생각한다고 했다.&lt;/p&gt;
 
-&lt;p&gt;난 조금 다르게 느끼는게 이미 만들어진 바퀴를 믿지 못해서 다시 바퀴를 만드는게 맞는 행위 인가?&lt;/p&gt;
+&lt;p&gt;난 조금 다르게 느끼는게 알면 좋겠지만, 몰라도 문제가 되지 않는다.&lt;/p&gt;
 
-&lt;p&gt;다만 바퀴를 더 이해하고 더 좋은 바퀴를 만들기 위해 노력이라면 이야기가 다르겠지만…&lt;/p&gt;
+&lt;p&gt;그리고 알고 있다면 더 좋은 픔질의 프로그램을 짤 수 있을까?&lt;/p&gt;
+
+&lt;p&gt;어느 영역에서 일하느냐에 따라 다르게 받아 들일 수 있을것이다.&lt;/p&gt;
 
 &lt;h3 id=&quot;모니터링-메트릭스&quot;&gt;모니터링 메트릭스&lt;/h3&gt;
 
@@ -62,7 +65,7 @@
   &lt;p&gt;node.js 자체는 single-thread 방식이 아니다. 자바스크립트를 실행하는 부분에서만 single-thread로 구성되어있고, 이 때의 작업 동시성은 ‘이벤트 루프’를 통해서 구현할 수 있다.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;이부분은 질문자도 잘 모르고, 나도 정확히 몰라서 대충 검색해본다고 하고 넘어갔다.&lt;/p&gt;
+&lt;p&gt;이부분은 질문자도 잘 모르고, 나도 정확히 몰라서 나중에 검색해 본다고 하고 넘어갔다.&lt;/p&gt;
 
 &lt;h3 id=&quot;마지막으로&quot;&gt;마지막으로&lt;/h3&gt;
 
@@ -70,13 +73,16 @@
 
 &lt;p&gt;다만, 질문자의 공격성이 아쉬었다.&lt;/p&gt;
 
-&lt;p&gt;본인이 14년 경력이 개발자로 상위 몇%라고 생각되느냐는 질문은 &lt;strong&gt;사실 주관적인 질문이기 때문에 본인의 생각과 달라 질수 있다고 생각된다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;본인이 14년 경력이 개발자로 상위 몇%라고 생각되느냐는 질문은 &lt;strong&gt;사실 주관적인 질문이기 때문에 본인의 생각과 달라 질수 있다고 생각된다.&lt;/strong&gt;
+(내 자존감을 깍아 내려서 무엇을 하려고 하는지도 모르겠다.)&lt;/p&gt;
 
 &lt;p&gt;물론 질문자가 받아 들이지 못하면 그것도 그것대로 이겠지만, 그런 사람과 일하는건 피곤할 것이다.&lt;/p&gt;
 
 &lt;p&gt;누구나 잘하는 부분과 못하는 부분이 있다. 나는 평범한 사람으로 꽤나 노력하고 있고 열심히 살고 있다고 생각한다.&lt;/p&gt;
 
-&lt;p&gt;누군가에게 부족해 보일 수도 있고, 모자르게 보일수도 있겠지만 적어도 사람과 사람 사이의 예의는 지켜야 한다.&lt;/p&gt;</content><category term="단상" /><summary type="html">크게 신경을 쓰지 못했던 부분에 대하여 다시 생각하는 날</summary></entry><entry><title type="html">Raspberry pi 4에 windows 11 설치</title><link href="https://lahuman.github.io/raspberry_windows11/" rel="alternate" type="text/html" title="Raspberry pi 4에 windows 11 설치" /><published>2021-07-05T00:00:00+09:00</published><updated>2021-07-05T00:00:00+09:00</updated><id>https://lahuman.github.io/raspberry_windows11</id><content type="html" xml:base="https://lahuman.github.io/raspberry_windows11/">&lt;h1 id=&quot;raspberry-pi-4에-windows-11을-설치해서-사용해봤습니다&quot;&gt;Raspberry pi 4에 windows 11을 설치해서 사용해봤습니다.&lt;/h1&gt;
+&lt;p&gt;누군가에게 부족해 보일 수도 있고, 모자르게 보일수도 있겠지만, 단편적인 부분을 보고 사람을 판단해서는 안된다.&lt;/p&gt;
+
+&lt;p&gt;또한 적어도 사람과 사람 사이의 예의는 지켜야 한다.&lt;/p&gt;</content><category term="단상" /><summary type="html">크게 신경을 쓰지 못했던 부분에 대하여 다시 생각하는 날</summary></entry><entry><title type="html">Raspberry pi 4에 windows 11 설치</title><link href="https://lahuman.github.io/raspberry_windows11/" rel="alternate" type="text/html" title="Raspberry pi 4에 windows 11 설치" /><published>2021-07-05T00:00:00+09:00</published><updated>2021-07-05T00:00:00+09:00</updated><id>https://lahuman.github.io/raspberry_windows11</id><content type="html" xml:base="https://lahuman.github.io/raspberry_windows11/">&lt;h1 id=&quot;raspberry-pi-4에-windows-11을-설치해서-사용해봤습니다&quot;&gt;Raspberry pi 4에 windows 11을 설치해서 사용해봤습니다.&lt;/h1&gt;
 
 &lt;p&gt;집에 있는 삼성 프린터가 네트워크를 지원하지 않아서, 방안을 고심중에 Raspberry PI 4에 windows 11이 설치되고 상당히 쓸만 하다는 글을 읽게 되었습니다.&lt;/p&gt;
 
