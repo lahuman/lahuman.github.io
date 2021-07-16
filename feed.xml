@@ -1,4 +1,20 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2021-07-10T11:43:03+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">면접 질문 모음</title><link href="https://lahuman.github.io/20210710/" rel="alternate" type="text/html" title="면접 질문 모음" /><published>2021-07-10T00:00:00+09:00</published><updated>2021-07-10T00:00:00+09:00</updated><id>https://lahuman.github.io/20210710</id><content type="html" xml:base="https://lahuman.github.io/20210710/">&lt;h1 id=&quot;면접-질문들-모음&quot;&gt;면접 질문들 모음&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2021-07-16T11:05:48+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">기술 부채 또는 발전에 대한 단상</title><link href="https://lahuman.github.io/20210716/" rel="alternate" type="text/html" title="기술 부채 또는 발전에 대한 단상" /><published>2021-07-16T00:00:00+09:00</published><updated>2021-07-16T00:00:00+09:00</updated><id>https://lahuman.github.io/20210716</id><content type="html" xml:base="https://lahuman.github.io/20210716/">&lt;h1 id=&quot;기술-부채-또는-발전에-대한-단상&quot;&gt;기술 부채 또는 발전에 대한 단상&lt;/h1&gt;
+
+&lt;p&gt;기술 부채는 어디서올까?&lt;/p&gt;
+
+&lt;p&gt;내 경우는 대부분 미래의 나에게 부담을 주어서 발생한다.&lt;/p&gt;
+
+&lt;p&gt;그리고.. 오늘의(미래의)나는 과거의 나를 욕하면서 뜯어 고치거나, 무시해버린다.&lt;/p&gt;
+
+&lt;p&gt;또 다른 경우는 동료가 나에게 서프라이즈 선물로 준다.&lt;/p&gt;
+
+&lt;p&gt;이 또한 욕을 하면서 뜯어 고치거나, 무시해버린다.&lt;/p&gt;
+
+&lt;p&gt;다만, 내가 발전하는 경우는 뜯고 고치는 작업에서 발생한다.&lt;/p&gt;
+
+&lt;p&gt;나를 돌아보고, 동료와 소통하면서 발전하게 된다.&lt;/p&gt;
+
+&lt;h2 id=&quot;오늘도-부채를-탕감해보자&quot;&gt;오늘도 부채를 탕감해보자!&lt;/h2&gt;</content><category term="단상" /><summary type="html">최신 기술에 대하여 사용법만 인지하고 이해를 못하는 경우 발생하는 문제</summary></entry><entry><title type="html">면접 질문 모음</title><link href="https://lahuman.github.io/20210710/" rel="alternate" type="text/html" title="면접 질문 모음" /><published>2021-07-10T00:00:00+09:00</published><updated>2021-07-10T00:00:00+09:00</updated><id>https://lahuman.github.io/20210710</id><content type="html" xml:base="https://lahuman.github.io/20210710/">&lt;h1 id=&quot;면접-질문들-모음&quot;&gt;면접 질문들 모음&lt;/h1&gt;
 
 &lt;p&gt;최근 5년동안 받아본 면접 질문들을 정리 해보았습니다.&lt;/p&gt;
 
@@ -256,34 +272,4 @@ connection에 대하여 rollback, commit등을 신경쓰지 않고 처리 하게
 
 &lt;h2 id=&quot;코드-바로기가&quot;&gt;&lt;a href=&quot;https://github.com/lahuman/nestjs_101&quot;&gt;코드 바로기가&lt;/a&gt;&lt;/h2&gt;
 
-&lt;p&gt;TODO : testcase 작성&lt;/p&gt;</content><category term="nestjs" /><category term="passport" /><category term="typeorm" /><summary type="html">nestjs에서 로그인과 DB 연결 예제 작성</summary></entry><entry><title type="html">희망에 대한 짧은 단상</title><link href="https://lahuman.github.io/20210616/" rel="alternate" type="text/html" title="희망에 대한 짧은 단상" /><published>2021-06-16T00:00:00+09:00</published><updated>2021-06-16T00:00:00+09:00</updated><id>https://lahuman.github.io/20210616</id><content type="html" xml:base="https://lahuman.github.io/20210616/">&lt;h1 id=&quot;큰-희망의-잦은-실패는-실망과-절망으로-변한다-하지만-절망은-만사가-피곤해질-뿐이다&quot;&gt;큰 희망의 잦은 실패는 실망과 절망으로 변한다. 하지만 절망은 만사가 피곤해질 뿐이다.&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;“삶이 있는 한 희망은 있다.” - 키케로&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;“희망은 사람을 성공으로 이끄는 신앙이다. 희망이 없으면, 아무것도 성취할 수가 없으며 희망 없이는 인간생활이 영위될 수 없다.” - 헬렌 켈러&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;“희망은 잠자고 있지 않는 인간의 꿈이다. 인간의 꿈이 있는 한 이 세상은 도전해볼 만하다. 어떠한 일이 있더라도 꿈을 잃지 말자. 꿈을 꾸자. 꿈은 희망을 버리지 않는 사람에게 선물로 주어진다.” - 아리스토텔레스&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;“내 비장의 무기는 아직 손안에 있다. 그것은 희망이다.” - 나폴레옹 보나파르트&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;“희망은 어둠 속에서 시작된다. 일어나 옳은 일을 하려 할 때, 고집스런 희망이 시작된다. 새벽은 올 것이다. 기다리고 보고 일하라. 포기하지 말라.” - 앤 라모트&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;“큰 희망이 큰 사람을 만든다.” - 토마스 풀러&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;희망은 정말 필요하다고 생각한다. 다만, 이루어질 수 없는 희망을 품는 것은 절망만 반복하게 된다.&lt;/p&gt;
-
-&lt;p&gt;작은 희망으로 가슴을 채우고 점점 희망을 키워나가면서 실현해가자!&lt;/p&gt;
-
-&lt;h2 id=&quot;희망이-절망이-되지-않도록&quot;&gt;희망이 절망이 되지 않도록!&lt;/h2&gt;</content><category term="단상" /><summary type="html">희망이 절망으로 바뀌지 않도록 노력해야 한다.</summary></entry></feed>
+&lt;p&gt;TODO : testcase 작성&lt;/p&gt;</content><category term="nestjs" /><category term="passport" /><category term="typeorm" /><summary type="html">nestjs에서 로그인과 DB 연결 예제 작성</summary></entry></feed>
