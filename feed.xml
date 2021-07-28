@@ -1,4 +1,113 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2021-07-28T21:20:04+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">면접관으로 몇 일간 면접을 보았다.</title><link href="https://lahuman.github.io/20210728/" rel="alternate" type="text/html" title="면접관으로 몇 일간 면접을 보았다." /><published>2021-07-28T00:00:00+09:00</published><updated>2021-07-28T00:00:00+09:00</updated><id>https://lahuman.github.io/20210728</id><content type="html" xml:base="https://lahuman.github.io/20210728/">&lt;h1 id=&quot;회사에-사람을-뽑기-위해서-인력을-찾고-면접을-보았습니다&quot;&gt;회사에 사람을 뽑기 위해서 인력을 찾고 면접을 보았습니다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2021-07-28T22:39:54+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">WSL의 서버를 host(window)에서 접근 하는 방법</title><link href="https://lahuman.github.io/wls_port_forwarding/" rel="alternate" type="text/html" title="WSL의 서버를 host(window)에서 접근 하는 방법" /><published>2021-07-28T00:00:00+09:00</published><updated>2021-07-28T00:00:00+09:00</updated><id>https://lahuman.github.io/wls_port_forwarding</id><content type="html" xml:base="https://lahuman.github.io/wls_port_forwarding/">&lt;h1 id=&quot;wsl-내에서-웹서버를-띄어서-확인이-안되는-경우-다음과-같이-처리-하여-주세요&quot;&gt;WSL 내에서 웹서버를 띄어서 확인이 안되는 경우 다음과 같이 처리 하여 주세요.&lt;/h1&gt;
+
+&lt;p&gt;port foward를 위해서는 &lt;a href=&quot;https://docs.microsoft.com/en-us/windows-server/networking/technologies/netsh/netsh&quot;&gt;Netsh&lt;/a&gt;를 이용할 예정입니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;1-net-tools를-wsl-안에-설치-하기&quot;&gt;1. net-tools를 WSL 안에 설치 하기&lt;/h2&gt;
+
+&lt;p&gt;ubuntu 기준으로 다음의 명령어를 이용해서 설치 합니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt install net-tools
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;powser-shell-실행-파일-생성하기&quot;&gt;powser shell 실행 파일 생성하기&lt;/h2&gt;
+
+&lt;p&gt;Netsh 설정이된 ps1 의 확장자를 가진 파일을 생성합니다.&lt;/p&gt;
+
+&lt;p&gt;다음을 &lt;code class=&quot;highlighter-rouge&quot;&gt;network.ps1&lt;/code&gt; 이라는 파일을 생성합니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;If (-NOT ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] &quot;Administrator&quot;)) {   
+  $arguments = &quot;&amp;amp; '&quot; + $myinvocation.mycommand.definition + &quot;'&quot;
+  Start-Process powershell -Verb runAs -ArgumentList $arguments
+  Break
+}
+
+$remoteport = bash.exe -c &quot;ifconfig eth0 | grep 'inet '&quot;
+$found = $remoteport -match '\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}';
+
+if ($found) {
+  $remoteport = $matches[0];
+}
+else {
+  Write-Output &quot;IP address could not be found&quot;;
+  exit;
+}
+
+$ports = @(3000, 5500, 8080);
+
+Invoke-Expression &quot;netsh interface portproxy reset&quot;;
+
+for ($i = 0; $i -lt $ports.length; $i++) {
+  $port = $ports[$i];
+  Invoke-Expression &quot;netsh interface portproxy add v4tov4 listenport=$port connectport=$port connectaddress=$remoteport&quot;;
+  Invoke-Expression &quot;netsh advfirewall firewall add rule name=$port dir=in action=allow protocol=TCP localport=$port&quot;;
+}
+
+Invoke-Expression &quot;netsh interface portproxy show v4tov4&quot;;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;여기서 중요한 것은 &lt;code class=&quot;highlighter-rouge&quot;&gt;$ports = @(3000, 5500, 8080);&lt;/code&gt; 부분입니다.&lt;/p&gt;
+
+&lt;p&gt;forward 할 port를 작성합니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;3-실행하기&quot;&gt;3. 실행하기&lt;/h2&gt;
+
+&lt;p&gt;powser shell에서 실행을 하면 다음과 같은 오류 메시지를 받을 수 있습니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; $&amp;gt; .\network.ps1
+.\network.ps1 : 이 시스템에서 스크립트를 실행할 수 없으므로 C:\DEV\network.ps1 파일을 로드할 수 없습니다. 자세한
+내용은 about_Execution_Policies(https://go.microsoft.com/fwlink/?LinkID=135170)를 참조하십시오.
+위치 줄:1 문자:1
++ .\network.ps1
++ ~~~~~~~~~~~~~
+    + CategoryInfo          : 보안 오류: (:) [], PSSecurityException
+    + FullyQualifiedErrorId : UnauthorizedAccess
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;해결을 위해서 powser shell을 &lt;code class=&quot;highlighter-rouge&quot;&gt;관리자&lt;/code&gt; 모드로 실행하고, &lt;code class=&quot;highlighter-rouge&quot;&gt;Set-ExecutionPolicy -ExecutionPolicy RemoteSigned&lt;/code&gt; 명령어로 실행 규칙을 변경합니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$&amp;gt; Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
+
+실행 규칙 변경
+실행 정책은 신뢰하지 않는 스크립트로부터 사용자를 보호합니다. 실행 정책을 변경하면 about_Execution_Policies 도움말
+항목(https://go.microsoft.com/fwlink/?LinkID=135170)에 설명된 보안 위험에 노출될 수 있습니다. 실행 정책을
+변경하시겠습니까?
+[Y] 예(Y)  [A] 모두 예(A)  [N] 아니요(N)  [L] 모두 아니요(L)  [S] 일시 중단(S)  [?] 도움말 (기본값은 &quot;N&quot;): Y
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이후 다시 실행하면 다음과 같이 정상 동작을 확인 할 수 있습니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$&amp;gt; .\network.ps1
+
+
+확인됨
+
+
+확인됨
+
+
+확인됨
+
+
+ipv4 수신 대기:             ipv4에 연결:
+
+주소            포트        주소            포트
+--------------- ----------  --------------- ----------
+*               5500        192.168.254.148 5500
+*               3000        192.168.254.148 3000
+*               8080        192.168.254.148 8080
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;4-테스트&quot;&gt;4. 테스트&lt;/h2&gt;
+
+&lt;p&gt;WSL에서 5500 포트로 웹을 띄우과 브라우져에서 접속하여 확인하면 잘 동작 하는 것을 확인 할 수 있습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://dev.to/vishnumohanrk/wsl-port-forwarding-2e22&quot;&gt;WSL Port Forwarding&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://oyeahhh.tistory.com/170&quot;&gt;[PowerShell] Error: 이 시스템에서 스크립트를 실행할 수 없으므로 …&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="wsl" /><category term="port" /><category term="forwrding" /><summary type="html">WSL2를 사용하면서 host에서 특정 port 연결</summary></entry><entry><title type="html">면접관으로 몇 일간 면접을 보았다.</title><link href="https://lahuman.github.io/20210728/" rel="alternate" type="text/html" title="면접관으로 몇 일간 면접을 보았다." /><published>2021-07-28T00:00:00+09:00</published><updated>2021-07-28T00:00:00+09:00</updated><id>https://lahuman.github.io/20210728</id><content type="html" xml:base="https://lahuman.github.io/20210728/">&lt;h1 id=&quot;회사에-사람을-뽑기-위해서-인력을-찾고-면접을-보았습니다&quot;&gt;회사에 사람을 뽑기 위해서 인력을 찾고 면접을 보았습니다.&lt;/h1&gt;
 
 &lt;p&gt;면접관으로 자리에 앉아있었지만, 면접보는 사람을 배려하는 시간을 가졌습니다.&lt;/p&gt;
 
@@ -276,41 +385,4 @@ Error: SAML assertion expired
 &lt;p&gt;테스트 케이스를 이용하면 코드의 오류를 빠르게 찾아낼 수 있습니다.
 그 외에도 플로우차트 기반으로 테스트 케이스를 작성하여 명세에 알맞은 프로그램을 작성할 수도 있고요!&lt;/p&gt;
 
-&lt;h2 id=&quot;전체-코드-바로-가기--httpsgithubcomlahumannestjs_101&quot;&gt;전체 코드 바로 가기 : https://github.com/lahuman/nestjs_101&lt;/h2&gt;</content><category term="nestjs" /><category term="testcase" /><category term="mock" /><category term="jest" /><summary type="html">테스트 케이스 작성하기</summary></entry><entry><title type="html">자바에 대하여 공부하기</title><link href="https://lahuman.github.io/java_srping_basic/" rel="alternate" type="text/html" title="자바에 대하여 공부하기" /><published>2021-06-23T00:00:00+09:00</published><updated>2021-06-23T00:00:00+09:00</updated><id>https://lahuman.github.io/java_srping_basic</id><content type="html" xml:base="https://lahuman.github.io/java_srping_basic/">&lt;h1 id=&quot;자바라-쓰고-springframework를-공부한다&quot;&gt;자바라 쓰고 Springframework를 공부한다.&lt;/h1&gt;
-
-&lt;p&gt;Spring의 주요 3가지 컨셉은 아래와 같습니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;1) IOC : 제어의 역전 / 의존성 주입
-2) AOP : 관심의 분리
-3) PSA : 일관성 있는 추상화
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;그럼 실제로 어떻게 사용될까?&lt;/p&gt;
-
-&lt;h2 id=&quot;ioc--제어의-역전--의존성-주입-사용-예제&quot;&gt;IOC : 제어의 역전 / 의존성 주입 사용 예제&lt;/h2&gt;
-
-&lt;p&gt;Bean은 IoC 컨테이너 안에 등록된 객체들을 의미 합니다. 
-모든 클래스의 객체가 Bean으로 등록되지 않습니다. @Repository, @Component, @Service, @Bean 등의 어노테이션을 통해서 Bean으로 등록 가능합니다.&lt;/p&gt;
-
-&lt;p&gt;사용 예로는 &lt;code class=&quot;highlighter-rouge&quot;&gt;@Autowired&lt;/code&gt; 어노테이션을 이용해서 Bean을 주입할 수 있습니다.
-Bean 주입이 주는 이점은, 객체의 관리를 스프링 컨테이너가 하기에 개발자가 언제 빈을 생성하고 소멸시킬지 신경쓰지 않아도 됩니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;aop--관심의-분리-예제&quot;&gt;AOP : 관심의 분리 예제&lt;/h2&gt;
-
-&lt;p&gt;가장 큰 예로 &lt;code class=&quot;highlighter-rouge&quot;&gt;@Transctional&lt;/code&gt;을 이야기 할 수 있습니다.
-connection에 대하여 rollback, commit등을 신경쓰지 않고 처리 하게 됩니다.
-결국 트렌젝션 처리는 위임하고 구현 기능에 집중하는 코드를 작성하면 됩니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;psa--일관성-있는-추상화&quot;&gt;PSA : 일관성 있는 추상화&lt;/h2&gt;
-
-&lt;p&gt;Service Abstraction으로 제공되는 기술을 다른 기술 스택으로 간편하게 바꿀 수 있는 확장성을 갖고 있는 것이 Portable Service Abstraction. 줄여서 PSA라고 합니다.
-예로는 서블릿을 직접 사용하는 것이 아니라, Controller의 @GetMapping이나 @PostMapping을 통해 특정 url로 요청이 들어왔을 때, 해당 블록이 요청을 처리하도록 구현 되어 있습니다.
-이렇게 추상화 계층을 사용해 어떤 기술을 내부에 숨기고 개발자에게 편의성을 제공하는 것을 Service Abstraction이라고 합니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;스프링은 MVC&lt;/code&gt;라는 추상화 기법을 사용. Spring Web MVC를 사용하면 서블릿을 직접 구현할 필요가 없습니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://zion830.tistory.com/109&quot;&gt;[예제로 배우는 스프링 입문] Spring IoC, AOP, PSA&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://lazymankook.tistory.com/27&quot;&gt;Annotation과 Bean&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="자바" /><category term="공부" /><summary type="html">오랜만에 자바 공부 진행</summary></entry></feed>
+&lt;h2 id=&quot;전체-코드-바로-가기--httpsgithubcomlahumannestjs_101&quot;&gt;전체 코드 바로 가기 : https://github.com/lahuman/nestjs_101&lt;/h2&gt;</content><category term="nestjs" /><category term="testcase" /><category term="mock" /><category term="jest" /><summary type="html">테스트 케이스 작성하기</summary></entry></feed>
