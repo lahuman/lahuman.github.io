@@ -1,4 +1,111 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2021-08-09T08:45:26+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">onPaste contentEditable 을 이용한 이미지 붙여 넣기 처리</title><link href="https://lahuman.github.io/onPaste_contentEditable/" rel="alternate" type="text/html" title="onPaste contentEditable 을 이용한 이미지 붙여 넣기 처리" /><published>2021-08-08T00:00:00+09:00</published><updated>2021-08-08T00:00:00+09:00</updated><id>https://lahuman.github.io/onPaste_contentEditable</id><content type="html" xml:base="https://lahuman.github.io/onPaste_contentEditable/">&lt;h1 id=&quot;onpaste-contenteditable-을-이용한-이미지-붙여-넣기-처리&quot;&gt;onPaste contentEditable 을 이용한 이미지 붙여 넣기 처리&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2021-08-23T20:18:38+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Google Cloud 서비스 계정으로 Google API 사용하기</title><link href="https://lahuman.github.io/googleapis/" rel="alternate" type="text/html" title="Google Cloud 서비스 계정으로 Google API 사용하기" /><published>2021-08-19T00:00:00+09:00</published><updated>2021-08-19T00:00:00+09:00</updated><id>https://lahuman.github.io/googleapis</id><content type="html" xml:base="https://lahuman.github.io/googleapis/">&lt;h1 id=&quot;google-cloud-서비스-계정으로-google-api-사용하기&quot;&gt;Google Cloud 서비스 계정으로 Google API 사용하기&lt;/h1&gt;
+
+&lt;p&gt;Google Sheet API를 사용하기 위해서 Google cloud console에서 서비스 계정을 만들어 진행하는 과정을 정리합니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;준비-사항&quot;&gt;준비 사항&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://nodejs.org/en/&quot;&gt;Node.js&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://console.cloud.google.com/&quot;&gt;Google cloud console&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;google-cloud-console-에서-프로젝트--서비스-계정-생성-처리&quot;&gt;&lt;a href=&quot;https://console.cloud.google.com/&quot;&gt;Google cloud console&lt;/a&gt; 에서 프로젝트 &amp;amp; 서비스 계정 생성 처리&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Project&lt;/code&gt; 생성&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;LEFT MENU&lt;/code&gt; » &lt;code class=&quot;highlighter-rouge&quot;&gt;APIs &amp;amp; Services&lt;/code&gt; 선택&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ENABLE APIS AND SERVICES.&lt;/code&gt; 클릭&lt;/li&gt;
+  &lt;li&gt;API 항목에서 &lt;code class=&quot;highlighter-rouge&quot;&gt;Google Sheets API&lt;/code&gt; 활성화 처리&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;LEFT MENU&lt;/code&gt; »  &lt;code class=&quot;highlighter-rouge&quot;&gt;APIs &amp;amp; Services&lt;/code&gt; » &lt;code class=&quot;highlighter-rouge&quot;&gt;Credentials&lt;/code&gt; » &lt;code class=&quot;highlighter-rouge&quot;&gt;Manage service accounts&lt;/code&gt; » &lt;code class=&quot;highlighter-rouge&quot;&gt;Create Service Accounts&lt;/code&gt; 선택&lt;/li&gt;
+  &lt;li&gt;계정 정보 입력 후 계정 생성 완료(2, 3 단계는 옵션이라 그냥 완료 하면 됩니다.)&lt;/li&gt;
+  &lt;li&gt;생성된 계정(email) 정보 클릭 » &lt;code class=&quot;highlighter-rouge&quot;&gt;KEYS&lt;/code&gt; 선택&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ADD KEY&lt;/code&gt; » &lt;code class=&quot;highlighter-rouge&quot;&gt;Create new key&lt;/code&gt; 선택&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;JSON&lt;/code&gt; TYPE 선택 하여 파일 다운로드&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;첨부된 파일의 형태는 아래와 같습니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{
+  &quot;type&quot;: &quot;service_account&quot;,
+  &quot;project_id&quot;: &quot;keen-clarity-323809&quot;,
+  &quot;private_key_id&quot;: &quot;cd53576f5c47b2b654605c8a7528cabd87bdee93&quot;,
+  &quot;private_key&quot;: &quot;-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQClhKfQF6zmI34T\nuetB4vZullnrXI65fkH1/YusnE/uU1rzmWPNarBqhbxzGeSJf0xedVvSW4cNavkG\nDHu3+inlbbieX9xh++2lNGpYwA5BsXPA3xD1lcaWyc71gk6V6kVtHJMFSocLCYZ/\nDCvGfYEcCiZRsrro1M6AuGy6Nug1qld7utCHJY8OwBp/KLyCmpmhXZE5qim8eul/\nLssM2QizCVxegXS3sH6BCUBZOJVVFXvfNveXc23TWvBQJP85/vaJARjVOJeNJbFQ\nObPOdvEo9RYEfmkrIaaFq/natGP/buBYLdPNnS6+x+6fKRyT5rm1q5LUrpyYKadi\nl40HJFNNAgMBAAECggEAHScTQ5SX8GT59NF/PTiTfQDgT5Ma1FMHnSMOMdXKQkjO\nMS+oI2sSLYDmo0NBPHJ+afiztoZGcDeSKt2SAOJ/9Jfxt3tc3qk3vyxPOtiA6lMt\n9x+S5h5+PtrGp/lOjBsaJVCuGHV6+Zew57mmECzUy7KB80vOnem1gXh6NgYruh/A\ntOATcB7BVk7DEDu7mUAM4BPBWb946WeCUr1L4ZD5VM8YdLAydTCGL39/6TKIDAGl\njDEe+x9IK6DTjm0JHsY9orTDzBLzMCRulOLeAIFzZxpnUnihafk/IQ9+l8SH+rkM\nc/008CMOnUpySLx6wwdCvz+TOhucW1a2RfbGYFUExQKBgQDivirN1jvMzzyQIu8U\nzaNsNPVNIMktLSUNzQEnZsMUGXBUfnAszi3OAHY6NYSEJjYMBFThIvuHqhZCUStV\nNPFTzuHx6mg5Oi4QQC8iW/x9mbeQNBsTiY/nZomgnVS8Kko2SKmINxOf1WkGFcyV\nKk+porKTIkW/m7AEsYLzby07wwKBgQC64BkyQib1sxS1hMVhP3l+A+m7OdbWLDDO\nDRJpxHNZW/Svs1egSF2wNqPZFKJ/LHwAPKxNaBCnfQMjxweDY9VzKBIwXl3boJ7m\nvRulzFsBTwRtYG9QKXYLRhvyZRHFs12XV3KISAy5X+kWG7JeZOj4jeAr0N0Qun6F\n9M+THYMTrwKBgAWTv+HIPzhOcKLq+Q598GMc+lunTst5rMumGz0o3euEpKqvYXr4\np0/F2yKbZmMJvZKWGLBg9+biXCHNdU9nOfhhwlT8+wtNTwy/R2mE8bT1LvqxDWlx\nnMSIVSJKPGdUcvba2rCrCiSIT0kDCEEzBTqa8eGEmkqYPcAfzaTHO0mZAoGADGJD\naTA3ErsuWSUWS26AZ5hsycp4cTL2fQEiwj2Rg09ztJ0G5olFJCNK0lzqs9DH2uAq\nburBh8fiCGHtHojkIUB7jBcE00Qeo53OkjsroLeSzIjCd6Z3uyGHQpXuCpLrVdcm\nsN9NcI9pi9yEAntfcPE99MlfjPc+4TOq+c3P3OMCgYB6YFCFBNpPdYqc8EkQ8OUc\nA2MDWRcCW9oKYvu2zvDLjq9zkznUMcW5PaPql1nIEfNW9LNzn/Bc3nSQ1iHaulGZ\nZjaCKdD6pftkMYC73FWIZXIsvmyC8T7TvRvFppdBHjPcSurOJi6ot74MHKhFudm6\nezS2Wh+8ABQ+ucrWUxpMOw==\n-----END PRIVATE KEY-----\n&quot;,
+  &quot;client_email&quot;: &quot;sheetapi@keen-clarity-323809.iam.gserviceaccount.com&quot;,
+  &quot;client_id&quot;: &quot;114733049967179666126&quot;,
+  &quot;auth_uri&quot;: &quot;https://accounts.google.com/o/oauth2/auth&quot;,
+  &quot;token_uri&quot;: &quot;https://oauth2.googleapis.com/token&quot;,
+  &quot;auth_provider_x509_cert_url&quot;: &quot;https://www.googleapis.com/oauth2/v1/certs&quot;,
+  &quot;client_x509_cert_url&quot;: &quot;https://www.googleapis.com/robot/v1/metadata/x509/sheetapi%40keen-clarity-323809.iam.gserviceaccount.com&quot;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;동영상으로-따라-하기&quot;&gt;동영상으로 따라 하기&lt;/h3&gt;
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;//youtu.be/pb4t5tKXe7E&quot; frameborder=&quot;0&quot; allow=&quot;autoplay; encrypted-media&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;h3 id=&quot;읽거나-쓰려는-sheet에-권한-부여-하기&quot;&gt;읽거나 쓰려는 sheet에 권한 부여 하기&lt;/h3&gt;
+
+&lt;p&gt;Google sheet에서 Share 버튼을 누른 이후, 생성한 서비스 계정에 READ/WRITE 권한을 부여 해야됩니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;sheet-글-읽기&quot;&gt;sheet 글 읽기&lt;/h2&gt;
+
+&lt;p&gt;다음 라이브러리를 설치 해야 합니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm install –save googleapis
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;sheet-읽고-쓰는-예제-코드&quot;&gt;sheet 읽고 쓰는 예제 코드&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import { google, Auth } from 'googleapis';
+class SheetApi {
+    auth: Auth.GoogleAuth = new google.auth.GoogleAuth({
+        keyFile: &quot;credentials.json&quot;, //the key file
+        //url to spreadsheets API
+        scopes: &quot;https://www.googleapis.com/auth/spreadsheets&quot;,
+    });
+    
+    writeSheet() {
+        //Auth client Object
+        const authClientObject = await this.auth.getClient();
+        //Google sheets instance
+        const googleSheetsInstance = google.sheets({ version: &quot;v4&quot;, auth: authClientObject });
+        const spreadsheetId = &quot;sheetId&quot;;
+
+        //write data into the google sheets
+        await googleSheetsInstance.spreadsheets.values.append({
+            auth, //auth object
+            spreadsheetId, //spreadsheet id
+            range: &quot;Sheet1!A:B&quot;, //sheet name and range of cells
+            valueInputOption: &quot;USER_ENTERED&quot;, // The information will be passed according to what the usere passes in as date, number or text
+            resource: {
+                values: [[&quot;첫번째 A 열 데이터&quot;, &quot;1열 B열&quot;], [&quot;두번째 A 열 데이터&quot;, &quot;2열 B열&quot;]],
+            },
+        });
+    }
+
+    readSheet() {
+        //Auth client Object
+        const authClientObject = await this.auth.getClient();
+        //Google sheets instance
+        const googleSheetsInstance = google.sheets({ version: &quot;v4&quot;, auth: authClientObject });
+        const spreadsheetId = &quot;sheetId&quot;;
+
+        //Read front the spreadsheet
+        const { data: { values } } = await googleSheetsInstance.spreadsheets.values.get({
+            auth: this.auth, //auth object
+            spreadsheetId, // spreadsheet id
+            range: &quot;DATA!A:B&quot;, //range of cells to read from.
+        });
+
+        return values;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.section.io/engineering-education/google-sheets-api-in-nodejs/&quot;&gt;Getting Started with Google Sheets API in Node.js&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="google" /><category term="sheet" /><summary type="html">Google Cloud 서비스 계정 생성 부터 sheet API를 활용한 조회 처리</summary></entry><entry><title type="html">onPaste contentEditable 을 이용한 이미지 붙여 넣기 처리</title><link href="https://lahuman.github.io/onPaste_contentEditable/" rel="alternate" type="text/html" title="onPaste contentEditable 을 이용한 이미지 붙여 넣기 처리" /><published>2021-08-08T00:00:00+09:00</published><updated>2021-08-08T00:00:00+09:00</updated><id>https://lahuman.github.io/onPaste_contentEditable</id><content type="html" xml:base="https://lahuman.github.io/onPaste_contentEditable/">&lt;h1 id=&quot;onpaste-contenteditable-을-이용한-이미지-붙여-넣기-처리&quot;&gt;onPaste contentEditable 을 이용한 이미지 붙여 넣기 처리&lt;/h1&gt;
 
 &lt;p&gt;페이스북 댓글창에서 클립보드에 저장(Ctrl+C) 된 이미지를 붙여넣기(Ctrl+V)를 하면, 이미지가 업로드 되는 것을 확인 할 수 있습니다.&lt;/p&gt;
 
@@ -440,19 +547,4 @@ list.filter((item, index) =&amp;gt; {
 
 &lt;h2 id=&quot;ps-75-업데이트-상황&quot;&gt;PS. 7/5 업데이트 상황&lt;/h2&gt;
 
-&lt;p&gt;사용자가 적지만, 꼭 필요한 서비스라고 연락이 와서 다시 살리는 서비스도 있었습니다. :)&lt;/p&gt;</content><category term="단상" /><summary type="html">3년간 만들었던 서비스 중 몇개가 종료되는 날입니다.</summary></entry><entry><title type="html">nestjs에서 passport + SAML 로그인시 오류 발생 처리</title><link href="https://lahuman.github.io/passport_saml_error/" rel="alternate" type="text/html" title="nestjs에서 passport + SAML 로그인시 오류 발생 처리" /><published>2021-06-28T00:00:00+09:00</published><updated>2021-06-28T00:00:00+09:00</updated><id>https://lahuman.github.io/passport_saml_error</id><content type="html" xml:base="https://lahuman.github.io/passport_saml_error/">&lt;h1 id=&quot;saml-assertion-expired&quot;&gt;SAML assertion expired&lt;/h1&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[Nest] 32582   - 2021-06-25 15:24:29   [ExceptionsHandler] SAML assertion expired +40568ms
-Error: SAML assertion expired
-    at SAML.checkTimestampsValidityError (/Users/lahuman/dev/oss-square/backend/node_modules/passport-saml/lib/passport-saml/saml.js:1047:24)
-    at /Users/lahuman/dev/oss-square/backend/node_modules/passport-saml/lib/passport-saml/saml.js:988:37
-    at processTicksAndRejections (internal/process/task_queues.js:97:5)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;모든 사람이 발생하는게 아니라, 특정 한사람만 발생하는 오류였습니다.&lt;/p&gt;
-
-&lt;p&gt;원인은 서버 시간과 사용자 PC 시간이 다르게 설정되어서 발생하는 문제 였습니다.&lt;/p&gt;
-
-&lt;p&gt;우연히 발생하는 문제이겠지만, 기억해 두어야겠네요.&lt;/p&gt;
-
-&lt;h2 id=&quot;시간을-꼭-확인하자&quot;&gt;시간을 꼭 확인하자!&lt;/h2&gt;</content><category term="nestjs" /><category term="testcase" /><category term="mock" /><category term="jest" /><summary type="html">SAML assertion expired</summary></entry></feed>
+&lt;p&gt;사용자가 적지만, 꼭 필요한 서비스라고 연락이 와서 다시 살리는 서비스도 있었습니다. :)&lt;/p&gt;</content><category term="단상" /><summary type="html">3년간 만들었던 서비스 중 몇개가 종료되는 날입니다.</summary></entry></feed>
