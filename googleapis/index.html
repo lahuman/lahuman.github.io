@@ -22,7 +22,7 @@
   "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
   "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/sheetapi%40keen-clarity-323809.iam.gserviceaccount.com"
 }
-</code></pre></div></div> <h3 id="동영상으로-따라-하기">동영상으로 따라 하기</h3> <iframe width="560" height="315" src="//youtu.be/pb4t5tKXe7E" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen=""></iframe> <h3 id="읽거나-쓰려는-sheet에-권한-부여-하기">읽거나 쓰려는 sheet에 권한 부여 하기</h3> <p>Google sheet에서 Share 버튼을 누른 이후, 생성한 서비스 계정에 READ/WRITE 권한을 부여 해야됩니다.</p> <h2 id="sheet-글-읽기">sheet 글 읽기</h2> <p>다음 라이브러리를 설치 해야 합니다.</p> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm install –save googleapis
+</code></pre></div></div> <h3 id="동영상으로-따라-하기">동영상으로 따라 하기</h3> <iframe width="560" height="315" src="//youtube.com/pb4t5tKXe7E" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen=""></iframe> <h3 id="읽거나-쓰려는-sheet에-권한-부여-하기">읽거나 쓰려는 sheet에 권한 부여 하기</h3> <p>Google sheet에서 Share 버튼을 누른 이후, 생성한 서비스 계정에 READ/WRITE 권한을 부여 해야됩니다.</p> <h2 id="sheet-글-읽기">sheet 글 읽기</h2> <p>다음 라이브러리를 설치 해야 합니다.</p> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm install –save googleapis
 </code></pre></div></div> <h3 id="sheet-읽고-쓰는-예제-코드">sheet 읽고 쓰는 예제 코드</h3> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import { google, Auth } from 'googleapis';
 class SheetApi {
     auth: Auth.GoogleAuth = new google.auth.GoogleAuth({
