@@ -1,4 +1,67 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2021-08-23T20:28:33+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Google Cloud 서비스 계정으로 Google API 사용하기</title><link href="https://lahuman.github.io/googleapis/" rel="alternate" type="text/html" title="Google Cloud 서비스 계정으로 Google API 사용하기" /><published>2021-08-19T00:00:00+09:00</published><updated>2021-08-19T00:00:00+09:00</updated><id>https://lahuman.github.io/googleapis</id><content type="html" xml:base="https://lahuman.github.io/googleapis/">&lt;h1 id=&quot;google-cloud-서비스-계정으로-google-api-사용하기&quot;&gt;Google Cloud 서비스 계정으로 Google API 사용하기&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2021-08-29T17:39:22+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">꿈과 책과 힘과 벽</title><link href="https://lahuman.github.io/20210829/" rel="alternate" type="text/html" title="꿈과 책과 힘과 벽" /><published>2021-08-29T00:00:00+09:00</published><updated>2021-08-29T00:00:00+09:00</updated><id>https://lahuman.github.io/20210829</id><content type="html" xml:base="https://lahuman.github.io/20210829/">&lt;h1 id=&quot;요즘-잔나비의-노래에-빠져있습니다&quot;&gt;요즘 잔나비의 노래에 빠져있습니다.&lt;/h1&gt;
+
+&lt;p&gt;아내를 따라 듣기 시작한 가수인데, 가사가 매력적이고 목소리도 너무 좋네요.&lt;/p&gt;
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;//www.youtube.com/watch?v=SJUWooZnfVQ&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;가사를 곱씹으며 일요일을 마무리 합니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;가사&quot;&gt;가사&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;해가 뜨고 다시 지는 것에
+연연하였던 나의 작은방
+텅 빈 마음 노랠 불러봤자
+누군가에겐 소음일 테니
+꼭 다문 입 그 새로 삐져나온
+보잘것없는 나의 한숨에
+나 들으라고 내쉰 숨이 더냐
+아버지 내게 물으시고
+제 발 저려 난 답할 수 없었네
+
+우리는 우리는
+어째서
+어른이 된 걸까
+하루하루가
+참 무거운 짐이야
+더는 못 갈 거야
+
+꿈과 책과 힘과 벽 사이를
+눈치 보기에 바쁜 나날들
+소년이여 야망을 가져라
+무책임한 격언 따위에
+저 바다를 호령하는 거야
+어처구니없던 나의 어린 꿈
+가질 수 없음을 알게 되던 날
+두드러기처럼 돋은 심술이
+끝내 그 이름 더럽히고 말았네
+
+우리는 우리는
+어째서
+어른이 된 걸까
+하루하루가
+참 무거운 짐이야
+더는 못 간대두
+
+멈춰 선 남겨진
+날 보면
+어떤 맘이 들까
+하루하루가
+참 무서운 밤인 걸
+잘도 버티는 넌
+
+하루하루가
+참 무서운 밤인 걸
+
+자고 나면 괜찮아질 거야
+하루는 더 어른이 될 테니
+무덤덤한 그 눈빛을 기억해
+어릴 적 본 그들의 눈을
+우린 조금씩 닮아야 할 거야
+
+소스: Musixmatch
+
+작사: 김도형 / 유영현 / 최정훈
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><category term="단상" /><summary type="html">잔나비 노래에 빠져있다.</summary></entry><entry><title type="html">Google Cloud 서비스 계정으로 Google API 사용하기</title><link href="https://lahuman.github.io/googleapis/" rel="alternate" type="text/html" title="Google Cloud 서비스 계정으로 Google API 사용하기" /><published>2021-08-19T00:00:00+09:00</published><updated>2021-08-19T00:00:00+09:00</updated><id>https://lahuman.github.io/googleapis</id><content type="html" xml:base="https://lahuman.github.io/googleapis/">&lt;h1 id=&quot;google-cloud-서비스-계정으로-google-api-사용하기&quot;&gt;Google Cloud 서비스 계정으로 Google API 사용하기&lt;/h1&gt;
 
 &lt;p&gt;Google Sheet API를 사용하기 위해서 Google cloud console에서 서비스 계정을 만들어 진행하는 과정을 정리합니다.&lt;/p&gt;
 
@@ -529,22 +592,4 @@ list.filter((item, index) =&amp;gt; {
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.tomshardware.com/how-to/install-windows-11-raspberry-pi&quot;&gt;How to Install Windows 11 on a Raspberry Pi 4&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="raspberry" /><category term="windows" /><summary type="html">잠시 사용해본 후기 입니다.</summary></entry><entry><title type="html">서비스 종료일</title><link href="https://lahuman.github.io/20210701/" rel="alternate" type="text/html" title="서비스 종료일" /><published>2021-07-01T00:00:00+09:00</published><updated>2021-07-01T00:00:00+09:00</updated><id>https://lahuman.github.io/20210701</id><content type="html" xml:base="https://lahuman.github.io/20210701/">&lt;h1 id=&quot;2019년에-입사를-해서-지금까지-30여개의-서비스를-만들었습니다&quot;&gt;2019년에 입사를 해서 지금까지 30여개의 서비스를 만들었습니다.&lt;/h1&gt;
-
-&lt;p&gt;회사내의 문제를 발견하고 작게 만들어서 빠르게 실패하고, 다시 만드는 디자인 싱킹과 애자일 기반의 활동을 하였습니다.&lt;/p&gt;
-
-&lt;p&gt;물론 매 2주안에 결과를 내야 하는 스크럼 진행으로 가끔은 너무 지치고 힘들었습니다.&lt;/p&gt;
-
-&lt;p&gt;오늘 회사 합병과 개인 업무 재분배, 팀 이동 등의  이유로 그 동안 만들었던 서비스 중 사용자가 적은 서비스를 종료 하는 날이 왔습니다.&lt;/p&gt;
-
-&lt;p&gt;자식을 잃는 기분이네요.&lt;/p&gt;
-
-&lt;p&gt;더 발전 시킬 수 있는데, 더 잘 만들 수 있는데, 충분히 매력적인 서비스인데…&lt;/p&gt;
-
-&lt;p&gt;아쉽고, 슬픈 하루입니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;잘가-그리고-너희를-만들면서-즐거웠어&quot;&gt;잘가 그리고 너희를 만들면서 즐거웠어.&lt;/h2&gt;
-
-&lt;h2 id=&quot;ps-75-업데이트-상황&quot;&gt;PS. 7/5 업데이트 상황&lt;/h2&gt;
-
-&lt;p&gt;사용자가 적지만, 꼭 필요한 서비스라고 연락이 와서 다시 살리는 서비스도 있었습니다. :)&lt;/p&gt;</content><category term="단상" /><summary type="html">3년간 만들었던 서비스 중 몇개가 종료되는 날입니다.</summary></entry></feed>
+&lt;/ul&gt;</content><category term="raspberry" /><category term="windows" /><summary type="html">잠시 사용해본 후기 입니다.</summary></entry></feed>
