@@ -1,4 +1,13 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2021-08-29T17:39:22+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">꿈과 책과 힘과 벽</title><link href="https://lahuman.github.io/20210829/" rel="alternate" type="text/html" title="꿈과 책과 힘과 벽" /><published>2021-08-29T00:00:00+09:00</published><updated>2021-08-29T00:00:00+09:00</updated><id>https://lahuman.github.io/20210829</id><content type="html" xml:base="https://lahuman.github.io/20210829/">&lt;h1 id=&quot;요즘-잔나비의-노래에-빠져있습니다&quot;&gt;요즘 잔나비의 노래에 빠져있습니다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2021-09-05T11:50:10+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">게으른 날들을 보내고 있다.</title><link href="https://lahuman.github.io/20210905/" rel="alternate" type="text/html" title="게으른 날들을 보내고 있다." /><published>2021-09-05T00:00:00+09:00</published><updated>2021-09-05T00:00:00+09:00</updated><id>https://lahuman.github.io/20210905</id><content type="html" xml:base="https://lahuman.github.io/20210905/">&lt;h1 id=&quot;공부도-안하고-아이들과-함께-게임을-하고-딩굴거리고-있습니다&quot;&gt;공부도 안하고, 아이들과 함께 게임을 하고 딩굴거리고 있습니다.&lt;/h1&gt;
+
+&lt;p&gt;코로나로 인해서 멈춘 일상에서 바쁘게 발버둥 치다가, 잠시 쉬고 있습니다.&lt;/p&gt;
+
+&lt;p&gt;의미 있게 쉬고 싶어서 뭘하고 놀지 고민하는 중입니다.&lt;/p&gt;
+
+&lt;p&gt;아이들과 즐겁게 보내고 싶은데, 아이들은 집에서 딩굴거리기를 좋아하네요.
+(아빠를 닮았…)&lt;/p&gt;
+
+&lt;p&gt;이번주 까지는 딩굴 거려보렵니다!&lt;/p&gt;</content><category term="단상" /><summary type="html">쉬는 시간</summary></entry><entry><title type="html">꿈과 책과 힘과 벽</title><link href="https://lahuman.github.io/20210829/" rel="alternate" type="text/html" title="꿈과 책과 힘과 벽" /><published>2021-08-29T00:00:00+09:00</published><updated>2021-08-29T00:00:00+09:00</updated><id>https://lahuman.github.io/20210829</id><content type="html" xml:base="https://lahuman.github.io/20210829/">&lt;h1 id=&quot;요즘-잔나비의-노래에-빠져있습니다&quot;&gt;요즘 잔나비의 노래에 빠져있습니다.&lt;/h1&gt;
 
 &lt;p&gt;아내를 따라 듣기 시작한 가수인데, 가사가 매력적이고 목소리도 너무 좋네요.&lt;/p&gt;
 
@@ -539,57 +548,4 @@ list.filter((item, index) =&amp;gt; {
 
 &lt;p&gt;누군가에게 부족해 보일 수도 있고, 모자르게 보일수도 있겠지만, 단편적인 부분을 보고 사람을 판단해서는 안된다.&lt;/p&gt;
 
-&lt;p&gt;또한 적어도 사람과 사람 사이의 예의는 지켜야 한다.&lt;/p&gt;</content><category term="단상" /><summary type="html">크게 신경을 쓰지 못했던 부분에 대하여 다시 생각하는 날</summary></entry><entry><title type="html">Raspberry pi 4에 windows 11 설치</title><link href="https://lahuman.github.io/raspberry_windows11/" rel="alternate" type="text/html" title="Raspberry pi 4에 windows 11 설치" /><published>2021-07-05T00:00:00+09:00</published><updated>2021-07-05T00:00:00+09:00</updated><id>https://lahuman.github.io/raspberry_windows11</id><content type="html" xml:base="https://lahuman.github.io/raspberry_windows11/">&lt;h1 id=&quot;raspberry-pi-4에-windows-11을-설치해서-사용해봤습니다&quot;&gt;Raspberry pi 4에 windows 11을 설치해서 사용해봤습니다.&lt;/h1&gt;
-
-&lt;p&gt;집에 있는 삼성 프린터가 네트워크를 지원하지 않아서, 방안을 고심중에 Raspberry PI 4에 windows 11이 설치되고 상당히 쓸만 하다는 글을 읽게 되었습니다.&lt;/p&gt;
-
-&lt;p&gt;설치는 &lt;a href=&quot;https://www.tomshardware.com/how-to/install-windows-11-raspberry-pi&quot;&gt;How to Install Windows 11 on a Raspberry Pi 4&lt;/a&gt; 글을 따라하면 쉽게 가능합니다.&lt;/p&gt;
-
-&lt;p&gt;그리고 장점과 단점으로 구분해서 후기를 정리 하면 다음과 같습니다.&lt;/p&gt;
-
-&lt;h3 id=&quot;장점&quot;&gt;장점&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;생각보다 빠릿(?)하다
-    &lt;ul&gt;
-      &lt;li&gt;느리다는 느낌이 들지 않습니다.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;단점&quot;&gt;단점&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;부팅이 정말 오래 걸린다.
-    &lt;ul&gt;
-      &lt;li&gt;Raspberry pi 4G 기준으로 약 5분 정도 걸립니다.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;사운드는 해드셋 잭으로만 나온다.&lt;/li&gt;
-  &lt;li&gt;다이소 wifi 모듈 인식이 안된다.
-    &lt;ul&gt;
-      &lt;li&gt;이게 가장 크리티컬하네요.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;원격 데스크탑(서버) 지원이 안된다.
-    &lt;ul&gt;
-      &lt;li&gt;프리뷰모드라 그런듯 합니다.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;삼성 드라이버 설치가 안된다.
-    &lt;ul&gt;
-      &lt;li&gt;ARM CPU라 그런지, windows 11이라 그런지, 제가 원한 가장 중요한 기능이 안되네요. :(&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;프리뷰 버젼이니 완성도가 떨어져서 안되는게 있을꺼라 생각됩니다.
-정식 버젼이 나오면 다시 테스트 해봐야겠네요.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.tomshardware.com/how-to/install-windows-11-raspberry-pi&quot;&gt;How to Install Windows 11 on a Raspberry Pi 4&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="raspberry" /><category term="windows" /><summary type="html">잠시 사용해본 후기 입니다.</summary></entry></feed>
+&lt;p&gt;또한 적어도 사람과 사람 사이의 예의는 지켜야 한다.&lt;/p&gt;</content><category term="단상" /><summary type="html">크게 신경을 쓰지 못했던 부분에 대하여 다시 생각하는 날</summary></entry></feed>
