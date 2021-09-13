@@ -1,4 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2021-09-05T11:50:10+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">게으른 날들을 보내고 있다.</title><link href="https://lahuman.github.io/20210905/" rel="alternate" type="text/html" title="게으른 날들을 보내고 있다." /><published>2021-09-05T00:00:00+09:00</published><updated>2021-09-05T00:00:00+09:00</updated><id>https://lahuman.github.io/20210905</id><content type="html" xml:base="https://lahuman.github.io/20210905/">&lt;h1 id=&quot;공부도-안하고-아이들과-함께-게임을-하고-딩굴거리고-있습니다&quot;&gt;공부도 안하고, 아이들과 함께 게임을 하고 딩굴거리고 있습니다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2021-09-14T06:13:24+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">어려운 문제를 만나면 어떻게 하나요?</title><link href="https://lahuman.github.io/20210914/" rel="alternate" type="text/html" title="어려운 문제를 만나면 어떻게 하나요?" /><published>2021-09-14T00:00:00+09:00</published><updated>2021-09-14T00:00:00+09:00</updated><id>https://lahuman.github.io/20210914</id><content type="html" xml:base="https://lahuman.github.io/20210914/">&lt;h1 id=&quot;어려운-문제를-만나면-어떻게-하나요&quot;&gt;어려운 문제를 만나면 어떻게 하나요?&lt;/h1&gt;
+
+&lt;p&gt;어려운 문제를 만나면 엉킨 실타래를 풀 듯이 천천히 작은 부분을 해결하도록 노력합니다.&lt;/p&gt;
+
+&lt;p&gt;조금씩 문제의 윤곽을 확인하며, 어떻게 풀어야 할지 생각하면서 해결할 실마리를 찾습니다.&lt;/p&gt;
+
+&lt;p&gt;포기하지 않고 계속 시도를 해서 문제를 해결합니다.&lt;/p&gt;
+
+&lt;p&gt;이게 제가 어려운 문제를 만났을때 해결하는 방법입니다.&lt;/p&gt;</content><category term="단상" /><summary type="html">실패하고 시도하고를 계속 반복합니다.</summary></entry><entry><title type="html">게으른 날들을 보내고 있다.</title><link href="https://lahuman.github.io/20210905/" rel="alternate" type="text/html" title="게으른 날들을 보내고 있다." /><published>2021-09-05T00:00:00+09:00</published><updated>2021-09-05T00:00:00+09:00</updated><id>https://lahuman.github.io/20210905</id><content type="html" xml:base="https://lahuman.github.io/20210905/">&lt;h1 id=&quot;공부도-안하고-아이들과-함께-게임을-하고-딩굴거리고-있습니다&quot;&gt;공부도 안하고, 아이들과 함께 게임을 하고 딩굴거리고 있습니다.&lt;/h1&gt;
 
 &lt;p&gt;코로나로 인해서 멈춘 일상에서 바쁘게 발버둥 치다가, 잠시 쉬고 있습니다.&lt;/p&gt;
 
@@ -464,88 +472,4 @@ list.filter((item, index) =&amp;gt; {
 
 &lt;p&gt;질문에 대답을 잘 못한 것도 있고, 새로운 사실을 알아가기도 합니다.&lt;/p&gt;
 
-&lt;p&gt;면접 또한 많이 배우는 경험이됩니다.&lt;/p&gt;</content><category term="단상" /><summary type="html">지금까지 받아보았던 몇가지 면접 질문들을 정리 했습니다.</summary></entry><entry><title type="html">동시성, 컨커런시, LOCK, 메모리, 모니터링 메트릭스</title><link href="https://lahuman.github.io/20210706/" rel="alternate" type="text/html" title="동시성, 컨커런시, LOCK, 메모리, 모니터링 메트릭스" /><published>2021-07-06T00:00:00+09:00</published><updated>2021-07-06T00:00:00+09:00</updated><id>https://lahuman.github.io/20210706</id><content type="html" xml:base="https://lahuman.github.io/20210706/">&lt;h1 id=&quot;오늘-몇가지-질문을-받았는데-명확하게-이야기-하지-못했다&quot;&gt;오늘 몇가지 질문을 받았는데, 명확하게 이야기 하지 못했다.&lt;/h1&gt;
-
-&lt;h3 id=&quot;첫번째-질문-동시성-컨커런시-lock&quot;&gt;첫번째 질문, 동시성, 컨커런시, LOCK&lt;/h3&gt;
-
-&lt;p&gt;동시성, 컨커런시, LOCK 관련 질문을 많이 받았는데, 사실 크게 신경쓰지 않고 프로그램을 했었다.
-왜냐고 묻는다면, 좋은 프레임워크들과 모듈들이 잘 관리 해주니 내가 신경쓸 일은 없었다.&lt;/p&gt;
-
-&lt;p&gt;직접 Thread를 생성하고 프로그램을 짤던 10여년 전에는 synchronized를 이용해서 관리했었지만, 지금은 사실 Singleton 생성할때 말고는 써보지 않았다.&lt;/p&gt;
-
-&lt;p&gt;그리고 가능하면 공유 자원을 최소화 하는 방식으로 개발을 하고 있다.&lt;/p&gt;
-
-&lt;p&gt;병렬성에서 중요한건 실수를 줄일 수 있고 관심에 분리를 하는 환경을 만들어 주어야 한다.&lt;/p&gt;
-
-&lt;p&gt;일일이 동시성과 LOCK을 걸면서 프로그램을 한다면 생각보다 비효율적일꺼 같은데 그리고 어떤 경우에 그런게 필요할까?&lt;/p&gt;
-
-&lt;p&gt;곰곰히 생각해봤는데, 실제 Thread를 관리하고 병렬처리를 하는 프로그램을 만들어야 한다면 필요하겠다.&lt;/p&gt;
-
-&lt;p&gt;내가 경험한 웹에서는 Connection Pool, 상수, Singleton 생성 등을 제외 하면 사용이 극히 제한적이다.&lt;/p&gt;
-
-&lt;p&gt;또 Spring 을 쓴다면 기본적으로 객체에 대한 관리는 framework에서 해주기에 크게 신경을 쓰지 않도록 해준다.&lt;/p&gt;
-
-&lt;p&gt;물론 내가 알지 못하는 부분에서 활발하게 쓰일수 있다. 예제 코드를 좀 찾아봐야겠다.&lt;/p&gt;
-
-&lt;h3 id=&quot;두번째-질문-메모리&quot;&gt;두번째 질문 메모리&lt;/h3&gt;
-
-&lt;p&gt;APP과 OS의 메모리를 실제로 덤프를 뜨거나, 확인한 적이 있는가의 질문이었다.&lt;/p&gt;
-
-&lt;p&gt;잘해야 OOM 발생으로 메모리 스택트레이스 정도 확인해본 경험이 전부다.&lt;/p&gt;
-
-&lt;p&gt;좀더 곰곰히 생각하면 메모리 덤프를 스냅샷으로 파일로 떨구서 본 기억이 있는 정도이다.&lt;/p&gt;
-
-&lt;p&gt;문제가 있는것도 아니고 잘 돌아가는 상황에서 확인할 여유도 이유도 없었다.&lt;/p&gt;
-
-&lt;p&gt;추가로 모니터링 프로그램을 통해서 메모리에 대한 정보를 확인한 경험도 있다.&lt;/p&gt;
-
-&lt;p&gt;이 부분은 질문자와 의견이 많이 달랐는데, 이걸 모르면 안된다고 생각한다고 했다.&lt;/p&gt;
-
-&lt;p&gt;난 조금 다르게 느끼는게 알면 좋겠지만, 몰라도 문제가 되지 않는다.&lt;/p&gt;
-
-&lt;p&gt;그리고 알고 있다면 더 좋은 픔질의 프로그램을 짤 수 있을까?&lt;/p&gt;
-
-&lt;p&gt;어느 영역에서 일하느냐에 따라 다르게 받아 들일 수 있을것이다.&lt;/p&gt;
-
-&lt;h3 id=&quot;모니터링-메트릭스&quot;&gt;모니터링 메트릭스&lt;/h3&gt;
-
-&lt;p&gt;모니터링이 필요한 요소는 무엇이 있을까?&lt;/p&gt;
-
-&lt;p&gt;기본적인 항목으로는 서버의 리소스 &lt;code class=&quot;highlighter-rouge&quot;&gt;CPU, 메모리, 디스크, 네트워크, 프로세스&lt;/code&gt;가 있을꺼라 생각한다.&lt;/p&gt;
-
-&lt;p&gt;사실 이 질문은 잘 이해 못했다. 정확하게 뭘 원하는 건지, 뭘 생각하는건지 모르겠다.&lt;/p&gt;
-
-&lt;p&gt;모니터링 서비스를 만든 적이 없는 사람에게 생각나는데로 이야기 해보라는게 의미 있을까?&lt;/p&gt;
-
-&lt;h3 id=&quot;nodejs-는-싱글쓰레드인가&quot;&gt;NODEJS 는 싱글쓰레드인가?&lt;/h3&gt;
-
-&lt;p&gt;내 대답은 아니오 였다.&lt;/p&gt;
-
-&lt;p&gt;싱글 쓰레드가 아니라 이벤트 루프가 싱글 쓰레드이다.
-이벤트 루프가 워커 쓰레드가에게 처리할 것을 전달하고 다음 이벤트를 처리 한다.&lt;/p&gt;
-
-&lt;p&gt;작년에 보았던 자료를 토대로 이야기 했는데, 그럼 동시성 처리는 어떻게 하냐는 질문을 받았다.
-대답을 못했는데 &lt;a href=&quot;https://hdaleee.tistory.com/15&quot;&gt;Node.js는 싱글스레드인가요?&lt;/a&gt; 에서 다음과 같은 내용을 찾았다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;node.js 자체는 single-thread 방식이 아니다. 자바스크립트를 실행하는 부분에서만 single-thread로 구성되어있고, 이 때의 작업 동시성은 ‘이벤트 루프’를 통해서 구현할 수 있다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;이부분은 질문자도 잘 모르고, 나도 정확히 몰라서 나중에 검색해 본다고 하고 넘어갔다.&lt;/p&gt;
-
-&lt;h3 id=&quot;마지막으로&quot;&gt;마지막으로&lt;/h3&gt;
-
-&lt;p&gt;오늘 질문자와 이야기는 나름 재미있었다.(땀이 나기도 했지만)&lt;/p&gt;
-
-&lt;p&gt;다만, 질문자의 공격성이 아쉬었다.&lt;/p&gt;
-
-&lt;p&gt;본인이 14년 경력이 개발자로 상위 몇%라고 생각되느냐는 질문은 &lt;strong&gt;사실 주관적인 질문이기 때문에 본인의 생각과 달라 질수 있다고 생각된다.&lt;/strong&gt;
-(내 자존감을 깍아 내려서 무엇을 하려고 하는지도 모르겠다.)&lt;/p&gt;
-
-&lt;p&gt;물론 질문자가 받아 들이지 못하면 그것도 그것대로 이겠지만, 그런 사람과 일하는건 피곤할 것이다.&lt;/p&gt;
-
-&lt;p&gt;누구나 잘하는 부분과 못하는 부분이 있다. 나는 평범한 사람으로 꽤나 노력하고 있고 열심히 살고 있다고 생각한다.&lt;/p&gt;
-
-&lt;p&gt;누군가에게 부족해 보일 수도 있고, 모자르게 보일수도 있겠지만, 단편적인 부분을 보고 사람을 판단해서는 안된다.&lt;/p&gt;
-
-&lt;p&gt;또한 적어도 사람과 사람 사이의 예의는 지켜야 한다.&lt;/p&gt;</content><category term="단상" /><summary type="html">크게 신경을 쓰지 못했던 부분에 대하여 다시 생각하는 날</summary></entry></feed>
+&lt;p&gt;면접 또한 많이 배우는 경험이됩니다.&lt;/p&gt;</content><category term="단상" /><summary type="html">지금까지 받아보았던 몇가지 면접 질문들을 정리 했습니다.</summary></entry></feed>
