@@ -1,4 +1,74 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2021-09-22T10:47:11+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">wsl2의 node 기반에서 프로젝트 sqlite3 실행하기</title><link href="https://lahuman.github.io/sqlite3_node_wsl2/" rel="alternate" type="text/html" title="wsl2의 node 기반에서 프로젝트 sqlite3 실행하기" /><published>2021-09-22T00:00:00+09:00</published><updated>2021-09-22T00:00:00+09:00</updated><id>https://lahuman.github.io/sqlite3_node_wsl2</id><content type="html" xml:base="https://lahuman.github.io/sqlite3_node_wsl2/">&lt;h1 id=&quot;wsl2의-node기반-프로젝트에서-sqlite3를-사용하기-위해서-설치되어야-할-라이브러리와-설정-리빌드가-필요합니다&quot;&gt;wsl2의 node기반 프로젝트에서 sqlite3를 사용하기 위해서 설치되어야 할 라이브러리와 설정, 리빌드가 필요합니다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2021-10-30T22:48:32+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">ssh tunneling으로 port forword</title><link href="https://lahuman.github.io/ssh_tunneling/" rel="alternate" type="text/html" title="ssh tunneling으로 port forword" /><published>2021-10-21T00:00:00+09:00</published><updated>2021-10-21T00:00:00+09:00</updated><id>https://lahuman.github.io/ssh_tunneling</id><content type="html" xml:base="https://lahuman.github.io/ssh_tunneling/">&lt;h1 id=&quot;ssh-tunneling으로-port-forword&quot;&gt;ssh tunneling으로 port forword&lt;/h1&gt;
+
+&lt;p&gt;특정 서비스 DBMS에 접근을 해야 하는 일이 있는데, 기본적으로 DBMS에 접근 가능한 서버는 외부에서 접근이 불가능한 상태입니다.&lt;/p&gt;
+
+&lt;p&gt;그래서 ssh에서 제공하는 터널링을 이용해서 DBMS에 접근해보려고 합니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/ssh_tunneling.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Mac, Linux 에서는 아래 명령어를 이용하면 쉽게 터널링을 할수 있습니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# ssh ID@GateServer -N -L localPort:DBMS:ServicePort
+$ ssh ec2-user@1.2.3.4 -N -L 13306:1.2.3.5:3306
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;-N&lt;/code&gt; 옵션은 리모트로 명령어 실행을 하지 않는다는 의미 이며, &lt;code class=&quot;highlighter-rouge&quot;&gt;-L&lt;/code&gt; 옵션은 로컬 포트와 GATESERVER 포트를 연결하는 역활을 합니다.&lt;/p&gt;
+
+&lt;p&gt;여기서는 GATEServer에서 DBMS와 연결하도록 설정하였습니다.&lt;/p&gt;
+
+&lt;p&gt;이렇게 ssh 명령어로 port forward를 사용가능합니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://devbin.kr/ssh-tunneling-%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%98%EC%97%AC-port-forwarding%EC%9D%84-%ED%95%B4%EB%B3%B4%EC%9E%90/&quot;&gt;SSH tunneling 을 이용하여 Port forwarding을 해보자&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://explainshell.com/explain?cmd=ssh+-L+-N+-f+-l&quot;&gt;explainshell&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="ssh" /><category term="tunneling" /><summary type="html">PC 특정 port를 ssh를 통해서 특정 서버의 port와 연결해서 사용하기</summary></entry><entry><title type="html">인증서버 구축기 - 4</title><link href="https://lahuman.github.io/auth_server_4/" rel="alternate" type="text/html" title="인증서버 구축기 - 4" /><published>2021-10-05T00:00:00+09:00</published><updated>2021-10-05T00:00:00+09:00</updated><id>https://lahuman.github.io/auth_server_4</id><content type="html" xml:base="https://lahuman.github.io/auth_server_4/">&lt;h1 id=&quot;인증-서비스-화면-작업-진행기&quot;&gt;인증 서비스 화면 작업 진행기&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;오랫만에 인증서버 코드를 확인하여서 화면을 구성하였습니다. 진행 한 내역은 아래와 같습니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;backend : nodejs + express + jwt + swagger&lt;/li&gt;
+  &lt;li&gt;frontend : ReactJS + Material-ui 5.0&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;소스-바로가기&quot;&gt;&lt;a href=&quot;https://github.com/lahuman/AuthServer&quot;&gt;소스 바로가기&lt;/a&gt;&lt;/h2&gt;
+
+&lt;h2 id=&quot;데모-확인하기&quot;&gt;데모 확인하기&lt;/h2&gt;
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;//www.youtube.com/embed/pxI4fXrNChI&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;h2 id=&quot;실제로-사용하기-위해서-추가-구현해야할-사항들&quot;&gt;실제로 사용하기 위해서 추가 구현해야할 사항들&lt;/h2&gt;
+
+&lt;p&gt;간단한 예제로 만든 프로젝트이며, 실운영에서는 몇가지 추가 사항을 고려해야 합니다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;보안 처리
+    &lt;ul&gt;
+      &lt;li&gt;토큰에 대한 vaild&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;리플래쉬 토큰 처리
+    &lt;ul&gt;
+      &lt;li&gt;JWT는 기본적으로 제공하지 않음&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;ROLE에 따른 처리 방안
+    &lt;ul&gt;
+      &lt;li&gt;URL 기반&lt;/li&gt;
+      &lt;li&gt;method 기반
+        &lt;h2 id=&quot;기존-진행-내역-확인하기&quot;&gt;기존 진행 내역 확인하기&lt;/h2&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://lahuman.github.io/auth_server_1/&quot;&gt;인증서버 구축기 - 1&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://lahuman.github.io/auth_server_2/&quot;&gt;인증서버 구축기 - 2&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://lahuman.github.io/auth_server_3/&quot;&gt;인증서버 구축기 - 3&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="node" /><category term="auth" /><summary type="html">기존 작업에 이어서 화면 작업 진행</summary></entry><entry><title type="html">wsl2의 node 기반에서 프로젝트 sqlite3 실행하기</title><link href="https://lahuman.github.io/sqlite3_node_wsl2/" rel="alternate" type="text/html" title="wsl2의 node 기반에서 프로젝트 sqlite3 실행하기" /><published>2021-09-22T00:00:00+09:00</published><updated>2021-09-22T00:00:00+09:00</updated><id>https://lahuman.github.io/sqlite3_node_wsl2</id><content type="html" xml:base="https://lahuman.github.io/sqlite3_node_wsl2/">&lt;h1 id=&quot;wsl2의-node기반-프로젝트에서-sqlite3를-사용하기-위해서-설치되어야-할-라이브러리와-설정-리빌드가-필요합니다&quot;&gt;wsl2의 node기반 프로젝트에서 sqlite3를 사용하기 위해서 설치되어야 할 라이브러리와 설정, 리빌드가 필요합니다.&lt;/h1&gt;
 
 &lt;p&gt;먼저 sqlite3를 사용하기 위해서는 다음 라이브러리가 설치되어 있어야 합니다.&lt;/p&gt;
 
@@ -429,71 +499,4 @@ ipv4 수신 대기:             ipv4에 연결:
 
 &lt;p&gt;또 부족한 나를 다시 한번 생각하게된 시간이었습니다.&lt;/p&gt;
 
-&lt;h2 id=&quot;나를-되돌아보는-시간이었습니다&quot;&gt;나를 되돌아보는 시간이었습니다.&lt;/h2&gt;</content><category term="단상" /><summary type="html">면접을 보는 사람을 배려하도록 노력하였다.</summary></entry><entry><title type="html">중복 객체 제거 하기</title><link href="https://lahuman.github.io/unique_object_array/" rel="alternate" type="text/html" title="중복 객체 제거 하기" /><published>2021-07-18T00:00:00+09:00</published><updated>2021-07-18T00:00:00+09:00</updated><id>https://lahuman.github.io/unique_object_array</id><content type="html" xml:base="https://lahuman.github.io/unique_object_array/">&lt;h1 id=&quot;중복-제거-하기&quot;&gt;중복 제거 하기&lt;/h1&gt;
-
-&lt;p&gt;단순한 숫자나 문자의 중복 제거는 Set을 이용하면 간단하게 처리 할 수 있습니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;const list = ['1', '2', '3', '2', 1,2,3, 1,2,3];
-// Set 을 이용한 방식
-[...new Set(list)]
-// filter를 이용한 방식
-list.filter((item, index) =&amp;gt; list.indexOf(item) === index);
-// 결과
-[ '1', '2', '3', 1, 2, 3 ]
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;하지만, 객체의 중복제거의 경우는 조금 다른 방식으로 처리 해야 합니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 중복 제거가 안됨
-const list = [{a:1, b:2}, {a:2, b:1}, {a:1, b:2}];
-
-list.filter((item, index) =&amp;gt; list.indexOf(item) === index);
-
-// 결과 
-[ { a: 1, b: 2 }, { a: 2, b: 1 }, { a: 1, b: 2 } ]
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;바로, JSON.stringify를 이용하는 방식입니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;const list = [{a:1, b:2}, {a:2, b:1}, {a:1, b:2}];
-
-const uniqueList = [...new Set(list.map(JSON.stringify))].map(JSON.parse);
-// 결과 
-[ { a: 1, b: 2 }, { a: 2, b: 1 } ]
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;다른 방식으로 key 값을 기준으로 unique 객체를 추출한다면 다음과 같은 방식으로도 가능합니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// a의 값이 key 인경우
-const list = [{a:1, b:2}, {a:2, b:1}, {a:1, b:2}];
-
-list.filter((item, index) =&amp;gt; {
-    const key = item.a;
-    return index === list.findIndex((e)=&amp;gt; e.a === key);
-});
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;위의 방식이 일반적으로 많이 쓰이는 방식 입니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://dongmin-jang.medium.com/javascript-array-%EC%A4%91%EB%B3%B5-%EC%A0%9C%EA%B1%B0%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95-es6-b5b9075361f9&quot;&gt;[Javascript] array 중복 제거하는 방법(ES6)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://javascript.plainenglish.io/the-easy-way-to-create-a-unique-array-of-json-objects-in-javascript-5634254b17aa&quot;&gt;The easy way to create a unique array of JSON Objects in JavaScript&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="javascript" /><category term="unique" /><summary type="html">javascript array에서 중복되는 객체 제거하기</summary></entry><entry><title type="html">기술 부채 또는 발전에 대한 단상</title><link href="https://lahuman.github.io/20210716/" rel="alternate" type="text/html" title="기술 부채 또는 발전에 대한 단상" /><published>2021-07-16T00:00:00+09:00</published><updated>2021-07-16T00:00:00+09:00</updated><id>https://lahuman.github.io/20210716</id><content type="html" xml:base="https://lahuman.github.io/20210716/">&lt;h1 id=&quot;기술-부채-또는-발전에-대한-단상&quot;&gt;기술 부채 또는 발전에 대한 단상&lt;/h1&gt;
-
-&lt;p&gt;기술 부채는 어디서올까?&lt;/p&gt;
-
-&lt;p&gt;내 경우는 대부분 미래의 나에게 부담을 주어서 발생한다.&lt;/p&gt;
-
-&lt;p&gt;그리고.. 오늘의(미래의)나는 과거의 나를 욕하면서 뜯어 고치거나, 무시해버린다.&lt;/p&gt;
-
-&lt;p&gt;또 다른 경우는 동료가 나에게 서프라이즈 선물로 준다.&lt;/p&gt;
-
-&lt;p&gt;이 또한 욕을 하면서 뜯어 고치거나, 무시해버린다.&lt;/p&gt;
-
-&lt;p&gt;다만, 내가 발전하는 경우는 뜯고 고치는 작업에서 발생한다.&lt;/p&gt;
-
-&lt;p&gt;나를 돌아보고, 동료와 소통하면서 발전하게 된다.&lt;/p&gt;
-
-&lt;h2 id=&quot;오늘도-부채를-탕감해보자&quot;&gt;오늘도 부채를 탕감해보자!&lt;/h2&gt;</content><category term="단상" /><summary type="html">최신 기술에 대하여 사용법만 인지하고 이해를 못하는 경우 발생하는 문제</summary></entry></feed>
+&lt;h2 id=&quot;나를-되돌아보는-시간이었습니다&quot;&gt;나를 되돌아보는 시간이었습니다.&lt;/h2&gt;</content><category term="단상" /><summary type="html">면접을 보는 사람을 배려하도록 노력하였다.</summary></entry></feed>
