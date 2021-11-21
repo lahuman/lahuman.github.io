@@ -1,4 +1,256 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2021-10-30T22:48:32+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">ssh tunneling으로 port forword</title><link href="https://lahuman.github.io/ssh_tunneling/" rel="alternate" type="text/html" title="ssh tunneling으로 port forword" /><published>2021-10-21T00:00:00+09:00</published><updated>2021-10-21T00:00:00+09:00</updated><id>https://lahuman.github.io/ssh_tunneling</id><content type="html" xml:base="https://lahuman.github.io/ssh_tunneling/">&lt;h1 id=&quot;ssh-tunneling으로-port-forword&quot;&gt;ssh tunneling으로 port forword&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://lahuman.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2021-11-21T21:13:22+09:00</updated><id>https://lahuman.github.io/</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">CentOS 에서 puppeteer 실행시 libxkbcommon.so.0를 못찾을때 처리 방법</title><link href="https://lahuman.github.io/puppeteer_libxkbcommon/" rel="alternate" type="text/html" title="CentOS 에서 puppeteer 실행시 libxkbcommon.so.0를 못찾을때 처리 방법" /><published>2021-11-19T00:00:00+09:00</published><updated>2021-11-19T00:00:00+09:00</updated><id>https://lahuman.github.io/puppeteer_libxkbcommon</id><content type="html" xml:base="https://lahuman.github.io/puppeteer_libxkbcommon/">&lt;h1 id=&quot;centos-에서-puppeteer-실행시-libxkbcommonso0를-못찾을때-처리-방법&quot;&gt;CentOS 에서 puppeteer 실행시 libxkbcommon.so.0를 못찾을때 처리 방법&lt;/h1&gt;
+
+&lt;p&gt;CentOS에서 node 기반의 puppeteer를 실생하 다음과 같은 오류를 만났다&lt;/p&gt;
+
+&lt;h3 id=&quot;발생-에러-로그&quot;&gt;발생 에러 로그&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;16300&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;UnhandledPromiseRejectionWarning&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Error&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Failed&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;launch&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;the&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;brows&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;er&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;process&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;applications&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;service&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;teamstokengen&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;node_modules&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;puppeteer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;local&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;chromium&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;linux&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;901912&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;chrome&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;linux&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;chrome&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;loading&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;shared&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;libraries&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;libxkbcommon&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;so&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cannot&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;open&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;shared&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;object&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;No&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;such&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;file&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;directory&lt;/span&gt; 
+
+&lt;span class=&quot;nx&quot;&gt;TROUBLESHOOTING&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;https&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;://&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;github&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;puppeteer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;puppeteer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;blob&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;docs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;troubleshooting&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;md&lt;/span&gt;
+
+ &lt;span class=&quot;nx&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;onClose&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;applications&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;service&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;teamstokengen&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;node_modules&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;puppeteer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;lib&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;js&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;puppeteer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;BrowserRunner&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;js&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;203&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Interface&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;anonymous&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;applications&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;service&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;teamstokengen&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;node_modules&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;uppeteer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;lib&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;cjs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;puppeteer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;BrowserRunner&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;js&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;193&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;68&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Interface&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;emit&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;events&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;js&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;326&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;22&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Interface&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;close&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;readline&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;js&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;416&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Socket&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;onend&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;readline&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;js&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;194&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Socket&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;emit&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;events&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;js&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;326&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;22&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;endReadableNT&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;_stream_readable&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;js&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1223&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;processTicksAndRejections&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;internal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;process&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;task_queues&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;js&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;84&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;21&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;16300&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;UnhandledPromiseRejectionWarning&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Unhandled&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;promise&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;rejection&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;This&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;originated&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;either&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;by&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;throwing&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;inside&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;of&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;an&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;without&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;block&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;by&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;rejecting&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;promise&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;which&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;was&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;not&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;handled&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;To&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;termin&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ate&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;the&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;node&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;process&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;on&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;unhandled&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;promise&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;rejection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;the&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;CLI&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;flag&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`--unhandl ed-rejections=strict`&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;see&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;https&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;://&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;nodejs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;org&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;api&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;cli&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;html&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#cli_unhandled_rejecti ons_mode). (rejection id: 1) (node:16300) [DEP0018] DeprecationWarning: Unhandled promise rejections are depr ecated. In the future, promise rejections that are not handled will terminate th e Node.js process with a non-zero exit code.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;해결방법으로는 다음 모듈을 설치하면된다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ yum install libxkbcommon-x11
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;원인으로는 x11 라이브러리 부재 문제로 실행이 안되었다.&lt;/p&gt;
+
+&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/66795309/how-to-solve-puppeteer-failed-to-launch-the-browser-process&quot;&gt;How to solve Puppeteer: failed to launch the browser process&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="puppeteer" /><category term="libxkbcommon" /><category term="centos" /><summary type="html">puppeteer 실행시 발생하는 오류</summary></entry><entry><title type="html">지난 3년간 gsshop에서의 경험을 공유 합니다.</title><link href="https://lahuman.github.io/3years/" rel="alternate" type="text/html" title="지난 3년간 gsshop에서의 경험을 공유 합니다." /><published>2021-11-14T00:00:00+09:00</published><updated>2021-11-14T00:00:00+09:00</updated><id>https://lahuman.github.io/3years</id><content type="html" xml:base="https://lahuman.github.io/3years/">&lt;h1 id=&quot;지난-3년을-되돌아-보며&quot;&gt;지난 3년을 되돌아 보며…&lt;/h1&gt;
+
+&lt;h2 id=&quot;0-지난-3년을-되돌아-보며-어떤-업무를-했는지에-대한-기록&quot;&gt;0. 지난 3년을 되돌아 보며, 어떤 업무를 했는지에 대한 기록&lt;/h2&gt;
+
+&lt;h3 id=&quot;2018--2019년도&quot;&gt;2018 ~ 2019년도&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;“생방송 대시보드” 서비스 개발 :: 현재 상품의 상담원， ARS 콜， 모바일 주문 고객 반응을 확인&lt;/li&gt;
+  &lt;li&gt;“상품 360” 서비스 개발  ::  신상품 등록은 어떤 것들이 되는지， 지금 많이 판매되고 있는 상품을 확인&lt;/li&gt;
+  &lt;li&gt;“심의포탈” 서비스 개발 :: 내가 진행하는 방송 전에 관련 아이템의 심의 주의사항을 확인하고 방송 종료 후 심의 결과를 확인&lt;/li&gt;
+  &lt;li&gt;“디모 (디지털툴 모음)” 서비스 개발 :: 현업이 사용하는 디지털 툴을 직무별로 모아서 확인&lt;/li&gt;
+  &lt;li&gt;“Auth몬” 서비스 개발 :: 클라우드 서비스에 인증/권한 기능을 제공&lt;/li&gt;
+  &lt;li&gt;“Q-FIT” 서비스 개발 :: QA활동 데이터， 품질 지표를 종합하여， 상품군별 협력업체 현황을 확인&lt;/li&gt;
+  &lt;li&gt;“Trend몬” 서비스 개발 :: 인스타그램에서 트렌드 파악에 도움이 되는 정보를 확인&lt;/li&gt;
+  &lt;li&gt;“직매입대시보드” 프로토타입 개발 :: 지속적인 직매입 확대를 위해 쉽고 빠른 제고 현황을 확인을 지원&lt;/li&gt;
+  &lt;li&gt;“Shopee” 프로토타입 개발 :: 동남아권에서 가장 유명한 쇼핑몰의 인기 상품 정보를 제공하여 해외 사업부의 상품 소싱을 지원&lt;/li&gt;
+  &lt;li&gt;“LMS몬” 서비스 개발 :: 고객의 LMS 수신이후 구매까지 되었는지에 대한 데이터를 제공&lt;/li&gt;
+  &lt;li&gt;클라우드 구조 개선
+    &lt;ul&gt;
+      &lt;li&gt;클라우드 서비스에 레가시 데이터를 API로 제공하는 51Collector 개발&lt;/li&gt;
+      &lt;li&gt;클라우드 서비스 배포에 대한 CI/CD 구성 진행&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;2020년도&quot;&gt;2020년도&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;상품 360 사용성 개선
+    &lt;ul&gt;
+      &lt;li&gt;저화질이미지 조회 및 교체&lt;/li&gt;
+      &lt;li&gt;키워드검색 기능&lt;/li&gt;
+      &lt;li&gt;조회편의기능: 로그인， 검색조건저장&lt;/li&gt;
+      &lt;li&gt;베스트상품캐시처리&lt;/li&gt;
+      &lt;li&gt;실시간실적 배치 속도개선&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;행봇(통합접수 프로세스)
+    &lt;ul&gt;
+      &lt;li&gt;행봇 백엔드 서비스 개발&lt;/li&gt;
+      &lt;li&gt;워크플레이스， Jira 연동 기능 개발&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;HTML5 UI 컴포넌트 분석
+    &lt;ul&gt;
+      &lt;li&gt;(Miplatform 대안 기술 적용) - MiPlatform 임베디드 브라우저 검증&lt;/li&gt;
+      &lt;li&gt;React 라이브러리 비교 (Polyfill 호환성 해결， 성능 개선)&lt;/li&gt;
+      &lt;li&gt;기간계 디자인 시스템 필요성 논의&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;개발서버 Kubernetes 구축 (15개 서비스 활용)&lt;/li&gt;
+  &lt;li&gt;AWS 클라우드 표준 아키텍쳐 적용
+    &lt;ul&gt;
+      &lt;li&gt;신규 클라우드 환경 구축&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;상품평 통합 허브 구축
+    &lt;ul&gt;
+      &lt;li&gt;이슈 키워드 기반 상품평 분석&lt;/li&gt;
+      &lt;li&gt;Issue Finder 신규 화면 추가&lt;/li&gt;
+      &lt;li&gt;이슈 키워드별 상품평 조회 API 개발&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;상품속성(초개인화큐레이션用)관리 v1.0
+    &lt;ul&gt;
+      &lt;li&gt;상품속성 태그 관리 기능 개발&lt;/li&gt;
+      &lt;li&gt;상품속성 대상 상품 목록&lt;/li&gt;
+      &lt;li&gt;상품별 상품속성 상세&lt;/li&gt;
+      &lt;li&gt;상품속성 마이그레이션 (1，2차)&lt;/li&gt;
+      &lt;li&gt;상품속성 인터페이스 (아이겐)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Workplace 운영
+    &lt;ul&gt;
+      &lt;li&gt;신규 계정 생성&lt;/li&gt;
+      &lt;li&gt;계정 동기화 문제 처리&lt;/li&gt;
+      &lt;li&gt;Workplace 반응 조회 서비스 개발&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;2021년도&quot;&gt;2021년도&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;OSS 통합 관리 시스템
+    &lt;ul&gt;
+      &lt;li&gt;업무 플로어 기획 &amp;amp; 정의&lt;/li&gt;
+      &lt;li&gt;화면 프로토타입 구성 &amp;amp; 검증&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;TONG 기능 추가 :: 봇 &amp;amp; 메일 &amp;amp; SMS 발송 API
+    &lt;ul&gt;
+      &lt;li&gt;Workplace 대화방 생성&lt;/li&gt;
+      &lt;li&gt;Workplace 대화 상대 초대/강퇴 기능&lt;/li&gt;
+      &lt;li&gt;메일 발송 기능 개발&lt;/li&gt;
+      &lt;li&gt;발송 Audit 기능 개발&lt;/li&gt;
+      &lt;li&gt;clientId / secretKey 추가&lt;/li&gt;
+      &lt;li&gt;TONG SDK 개발 (node， java)&lt;/li&gt;
+      &lt;li&gt;SMS 발송 기능 개발&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;배치툴 개선
+    &lt;ul&gt;
+      &lt;li&gt;배치 Jenkins 설정
+        &lt;ul&gt;
+          &lt;li&gt;권한 처리&lt;/li&gt;
+          &lt;li&gt;Grouping 처리&lt;/li&gt;
+          &lt;li&gt;SSO 연동 처리&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Spring batch 샘플 작성
+        &lt;ul&gt;
+          &lt;li&gt;Spring batch Meta 정보 저장 처리&lt;/li&gt;
+          &lt;li&gt;Spring batch Meta Dashboard 개발&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Spring batch starterpack 소스 작성&lt;/li&gt;
+      &lt;li&gt;가이드 문서 작성&lt;/li&gt;
+      &lt;li&gt;사용자 관리 지원&lt;/li&gt;
+      &lt;li&gt;프로젝트 관리 지원&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;기간계 디자인 시스템
+    &lt;ul&gt;
+      &lt;li&gt;GuiSelect / GuiDatePicker / GuiDateRange 등 주요 엘리먼트 추가&lt;/li&gt;
+      &lt;li&gt;Typescript 적용&lt;/li&gt;
+      &lt;li&gt;소스 배포 설정&lt;/li&gt;
+      &lt;li&gt;Template 예제 작성 &amp;amp; public repository 사용&lt;/li&gt;
+      &lt;li&gt;GuiIcon 자동 생성 처리&lt;/li&gt;
+      &lt;li&gt;컴포넌트 이미지 다운로드 기능 개발&lt;/li&gt;
+      &lt;li&gt;MUI 5.0 적용&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;행봇 운영
+    &lt;ul&gt;
+      &lt;li&gt;검색 품질 카테고리 추가&lt;/li&gt;
+      &lt;li&gt;DB 이관 작업 (AWS ==&amp;gt; IDC)&lt;/li&gt;
+      &lt;li&gt;행봇 고도화 진행&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;클라우드 구조 개선
+    &lt;ul&gt;
+      &lt;li&gt;MongoDB 서버 이관 &amp;amp; 데이터 마이그레이션&lt;/li&gt;
+      &lt;li&gt;EC2 서버 신규 VPC 이관 &amp;amp; 보안 OS 적용&lt;/li&gt;
+      &lt;li&gt;RDS 서버 이관 &amp;amp; 데이터 마이그레이션&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;워크플레이스 운영
+    &lt;ul&gt;
+      &lt;li&gt;장애 문의 &amp;amp; 확인 &amp;amp; 테스트&lt;/li&gt;
+      &lt;li&gt;Workplace group 데이터 추출&lt;/li&gt;
+      &lt;li&gt;신규 계정 추가&lt;/li&gt;
+      &lt;li&gt;이벤트 지원&lt;/li&gt;
+      &lt;li&gt;장애 요청 처리&lt;/li&gt;
+      &lt;li&gt;계정 생성 지원&lt;/li&gt;
+      &lt;li&gt;계정 동기화 지원&lt;/li&gt;
+      &lt;li&gt;메일 미발송 처리 재처리&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;OSS 스퀘어 분석 &amp;amp; 설계
+    &lt;ul&gt;
+      &lt;li&gt;Backend core 구축&lt;/li&gt;
+      &lt;li&gt;BOT 처리 구현&lt;/li&gt;
+      &lt;li&gt;첨부파일 처리&lt;/li&gt;
+      &lt;li&gt;Backend For Frontend 구축&lt;/li&gt;
+      &lt;li&gt;보안 OTP 연동 처리&lt;/li&gt;
+      &lt;li&gt;Activity 추가 (댓글 기능 개발)&lt;/li&gt;
+      &lt;li&gt;의뢰 목록 활성화 처리&lt;/li&gt;
+      &lt;li&gt;일정 색상 변경&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;TEAMS 봇 확인
+    &lt;ul&gt;
+      &lt;li&gt;TEAMS API 확인&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;신규 MongoDB 구축 진행
+    &lt;ul&gt;
+      &lt;li&gt;데이터 마이그레이션 진행&lt;/li&gt;
+      &lt;li&gt;구 MongoDB 종료&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;합병으로 발생한 문제 지원
+    &lt;ul&gt;
+      &lt;li&gt;Workplace SCIM API 확인&lt;/li&gt;
+      &lt;li&gt;AuthMon 로그인 실패&lt;/li&gt;
+      &lt;li&gt;행봇 계정 오류 지원&lt;/li&gt;
+      &lt;li&gt;역삼 근무 직원의 행봇 접근 문제 지원&lt;/li&gt;
+      &lt;li&gt;SSO 연동 변경&lt;/li&gt;
+      &lt;li&gt;workplace 계정 수동 처리&lt;/li&gt;
+      &lt;li&gt;이노봇 창작촌 2차 인증 문제 처리&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;CMS 대시보드 분석 설계
+    &lt;ul&gt;
+      &lt;li&gt;CMS 대시보드 구축 진행&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;1-지난-3년의-내-경험은&quot;&gt;1. 지난 3년의 내 경험은?&lt;/h2&gt;
+
+&lt;p&gt;지난 3년간 대부분 3~5 Page 범위의 MVP(Minimum Viable Product, 이하 MVP)를 개발하였습니다. 
+아쉬운 부분은 과반수의 프로젝트는 많이 사용되지 않아 종료되었습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;물론 현재까지 사용되고 있는 서비스도 있으나, 서비스의 질을 높이기보다 계속 새로운 MVP를 개발하고 있습니다. 
+이 부분에서 스스로 소비되고 있음을 느꼈습니다. 또한 작은 서비스를 계속 개발하면서 개발자로서 발전 가능한 한계를 느끼고 있습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;2-회사에서-배운-것--새로-배운-것-경험한-것&quot;&gt;2. 회사에서 배운 것 : 새로 배운 것, 경험한 것&lt;/h2&gt;
+
+&lt;p&gt;애자일, 스크럼, 디자인 싱킹 등의 문화에 대하여 배웠습니다. 
+스탠퍼드 대학에서 제공하는 교육과 GS 내의 문제를 해결하는 52g 활동과 2주간 빠르게 MVP를 만들어서 고객에게 리뷰하는 스크럼 등을 해보면서 빠르게 실패하고, 문제의 본질을 이해하는 게 얼마나 중요한지를 배웠습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;그리고 NodeJS와 ReactJS, 서버 관리(AWS), CI/CD(빌드, 배포), Swagger(API 문서화), JIRA/confluence, 기간계 디자인 시스템, 배치 센터 등 개발부터 서버 관리 운영까지의 DevOps 역할도 배웠습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;이외에도 해커톤, 북클럽, 뭉클, 상상초월, 서문래 프로젝트 등의 여러 이벤트를 경험하면서 동료들과 함께 하는 즐거움을 배웠습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;3-결과적으로&quot;&gt;3. 결과적으로&lt;/h2&gt;
+
+&lt;p&gt;나에게 &lt;code class=&quot;highlighter-rouge&quot;&gt;GSSHOP&lt;/code&gt;은 정말 &lt;code class=&quot;highlighter-rouge&quot;&gt;매력적인 회사&lt;/code&gt;입니다.&lt;/p&gt;
+
+&lt;p&gt;지난 3년간 많은 것을 배웠습니다. 특히 &lt;code class=&quot;highlighter-rouge&quot;&gt;좋은 동료&lt;/code&gt;와 &lt;code class=&quot;highlighter-rouge&quot;&gt;스스로 발전할 수 있는 기회&lt;/code&gt;를 받았습니다.&lt;/p&gt;
+
+&lt;p&gt;GSSHOP에서는 다른 사람이 아닌 나 자신을 위해서 &lt;code class=&quot;highlighter-rouge&quot;&gt;본인의 미래를 결정하고 발전&lt;/code&gt;해나갈 수 있는 장소라 생각합니다.&lt;/p&gt;</content><category term="정리" /><summary type="html">입사 3주년 기념 정리</summary></entry><entry><title type="html">ssh tunneling으로 port forword</title><link href="https://lahuman.github.io/ssh_tunneling/" rel="alternate" type="text/html" title="ssh tunneling으로 port forword" /><published>2021-10-21T00:00:00+09:00</published><updated>2021-10-21T00:00:00+09:00</updated><id>https://lahuman.github.io/ssh_tunneling</id><content type="html" xml:base="https://lahuman.github.io/ssh_tunneling/">&lt;h1 id=&quot;ssh-tunneling으로-port-forword&quot;&gt;ssh tunneling으로 port forword&lt;/h1&gt;
 
 &lt;p&gt;특정 서비스 DBMS에 접근을 해야 하는 일이 있는데, 기본적으로 DBMS에 접근 가능한 서버는 외부에서 접근이 불가능한 상태입니다.&lt;/p&gt;
 
@@ -382,121 +634,4 @@ export default function App() {
 &lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/onpaste&quot;&gt;HTMLElement.onpaste&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="onpaste" /><category term="contentEditable" /><summary type="html">클립보드의 이미지를 업로드 후 화면 표기 처리</summary></entry><entry><title type="html">WSL의 서버를 host(window)에서 접근 하는 방법</title><link href="https://lahuman.github.io/wls_port_forwarding/" rel="alternate" type="text/html" title="WSL의 서버를 host(window)에서 접근 하는 방법" /><published>2021-07-28T00:00:00+09:00</published><updated>2021-07-28T00:00:00+09:00</updated><id>https://lahuman.github.io/wls_port_forwarding</id><content type="html" xml:base="https://lahuman.github.io/wls_port_forwarding/">&lt;h1 id=&quot;wsl-내에서-웹서버를-띄어서-확인이-안되는-경우-다음과-같이-처리-하여-주세요&quot;&gt;WSL 내에서 웹서버를 띄어서 확인이 안되는 경우 다음과 같이 처리 하여 주세요.&lt;/h1&gt;
-
-&lt;p&gt;port foward를 위해서는 &lt;a href=&quot;https://docs.microsoft.com/en-us/windows-server/networking/technologies/netsh/netsh&quot;&gt;Netsh&lt;/a&gt;를 이용할 예정입니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;1-net-tools를-wsl-안에-설치-하기&quot;&gt;1. net-tools를 WSL 안에 설치 하기&lt;/h2&gt;
-
-&lt;p&gt;ubuntu 기준으로 다음의 명령어를 이용해서 설치 합니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt install net-tools
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;powser-shell-실행-파일-생성하기&quot;&gt;powser shell 실행 파일 생성하기&lt;/h2&gt;
-
-&lt;p&gt;Netsh 설정이된 ps1 의 확장자를 가진 파일을 생성합니다.&lt;/p&gt;
-
-&lt;p&gt;다음을 &lt;code class=&quot;highlighter-rouge&quot;&gt;network.ps1&lt;/code&gt; 이라는 파일을 생성합니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;If (-NOT ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] &quot;Administrator&quot;)) {   
-  $arguments = &quot;&amp;amp; '&quot; + $myinvocation.mycommand.definition + &quot;'&quot;
-  Start-Process powershell -Verb runAs -ArgumentList $arguments
-  Break
-}
-
-$remoteport = bash.exe -c &quot;ifconfig eth0 | grep 'inet '&quot;
-$found = $remoteport -match '\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}';
-
-if ($found) {
-  $remoteport = $matches[0];
-}
-else {
-  Write-Output &quot;IP address could not be found&quot;;
-  exit;
-}
-
-$ports = @(3000, 5500, 8080);
-
-Invoke-Expression &quot;netsh interface portproxy reset&quot;;
-
-for ($i = 0; $i -lt $ports.length; $i++) {
-  $port = $ports[$i];
-  Invoke-Expression &quot;netsh interface portproxy add v4tov4 listenport=$port connectport=$port connectaddress=$remoteport&quot;;
-  Invoke-Expression &quot;netsh advfirewall firewall add rule name=$port dir=in action=allow protocol=TCP localport=$port&quot;;
-}
-
-Invoke-Expression &quot;netsh interface portproxy show v4tov4&quot;;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;여기서 중요한 것은 &lt;code class=&quot;highlighter-rouge&quot;&gt;$ports = @(3000, 5500, 8080);&lt;/code&gt; 부분입니다.&lt;/p&gt;
-
-&lt;p&gt;forward 할 port를 작성합니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;3-실행하기&quot;&gt;3. 실행하기&lt;/h2&gt;
-
-&lt;p&gt;powser shell에서 실행을 하면 다음과 같은 오류 메시지를 받을 수 있습니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; $&amp;gt; .\network.ps1
-.\network.ps1 : 이 시스템에서 스크립트를 실행할 수 없으므로 C:\DEV\network.ps1 파일을 로드할 수 없습니다. 자세한
-내용은 about_Execution_Policies(https://go.microsoft.com/fwlink/?LinkID=135170)를 참조하십시오.
-위치 줄:1 문자:1
-+ .\network.ps1
-+ ~~~~~~~~~~~~~
-    + CategoryInfo          : 보안 오류: (:) [], PSSecurityException
-    + FullyQualifiedErrorId : UnauthorizedAccess
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;해결을 위해서 powser shell을 &lt;code class=&quot;highlighter-rouge&quot;&gt;관리자&lt;/code&gt; 모드로 실행하고, &lt;code class=&quot;highlighter-rouge&quot;&gt;Set-ExecutionPolicy -ExecutionPolicy RemoteSigned&lt;/code&gt; 명령어로 실행 규칙을 변경합니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$&amp;gt; Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
-
-실행 규칙 변경
-실행 정책은 신뢰하지 않는 스크립트로부터 사용자를 보호합니다. 실행 정책을 변경하면 about_Execution_Policies 도움말
-항목(https://go.microsoft.com/fwlink/?LinkID=135170)에 설명된 보안 위험에 노출될 수 있습니다. 실행 정책을
-변경하시겠습니까?
-[Y] 예(Y)  [A] 모두 예(A)  [N] 아니요(N)  [L] 모두 아니요(L)  [S] 일시 중단(S)  [?] 도움말 (기본값은 &quot;N&quot;): Y
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;이후 다시 실행하면 다음과 같이 정상 동작을 확인 할 수 있습니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$&amp;gt; .\network.ps1
-
-
-확인됨
-
-
-확인됨
-
-
-확인됨
-
-
-ipv4 수신 대기:             ipv4에 연결:
-
-주소            포트        주소            포트
---------------- ----------  --------------- ----------
-*               5500        192.168.254.148 5500
-*               3000        192.168.254.148 3000
-*               8080        192.168.254.148 8080
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;4-테스트&quot;&gt;4. 테스트&lt;/h2&gt;
-
-&lt;p&gt;WSL에서 5500 포트로 웹을 띄우과 브라우져에서 접속하여 확인하면 잘 동작 하는 것을 확인 할 수 있습니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://dev.to/vishnumohanrk/wsl-port-forwarding-2e22&quot;&gt;WSL Port Forwarding&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://oyeahhh.tistory.com/170&quot;&gt;[PowerShell] Error: 이 시스템에서 스크립트를 실행할 수 없으므로 …&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="wsl" /><category term="port" /><category term="forwrding" /><summary type="html">WSL2를 사용하면서 host에서 특정 port 연결</summary></entry><entry><title type="html">면접관으로 몇 일간 면접을 보았다.</title><link href="https://lahuman.github.io/20210728/" rel="alternate" type="text/html" title="면접관으로 몇 일간 면접을 보았다." /><published>2021-07-28T00:00:00+09:00</published><updated>2021-07-28T00:00:00+09:00</updated><id>https://lahuman.github.io/20210728</id><content type="html" xml:base="https://lahuman.github.io/20210728/">&lt;h1 id=&quot;회사에-사람을-뽑기-위해서-인력을-찾고-면접을-보았습니다&quot;&gt;회사에 사람을 뽑기 위해서 인력을 찾고 면접을 보았습니다.&lt;/h1&gt;
-
-&lt;p&gt;면접관으로 자리에 앉아있었지만, 면접보는 사람을 배려하는 시간을 가졌습니다.&lt;/p&gt;
-
-&lt;p&gt;꼭 알맞은 사람을 찾지 못했지만, 많은 생각을 한 시간이었습니다.&lt;/p&gt;
-
-&lt;p&gt;또 부족한 나를 다시 한번 생각하게된 시간이었습니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;나를-되돌아보는-시간이었습니다&quot;&gt;나를 되돌아보는 시간이었습니다.&lt;/h2&gt;</content><category term="단상" /><summary type="html">면접을 보는 사람을 배려하도록 노력하였다.</summary></entry></feed>
+&lt;/ul&gt;</content><category term="onpaste" /><category term="contentEditable" /><summary type="html">클립보드의 이미지를 업로드 후 화면 표기 처리</summary></entry></feed>
