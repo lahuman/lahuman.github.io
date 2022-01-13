@@ -86,7 +86,27 @@
     <span class="n">spec</span><span class="p">.</span><span class="nf">customize</span> <span class="p">[</span> <span class="s2">"modifyvm"</span><span class="p">,</span> <span class="ss">:id</span><span class="p">,</span> <span class="s2">"--uartmode1"</span><span class="p">,</span> <span class="s2">"disconnected"</span> <span class="p">]</span>
   <span class="k">end</span>
 <span class="k">end</span>
-</code></pre></div></div> <h3 id="63-ssh-timeout-오류-발생시">6.3 ssh timeout 오류 발생시</h3> <p><img src="/assets/img/post_img/vagrant_error_ssh_timeout.png" alt="" /></p> <p>ssh 접근시 timeout의 경우는 단순하게 VM이 완전히 기동되지 않아서 발생하는 문제일 가능성이 높습니다.</p> <p>VirutalBox의 VM 상태를 확인하고 다시 <code class="language-plaintext highlighter-rouge">vagrant up</code> 명령어를 실행하면 정상 기동 되었습니다.</p> <h3 id="64-wsl2-에서-private-key-permissions-오류-발생시-또는-chmod-동작-안할-시-처리-방안">6.4 wsl2 에서 private-key Permissions 오류 발생시 또는 chmod 동작 안할 시 처리 방안</h3> <p>아래와 같은 오류가 발생한거나, <code class="language-plaintext highlighter-rouge">/mnt/c/User/lahum</code> 이하 디렉토리 또는 파일이 <code class="language-plaintext highlighter-rouge">0777</code> 권한을 가지고 있다면,</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+</code></pre></div></div> <h3 id="63-ssh-timeout-오류-발생시">6.3 ssh timeout 오류 발생시</h3> <p><img src="/assets/img/post_img/vagrant_error_ssh_timeout.png" alt="" /></p> <p>ssh 접근시 timeout의 경우는 단순하게 VM이 완전히 기동되지 않아서 발생하는 문제일 가능성이 높습니다.</p> <p>VirutalBox의 VM 상태를 확인하고 다시 <code class="language-plaintext highlighter-rouge">vagrant up</code> 명령어를 실행하면 정상 기동 되었습니다.</p> <p>다른 방법으로 <code class="language-plaintext highlighter-rouge">Vagrantfile</code>에 아래와 같이 timeout 시간을 지정할 수 있습니다.</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Vagrant.configure<span class="o">(</span><span class="s2">"2"</span><span class="o">)</span> <span class="k">do</span> |config|
+  <span class="c"># timout 변경 처리 기본 값은 300 입니다.</span>
+  config.vm.boot_timeout <span class="o">=</span> 1800
+  config.vm.box <span class="o">=</span> <span class="s2">"ubuntu/focal64"</span>
+  config.vm.box_version <span class="o">=</span> <span class="s2">"20211026.0.0"</span>
+  config.vm.provision <span class="s2">"shell"</span>, inline: <span class="s2">"echo 'sudo su -' &gt;&gt; .bashrc"</span>
+  config.vm.provision <span class="s2">"shell"</span>, inline: <span class="s2">"apt update"</span>
+  config.vm.provision <span class="s2">"shell"</span>, inline: <span class="s2">"apt install -y conntrack bridge-utils net-tools resolvconf jq tree"</span>
+  config.vm.provision <span class="s2">"shell"</span>, inline: <span class="s2">"echo 'nameserver 8.8.8.8' &gt; /etc/resolvconf/resolv.conf.d/head"</span>
+  config.vm.provision <span class="s2">"shell"</span>, inline: <span class="s2">"resolvconf -u"</span>
+  config.vm.network <span class="s2">"private_network"</span>, ip: <span class="s2">"192.168.50.10"</span>
+  config.vm.network <span class="s2">"forwarded_port"</span>, guest: 22, host: 60510, auto_correct: <span class="nb">true</span>, <span class="nb">id</span>: <span class="s2">"ssh"</span>
+  config.vm.synced_folder <span class="s2">"./"</span>, <span class="s2">"/vagrant"</span>, disabled: <span class="nb">true
+  </span>config.vm.provider <span class="s2">"virtualbox"</span> <span class="k">do</span> |spec|
+    spec.memory <span class="o">=</span> <span class="s2">"2048"</span>
+    spec.cpus <span class="o">=</span> <span class="s2">"2"</span>
+    spec.linked_clone <span class="o">=</span> <span class="nb">true
+    </span>spec.customize <span class="o">[</span> <span class="s2">"modifyvm"</span>, :id, <span class="s2">"--uartmode1"</span>, <span class="s2">"disconnected"</span> <span class="o">]</span>
+  end
+end
+</code></pre></div></div> <h3 id="64-wsl2-에서-private-key-permissions-오류-발생시-또는-chmod-동작-안할-시-처리-방안">6.4 wsl2 에서 private-key Permissions 오류 발생시 또는 chmod 동작 안할 시 처리 방안</h3> <p>아래와 같은 오류가 발생한거나, <code class="language-plaintext highlighter-rouge">/mnt/c/User/lahum</code> 이하 디렉토리 또는 파일이 <code class="language-plaintext highlighter-rouge">0777</code> 권한을 가지고 있다면,</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 @         WARNING: UNPROTECTED PRIVATE KEY FILE!          @
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 Permissions 0777 <span class="k">for</span> <span class="s1">'/home/lahuman/.ssh/private-key.pem'</span> are too open.
