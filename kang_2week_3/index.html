@@ -1,0 +1,127 @@
+<!DOCTYPE html> <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]--> <!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8"><![endif]--> <!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9"><![endif]--> <!--[if gt IE 8]><!--> <html class="no-js"><!--<![endif]--> <head> <meta charset="UTF-8"> <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"> <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1"> <title>#2 파드소개 & PAUSE 컨테이너 &#8211; lahuman</title> <meta name="description" content="열심히 사는 아저씨"> <meta name="keywords" content="kang, cni, flannel"> <!-- Twitter Cards --> <meta name="twitter:card" content="summary"> <meta name="twitter:image" content="https://lahuman.github.io/assets/img/logo.png"> <meta name="twitter:title" content="#2 파드소개 & PAUSE 컨테이너"> <meta name="twitter:description" content="Kubernetes Advanced Networking Study"> <!-- Open Graph --> <meta property="og:locale" content="ko_KR"> <meta property="og:type" content="article"> <meta property="og:title" content="#2 파드소개 & PAUSE 컨테이너"> <meta property="og:description" content="Kubernetes Advanced Networking Study"> <meta property="og:url" content="https://lahuman.github.io/kang_2week_3/"> <meta property="og:site_name" content="lahuman"> <meta property="og:image" content="https://lahuman.github.io/assets/img/logo.png"> <link rel="canonical" href="https://lahuman.github.io/kang_2week_3/"> <link href="https://lahuman.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="lahuman Feed"> <!-- Handheld --> <meta name="HandheldFriendly" content="True"> <meta name="MobileOptimized" content="320"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- CSS --> <link rel="stylesheet" href="https://lahuman.github.io/assets/css/main.css"> <!-- JS --> <script src="https://lahuman.github.io/assets/js/modernizr-3.3.1.custom.min.js"></script> <!-- Favicons --> <link rel="apple-touch-icon" href="https://lahuman.github.io/assets/img/favicons/apple-icon-precomposed.png"> <link rel="apple-touch-icon" sizes="72x72" href="https://lahuman.github.io/assets/img/favicons/apple-icon-72x72.png"> <link rel="apple-touch-icon" sizes="114x114" href="https://lahuman.github.io/assets/img/favicons/apple-icon-114x114.png"> <link rel="apple-touch-icon" sizes="144x144" href="https://lahuman.github.io/assets/img/favicons/apple-icon-144x144.png"> <link rel="shortcut icon" type="image/png" href="https://lahuman.github.io/favicon.png" /> <link rel="shortcut icon" href="https://lahuman.github.io/favicon.ico" /> <!-- Background Image --> <style type="text/css">body {background-image:url(https://lahuman.github.io/assets/img/placeholder-big.jpg); background-repeat: no-repeat; background-size: cover; }</style> <!-- Post Feature Image --> </head> <body> <nav id="dl-menu" class="dl-menuwrapper" role="navigation"> <button class="dl-trigger">Open Menu</button> <ul class="dl-menu"> <li><a href="https://lahuman.github.io/">Home</a></li> <li> <a href="#">About</a> <ul class="dl-submenu"> <li> <img src="https://lahuman.github.io/assets/img/logo.png" alt="lahuman photo" class="author-photo"> <h4>lahuman</h4> <p>열심히 사는 아저씨</p> </li> <li><a href="https://lahuman.github.io/about/"><span class="btn btn-inverse">Learn More</span></a></li> <li> <a href="http://facebook.com/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-facebook-square"></i> Facebook</a> </li> <li> <a href="http://linkedin.com/in/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-linkedin-square"></i> LinkedIn</a> </li> <li> <a href="http://github.com/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-github"></i> Github</a> </li> </ul><!-- /.dl-submenu --> </li> <li> <a href="#">Posts</a> <ul class="dl-submenu"> <li><a href="https://lahuman.github.io/posts/">All Posts</a></li> <li><a href="https://lahuman.github.io/tags/">All Tags</a></li> </ul> </li> <li><a href="https://lahuman.github.io/projects/" >Projects</a></li> </ul><!-- /.dl-menu --> </nav><!-- /.dl-menuwrapper --> <!-- Header --> <header class="header" role="banner"> <div class="wrapper animated fadeIn"> <div class="content"> <div class="post-title "> <h1>#2 파드소개 & PAUSE 컨테이너</h1> <h4>19 Jan 2022</h4> <p class="reading-time"> <i class="fa fa-clock-o"></i> Reading time ~5 minutes </p><!-- /.entry-reading-time --> <a class="btn zoombtn" href="https://lahuman.github.io/projects/"> <i class="fa fa-chevron-left"></i> </a> </div> <h1 id="파드소개--pause-컨테이너">파드소개 &amp; PAUSE 컨테이너</h1> <ul> <li><code class="language-plaintext highlighter-rouge">파드(Pod)</code> : K8s 에서는 <strong>컨테이너 애플리케이션</strong>의 기본 단위를 파드(Pod)라고 부르며, 파드는 1개 이상의 컨테이너로 구성된 컨테이너의 집합입니다. - <a href="https://kubernetes.io/docs/concepts/workloads/pods/">링크</a> <a href="https://github.com/kubernetes/kubernetes/tree/master/build/pause/linux">code</a></li> </ul> <p><img src="/assets/img/post_img/kang_2week_19.png" alt="" /></p> <ul> <li>Pod 는 1개 이상의 컨테이너를 가질 수 있습니다 ==&gt; sidecar 패턴 등 - <a href="https://dev.to/afrocoder/deploying-squid-in-k3s-on-a-rpi4b-1nic">링크</a></li> <li>Pod 내에 실행되는 컨테이너들은 반드시 동일한 노드에 할당되며 동일한 생명 주기를 갖습니다 → Pod 삭제 시, Pod 내 모든 컨테이너가 삭제</li> <li>Pod IP - Pod 는 노드 IP 와 별개로 클러스터 내에서 접근 가능한 IP를 할당 받으며, 다른 노드에 위치한 Pod 도 NAT 없이 Pod IP로 접근 가능 ⇒ <code class="language-plaintext highlighter-rouge">CNI 가 처리</code></li> <li>IP 공유 - Pod 내에 있는 컨테이너들은 서로 IP를 공유, 컨테이너끼리는 localhost 통해 서로 접근하며 포트를 이용해 구분 <ul> <li>pause 컨테이너가 ‘parent’ 처럼 network namespace 를 만들어 주고, 내부의 나머지 컨테이너들은 해당 net ns 를 공유</li> </ul> </li> <li>volume 공유 - Pod 안의 컨테이너들은 동일한 볼륨과 연결이 가능하여 파일 시스템을 기반으로 서로 파일을 주고받을 수 있음</li> <li>IPC &amp; UDS 관련 정보 링크 - <a href="https://www.lesstif.com/linux-core/unix-domain-socket">UDS</a> <a href="https://www.joinc.co.kr/w/Site/system_programing/IPC/Unix_Domain_Socket">소개2</a> <a href="https://www.kernelpanic.kr/19">IPC방법들</a></li> </ul> <h2 id="사이드카--pause-컨테이너">사이드카 &amp; PAUSE 컨테이너</h2> <p><img src="/assets/img/post_img/kang_2week_20.png" alt="" /></p> <p>PAUSE 컨테이너는 POD와 함께 기본적으로 생성되며, Network namespace와 IPC namespace를 제공하는 역할을 합니다.</p> <p>이번 실습은 컨테이너를 2개를 가진 POD를 생성하고 내부 Network를 확인해봅니다.</p> <p>아래와 같은 yaml 생성합니다.</p> <div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">apiVersion</span><span class="pi">:</span> <span class="s">v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">Pod</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">myweb2</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">containers</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">myweb2-nginx</span>
+    <span class="na">image</span><span class="pi">:</span> <span class="s">nginx</span>
+    <span class="na">ports</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">containerPort</span><span class="pi">:</span> <span class="m">80</span>
+      <span class="na">protocol</span><span class="pi">:</span> <span class="s">TCP</span>
+
+  <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">myweb2-netshoot</span>
+    <span class="na">image</span><span class="pi">:</span> <span class="s">nicolaka/netshoot</span>
+    <span class="na">command</span><span class="pi">:</span> <span class="pi">[</span><span class="s2">"</span><span class="s">/bin/bash"</span><span class="pi">]</span>
+    <span class="na">args</span><span class="pi">:</span> <span class="pi">[</span><span class="s2">"</span><span class="s">-c"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">while</span><span class="nv"> </span><span class="s">true;</span><span class="nv"> </span><span class="s">do</span><span class="nv"> </span><span class="s">sleep</span><span class="nv"> </span><span class="s">5;</span><span class="nv"> </span><span class="s">curl</span><span class="nv"> </span><span class="s">localhost;</span><span class="nv"> </span><span class="s">done"</span><span class="pi">]</span> <span class="c1"># 포드가 종료되지 않도록 유지합니다</span>
+
+  <span class="na">terminationGracePeriodSeconds</span><span class="pi">:</span> <span class="m">0</span>
+</code></pre></div></div> <p>배포 후 podDML <code class="language-plaintext highlighter-rouge">NET IPC 공유</code>를 확인합니다.</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 파드 생성</span>
+<span class="nv">$ </span>kubectl apply <span class="nt">-f</span> https://raw.githubusercontent.com/gasida/NDKS/main/3/myweb2.yaml
+
+<span class="c"># 확인</span>
+<span class="c"># pod 정보 READY 에 2/2 를 확인 : pod 내 모든 컨테이너가 정상이여야지 status 가 Running 가 됨</span>
+<span class="nv">$ </span>kubectl get pod <span class="nt">-owide</span>
+NAME     READY   STATUS    RESTARTS   AGE   IP            NODE     NOMINATED NODE   READINESS GATES
+myweb2   2/2     Running   0          63s   172.16.46.6   k8s-w2   &lt;none&gt;           &lt;none&gt;
+
+<span class="c"># 배포된 워커노드에서 docker ps 로 확인</span>
+<span class="nv">$ </span>docker ps <span class="nt">--format</span> <span class="s2">"table </span><span class="se">\t\t</span><span class="s2">"</span> | <span class="nb">grep </span>myweb2
+nicolaka/netshoot        Up About a minute   k8s_myweb2-netshoot_myweb2_default_829cf80a-f55d-4ea6-b458-45e2b73620e7_0
+nginx                    Up About a minute   k8s_myweb2-nginx_myweb2_default_829cf80a-f55d-4ea6-b458-45e2b73620e7_0
+k8s.gcr.io/pause:3.4.1   Up 2 minutes        k8s_POD_myweb2_default_829cf80a-f55d-4ea6-b458-45e2b73620e7_0
+
+<span class="c"># Pod 상세 정보에 컨테이너 2개 정보가 보인다</span>
+<span class="nv">$ </span>kubectl describe pod myweb2
+Name:         myweb2
+...
+Containers:
+  myweb2-nginx:
+    Container ID:   docker://2717dd093ee5c69a918c6c52461f47cf5f0c0330378730ce717d1fcabb0fc748
+    Image:          nginx
+...
+  myweb2-netshoot:
+    Container ID:  docker://e3e3aef9ee53ef805336d4b6e0986f63e23c767b1648d18ff09948815c5f06a9
+    Image:         nicolaka/netshoot
+...
+
+<span class="c"># 파드의 각각 컨테이너 IP 확인 &gt;&gt; IP가 같다!</span>
+<span class="nv">$ </span>kubectl <span class="nb">exec </span>myweb2 <span class="nt">-c</span> myweb2-netshoot <span class="nt">--</span> ip addr
+<span class="nv">$ </span>kubectl <span class="nb">exec </span>myweb2 <span class="nt">-c</span> myweb2-nginx <span class="nt">--</span> apt update
+<span class="nv">$ </span>kubectl <span class="nb">exec </span>myweb2 <span class="nt">-c</span> myweb2-nginx <span class="nt">--</span> apt <span class="nb">install</span> <span class="nt">-y</span> net-tools
+<span class="nv">$ </span>kubectl <span class="nb">exec </span>myweb2 <span class="nt">-c</span> myweb2-nginx <span class="nt">--</span> ifconfig
+
+<span class="c"># 워커 노드에서 컨테이너 프로세스 정보 확인</span>
+<span class="nv">$ </span>ps <span class="nt">-ef</span> | <span class="nb">grep</span> <span class="s1">'nginx -g'</span> | <span class="nb">grep</span> <span class="nt">-v</span> <span class="nb">grep
+</span>root       14508   14483  0 09:23 ?        00:00:00 nginx: master process nginx <span class="nt">-g</span> daemon off<span class="p">;</span>
+
+<span class="nv">$ </span>ps <span class="nt">-ef</span> | <span class="nb">grep</span> <span class="s1">'curl'</span> | <span class="nb">grep</span> <span class="nt">-v</span> <span class="nb">grep
+</span>root       14596   14574  0 09:23 ?        00:00:00 /bin/bash <span class="nt">-c</span> <span class="k">while </span><span class="nb">true</span><span class="p">;</span> <span class="k">do </span><span class="nb">sleep </span>5<span class="p">;</span> curl localhost<span class="p">;</span> <span class="k">done</span>
+
+<span class="c"># docker top &lt;컨테이너 ID 혹은 NAME&gt;</span>
+<span class="nv">$ </span>docker top k8s_myweb2-nginx_myweb2_default_333e6cd3-40c1-43ba-8517-2eaf14d2968a_0
+UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+root                68723               68695               0                   08:47               ?                   00:00:00            nginx: master process nginx <span class="nt">-g</span> daemon off<span class="p">;</span>
+systemd+            68764               68723               0                   08:47               ?                   00:00:00            nginx: worker process
+systemd+            68765               68723               0                   08:47               ?                   00:00:00            nginx: worker process
+
+<span class="c"># 각각 프로세스를 변수에 지정</span>
+<span class="nv">$ NGINXPID</span><span class="o">=</span><span class="si">$(</span>ps <span class="nt">-ef</span> | <span class="nb">grep</span> <span class="s1">'nginx -g'</span> | <span class="nb">grep</span> <span class="nt">-v</span> <span class="nb">grep</span> | <span class="nb">awk</span> <span class="s1">'{print $2}'</span><span class="si">)</span>
+<span class="nv">$ </span><span class="nb">echo</span> <span class="nv">$NGINXPID</span>
+
+<span class="nv">$ NETSHPID</span><span class="o">=</span><span class="si">$(</span>ps <span class="nt">-ef</span> | <span class="nb">grep</span> <span class="s1">'curl'</span> | <span class="nb">grep</span> <span class="nt">-v</span> <span class="nb">grep</span> | <span class="nb">awk</span> <span class="s1">'{print $2}'</span><span class="si">)</span>
+<span class="nv">$ </span><span class="nb">echo</span> <span class="nv">$NETSHPID</span>
+
+<span class="c"># 한 파드 내의 각 컨테이너의 네임스페이스 정보 확인</span>
+<span class="c">## cgroup, user 네임스페이스는 따로 격리하지 않음</span>
+<span class="c">## mnt, uts, pid 네임스페이스는 컨테이너별로 격리</span>
+<span class="c">## ipc, net 네임스페이스는 파드 내의 컨테이너 간 공유 (IPC : 컨테이너 프로세스간 공유 - signal, socket, pipe 등)</span>
+<span class="c">## Pause 컨테이너는 IPC, Network 네임스페이스를 생성하고 유지 -&gt; 나머지 컨테이너들은 해당 네임스페이스를 공유하여 사용</span>
+<span class="c">## 유저가 실행한 특정 컨테이너가 비정상 종료되어 컨터이너 전체에서 공유되는 네임스페이스에 문제가 발생하는 것을 방지</span>
+<span class="nv">$ </span>lsns <span class="nt">-p</span> <span class="nv">$NGINXPID</span>
+	NS TYPE   NPROCS   PID USER COMMAND
+	4026531835 cgroup    126     1 root /sbin/init
+	4026531837 user      126     1 root /sbin/init
+	4026532211 ipc         6 14385 root /pause
+	4026532214 net         6 14385 root /pause
+	4026532287 mnt         3 14508 root nginx: master process nginx <span class="nt">-g</span> daemon off<span class="p">;</span>
+	4026532288 uts         3 14508 root nginx: master process nginx <span class="nt">-g</span> daemon off<span class="p">;</span>
+	4026532289 pid         3 14508 root nginx: master process nginx <span class="nt">-g</span> daemon off<span class="p">;</span>
+
+<span class="nv">$ </span>lsns <span class="nt">-p</span> <span class="nv">$NETSHPID</span>
+	NS TYPE   NPROCS   PID USER COMMAND
+	4026531835 cgroup    126     1 root /sbin/init
+	4026531837 user      126     1 root /sbin/init
+	4026532211 ipc         6 14385 root /pause
+	4026532214 net         6 14385 root /pause
+	4026532290 mnt         2 14596 root /bin/bash <span class="nt">-c</span> <span class="k">while </span><span class="nb">true</span><span class="p">;</span> <span class="k">do </span><span class="nb">sleep </span>5<span class="p">;</span> curl localhost<span class="p">;</span> <span class="k">done
+	</span>4026532291 uts         2 14596 root /bin/bash <span class="nt">-c</span> <span class="k">while </span><span class="nb">true</span><span class="p">;</span> <span class="k">do </span><span class="nb">sleep </span>5<span class="p">;</span> curl localhost<span class="p">;</span> <span class="k">done
+	</span>4026532292 pid         2 14596 root /bin/bash <span class="nt">-c</span> <span class="k">while </span><span class="nb">true</span><span class="p">;</span> <span class="k">do </span><span class="nb">sleep </span>5<span class="p">;</span> curl localhost<span class="p">;</span> <span class="k">done</span>
+
+<span class="c"># 컨테이너의 ID 변수 지정</span>
+<span class="nv">$ NGINXCID</span><span class="o">=</span><span class="si">$(</span>docker ps <span class="nt">--format</span> <span class="s2">"table </span><span class="se">\t\t</span><span class="s2">"</span> | <span class="nb">grep </span>nginx | <span class="nb">awk</span> <span class="s1">'{print $1}'</span><span class="si">)</span>
+<span class="nv">$ NETSHCID</span><span class="o">=</span><span class="si">$(</span>docker ps <span class="nt">--format</span> <span class="s2">"table </span><span class="se">\t\t</span><span class="s2">"</span> | <span class="nb">grep </span>netshoot | <span class="nb">awk</span> <span class="s1">'{print $1}'</span><span class="si">)</span>
+<span class="nv">$ PAUSECID</span><span class="o">=</span><span class="si">$(</span>docker ps <span class="nt">--format</span> <span class="s2">"table </span><span class="se">\t\t</span><span class="s2">"</span> | <span class="nb">grep </span>POD_myweb2 | <span class="nb">awk</span> <span class="s1">'{print $1}'</span><span class="si">)</span>
+<span class="nv">$ </span><span class="nb">echo</span> <span class="nv">$NGINXCID</span>
+<span class="nv">$ </span><span class="nb">echo</span> <span class="nv">$NETSHCID</span>
+<span class="nv">$ </span><span class="nb">echo</span> <span class="nv">$PAUSECID</span>
+
+<span class="c"># 컨테이너의 IP 확인 &gt;&gt; IP가 같다!</span>
+<span class="nv">$ </span>docker <span class="nb">exec</span> <span class="nv">$NGINXCID</span> ifconfig
+<span class="nv">$ </span>docker <span class="nb">exec</span> <span class="nv">$NETSHCID</span> ip addr
+
+<span class="c"># 컨테이너의 네트워크모드 정보와 PAUSE 컨테이너의 Id 정보 확인</span>
+<span class="c"># 아래 처럼 위 pause 컨네이너를 nginx, netshoot 컨테이너가 공유하고 있음을 확인</span>
+<span class="c"># 즉, 내부 컨테이너가 pause 컨테이너의 network namespace 를 공유</span>
+<span class="nv">$ </span>docker inspect <span class="nv">$NGINXCID</span> | <span class="nb">grep </span>NetworkMode
+<span class="nv">$ </span>docker inspect <span class="nv">$NETSHCID</span> | <span class="nb">grep </span>NetworkMode
+<span class="nv">$ </span>docker inspect <span class="nv">$PAUSECID</span> | egrep <span class="s1">'Id|Pid\"'</span>
+
+<span class="c"># PAUSE 의 NET 네임스페이스 PID 확인 및 IP 정보 확인</span>
+<span class="nv">$ </span>lsns <span class="nt">-t</span> net
+<span class="nv">$ PAUSEPID</span><span class="o">=</span><span class="si">$(</span>docker inspect <span class="nv">$PAUSECID</span> | <span class="nb">grep</span> <span class="s1">'Pid\"'</span> | <span class="nb">awk</span> <span class="s1">'{print $2}'</span> | <span class="nb">cut</span> <span class="nt">-d</span> <span class="s2">","</span> <span class="nt">-f</span> 1<span class="si">)</span>
+<span class="nv">$ </span><span class="nb">echo</span> <span class="nv">$PAUSEPID</span>
+<span class="nv">$ </span>nsenter <span class="nt">-t</span> <span class="nv">$PAUSEPID</span> <span class="nt">-n</span> ip <span class="nt">-c</span> addr
+<span class="nv">$ </span>nsenter <span class="nt">-t</span> <span class="nv">$NGINXPID</span> <span class="nt">-n</span> ip <span class="nt">-c</span> addr
+<span class="nv">$ </span>nsenter <span class="nt">-t</span> <span class="nv">$NETSHPID</span> <span class="nt">-n</span> ip <span class="nt">-c</span> addr
+</code></pre></div></div> <h2 id="마치며">마치며</h2> <p>다른 분들이 정리한 것에 비해서 내 정리는 제공되는 자료를 따라하는 정도밖에 안되네요. 사실 네트워크에 대하여 깊게 알고 있지 않아서 따라가는 것으로 충분하게 벅차네요.</p> <p>3주를 기대하며 마칩니다.</p> <h2 id="참고-자료">참고 자료</h2> <ul> <li>K8S Docs - <a href="https://kubernetes.io/docs/concepts/overview/components/">Components</a> &amp; <a href="https://kubernetes.io/docs/concepts/architecture/">Cluster Architecture</a> &amp; <a href="https://kubernetes.io/docs/concepts/workloads/pods/">Pods</a> &amp; <a href="https://kubernetes.io/docs/tutorials/kubernetes-basics/">Learn Kubernetes Basics</a> &amp; <a href="https://kubernetes.io/ko/docs/reference/kubectl/cheatsheet/">치트 시트</a></li> <li>K8S Blog (v1.22) - <a href="https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/">New Peaks</a> &amp; <a href="https://kubernetes.io/blog/2021/07/26/update-with-ingress-nginx/">Nginx-Ingress</a> &amp; <a href="https://kubernetes.io/blog/2021/07/14/upcoming-changes-in-kubernetes-1-22/">API</a></li> <li>CNCF - <a href="https://www.cncf.io/">링크</a> &amp; CNCF Landscape - <a href="https://landscape.cncf.io/">링크</a></li> <li>44bits(Youtube) - <a href="https://www.youtube.com/playlist?list=PLIUCBpK1dpsNf1m-2kiosmfn2nXfljQgb">초보를 위한 쿠버네티스 안내서</a> &amp; Subicura(WebSite) - <a href="https://subicura.com/k8s/">실습편</a></li> <li>[devinjeon] Container &amp; Pod - <a href="https://speakerdeck.com/devinjeon/containerbuteo-dasi-salpyeoboneun-kubernetes-pod-dongjag-weonri">링크</a></li> <li>[learnk8s] Tracing the path of network traffic in Kubernetes - <a href="https://learnk8s.io/kubernetes-network-packets">링크</a></li> <li>(심화) ETCD 기본 동작 원리의 이해 - <a href="https://tech.kakao.com/2021/12/20/kubernetes-etcd/">링크</a> &amp; ETCD? - <a href="https://blog.frec.kr/cloud/etcd/">링크</a></li> </ul> <div class="entry-meta"> <br> <hr> <span class="entry-tags"><a href="https://lahuman.github.io/tags/#kang" title="Pages tagged kang" class="tag"><span class="term">kang</span></a><a href="https://lahuman.github.io/tags/#cni" title="Pages tagged cni" class="tag"><span class="term">cni</span></a><a href="https://lahuman.github.io/tags/#flannel" title="Pages tagged flannel" class="tag"><span class="term">flannel</span></a></span> <span class="social-share"> <a href="https://www.facebook.com/sharer/sharer.php?u=https://lahuman.github.io/kang_2week_3/" title="Share on Facebook" class="tag"> <span class="term"><i class="fa fa-facebook-square"></i> Share</span> </a> <a href="https://twitter.com/intent/tweet?text=https://lahuman.github.io/kang_2week_3/" title="Share on Twitter" class="tag"> <span class="term"><i class="fa fa-twitter-square"></i> Tweet</span> </a> <a href="https://plus.google.com/share?url=https://lahuman.github.io/kang_2week_3/" title="Share on Google+" class="tag"> <span class="term"><i class="fa fa-google-plus-square"></i> +1</span> </a> </span> <div style="clear:both"></div> </div> <ins class="kakao_ad_area" style="display:none;" data-ad-unit = "DAN-ubp67fs9s850" data-ad-width = "320" data-ad-height = "100"></ins> <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script> </div> </div> <section id="disqus_thread" class="animated fadeInUp"></section><!-- /#disqus_thread --> </header> <!-- JS --> <script src="https://lahuman.github.io/assets/js/jquery-1.12.0.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.dlmenu.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.goup.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.magnific-popup.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.fitvid.min.js"></script> <script src="https://lahuman.github.io/assets/js/scripts.js"></script> <!-- Global site tag (gtag.js) - Google Analytics --> <script async src="https://www.googletagmanager.com/gtag/js?id=UA-74095083-1"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-74095083-1'); </script> <script type="text/javascript"> var disqus_shortname = 'daniels-blog'; (function() { var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true; dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js'; (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq); })(); (function () { var s = document.createElement('script'); s.async = true; s.type = 'text/javascript'; s.src = '//' + disqus_shortname + '.disqus.com/count.js'; (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s); }()); </script> <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript> <!-- MathJax --> <script async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> </body> </html>

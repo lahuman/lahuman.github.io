@@ -1,0 +1,356 @@
+<!DOCTYPE html> <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]--> <!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8"><![endif]--> <!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9"><![endif]--> <!--[if gt IE 8]><!--> <html class="no-js"><!--<![endif]--> <head> <meta charset="UTF-8"> <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"> <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1"> <title>#2 Flannel CNI &#8211; lahuman</title> <meta name="description" content="열심히 사는 아저씨"> <meta name="keywords" content="kang, cni, flannel"> <!-- Twitter Cards --> <meta name="twitter:card" content="summary"> <meta name="twitter:image" content="https://lahuman.github.io/assets/img/logo.png"> <meta name="twitter:title" content="#2 Flannel CNI"> <meta name="twitter:description" content="Kubernetes Advanced Networking Study"> <!-- Open Graph --> <meta property="og:locale" content="ko_KR"> <meta property="og:type" content="article"> <meta property="og:title" content="#2 Flannel CNI"> <meta property="og:description" content="Kubernetes Advanced Networking Study"> <meta property="og:url" content="https://lahuman.github.io/kang_2week_2/"> <meta property="og:site_name" content="lahuman"> <meta property="og:image" content="https://lahuman.github.io/assets/img/logo.png"> <link rel="canonical" href="https://lahuman.github.io/kang_2week_2/"> <link href="https://lahuman.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="lahuman Feed"> <!-- Handheld --> <meta name="HandheldFriendly" content="True"> <meta name="MobileOptimized" content="320"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- CSS --> <link rel="stylesheet" href="https://lahuman.github.io/assets/css/main.css"> <!-- JS --> <script src="https://lahuman.github.io/assets/js/modernizr-3.3.1.custom.min.js"></script> <!-- Favicons --> <link rel="apple-touch-icon" href="https://lahuman.github.io/assets/img/favicons/apple-icon-precomposed.png"> <link rel="apple-touch-icon" sizes="72x72" href="https://lahuman.github.io/assets/img/favicons/apple-icon-72x72.png"> <link rel="apple-touch-icon" sizes="114x114" href="https://lahuman.github.io/assets/img/favicons/apple-icon-114x114.png"> <link rel="apple-touch-icon" sizes="144x144" href="https://lahuman.github.io/assets/img/favicons/apple-icon-144x144.png"> <link rel="shortcut icon" type="image/png" href="https://lahuman.github.io/favicon.png" /> <link rel="shortcut icon" href="https://lahuman.github.io/favicon.ico" /> <!-- Background Image --> <style type="text/css">body {background-image:url(https://lahuman.github.io/assets/img/placeholder-big.jpg); background-repeat: no-repeat; background-size: cover; }</style> <!-- Post Feature Image --> </head> <body> <nav id="dl-menu" class="dl-menuwrapper" role="navigation"> <button class="dl-trigger">Open Menu</button> <ul class="dl-menu"> <li><a href="https://lahuman.github.io/">Home</a></li> <li> <a href="#">About</a> <ul class="dl-submenu"> <li> <img src="https://lahuman.github.io/assets/img/logo.png" alt="lahuman photo" class="author-photo"> <h4>lahuman</h4> <p>열심히 사는 아저씨</p> </li> <li><a href="https://lahuman.github.io/about/"><span class="btn btn-inverse">Learn More</span></a></li> <li> <a href="http://facebook.com/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-facebook-square"></i> Facebook</a> </li> <li> <a href="http://linkedin.com/in/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-linkedin-square"></i> LinkedIn</a> </li> <li> <a href="http://github.com/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-github"></i> Github</a> </li> </ul><!-- /.dl-submenu --> </li> <li> <a href="#">Posts</a> <ul class="dl-submenu"> <li><a href="https://lahuman.github.io/posts/">All Posts</a></li> <li><a href="https://lahuman.github.io/tags/">All Tags</a></li> </ul> </li> <li><a href="https://lahuman.github.io/projects/" >Projects</a></li> </ul><!-- /.dl-menu --> </nav><!-- /.dl-menuwrapper --> <!-- Header --> <header class="header" role="banner"> <div class="wrapper animated fadeIn"> <div class="content"> <div class="post-title "> <h1>#2 Flannel CNI</h1> <h4>18 Jan 2022</h4> <p class="reading-time"> <i class="fa fa-clock-o"></i> Reading time ~9 minutes </p><!-- /.entry-reading-time --> <a class="btn zoombtn" href="https://lahuman.github.io/projects/"> <i class="fa fa-chevron-left"></i> </a> </div> <h1 id="flannel-cnicontainer-network-interface">Flannel CNI(Container Network Interface)</h1> <ul> <li>Flannel runs a small, single binary agent called <code class="language-plaintext highlighter-rouge">flanneld</code>on each host, and is responsible for allocating a subnet lease to each host out of a larger, preconfigured address space. Flannel은 각 호스트에서 <code class="language-plaintext highlighter-rouge">flanneld</code>라는 작은 단일 바이너리 에이전트를 실행하고 미리 구성된 더 큰 주소 공간에서 각 호스트에 서브넷 임대를 할당하는 역할을 합니다. → 모든 노드에 <code class="language-plaintext highlighter-rouge">flanneld</code> 가 동작</li> <li>네트워킹 환경 지원 (Backends) : <strong>VXLAN</strong>, host-gw, UDP, 그외에는 아직 실험적임 - <a href="https://github.com/flannel-io/flannel/blob/master/Documentation/backends.md">링크</a> <a href="https://msazure.club/flannel-networking-demystify/">링크2</a> <ul> <li><code class="language-plaintext highlighter-rouge">VXLAN</code>(권장) : Port(<code class="language-plaintext highlighter-rouge">UDP 8472</code>), DirecRouting 지원(같은 서브넷 노드와는 host-gw 처럼 동작) <ul> <li>단, 네트워크 엔지니어분들이 알고 있는 ‘L2 확장’ 이 아니라, 각 노드마다 별도의 서브넷이 있고, 해당 서브넷 대역끼리 NAT 없이 라우팅 처리됨</li> </ul> </li> <li>host-gw : 호스트 L2 모드?, 일반적으로 퍼블릭 클라우드 환경에서는 동작하지 않는다</li> <li>UDP (비권장) : VXLAN 지원하지 않는 오래된 커널 사용 시, Port(UDP 8285)</li> </ul> </li> <li>노드마다 flannel.1 생성 : VXLAN VTEP 역할</li> <li>노드마다 cni0 생성 : bridge 역할</li> </ul> <h2 id="flannel-cin-및-cni-동작-그림-설명">Flannel CIN 및 CNI 동작 그림 설명</h2> <p><img src="/assets/img/post_img/kang_2week_12.png" alt="[https://ikcoo.tistory.com/101](https://ikcoo.tistory.com/101)" /></p> <p><a href="https://ikcoo.tistory.com/101">https://ikcoo.tistory.com/101</a></p> <p><img src="/assets/img/post_img/kang_2week_13.png" alt="[https://ikcoo.tistory.com/101](https://ikcoo.tistory.com/101)" /></p> <p><a href="https://ikcoo.tistory.com/101">https://ikcoo.tistory.com/101</a></p> <p><img src="/assets/img/post_img/kang_2week_14.png" alt="[https://cilium.io/blog/2021/05/11/cni-benchmark](https://cilium.io/blog/2021/05/11/cni-benchmark)" /></p> <p><a href="https://cilium.io/blog/2021/05/11/cni-benchmark">https://cilium.io/blog/2021/05/11/cni-benchmark</a></p> <p><img src="/assets/img/post_img/kang_2week_15.png" alt="" /></p> <p><img src="/assets/img/post_img/kang_2week_16.png" alt="[https://docs.openshift.com/container-platform/3.4/architecture/additional_concepts/flannel.html](https://docs.openshift.com/container-platform/3.4/architecture/additional_concepts/flannel.html)" /></p> <p><a href="https://docs.openshift.com/container-platform/3.4/architecture/additional_concepts/flannel.html">https://docs.openshift.com/container-platform/3.4/architecture/additional_concepts/flannel.html</a></p> <h3 id="flannel-기본-정보-확인">Flannel 기본 정보 확인</h3> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 컨피그맵과 데몬셋 정보 확인</span>
+<span class="nv">$ </span>kubectl describe cm <span class="nt">-n</span> kube-system kube-flannel-cfg
+<span class="nv">$ </span>kubectl describe ds <span class="nt">-n</span> kube-system kube-flannel-ds
+
+<span class="c"># flannel 정보 확인 : 대역, MTU</span>
+<span class="nv">$ </span><span class="nb">cat</span> /run/flannel/subnet.env
+<span class="nv">FLANNEL_NETWORK</span><span class="o">=</span>172.16.0.0/16
+<span class="nv">FLANNEL_SUBNET</span><span class="o">=</span>172.16.0.1/24
+<span class="nv">FLANNEL_MTU</span><span class="o">=</span>1450
+<span class="nv">FLANNEL_IPMASQ</span><span class="o">=</span><span class="nb">true</span>
+
+<span class="c"># 워커 노드마다 할당된 dedicated subnet (podCIDR) 확인</span>
+<span class="nv">$ </span>kubectl get nodes <span class="nt">-o</span> <span class="nv">jsonpath</span><span class="o">=</span><span class="s1">'{.items[*].spec.podCIDR}'</span> <span class="p">;</span><span class="nb">echo
+</span>172.16.0.0/24 172.16.1.0/24 172.16.2.0/24
+
+<span class="nv">$ </span>kubectl get node k8s-m <span class="nt">-o</span> json | jq <span class="s1">'.spec.podCIDR'</span>
+<span class="s2">"172.16.0.0/24"</span>
+
+<span class="nv">$ </span>kubectl get node k8s-w1 <span class="nt">-o</span> json | jq <span class="s1">'.spec.podCIDR'</span>
+<span class="s2">"172.16.1.0/24"</span>
+
+<span class="nv">$ </span>kubectl get node k8s-w2 <span class="nt">-o</span> json | jq <span class="s1">'.spec.podCIDR'</span>
+<span class="s2">"172.16.2.0/24"</span>
+
+<span class="c"># 기본 네트워크 정보 확인</span>
+<span class="nv">$ </span>ip <span class="nt">-c</span> <span class="nt">-br</span> addr
+<span class="nv">$ </span>ip <span class="nt">-c</span> <span class="nb">link</span> | <span class="nb">grep</span> <span class="nt">-E</span> <span class="s1">'flannel|cni|veth'</span> <span class="nt">-A1</span>
+<span class="nv">$ </span>ip <span class="nt">-c</span> addr
+<span class="nv">$ </span>ip <span class="nt">-c</span> <span class="nt">-d</span> addr show cni0
+<span class="nv">$ </span>ip <span class="nt">-c</span> <span class="nt">-d</span> addr show flannel.1
+
+<span class="c"># 라우팅 정보 확인</span>
+<span class="nv">$ </span>ip <span class="nt">-c</span> route | <span class="nb">grep </span>172.16.
+172.16.0.0/24 dev cni0 proto kernel scope <span class="nb">link </span>src 172.16.0.1
+172.16.1.0/24 via 172.16.1.0 dev flannel.1 onlink
+172.16.2.0/24 via 172.16.2.0 dev flannel.1 onlink
+
+<span class="nv">$ </span>route <span class="nt">-n</span>
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+0.0.0.0         10.0.2.2        0.0.0.0         UG    100    0        0 enp0s3
+10.0.2.0        0.0.0.0         255.255.255.0   U     0      0        0 enp0s3
+10.0.2.2        0.0.0.0         255.255.255.255 UH    100    0        0 enp0s3
+172.16.0.0      0.0.0.0         255.255.255.0   U     0      0        0 cni0
+172.16.1.0      172.16.1.0      255.255.255.0   UG    0      0        0 flannel.1
+172.16.2.0      172.16.2.0      255.255.255.0   UG    0      0        0 flannel.1
+172.17.0.0      0.0.0.0         255.255.0.0     U     0      0        0 docker0
+192.168.100.0   0.0.0.0         255.255.255.0   U     0      0        0 enp0s8
+
+<span class="c"># 타 노드의 파드 IP 대역과 통신하기 위한 Next-Hop IP와 통신 확인(VTEP IP == flannel.1)</span>
+<span class="nv">$ </span>ping <span class="nt">-c</span> 1 172.16.1.0
+PING 172.16.1.0 <span class="o">(</span>172.16.1.0<span class="o">)</span> 56<span class="o">(</span>84<span class="o">)</span> bytes of data.
+64 bytes from 172.16.1.0: <span class="nv">icmp_seq</span><span class="o">=</span>1 <span class="nv">ttl</span><span class="o">=</span>64 <span class="nb">time</span><span class="o">=</span>20.4 ms
+
+<span class="nt">---</span> 172.16.1.0 ping statistics <span class="nt">---</span>
+1 packets transmitted, 1 received, 0% packet loss, <span class="nb">time </span>0ms
+rtt min/avg/max/mdev <span class="o">=</span> 20.376/20.376/20.376/0.000 ms
+
+<span class="nv">$ </span>ping <span class="nt">-c</span> 1 172.16.2.0
+PING 172.16.2.0 <span class="o">(</span>172.16.2.0<span class="o">)</span> 56<span class="o">(</span>84<span class="o">)</span> bytes of data.
+64 bytes from 172.16.2.0: <span class="nv">icmp_seq</span><span class="o">=</span>1 <span class="nv">ttl</span><span class="o">=</span>64 <span class="nb">time</span><span class="o">=</span>13.4 ms
+
+<span class="nt">---</span> 172.16.2.0 ping statistics <span class="nt">---</span>
+1 packets transmitted, 1 received, 0% packet loss, <span class="nb">time </span>0ms
+rtt min/avg/max/mdev <span class="o">=</span> 13.352/13.352/13.352/0.000 ms
+
+<span class="c"># arp table, mac 정보, bridge 정보 등 확인</span>
+<span class="c">## 아래 mac 정보는 다른 노드들의 flannel.1 의 mac 주소 입니다</span>
+<span class="nv">$ </span>ip <span class="nt">-c</span> neigh show dev flannel.1
+172.16.2.0 lladdr 86:8f:47:89:1b:da PERMANENT
+172.16.1.0 lladdr 1e:af:73:b0:c0:c3 PERMANENT
+
+bridge fdb show dev flannel.1
+76:4d:5d:82:42:b7 dst 192.168.100.102 self permanent
+1e:af:73:b0:c0:c3 dst 192.168.100.101 self permanent
+86:8f:47:89:1b:da dst 192.168.100.102 self permanent
+16:43:ee:68:3c:08 dst 192.168.100.101 self permanent
+
+<span class="nv">$ </span>ip <span class="nt">-c</span> <span class="nt">-d</span> addr show flannel.1
+5: flannel.1: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1450 qdisc noqueue state UNKNOWN group default
+    <span class="nb">link</span>/ether 42:44:84:8c:89:dd brd ff:ff:ff:ff:ff:ff promiscuity 0 minmtu 68 maxmtu 65535
+    vxlan <span class="nb">id </span>1 <span class="nb">local </span>192.168.100.10 dev enp0s8 srcport 0 0 dstport 8472 nolearning ttl auto ageing 300 udpcsum noudp6zerocsumtx noudp6zerocsumrx numtxqueues 1 numrxqueues 1 gso_max_size 65536 gso_max_segs 65535
+    inet 172.16.0.0/32 brd 172.16.0.0 scope global flannel.1
+       valid_lft forever preferred_lft forever
+    inet6 fe80::4044:84ff:fe8c:89dd/64 scope <span class="nb">link
+       </span>valid_lft forever preferred_lft forever
+
+<span class="nv">$ </span>kubectl describe node | <span class="nb">grep </span>VtepMAC
+Annotations:        flannel.alpha.coreos.com/backend-data: <span class="o">{</span><span class="s2">"VNI"</span>:1,<span class="s2">"VtepMAC"</span>:<span class="s2">"42:44:84:8c:89:dd"</span><span class="o">}</span>
+Annotations:        flannel.alpha.coreos.com/backend-data: <span class="o">{</span><span class="s2">"VNI"</span>:1,<span class="s2">"VtepMAC"</span>:<span class="s2">"1e:af:73:b0:c0:c3"</span><span class="o">}</span>
+Annotations:        flannel.alpha.coreos.com/backend-data: <span class="o">{</span><span class="s2">"VNI"</span>:1,<span class="s2">"VtepMAC"</span>:<span class="s2">"86:8f:47:89:1b:da"</span><span class="o">}</span>
+
+<span class="nv">$ </span>bridge vlan show
+port    vlan ids
+docker0  1 PVID Egress Untagged
+cni0     1 PVID Egress Untagged
+vethe914fc0b     1 PVID Egress Untagged
+veth09e7e37a     1 PVID Egress Untagged
+
+<span class="nv">$ </span>tree /var/lib/cni/networks/cbr0
+/var/lib/cni/networks/cbr0
+├── 172.16.0.6
+├── 172.16.0.7
+├── last_reserved_ip.0
+└── lock
+0 directories, 4 files
+
+
+<span class="c"># iptables 정보 확인</span>
+<span class="nv">$ </span>iptables <span class="nt">-t</span> filter <span class="nt">-S</span> | <span class="nb">grep </span>172.16.0.0
+<span class="nt">-A</span> FORWARD <span class="nt">-s</span> 172.16.0.0/16 <span class="nt">-j</span> ACCEPT
+<span class="nt">-A</span> FORWARD <span class="nt">-d</span> 172.16.0.0/16 <span class="nt">-j</span> ACCEPT
+
+<span class="nv">$ </span>iptables <span class="nt">-t</span> nat <span class="nt">-S</span> | <span class="nb">grep</span> <span class="s1">'A POSTROUTING'</span>
+<span class="nt">-A</span> POSTROUTING <span class="nt">-m</span> comment <span class="nt">--comment</span> <span class="s2">"kubernetes postrouting rules"</span> <span class="nt">-j</span> KUBE-POSTROUTING
+<span class="nt">-A</span> POSTROUTING <span class="nt">-s</span> 172.17.0.0/16 <span class="o">!</span> <span class="nt">-o</span> docker0 <span class="nt">-j</span> MASQUERADE
+<span class="nt">-A</span> POSTROUTING <span class="nt">-s</span> 172.16.0.0/16 <span class="nt">-d</span> 172.16.0.0/16 <span class="nt">-j</span> RETURN
+<span class="nt">-A</span> POSTROUTING <span class="nt">-s</span> 172.16.0.0/16 <span class="o">!</span> <span class="nt">-d</span> 224.0.0.0/4 <span class="nt">-j</span> MASQUERADE <span class="nt">--random-fully</span>
+<span class="nt">-A</span> POSTROUTING <span class="o">!</span> <span class="nt">-s</span> 172.16.0.0/16 <span class="nt">-d</span> 172.16.0.0/24 <span class="nt">-j</span> RETURN
+<span class="nt">-A</span> POSTROUTING <span class="o">!</span> <span class="nt">-s</span> 172.16.0.0/16 <span class="nt">-d</span> 172.16.0.0/16 <span class="nt">-j</span> MASQUERADE <span class="nt">--random-fully</span>
+
+<span class="c"># 노드 정보 중 flannel 관련 정보 확인</span>
+<span class="nv">$ </span>kubectl describe node | <span class="nb">grep</span> <span class="nt">-A3</span> Annotations
+Annotations:        flannel.alpha.coreos.com/backend-data: <span class="o">{</span><span class="s2">"VNI"</span>:1,<span class="s2">"VtepMAC"</span>:<span class="s2">"42:44:84:8c:89:dd"</span><span class="o">}</span>
+                    flannel.alpha.coreos.com/backend-type: vxlan
+                    flannel.alpha.coreos.com/kube-subnet-manager: <span class="nb">true
+                    </span>flannel.alpha.coreos.com/public-ip: 192.168.100.10
+<span class="nt">--</span>
+Annotations:        flannel.alpha.coreos.com/backend-data: <span class="o">{</span><span class="s2">"VNI"</span>:1,<span class="s2">"VtepMAC"</span>:<span class="s2">"1e:af:73:b0:c0:c3"</span><span class="o">}</span>
+                    flannel.alpha.coreos.com/backend-type: vxlan
+                    flannel.alpha.coreos.com/kube-subnet-manager: <span class="nb">true
+                    </span>flannel.alpha.coreos.com/public-ip: 192.168.100.101
+<span class="nt">--</span>
+Annotations:        flannel.alpha.coreos.com/backend-data: <span class="o">{</span><span class="s2">"VNI"</span>:1,<span class="s2">"VtepMAC"</span>:<span class="s2">"86:8f:47:89:1b:da"</span><span class="o">}</span>
+                    flannel.alpha.coreos.com/backend-type: vxlan
+                    flannel.alpha.coreos.com/kube-subnet-manager: <span class="nb">true
+                    </span>flannel.alpha.coreos.com/public-ip: 192.168.100.102
+
+<span class="c"># flannel 파드 이름 확인</span>
+<span class="nv">$ </span>kubectl get pod <span class="nt">-n</span> kube-system <span class="nt">-l</span> <span class="nv">app</span><span class="o">=</span>flannel <span class="nt">-o</span> name
+pod/kube-flannel-ds-8tmnm
+pod/kube-flannel-ds-9v9k6
+pod/kube-flannel-ds-vxzwm
+
+<span class="c"># flannel 파드에 ps 정보 확인</span>
+<span class="nv">$ </span>kubectl <span class="nb">exec</span> <span class="nt">-it</span> <span class="nt">-n</span> kube-system pod/kube-flannel-ds-8tmnm <span class="nt">--</span> ps | <span class="nb">head</span> <span class="nt">-2</span>
+Defaulted container <span class="s2">"kube-flannel"</span> out of: kube-flannel, install-cni-plugin <span class="o">(</span>init<span class="o">)</span>, install-cni <span class="o">(</span>init<span class="o">)</span>
+PID   USER     TIME  COMMAND
+    1 root      5:46 /opt/bin/flanneld <span class="nt">--ip-masq</span> <span class="nt">--kube-subnet-mgr</span> <span class="nt">--iface</span><span class="o">=</span>enp0
+
+<span class="c"># flannel 파드들의 로그 확인</span>
+<span class="nv">$ </span>kubens kube-system <span class="o">&amp;&amp;</span> kubetail <span class="nt">-l</span> <span class="nv">app</span><span class="o">=</span>flannel <span class="nt">--since</span> 1h
+Context <span class="s2">"admin-k8s"</span> modified.
+Active namespace is <span class="s2">"kube-system"</span><span class="nb">.</span>
+Will <span class="nb">tail </span>9 logs...
+kube-flannel-ds-8tmnm kube-flannel
+kube-flannel-ds-8tmnm install-cni-plugin
+kube-flannel-ds-8tmnm install-cni
+kube-flannel-ds-9v9k6 kube-flannel
+kube-flannel-ds-9v9k6 install-cni-plugin
+kube-flannel-ds-9v9k6 install-cni
+kube-flannel-ds-vxzwm kube-flannel
+kube-flannel-ds-vxzwm install-cni-plugin
+kube-flannel-ds-vxzwm install-cni
+
+<span class="nv">$ </span>kubens -
+Context <span class="s2">"admin-k8s"</span> modified.
+Active namespace is <span class="s2">"default"</span><span class="nb">.</span>
+
+<span class="c"># 네트워크 네임스페이스 확인</span>
+<span class="nv">$ </span>lsns <span class="nt">-t</span> net
+        NS TYPE NPROCS   PID USER     NETNSID NSFS                           COMMAND
+4026531992 net     169     1 root  unassigned /run/docker/netns/default      /lib/systemd/systemd <span class="nt">--system</span> <span class="nt">--deserialize</span> 35
+4026532237 net       2  6681 65535          0 /run/docker/netns/38f220b48dc5 /pause
+4026532308 net       2  6730 65535          1 /run/docker/netns/646295f1959d /pause
+</code></pre></div></div> <h2 id="파드-2개-생성">파드 2개 생성</h2> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 워커 노드1,2 - 모니터링</span>
+<span class="nv">$ </span>watch <span class="nt">-d</span> <span class="s2">"ip link | egrep 'cni|veth' ;echo; brctl show cni0"</span>
+
+<span class="c"># cat &amp; here document 명령 조합으로 즉석(?) 리소스 생성</span>
+<span class="c"># 마스터 노드 - 파드 2개 생성</span>
+<span class="nv">$ </span><span class="nb">cat</span> <span class="o">&lt;&lt;</span><span class="no">EOF</span><span class="sh"> | kubectl create -f -
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-1
+  labels:
+    app: pod
+spec:
+  containers:
+  - name: netshoot-pod
+    image: nicolaka/netshoot
+    command: ["tail"]
+    args: ["-f", "/dev/null"]
+  terminationGracePeriodSeconds: 0
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-2
+  labels:
+    app: pod
+spec:
+  containers:
+  - name: netshoot-pod
+    image: nicolaka/netshoot
+    command: ["tail"]
+    args: ["-f", "/dev/null"]
+  terminationGracePeriodSeconds: 0
+</span><span class="no">EOF
+
+</span><span class="c"># 파드 확인</span>
+<span class="nv">$ </span>kubectl get pod <span class="nt">-o</span> wide
+NAME    READY   STATUS    RESTARTS   AGE   IP           NODE     NOMINATED NODE   READINESS GATES
+pod-1   1/1     Running   0          91s   172.16.1.3   k8s-w1   &lt;none&gt;           &lt;none&gt;
+pod-2   1/1     Running   0          91s   172.16.2.4   k8s-w2   &lt;none&gt;           &lt;none&gt;
+</code></pre></div></div> <blockquote> <p>파드 생성전에 <code class="language-plaintext highlighter-rouge">watch -d "ip link | egrep 'cni|veth' ;echo; brctl show cni0"</code> 명령어를 행하면 cni0를 찾을 수 없다고 합니다. 당황하지 말고, 파트 생성을 진행하여 보세요 아래의 이미지와 같은 결과를 얻게 됩니다.</p> </blockquote> <p><img src="/assets/img/post_img/kang_2week_17.png" alt="" /></p> <ul> <li>파드가 노드1대에 몰려 배포 시 사용하자</li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat</span> <span class="o">&lt;&lt;</span><span class="no">EOF</span><span class="sh"> | kubectl create -f -
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-3
+  labels:
+    app: pod
+spec:
+  nodeName: k8s-w1
+  containers:
+  - name: netshoot-pod
+    image: nicolaka/netshoot
+    command: ["tail"]
+    args: ["-f", "/dev/null"]
+  terminationGracePeriodSeconds: 0
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-4
+  labels:
+    app: pod
+spec:
+  nodeName: k8s-w2
+  containers:
+  - name: netshoot-pod
+    image: nicolaka/netshoot
+    command: ["tail"]
+    args: ["-f", "/dev/null"]
+  terminationGracePeriodSeconds: 0
+</span><span class="no">EOF
+</span></code></pre></div></div> <h2 id="파드-생성-후-정보-확인">파드 생성 후 정보 확인</h2> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 워커노드1</span>
+<span class="nv">$ </span><span class="nb">cat</span> /run/flannel/subnet.env
+<span class="nv">FLANNEL_NETWORK</span><span class="o">=</span>172.16.0.0/16
+<span class="nv">FLANNEL_SUBNET</span><span class="o">=</span>172.16.1.1/24
+<span class="nv">FLANNEL_MTU</span><span class="o">=</span>1450
+<span class="nv">FLANNEL_IPMASQ</span><span class="o">=</span><span class="nb">true</span>
+
+<span class="c"># 브리지 정보 확인</span>
+<span class="nv">$ </span>brctl show cni0
+bridge name     bridge <span class="nb">id               </span>STP enabled     interfaces
+cni0            8000.8e53f02dd93a       no              veth09e7e37a
+                                                        vethe914fc0b
+
+<span class="c"># 브리지 연결 링크(veth) 확인</span>
+<span class="nv">$ </span>bridge <span class="nb">link
+</span>7: vethe914fc0b@enp0s8: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1450 master cni0 state forwarding priority 32 cost 2
+8: veth09e7e37a@enp0s8: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1450 master cni0 state forwarding priority 32 cost 2
+
+<span class="c"># 브리지 VLAN 정보 확인</span>
+<span class="nv">$ </span>bridge vlan
+port    vlan ids
+docker0  1 PVID Egress Untagged
+cni0     1 PVID Egress Untagged
+vethe914fc0b     1 PVID Egress Untagged
+veth09e7e37a     1 PVID Egress Untagged
+
+<span class="c"># **cbr**(**c**ustom **br**idge) 정보 : kubenet CNI의 bridge - [링크](https://kubernetes.io/ko/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/#kubenet)</span>
+<span class="nv">$ </span>tree /var/lib/cni/networks/cbr0
+/var/lib/cni/networks/cbr0
+├── 172.16.0.6
+├── 172.16.0.7
+├── last_reserved_ip.0
+└── lock
+
+<span class="c"># 네트워크 관련 정보들 확인</span>
+<span class="nv">$ </span>ip <span class="nt">-c</span> addr | <span class="nb">grep </span>veth <span class="nt">-A3</span>
+7: vethe914fc0b@if3: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1450 qdisc noqueue master cni0 state UP group default
+    <span class="nb">link</span>/ether 0a:44:6f:7b:aa:07 brd ff:ff:ff:ff:ff:ff link-netnsid 0
+    inet6 fe80::844:6fff:fe7b:aa07/64 scope <span class="nb">link
+       </span>valid_lft forever preferred_lft forever
+8: veth09e7e37a@if3: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1450 qdisc noqueue master cni0 state UP group default
+    <span class="nb">link</span>/ether a6:44:a7:30:50:97 brd ff:ff:ff:ff:ff:ff link-netnsid 1
+    inet6 fe80::a444:a7ff:fe30:5097/64 scope <span class="nb">link
+       </span>valid_lft forever preferred_lft forever
+
+<span class="nv">$ </span>ip <span class="nt">-c</span> route
+default via 10.0.2.2 dev enp0s3 proto dhcp src 10.0.2.15 metric 100
+10.0.2.0/24 dev enp0s3 proto kernel scope <span class="nb">link </span>src 10.0.2.15
+10.0.2.2 dev enp0s3 proto dhcp scope <span class="nb">link </span>src 10.0.2.15 metric 100
+172.16.0.0/24 dev cni0 proto kernel scope <span class="nb">link </span>src 172.16.0.1
+172.16.1.0/24 via 172.16.1.0 dev flannel.1 onlink
+172.16.2.0/24 via 172.16.2.0 dev flannel.1 onlink
+172.17.0.0/16 dev docker0 proto kernel scope <span class="nb">link </span>src 172.17.0.1 linkdown
+192.168.100.0/24 dev enp0s8 proto kernel scope <span class="nb">link </span>src 192.168.100.10
+
+
+<span class="c"># 아래 mac 정보는 다른 노드들의 flannel.1 의 mac 주소 입니다</span>
+<span class="nv">$ </span>ip <span class="nt">-c</span> neigh show dev flannel.1
+172.16.2.0 lladdr 86:8f:47:89:1b:da PERMANENT
+172.16.1.0 lladdr 1e:af:73:b0:c0:c3 PERMANENT
+
+<span class="nv">$ </span>bridge fdb show dev flannel.1
+76:4d:5d:82:42:b7 dst 192.168.100.102 self permanent
+1e:af:73:b0:c0:c3 dst 192.168.100.101 self permanent
+86:8f:47:89:1b:da dst 192.168.100.102 self permanent
+16:43:ee:68:3c:08 dst 192.168.100.101 self permanent
+
+<span class="nv">$ </span>ip <span class="nt">-c</span> <span class="nt">-d</span> addr show flannel.1
+5: flannel.1: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1450 qdisc noqueue state UNKNOWN group default
+    <span class="nb">link</span>/ether 42:44:84:8c:89:dd brd ff:ff:ff:ff:ff:ff promiscuity 0 minmtu 68 maxmtu 65535
+    vxlan <span class="nb">id </span>1 <span class="nb">local </span>192.168.100.10 dev enp0s8 srcport 0 0 dstport 8472 nolearning ttl auto ageing 300 udpcsum noudp6zerocsumtx noudp6zerocsumrx numtxqueues 1 numrxqueues 1 gso_max_size 65536 gso_max_segs 65535
+    inet 172.16.0.0/32 brd 172.16.0.0 scope global flannel.1
+       valid_lft forever preferred_lft forever
+    inet6 fe80::4044:84ff:fe8c:89dd/64 scope <span class="nb">link
+       </span>valid_lft forever preferred_lft forever
+</code></pre></div></div> <h2 id="파드-shell-접속-후-확인">파드 Shell 접속 후 확인</h2> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>kubectl <span class="nb">exec</span> <span class="nt">-it</span> pod-1 <span class="nt">--</span> zsh
+
+<span class="nv">$ </span>ip <span class="nt">-c</span> addr show eth0
+3: eth0@if7: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1450 qdisc noqueue state UP group default
+    <span class="nb">link</span>/ether 9e:dc:9c:6b:82:b5 brd ff:ff:ff:ff:ff:ff link-netnsid 0
+    inet 172.16.1.3/24 brd 172.16.1.255 scope global eth0
+       valid_lft forever preferred_lft foreverforever
+
+<span class="c"># GW IP는 어떤 인터페이스인가? (1) flannel.1 (2) cni0</span>
+<span class="nv">$ </span>route <span class="nt">-n</span>
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+0.0.0.0         172.16.2.1      0.0.0.0         UG    0      0        0 eth0
+172.16.0.0      172.16.2.1      255.255.0.0     UG    0      0        0 eth0
+172.16.2.0      0.0.0.0         255.255.255.0   U     0      0        0 eth0
+
+<span class="nv">$ </span>ping <span class="nt">-c</span> 1 &lt;GW IP&gt;
+PING 172.16.1.1 <span class="o">(</span>172.16.1.1<span class="o">)</span> 56<span class="o">(</span>84<span class="o">)</span> bytes of data.
+64 bytes from 172.16.1.1: <span class="nv">icmp_seq</span><span class="o">=</span>1 <span class="nv">ttl</span><span class="o">=</span>64 <span class="nb">time</span><span class="o">=</span>0.168 ms
+
+<span class="nt">---</span> 172.16.1.1 ping statistics <span class="nt">---</span>
+1 packets transmitted, 1 received, 0% packet loss, <span class="nb">time </span>0ms
+rtt min/avg/max/mdev <span class="o">=</span> 0.168/0.168/0.168/0.000 ms
+
+<span class="nv">$ </span>ping <span class="nt">-c</span> 1 &lt;pod-2 IP&gt; 
+PING 172.16.2.1 <span class="o">(</span>172.16.2.1<span class="o">)</span> 56<span class="o">(</span>84<span class="o">)</span> bytes of data.
+64 bytes from 172.16.2.1: <span class="nv">icmp_seq</span><span class="o">=</span>1 <span class="nv">ttl</span><span class="o">=</span>63 <span class="nb">time</span><span class="o">=</span>6.42 ms
+
+<span class="nt">---</span> 172.16.2.1 ping statistics <span class="nt">---</span>
+1 packets transmitted, 1 received, 0% packet loss, <span class="nb">time </span>0ms
+rtt min/avg/max/mdev <span class="o">=</span> 6.424/6.424/6.424/0.000 ms
+
+<span class="nv">$ </span>ip <span class="nt">-c</span> neigh
+172.16.1.1 dev eth0 lladdr 56:76:07:db:8d:0d REACHABLE
+</code></pre></div></div> <p><img src="/assets/img/post_img/kang_2week_18.png" alt="" /></p> <h2 id="참고-자료">참고 자료</h2> <ul> <li>K8S Docs - <a href="https://kubernetes.io/docs/concepts/overview/components/">Components</a> &amp; <a href="https://kubernetes.io/docs/concepts/architecture/">Cluster Architecture</a> &amp; <a href="https://kubernetes.io/docs/concepts/workloads/pods/">Pods</a> &amp; <a href="https://kubernetes.io/docs/tutorials/kubernetes-basics/">Learn Kubernetes Basics</a> &amp; <a href="https://kubernetes.io/ko/docs/reference/kubectl/cheatsheet/">치트 시트</a></li> <li>K8S Blog (v1.22) - <a href="https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/">New Peaks</a> &amp; <a href="https://kubernetes.io/blog/2021/07/26/update-with-ingress-nginx/">Nginx-Ingress</a> &amp; <a href="https://kubernetes.io/blog/2021/07/14/upcoming-changes-in-kubernetes-1-22/">API</a></li> <li>CNCF - <a href="https://www.cncf.io/">링크</a> &amp; CNCF Landscape - <a href="https://landscape.cncf.io/">링크</a></li> <li>44bits(Youtube) - <a href="https://www.youtube.com/playlist?list=PLIUCBpK1dpsNf1m-2kiosmfn2nXfljQgb">초보를 위한 쿠버네티스 안내서</a> &amp; Subicura(WebSite) - <a href="https://subicura.com/k8s/">실습편</a></li> <li>[devinjeon] Container &amp; Pod - <a href="https://speakerdeck.com/devinjeon/containerbuteo-dasi-salpyeoboneun-kubernetes-pod-dongjag-weonri">링크</a></li> <li>[learnk8s] Tracing the path of network traffic in Kubernetes - <a href="https://learnk8s.io/kubernetes-network-packets">링크</a></li> <li>(심화) ETCD 기본 동작 원리의 이해 - <a href="https://tech.kakao.com/2021/12/20/kubernetes-etcd/">링크</a> &amp; ETCD? - <a href="https://blog.frec.kr/cloud/etcd/">링크</a></li> </ul> <div class="entry-meta"> <br> <hr> <span class="entry-tags"><a href="https://lahuman.github.io/tags/#kang" title="Pages tagged kang" class="tag"><span class="term">kang</span></a><a href="https://lahuman.github.io/tags/#cni" title="Pages tagged cni" class="tag"><span class="term">cni</span></a><a href="https://lahuman.github.io/tags/#flannel" title="Pages tagged flannel" class="tag"><span class="term">flannel</span></a></span> <span class="social-share"> <a href="https://www.facebook.com/sharer/sharer.php?u=https://lahuman.github.io/kang_2week_2/" title="Share on Facebook" class="tag"> <span class="term"><i class="fa fa-facebook-square"></i> Share</span> </a> <a href="https://twitter.com/intent/tweet?text=https://lahuman.github.io/kang_2week_2/" title="Share on Twitter" class="tag"> <span class="term"><i class="fa fa-twitter-square"></i> Tweet</span> </a> <a href="https://plus.google.com/share?url=https://lahuman.github.io/kang_2week_2/" title="Share on Google+" class="tag"> <span class="term"><i class="fa fa-google-plus-square"></i> +1</span> </a> </span> <div style="clear:both"></div> </div> <ins class="kakao_ad_area" style="display:none;" data-ad-unit = "DAN-ubp67fs9s850" data-ad-width = "320" data-ad-height = "100"></ins> <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script> </div> </div> <section id="disqus_thread" class="animated fadeInUp"></section><!-- /#disqus_thread --> </header> <!-- JS --> <script src="https://lahuman.github.io/assets/js/jquery-1.12.0.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.dlmenu.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.goup.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.magnific-popup.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.fitvid.min.js"></script> <script src="https://lahuman.github.io/assets/js/scripts.js"></script> <!-- Global site tag (gtag.js) - Google Analytics --> <script async src="https://www.googletagmanager.com/gtag/js?id=UA-74095083-1"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-74095083-1'); </script> <script type="text/javascript"> var disqus_shortname = 'daniels-blog'; (function() { var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true; dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js'; (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq); })(); (function () { var s = document.createElement('script'); s.async = true; s.type = 'text/javascript'; s.src = '//' + disqus_shortname + '.disqus.com/count.js'; (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s); }()); </script> <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript> <!-- MathJax --> <script async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> </body> </html>
