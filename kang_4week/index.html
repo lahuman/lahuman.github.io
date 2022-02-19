@@ -1,0 +1,387 @@
+<!DOCTYPE html> <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]--> <!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8"><![endif]--> <!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9"><![endif]--> <!--[if gt IE 8]><!--> <html class="no-js"><!--<![endif]--> <head> <meta charset="UTF-8"> <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"> <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1"> <title>#4 Service (ClusterIP & NodePort) &#8211; lahuman</title> <meta name="description" content="열심히 사는 아저씨"> <meta name="keywords" content="kang, service, clusterIP, NodePort"> <!-- Twitter Cards --> <meta name="twitter:card" content="summary"> <meta name="twitter:image" content="https://lahuman.github.io/assets/img/logo.png"> <meta name="twitter:title" content="#4 Service (ClusterIP & NodePort)"> <meta name="twitter:description" content="Kubernetes Advanced Networking Study"> <!-- Open Graph --> <meta property="og:locale" content="ko_KR"> <meta property="og:type" content="article"> <meta property="og:title" content="#4 Service (ClusterIP & NodePort)"> <meta property="og:description" content="Kubernetes Advanced Networking Study"> <meta property="og:url" content="https://lahuman.github.io/kang_4week/"> <meta property="og:site_name" content="lahuman"> <meta property="og:image" content="https://lahuman.github.io/assets/img/logo.png"> <link rel="canonical" href="https://lahuman.github.io/kang_4week/"> <link href="https://lahuman.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="lahuman Feed"> <!-- Handheld --> <meta name="HandheldFriendly" content="True"> <meta name="MobileOptimized" content="320"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- CSS --> <link rel="stylesheet" href="https://lahuman.github.io/assets/css/main.css"> <!-- JS --> <script src="https://lahuman.github.io/assets/js/modernizr-3.3.1.custom.min.js"></script> <!-- Favicons --> <link rel="apple-touch-icon" href="https://lahuman.github.io/assets/img/favicons/apple-icon-precomposed.png"> <link rel="apple-touch-icon" sizes="72x72" href="https://lahuman.github.io/assets/img/favicons/apple-icon-72x72.png"> <link rel="apple-touch-icon" sizes="114x114" href="https://lahuman.github.io/assets/img/favicons/apple-icon-114x114.png"> <link rel="apple-touch-icon" sizes="144x144" href="https://lahuman.github.io/assets/img/favicons/apple-icon-144x144.png"> <link rel="shortcut icon" type="image/png" href="https://lahuman.github.io/favicon.png" /> <link rel="shortcut icon" href="https://lahuman.github.io/favicon.ico" /> <!-- Background Image --> <style type="text/css">body {background-image:url(https://lahuman.github.io/assets/img/placeholder-big.jpg); background-repeat: no-repeat; background-size: cover; }</style> <!-- Post Feature Image --> </head> <body> <nav id="dl-menu" class="dl-menuwrapper" role="navigation"> <button class="dl-trigger">Open Menu</button> <ul class="dl-menu"> <li><a href="https://lahuman.github.io/">Home</a></li> <li> <a href="#">About</a> <ul class="dl-submenu"> <li> <img src="https://lahuman.github.io/assets/img/logo.png" alt="lahuman photo" class="author-photo"> <h4>lahuman</h4> <p>열심히 사는 아저씨</p> </li> <li><a href="https://lahuman.github.io/about/"><span class="btn btn-inverse">Learn More</span></a></li> <li> <a href="http://facebook.com/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-facebook-square"></i> Facebook</a> </li> <li> <a href="http://linkedin.com/in/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-linkedin-square"></i> LinkedIn</a> </li> <li> <a href="http://github.com/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-github"></i> Github</a> </li> </ul><!-- /.dl-submenu --> </li> <li> <a href="#">Posts</a> <ul class="dl-submenu"> <li><a href="https://lahuman.github.io/posts/">All Posts</a></li> <li><a href="https://lahuman.github.io/tags/">All Tags</a></li> </ul> </li> <li><a href="https://lahuman.github.io/projects/" >Projects</a></li> </ul><!-- /.dl-menu --> </nav><!-- /.dl-menuwrapper --> <!-- Header --> <header class="header" role="banner"> <div class="wrapper animated fadeIn"> <div class="content"> <div class="post-title "> <h1>#4 Service (ClusterIP & NodePort)</h1> <h4>08 Feb 2022</h4> <p class="reading-time"> <i class="fa fa-clock-o"></i> Reading time ~12 minutes </p><!-- /.entry-reading-time --> <a class="btn zoombtn" href="https://lahuman.github.io/projects/"> <i class="fa fa-chevron-left"></i> </a> </div> <h1 id="service-clusterip--nodeport">Service (ClusterIP &amp; NodePort)</h1> <blockquote> <p>4번째 시간을 정리 합니다. 시작하기 앞서서 이번에는 그래도 많이 사용해본 쿠버네티스의 Service를 다루는 시간이니 쉽겠다고 생각했습니다. 하지만 Iptable이 이렇게 많은 기능이 제공되는지 몰랐다. 네트워크의 세계는 넓다.</p> </blockquote> <p>참고 자료로 이전에 정리한 <a href="https://lahuman.github.io/kubernetes-yaml/">kubernetes의 각 항목을 살펴보자.</a> 글이 있습니다.</p> <h2 id="실습-환경-구성">실습 환경 구성</h2> <ul> <li>K8S : v1.22.6</li> <li>OS : Ubuntu 20.04.3</li> <li>CNI : Calico v3.21 - Direct mod</li> <li>Iptables proxy mode</li> </ul> <p><img src="/assets/img/post_img/kang_4week_1.png" alt="" /></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># K8S 배포에 사용할 폴더(디렉터리)를 생성 후 사용해주세요</span>
+<span class="c"># vagrant 파일 다운로드</span>
+<span class="nv">$ </span>curl <span class="nt">-O</span> https://raw.githubusercontent.com/gasida/KANS/main/4/Vagrantfile
+
+<span class="c"># 배포</span>
+<span class="nv">$ </span>vagrant up
+
+<span class="c"># 배포 확인 : k8s-rtr, k8s-m, k8s-w1, k8s-w2, k8s-w3, k8s-pc</span>
+<span class="nv">$ </span>vagrant status
+
+<span class="c"># 마스터노드 접속</span>
+<span class="nv">$ </span>vagrant ssh k8s-m
+
+<span class="c"># 마스터노드에서 Calico 확인 (Direct mode)</span>
+<span class="nv">$ </span>calicoctl get ippool <span class="nt">-o</span> wide
+</code></pre></div></div> <h3 id="vagrantfile">Vagrantfile</h3> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Base Image</span>
+BOX_IMAGE <span class="o">=</span> <span class="s2">"ubuntu/focal64"</span>
+BOX_VERSION <span class="o">=</span> <span class="s2">"20211026.0.0"</span>
+
+<span class="c"># max number of worker nodes</span>
+N <span class="o">=</span> 3
+
+Vagrant.configure<span class="o">(</span><span class="s2">"2"</span><span class="o">)</span> <span class="k">do</span> |config|
+<span class="c">#-----Router Node</span>
+    config.vm.define <span class="s2">"k8s-rtr"</span> <span class="k">do</span> |subconfig|
+      subconfig.vm.boot_timeout <span class="o">=</span> 1800
+      subconfig.vm.box <span class="o">=</span> BOX_IMAGE
+      subconfig.vm.box_version <span class="o">=</span> BOX_VERSION
+      subconfig.vm.provider <span class="s2">"virtualbox"</span> <span class="k">do</span> |v|
+        v.customize <span class="o">[</span><span class="s2">"modifyvm"</span>, :id, <span class="s2">"--groups"</span>, <span class="s2">"/Service-Lab"</span><span class="o">]</span>
+        v.customize <span class="o">[</span> <span class="s2">"modifyvm"</span>, :id, <span class="s2">"--uartmode1"</span>, <span class="s2">"disconnected"</span> <span class="o">]</span>
+        v.name <span class="o">=</span> <span class="s2">"Service-k8s-rtr"</span>
+        v.memory <span class="o">=</span> 512
+        v.cpus <span class="o">=</span> 1
+        v.linked_clone <span class="o">=</span> <span class="nb">true
+      </span>end
+      subconfig.vm.hostname <span class="o">=</span> <span class="s2">"k8s-rtr"</span>
+      subconfig.vm.synced_folder <span class="s2">"./"</span>, <span class="s2">"/vagrant"</span>, disabled: <span class="nb">true
+      </span>subconfig.vm.network <span class="s2">"private_network"</span>, ip: <span class="s2">"192.168.10.254"</span>
+      subconfig.vm.network <span class="s2">"private_network"</span>, ip: <span class="s2">"192.168.20.254"</span>
+      subconfig.vm.network <span class="s2">"forwarded_port"</span>, guest: 22, host: 50000, auto_correct: <span class="nb">true</span>, <span class="nb">id</span>: <span class="s2">"ssh"</span>
+      subconfig.vm.provision <span class="s2">"shell"</span>, path: <span class="s2">"https://raw.githubusercontent.com/gasida/KANS/main/4/linux_router.sh"</span> 
+    end
+
+<span class="c">#-----Manager Node</span>
+    config.vm.define <span class="s2">"k8s-m"</span> <span class="k">do</span> |subconfig|
+      subconfig.vm.boot_timeout <span class="o">=</span> 1800
+      subconfig.vm.box <span class="o">=</span> BOX_IMAGE
+      subconfig.vm.box_version <span class="o">=</span> BOX_VERSION
+      subconfig.vm.provider <span class="s2">"virtualbox"</span> <span class="k">do</span> |v|
+        v.customize <span class="o">[</span><span class="s2">"modifyvm"</span>, :id, <span class="s2">"--groups"</span>, <span class="s2">"/Service-Lab"</span><span class="o">]</span>
+        v.customize <span class="o">[</span><span class="s2">"modifyvm"</span>, :id, <span class="s2">"--nicpromisc2"</span>, <span class="s2">"allow-all"</span><span class="o">]</span>
+        v.customize <span class="o">[</span> <span class="s2">"modifyvm"</span>, :id, <span class="s2">"--uartmode1"</span>, <span class="s2">"disconnected"</span> <span class="o">]</span>
+        v.name <span class="o">=</span> <span class="s2">"Service-k8s-m"</span>
+        v.memory <span class="o">=</span> 4048
+        v.cpus <span class="o">=</span> 4
+        v.linked_clone <span class="o">=</span> <span class="nb">true
+      </span>end
+      subconfig.vm.hostname <span class="o">=</span> <span class="s2">"k8s-m"</span>
+      subconfig.vm.synced_folder <span class="s2">"./"</span>, <span class="s2">"/vagrant"</span>, disabled: <span class="nb">true
+      </span>subconfig.vm.network <span class="s2">"private_network"</span>, ip: <span class="s2">"192.168.10.10"</span>
+      subconfig.vm.network <span class="s2">"forwarded_port"</span>, guest: 22, host: 50010, auto_correct: <span class="nb">true</span>, <span class="nb">id</span>: <span class="s2">"ssh"</span>
+      subconfig.vm.provision <span class="s2">"shell"</span>, path: <span class="s2">"https://raw.githubusercontent.com/gasida/KANS/main/4/init_cfg.sh"</span>, args: N
+      subconfig.vm.provision <span class="s2">"shell"</span>, path: <span class="s2">"https://raw.githubusercontent.com/gasida/KANS/main/4/route1.sh"</span>
+      subconfig.vm.provision <span class="s2">"shell"</span>, path: <span class="s2">"https://raw.githubusercontent.com/gasida/KANS/main/4/master.sh"</span>
+    end
+
+<span class="c">#-----Worker Node Subnet1</span>
+  <span class="o">(</span>1..N<span class="o">)</span>.each <span class="k">do</span> |i|
+    config.vm.define <span class="s2">"k8s-w#{i}"</span> <span class="k">do</span> |subconfig|
+      subconfig.vm.boot_timeout <span class="o">=</span> 1800
+      subconfig.vm.box <span class="o">=</span> BOX_IMAGE
+      subconfig.vm.box_version <span class="o">=</span> BOX_VERSION
+      subconfig.vm.provider <span class="s2">"virtualbox"</span> <span class="k">do</span> |v|
+        v.customize <span class="o">[</span><span class="s2">"modifyvm"</span>, :id, <span class="s2">"--groups"</span>, <span class="s2">"/Service-Lab"</span><span class="o">]</span>
+        v.customize <span class="o">[</span><span class="s2">"modifyvm"</span>, :id, <span class="s2">"--nicpromisc2"</span>, <span class="s2">"allow-all"</span><span class="o">]</span>
+        v.customize <span class="o">[</span> <span class="s2">"modifyvm"</span>, :id, <span class="s2">"--uartmode1"</span>, <span class="s2">"disconnected"</span> <span class="o">]</span>
+        v.name <span class="o">=</span> <span class="s2">"Service-k8s-w#{i}"</span>
+        v.memory <span class="o">=</span> 1536
+        v.cpus <span class="o">=</span> 2
+        v.linked_clone <span class="o">=</span> <span class="nb">true
+      </span>end
+      subconfig.vm.hostname <span class="o">=</span> <span class="s2">"k8s-w#{i}"</span>
+      subconfig.vm.synced_folder <span class="s2">"./"</span>, <span class="s2">"/vagrant"</span>, disabled: <span class="nb">true
+      </span>subconfig.vm.network <span class="s2">"private_network"</span>, ip: <span class="s2">"192.168.10.10#{i}"</span>
+      subconfig.vm.network <span class="s2">"forwarded_port"</span>, guest: 22, host: <span class="s2">"5001#{i}"</span>, auto_correct: <span class="nb">true</span>, <span class="nb">id</span>: <span class="s2">"ssh"</span>
+      subconfig.vm.provision <span class="s2">"shell"</span>, path: <span class="s2">"https://raw.githubusercontent.com/gasida/KANS/main/4/init_cfg.sh"</span>, args: N
+      subconfig.vm.provision <span class="s2">"shell"</span>, path: <span class="s2">"https://raw.githubusercontent.com/gasida/KANS/main/4/route1.sh"</span>
+      subconfig.vm.provision <span class="s2">"shell"</span>, path: <span class="s2">"https://raw.githubusercontent.com/gasida/KANS/main/4/worker.sh"</span>
+    end
+  end
+
+<span class="c">#-----Client PC Subnet2</span>
+    config.vm.define <span class="s2">"k8s-pc"</span> <span class="k">do</span> |subconfig|
+      subconfig.vm.boot_timeout <span class="o">=</span> 1800
+      subconfig.vm.box <span class="o">=</span> BOX_IMAGE
+      subconfig.vm.box_version <span class="o">=</span> BOX_VERSION
+      subconfig.vm.provider <span class="s2">"virtualbox"</span> <span class="k">do</span> |v|
+        v.customize <span class="o">[</span><span class="s2">"modifyvm"</span>, :id, <span class="s2">"--groups"</span>, <span class="s2">"/Service-Lab"</span><span class="o">]</span>
+        v.customize <span class="o">[</span> <span class="s2">"modifyvm"</span>, :id, <span class="s2">"--uartmode1"</span>, <span class="s2">"disconnected"</span> <span class="o">]</span>
+        v.name <span class="o">=</span> <span class="s2">"Service-k8s-pc"</span>
+        v.memory <span class="o">=</span> 512
+        v.cpus <span class="o">=</span> 1
+        v.linked_clone <span class="o">=</span> <span class="nb">true
+      </span>end
+      subconfig.vm.hostname <span class="o">=</span> <span class="s2">"k8s-pc"</span>
+      subconfig.vm.synced_folder <span class="s2">"./"</span>, <span class="s2">"/vagrant"</span>, disabled: <span class="nb">true
+      </span>subconfig.vm.network <span class="s2">"private_network"</span>, ip: <span class="s2">"192.168.20.100"</span>
+      subconfig.vm.network <span class="s2">"forwarded_port"</span>, guest: 22, host: 50020, auto_correct: <span class="nb">true</span>, <span class="nb">id</span>: <span class="s2">"ssh"</span>
+      subconfig.vm.provision <span class="s2">"shell"</span>, path: <span class="s2">"https://raw.githubusercontent.com/gasida/KANS/main/4/client_pc.sh"</span>
+      subconfig.vm.provision <span class="s2">"shell"</span>, path: <span class="s2">"https://raw.githubusercontent.com/gasida/KANS/main/4/route2.sh"</span>
+    end
+
+end
+</code></pre></div></div> <h2 id="클러스터-내부를-외부에-노출">클러스터 내부를 외부에 노출</h2> <h3 id="1-파드-생성--k8s-클러스터-내부에서만-접속">1. 파드 생성 : K8S 클러스터 내부에서만 접속</h3> <p><img src="/assets/img/post_img/kang_4week_2.png" alt="" /></p> <h3 id="2-서비스cluster-type-연결--k8s-클러스터-내부에서만-접속">2. 서비스(Cluster Type) 연결 : K8S 클러스터 내부에서만 접속</h3> <ul> <li>동알한 애플리케이션의 다수 파드 접속을 위하여 서비스를 통해 접속</li> </ul> <p><img src="/assets/img/post_img/kang_4week_3.png" alt="" /></p> <h3 id="3-서비스nodeport-type-연결--외부-클라이언트가-서비스를-통해서-클러스터-내부의-파드로-접속">3. 서비스(NodePort Type) 연결 : 외부 클라이언트가 서비스를 통해서 클러스터 내부의 파드로 접속</h3> <ul> <li>서비스(NodePort Type)의 일부 단점을 보안한 서비스(LoadBalancer Type)도 존재</li> </ul> <p><img src="/assets/img/post_img/kang_4week_4.png" alt="" /></p> <h3 id="4-서비스-종류">4. 서비스 종류</h3> <h4 id="clusterip-타입"><code class="language-plaintext highlighter-rouge">ClusterIP</code> 타입</h4> <p><img src="/assets/img/post_img/kang_4week_5.png" alt="" /></p> <h4 id="nodeport-타입"><code class="language-plaintext highlighter-rouge">NodePort</code> 타입</h4> <p><img src="/assets/img/post_img/kang_4week_6.png" alt="" /></p> <h4 id="loadbalancer-타입"><code class="language-plaintext highlighter-rouge">LoadBalancer</code> 타입</h4> <p><img src="/assets/img/post_img/kang_4week_7.png" alt="" /></p> <h2 id="k8s-서비스-구성-모드-소개---링크-ssup-finda-커피고래"><code class="language-plaintext highlighter-rouge">K8S 서비스 구성 모드</code> 소개 - <a href="https://kubernetes.io/ko/docs/concepts/services-networking/service/#proxy-mode-userspace">링크</a> <a href="https://ssup2.github.io/theory_analysis/Kubernetes_Service_Proxy/">Ssup</a> <a href="https://medium.com/finda-tech/kubernetes-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EC%A0%95%EB%A6%AC-fccd4fd0ae6">Finda</a> <a href="https://coffeewhale.com/k8s/network/2019/05/11/k8s-network-02/">커피고래</a></h2> <ol> <li><strong>User space 프록시 모드</strong> <ul> <li>Redirect, DNAT를 통해서 Service로 전송한 모든 요청 Packet은 kube-proxy로 전달 =&gt; 포트 하나 당 하나의 서비스가 연결</li> <li>즉 유저스페이스(kube-proxy)에서 커널 스페이스로 변환이 필요하여 그 만큼 비용이 발생</li> <li>kube-proxy 프로세스가 문제 시 SPOF 발생!(대응이 어렵다!)</li> </ul> </li> </ol> <p><a href="https://medium.com/finda-tech/kubernetes-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EC%A0%95%EB%A6%AC-fccd4fd0ae6">https://medium.com/finda-tech/kubernetes-네트워크-정리-fccd4fd0ae6</a></p> <ol> <li><strong>Iptables 프록시 모드</strong> <ul> <li>1번 방식인 kube-proxy가 직접 proxy의 역할을 수행하지 않고 그 역할을 전부 netfilter에게 맡긴다.</li> <li>이를 통해 service IP를 발견하고 그것을 실제 Pod로 전달하는 것은 모두 netfilter가 담당하게 되었고,</li> <li>kube-proxy는 단순히 netfilter의 규칙을 알맞게 수정하는 것을 담당할 뿐이다. 즉 kube-proxy 는 rule 만 관리하고 실제 데이터 트래픽 처리를 직접 하지 않는다.</li> <li>kube-proxy 가 데몬셋으로 동작하여, SPOF 발생 시 자동으로 다시 띄워 동작한다! 혹시 문제가 생겨도 룰은 이미 설정되어 있으니 데이터 통신은 된다.</li> </ul> <ul> <li>물론 룰 추가 삭제는 안되지만.. 결론은 ‘User space’ 에 비해서 좀 더 안정적이고 성능 효율도 좋다!</li> </ul> </li> </ol> <p><a href="https://medium.com/finda-tech/kubernetes-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EC%A0%95%EB%A6%AC-fccd4fd0ae6">https://medium.com/finda-tech/kubernetes-네트워크-정리-fccd4fd0ae6</a></p> <ol> <li><strong>IPVS 프록시 모드</strong> <ul> <li>IPVS Mode는 Linue Kernel에서 제공하는 L4 Load Balacner인 IPVS가 Service Proxy 역할을 수행하는 Mode이다.</li> <li>Packet Load Balancing 수행시 IPVS가 iptables보다 높은 성능을 보이기 때문에 IPVS Mode는 iptables Mode보다 높은 성능을 보여준다</li> <li>IPVS 프록시 모드는 iptables 모드와 유사한 넷필터 후크 기능을 기반으로 하지만, 해시 테이블을 기본 데이터 구조로 사용하고 커널 스페이스에서 동작한다.</li> <li>이는 IPVS 모드의 kube-proxy는 iptables 모드의 kube-proxy보다 지연 시간이 짧은 트래픽을 리다이렉션하고, 프록시 규칙을 동기화할 때 성능이 훨씬 향상됨을 의미한다.</li> <li>다른 프록시 모드와 비교했을 때, IPVS 모드는 높은 네트워크 트래픽 처리량도 지원한다.</li> </ul> </li> </ol> <p><a href="https://kubernetes.io/ko/docs/concepts/services-networking/service/#proxy-mode-ipvs">https://kubernetes.io/ko/docs/concepts/services-networking/service/#proxy-mode-ipvs</a></p> <ol> <li><strong>eBPF 모드 + XDP</strong> <ul> <li>기존 netfilter/iptables 기반 통신</li> </ul> </li> </ol> <p><img src="/assets/img/post_img/kang_4week_8.png" alt="" /></p> <ul> <li>eBPF + XDP 네트워킹 모듈</li> </ul> <p>[https://deview.kr/data/deview/session/attach/1000<em>T3_송인주_Kubernetes 클러스터에서의 고성능&amp;고가용성 NAT Networking 시스템.pdf](https://deview.kr/data/deview/session/attach/1000_T3</em>%EC%86%A1%EC%9D%B8%EC%A3%BC_Kubernetes%20%ED%81%B4%EB%9F%AC%EC%8A%A4%ED%84%B0%EC%97%90%EC%84%9C%EC%9D%98%20%EA%B3%A0%EC%84%B1%EB%8A%A5&amp;%EA%B3%A0%EA%B0%80%EC%9A%A9%EC%84%B1%20NAT%20Networking%20%EC%8B%9C%EC%8A%A4%ED%85%9C.pdf)</p> <h2 id="사용-약자">사용 약자</h2> <ul> <li><strong>S.IP</strong> : Source IP , 출발지(소스) IP</li> <li><strong>D.IP</strong> : Destination IP, 도착치(목적지) IP</li> <li><strong>S.Port</strong> : Source Port , 출발지(소스) 포트</li> <li><strong>D.Port</strong> : Destination Port , 도착지(목적지) 포트</li> <li><strong>NAT</strong> : Network Address Translation , 네트워크 주소 변환</li> <li><strong>SNAT</strong> : Source IP 를 NAT 처리, 일반적으로 출발지 IP를 변환</li> <li><strong>DNAT</strong> : Destination IP 를 NAT 처리, 일반적으로 목적지 IP와 목적지 포트를 변환</li> </ul> <h2 id="clusterip">ClusterIP</h2> <blockquote> <p>클라이언트(TestPod)가 <code class="language-plaintext highlighter-rouge">CLUSTER-IP</code> 접속 시 해당 노드의 <strong>iptables 룰(랜덤 분산)</strong>에 의해서 <strong>DNAT</strong> 처리가 되어 목적지(backend) 파드와 통신</p> </blockquote> <p><img src="/assets/img/post_img/kang_4week_9.png" alt="" /></p> <h6 id="iptables-분산룰정책은-모든-노드에-자동으로-설정됨">iptables 분산룰(정책)은 모든 노드에 자동으로 설정됨</h6> <p><img src="/assets/img/post_img/kang_4week_10.png" alt="" /></p> <h6 id="109601-은-cluster-ip-주소">10.96.0.1 은 CLUSTER-IP 주소</h6> <ul> <li><strong>클러스터 내부</strong>에서만 <code class="language-plaintext highlighter-rouge">CLUSTER-IP</code> 로 접근 가능 =&gt; 서비스에 DNS(도메인) 접속도 가능!</li> <li><code class="language-plaintext highlighter-rouge">서비스(ClusterIP 타입) 생성</code>하게 되면, apiserver -&gt; (kubelet) -&gt; kube-proxy -&gt; iptables 에 <code class="language-plaintext highlighter-rouge">rule</code>(룰)이 <code class="language-plaintext highlighter-rouge">생성</code>됨</li> <li><code class="language-plaintext highlighter-rouge">모드 노드</code>(마스터 포함)에 <code class="language-plaintext highlighter-rouge">iptables rule 이 설정</code>되므로, 파드에서 접속 시 해당 노드에 존재하는 iptables rule 에 의해서 분산 접속이 됨</li> </ul> <h3 id="실습">실습</h3> <ul> <li>목적지(backend) 파드(Pod) 생성 : 3pod.yaml</li> </ul> <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">$ cat &lt;&lt;EOT&gt; 3pod.yaml</span>
+<span class="na">apiVersion</span><span class="pi">:</span> <span class="s">v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">Pod</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">webpod1</span>
+  <span class="na">labels</span><span class="pi">:</span>
+    <span class="na">app</span><span class="pi">:</span> <span class="s">webpod</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">nodeName</span><span class="pi">:</span> <span class="s">k8s-w1</span>
+  <span class="na">containers</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">container</span>
+    <span class="na">image</span><span class="pi">:</span> <span class="s">traefik/whoami</span>
+  <span class="na">terminationGracePeriodSeconds</span><span class="pi">:</span> <span class="m">0</span>
+<span class="nn">---</span>
+<span class="na">apiVersion</span><span class="pi">:</span> <span class="s">v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">Pod</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">webpod2</span>
+  <span class="na">labels</span><span class="pi">:</span>
+    <span class="na">app</span><span class="pi">:</span> <span class="s">webpod</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">nodeName</span><span class="pi">:</span> <span class="s">k8s-w2</span>
+  <span class="na">containers</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">container</span>
+    <span class="na">image</span><span class="pi">:</span> <span class="s">traefik/whoami</span>
+  <span class="na">terminationGracePeriodSeconds</span><span class="pi">:</span> <span class="m">0</span>
+<span class="nn">---</span>
+<span class="na">apiVersion</span><span class="pi">:</span> <span class="s">v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">Pod</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">webpod3</span>
+  <span class="na">labels</span><span class="pi">:</span>
+    <span class="na">app</span><span class="pi">:</span> <span class="s">webpod</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">nodeName</span><span class="pi">:</span> <span class="s">k8s-w3</span>
+  <span class="na">containers</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">container</span>
+    <span class="na">image</span><span class="pi">:</span> <span class="s">traefik/whoami</span>
+  <span class="na">terminationGracePeriodSeconds</span><span class="pi">:</span> <span class="m">0</span>
+<span class="s">EOT</span>
+</code></pre></div></div> <ul> <li>클라이언트(TestPod) 생성 : netpod.yaml</li> </ul> <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">$ cat &lt;&lt;EOT&gt; netpod.yaml</span>
+<span class="na">apiVersion</span><span class="pi">:</span> <span class="s">v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">Pod</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">net-pod</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">nodeName</span><span class="pi">:</span> <span class="s">k8s-m</span>
+  <span class="na">containers</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">netshoot-pod</span>
+    <span class="na">image</span><span class="pi">:</span> <span class="s">nicolaka/netshoot</span>
+    <span class="na">command</span><span class="pi">:</span> <span class="pi">[</span><span class="s2">"</span><span class="s">tail"</span><span class="pi">]</span>
+    <span class="na">args</span><span class="pi">:</span> <span class="pi">[</span><span class="s2">"</span><span class="s">-f"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">/dev/null"</span><span class="pi">]</span>
+  <span class="na">terminationGracePeriodSeconds</span><span class="pi">:</span> <span class="m">0</span>
+<span class="s">EOT</span>
+</code></pre></div></div> <ul> <li>서비스(ClusterIP) 생성 : svc-clusterip.yaml에서 spec.ports.<strong>port</strong> 와 spec.ports.<strong>targetPort</strong> 가 어떤 의미인지 이해 필요</li> </ul> <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">$ cat &lt;&lt;EOT&gt; svc-clusterip.yaml</span>
+<span class="na">apiVersion</span><span class="pi">:</span> <span class="s">v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">Service</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">svc-clusterip</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">ports</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">svc-webport</span>
+      <span class="na">port</span><span class="pi">:</span> <span class="m">9000</span>
+      <span class="na">targetPort</span><span class="pi">:</span> <span class="m">80</span>
+  <span class="na">selector</span><span class="pi">:</span>
+    <span class="na">app</span><span class="pi">:</span> <span class="s">webpod</span>
+  <span class="na">type</span><span class="pi">:</span> <span class="s">ClusterIP</span>
+<span class="s">EOT</span>
+</code></pre></div></div> <ul> <li>생성 및 확인</li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 생성</span>
+<span class="nv">$ </span>kubectl apply <span class="nt">-f</span> <span class="k">**</span>3pod<span class="k">**</span>.yaml,<span class="k">**</span>netpod<span class="k">**</span>.yaml,<span class="k">**</span>svc-clusterip<span class="k">**</span>.yaml
+
+<span class="c"># 모니터링</span>
+<span class="nv">$ </span>watch <span class="nt">-d</span> <span class="s1">'calicoctl get wep;echo; kubectl get svc,ep svc-clusterip'</span>
+
+<span class="c"># 파드와 서비스 사용 네트워크 대역 정보 확인 </span>
+<span class="nv">$ </span>kubectl cluster-info dump | <span class="nb">grep</span> <span class="nt">-m</span> 2 <span class="nt">-E</span> <span class="s2">"cluster-cidr|service-cluster-ip-range"</span>
+        <span class="s2">"--service-cluster-ip-range=10.96.0.0/12"</span>,
+        <span class="s2">"--cluster-cidr=172.16.0.0/16"</span>,
+
+<span class="c"># 확인</span>
+<span class="nv">$ </span>calicoctl get wep
+WORKLOAD   NODE     NETWORKS          INTERFACE
+webpod1    k8s-w1   172.16.158.3/32   cali778ba511bf9
+webpod2    k8s-w2   172.16.184.3/32   cali798bceab6f5
+webpod3    k8s-w0   172.16.34.3/32    cali10220bc3a76
+
+<span class="nv">$ </span>kubectl get svc svc-clusterip
+NAME            TYPE        CLUSTER-IP      EXTERNAL-IP   PORT<span class="o">(</span>S<span class="o">)</span>    AGE
+svc-clusterip   ClusterIP   10.105.114.73   &lt;none&gt;        9000/TCP   13m
+
+<span class="c"># spec.ports.**port** 와 spec.ports.**targetPort** 가 어떤 의미인지 꼭 이해하자!</span>
+<span class="nv">$ </span>kubectl describe svc svc-clusterip
+
+<span class="c"># 서비스 생성 시 엔드포인트를 자동으로 생성, 물론 수동으로 설정 생성도 가능</span>
+<span class="nv">$ </span>kubectl get endpoints svc-clusterip
+NAME            ENDPOINTS                                        AGE
+svc-clusterip   172.16.158.1:80,172.16.184.1:80,172.16.34.1:80   13m
+</code></pre></div></div> <ul> <li>클라이언트(TestPod) Shell 에서 접속 테스트 &amp; 서비스(ClusterIP) 부하분산 접속 확인</li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 클라이언트(TestPod) Shell 실행</span>
+<span class="nv">$ </span>kubectl <span class="nb">exec</span> <span class="nt">-it</span> net-pod <span class="nt">--</span> zsh
+<span class="nt">-------------------------------</span>
+<span class="c"># 목적지(backend) 파드(Pod) IP로 직접 curl 접속 테스트</span>
+<span class="c">## POD1=&lt;webpod1 IP주소&gt;</span>
+<span class="c">## POD2=&lt;webpod2 IP주소&gt;</span>
+<span class="nv">$ POD1</span><span class="o">=</span>172.16.158.1
+<span class="nv">$ POD2</span><span class="o">=</span>172.16.184.1
+<span class="nv">$ POD3</span><span class="o">=</span>172.16.24.0
+
+<span class="nv">$ </span>curl <span class="nt">-s</span> <span class="nv">$POD1</span>
+<span class="nv">$ </span>curl <span class="nt">-s</span> <span class="nv">$POD2</span>
+<span class="nv">$ </span>curl <span class="nt">-s</span> <span class="nv">$POD3</span>
+
+<span class="c"># 서비스(ClusterIP) 부하분산 접속 확인</span>
+<span class="c">## SVC1=&lt;svc-clusterip 의 ClusterIP주소&gt;</span>
+<span class="nv">$ SVC1</span><span class="o">=</span>10.98.149.178
+
+<span class="nv">$ </span>curl <span class="nt">-s</span> <span class="nv">$SVC1</span> <span class="nt">--connect-timeout</span> 1
+<span class="nv">$ </span>curl <span class="nt">-s</span> <span class="nv">$SVC1</span>:9000
+  Hostname: webpod3
+  IP: 127.0.0.1
+  IP: 172.16.34.3                <span class="c"># 접속한 웹서버의 IP 정보</span>
+  RemoteAddr: 172.16.116.5:60152 <span class="c"># 접근한 클라이언트의 IP 정보 &gt;&gt; 접속한 클라이언트 IP 가 웹 서버에 로그에서 확인 가능하다!</span>
+  GET / HTTP/1.1
+  Host: 10.105.114.73:9000       <span class="c"># 최초(?) 접속한 'IP/도메인' 정보</span>
+  User-Agent: curl/7.78.0
+  Accept: <span class="k">*</span>/<span class="k">*</span>
+
+<span class="nv">$ </span>curl <span class="nt">-s</span> <span class="nv">$SVC1</span>:9000 | <span class="nb">grep </span>Hostname
+<span class="nv">$ </span>curl <span class="nt">-s</span> <span class="nv">$SVC1</span>:9000 | <span class="nb">grep </span>Hostname
+
+<span class="nv">$ </span><span class="k">for </span>i <span class="k">in</span> <span class="o">{</span>1..100<span class="o">}</span><span class="p">;</span> <span class="k">do </span>curl <span class="nt">-s</span> <span class="nv">$SVC1</span>:9000 | <span class="nb">grep </span>Hostname<span class="p">;</span> <span class="k">done</span> | <span class="nb">sort</span> | <span class="nb">uniq</span> <span class="nt">-c</span> | <span class="nb">sort</span> <span class="nt">-nr</span>
+<span class="nv">$ </span><span class="k">for </span>i <span class="k">in</span> <span class="o">{</span>1..1000<span class="o">}</span><span class="p">;</span> <span class="k">do </span>curl <span class="nt">-s</span> <span class="nv">$SVC1</span>:9000 | <span class="nb">grep </span>Hostname<span class="p">;</span> <span class="k">done</span> | <span class="nb">sort</span> | <span class="nb">uniq</span> <span class="nt">-c</span> | <span class="nb">sort</span> <span class="nt">-nr</span>
+<span class="c"># 혹은</span>
+<span class="nv">$ </span><span class="k">for </span>i <span class="k">in</span> <span class="o">{</span>1..100<span class="o">}</span><span class="p">;</span> <span class="k">do </span>curl <span class="nt">-s</span> <span class="nv">$SVC1</span>:9000 | <span class="nb">grep </span>Hostname<span class="p">;</span> <span class="nb">sleep </span>1 <span class="p">;</span> <span class="k">done</span>
+<span class="nv">$ </span><span class="k">for </span>i <span class="k">in</span> <span class="o">{</span>1..100<span class="o">}</span><span class="p">;</span> <span class="k">do </span>curl <span class="nt">-s</span> <span class="nv">$SVC1</span>:9000 | <span class="nb">grep </span>Hostname<span class="p">;</span> <span class="nb">sleep </span>0.1 <span class="p">;</span> <span class="k">done</span>
+<span class="nv">$ </span><span class="k">for </span>i <span class="k">in</span> <span class="o">{</span>1..10000<span class="o">}</span><span class="p">;</span> <span class="k">do </span>curl <span class="nt">-s</span> <span class="nv">$SVC1</span>:9000 | <span class="nb">grep </span>Hostname<span class="p">;</span> <span class="nb">sleep </span>0.01 <span class="p">;</span> <span class="k">done</span>
+<span class="nt">-------------------------------</span>
+
+<span class="c"># (옵션) 워커노드에서 패킷 캡쳐 확인</span>
+<span class="nv">$ </span>tcpdump <span class="nt">-i</span> any tcp port 80 <span class="nt">-nnq</span>
+
+<span class="c">## 각각 워커노드의 파드에 연결된 CALI 의 이름을 변수에 지정</span>
+<span class="nv">$ CALI</span><span class="o">=</span>cali778ba511bf9
+<span class="nv">$ CALI</span><span class="o">=</span>cali798bceab6f5
+<span class="nv">$ CALI</span><span class="o">=</span>cali798bceab6f5
+
+<span class="c">## 각 워커노드에 cali 에서 패킷 캡쳐</span>
+<span class="nv">$ </span>tcpdump <span class="nt">-i</span> <span class="nv">$CALI</span> tcp port 80 <span class="nt">-nnq</span>
+<span class="nv">$ </span>tcpdump <span class="nt">-i</span> <span class="nv">$CALI</span> tcp port 80 <span class="nt">-w</span> /tmp/svc1-1.pcap
+
+<span class="c">## 각 워커노드에 enp0s8 에서 패킷 캡쳐 </span>
+<span class="nv">$ </span>tcpdump <span class="nt">-i</span> enp0s8 tcp port 80 or proto 4 <span class="nt">-nnq</span>
+<span class="nv">$ </span>tcpdump <span class="nt">-i</span> enp0s8 tcp port 80 <span class="nt">-w</span> /tmp/svc1-2.pcap
+
+</code></pre></div></div> <ul> <li>클라이언트(TestPod) =&gt; 서비스(ClusterIP) 접속 시 : 3개의 목적지(backend) 파드로 <strong>랜덤 부하 분산</strong> 접속됨</li> </ul> <h3 id="서비스clusterip-부족한-점">서비스(ClusterIP) 부족한 점</h3> <ul> <li>클러스터 외부에서는 서비스(ClusterIP)로 접속이 불가능 =&gt; <strong>NodePort</strong> 타입으로 외부에서 접속 가능!</li> <li>IPtables 는 파드에 대한 <code class="language-plaintext highlighter-rouge">헬스체크 기능이 없어서</code> 문제 있는 파드에 연결 가능 =&gt; 서비스 사용, 파드에 Readiness Probe 설정으로 파드 문제 시 서비스의 엔드포인트에서 제거되게 하자!</li> </ul> <h2 id="nodeport">NodePort</h2> <p><strong>요약</strong> : 외부 클라이언트가 ‘노드IP:NodePort’ 접속 시 해당 노드의 <strong>iptables 룰</strong>에 의해서 <strong>SNAT/DNAT</strong> 되어 목적지 파드와 통신 후 리턴 트래픽은 최초 인입 노드를 경유해서 외부로 되돌아감</p> <p><img src="/assets/img/post_img/kang_4week_11.png" alt="" /></p> <h6 id="nodeport노드포트는-모든-노드마스터-포함에-listen">NodePort(노드포트)는 모든 노드(마스터 포함)에 Listen</h6> <p><img src="/assets/img/post_img/kang_4week_12.png" alt="" /></p> <h6 id="외부-클라이언트의-출발지ip도-snat-되어서-목적지-파드에-도착함-물론-dnat-동작-포함">외부 클라이언트의 출발지IP도 SNAT 되어서 목적지 파드에 도착함!, 물론 DNAT 동작 포함!</h6> <ul> <li>외부에서 클러스터의 <strong>‘서비스(NodePort)’</strong> 로 접근 가능 =&gt; 이후에는 <strong>Cluster IP 통신</strong>과 동일!</li> <li>모드 노드(마스터 포함)에 iptables rule 이 설정되므로, 모든 노드에 NodePort 로 접속 시 iptables rule 에 의해서 분산 접속이 됨</li> <li>Node 의 모든 Loca IP(Local host Interface IP : loopback 포함) 사용 가능 &amp; Local IP를 지정 가능</li> <li>쿠버네티스 NodePort 할당 범위 기본(30000-32767) &amp; 변경하기 - <a href="https://blog.frec.kr/cloud/modify_nodeport_range/">링크</a></li> </ul> <h3 id="실습-1">실습</h3> <ul> <li>목적지(backend) 디플로이먼트(Pod) 파일 생성 : echo-deploy.yaml</li> </ul> <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">$ cat &lt;&lt;EOT&gt; echo-deploy.yaml</span>
+<span class="na">apiVersion</span><span class="pi">:</span> <span class="s">apps/v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">Deployment</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">deploy-echo</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">replicas</span><span class="pi">:</span> <span class="m">3</span>
+  <span class="na">selector</span><span class="pi">:</span>
+    <span class="na">matchLabels</span><span class="pi">:</span>
+      <span class="na">app</span><span class="pi">:</span> <span class="s">deploy-websrv</span>
+  <span class="na">template</span><span class="pi">:</span>
+    <span class="na">metadata</span><span class="pi">:</span>
+      <span class="na">labels</span><span class="pi">:</span>
+        <span class="na">app</span><span class="pi">:</span> <span class="s">deploy-websrv</span>
+    <span class="na">spec</span><span class="pi">:</span>
+      <span class="na">terminationGracePeriodSeconds</span><span class="pi">:</span> <span class="m">0</span>
+      <span class="na">containers</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">ndks-websrv</span>
+        <span class="na">image</span><span class="pi">:</span> <span class="s">k8s.gcr.io/echoserver:1.5</span>
+        <span class="na">ports</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">containerPort</span><span class="pi">:</span> <span class="m">8080</span>
+<span class="s">EOT</span>
+</code></pre></div></div> <ul> <li>서비스(NodePort) 파일 생성 : svc-nodeport.yaml</li> </ul> <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">$ cat &lt;&lt;EOT&gt; svc-nodeport.yaml</span>
+<span class="na">apiVersion</span><span class="pi">:</span> <span class="s">v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">Service</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">svc-nodeport</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">ports</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">svc-webport</span>
+      <span class="na">port</span><span class="pi">:</span> <span class="m">9000</span>
+      <span class="na">targetPort</span><span class="pi">:</span> <span class="m">8080</span>
+  <span class="na">selector</span><span class="pi">:</span>
+    <span class="na">app</span><span class="pi">:</span> <span class="s">deploy-websrv</span>
+  <span class="na">**type</span><span class="pi">:</span> <span class="s">NodePort**</span>
+<span class="s">EOT</span>
+</code></pre></div></div> <ul> <li>생성 및 확인</li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 생성</span>
+<span class="nv">$ </span>kubectl apply <span class="nt">-f</span> echo-deploy.yaml,svc-nodeport.yaml
+
+<span class="c"># 모니터링</span>
+<span class="nv">$ </span>watch <span class="nt">-d</span> <span class="s1">'calicoctl get wep;echo; kubectl get svc,ep svc-nodeport'</span>
+
+<span class="c"># 확인</span>
+<span class="nv">$ </span>kubectl get deploy,pod <span class="nt">-o</span> wide
+
+<span class="c"># 아래 30158은 서비스(NodePort) 정보!</span>
+<span class="nv">$ </span>kubectl get svc svc-nodeport
+NAME           TYPE       CLUSTER-IP      EXTERNAL-IP   PORT<span class="o">(</span>S<span class="o">)</span>          AGE
+svc-nodeport   <span class="k">**</span>NodePort<span class="k">**</span>   10.111.1.238   &lt;none&gt;        9000:<span class="k">**</span>30158<span class="k">**</span>/TCP   3m3s
+
+<span class="nv">$ </span>kubectl get endpoints svc-nodeport
+NAME           ENDPOINTS                                              AGE
+svc-nodeport   172.16.158.5:8080,172.16.184.3:8080,172.16.34.4:8080   4m18s
+
+<span class="c"># **Port** , **TargetPort** , **NodePort** 각각의 차이점의 의미를 알자!</span>
+<span class="nv">$ </span>kubectl describe svc svc-nodeport
+</code></pre></div></div> <p><img src="/assets/img/post_img/kang_4week_13.png" alt="" /></p> <ul> <li>외부 클라이언트(<strong>k8s-pc</strong>)에서 접속 테스트 &amp; 서비스(NodePort) 부하분산 접속 확인</li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># NodePort 확인</span>
+<span class="nv">$ </span>kubectl get service svc-nodeport <span class="nt">-o</span> <span class="nv">jsonpath</span><span class="o">=</span><span class="s1">'{.spec.ports[0].nodePort}'</span> <span class="p">;</span><span class="nb">echo
+</span>30353
+
+<span class="c"># NodePort 를 변수에 지정</span>
+<span class="nv">$ </span><span class="nb">export </span><span class="nv">NPORT</span><span class="o">=</span><span class="si">$(</span>kubectl get service svc-nodeport <span class="nt">-o</span> <span class="nv">jsonpath</span><span class="o">=</span><span class="s1">'{.spec.ports[0].nodePort}'</span><span class="si">)</span>
+
+<span class="c"># 노드 포트 Listen 확인 : ss 옵션 -4(ipv4) -t(TCP) -l(Listen) -n(숫자로 출력) -p(프로세스)</span>
+<span class="c"># 모든 노드(마스터, 워커들)에서 노드 포트가 Listen(열림)됨!</span>
+<span class="nv">$ </span>ss <span class="nt">-4tlnp</span> | egrep <span class="s2">"(Process|</span><span class="nv">$NPORT</span><span class="s2">)"</span>
+State     Recv-Q    Send-Q        Local Address:Port        Peer Address:Port   Process
+<span class="k">**</span>LISTEN<span class="k">**</span>    0         4096                0.0.0.0:<span class="k">**</span>30466<span class="k">**</span>            0.0.0.0:<span class="k">*</span>       <span class="nb">users</span>:<span class="o">((</span><span class="s2">"**kube-proxy**"</span>,pid<span class="o">=</span>8661,fd<span class="o">=</span>10<span class="o">))</span>
+
+<span class="c"># 파드 로그 실시간 확인 (웹 파드에 접속자의 IP가 출력)</span>
+<span class="nv">$ </span>kubetail <span class="nt">-l</span> <span class="nv">app</span><span class="o">=</span>deploy-websrv <span class="nt">-f</span>
+<span class="nv">$ </span>kubectl logs <span class="nt">-l</span> <span class="nv">app</span><span class="o">=</span>deploy-websrv <span class="nt">-f</span>
+
+<span class="c"># 외부 클라이언트(k8s-pc)에서 실행</span>
+<span class="nt">--------------------</span>
+<span class="c"># 노드의 IP와 NodePort를 변수에 지정</span>
+<span class="c">## NODE1=&lt;노드1의 IP주소&gt;</span>
+<span class="c">## NODE2=&lt;노드2의 IP주소&gt;</span>
+<span class="c">## NODE3=&lt;노드3의 IP주소&gt;</span>
+<span class="c">## NPORT=&lt;서비스의 NodePort&gt;</span>
+<span class="nv">$ MASTER</span><span class="o">=</span>192.168.10.10
+<span class="nv">$ NODE1</span><span class="o">=</span>192.168.10.101
+<span class="nv">$ NODE2</span><span class="o">=</span>192.168.10.102
+<span class="nv">$ NODE3</span><span class="o">=</span>192.168.10.103
+<span class="nv">$ NPORT</span><span class="o">=</span>30353
+
+<span class="c"># 서비스(NodePort) 부하분산 접속 확인</span>
+<span class="nv">$ </span>curl <span class="nt">-s</span> <span class="nv">$MASTER</span>:<span class="nv">$NPORT</span>
+<span class="nv">$ </span>curl <span class="nt">-s</span> <span class="nv">$NODE1</span>:<span class="nv">$NPORT</span>
+<span class="nv">$ </span>curl <span class="nt">-s</span> <span class="nv">$NODE2</span>:<span class="nv">$NPORT</span>
+<span class="nv">$ </span>curl <span class="nt">-s</span> <span class="nv">$NODE3</span>:<span class="nv">$NPORT</span>
+
+<span class="nv">$ </span><span class="k">for </span>i <span class="k">in</span> <span class="o">{</span>1..100<span class="o">}</span><span class="p">;</span> <span class="k">do </span>curl <span class="nt">-s</span> <span class="nv">$MASTER</span>:<span class="nv">$NPORT</span>| <span class="nb">grep </span>Hostname<span class="p">;</span> <span class="k">done</span> | <span class="nb">sort</span> | <span class="nb">uniq</span> <span class="nt">-c</span> | <span class="nb">sort</span> <span class="nt">-nr</span>
+<span class="nv">$ </span><span class="k">for </span>i <span class="k">in</span> <span class="o">{</span>1..100<span class="o">}</span><span class="p">;</span> <span class="k">do </span>curl <span class="nt">-s</span> <span class="nv">$NODE1</span>:<span class="nv">$NPORT</span> | <span class="nb">grep </span>Hostname<span class="p">;</span> <span class="k">done</span> | <span class="nb">sort</span> | <span class="nb">uniq</span> <span class="nt">-c</span> | <span class="nb">sort</span> <span class="nt">-nr</span>
+<span class="nv">$ </span><span class="k">for </span>i <span class="k">in</span> <span class="o">{</span>1..100<span class="o">}</span><span class="p">;</span> <span class="k">do </span>curl <span class="nt">-s</span> <span class="nv">$NODE2</span>:<span class="nv">$NPORT</span> | <span class="nb">grep </span>Hostname<span class="p">;</span> <span class="k">done</span> | <span class="nb">sort</span> | <span class="nb">uniq</span> <span class="nt">-c</span> | <span class="nb">sort</span> <span class="nt">-nr</span>
+<span class="nv">$ </span><span class="k">for </span>i <span class="k">in</span> <span class="o">{</span>1..100<span class="o">}</span><span class="p">;</span> <span class="k">do </span>curl <span class="nt">-s</span> <span class="nv">$NODE3</span>:<span class="nv">$NPORT</span> | <span class="nb">grep </span>Hostname<span class="p">;</span> <span class="k">done</span> | <span class="nb">sort</span> | <span class="nb">uniq</span> <span class="nt">-c</span> | <span class="nb">sort</span> <span class="nt">-nr</span>
+
+<span class="c">## client_address 주소는 왜 이렇게 표기 될까요? 생각해 보셔요.</span>
+<span class="nv">$ </span><span class="k">for </span>i <span class="k">in</span> <span class="o">{</span>1..100<span class="o">}</span><span class="p">;</span> <span class="k">do </span>curl <span class="nt">-s</span> <span class="nv">$MASTER</span>:<span class="nv">$NPORT</span>| <span class="nb">grep </span>client_address<span class="p">;</span> <span class="k">done</span> | <span class="nb">sort</span> | <span class="nb">uniq</span> <span class="nt">-c</span> | <span class="nb">sort</span> <span class="nt">-nr</span>
+<span class="nv">$ </span><span class="k">for </span>i <span class="k">in</span> <span class="o">{</span>1..100<span class="o">}</span><span class="p">;</span> <span class="k">do </span>curl <span class="nt">-s</span> <span class="nv">$NODE1</span>:<span class="nv">$NPORT</span> | <span class="nb">grep </span>client_address<span class="p">;</span> <span class="k">done</span> | <span class="nb">sort</span> | <span class="nb">uniq</span> <span class="nt">-c</span> | <span class="nb">sort</span> <span class="nt">-nr</span>
+<span class="nv">$ </span><span class="k">for </span>i <span class="k">in</span> <span class="o">{</span>1..100<span class="o">}</span><span class="p">;</span> <span class="k">do </span>curl <span class="nt">-s</span> <span class="nv">$NODE2</span>:<span class="nv">$NPORT</span> | <span class="nb">grep </span>client_address<span class="p">;</span> <span class="k">done</span> | <span class="nb">sort</span> | <span class="nb">uniq</span> <span class="nt">-c</span> | <span class="nb">sort</span> <span class="nt">-nr</span>
+<span class="nv">$ </span><span class="k">for </span>i <span class="k">in</span> <span class="o">{</span>1..100<span class="o">}</span><span class="p">;</span> <span class="k">do </span>curl <span class="nt">-s</span> <span class="nv">$NODE3</span>:<span class="nv">$NPORT</span> | <span class="nb">grep </span>client_address<span class="p">;</span> <span class="k">done</span> | <span class="nb">sort</span> | <span class="nb">uniq</span> <span class="nt">-c</span> | <span class="nb">sort</span> <span class="nt">-nr</span>
+<span class="nt">-------------------------------</span>
+
+<span class="c"># (옵션) NodePort 서비스는 ClusterIP 를 포함</span>
+<span class="c"># CLUSTER-IP:PORT 로 접속 가능! &lt;- 마스터노드에서 아래 실행하자!</span>
+<span class="nv">$ </span>kubectl get svc svc-nodeport
+NAME           TYPE       CLUSTER-IP      EXTERNAL-IP   PORT<span class="o">(</span>S<span class="o">)</span>          AGE
+svc-nodeport   <span class="k">**</span>NodePort<span class="k">**</span>   <span class="k">**</span>10.111.1.238<span class="k">**</span>   &lt;none&gt;         <span class="k">**</span>9000<span class="k">**</span>:30158/TCP   3m3s
+curl <span class="k">**</span>10.111.1.238:9000<span class="k">**</span>
+
+<span class="c"># (옵션) 노드에서 Network Connection</span>
+<span class="nv">$ </span>conntrack <span class="nt">-E</span>
+<span class="nv">$ </span>conntrack <span class="nt">-L</span> <span class="nt">--any-nat</span>
+
+<span class="c"># (옵션) 패킷 캡쳐 확인</span>
+<span class="nv">$ NPORT</span><span class="o">=</span>30158
+<span class="nv">$ </span>tcpdump <span class="nt">-i</span> enp0s8 tcp port <span class="nv">$NPORT</span> or tcp port 8080 or proto 4 <span class="nt">-nn</span>
+<span class="nv">$ </span>tcpdump <span class="nt">-i</span> enp0s8 tcp port <span class="nv">$NPORT</span> or tcp port 8080 or proto 4 <span class="nt">-w</span> /tmp/svc2.pcap
+</code></pre></div></div> <ul> <li>외부 클라이언트 =&gt; 서비스(NodePort) 접속 시 : 3개의 목적지(backend) 파드로 <strong>랜덤 부하 분산</strong> 접속됨</li> <li>웹 파드에서 접속자의 IP 정보 확인(logs) 시 <strong>외부 클라이언트IP</strong> 가 아닌, <strong>노드의 IP</strong>로 <strong>SNAT</strong> 되어서 확인됨</li> </ul> <h3 id="26-서비스nodeport-부족한-점">2.6 서비스(NodePort) 부족한 점</h3> <ul> <li><strong>외부</strong>에서 노드의 IP와 포트로 직접 접속이 필요함 → 내부망이 외부에 공개(라우팅 가능)되어 보안에 취약함 =&gt; <strong>LoadBalancer 서비스</strong> 타입으로 외부 공개 최소화 가능!</li> <li>클라이언트 IP 보존을 위해서, <code class="language-plaintext highlighter-rouge">externalTrafficPolicy: local</code> 사용 시 파드가 없는 노드 IP로 NodePort 접속 시 실패 =&gt; <strong>LoadBalancer 서비스</strong>에서 헬스체크(Probe) 로 대응 가능!</li> </ul> <h2 id="참고-자료">참고 자료</h2> <ul> <li>K8S Docs - <a href="https://kubernetes.io/docs/concepts/services-networking/service/">Service</a></li> <li>[이성미 강사님] 따베쿠 - <a href="https://youtu.be/5sKkIg7k8nw">서비스</a> <a href="https://youtu.be/WaJyY5KvZj8">실습</a></li> <li>[FINDA] K8S 네트워크 정리 - <a href="https://medium.com/finda-tech/kubernetes-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EC%A0%95%EB%A6%AC-fccd4fd0ae6">링크</a></li> <li>[바름]님 블로그 - IPtables 개념 - <a href="https://ba-reum.tistory.com/6">링크</a></li> <li>[환영]님 블로그 - NAT - <a href="https://aws-hyoh.tistory.com/145">링크</a></li> <li>[커피고래] 서비스 네트워크 2 - <a href="https://coffeewhale.com/k8s/network/2019/05/11/k8s-network-02/">링크</a></li> <li>[ssup2] <a href="https://ssup2.github.io/theory_analysis/Linux_netfilter_iptables/">Linux Netfilter/iptables</a> <a href="https://ssup2.github.io/theory_analysis/Linux_conntrack/">conntrack</a> <a href="https://ssup2.github.io/theory_analysis/Kubernetes_Service_Proxy/">Service Proxy</a> <a href="https://ssup2.github.io/issue/Linux_TCP_SYN_Packet_Drop_SNAT_Port_Race_Condition/">random-fully</a> <a href="https://ssup2.github.io/theory_analysis/Linux_LVS_IPVS/">IPVS</a> <a href="https://ssup2.github.io/theory_analysis/SLB/">SLB</a> <a href="https://tech.kakao.com/2021/03/03/network-node-manager/">ConnectResetIssue</a></li> <li>NodePort 할당 범위 변경하기 - <a href="https://blog.frec.kr/cloud/modify_nodeport_range/">링크</a></li> </ul> <div class="entry-meta"> <br> <hr> <span class="entry-tags"><a href="https://lahuman.github.io/tags/#kang" title="Pages tagged kang" class="tag"><span class="term">kang</span></a><a href="https://lahuman.github.io/tags/#service" title="Pages tagged service" class="tag"><span class="term">service</span></a><a href="https://lahuman.github.io/tags/#clusterIP" title="Pages tagged clusterIP" class="tag"><span class="term">clusterIP</span></a><a href="https://lahuman.github.io/tags/#NodePort" title="Pages tagged NodePort" class="tag"><span class="term">NodePort</span></a></span> <span class="social-share"> <a href="https://www.facebook.com/sharer/sharer.php?u=https://lahuman.github.io/kang_4week/" title="Share on Facebook" class="tag"> <span class="term"><i class="fa fa-facebook-square"></i> Share</span> </a> <a href="https://twitter.com/intent/tweet?text=https://lahuman.github.io/kang_4week/" title="Share on Twitter" class="tag"> <span class="term"><i class="fa fa-twitter-square"></i> Tweet</span> </a> <a href="https://plus.google.com/share?url=https://lahuman.github.io/kang_4week/" title="Share on Google+" class="tag"> <span class="term"><i class="fa fa-google-plus-square"></i> +1</span> </a> </span> <div style="clear:both"></div> </div> <ins class="kakao_ad_area" style="display:none;" data-ad-unit = "DAN-ubp67fs9s850" data-ad-width = "320" data-ad-height = "100"></ins> <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script> </div> </div> <section id="disqus_thread" class="animated fadeInUp"></section><!-- /#disqus_thread --> </header> <!-- JS --> <script src="https://lahuman.github.io/assets/js/jquery-1.12.0.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.dlmenu.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.goup.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.magnific-popup.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.fitvid.min.js"></script> <script src="https://lahuman.github.io/assets/js/scripts.js"></script> <!-- Global site tag (gtag.js) - Google Analytics --> <script async src="https://www.googletagmanager.com/gtag/js?id=UA-74095083-1"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-74095083-1'); </script> <script type="text/javascript"> var disqus_shortname = 'daniels-blog'; (function() { var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true; dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js'; (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq); })(); (function () { var s = document.createElement('script'); s.async = true; s.type = 'text/javascript'; s.src = '//' + disqus_shortname + '.disqus.com/count.js'; (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s); }()); </script> <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript> <!-- MathJax --> <script async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> </body> </html>
