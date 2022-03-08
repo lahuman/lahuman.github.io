@@ -1,0 +1,340 @@
+<!DOCTYPE html> <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]--> <!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8"><![endif]--> <!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9"><![endif]--> <!--[if gt IE 8]><!--> <html class="no-js"><!--<![endif]--> <head> <meta charset="UTF-8"> <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"> <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1"> <title>#8 istio &#8211; lahuman</title> <meta name="description" content="열심히 사는 아저씨"> <meta name="keywords" content="kang, istio"> <!-- Twitter Cards --> <meta name="twitter:card" content="summary"> <meta name="twitter:image" content="https://lahuman.github.io/assets/img/logo.png"> <meta name="twitter:title" content="#8 istio"> <meta name="twitter:description" content="Kubernetes Advanced Networking Study"> <!-- Open Graph --> <meta property="og:locale" content="ko_KR"> <meta property="og:type" content="article"> <meta property="og:title" content="#8 istio"> <meta property="og:description" content="Kubernetes Advanced Networking Study"> <meta property="og:url" content="https://lahuman.github.io/kang_8week/"> <meta property="og:site_name" content="lahuman"> <meta property="og:image" content="https://lahuman.github.io/assets/img/logo.png"> <link rel="canonical" href="https://lahuman.github.io/kang_8week/"> <link href="https://lahuman.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="lahuman Feed"> <!-- Handheld --> <meta name="HandheldFriendly" content="True"> <meta name="MobileOptimized" content="320"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- CSS --> <link rel="stylesheet" href="https://lahuman.github.io/assets/css/main.css"> <!-- JS --> <script src="https://lahuman.github.io/assets/js/modernizr-3.3.1.custom.min.js"></script> <!-- Favicons --> <link rel="apple-touch-icon" href="https://lahuman.github.io/assets/img/favicons/apple-icon-precomposed.png"> <link rel="apple-touch-icon" sizes="72x72" href="https://lahuman.github.io/assets/img/favicons/apple-icon-72x72.png"> <link rel="apple-touch-icon" sizes="114x114" href="https://lahuman.github.io/assets/img/favicons/apple-icon-114x114.png"> <link rel="apple-touch-icon" sizes="144x144" href="https://lahuman.github.io/assets/img/favicons/apple-icon-144x144.png"> <link rel="shortcut icon" type="image/png" href="https://lahuman.github.io/favicon.png" /> <link rel="shortcut icon" href="https://lahuman.github.io/favicon.ico" /> <!-- mermaid --> <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script> <script>mermaid.initialize({startOnLoad:true});</script> <!-- Background Image --> <style type="text/css">body {background-image:url(https://lahuman.github.io/assets/img/placeholder-big.jpg); background-repeat: no-repeat; background-size: cover; }</style> <!-- Post Feature Image --> </head> <body> <nav id="dl-menu" class="dl-menuwrapper" role="navigation"> <button class="dl-trigger">Open Menu</button> <ul class="dl-menu"> <li><a href="https://lahuman.github.io/">Home</a></li> <li> <a href="#">About</a> <ul class="dl-submenu"> <li> <img src="https://lahuman.github.io/assets/img/logo.png" alt="lahuman photo" class="author-photo"> <h4>lahuman</h4> <p>열심히 사는 아저씨</p> </li> <li><a href="https://lahuman.github.io/about/"><span class="btn btn-inverse">Learn More</span></a></li> <li> <a href="http://facebook.com/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-facebook-square"></i> Facebook</a> </li> <li> <a href="http://linkedin.com/in/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-linkedin-square"></i> LinkedIn</a> </li> <li> <a href="http://github.com/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-github"></i> Github</a> </li> </ul><!-- /.dl-submenu --> </li> <li> <a href="#">Posts</a> <ul class="dl-submenu"> <li><a href="https://lahuman.github.io/posts/">All Posts</a></li> <li><a href="https://lahuman.github.io/tags/">All Tags</a></li> </ul> </li> <li><a href="https://lahuman.github.io/projects/" >Projects</a></li> </ul><!-- /.dl-menu --> </nav><!-- /.dl-menuwrapper --> <!-- Header --> <header class="header" role="banner"> <div class="wrapper animated fadeIn"> <div class="content"> <div class="post-title "> <h1>#8 istio</h1> <h4>08 Mar 2022</h4> <p class="reading-time"> <i class="fa fa-clock-o"></i> Reading time ~9 minutes </p><!-- /.entry-reading-time --> <a class="btn zoombtn" href="https://lahuman.github.io/projects/"> <i class="fa fa-chevron-left"></i> </a> </div> <h1 id="istio">istio</h1> <p><img src="/assets/img/post_img/kang_8week_6.png" alt="" /></p> <blockquote> <p>실습 환경은 K8S v<strong>1.23.4</strong> , 노드 OS(Ubuntu 20.04.3) , CNI(Calico v3.21.4, Direct mode) , IPTABLES proxy mode , <strong>Istio</strong> v<strong>1.13.1(</strong>Envoy v<strong>1.21.0)</strong></p> </blockquote> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 배포</span>
+curl <span class="nt">-O</span> https://raw.githubusercontent.com/gasida/KANS/main/8/Vagrantfile
+vagrant up
+
+<span class="c"># metrics-server 확인</span>
+kubectl top node
+kubectl top pod
+kubectl top pod <span class="nt">-A</span>
+</code></pre></div></div> <h2 id="1-istio-소개">1. istio 소개</h2> <ul> <li><code class="language-plaintext highlighter-rouge">서비스 매시(Service Mesh)</code> <ul> <li><strong>등장 배경</strong> : 마이크로서비스 아키텍처 환경의 시스템 전체 모니터링의 어려움, 운영 시 시스템 문제 발생할 때 원인과 병목 구간 찾기 어려움</li> <li><strong>개념</strong> : 마이크로서비스 간에 매시 형태의 <strong>통신</strong>이나 그 <strong>경로</strong>를 <strong>제어</strong> - 예) 이스티오(Istio), 링커드(Linkerd), AWS App Mesh - <a href="https://layer5.io/service-mesh-landscape">링크</a></li> <li><strong>기본 동작</strong> : 파드 간 통신 경로에 프록시를 놓고 <strong>트래픽 모니터링</strong>이나 <strong>트래픽 컨트롤</strong> → 기존 애플리케이션 <strong>코드에 수정 없이</strong> 구성 가능!</li> <li><strong>트래픽 모니터링</strong> : 요청의 ‘에러율, 레이턴시, 커넥션 개수, 요청 개수’ 등 메트릭 모니터링, 특정 서비스간 혹은 특정 요청 경로로 필터링 → 원인 파악 용이!</li> <li><strong>트래픽 컨트롤</strong> : 트래픽 시프팅(Traffic shifting), 서킷 브레이커(Circuit Breaker), 폴트 인젝션(Fault Injection), 속도 제한(Rate Limit) <ul> <li>트래픽 시프팅(Traffic shifting) : 예시) 99% 기존앱 + 1% 신규앱 , 특정 단말/사용자는 신규앱에 전달하여 단계적으로 적용하는 카니리 배포 가능</li> <li>서킷 브레이커(Circuit Breaker) : 목적지 마이크로서비스에 문제가 있을 시 접속을 차단하고 출발지 마이크로서비스에 요청 에러를 반환 (연쇄 장애, 시스템 전제 장애 예방)</li> <li>폴트 인젝션(Fault Injection) : 의도적으로 요청을 지연 혹은 실패를 구현</li> <li>속도 제한(Rate Limit) : 요청 개수를 제한</li> </ul> </li> </ul> </li> <li><code class="language-plaintext highlighter-rouge">이스티오 소개</code> : ‘구글 IBM 리프트(Lyft)’가 중심이 되어 개발하고 있는 오픈 소스 소프트웨어이며, C++ 로 만들어진 엔보이(Envoy)를 사용하여 서비스 매시를 구성</li> </ul> <p><img src="/assets/img/post_img/kang_8week_1.svg" alt="" /><br /> <a href="https://istio.io/latest/docs/ops/deployment/architecture/">https://istio.io/latest/docs/ops/deployment/architecture/</a></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- **Istio 구성요소와 envoy** : 컨트롤 플레인(**istiod**) , **데이터 플레인**(istio-proxy &gt; **envoy**)
+    - **istiod** : **Pilot**(데이터 플레인과 통신하면서 라우팅 규칙을 동기화, ADS), **Gally**(Istio 와 K8S 연동, Endpoint 갱신 등), **Citadel**(연결 암호화, 인증서관리 등)
+</code></pre></div></div> <p><img src="/assets/img/post_img/kang_8week_2.svg" alt="" /><br /> <a href="https://istio.io/latest/docs/concepts/security/">https://istio.io/latest/docs/concepts/security/</a></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    - Envoy proxy : C++ 구현된 고성능 프록시, 네트워크의 투명성을 목표, 다양한 **필터체인** 지원(L3/L4, HTTP L7), 동적 configuration API 제공 - [링크](https://www.envoyproxy.io/docs/envoy/latest/intro/what_is_envoy)
+- 이스티오는 각 **파드** 안에 **사이드카**로 **엔보이 프록시**가 들어가 있는 형태
+- 모든 마이크로서비스간 통신은 엔보이를 통과하여, **메트릭을 수집**하거나 **트래픽 컨트롤**을 할 수 있음
+- 트래픽 컨트롤을 하기위해 엔보이 프록시에 **전송 룰**을 설정 → **컨트롤 플레인**의 **이스티오**가 정의된 정보를 기반으로 **엔보이 설정**을 하게 함
+- 마이크로서비스 간의 통신을 mutual TLS 인증(**mTLS**)으로 서로 TLS 인증으로 암호화 할 수 있음
+- 각 애플리케이션은 **파드** 내의 엔보이 프록시에 접속하기 위해 **localhost 에 TCP 접속**을 함
+</code></pre></div></div> <h2 id="2-envoy">2. Envoy</h2> <ul> <li><code class="language-plaintext highlighter-rouge">소개</code> : <strong>L7 Proxy</strong> , Istio 의 Sidecar proxy 로 사용 - <a href="https://www.envoyproxy.io/docs/envoy/latest/intro/life_of_a_request">링크</a> <a href="https://www.envoyproxy.io/docs/envoy/latest/intro/arch_overview/intro/terminology">주요 용어</a> <ul> <li><strong>Istio 구성요소와 envoy</strong> : 컨트롤 플레인(istiod) - ADS 를 이용한 Configuration 동기화 - 데이터 플레인(istio-proxy &gt; envoy)</li> </ul> <p><img src="/assets/img/post_img/kang_8week_3.png" alt="" /></p> <p><a href="https://blog.naver.com/alice_k106/222000680202">https://blog.naver.com/alice_k106/222000680202</a></p> <p><img src="/assets/img/post_img/kang_8week_4.svg" alt="" /></p> <p><a href="https://www.envoyproxy.io/docs/envoy/latest/intro/life_of_a_request">https://www.envoyproxy.io/docs/envoy/latest/intro/life_of_a_request</a></p> <ul> <li><strong>Cluster</strong> : envoy 가 트래픽을 포워드할 수 있는 논리적인 서비스 (엔드포인트 세트), 실제 요청이 처리되는 IP 또는 엔드포인트의 묶음을 의미.</li> <li><strong>Endpoint</strong> : IP 주소, 네트워크 노드로 클러스터로 그룹핑됨, 실제 접근이 가능한 엔드포인트를 의미. 엔드포인트가 모여서 하나의 Cluster 가 된다.</li> <li><strong>Listener</strong> : 무엇을 받을지 그리고 어떻게 처리할지 IP/Port 를 바인딩하고, 요청 처리 측면에서 다운스트림을 조정하는 역할.</li> <li><strong>Route</strong> : Listener 로 들어온 요청을 어디로 라우팅할 것인지를 정의. 라우팅 대상은 일반적으로 Cluster 라는 것에 대해 이뤄지게 된다.</li> <li><strong>Filter</strong> : Listener 로부터 서비스에 트래픽을 전달하기까지 요청 처리 파이프라인</li> <li>UpStream : envoy 요청을 포워딩해서 연결하는 백엔드 네트워크 노드 - 사이드카일때 application app, 아닐때 원격 백엔드</li> <li>DownStream : An entity connecting to envoy, In non-sidecar models this is a remote client</li> </ul> </li> <li>k8s-pc 에 Envoy 설치 (미리 설치 되어 있음) - <a href="https://www.envoyproxy.io/docs/envoy/latest/start/install">링크</a></li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 설치 : 미리 설치 되어 있음</span>
+apt update
+apt <span class="nb">install </span>apt-transport-https gnupg2 curl lsb-release <span class="nt">-y</span>
+curl <span class="nt">-sL</span> <span class="s1">'https://deb.dl.getenvoy.io/public/gpg.8115BA8E629CC074.key'</span> | <span class="nb">sudo </span>gpg <span class="nt">--dearmor</span> <span class="nt">-o</span> /usr/share/keyrings/getenvoy-keyring.gpg
+<span class="nb">echo </span>a077cb587a1b622e03aa4bf2f3689de14658a9497a9af2c427bba5f4cc3c4723 /usr/share/keyrings/getenvoy-keyring.gpg | <span class="nb">sha256sum</span> <span class="nt">--check</span>
+<span class="nb">echo</span> <span class="s2">"deb [arch=amd64 signed-by=/usr/share/keyrings/getenvoy-keyring.gpg] https://deb.dl.getenvoy.io/public/deb/ubuntu </span><span class="si">$(</span>lsb_release <span class="nt">-cs</span><span class="si">)</span><span class="s2"> main"</span> | <span class="nb">sudo tee</span> /etc/apt/sources.list.d/getenvoy.list
+apt update
+apt <span class="nb">install</span> <span class="nt">-y</span> getenvoy-envoy
+
+<span class="c"># 확인</span>
+envoy <span class="nt">--version</span>
+envoy  version: d362e791eb9e4efa8d87f6d878740e72dc8330ac/1.18.2/clean-getenvoy-76c310e-envoy/RELEASE/BoringSSL
+
+<span class="c"># 도움말</span>
+envoy <span class="nt">--help</span>
+</code></pre></div></div> <ul> <li>Envoy proxy 실습 <ul> <li>envoy-demo.yaml</li> </ul> </li> </ul> <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">static_resources</span><span class="pi">:</span>
+
+  <span class="na">listeners</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">listener_0</span>
+    <span class="na">address</span><span class="pi">:</span>
+      <span class="na">socket_address</span><span class="pi">:</span>
+        <span class="na">address</span><span class="pi">:</span> <span class="s">0.0.0.0</span>
+        <span class="na">port_value</span><span class="pi">:</span> <span class="m">10000</span>
+    <span class="na">filter_chains</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">filters</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">envoy.filters.network.http_connection_manager</span>
+        <span class="na">typed_config</span><span class="pi">:</span>
+          <span class="s2">"</span><span class="s">@type"</span><span class="err">:</span> <span class="s">type.googleapis.com/envoy.extensions.filters.network.http_connection_manager.v3.HttpConnectionManager</span>
+          <span class="s">stat_prefix</span><span class="err">:</span> <span class="s">ingress_http</span>
+          <span class="s">access_log</span><span class="err">:</span>
+          <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">envoy.access_loggers.stdout</span>
+            <span class="na">typed_config</span><span class="pi">:</span>
+              <span class="s2">"</span><span class="s">@type"</span><span class="err">:</span> <span class="s">type.googleapis.com/envoy.extensions.access_loggers.stream.v3.StdoutAccessLog</span>
+          <span class="na">http_filters</span><span class="pi">:</span>
+          <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">envoy.filters.http.router</span>
+          <span class="na">route_config</span><span class="pi">:</span>
+            <span class="na">name</span><span class="pi">:</span> <span class="s">local_route</span>
+            <span class="na">virtual_hosts</span><span class="pi">:</span>
+            <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">local_service</span>
+              <span class="na">domains</span><span class="pi">:</span> <span class="pi">[</span><span class="s2">"</span><span class="s">*"</span><span class="pi">]</span>
+              <span class="na">routes</span><span class="pi">:</span>
+              <span class="pi">-</span> <span class="na">match</span><span class="pi">:</span>
+                  <span class="na">prefix</span><span class="pi">:</span> <span class="s2">"</span><span class="s">/"</span>
+                <span class="na">route</span><span class="pi">:</span>
+                  <span class="na">host_rewrite_literal</span><span class="pi">:</span> <span class="s">www.envoyproxy.io</span>
+                  <span class="na">cluster</span><span class="pi">:</span> <span class="s">service_envoyproxy_io</span>
+
+  <span class="na">clusters</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">service_envoyproxy_io</span>
+    <span class="na">type</span><span class="pi">:</span> <span class="s">LOGICAL_DNS</span>
+    <span class="c1"># Comment out the following line to test on v6 networks</span>
+    <span class="na">dns_lookup_family</span><span class="pi">:</span> <span class="s">V4_ONLY</span>
+    <span class="na">connect_timeout</span><span class="pi">:</span> <span class="s">5s</span>
+    <span class="na">load_assignment</span><span class="pi">:</span>
+      <span class="na">cluster_name</span><span class="pi">:</span> <span class="s">service_envoyproxy_io</span>
+      <span class="na">endpoints</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">lb_endpoints</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">endpoint</span><span class="pi">:</span>
+            <span class="na">address</span><span class="pi">:</span>
+              <span class="na">socket_address</span><span class="pi">:</span>
+                <span class="na">address</span><span class="pi">:</span> <span class="s">www.envoyproxy.io</span>
+                <span class="na">port_value</span><span class="pi">:</span> <span class="m">443</span>
+    <span class="na">transport_socket</span><span class="pi">:</span>
+      <span class="na">name</span><span class="pi">:</span> <span class="s">envoy.transport_sockets.tls</span>
+      <span class="na">typed_config</span><span class="pi">:</span>
+        <span class="s2">"</span><span class="s">@type"</span><span class="err">:</span> <span class="s">type.googleapis.com/envoy.extensions.transport_sockets.tls.v3.UpstreamTlsContext</span>
+        <span class="s">sni</span><span class="err">:</span> <span class="s">www.envoyproxy.io</span>
+</code></pre></div></div> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 데모 config 적용하여 실행</span>
+curl <span class="nt">-O</span> https://www.envoyproxy.io/docs/envoy/latest/_downloads/92dcb9714fb6bc288d042029b34c0de4/envoy-demo.yaml
+envoy <span class="nt">-c</span> envoy-demo.yaml
+
+<span class="c"># 에러 출력되면서 실행 실패</span>
+error initializing configuration <span class="s1">'envoy-demo.yaml'</span>: Field <span class="s1">'connect_timeout'</span> is missing <span class="k">in</span>: name: <span class="s2">"service_envoyproxy_io"</span>
+
+<span class="c"># (터미널1) connect_timeout 추가 후 다시 실행</span>
+<span class="nb">sed</span> <span class="nt">-i</span><span class="s1">''</span> <span class="nt">-r</span> <span class="nt">-e</span> <span class="s2">"/dns_lookup_family/a</span><span class="se">\ </span><span class="s2">   connect_timeout: 5s"</span> envoy-demo.yaml
+envoy <span class="nt">-c</span> envoy-demo.yaml
+<span class="c">## 출력 로그</span>
+<span class="o">[</span>2021-12-13T12:20:25.981Z] <span class="s2">"GET / HTTP/1.1"</span> 200 - 0 4472 1140 1080 <span class="s2">"-"</span> <span class="s2">"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.93 Safari/537.36"</span> <span class="s2">"a6999dc1-5e5e-4029-89b7-331b081fca27"</span> <span class="s2">"www.envoyproxy.io"</span> <span class="s2">"52.220.193.16:443"</span>
+<span class="o">[</span>2021-12-13T12:22:21.634Z] <span class="s2">"GET / HTTP/1.1"</span> 200 - 0 17228 247 121  <span class="s2">"-"</span> <span class="s2">"curl/7.74.0"</span> <span class="s2">"39b7b07d-3f79-4e61-81b4-2944bd041535"</span> <span class="s2">"www.envoyproxy.io"</span> <span class="s2">"167.99.78.230:443"</span>
+
+<span class="c"># (터미널2) 정보 확인</span>
+ss <span class="nt">-tnlp</span>
+State    Recv-Q  Send-Q    Local Address:Port   Peer Address:Port    Process
+LISTEN   0       4096      0.0.0.0:10000        0.0.0.0:<span class="k">*</span>            <span class="nb">users</span>:<span class="o">((</span><span class="s2">"envoy"</span>,pid<span class="o">=</span>8007,fd<span class="o">=</span>18<span class="o">)</span>,<span class="o">(</span><span class="s2">"envoy"</span>,pid<span class="o">=</span>8007,fd<span class="o">=</span>16<span class="o">))</span>
+
+<span class="c"># 접속 테스트</span>
+curl <span class="nt">-s</span> http://127.0.0.1:10000 | <span class="nb">grep</span> <span class="nt">-o</span> <span class="s2">"&lt;title&gt;.*&lt;/title&gt;"</span>
+curl <span class="nt">-s</span> http://127.0.0.1:10000 | <span class="nb">grep</span> <span class="nt">-o</span> <span class="s2">"&lt;title&gt;.*&lt;/title&gt;"</span> <span class="c"># k8s-m, k8s-wN 에서 접속 테스트</span>
+&lt;title&gt;Envoy Proxy - Home&lt;/title&gt;
+
+<span class="c"># 웹브라우저에서 http://192.168.10.254:10000 접속 확인!</span>
+
+<span class="c"># 연결 정보 확인</span>
+ss <span class="nt">-tnp</span>
+
+<span class="c"># (터미널1) envoy 실행 취소(CTRL+C) 후 (관리자페이지) 설정 덮어쓰기 - [링크](https://www.envoyproxy.io/docs/envoy/latest/start/quick-start/run-envoy#override-the-default-configuration)</span>
+<span class="nb">cat</span> <span class="o">&lt;&lt;</span><span class="no">EOT</span><span class="sh">&gt; envoy-override.yaml
+admin:
+  address:
+    socket_address:
+      address: 0.0.0.0
+      port_value: 9902
+</span><span class="no">EOT
+</span>envoy <span class="nt">-c</span> envoy-demo.yaml <span class="nt">--config-yaml</span> <span class="s2">"</span><span class="si">$(</span><span class="nb">cat </span>envoy-override.yaml<span class="si">)</span><span class="s2">"</span>
+
+<span class="c"># 웹브라우저에서 http://192.168.10.254:9902 접속 확인!</span>
+</code></pre></div></div> <p><img src="/assets/img/post_img/kang_8week_5.png" alt="" /></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>clusters 클릭 확인endpoint) , listeners 클릭 확인
+
+- myhome.yaml ← 파일 생성
+</code></pre></div></div> <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">cat &lt;&lt;EOT&gt; myhome.yaml</span>
+<span class="na">admin</span><span class="pi">:</span>
+  <span class="na">address</span><span class="pi">:</span>
+    <span class="na">socket_address</span><span class="pi">:</span>
+      <span class="na">address</span><span class="pi">:</span> <span class="s">0.0.0.0</span>
+      <span class="na">port_value</span><span class="pi">:</span> <span class="m">9902</span>
+
+<span class="na">static_resources</span><span class="pi">:</span>
+
+  <span class="na">listeners</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">listener_1</span>
+    <span class="na">address</span><span class="pi">:</span>
+      <span class="na">socket_address</span><span class="pi">:</span>
+        <span class="na">address</span><span class="pi">:</span> <span class="s">0.0.0.0</span>
+        <span class="na">port_value</span><span class="pi">:</span> <span class="m">20000</span>
+    <span class="na">filter_chains</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">filters</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">envoy.filters.network.http_connection_manager</span>
+        <span class="na">typed_config</span><span class="pi">:</span>
+          <span class="s2">"</span><span class="s">@type"</span><span class="err">:</span> <span class="s">type.googleapis.com/envoy.extensions.filters.network.http_connection_manager.v3.HttpConnectionManager</span>
+          <span class="s">stat_prefix</span><span class="err">:</span> <span class="s">ingress_http</span>
+          <span class="s">access_log</span><span class="err">:</span>
+          <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">envoy.access_loggers.stdout</span>
+            <span class="na">typed_config</span><span class="pi">:</span>
+              <span class="s2">"</span><span class="s">@type"</span><span class="err">:</span> <span class="s">type.googleapis.com/envoy.extensions.access_loggers.stream.v3.StdoutAccessLog</span>
+          <span class="na">http_filters</span><span class="pi">:</span>
+          <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">envoy.filters.http.router</span>
+          <span class="na">route_config</span><span class="pi">:</span>
+            <span class="na">name</span><span class="pi">:</span> <span class="s">local_route</span>
+            <span class="na">virtual_hosts</span><span class="pi">:</span>
+            <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">local_service</span>
+              <span class="na">domains</span><span class="pi">:</span> <span class="pi">[</span><span class="s2">"</span><span class="s">*"</span><span class="pi">]</span>
+              <span class="na">routes</span><span class="pi">:</span>
+              <span class="pi">-</span> <span class="na">match</span><span class="pi">:</span>
+                  <span class="na">prefix</span><span class="pi">:</span> <span class="s2">"</span><span class="s">/"</span>
+                <span class="na">route</span><span class="pi">:</span>
+                  <span class="na">cluster</span><span class="pi">:</span> <span class="s">myhome</span>
+
+  <span class="na">clusters</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">myhome</span>
+    <span class="na">type</span><span class="pi">:</span> <span class="s">STATIC</span>
+    <span class="na">dns_lookup_family</span><span class="pi">:</span> <span class="s">V4_ONLY</span>
+    <span class="na">connect_timeout</span><span class="pi">:</span> <span class="s">5s</span>
+    <span class="na">lb_policy</span><span class="pi">:</span> <span class="s">ROUND_ROBIN</span>
+    <span class="na">load_assignment</span><span class="pi">:</span>
+      <span class="na">cluster_name</span><span class="pi">:</span> <span class="s">myhome</span>
+      <span class="na">endpoints</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">lb_endpoints</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">endpoint</span><span class="pi">:</span>
+            <span class="na">address</span><span class="pi">:</span>
+              <span class="na">socket_address</span><span class="pi">:</span>
+                <span class="na">address</span><span class="pi">:</span> <span class="s">127.0.0.1</span>
+                <span class="na">port_value</span><span class="pi">:</span> <span class="m">80</span>
+<span class="s">EOT</span>
+</code></pre></div></div> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># (터미널1) envoy 실행</span>
+envoy <span class="nt">-c</span> myhome.yaml
+
+<span class="c"># (터미널2) 정보 확인</span>
+curl <span class="nt">-s</span> http://127.0.0.1:20000
+&lt;h1&gt;Web Server : k8s-rtr&lt;/h1&gt;
+
+<span class="c"># 웹브라우저에서 http://192.168.10.254:9902 접속 확인!</span>
+</code></pre></div></div> <h2 id="3-istio-설치">3. istio 설치</h2> <ul> <li><strong>Istio Operator Install</strong> - <a href="https://istio.io/latest/docs/setup/install/">링크</a></li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># istioctl 설치</span>
+<span class="c">#curl -L https://istio.io/downloadIstio | ISTIO_VERSION=1.12.3 sh -</span>
+curl <span class="nt">-L</span> https://istio.io/downloadIstio | sh -
+
+<span class="c">#ISTIO_VERSION=1.12.4</span>
+<span class="nv">ISTIO_VERSION</span><span class="o">=</span>1.13.1
+<span class="nb">cp </span>istio-<span class="nv">$ISTIO_VERSION</span>/bin/istioctl /usr/bin/istioctl
+<span class="c"># export PATH=$PWD/bin:$PATH # 실행 경로를 환경 변수에 추가 &lt;&lt; cp 대신 PATH 도 가능</span>
+
+<span class="c"># init : istio-operator 네임스페이스 생성, istio-operator 디플로이먼트 생성 - [링크](https://istio.io/latest/docs/setup/install/operator/)</span>
+istioctl operator init
+
+<span class="c"># demo profile - [링크](https://istio.io/latest/docs/setup/additional-setup/config-profiles/)</span>
+kubectl apply <span class="nt">-f</span> - <span class="o">&lt;&lt;</span><span class="no">EOF</span><span class="sh">
+apiVersion: install.istio.io/v1alpha1
+kind: IstioOperator
+metadata:
+  namespace: istio-system
+  name: example-istiocontrolplane
+spec:
+  profile: demo
+</span><span class="no">EOF
+
+</span><span class="c"># 버전 확인</span>
+istioctl version
+
+<span class="c"># Auto Injection with namespace label : 해당 네임스페이스에 생성되는 모든 파드들은 istio 사이드카가 자동으로 injection 됨</span>
+kubectl label ns default istio-injection<span class="o">=</span>enabled
+
+<span class="c"># istio-ingressgateway 의 svc 설정 변경</span>
+<span class="c">## LoadBalancer type 을 굳이 NodePort 로 변경하지 않아도 되지만, 깔끔한 보기를 위해서 설정함</span>
+<span class="c">## externalTrafficPolicy":"Local" 과 기본값 일때의 차이점을 직접 확인해보세요!</span>
+kubectl patch svc <span class="nt">-n</span> istio-system istio-ingressgateway <span class="nt">-p</span> <span class="s1">'{"spec":{"type":"NodePort"}}'</span>
+kubectl patch svc <span class="nt">-n</span> istio-system istio-ingressgateway <span class="nt">-p</span> <span class="s1">'{"spec":{"externalTrafficPolicy":"Local"}}'</span>
+
+<span class="c"># istio-ingressgateway 의 envoy 버전 확인</span>
+kubectl <span class="nb">exec</span> <span class="nt">-it</span> deploy/istio-ingressgateway <span class="nt">-n</span> istio-system <span class="nt">-c</span> istio-proxy <span class="nt">--</span> envoy <span class="nt">--version</span>
+envoy  version: a971bfa7fddce41c1795fe2ce279735131c08878/<span class="k">**</span>1.21.0<span class="k">**</span>/Clean/RELEASE/BoringSSL
+</code></pre></div></div> <ul> <li><strong>Istio 접속 테스트를 위한 변수 지정</strong></li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>k8s-pc, k8s-m 에서 아래 실행
+<span class="c"># istio ingress gw NodePort(HTTP 접속용) 변수 지정 : 아래 ports[0] 은 어떤 용도의 포트일까요?</span>
+<span class="nv">IGWHTTP</span><span class="o">=</span>&lt;각자 자신의 NodePort&gt;
+<span class="nb">export </span><span class="nv">IGWHTTP</span><span class="o">=</span><span class="si">$(</span>kubectl get service <span class="nt">-n</span> istio-system istio-ingressgateway <span class="nt">-o</span> <span class="nv">jsonpath</span><span class="o">=</span><span class="s1">'{.spec.ports[1].nodePort}'</span><span class="si">)</span>
+<span class="nb">echo</span> <span class="nv">$IGWHTTP</span>
+
+<span class="c">## istio-ingressgateway 파드 정보 확인</span>
+<span class="nv">ISTIOINGRSS</span><span class="o">=</span><span class="si">$(</span>kubectl get pods <span class="nt">-n</span> istio-system <span class="nt">-l</span> <span class="nv">app</span><span class="o">=</span>istio-ingressgateway <span class="nt">-o</span> <span class="nv">jsonpath</span><span class="o">=</span><span class="s1">'{.items[0].metadata.name}'</span><span class="si">)</span>
+kubectl get pod <span class="nt">-n</span> istio-system <span class="nv">$ISTIOINGRSS</span> <span class="nt">-owide</span>
+
+<span class="c">## istio-ingressgateway 파드가 배치된 노드</span>
+<span class="nv">ISTIONODE</span><span class="o">=</span><span class="si">$(</span>kubectl get pod <span class="nt">-n</span> istio-system <span class="nv">$ISTIOINGRSS</span> <span class="nt">-o</span> <span class="nv">jsonpath</span><span class="o">={</span>.spec.nodeName<span class="o">}</span><span class="si">)</span>
+<span class="nb">echo</span> <span class="nv">$ISTIONODE</span>
+
+<span class="c">## istio-ingressgateway 파드가 배치된 노드의 IP</span>
+<span class="nv">ISTIONODEIP</span><span class="o">=</span><span class="si">$(</span>kubectl get node <span class="nv">$ISTIONODE</span> <span class="nt">-o</span> <span class="nv">jsonpath</span><span class="o">={</span>.status.addresses[0].address<span class="o">}</span><span class="si">)</span>
+<span class="nb">echo</span> <span class="nv">$ISTIONODEIP</span>
+
+<span class="c"># /etc/hosts 파일 수정 &gt;&gt; istio-ingressgateway 파드가 있는 워커 노드의 IP를 지정</span>
+<span class="nv">MYDOMAIN</span><span class="o">=</span>&lt;각자 자신의 도메인&gt;
+<span class="nb">echo</span> <span class="s2">"&lt;istio-ingressgateway 파드가 있는 워커 노드&gt; </span><span class="nv">$MYDOMAIN</span><span class="s2">"</span> <span class="o">&gt;&gt;</span> /etc/hosts
+
+<span class="nv">MYDOMAIN</span><span class="o">=</span>&lt;각자 자신의 도메인&gt;
+<span class="nv">MYDOMAIN</span><span class="o">=</span>www.gasida.dev
+<span class="nb">echo</span> <span class="s2">"</span><span class="nv">$ISTIONODEIP</span><span class="s2"> </span><span class="nv">$MYDOMAIN</span><span class="s2">"</span> <span class="o">&gt;&gt;</span> /etc/hosts
+
+<span class="c"># istio ingress gw 접속 테스트 : 아직은 설정이 없어서 접속 실패가 된다</span>
+curl <span class="nt">-v</span> <span class="nt">-s</span> <span class="nv">$MYDOMAIN</span>:<span class="nv">$IGWHTTP</span>
+</code></pre></div></div> <h2 id="4-istio-통한-외부-노출">4. Istio 통한 외부 노출</h2> <ul> <li>Nginx 디플로이먼트와 서비스 배포</li> </ul> <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">cat &lt;&lt;EOF | kubectl create -f -</span>
+<span class="na">apiVersion</span><span class="pi">:</span> <span class="s">apps/v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">Deployment</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">deploy-websrv</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">replicas</span><span class="pi">:</span> <span class="m">1</span>
+  <span class="na">selector</span><span class="pi">:</span>
+    <span class="na">matchLabels</span><span class="pi">:</span>
+      <span class="na">app</span><span class="pi">:</span> <span class="s">deploy-websrv</span>
+  <span class="na">template</span><span class="pi">:</span>
+    <span class="na">metadata</span><span class="pi">:</span>
+      <span class="na">labels</span><span class="pi">:</span>
+        <span class="na">app</span><span class="pi">:</span> <span class="s">deploy-websrv</span>
+    <span class="na">spec</span><span class="pi">:</span>
+      <span class="na">terminationGracePeriodSeconds</span><span class="pi">:</span> <span class="m">0</span>
+      <span class="na">containers</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">deploy-websrv</span>
+        <span class="na">image</span><span class="pi">:</span> <span class="s">nginx:alpine</span>
+        <span class="na">ports</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">containerPort</span><span class="pi">:</span> <span class="m">80</span>
+<span class="nn">---</span>
+<span class="na">apiVersion</span><span class="pi">:</span> <span class="s">v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">Service</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">svc-clusterip</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">ports</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">svc-webport</span>
+      <span class="na">port</span><span class="pi">:</span> <span class="m">80</span>
+      <span class="na">targetPort</span><span class="pi">:</span> <span class="m">80</span>
+  <span class="na">selector</span><span class="pi">:</span>
+    <span class="na">app</span><span class="pi">:</span> <span class="s">deploy-websrv</span>
+  <span class="na">type</span><span class="pi">:</span> <span class="s">ClusterIP</span>
+<span class="s">EOF</span>
+</code></pre></div></div> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 사이드카 컨테이너 배포 확인</span>
+kubectl get pod,svc <span class="nt">-o</span> wide
+kubectl describe pod
+</code></pre></div></div> <ul> <li><strong>Istio Gateway/VirtualService 설정</strong> - Host 기반 트래픽 라우팅 설정 <ul> <li>클라이언트 PC → Istio ingressgateway 파드 → (Gateway, VirtualService, Service 는 Bypass) → Endpoint(파드 : 사이드카 - Nginx)</li> <li>Gateway : 지정한 인그레스 게이트웨이로부터 트래픽이 인입, 프로토콜 및 포트, HOSTS, Proxy 등 설정 가능</li> <li>VirtualService : 인입 처리할 hosts 설정, L7 PATH 별 라우팅, 목적지에 대한 정책 설정 가능 (envoy route config)</li> </ul> </li> </ul> <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">cat &lt;&lt;EOF | kubectl create -f -</span>
+<span class="na">apiVersion</span><span class="pi">:</span> <span class="s">networking.istio.io/v1alpha3</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">Gateway</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">test-gateway</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">selector</span><span class="pi">:</span>
+    <span class="na">istio</span><span class="pi">:</span> <span class="s">ingressgateway</span>
+  <span class="na">servers</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">port</span><span class="pi">:</span>
+      <span class="na">number</span><span class="pi">:</span> <span class="m">80</span>
+      <span class="na">name</span><span class="pi">:</span> <span class="s">http</span>
+      <span class="na">protocol</span><span class="pi">:</span> <span class="s">HTTP</span>
+    <span class="na">hosts</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s2">"</span><span class="s">*****"</span>
+<span class="nn">---</span>
+<span class="na">apiVersion</span><span class="pi">:</span> <span class="s">networking.istio.io/v1alpha3</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">VirtualService</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">nginx-service</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">hosts</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s2">"</span><span class="s">**$MYDOMAIN**"</span>
+  <span class="na">gateways</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">test-gateway</span>
+  <span class="na">http</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">route</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">destination</span><span class="pi">:</span>
+        <span class="na">host</span><span class="pi">:</span> <span class="s">svc-clusterip</span>
+        <span class="na">port</span><span class="pi">:</span>
+          <span class="na">number</span><span class="pi">:</span> <span class="m">80</span>
+<span class="s">EOF</span>
+</code></pre></div></div> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Istio Gateway(=gw)/VirtualService(=vs) 설정 정보를 확인</span>
+<span class="c"># virtual service 는 다른 네임스페이스의 서비스(ex. svc-nn.&lt;ns&gt;)도 참조할 수 있다</span>
+kubectl get gw,vs
+NAME                                       AGE
+gateway.networking.istio.io/test-gateway   21s
+
+NAME                                               GATEWAYS           HOSTS                AGE
+virtualservice.networking.istio.io/nginx-service   <span class="o">[</span><span class="s2">"test-gateway"</span><span class="o">]</span>   <span class="o">[</span><span class="s2">"**www.gasida.dev**"</span><span class="o">]</span>   4m9s
+</code></pre></div></div> <ul> <li><strong>Istio 를 통한 Nginx 파드 접속 테스트</strong></li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># k8s-pc, k8s-m 에서 아래 실행</span>
+<span class="c"># istio ingress gw 를 통한 접속 테스트</span>
+curl <span class="nt">-s</span> <span class="nv">$MYDOMAIN</span>:<span class="nv">$IGWHTTP</span> | <span class="nb">grep</span> <span class="nt">-o</span> <span class="s2">"&lt;title&gt;.*&lt;/title&gt;"</span>
+curl <span class="nt">-v</span> <span class="nt">-s</span> <span class="nv">$MYDOMAIN</span>:<span class="nv">$IGWHTTP</span>
+
+<span class="c"># k8s-m 에서 nginx 컨테이너 로그 확인 &gt;&gt; 출력 로그에 IP 는 각각 무엇일까요?</span>
+kubetail <span class="nt">-l</span> <span class="nv">app</span><span class="o">=</span>deploy-websrv <span class="nt">-c</span> deploy-websrv <span class="nt">-f</span>
+</code></pre></div></div> <h2 id="마치며">마치며</h2> <p>좋은 자료 제공과 양질의 컨텐츠를 제공 받아서 스터디를 잘 했습니다. 8주가 끝나니 더 많이 알지 못해서 아쉬운게 너무 많네요.</p> <h2 id="참고자료">참고자료</h2> <ul> <li>istio : 공홈 - <a href="https://istio.io/">링크</a> / Docs - <a href="https://istio.io/latest/docs/">링크</a> <a href="https://istio.io/latest/docs/ops/deployment/architecture/">Architecture</a> <a href="https://istio.io/latest/docs/ops/deployment/deployment-models/">Models</a> <a href="https://istio.io/latest/docs/ops/deployment/requirements/">Requirements</a> / Bookinfo - <a href="https://istio.io/latest/docs/examples/bookinfo/">링크</a> / <a href="https://youtu.be/hkR1M6qwpnw">5분 설명</a></li> <li>istio Youtube 채널 - <a href="https://www.youtube.com/c/Istio/videos">링크</a> / IstioCon 2021 <a href="https://youtu.be/T1Kwh3SRAXQ">Workshop</a></li> <li>Service Mesh Landscape - <a href="https://layer5.io/service-mesh-landscape">링크</a></li> <li>호롤리님* : <a href="https://gruuuuu.github.io/cloud/envoy-proxy/">envoy proxy</a> / <a href="https://gruuuuu.github.io/cloud/service-mesh-istio/">Service Mesh Architecture &amp; Istio</a></li> <li>DaddyProgrammer* : <a href="https://daddyprogrammer.org/post/13721/istio-service-mesh/">Istio</a> / <a href="https://daddyprogrammer.org/post/13700/service-mesh/">서비스 메시</a> / <a href="https://daddyprogrammer.org/post/13794/aws-app-mesh/">AWS App Mesh</a></li> <li>Ssup님* : <a href="https://ssup2.github.io/theory_analysis/Istio_Architecture/">Architecture</a> <a href="https://ssup2.github.io/theory_analysis/Service_Mesh_Architecture/">2</a> / <a href="https://ssup2.github.io/theory_analysis/Istio_Sidecar/">Istio Sidecar</a> / <a href="https://ssup2.github.io/theory_analysis/Istio_Traffic_Management/">Traffic Mgmt</a></li> <li>용찬호님* : <a href="https://blog.naver.com/alice_k106/222000680202">istio envoy 기초 사용 방법</a> / <a href="https://blog.naver.com/alice_k106/221832024817">istio tracing</a> / <a href="https://blog.naver.com/alice_k106/221617347519">gRPC LB</a></li> <li>freepsw님* : <a href="https://m.blog.naver.com/freepsw/221919196101">Udemy Istio 정리</a></li> <li>HyperConnect 기술블로그 - <a href="https://hyperconnect.github.io/2020/05/15/azar-mirror-1.html">istio1</a> <a href="https://hyperconnect.github.io/2020/06/02/azar-mirror-2.html">istio2</a> <a href="https://hyperconnect.github.io/2020/08/19/microsrv-deploy-3.html">istio3</a></li> <li>JIMMY SONG* - <a href="https://jimmysong.io/en/blog/sidecar-injection-iptables-and-traffic-routing/">traffic flow</a> / <a href="https://jimmysong.io/en/blog/understanding-how-envoy-sidecar-intercept-and-route-traffic-in-istio-service-mesh/">Route traffic</a> / <a href="https://www.servicemesher.com/istio-handbook/">istio handbook</a> (중국어) / <a href="https://jimmysongio.medium.com/">Blog</a></li> <li>Life of a packet through Istio by Matt Turner (2018) - <a href="https://youtu.be/cB611FtjHcQ">링크</a></li> <li>Envoy - <a href="https://www.envoyproxy.io/docs/envoy/latest/intro/life_of_a_request">링크</a></li> <li>A Deep Dive into Iptables and Netfilter Architecture - <a href="https://netpple.github.io/2021/deep-dive-iptables-netfilter-architecture/">링크</a></li> <li>기술 세미나 - <a href="https://tv.naver.com/v/23651554">NAVER_Istio_L7LB</a> / <a href="https://youtu.be/igHrQPzLVRw">당근마켓_Istio운영</a> / <a href="https://toss.im/slash-21/sessions/1-2">토스_모니터링</a></li> <li>Service Mesh 소개 영상(한글) - <a href="https://youtu.be/mvEvPXaey50">링크</a></li> <li>Envoy 무료 교육* - <a href="https://academy.tetrate.io/courses/envoy-fundamentals">링크</a></li> <li>Protect Kubernetes workloads from Apache Log4j vulnerabilities - <a href="https://aws.amazon.com/blogs/containers/protect-kubernetes-workloads-from-apache-log4j-vulnerabilities/">링크</a></li> <li>[CNCF Blog] Service mesh 101 - <a href="https://www.cncf.io/blog/2021/10/22/service-mesh-101-the-role-of-envoy/">링크</a> &amp; Service mesh 102 - <a href="https://www.cncf.io/blog/2021/11/09/service-mesh-102-envoy-configuration/">링크</a></li> </ul> <div class="entry-meta"> <br> <hr> <span class="entry-tags"><a href="https://lahuman.github.io/tags/#kang" title="Pages tagged kang" class="tag"><span class="term">kang</span></a><a href="https://lahuman.github.io/tags/#istio" title="Pages tagged istio" class="tag"><span class="term">istio</span></a></span> <span class="social-share"> <a href="https://www.facebook.com/sharer/sharer.php?u=https://lahuman.github.io/kang_8week/" title="Share on Facebook" class="tag"> <span class="term"><i class="fa fa-facebook-square"></i> Share</span> </a> <a href="https://twitter.com/intent/tweet?text=https://lahuman.github.io/kang_8week/" title="Share on Twitter" class="tag"> <span class="term"><i class="fa fa-twitter-square"></i> Tweet</span> </a> <a href="https://plus.google.com/share?url=https://lahuman.github.io/kang_8week/" title="Share on Google+" class="tag"> <span class="term"><i class="fa fa-google-plus-square"></i> +1</span> </a> </span> <div style="clear:both"></div> </div> <ins class="kakao_ad_area" style="display:none;" data-ad-unit = "DAN-ubp67fs9s850" data-ad-width = "320" data-ad-height = "100"></ins> <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script> </div> </div> <section id="disqus_thread" class="animated fadeInUp"></section><!-- /#disqus_thread --> </header> <!-- JS --> <script src="https://lahuman.github.io/assets/js/jquery-1.12.0.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.dlmenu.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.goup.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.magnific-popup.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.fitvid.min.js"></script> <script src="https://lahuman.github.io/assets/js/scripts.js"></script> <!-- Global site tag (gtag.js) - Google Analytics --> <script async src="https://www.googletagmanager.com/gtag/js?id=UA-74095083-1"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-74095083-1'); </script> <script type="text/javascript"> var disqus_shortname = 'daniels-blog'; (function() { var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true; dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js'; (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq); })(); (function () { var s = document.createElement('script'); s.async = true; s.type = 'text/javascript'; s.src = '//' + disqus_shortname + '.disqus.com/count.js'; (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s); }()); </script> <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript> <!-- MathJax --> <script async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> </body> </html>
