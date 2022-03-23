@@ -28,19 +28,19 @@
 - prototype 기반 상속은 어떻게 하는지 설명해주세요.
 - 클로져(Closure)는 무엇이며, 어떻게/왜 사용하는지 설명해주세요
 - 익명함수(anonymous functions)는 주로 어떤 상황에서 사용하나요?
-- ```.call```과 ```.apply```의 차이점은 무엇인가요?
-- ```==```와 ```===```의 차이점은 무엇인가요?
+- .call과 .apply의 차이점은 무엇인가요?
+- ==와 ===의 차이점은 무엇인가요?
 - Promise란 무엇인가요? 또 polyfills이란 무엇인가요?
 - Promise를 사용방법과 사용했을 때 이점에 대해 설명해주세요.
-- ```use strict;```은 무엇이고, 사용했을때 장단점에 대해서 설명해주세요.
+- use strict;은 무엇이고, 사용했을때 장단점에 대해서 설명해주세요.
 - mutable object와 immutable object에 대해 설명해주세요.
 - 동기방식과 비동기방식에 대해 설명해주세요.
 </code></pre></div></div> <h4 id="412-jquery">4.1.2 JQUERY</h4> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- "체이닝(Chaining)"에 대해서 설명 하세요.
-- ```.end()```는 무엇을 하는 것입니까?
+- .end()는 무엇을 하는 것입니까?
 - 이벤트 핸들러 선언 시, 언제 그리고 왜 namespace를 부여하는지를 설명해주세요.
-- ```.get()```,```[]``` 그리고 ```.eq()```의 차이점이 무엇인가요?
-- ```.bind()```,```.live()```그리고 ```.delegate()```의 차이점이 무엇인가요?
-- ```$```과 ```$.fn``` 차이점이 무엇인지 설명 해주시오. 혹은, ```$.fn```가 무엇인지 설명해주세요.
+- .get(),[] 그리고 .eq()의 차이점이 무엇인가요?
+- .bind(),.live()그리고 .delegate()의 차이점이 무엇인가요?
+- $과 $.fn 차이점이 무엇인지 설명 해주시오. 혹은, $.fn가 무엇인지 설명해주세요.
 </code></pre></div></div> <h4 id="42-reactjs">4.2 <a href="https://velog.io/@lucas/%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C-%EA%B0%9C%EB%B0%9C%EC%9E%90-%EB%A9%B4%EC%A0%91-%EC%A4%80%EB%B9%84-React">ReactJS</a></h4> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- React의 라이프사이클에 대해 설명해주세요.
     + React의 클래스형 컴포넌트에서 사용하는 LifeCycle API는, 컴포넌트가 DOM 위에 생성되거나 사라질 때, 혹은 업데이트될 때 호출되는 API입니다.
 
@@ -146,7 +146,22 @@
     + 상위 클래스에서는 추상적으로 표현하고 그 구체적인 내용은 하위 클래스에서 결정되는 디자인 패턴
 - Visitor (방문자)
     + 각 클래스의 데이터 구조로부터 처리 기능을 분리하여 별도의 visitor 클래스로 만들어놓고 해당 클래스의 메서드가 각 클래스를 돌아다니며 특정 작업을 수행하도록 하는 것
-</code></pre></div></div> <h2 id="6-기타-신기술-관련">6. 기타 신기술 관련</h2> <h3 id="61-msa">6.1 <a href="https://velog.io/@tedigom/MSA-%EC%A0%9C%EB%8C%80%EB%A1%9C-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0-1-MSA%EC%9D%98-%EA%B8%B0%EB%B3%B8-%EA%B0%9C%EB%85%90-3sk28yrv0e">MSA</a></h3> <p>장점 : - 배포(deployment) 관점 + 서비스 별 개별 배포 가능 ( 배포 시 전체 서비스의 중단이 없음) - 요구사항을 신속하게 반영하여 빠르게 배포할 수 있음. - 확장(scaling) 관점 + 특정 서비스에 대한 확장성이 용이함. - 클라우드 사용에 적합한 아키텍쳐. - 장애(failure) 관점 + 장애가 전체 서비스로 확장될 가능성이 적음 - 부분적 장애에 대한 격리가 수월함</p> <p>단점 : - 성능 + 서비스 간 호출 시 API를 사용하기 때문에, 통신 비용이나, Latency가 그만큼 늘어나게 됩니다. - 테스트 / 트랜잭션 + 서비스가 분리되어 있기 때문에 테스트와 트랜잭션의 복잡도가 증가하고, 많은 자원을 필요로 합니다. - 데이터 관리 + 데이터가 여러 서비스에 걸쳐 분산되기 때문에 한번에 조회하기 어렵고, 데이터의 정합성 또한 관리하기 어렵습니다.</p> <h4 id="611-msa-관련">6.1.1 MSA 관련</h4> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1) Eureka
+</code></pre></div></div> <h2 id="6-기타-신기술-관련">6. 기타 신기술 관련</h2> <h3 id="61-msa">6.1 <a href="https://velog.io/@tedigom/MSA-%EC%A0%9C%EB%8C%80%EB%A1%9C-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0-1-MSA%EC%9D%98-%EA%B8%B0%EB%B3%B8-%EA%B0%9C%EB%85%90-3sk28yrv0e">MSA</a></h3> <h4 id="611-장점-">6.1.1 장점 :</h4> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- 배포(deployment) 관점
+    + 서비스 별 개별 배포 가능 ( 배포 시 전체 서비스의 중단이 없음)
+        - 요구사항을 신속하게 반영하여 빠르게 배포할 수 있음.
+- 확장(scaling) 관점
+    + 특정 서비스에 대한 확장성이 용이함.
+        - 클라우드 사용에 적합한 아키텍쳐.
+- 장애(failure) 관점
+    + 장애가 전체 서비스로 확장될 가능성이 적음
+        - 부분적 장애에 대한 격리가 수월함
+</code></pre></div></div> <h4 id="612-단점-">6.1.2 단점 :</h4> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- 성능 
+    + 서비스 간 호출 시 API를 사용하기 때문에, 통신 비용이나, Latency가 그만큼 늘어나게 됩니다.
+- 테스트 / 트랜잭션 
+    + 서비스가 분리되어 있기 때문에 테스트와 트랜잭션의 복잡도가 증가하고, 많은 자원을 필요로 합니다.
+- 데이터 관리 
+    + 데이터가 여러 서비스에 걸쳐 분산되기 때문에 한번에 조회하기 어렵고, 데이터의 정합성 또한 관리하기 어렵습니다.
+</code></pre></div></div> <h4 id="613-msa-관련">6.1.3 MSA 관련</h4> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1) Eureka
 2) Zuul
 3) Histrix 
 4) 서킷 브레이커 등
