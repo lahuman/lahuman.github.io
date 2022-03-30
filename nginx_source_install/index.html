@@ -1,41 +1,51 @@
-<!DOCTYPE html> <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]--> <!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8"><![endif]--> <!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9"><![endif]--> <!--[if gt IE 8]><!--> <html class="no-js"><!--<![endif]--> <head> <meta charset="UTF-8"> <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"> <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1"> <title>Nginx source를 이용한 compile 설치 &#8211; lahuman</title> <meta name="description" content="열심히 사는 아저씨"> <meta name="keywords" content="nginx, install"> <!-- Twitter Cards --> <meta name="twitter:card" content="summary"> <meta name="twitter:image" content="https://lahuman.github.io/assets/img/logo.png"> <meta name="twitter:title" content="Nginx source를 이용한 compile 설치"> <meta name="twitter:description" content="sub_filter를 사용하기 위해서는 꼭 컴파일 설치를 해야 한다."> <!-- Open Graph --> <meta property="og:locale" content="ko_KR"> <meta property="og:type" content="article"> <meta property="og:title" content="Nginx source를 이용한 compile 설치"> <meta property="og:description" content="sub_filter를 사용하기 위해서는 꼭 컴파일 설치를 해야 한다."> <meta property="og:url" content="https://lahuman.github.io/nginx_source_install/"> <meta property="og:site_name" content="lahuman"> <meta property="og:image" content="https://lahuman.github.io/assets/img/logo.png"> <link rel="canonical" href="https://lahuman.github.io/nginx_source_install/"> <link href="https://lahuman.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="lahuman Feed"> <!-- Handheld --> <meta name="HandheldFriendly" content="True"> <meta name="MobileOptimized" content="320"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- CSS --> <link rel="stylesheet" href="https://lahuman.github.io/assets/css/main.css"> <!-- JS --> <script src="https://lahuman.github.io/assets/js/modernizr-3.3.1.custom.min.js"></script> <!-- Favicons --> <link rel="apple-touch-icon" href="https://lahuman.github.io/assets/img/favicons/apple-icon-precomposed.png"> <link rel="apple-touch-icon" sizes="72x72" href="https://lahuman.github.io/assets/img/favicons/apple-icon-72x72.png"> <link rel="apple-touch-icon" sizes="114x114" href="https://lahuman.github.io/assets/img/favicons/apple-icon-114x114.png"> <link rel="apple-touch-icon" sizes="144x144" href="https://lahuman.github.io/assets/img/favicons/apple-icon-144x144.png"> <link rel="shortcut icon" type="image/png" href="https://lahuman.github.io/favicon.png" /> <link rel="shortcut icon" href="https://lahuman.github.io/favicon.ico" /> <!-- mermaid --> <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script> <script>mermaid.initialize({startOnLoad:true});</script> <!-- Background Image --> <style type="text/css">body {background-image:url(https://lahuman.github.io/assets/img/placeholder-big.jpg); background-repeat: no-repeat; background-size: cover; }</style> <!-- Post Feature Image --> </head> <body> <nav id="dl-menu" class="dl-menuwrapper" role="navigation"> <button class="dl-trigger">Open Menu</button> <ul class="dl-menu"> <li><a href="https://lahuman.github.io/">Home</a></li> <li> <a href="#">About</a> <ul class="dl-submenu"> <li> <img src="https://lahuman.github.io/assets/img/logo.png" alt="lahuman photo" class="author-photo"> <h4>lahuman</h4> <p>열심히 사는 아저씨</p> </li> <li><a href="https://lahuman.github.io/about/"><span class="btn btn-inverse">Learn More</span></a></li> <li> <a href="http://facebook.com/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-facebook-square"></i> Facebook</a> </li> <li> <a href="http://linkedin.com/in/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-linkedin-square"></i> LinkedIn</a> </li> <li> <a href="http://github.com/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-github"></i> Github</a> </li> </ul><!-- /.dl-submenu --> </li> <li> <a href="#">Posts</a> <ul class="dl-submenu"> <li><a href="https://lahuman.github.io/posts/">All Posts</a></li> <li><a href="https://lahuman.github.io/tags/">All Tags</a></li> </ul> </li> <li><a href="https://lahuman.github.io/projects/" >Projects</a></li> </ul><!-- /.dl-menu --> </nav><!-- /.dl-menuwrapper --> <!-- Header --> <header class="header" role="banner"> <div class="wrapper animated fadeIn"> <div class="content"> <div class="post-title "> <h1>Nginx source를 이용한 compile 설치</h1> <h4>09 Apr 2019</h4> <p class="reading-time"> <i class="fa fa-clock-o"></i> Reading time ~2 minutes </p><!-- /.entry-reading-time --> <a class="btn zoombtn" href="https://lahuman.github.io/posts/"> <i class="fa fa-chevron-left"></i> </a> </div> <h1 id="nginx-source를-이용한-컴파일-설치">Nginx source를 이용한 컴파일 설치</h1> <p>오랜만에 Nginx를 설치하고 sub_filter를 사용하였는데 동작을 하지 않는다.</p> <p>원인은 <strong>http_sub_module</strong>이 설치 되지 않아서 발생하는 문제이다. nginx에 <strong>http_sub_module</strong>을 설치하기 위해서는 꼭 source compile 설치를 해야 한다.</p> <p><a href="https://www.opentutorials.org/module/384/4511">NGINX 컴파일</a>에서 컴파일 방법에 대하여 잘 정리가 되어 있다.</p> <p>다음은 내가 사용한 명령어만 정리 하였다.</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># 최초 update &amp; 필수 gcc g++ 설치
-$&gt; sudo apt-get update
-$&gt; sudo apt-get install gcc g++
+<!DOCTYPE html> <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]--> <!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8"><![endif]--> <!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9"><![endif]--> <!--[if gt IE 8]><!--> <html class="no-js"><!--<![endif]--> <head> <meta charset="UTF-8"> <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"> <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1"> <title>Nginx source를 이용한 compile 설치 &#8211; lahuman</title> <meta name="description" content="열심히 사는 아저씨"> <meta name="keywords" content="nginx, install"> <!-- Twitter Cards --> <meta name="twitter:card" content="summary"> <meta name="twitter:image" content="https://lahuman.github.io/assets/img/logo.png"> <meta name="twitter:title" content="Nginx source를 이용한 compile 설치"> <meta name="twitter:description" content="sub_filter를 사용하기 위해서는 꼭 컴파일 설치를 해야 한다."> <!-- Open Graph --> <meta property="og:locale" content="ko_KR"> <meta property="og:type" content="article"> <meta property="og:title" content="Nginx source를 이용한 compile 설치"> <meta property="og:description" content="sub_filter를 사용하기 위해서는 꼭 컴파일 설치를 해야 한다."> <meta property="og:url" content="https://lahuman.github.io/nginx_source_install/"> <meta property="og:site_name" content="lahuman"> <meta property="og:image" content="https://lahuman.github.io/assets/img/logo.png"> <link rel="canonical" href="https://lahuman.github.io/nginx_source_install/"> <link href="https://lahuman.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="lahuman Feed"> <!-- Handheld --> <meta name="HandheldFriendly" content="True"> <meta name="MobileOptimized" content="320"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- CSS --> <link rel="stylesheet" href="https://lahuman.github.io/assets/css/main.css"> <!-- JS --> <script src="https://lahuman.github.io/assets/js/modernizr-3.3.1.custom.min.js"></script> <!-- Favicons --> <link rel="apple-touch-icon" href="https://lahuman.github.io/assets/img/favicons/apple-icon-precomposed.png"> <link rel="apple-touch-icon" sizes="72x72" href="https://lahuman.github.io/assets/img/favicons/apple-icon-72x72.png"> <link rel="apple-touch-icon" sizes="114x114" href="https://lahuman.github.io/assets/img/favicons/apple-icon-114x114.png"> <link rel="apple-touch-icon" sizes="144x144" href="https://lahuman.github.io/assets/img/favicons/apple-icon-144x144.png"> <link rel="shortcut icon" type="image/png" href="https://lahuman.github.io/favicon.png" /> <link rel="shortcut icon" href="https://lahuman.github.io/favicon.ico" /> <!-- mermaid --> <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script> <script>mermaid.initialize({startOnLoad:true});</script> <!-- Background Image --> <style type="text/css">body {background-image:url(https://lahuman.github.io/assets/img/placeholder-big.jpg); background-repeat: no-repeat; background-size: cover; }</style> <!-- Post Feature Image --> </head> <body> <nav id="dl-menu" class="dl-menuwrapper" role="navigation"> <button class="dl-trigger">Open Menu</button> <ul class="dl-menu"> <li><a href="https://lahuman.github.io/">Home</a></li> <li> <a href="#">About</a> <ul class="dl-submenu"> <li> <img src="https://lahuman.github.io/assets/img/logo.png" alt="lahuman photo" class="author-photo"> <h4>lahuman</h4> <p>열심히 사는 아저씨</p> </li> <li><a href="https://lahuman.github.io/about/"><span class="btn btn-inverse">Learn More</span></a></li> <li> <a href="http://facebook.com/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-facebook-square"></i> Facebook</a> </li> <li> <a href="http://linkedin.com/in/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-linkedin-square"></i> LinkedIn</a> </li> <li> <a href="http://github.com/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-github"></i> Github</a> </li> </ul><!-- /.dl-submenu --> </li> <li> <a href="#">Posts</a> <ul class="dl-submenu"> <li><a href="https://lahuman.github.io/posts/">All Posts</a></li> <li><a href="https://lahuman.github.io/tags/">All Tags</a></li> </ul> </li> <li><a href="https://lahuman.github.io/projects/" >Projects</a></li> </ul><!-- /.dl-menu --> </nav><!-- /.dl-menuwrapper --> <!-- Header --> <header class="header" role="banner"> <div class="wrapper animated fadeIn"> <div class="content"> <div class="post-title "> <h1>Nginx source를 이용한 compile 설치</h1> <h4>09 Apr 2019</h4> <p class="reading-time"> <i class="fa fa-clock-o"></i> Reading time ~2 minutes </p><!-- /.entry-reading-time --> <a class="btn zoombtn" href="https://lahuman.github.io/posts/"> <i class="fa fa-chevron-left"></i> </a> </div> <h1 id="nginx-source를-이용한-컴파일-설치">Nginx source를 이용한 컴파일 설치</h1> <blockquote> <p>2022년도 3월 업데이트</p> </blockquote> <p>오랜만에 Nginx를 설치하고 sub_filter를 사용하였는데 동작을 하지 않는다.</p> <p>원인은 <strong>http_sub_module</strong>이 설치 되지 않아서 발생하는 문제이다. nginx에 <strong>http_sub_module</strong>을 설치하기 위해서는 꼭 source compile 설치를 해야 한다.</p> <p><a href="https://www.opentutorials.org/module/384/4511">NGINX 컴파일</a>에서 컴파일 방법에 대하여 잘 정리가 되어 있다.</p> <p>다음은 내가 사용한 명령어만 정리 하였다.</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 최초 update &amp; 필수 gcc g++ 설치</span>
+<span class="nv">$&gt;</span> <span class="nb">sudo </span>apt-get update
+<span class="nv">$&gt;</span> <span class="nb">sudo </span>apt-get <span class="nb">install </span>gcc g++
 
-# Nginx 설치 디렉토리 설정
-$&gt; mkdir nginx_source
-$&gt; cd nginx_source/
+<span class="c"># Nginx 설치 디렉토리 설정</span>
+<span class="nv">$&gt;</span> <span class="nb">mkdir </span>nginx_source
+<span class="nv">$&gt;</span> <span class="nb">cd </span>nginx_source/
 
-# Nginx 1.17.10 다운
-$&gt; wget https://nginx.org/download/nginx-1.17.10.tar.gz
-$&gt; tar xvf nginx-1.17.10.tar.gz
+<span class="c"># nginx-1.20.1 다운</span>
+<span class="nv">$&gt;</span> wget https://nginx.org/download/nginx-1.20.1.tar.gz
+<span class="nv">$&gt;</span> <span class="nb">tar </span>xvf nginx-1.20.1.tar.gz
 
-# Nginx 설치를 위한 모듈들 설치 START
-$&gt; wget https://ftp.pcre.org/pub/pcre/pcre-8.44.tar.gz
-$&gt; tar xvf pcre-8.44.tar.gz
+<span class="c"># Nginx 설치를 위한 모듈들 설치 START</span>
+<span class="nv">$&gt;</span> wget  https://sourceforge.net/projects/pcre/files/pcre/8.45/pcre-8.45.tar.gz
+<span class="nv">$&gt;</span> <span class="nb">tar </span>xvf pcre-8.45.tar.gz
 
-$&gt; wget https://www.openssl.org/source/openssl-1.0.2r.tar.gz
-$&gt; tar -xzvf openssl-1.0.2r.tar.gz
+<span class="nv">$&gt;</span> wget https://www.openssl.org/source/openssl-1.1.1l.tar.gz
+<span class="nv">$&gt;</span> <span class="nb">tar</span> <span class="nt">-xzvf</span> openssl-1.1.1l.tar.gz
 
-$&gt; wget http://zlib.net/zlib-1.2.11.tar.gz
-$&gt; tar xvf zlib-1.2.11.tar.gz
-# Nginx 설치를 위한 모듈들 설치 END
+<span class="nv">$&gt;</span> wget https://fossies.org/linux/misc/legacy/zlib-1.2.11.tar.gz
+<span class="nv">$&gt;</span> <span class="nb">tar </span>xvf zlib-1.2.11.tar.gz
+<span class="c"># Nginx 설치를 위한 모듈들 설치 END</span>
 
-# 실행 계정 생성
-$&gt; useradd --shell /usr/sbin/nologin www-data
+<span class="c"># 실행 계정 생성</span>
+<span class="nv">$&gt;</span> useradd <span class="nt">--shell</span> /usr/sbin/nologin www-data
 
-$&gt; cd nginx-1.17.10/
-# 컴파일 옵션 설정 **--with-http_sub_module** 내가 추가한 옵션이다.
-$&gt; sudo ./configure --with-http_sub_module --with-zlib=../zlib-1.2.11 --with-pcre=../pcre-8.44 --with-openssl=../openssl-1.0.2r --with-http_ssl_module --with-debug  --prefix=/usr/local/nginx --user=www-data --group=www-data
-$&gt; sudo make;
-$&gt; sudo make install;
+<span class="nv">$&gt;</span> <span class="nb">cd </span>nginx-1.20.1/
+<span class="c"># 컴파일 옵션 설정 **--with-http_sub_module** 내가 추가한 옵션이다.</span>
+<span class="nv">$&gt;</span> <span class="nb">sudo</span> ./configure <span class="se">\</span>
+  <span class="nt">--with-http_sub_module</span> <span class="se">\</span>
+  <span class="nt">--with-zlib</span><span class="o">=</span>../zlib-1.2.11 <span class="se">\</span>
+  <span class="nt">--with-pcre</span><span class="o">=</span>../pcre-8.45 <span class="se">\</span>
+  <span class="nt">--with-openssl</span><span class="o">=</span>../openssl-1.1.1l <span class="se">\</span>
+  <span class="nt">--with-http_ssl_module</span> <span class="se">\</span>
+  <span class="nt">--with-debug</span>  <span class="se">\</span>
+  <span class="nt">--prefix</span><span class="o">=</span>/usr/local/nginx <span class="se">\</span>
+  <span class="nt">--user</span><span class="o">=</span>www-data <span class="se">\</span>
+  <span class="nt">--group</span><span class="o">=</span>www-data
+  
+<span class="nv">$&gt;</span> <span class="nb">sudo </span>make<span class="p">;</span>
+<span class="nv">$&gt;</span> <span class="nb">sudo </span>make <span class="nb">install</span><span class="p">;</span>
 
 
-# Nginx init 스크립트 처리
-$&gt; sudo wget https://raw.github.com/JasonGiedymin/nginx-init-ubuntu/master/nginx -O /etc/init.d/nginx;
-$&gt; sudo chmod +x /etc/init.d/nginx;
-$&gt; sudo update-rc.d -f nginx defaults
-$&gt; service nginx status
+<span class="c"># Nginx init 스크립트 처리</span>
+<span class="nv">$&gt;</span> <span class="nb">sudo </span>wget https://raw.github.com/JasonGiedymin/nginx-init-ubuntu/master/nginx <span class="nt">-O</span> /etc/init.d/nginx<span class="p">;</span>
+<span class="nv">$&gt;</span> <span class="nb">sudo chmod</span> +x /etc/init.d/nginx<span class="p">;</span>
+<span class="nv">$&gt;</span> <span class="nb">sudo </span>update-rc.d <span class="nt">-f</span> nginx defaults
+<span class="nv">$&gt;</span> service nginx status
 </code></pre></div></div> <p>이렇게 하고 nginx.conf에 proxy pass 설정을 한다.</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>location /test/{
 	proxy_pass http://lahuman.github.io/;
 }
