@@ -1,0 +1,126 @@
+<!DOCTYPE html> <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]--> <!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8"><![endif]--> <!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9"><![endif]--> <!--[if gt IE 8]><!--> <html class="no-js"><!--<![endif]--> <head> <meta charset="UTF-8"> <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"> <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1"> <title>Nginx options 정리 &#8211; lahuman</title> <meta name="description" content="열심히 사는 아저씨"> <meta name="keywords" content="nginx, options"> <!-- Twitter Cards --> <meta name="twitter:card" content="summary"> <meta name="twitter:image" content="https://lahuman.github.io/assets/img/logo.png"> <meta name="twitter:title" content="Nginx options 정리"> <meta name="twitter:description" content="모르는게 많아도 너무 많아. :("> <!-- Open Graph --> <meta property="og:locale" content="ko_KR"> <meta property="og:type" content="article"> <meta property="og:title" content="Nginx options 정리"> <meta property="og:description" content="모르는게 많아도 너무 많아. :("> <meta property="og:url" content="https://lahuman.github.io/nginx_options/"> <meta property="og:site_name" content="lahuman"> <meta property="og:image" content="https://lahuman.github.io/assets/img/logo.png"> <link rel="canonical" href="https://lahuman.github.io/nginx_options/"> <link href="https://lahuman.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="lahuman Feed"> <!-- Handheld --> <meta name="HandheldFriendly" content="True"> <meta name="MobileOptimized" content="320"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- CSS --> <link rel="stylesheet" href="https://lahuman.github.io/assets/css/main.css"> <!-- JS --> <script src="https://lahuman.github.io/assets/js/modernizr-3.3.1.custom.min.js"></script> <!-- Favicons --> <link rel="apple-touch-icon" href="https://lahuman.github.io/assets/img/favicons/apple-icon-precomposed.png"> <link rel="apple-touch-icon" sizes="72x72" href="https://lahuman.github.io/assets/img/favicons/apple-icon-72x72.png"> <link rel="apple-touch-icon" sizes="114x114" href="https://lahuman.github.io/assets/img/favicons/apple-icon-114x114.png"> <link rel="apple-touch-icon" sizes="144x144" href="https://lahuman.github.io/assets/img/favicons/apple-icon-144x144.png"> <link rel="shortcut icon" type="image/png" href="https://lahuman.github.io/favicon.png" /> <link rel="shortcut icon" href="https://lahuman.github.io/favicon.ico" /> <!-- mermaid --> <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script> <script>mermaid.initialize({startOnLoad:true});</script> <!-- Background Image --> <style type="text/css">body {background-image:url(https://lahuman.github.io/assets/img/placeholder-big.jpg); background-repeat: no-repeat; background-size: cover; }</style> <!-- Post Feature Image --> </head> <body> <nav id="dl-menu" class="dl-menuwrapper" role="navigation"> <button class="dl-trigger">Open Menu</button> <ul class="dl-menu"> <li><a href="https://lahuman.github.io/">Home</a></li> <li> <a href="#">About</a> <ul class="dl-submenu"> <li> <img src="https://lahuman.github.io/assets/img/logo.png" alt="lahuman photo" class="author-photo"> <h4>lahuman</h4> <p>열심히 사는 아저씨</p> </li> <li><a href="https://lahuman.github.io/about/"><span class="btn btn-inverse">Learn More</span></a></li> <li> <a href="http://facebook.com/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-facebook-square"></i> Facebook</a> </li> <li> <a href="http://linkedin.com/in/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-linkedin-square"></i> LinkedIn</a> </li> <li> <a href="http://github.com/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-github"></i> Github</a> </li> </ul><!-- /.dl-submenu --> </li> <li> <a href="#">Posts</a> <ul class="dl-submenu"> <li><a href="https://lahuman.github.io/posts/">All Posts</a></li> <li><a href="https://lahuman.github.io/tags/">All Tags</a></li> </ul> </li> <li><a href="https://lahuman.github.io/projects/" >Projects</a></li> </ul><!-- /.dl-menu --> </nav><!-- /.dl-menuwrapper --> <!-- Header --> <header class="header" role="banner"> <div class="wrapper animated fadeIn"> <div class="content"> <div class="post-title "> <h1>Nginx options 정리</h1> <h4>06 Apr 2022</h4> <p class="reading-time"> <i class="fa fa-clock-o"></i> Reading time ~5 minutes </p><!-- /.entry-reading-time --> <a class="btn zoombtn" href="https://lahuman.github.io/posts/"> <i class="fa fa-chevron-left"></i> </a> </div> <h1 id="nginx-설정-옵션-정리">Nginx 설정 옵션 정리</h1> <blockquote> <p>설치는 <a href="https://lahuman.github.io/nginx_source_install/">Nginx source를 이용한 compile 설치</a>를 참고 하셔요.</p> </blockquote> <h2 id="err_content_length_mismatch-오류">ERR_CONTENT_LENGTH_MISMATCH 오류</h2> <p>문제를 해결하기 위해서 <code class="language-plaintext highlighter-rouge">버퍼링을 비활성화</code> 하였습니다.</p> <blockquote> <p><a href="https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_buffering">proxy_buffering</a> 문제로 해당 설정을 사용하면, Nginx는 프록시 서버로 부터 응답을 받아 버퍼에 저장합니다. 다만 전체 응답이 메모리에 맞지 않으면 일부를 디스크에 임시 저장합니다. <code class="language-plaintext highlighter-rouge">버퍼링을 비활성화 되면 응답이 수신되는 즉시 클라이언트에 동기적으로 전달됩니다.</code></p> </blockquote> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>proxy_buffering off;
+</code></pre></div></div> <h2 id="varlibnginxclient_body0000000011-failed-13-permission-denied-오류">/var/lib/nginx/client_body/0000000011 failed (13: Permission denied) 오류</h2> <p><code class="language-plaintext highlighter-rouge">Nobody</code>로 실행되어서 권한을 최대한 풀어주거나 <a href="http://nginx.org/en/docs/http/ngx_http_core_module.html#client_body_buffer_size">client_body_buffer_size</a>의 크기를 늘려서 임시파일로 저장 되지 않도록 변경해야 합니다.</p> <blockquote> <p><a href="http://nginx.org/en/docs/http/ngx_http_core_module.html#client_body_buffer_size">client_body_buffer_size</a>는 클라이언트 요청 본문을 읽기 위한 버퍼 크기를 설정합니다. 요청 본문이 버퍼보다 ​​큰 경우 본문 전체 또는 일부만 임시 파일 에 기록됩니다. 기본적으로 버퍼 크기는 2개의 메모리 페이지와 같습니다. 이것은 x86, 기타 32비트 플랫폼 및 x86-64에서 8K입니다. 다른 64비트 플랫폼에서는 일반적으로 16K입니다.</p> </blockquote> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>client_body_buffer_size 10M
+</code></pre></div></div> <h2 id="보안-점검-이행-처리">보안 점검 이행 처리</h2> <blockquote> <p>진행 배경을 간략하게 설명하면, 보안점검 결과처리를 Nginx 설정만으로 해결하였습니다.</p> </blockquote> <div class="mermaid"> graph TD A[XWIKI] --&gt; B{보안 점검} B --&gt; C(로그인 보안 강화) B --&gt; D(파일업로드) B --&gt; E(데이터 평문 전송) B --&gt; F(중요 정보 노출) C --&gt; N[Nginx 설정 처리] D --&gt; N[Nginx 설정 처리] E --&gt; N[Nginx 설정 처리] F --&gt; N[Nginx 설정 처리] </div> <h3 id="로그인-보안-강화">로그인 보안 강화</h3> <h3 id="파일-업로드">파일 업로드</h3> <p><a href="https://lahuman.github.io/xwiki_attachment_check/">XWIKI 첨부파일 확장자 확인 후 업로드 처리</a> 를 이용해서 client 단에서 처리를 하였고,</p> <p>서버의 경우 <a href="https://zetawiki.com/wiki/리눅스_inotify-tools_설치">inotify-tools</a> 설치해서 <code class="language-plaintext highlighter-rouge">shell-script</code>로 처리 하였습니다.</p> <blockquote> <p><a href="https://packages.debian.org/buster/inotify-tools">inotify-tools</a>는 inotify에 대한 간단한 인터페이스를 제공하는 Linux용 명령줄 프로그램 세트입니다. 이러한 프로그램을 사용하여 파일 시스템 이벤트를 모니터링하고 조치를 취할 수 있습니다. inotify-tools는 두 가지 유틸리티로 구성됩니다.</p> </blockquote> <ul> <li>inotifywait는 단순히 inotify 이벤트를 차단하므로 셸 스크립트에서 사용하기에 적합합니다.</li> <li>inotifywatch는 파일 시스템 사용 통계를 수집하고 각 inotify 이벤트의 개수를 출력합니다.</li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+
+<span class="nv">REGEX</span><span class="o">=</span><span class="s2">"</span><span class="se">\(</span><span class="s2">.txt|.png|.gif|.jpg|.pdf|.csv|.xml|.doc|.docx|.xls|.xlsx|.ppt|.pptx|.jpeg|.json|.svg|.webp|.gif|.apng|.avif)"</span>
+
+inotifywait <span class="nt">-m</span> <span class="nt">-r</span> /applications/xwiki/data/store/file/xwiki <span class="nt">-e</span> moved_to |
+  <span class="k">while </span><span class="nb">read dir </span>action file<span class="p">;</span> <span class="k">do
+    if</span> <span class="o">[[</span> <span class="nv">$file</span> <span class="o">=</span>~ <span class="nv">$REGEX</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then
+      </span><span class="nb">echo</span> <span class="s2">"matched! the file '</span><span class="nv">$file</span><span class="s2">' appeared in directory '</span><span class="nv">$dir</span><span class="s2">' via '</span><span class="nv">$action</span><span class="s2">'"</span>
+    <span class="k">else
+      </span><span class="nb">echo</span> <span class="s2">"the file '</span><span class="nv">$file</span><span class="s2">' appeared in directory '</span><span class="nv">$dir</span><span class="s2">' via '</span><span class="nv">$action</span><span class="s2">'"</span>
+      <span class="nb">rm</span> <span class="nv">$dir</span>/<span class="nv">$file</span>
+    <span class="k">fi
+  done</span> 
+
+</code></pre></div></div> <h3 id="데이터-평문-전송">데이터 평문 전송</h3> <p><a href="https://www.runit.cloud/2020/04/https-ssl.html">자체 서명 사설 SSL 인증서 만들기</a>를 참조해서 사설 인증서를 만들었습니다.</p> <p>인증서를 생성하기 위해서 <code class="language-plaintext highlighter-rouge">openssl</code>이 설치 되어있어야 합니다.</p> <p>명령어만 정리 하면 아래와 같습니다.</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 루트 인증서(CA) 만들기</span>
+<span class="nv">$ </span>openssl ecparam <span class="nt">-out</span> rootca.key <span class="nt">-name</span> prime256v1 <span class="nt">-genkey</span>
+<span class="nv">$ </span>openssl req <span class="nt">-new</span> <span class="nt">-sha256</span> <span class="nt">-key</span> rootca.key <span class="nt">-out</span> rootca.csr
+...
+<span class="nt">-----</span>
+Country Name <span class="o">(</span>2 letter code<span class="o">)</span> <span class="o">[</span>XX]:KR
+State or Province Name <span class="o">(</span>full name<span class="o">)</span> <span class="o">[]</span>:Gyeonggi-do
+Locality Name <span class="o">(</span>eg, city<span class="o">)</span> <span class="o">[</span>Default City]:Inchon
+Organization Name <span class="o">(</span>eg, company<span class="o">)</span> <span class="o">[</span>Default Company Ltd]:lahuman
+Organizational Unit Name <span class="o">(</span>eg, section<span class="o">)</span> <span class="o">[]</span>: nginx
+Common Name <span class="o">(</span>eg, your name or your server<span class="s1">'s hostname) []: CA Root Certificate
+Email Address []:lahuman@daum.net
+...
+
+Please enter the following '</span>extra<span class="s1">' attributes
+to be sent with your certificate request
+A challenge password []:Enter 누르기
+  An optional company name []:Enter 누르기
+
+$ openssl x509 -req -sha256 -days 999999 -in rootca.csr -signkey rootca.key -out rootca.crt
+
+#서버 인증서 만들기
+$ openssl ecparam -out server.key -name prime256v1 -genkey
+$ openssl req -new -sha256 -key server.key -out server.csr
+...
+Country Name (2 letter code) [XX]:KR
+State or Province Name (full name) []:Gyeonggi-do
+Locality Name (eg, city) [Default City]:Inchon
+Organization Name (eg, company) [Default Company Ltd]:lahuman
+Organizational Unit Name (eg, section) []: nginx
+Common Name (eg, your name or your server'</span>s <span class="nb">hostname</span><span class="o">)</span> <span class="o">[]</span>:<span class="k">*</span>.lahuman.nginx
+Email Address <span class="o">[]</span>:lahuman@daum.net
+
+Please enter the following <span class="s1">'extra'</span> attributes
+to be sent with your certificate request
+  A challenge password <span class="o">[]</span>:Enter 누르기
+  An optional company name <span class="o">[]</span>:Enter 누르기
+...
+
+<span class="nv">$ </span>openssl x509 <span class="nt">-req</span> <span class="nt">-sha256</span> <span class="nt">-days</span> 999999 <span class="nt">-in</span> server.csr <span class="nt">-CA</span> rootca.crt <span class="nt">-CAkey</span> rootca.key <span class="nt">-CAcreateserial</span> <span class="nt">-out</span> server.crt
+
+<span class="nv">$ </span><span class="nb">cat </span>server.crt rootca.crt <span class="o">&gt;</span> server.pem
+
+
+<span class="c"># Nginx ssl 설정</span>
+<span class="nv">$ </span>vi /usr/local/nginx/nginx.conf
+...
+server <span class="o">{</span>
+  listen       443 ssl default_server<span class="p">;</span>
+  listen       <span class="o">[</span>::]:443 ssl default_server<span class="p">;</span>
+  server_name  _<span class="p">;</span>
+  root         /usr/local/nginx/html<span class="p">;</span>
+
+  ssl_certificate <span class="s2">"/usr/local/nginx/ssl/server.pem"</span><span class="p">;</span>
+  ssl_certificate_key <span class="s2">"/usr/local/nginx/ssl/server.key"</span><span class="p">;</span>
+  ssl_session_cache shared:SSL:1m<span class="p">;</span>
+  ssl_session_timeout  10m<span class="p">;</span>
+  ssl_prefer_server_ciphers on<span class="p">;</span>
+  ssl_protocols TLSv1 TLSv1.1 TLSv1.2<span class="p">;</span>
+...
+<span class="o">}</span>
+...
+
+<span class="c">#Nginx 재기동</span>
+<span class="nv">$ </span>/usr/local/nginx/sbin/nginx <span class="nt">-s</span> reload
+
+</code></pre></div></div> <p>설정이 완료 후 사이트로 이동하여 인증서를 설치합니다.</p> <h3 id="중요-정보-노출">중요 정보 노출</h3> <p>서버의 정보를 노출하는 문제로, <code class="language-plaintext highlighter-rouge">오류 페이지</code>나 resepons에서 서버의 정보를 표기하는 헤더를 삭제 해야 하였습니다.</p> <p>오류 페이지는 <code class="language-plaintext highlighter-rouge">/usr/local/nginx/html/50x.html</code> 파일을 먼저 생성하고 아래 내용을 <code class="language-plaintext highlighter-rouge">nginx.conf</code>에 추가 하여 처리 하였습니다.</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+  error_page   500 502 503 504  /50x.html;
+  location = /50x.html {
+      root   html;
+  }
+</code></pre></div></div> <p>nginx의 reponse에서 Server 헤더를 삭제하는 방식은 추가 모듈을 설치하거나, 소스코드를 다시 컴파일 해야 합니다.</p> <p><code class="language-plaintext highlighter-rouge">nginx.conf</code> 파일에 아래 서버 토큰을 off 합니다.</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>server_tokens off;
+</code></pre></div></div> <p>이렇게 처리해도 Server 헤더에 nginx가 계속 표기 되는데, 이는 소스를 다시 컴파일 하여 처리 합니다.</p> <p><a href="https://lahuman.github.io/nginx_source_install/">Nginx source를 이용한 compile 설치</a>에서 nginx 소스에서 아래 명령어를 실행하고 다시 컴파일 하면 됩니다.</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sed</span> <span class="nt">-i</span> <span class="s1">'s@"nginx/"@"-/"@g'</span> src/core/nginx.h
+<span class="nb">sed</span> <span class="nt">-i</span> <span class="s1">'s@r-&gt;headers_out.server == NULL@0@g'</span> src/http/ngx_http_header_filter_module.c
+<span class="nb">sed</span> <span class="nt">-i</span> <span class="s1">'s@r-&gt;headers_out.server == NULL@0@g'</span> src/http/v2/ngx_http_v2_filter_module.c
+<span class="nb">sed</span> <span class="nt">-i</span> <span class="s1">'s@&lt;hr&gt;&lt;center&gt;nginx&lt;/center&gt;@@g'</span> src/http/ngx_http_special_response.c
+</code></pre></div></div> <h2 id="로그인-보안-강화-1">로그인 보안 강화</h2> <blockquote> <p><a href="https://www.xwiki.org/xwiki/bin/view/Documentation/AdminGuide/Security#HCookies">XWIKI는 username/password를 쿠키에 암호화 하여 저장합니다.</a> 또한 로그인 화면에 연결되었던 세션을 재활용 하는데, 이 두가지를 처리 하였습니다.</p> </blockquote> <h3 id="request-쿠키-값과-response-쿠키-값을-로그인-시-변조-하는-처리">request 쿠키 값과 response 쿠키 값을 로그인 시 변조 하는 처리</h3> <blockquote> <p>로그인시 쿠키값을 모두 삭제하여서 로그인 성공 페이지로 전환되며 <code class="language-plaintext highlighter-rouge">url</code>에 <code class="language-plaintext highlighter-rouge">jsessionid</code>를 포함해서 전달됩니다.</p> </blockquote> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>...
+  
+  location <span class="o">=</span> / <span class="o">{</span>
+    <span class="k">return </span>301 https://<span class="nv">$host</span>/xwiki<span class="p">;</span>
+  <span class="o">}</span>
+
+  location /xwiki/bin/loginsubmit/XWiki/XWikiLogin <span class="o">{</span>
+    proxy_set_header   Host      <span class="nv">$host</span><span class="p">;</span>
+    proxy_hide_header Cookie<span class="p">;</span>
+    proxy_set_header        Cookie <span class="s2">""</span><span class="p">;</span>
+    proxy_pass         http://127.0.0.1:8080/xwiki/bin/loginsubmit/XWiki/XWikiLogin<span class="p">;</span>
+
+    proxy_hide_header       Set-Cookie<span class="p">;</span>
+    proxy_ignore_headers    Set-Cookie<span class="p">;</span>
+  <span class="o">}</span>
+
+  location /xwiki <span class="o">{</span>
+    proxy_set_header   X-Real-IP <span class="nv">$remote_addr</span><span class="p">;</span>
+    proxy_set_header   Host      <span class="nv">$host</span><span class="p">;</span>
+    proxy_http_version 1.1<span class="p">;</span>
+    proxy_set_header   Upgrade <span class="nv">$http_upgrade</span><span class="p">;</span>
+    proxy_set_header   Connection <span class="s1">'upgrade'</span><span class="p">;</span>
+
+    proxy_pass         http://127.0.0.1:8080/xwiki<span class="p">;</span>
+  <span class="o">}</span>
+...
+</code></pre></div></div> <p><code class="language-plaintext highlighter-rouge">jsessionid</code>를 포함하는 URL일 경우 <code class="language-plaintext highlighter-rouge">JSESSIONID</code>쿠키를 생성하여 로그인 처리 마무리를 한다.</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>location ~<span class="k">*</span> <span class="s2">"/xwiki/bin/view/(.*)/;jsessionid=(.*)"</span> <span class="o">{</span>
+    proxy_set_header   Host      <span class="nv">$host</span><span class="p">;</span>
+    proxy_set_header  Cookie <span class="s2">"JSESSIONID=</span><span class="nv">$2</span><span class="s2">; Path=/xwiki;  HttpOnly;"</span><span class="p">;</span>
+    add_header Set-Cookie <span class="s2">"JSESSIONID=</span><span class="nv">$2</span><span class="s2">; Path=/xwiki;  HttpOnly;"</span><span class="p">;</span>
+
+    proxy_pass  http://127.0.0.1:8080/xwiki/bin/view/<span class="nv">$1</span><span class="p">;</span>
+  <span class="o">}</span>
+</code></pre></div></div> <h2 id="마치며">마치며</h2> <p>보안 점검 사항을 진행하면서 이해하기 어려운 부분도 꽤 있었는데, 융통성이 없이 모두 처리 해야했습니다.</p> <p>특히 오픈소스의 결과물만 사용하는 입장으로서는 소스코드를 수정하지 못하여 더 어려웠던거 같네요.</p> <h1 id="참고-자료">참고 자료</h1> <ul> <li><a href="https://stackoverflow.com/questions/67548886/remove-specific-cookie-in-nginx-reverse-proxy">remove specific cookie in nginx reverse proxy</a></li> <li><a href="https://stackoverflow.com/questions/48880738/how-to-set-secure-attribute-to-set-cookie-in-nginx-through-nginx-conf-file">How to set Secure attribute to Set-cookie in Nginx through nginx.conf file</a></li> <li><a href="https://stackoverflow.com/questions/25993826/err-content-length-mismatch-on-nginx-and-proxy-on-chrome-when-loading-large-file">ERR_CONTENT_LENGTH_MISMATCH on nginx and proxy on Chrome when loading large files</a></li> <li><a href="https://serverfault.com/questions/727908/var-lib-nginx-client-body-0000000011-failed-13-permission-denied-with-node-j">/var/lib/nginx/client_body/0000000011 failed (13: Permission denied) with node.js</a></li> <li><a href="https://www.runit.cloud/2020/04/https-ssl.html">자체 서명 사설 SSL 인증서 만들기</a></li> <li><a href="https://www.getpagespeed.com/server-setup/nginx/how-to-remove-the-server-header-in-nginx">How to remove the Server header in NGINX</a></li> </ul> <div class="entry-meta"> <br> <hr> <span class="entry-tags"><a href="https://lahuman.github.io/tags/#nginx" title="Pages tagged nginx" class="tag"><span class="term">nginx</span></a><a href="https://lahuman.github.io/tags/#options" title="Pages tagged options" class="tag"><span class="term">options</span></a></span> <span class="social-share"> <a href="https://www.facebook.com/sharer/sharer.php?u=https://lahuman.github.io/nginx_options/" title="Share on Facebook" class="tag"> <span class="term"><i class="fa fa-facebook-square"></i> Share</span> </a> <a href="https://twitter.com/intent/tweet?text=https://lahuman.github.io/nginx_options/" title="Share on Twitter" class="tag"> <span class="term"><i class="fa fa-twitter-square"></i> Tweet</span> </a> <a href="https://plus.google.com/share?url=https://lahuman.github.io/nginx_options/" title="Share on Google+" class="tag"> <span class="term"><i class="fa fa-google-plus-square"></i> +1</span> </a> </span> <div style="clear:both"></div> </div> <ins class="kakao_ad_area" style="display:none;" data-ad-unit = "DAN-ubp67fs9s850" data-ad-width = "320" data-ad-height = "100"></ins> <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script> </div> </div> <section id="disqus_thread" class="animated fadeInUp"></section><!-- /#disqus_thread --> </header> <!-- JS --> <script src="https://lahuman.github.io/assets/js/jquery-1.12.0.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.dlmenu.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.goup.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.magnific-popup.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.fitvid.min.js"></script> <script src="https://lahuman.github.io/assets/js/scripts.js"></script> <!-- Global site tag (gtag.js) - Google Analytics --> <script async src="https://www.googletagmanager.com/gtag/js?id=UA-74095083-1"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-74095083-1'); </script> <script type="text/javascript"> var disqus_shortname = 'daniels-blog'; (function() { var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true; dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js'; (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq); })(); (function () { var s = document.createElement('script'); s.async = true; s.type = 'text/javascript'; s.src = '//' + disqus_shortname + '.disqus.com/count.js'; (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s); }()); </script> <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript> <!-- MathJax --> <script async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> </body> </html>
