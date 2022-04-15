@@ -113,7 +113,8 @@ server <span class="o">{</span>
     proxy_set_header   Upgrade <span class="nv">$http_upgrade</span><span class="p">;</span>
     proxy_set_header   Connection <span class="s1">'upgrade'</span><span class="p">;</span>
 
-    proxy_pass         http://127.0.0.1:8080/xwiki<span class="p">;</span>
+    <span class="c"># nginx에서 uri를 디코딩하여 넘기기 때문에 $request_uri를 사용하여 넘어온 uri를 그대로 넘김</span>
+    proxy_pass         http://127.0.0.1:8080<span class="nv">$request_uri</span><span class="p">;</span>
   <span class="o">}</span>
 ...
 </code></pre></div></div> <p><code class="language-plaintext highlighter-rouge">jsessionid</code>를 포함하는 URL일 경우 <code class="language-plaintext highlighter-rouge">JSESSIONID</code>쿠키를 생성하여 로그인 처리 마무리를 한다.</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>location ~<span class="k">*</span> <span class="s2">"/xwiki/bin/view/(.*)/;jsessionid=(.*)"</span> <span class="o">{</span>
