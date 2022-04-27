@@ -12,7 +12,7 @@ inotifywait <span class="nt">-m</span> <span class="nt">-r</span> /applications/
       </span><span class="nb">echo</span> <span class="s2">"the file '</span><span class="nv">$file</span><span class="s2">' appeared in directory '</span><span class="nv">$dir</span><span class="s2">' via '</span><span class="nv">$action</span><span class="s2">'"</span>
       <span class="nb">rm</span> <span class="nv">$dir</span>/<span class="nv">$file</span>
     <span class="k">fi
-  done</span> 
+  done</span>
 
 </code></pre></div></div> <h3 id="데이터-평문-전송">데이터 평문 전송</h3> <p><a href="https://www.runit.cloud/2020/04/https-ssl.html">자체 서명 사설 SSL 인증서 만들기</a>를 참조해서 사설 인증서를 만들었습니다.</p> <p>인증서를 생성하기 위해서 <code class="language-plaintext highlighter-rouge">openssl</code>이 설치 되어있어야 합니다.</p> <p>명령어만 정리 하면 아래와 같습니다.</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 루트 인증서(CA) 만들기</span>
 <span class="nv">$ </span>openssl ecparam <span class="nt">-out</span> rootca.key <span class="nt">-name</span> prime256v1 <span class="nt">-genkey</span>
@@ -91,7 +91,7 @@ server <span class="o">{</span>
 <span class="nb">sed</span> <span class="nt">-i</span> <span class="s1">'s@r-&gt;headers_out.server == NULL@0@g'</span> src/http/v2/ngx_http_v2_filter_module.c
 <span class="nb">sed</span> <span class="nt">-i</span> <span class="s1">'s@&lt;hr&gt;&lt;center&gt;nginx&lt;/center&gt;@@g'</span> src/http/ngx_http_special_response.c
 </code></pre></div></div> <h2 id="로그인-보안-강화">로그인 보안 강화</h2> <blockquote> <p><a href="https://www.xwiki.org/xwiki/bin/view/Documentation/AdminGuide/Security#HCookies">XWIKI는 username/password를 쿠키에 암호화 하여 저장합니다.</a> 또한 로그인 화면에 연결되었던 세션을 재활용 하는데, 이 두가지를 처리 하였습니다.</p> </blockquote> <h3 id="request-쿠키-값과-response-쿠키-값을-로그인-시-변조-하는-처리">request 쿠키 값과 response 쿠키 값을 로그인 시 변조 하는 처리</h3> <blockquote> <p>로그인시 쿠키값을 모두 삭제하여서 로그인 성공 페이지로 전환되며 <code class="language-plaintext highlighter-rouge">url</code>에 <code class="language-plaintext highlighter-rouge">jsessionid</code>를 포함해서 전달됩니다.</p> </blockquote> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>...
-  
+
   location <span class="o">=</span> / <span class="o">{</span>
     <span class="k">return </span>301 https://<span class="nv">$host</span>/xwiki<span class="p">;</span>
   <span class="o">}</span>
@@ -115,6 +115,8 @@ server <span class="o">{</span>
 
     <span class="c"># nginx에서 uri를 디코딩하여 넘기기 때문에 $request_uri를 사용하여 넘어온 uri를 그대로 넘김</span>
     proxy_pass         http://127.0.0.1:8080<span class="nv">$request_uri</span><span class="p">;</span>
+    <span class="c"># xwiki에서 redirect를 http로 하기 때문에 http 부분을 뜯어내고 uri만 전달하도록 변경 처리</span>
+    proxy_redirect ~^http://[^/]+<span class="o">(</span>/.+<span class="o">)</span><span class="nv">$ $1</span><span class="p">;</span>
   <span class="o">}</span>
 ...
 </code></pre></div></div> <p><code class="language-plaintext highlighter-rouge">jsessionid</code>를 포함하는 URL일 경우 <code class="language-plaintext highlighter-rouge">JSESSIONID</code>쿠키를 생성하여 로그인 처리 마무리를 한다.</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>location ~<span class="k">*</span> <span class="s2">"/xwiki/bin/view/(.*)/;jsessionid=(.*)"</span> <span class="o">{</span>
