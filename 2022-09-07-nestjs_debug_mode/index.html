@@ -1,0 +1,78 @@
+<h1 id="vscode에서-nestjs의-debug-mode-설정">vscode에서 NestJS의 Debug mode 설정</h1>
+
+<p><a href="https://code.visualstudio.com/">vscode</a>에서 <a href="https://nestjs.com/">nestjs</a>의 <code class="language-plaintext highlighter-rouge">디버그 설정</code>은 다음과 같습니다.</p>
+
+<div class="mermaid"> 
+graph TD;
+    A[nestjs run] --&gt;|npm run  start:debug| B(vscode debug setting);
+    B --&gt; C(vscode run debug);
+    C --&gt; D[debug test];
+</div>
+
+<h2 id="nestjs-run">nestjs run</h2>
+
+<p>nestjs를 debug 모드로 실행합니다.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>npm run start:debug
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">pacakge.json</code>에 아래와 같이 <code class="language-plaintext highlighter-rouge">--debug --watch</code>설정이 되어 있습니다.</p>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nest-app"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"scripts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"start:debug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nest start --debug --watch"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<h2 id="vscode-debug-setting">vscode debug setting</h2>
+
+<p>실행이 완료 되면, vscode의 <code class="language-plaintext highlighter-rouge">Run and Degbug</code> 메뉴로 이동을 합니다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">create a launch.json file</code>을 클릭해서 새로운 <code class="language-plaintext highlighter-rouge">launch.json</code>을 생성합니다. 생성시 타입은 node로 설정합니다.</p>
+
+<p><img src="/assets/img/post_img/vscode_debug_launch.png" alt="" /></p>
+
+<p><code class="language-plaintext highlighter-rouge">.vscode/launch.json</code> 파일이 생성되면, 아래와 같이 작성합니다.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="err">//</span><span class="w"> </span><span class="err">Use</span><span class="w"> </span><span class="err">IntelliSense</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">learn</span><span class="w"> </span><span class="err">about</span><span class="w"> </span><span class="err">possible</span><span class="w"> </span><span class="err">attributes.</span><span class="w">
+  </span><span class="err">//</span><span class="w"> </span><span class="err">Hover</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">view</span><span class="w"> </span><span class="err">descriptions</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">existing</span><span class="w"> </span><span class="err">attributes.</span><span class="w">
+  </span><span class="err">//</span><span class="w"> </span><span class="err">For</span><span class="w"> </span><span class="err">more</span><span class="w"> </span><span class="err">information</span><span class="p">,</span><span class="w"> </span><span class="err">visit:</span><span class="w"> </span><span class="err">https://go.microsoft.com/fwlink/?linkid=</span><span class="mi">830387</span><span class="w">
+  </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.2.0"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"configurations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"node"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"request"</span><span class="p">:</span><span class="w"> </span><span class="s2">"attach"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Attach NestJS WS"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"port"</span><span class="p">:</span><span class="w"> </span><span class="mi">9229</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"restart"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"stopOnEntry"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"protocol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"inspector"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="vscode-run-debug">vscode run debug</h2>
+
+<p>완료가 되면, debug를 실행합니다.</p>
+
+<p><img src="/assets/img/post_img/vscode_debug_run.png" alt="" /></p>
+
+<h2 id="debug-test">debug test</h2>
+
+<p>디버깅을 진행하려는 소스에서 포인트를 잡고 실행을 해서 디버그로 잡히는지 확인합니다.</p>
+
+<h2 id="디버그-모드-설정-전체-동영상">디버그 모드 설정 전체 동영상</h2>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/IU1WfW-k0vs" frameborder="0" allowfullscreen=""></iframe>
+
+<h2 id="마치며">마치며</h2>
+
+<p>node에서 debug는 간단하게 기본 설정으로 했었지만, nestjs에서는 조금 다르게 설정해야 debug를 사용할 수 있습니다.</p>
+
+<h2 id="참고자료">참고자료</h2>
+
+<ul>
+  <li><a href="https://stackoverflow.com/questions/49504765/debugging-nest-js-application-with-vscode">Debugging nest.js application with vscode</a></li>
+</ul>
