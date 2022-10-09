@@ -11,7 +11,7 @@ libtinfo.so.5: cannot open shared object file: No such file or directory
 /usr/lib/libncursesw.so.6
 /usr/lib/libncurses++w.so.6.0
 /usr/lib/libncursesw.so.6.0
-</code></pre></div></div> <p>해결 방법으로 애라 명령어처럼 두개의 심볼릭 링크를 만들고 <code class="language-plaintext highlighter-rouge">mysql</code>을 실행하면 정상 동작 합니다.</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo ln</span> <span class="nt">-s</span> /usr/lib/libncursesw.so.6.0 /usr/lib/libncurses.so.5
+</code></pre></div></div> <p>해결 방법으로 다음 명령어처럼 두개의 심볼릭 링크를 만들고 <code class="language-plaintext highlighter-rouge">mysql</code>을 실행하면 정상 동작 합니다.</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo ln</span> <span class="nt">-s</span> /usr/lib/libncursesw.so.6.0 /usr/lib/libncurses.so.5
 <span class="nv">$ </span><span class="nb">sudo ln</span> <span class="nt">-s</span> /usr/lib/libncursesw.so.6.0 /usr/lib/libtinfo.so.5
 
 <span class="nv">$ </span>mysql <span class="nt">-u</span> root <span class="nt">-p</span>
