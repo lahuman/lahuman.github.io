@@ -1,0 +1,275 @@
+<!DOCTYPE html> <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]--> <!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8"><![endif]--> <!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9"><![endif]--> <!--[if gt IE 8]><!--> <html class="no-js"><!--<![endif]--> <head> <meta charset="UTF-8"> <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"> <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1"> <title>#4 모듈 &#8211; lahuman</title> <meta name="description" content="열심히 사는 아저씨"> <meta name="keywords" content="terraform, study"> <!-- Twitter Cards --> <meta name="twitter:card" content="summary"> <meta name="twitter:image" content="https://lahuman.github.io/assets/img/logo.png"> <meta name="twitter:title" content="#4 모듈"> <meta name="twitter:description" content="Terraform 101 Study"> <!-- Open Graph --> <meta property="og:locale" content="ko_KR"> <meta property="og:type" content="article"> <meta property="og:title" content="#4 모듈"> <meta property="og:description" content="Terraform 101 Study"> <meta property="og:url" content="https://lahuman.github.io/t101_4/"> <meta property="og:site_name" content="lahuman"> <meta property="og:image" content="https://lahuman.github.io/assets/img/logo.png"> <link rel="canonical" href="https://lahuman.github.io/t101_4/"> <link href="https://lahuman.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="lahuman Feed"> <!-- Handheld --> <meta name="HandheldFriendly" content="True"> <meta name="MobileOptimized" content="320"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- CSS --> <link rel="stylesheet" href="https://lahuman.github.io/assets/css/main.css"> <!-- JS --> <script src="https://lahuman.github.io/assets/js/modernizr-3.3.1.custom.min.js"></script> <!-- Favicons --> <link rel="apple-touch-icon" href="https://lahuman.github.io/assets/img/favicons/apple-icon-precomposed.png"> <link rel="apple-touch-icon" sizes="72x72" href="https://lahuman.github.io/assets/img/favicons/apple-icon-72x72.png"> <link rel="apple-touch-icon" sizes="114x114" href="https://lahuman.github.io/assets/img/favicons/apple-icon-114x114.png"> <link rel="apple-touch-icon" sizes="144x144" href="https://lahuman.github.io/assets/img/favicons/apple-icon-144x144.png"> <link rel="shortcut icon" type="image/png" href="https://lahuman.github.io/favicon.png" /> <link rel="shortcut icon" href="https://lahuman.github.io/favicon.ico" /> <!-- mermaid --> <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script> <script>mermaid.initialize({startOnLoad:true});</script> <!-- Background Image --> <style type="text/css">body {background-image:url(https://lahuman.github.io/assets/img/placeholder-big.jpg); background-repeat: no-repeat; background-size: cover; }</style> <!-- Post Feature Image --> </head> <body> <nav id="dl-menu" class="dl-menuwrapper" role="navigation"> <button class="dl-trigger">Open Menu</button> <ul class="dl-menu"> <li><a href="https://lahuman.github.io/">Home</a></li> <li> <a href="#">About</a> <ul class="dl-submenu"> <li> <img src="https://lahuman.github.io/assets/img/logo.png" alt="lahuman photo" class="author-photo"> <h4>lahuman</h4> <p>열심히 사는 아저씨</p> </li> <li><a href="https://lahuman.github.io/about/"><span class="btn btn-inverse">Learn More</span></a></li> <li> <a href="http://facebook.com/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-facebook-square"></i> Facebook</a> </li> <li> <a href="http://linkedin.com/in/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-linkedin-square"></i> LinkedIn</a> </li> <li> <a href="http://github.com/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-github"></i> Github</a> </li> </ul><!-- /.dl-submenu --> </li> <li> <a href="#">Posts</a> <ul class="dl-submenu"> <li><a href="https://lahuman.github.io/posts/">All Posts</a></li> <li><a href="https://lahuman.github.io/tags/">All Tags</a></li> </ul> </li> <li><a href="https://lahuman.github.io/projects/" >Projects</a></li> </ul><!-- /.dl-menu --> </nav><!-- /.dl-menuwrapper --> <!-- Header --> <header class="header" role="banner"> <div class="wrapper animated fadeIn"> <div class="content"> <div class="post-title "> <h1>#4 모듈</h1> <h4>06 Nov 2022</h4> <p class="reading-time"> <i class="fa fa-clock-o"></i> Reading time ~8 minutes </p><!-- /.entry-reading-time --> <a class="btn zoombtn" href="https://lahuman.github.io/projects/"> <i class="fa fa-chevron-left"></i> </a> </div> <h1 id="모듈">모듈</h1> <ul> <li>참고 링크 <ul> <li>[Docs] Modules - <a href="https://developer.hashicorp.com/terraform/tutorials/modules">링크</a> / Overview - <a href="https://developer.hashicorp.com/terraform/language/modules">링크</a></li> <li>Terraform Registry - <a href="https://registry.terraform.io/">링크</a> / Modules Browse - <a href="https://registry.terraform.io/browse/modules">링크</a></li> </ul> </li> </ul> <h2 id="테라폼-모듈-소개-추천-영상--당근페이-박병진님---확장-가능한-테라폼-코드-관리를-위한-원칙"><code class="language-plaintext highlighter-rouge">테라폼 모듈</code> 소개 추천 영상 : (당근페이) 박병진님 - 확장 가능한 테라폼 코드 관리를 위한 원칙</h2> <p><a href="https://youtu.be/yWhwZpzJ3no?t=2504">https://youtu.be/yWhwZpzJ3no?t=2504</a></p> <h2 id="소개">소개</h2> <h3 id="배경--둘-이-상의-환경에서-코드-재사용-여러-테라폼-리소스를-하나의-논리적-그룹으로-관리하기-위해-사용"><code class="language-plaintext highlighter-rouge">배경</code> : 둘 이 상의 환경에서 코드 재사용, 여러 테라폼 리소스를 하나의 논리적 그룹으로 관리하기 위해 사용</h3> <div class="mermaid"> graph LR; A(((User))); F{Elastic Load Balancer}; G{Elastic Load Balancer}; A --&gt; F; A --&gt; G; subgraph Staging; F --&gt; B(EC2 Instance); F --&gt; C(EC2 Instance); F --&gt; D(EC2 Instance); F --&gt; E(EC2 more...); B --&gt; L[(MySQL on RDS)]; C --&gt; L; D --&gt; L; E --&gt; L; end; subgraph Production; G --&gt; H(EC2 Instance); G --&gt; I(EC2 Instance); G --&gt; J(EC2 Instance); G --&gt; K(EC2 more...); H --&gt; M[(MySQL on RDS)]; I --&gt; M; J --&gt; M; K --&gt; M; end; </div> <h3 id="staging-와-production-환경에서-동일한-코드를-복사하여-사용하는-대신-두-환경에서-동일한-모듈의-코드를-재사용할-수-있음">Staging 와 Production 환경에서 동일한 코드를 복사하여 사용하는 대신, 두 환경에서 동일한 모듈의 코드를 재사용할 수 있음</h3> <h3 id="분류--root-모듈실제로-수행하게-되는-작업-디렉터리의-테라폼-코드-모음--child-모듈-published-모듈---링크"><strong>분류</strong> : <strong>Root</strong> 모듈(실제로 수행하게 되는 작업 디렉터리의 테라폼 코드 모음) , <strong>Child</strong> 모듈, Published 모듈 - <a href="https://developer.hashicorp.com/terraform/language/modules">링크</a></h3> <ul> <li>Child : 다른 모듈의 테라폼 코드 내에서 호출(참조)하기 위한 목적으로 작성된 테라폼 코드 모음 <h3 id="모듈-소스--local-paths-terraform-registry-github-g3-buckets-gcs-buckets-등---링크"><strong>모듈 소스</strong> : Local paths, Terraform Registry, Github, G3 Buckets, GCS buckets 등 - <a href="https://developer.hashicorp.com/terraform/language/modules/sources">링크</a></h3> </li> <li>Terraform Registry : 하시코프에서 공식적으로 운영하는 테라폼 프로바이더 및 모듈 저장소, 공개된 모듈을 쉽게 활용 가능 - <a href="https://registry.terraform.io/">링크</a> <ul> <li>[Github] terraform-aws-modules : 하시코프 ambassador 중 한 명인 Anton Babenko 가 리드, 가장 인기 있는 AWS 테라폼 모듈을 관리하는 Github 조직 - <a href="https://github.com/terraform-aws-modules">링크</a> <h3 id="학습-내용--모듈-기본-basics-모듈-입력-inputs-모듈과-로컬-locals-모듈-출력-outputs-모듈-주의-사항-gotchas-모듈-버전-관리-versioning"><strong>학습 내용</strong> : 모듈 기본 basics, 모듈 입력 inputs, 모듈과 로컬 locals, 모듈 출력 outputs, 모듈 주의 사항 gotchas, 모듈 버전 관리 versioning</h3> </li> </ul> </li> </ul> <h2 id="실습1-로컬-local">[실습1] 로컬 Local</h2> <h3 id="참고-링크--spacelift-gentledev10-tutorials"><code class="language-plaintext highlighter-rouge">참고 링크</code> : <a href="https://spacelift.io/blog/terraform-locals">spacelift</a> <a href="https://velog.io/@gentledev10/terraform-local-values">gentledev10</a> <a href="https://developer.hashicorp.com/terraform/tutorials/configuration-language/locals">tutorials</a></h3> <h4 id="실습-따라하기--iam-user-생성"><code class="language-plaintext highlighter-rouge">실습 따라하기</code> : iam user 생성</h4> <ul> <li>신규 폴더 생성 후 작업</li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat</span> <span class="o">&lt;&lt;</span><span class="no">EOT</span><span class="sh"> &gt; iamuser.tf
+provider "aws" {
+  region = "ap-northeast-2"
+}
+
+locals {
+  name = "mytest"
+  team = {
+    group = "dev"
+  }
+}
+
+resource "aws_iam_user" "myiamuser1" {
+  name = "</span><span class="se">\$</span><span class="sh">{local.name}1"
+  tags = local.team
+}
+
+resource "aws_iam_user" "myiamuser2" {
+  name = "</span><span class="se">\$</span><span class="sh">{local.name}2"
+  tags = local.team
+}
+</span><span class="no">EOT
+</span></code></pre></div></div> <h4 id="확인">확인</h4> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#</span>
+terraform init <span class="o">&amp;&amp;</span> terraform plan <span class="o">&amp;&amp;</span> terraform apply <span class="nt">-auto-approve</span>
+
+<span class="c"># iam 사용자 리스트 확인</span>
+aws iam list-users | jq
+
+<span class="c"># 삭제</span>
+terraform destroy <span class="nt">-auto-approve</span>
+</code></pre></div></div> <h2 id="모듈-기본-module-basics">모듈 기본 Module Basics</h2> <h3 id="모듈--폴더에-있는-모든-테라폼-구성-파일이-모듈임-참고로-현재-작업-디렉터리의-모듈은-루트-root-모듈이라고-함"><code class="language-plaintext highlighter-rouge">모듈</code> : 폴더에 있는 <strong>모든 테라폼 구성 파일</strong>이 모듈임. 참고로 현재 작업 디렉터리의 모듈은 <strong>루트</strong> root 모듈이라고 함</h3> <h4 id="설명--예를-들어-asg-alb-보안-그룹-등-리소스의-코드-stageserviceswebserver-cluster-를-재사용-가능한-모듈로-바꾸어-보기"><code class="language-plaintext highlighter-rouge">설명</code> : 예를 들어 ASG, ALB, 보안 그룹 등 리소스의 코드 <em>stage/services/webserver-cluster</em> 를 재사용 가능한 모듈로 바꾸어 보기</h4> <ul> <li><em>stage/services/webserver-cluster</em> 리소스를 먼저 정리</li> <li>modules 라는 최상위 폴더를 생성하고 모든 파일을 <em><strong>stage</strong>/services/webserver-cluster</em> 에서 <em><strong>modules</strong>/services/webserver-cluster</em> 로 이동함</li> <li>이 과정은 스테이징 환경과 프로덕션 환경을 참조하기 위한 modules 디렉터리를 생성한 것임.</li> <li>세 번째로 <strong><em>modules**/services/webserver-cluster</em> 에서 main.tf 파일을 생성하고 **provider 정의를 제거</strong>함.</li> <li>이제 스테이징 환경에서 이 모듈을 사용 가능. 사용 구문은 아래와 같음.</li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>module <span class="s2">"&lt;NAME&gt;"</span> <span class="o">{</span>
+  <span class="nb">source</span> <span class="o">=</span> <span class="s2">"&lt;SOURCE&gt;"</span>
+
+  <span class="o">[</span>CONFIG ...]
+<span class="o">}</span>
+</code></pre></div></div> <ul> <li><strong>NAME</strong>은 테라폼 코드 전체에서 참조하기 위해 사용하는 <strong>식별자</strong>이고, <strong>SOURCE</strong>는 <strong><em>modules**/services/webserver-cluster</em> 같은 모듈 코드를 찾을 수 있는 **경로</strong>이며,</li> <li><strong>CONFIG</strong>는 그 모듈과 관련된 특정한 하나 이상의 인수로 구성됨.</li> </ul> <h3 id="staging-예시"><strong>Staging 예시</strong></h3> <p>예를 들어 <em><strong>stage</strong>/services/webserver-cluster/main.tf</em> 에 새 파일을 만들고 다음과 같이 webserver-cluster 모듈을 사용 할 수 있다</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>provider <span class="s2">"aws"</span> <span class="o">{</span>
+  region <span class="o">=</span> <span class="s2">"us-east-2"</span>
+<span class="o">}</span>
+
+module <span class="s2">"webserver_cluster"</span> <span class="o">{</span>
+  <span class="nb">source</span> <span class="o">=</span> <span class="s2">"../../../modules/services/webserver-cluster"</span>
+<span class="o">}</span>
+</code></pre></div></div> <h3 id="prodution-예시"><strong>Prodution 예시</strong></h3> <p>그리고 아래와 같이 <em><strong>prod</strong>/services/webserver-cluster/main.tf</em> 에 새 파일을 만들어 동일한 모듈을 프로덕션 환경에서 재사용할 수 있음</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>provider <span class="s2">"aws"</span> <span class="o">{</span>
+  region <span class="o">=</span> <span class="s2">"us-east-2"</span>
+<span class="o">}</span>
+
+module <span class="s2">"webserver_cluster"</span> <span class="o">{</span>
+  <span class="nb">source</span> <span class="o">=</span> <span class="s2">"../../../modules/services/webserver-cluster"</span>
+<span class="o">}</span>
+</code></pre></div></div> <ul> <li>모듈을 적용하거나 source 파라미터를 수정하는 경우 반드시 terrraform init 실행이 필요하다 <ul> <li>즉, init 명령어 하나로 손쉽게 공급자와 모듈을 다운로드하고 백엔드를 구성함. ```bash $ terraform init Initializing modules…</li> </ul> </li> <li>webserver_cluster in ../../../modules/services/webserver-cluster</li> </ul> <p>Brikman, Yevgeniy. Terraform: Up and Running (p. 214). O’Reilly Media. Kindle Edition.</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    
+### 마지막으로 실제 적용 시 실패 → **이유는 이름이 하드코딩 되어 있어서 중복 이름으로 실패** ⇒ **모듈**에도 **입력** 매개 변수를 만들자
+    
+
+## 모듈 입력 Module Inputs
+
+### `입력` : 모듈에도 입력 변수 input variables 사용 가능
+
+#### `설명` : 모듈에서 입력 변수 활용
+##### 1. ***modules**/services/webserver-cluster/**variables**.tf* 에 새로운 **입력 변수 3개**를 추가
+
+```bash
+variable "cluster_name" {
+  description = "The name to use for all the cluster resources"
+  type        = string
+}
+
+variable "db_remote_state_bucket" {
+  description = "The name of the S3 bucket for the database's remote state"
+  type        = string
+}
+
+variable "db_remote_state_key" {
+  description = "The path for the database's remote state in S3"
+  type        = string
+}
+</code></pre></div></div> <h5 id="2-modulesserviceswebserver-clustermaintf-에-하드-코딩된-이름-대신-varcluster_name-을-사용--아래는-alb가-사용할-보안-그룹-이름에-사용">2. <strong><em>modules**/services/webserver-cluster/**main**.tf</em> 에 하드 코딩된 이름 대신 **var.cluster_name</strong> 을 사용 → 아래는 ALB가 사용할 보안 그룹 이름에 사용</h5> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>resource <span class="s2">"aws_security_group"</span> <span class="s2">"alb"</span> <span class="o">{</span>
+  name <span class="o">=</span> <span class="s2">"</span><span class="k">${</span><span class="nv">var</span><span class="p">.cluster_name</span><span class="k">}</span><span class="s2">-alb"</span>
+
+  ingress <span class="o">{</span>
+    from_port   <span class="o">=</span> 80
+    to_port     <span class="o">=</span> 80
+    protocol    <span class="o">=</span> <span class="s2">"tcp"</span>
+    cidr_blocks <span class="o">=</span> <span class="o">[</span><span class="s2">"0.0.0.0/0"</span><span class="o">]</span>
+  <span class="o">}</span>
+
+  egress <span class="o">{</span>
+    from_port   <span class="o">=</span> 0
+    to_port     <span class="o">=</span> 0
+    protocol    <span class="o">=</span> <span class="s2">"-1"</span>
+    cidr_blocks <span class="o">=</span> <span class="o">[</span><span class="s2">"0.0.0.0/0"</span><span class="o">]</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div> <ul> <li>그외 AWS 리소스도 하드 코딩되어 중복되지 않게 변경 : ex) 인스턴스 tag 리소스 : <em>”${var.cluster_name}-instance”</em></li> </ul> <h5 id="3-terrroform_remote_state-데이터소스-업데이트--bucket-과-key-매개-변수-수정">3. terrroform_remote_state 데이터소스 업데이트 : bucket 과 key 매개 변수 수정</h5> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>data <span class="s2">"terraform_remote_state"</span> <span class="s2">"db"</span> <span class="o">{</span>
+  backend <span class="o">=</span> <span class="s2">"s3"</span>
+
+  config <span class="o">=</span> <span class="o">{</span>
+    bucket <span class="o">=</span> var.db_remote_state_bucket
+    key    <span class="o">=</span> var.db_remote_state_key
+    region <span class="o">=</span> <span class="s2">"us-east-2"</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div> <h5 id="4-스테이징-환경-stageserviceswebserver-clustermaintf-에서-아래와-같이-새로운-입력-변수를-설정">4. [<strong>스테이징</strong> 환경] <em><strong>stage</strong>/services/webserver-cluster/main.tf</em> 에서 아래와 같이 새로운 입력 변수를 설정</h5> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>module <span class="s2">"webserver_cluster"</span> <span class="o">{</span>
+  <span class="nb">source</span> <span class="o">=</span> <span class="s2">"../../../modules/services/webserver-cluster"</span>
+
+  cluster_name           <span class="o">=</span> <span class="s2">"webservers-stage"</span>
+  db_remote_state_bucket <span class="o">=</span> <span class="s2">"(YOUR_BUCKET_NAME)"</span>
+  db_remote_state_key    <span class="o">=</span> <span class="s2">"stage/data-stores/mysql/terraform.tfstate"</span>
+<span class="o">}</span>
+</code></pre></div></div> <h5 id="5-프로덕션-환경-prodserviceswebserver-clustermaintf-에서-아래와-같이-새로운-입력-변수를-설정">5. [<strong>프로덕션</strong> 환경] <em><strong>prod</strong>/services/webserver-cluster/main.tf</em> 에서 아래와 같이 새로운 입력 변수를 설정</h5> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>module <span class="s2">"webserver_cluster"</span> <span class="o">{</span>
+  <span class="nb">source</span> <span class="o">=</span> <span class="s2">"../../../modules/services/webserver-cluster"</span>
+
+  cluster_name           <span class="o">=</span> <span class="s2">"webservers-prod"</span>
+  db_remote_state_bucket <span class="o">=</span> <span class="s2">"(YOUR_BUCKET_NAME)"</span>
+  db_remote_state_key    <span class="o">=</span> <span class="s2">"prod/data-stores/mysql/terraform.tfstate"</span>
+<span class="o">}</span>
+</code></pre></div></div> <ol> <li>(옵션) 환경별 인스턴스 타입과 min/max 사이즈를 다르게 설정해보기. 이를 위해 <em><strong>modules</strong>/services/webserver-cluster/variables.tf</em> 에 입력 변수 3개 추가.</li> </ol> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>variable <span class="s2">"instance_type"</span> <span class="o">{</span>
+  description <span class="o">=</span> <span class="s2">"The type of EC2 Instances to run (e.g. t2.micro)"</span>
+  <span class="nb">type</span>        <span class="o">=</span> string
+<span class="o">}</span>
+
+variable <span class="s2">"min_size"</span> <span class="o">{</span>
+  description <span class="o">=</span> <span class="s2">"The minimum number of EC2 Instances in the ASG"</span>
+  <span class="nb">type</span>        <span class="o">=</span> number
+<span class="o">}</span>
+
+variable <span class="s2">"max_size"</span> <span class="o">{</span>
+  description <span class="o">=</span> <span class="s2">"The maximum number of EC2 Instances in the ASG"</span>
+  <span class="nb">type</span>        <span class="o">=</span> number
+<span class="o">}</span>
+</code></pre></div></div> <h5 id="7-이후-modulesserviceswebserver-clustermaintf-에서-시작-구성을-업데이트">7. 이후 <em><strong>modules</strong>/services/webserver-cluster/main.tf</em> 에서 시작 구성을 업데이트</h5> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>resource <span class="s2">"aws_launch_configuration"</span> <span class="s2">"example"</span> <span class="o">{</span>
+  image_id        <span class="o">=</span> <span class="s2">"ami-0fb653ca2d3203ac1"</span>
+  instance_type   <span class="o">=</span> var.instance_type
+  security_groups <span class="o">=</span> <span class="o">[</span>aws_security_group.instance.id]
+
+  user_data <span class="o">=</span> templatefile<span class="o">(</span><span class="s2">"user-data.sh"</span>, <span class="o">{</span>
+    server_port <span class="o">=</span> var.server_port
+    db_address  <span class="o">=</span> data.terraform_remote_state.db.outputs.address
+    db_port     <span class="o">=</span> data.terraform_remote_state.db.outputs.port
+  <span class="o">})</span>
+
+  <span class="c"># Required when using a launch configuration with an auto scaling group.</span>
+  lifecycle <span class="o">{</span>
+    create_before_destroy <span class="o">=</span> <span class="nb">true</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div> <h5 id="8-마찬가지로-asg-에-업데이트">8. 마찬가지로 ASG 에 업데이트</h5> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>resource <span class="s2">"aws_autoscaling_group"</span> <span class="s2">"example"</span> <span class="o">{</span>
+  launch_configuration <span class="o">=</span> aws_launch_configuration.example.name
+  vpc_zone_identifier  <span class="o">=</span> data.aws_subnets.default.ids
+  target_group_arns    <span class="o">=</span> <span class="o">[</span>aws_lb_target_group.asg.arn]
+  health_check_type    <span class="o">=</span> <span class="s2">"ELB"</span>
+
+  min_size <span class="o">=</span> var.min_size
+  max_size <span class="o">=</span> var.max_size
+
+  tag <span class="o">{</span>
+    key                 <span class="o">=</span> <span class="s2">"Name"</span>
+    value               <span class="o">=</span> var.cluster_name
+    propagate_at_launch <span class="o">=</span> <span class="nb">true</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div> <h5 id="9-스테이징-환경-에서-stageserviceswebserver-clustermaintf-에-설정">9. [<strong>스테이징</strong> 환경] 에서 <em><strong>stage</strong>/services/webserver-cluster/main.tf</em> 에 설정</h5> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>module <span class="s2">"webserver_cluster"</span> <span class="o">{</span>
+  <span class="nb">source</span> <span class="o">=</span> <span class="s2">"../../../modules/services/webserver-cluster"</span>
+
+  cluster_name           <span class="o">=</span> <span class="s2">"webservers-stage"</span>
+  db_remote_state_bucket <span class="o">=</span> <span class="s2">"(YOUR_BUCKET_NAME)"</span>
+  db_remote_state_key    <span class="o">=</span> <span class="s2">"stage/data-stores/mysql/terraform.tfstate"</span>
+
+  instance_type <span class="o">=</span> <span class="s2">"t2.micro"</span>
+  min_size      <span class="o">=</span> 2
+  max_size      <span class="o">=</span> 2
+<span class="o">}</span>
+</code></pre></div></div> <h5 id="10-프로덕션-환경-에서-prodserviceswebserver-clustermaintf-에-설정">10. [<strong>프로덕션</strong> 환경] 에서 <em><strong>prod</strong>/services/webserver-cluster/main.tf</em> 에 설정</h5> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>module <span class="s2">"webserver_cluster"</span> <span class="o">{</span>
+  <span class="nb">source</span> <span class="o">=</span> <span class="s2">"../../../modules/services/webserver-cluster"</span>
+
+  cluster_name           <span class="o">=</span> <span class="s2">"webservers-prod"</span>
+  db_remote_state_bucket <span class="o">=</span> <span class="s2">"(YOUR_BUCKET_NAME)"</span>
+  db_remote_state_key    <span class="o">=</span> <span class="s2">"prod/data-stores/mysql/terraform.tfstate"</span>
+
+  instance_type <span class="o">=</span> <span class="s2">"m4.large"</span>
+  min_size      <span class="o">=</span> 2
+  max_size      <span class="o">=</span> 10
+<span class="o">}</span>
+</code></pre></div></div> <h2 id="모듈과-지역변수-module-locals">모듈과 지역변수 Module Locals</h2> <h3 id="지역변수--입력-변수-대신-모듈에서-변수를-정의"><code class="language-plaintext highlighter-rouge">지역변수</code> : 입력 변수 대신 모듈에서 변수를 정의</h3> <h4 id="설명--로컬-locals-는-코드를-보다-쉽게-읽기-유지-관리할-수-있게-도움을-줌"><code class="language-plaintext highlighter-rouge">설명</code> : 로컬 Locals 는 코드를 보다 쉽게 읽기 유지 관리할 수 있게 도움을 줌</h4> <h5 id="1-현재-alb-보안-그룹에-하드-코딩된-값">1. 현재 ALB 보안 그룹에 하드 코딩된 값</h5> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>resource <span class="s2">"aws_security_group"</span> <span class="s2">"alb"</span> <span class="o">{</span>
+  name <span class="o">=</span> <span class="s2">"</span><span class="k">${</span><span class="nv">var</span><span class="p">.cluster_name</span><span class="k">}</span><span class="s2">-alb"</span>
+
+  ingress <span class="o">{</span>
+    from_port   <span class="o">=</span> 80
+    to_port     <span class="o">=</span> 80
+    protocol    <span class="o">=</span> <span class="s2">"tcp"</span>
+    cidr_blocks <span class="o">=</span> <span class="o">[</span><span class="s2">"0.0.0.0/0"</span><span class="o">]</span>
+  <span class="o">}</span>
+
+  egress <span class="o">{</span>
+    from_port   <span class="o">=</span> 0
+    to_port     <span class="o">=</span> 0
+    protocol    <span class="o">=</span> <span class="s2">"-1"</span>
+    cidr_blocks <span class="o">=</span> <span class="o">[</span><span class="s2">"0.0.0.0/0"</span><span class="o">]</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div> <h5 id="2-입력-변수-대신-locals-블록에서-로컬-값-local-values-으로-정의">2. 입력 변수 대신 locals 블록에서 <strong>로컬 값</strong> local values 으로 정의</h5> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>locals <span class="o">{</span>
+  http_port    <span class="o">=</span> 80
+  any_port     <span class="o">=</span> 0
+  any_protocol <span class="o">=</span> <span class="s2">"-1"</span>
+  tcp_protocol <span class="o">=</span> <span class="s2">"tcp"</span>
+  all_ips      <span class="o">=</span> <span class="o">[</span><span class="s2">"0.0.0.0/0"</span><span class="o">]</span>
+<span class="o">}</span>
+</code></pre></div></div> <h5 id="3-모듈에서-로컬-값-사용-시-이름은-모듈-내에서만-표시되므로-다른-모듈에는-영향을-미치지-않으며-모듈-외부에서-이-값을-재정의할-수-없습니다">3. 모듈에서 로컬 값 사용 시 이름은 모듈 내에서만 표시되므로 다른 모듈에는 영향을 미치지 않으며, 모듈 외부에서 이 값을 재정의할 수 없습니다.</h5> <ul> <li><strong>로컬 값</strong>을 읽으려면 아래 구문으로 된 <strong>로컬 참조</strong> local reference 를 사용해야 함.</li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>local.&lt;NAME&gt;
+</code></pre></div></div> <h5 id="4-alb-보안그룹을-포함해-모듈의-모든-보안-그룹에-적용">4. ALB 보안그룹을 포함해 모듈의 모든 보안 그룹에 적용</h5> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>resource <span class="s2">"aws_security_group"</span> <span class="s2">"alb"</span> <span class="o">{</span>
+  name <span class="o">=</span> <span class="s2">"</span><span class="k">${</span><span class="nv">var</span><span class="p">.cluster_name</span><span class="k">}</span><span class="s2">-alb"</span>
+  
+  ingress <span class="o">{</span>
+    from_port   <span class="o">=</span> local.http_port
+    to_port     <span class="o">=</span> local.http_port
+    protocol    <span class="o">=</span> local.tcp_protocol
+    cidr_blocks <span class="o">=</span> local.all_ips
+  <span class="o">}</span>
+
+  egress <span class="o">{</span>
+    from_port   <span class="o">=</span> local.any_port
+    to_port     <span class="o">=</span> local.any_port
+    protocol    <span class="o">=</span> local.any_protocol
+    cidr_blocks <span class="o">=</span> local.all_ips
+  <span class="o">}</span>
+</code></pre></div></div> <h2 id="모듈-출력-module-outputs">모듈 출력 Module Outputs</h2> <h3 id="출력--모듈에-출력-output-값을-활용"><code class="language-plaintext highlighter-rouge">출력</code> : 모듈에 출력 Output 값을 활용</h3> <h4 id="--설명--모듈에-asg-이름-출력-후-프로덕션-환경의-asg에-스케줄-기반-증감-설정--5장-조건부-활용">- <code class="language-plaintext highlighter-rouge">설명</code> : 모듈에 ASG 이름 출력 후 [<strong>프로덕션</strong>] 환경의 ASG에 <strong>스케줄 기반</strong> 증감 설정 → 5장 조건부 활용</h4> <h5 id="1-예시-프로덕션-환경의-asg에-스케줄-기반-증감-정책--매일-오전-8시-10대-증가--매일-오후-9시-2대로-감소">1. (예시) [<strong>프로덕션</strong>] 환경의 ASG에 스케줄 기반 증감 정책 : 매일 오전 8시 10대 증가 → 매일 오후 9시 2대로 감소</h5> <ul> <li>autoscaling_group_name 정보가 필요</li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>resource <span class="s2">"aws_autoscaling_schedule"</span> <span class="s2">"scale_out_during_business_hours"</span> <span class="o">{</span>
+  scheduled_action_name <span class="o">=</span> <span class="s2">"scale-out-during-business-hours"</span>
+  min_size              <span class="o">=</span> 2
+  max_size              <span class="o">=</span> 10
+  desired_capacity      <span class="o">=</span> 10
+  recurrence            <span class="o">=</span> <span class="s2">"0 8 * * *"</span>
+<span class="o">}</span>
+
+resource <span class="s2">"aws_autoscaling_schedule"</span> <span class="s2">"scale_in_at_night"</span> <span class="o">{</span>
+  scheduled_action_name <span class="o">=</span> <span class="s2">"scale-in-at-night"</span>
+  min_size              <span class="o">=</span> 2
+  max_size              <span class="o">=</span> 10
+  desired_capacity      <span class="o">=</span> 2
+  recurrence            <span class="o">=</span> <span class="s2">"0 21 * * *"</span>
+<span class="o">}</span>
+</code></pre></div></div> <h5 id="2-모듈에서-asg-이름을-출력-변수로-설정--modulesserviceswebserver-clusteroutputstf">2. 모듈에서 ASG 이름을 출력 변수로 설정 : <em>/<strong>modules</strong>/services/webserver-cluster/outputs.tf</em></h5> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>output <span class="s2">"asg_name"</span> <span class="o">{</span>
+  value       <span class="o">=</span> aws_autoscaling_group.example.name
+  description <span class="o">=</span> <span class="s2">"The name of the Auto Scaling Group"</span>
+<span class="o">}</span>
+</code></pre></div></div> <h5 id="3-사용-방법">3. 사용 방법</h5> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 사용 구문</span>
+module.&lt;MODULE_NAME&gt;.&lt;OUTPUT_NAME&gt;
+
+<span class="c"># 다음과 같이 사용</span>
+module.frontend.asg_name
+</code></pre></div></div> <h5 id="4-asg-코드-내용에-추가--prodserviceswebserver-clustermaintf">4. ASG 코드 내용에 추가 : <em><strong>prod</strong>/services/webserver-cluster/main.tf</em></h5> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>resource <span class="s2">"aws_autoscaling_schedule"</span> <span class="s2">"scale_out_during_business_hours"</span> <span class="o">{</span>
+  scheduled_action_name <span class="o">=</span> <span class="s2">"scale-out-during-business-hours"</span>
+  min_size              <span class="o">=</span> 2
+  max_size              <span class="o">=</span> 10
+  desired_capacity      <span class="o">=</span> 10
+  recurrence            <span class="o">=</span> <span class="s2">"0 9 * * *"</span>
+
+  autoscaling_group_name <span class="o">=</span> module.webserver_cluster.asg_name
+<span class="o">}</span>
+
+resource <span class="s2">"aws_autoscaling_schedule"</span> <span class="s2">"scale_in_at_night"</span> <span class="o">{</span>
+  scheduled_action_name <span class="o">=</span> <span class="s2">"scale-in-at-night"</span>
+  min_size              <span class="o">=</span> 2
+  max_size              <span class="o">=</span> 10
+  desired_capacity      <span class="o">=</span> 2
+  recurrence            <span class="o">=</span> <span class="s2">"0 17 * * *"</span>
+
+  autoscaling_group_name <span class="o">=</span> module.webserver_cluster.asg_name
+<span class="o">}</span>
+</code></pre></div></div> <h5 id="5-옵션-alb-dns-노출--modulesserviceswebserver-clusteroutputstf">5. (옵션) ALB DNS 노출 : <em>/<strong>modules</strong>/services/webserver-cluster/outputs.tf</em></h5> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>output <span class="s2">"alb_dns_name"</span> <span class="o">{</span>
+  value       <span class="o">=</span> aws_lb.example.dns_name
+  description <span class="o">=</span> <span class="s2">"The domain name of the load balancer"</span>
+<span class="o">}</span>
+</code></pre></div></div> <ul> <li>그런 다음 에 output 추가 : <em><strong>stage</strong>/services/webserver-cluster/outputs.tf</em> , <em><strong>prod</strong>/services/webserver-cluster/outputs.tf</em></li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>output <span class="s2">"alb_dns_name"</span> <span class="o">{</span>
+  value       <span class="o">=</span> module.webserver_cluster.alb_dns_name
+  description <span class="o">=</span> <span class="s2">"The domain name of the load balancer"</span>
+<span class="o">}</span>
+</code></pre></div></div> <div class="entry-meta"> <br> <hr> <span class="entry-tags"><a href="https://lahuman.github.io/tags/#terraform" title="Pages tagged terraform" class="tag"><span class="term">terraform</span></a><a href="https://lahuman.github.io/tags/#study" title="Pages tagged study" class="tag"><span class="term">study</span></a></span> <span class="social-share"> <a href="https://www.facebook.com/sharer/sharer.php?u=https://lahuman.github.io/t101_4/" title="Share on Facebook" class="tag"> <span class="term"><i class="fa fa-facebook-square"></i> Share</span> </a> <a href="https://twitter.com/intent/tweet?text=https://lahuman.github.io/t101_4/" title="Share on Twitter" class="tag"> <span class="term"><i class="fa fa-twitter-square"></i> Tweet</span> </a> <a href="https://plus.google.com/share?url=https://lahuman.github.io/t101_4/" title="Share on Google+" class="tag"> <span class="term"><i class="fa fa-google-plus-square"></i> +1</span> </a> </span> <div style="clear:both"></div> </div> <ins class="kakao_ad_area" style="display:none;" data-ad-unit = "DAN-ubp67fs9s850" data-ad-width = "320" data-ad-height = "100"></ins> <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script> </div> </div> <section id="disqus_thread" class="animated fadeInUp"></section><!-- /#disqus_thread --> </header> <!-- JS --> <script src="https://lahuman.github.io/assets/js/jquery-1.12.0.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.dlmenu.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.goup.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.magnific-popup.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.fitvid.min.js"></script> <script src="https://lahuman.github.io/assets/js/scripts.js"></script> <!-- Global site tag (gtag.js) - Google Analytics --> <script async src="https://www.googletagmanager.com/gtag/js?id=UA-74095083-1"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-74095083-1'); </script> <script type="text/javascript"> var disqus_shortname = 'daniels-blog'; (function() { var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true; dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js'; (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq); })(); (function () { var s = document.createElement('script'); s.async = true; s.type = 'text/javascript'; s.src = '//' + disqus_shortname + '.disqus.com/count.js'; (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s); }()); </script> <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript> <!-- MathJax --> <script async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> </body> </html>
