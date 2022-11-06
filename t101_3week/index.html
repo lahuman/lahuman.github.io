@@ -1,0 +1,663 @@
+<!DOCTYPE html> <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]--> <!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8"><![endif]--> <!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9"><![endif]--> <!--[if gt IE 8]><!--> <html class="no-js"><!--<![endif]--> <head> <meta charset="UTF-8"> <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"> <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1"> <title>#3 상태관리 &#8211; lahuman</title> <meta name="description" content="열심히 사는 아저씨"> <meta name="keywords" content="terraform, study"> <!-- Twitter Cards --> <meta name="twitter:card" content="summary"> <meta name="twitter:image" content="https://lahuman.github.io/assets/img/logo.png"> <meta name="twitter:title" content="#3 상태관리"> <meta name="twitter:description" content="Terraform 101 Study"> <!-- Open Graph --> <meta property="og:locale" content="ko_KR"> <meta property="og:type" content="article"> <meta property="og:title" content="#3 상태관리"> <meta property="og:description" content="Terraform 101 Study"> <meta property="og:url" content="https://lahuman.github.io/t101_3week/"> <meta property="og:site_name" content="lahuman"> <meta property="og:image" content="https://lahuman.github.io/assets/img/logo.png"> <link rel="canonical" href="https://lahuman.github.io/t101_3week/"> <link href="https://lahuman.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="lahuman Feed"> <!-- Handheld --> <meta name="HandheldFriendly" content="True"> <meta name="MobileOptimized" content="320"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- CSS --> <link rel="stylesheet" href="https://lahuman.github.io/assets/css/main.css"> <!-- JS --> <script src="https://lahuman.github.io/assets/js/modernizr-3.3.1.custom.min.js"></script> <!-- Favicons --> <link rel="apple-touch-icon" href="https://lahuman.github.io/assets/img/favicons/apple-icon-precomposed.png"> <link rel="apple-touch-icon" sizes="72x72" href="https://lahuman.github.io/assets/img/favicons/apple-icon-72x72.png"> <link rel="apple-touch-icon" sizes="114x114" href="https://lahuman.github.io/assets/img/favicons/apple-icon-114x114.png"> <link rel="apple-touch-icon" sizes="144x144" href="https://lahuman.github.io/assets/img/favicons/apple-icon-144x144.png"> <link rel="shortcut icon" type="image/png" href="https://lahuman.github.io/favicon.png" /> <link rel="shortcut icon" href="https://lahuman.github.io/favicon.ico" /> <!-- mermaid --> <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script> <script>mermaid.initialize({startOnLoad:true});</script> <!-- Background Image --> <style type="text/css">body {background-image:url(https://lahuman.github.io/assets/img/placeholder-big.jpg); background-repeat: no-repeat; background-size: cover; }</style> <!-- Post Feature Image --> </head> <body> <nav id="dl-menu" class="dl-menuwrapper" role="navigation"> <button class="dl-trigger">Open Menu</button> <ul class="dl-menu"> <li><a href="https://lahuman.github.io/">Home</a></li> <li> <a href="#">About</a> <ul class="dl-submenu"> <li> <img src="https://lahuman.github.io/assets/img/logo.png" alt="lahuman photo" class="author-photo"> <h4>lahuman</h4> <p>열심히 사는 아저씨</p> </li> <li><a href="https://lahuman.github.io/about/"><span class="btn btn-inverse">Learn More</span></a></li> <li> <a href="http://facebook.com/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-facebook-square"></i> Facebook</a> </li> <li> <a href="http://linkedin.com/in/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-linkedin-square"></i> LinkedIn</a> </li> <li> <a href="http://github.com/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-github"></i> Github</a> </li> </ul><!-- /.dl-submenu --> </li> <li> <a href="#">Posts</a> <ul class="dl-submenu"> <li><a href="https://lahuman.github.io/posts/">All Posts</a></li> <li><a href="https://lahuman.github.io/tags/">All Tags</a></li> </ul> </li> <li><a href="https://lahuman.github.io/projects/" >Projects</a></li> </ul><!-- /.dl-menu --> </nav><!-- /.dl-menuwrapper --> <!-- Header --> <header class="header" role="banner"> <div class="wrapper animated fadeIn"> <div class="content"> <div class="post-title "> <h1>#3 상태관리</h1> <h4>30 Oct 2022</h4> <p class="reading-time"> <i class="fa fa-clock-o"></i> Reading time ~12 minutes </p><!-- /.entry-reading-time --> <a class="btn zoombtn" href="https://lahuman.github.io/projects/"> <i class="fa fa-chevron-left"></i> </a> </div> <h1 id="상태관리">상태관리</h1> <h2 id="상태-파일-확인-실습"><strong>상태 파일</strong> 확인 실습</h2> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat</span> <span class="o">&lt;&lt;</span><span class="no">EOT</span><span class="sh"> &gt; vpc.tf
+provider "aws" {
+  region  = "ap-northeast-2"
+}
+
+resource "aws_vpc" "myvpc" {
+  cidr_block       = "10.10.0.0/16"
+
+  tags = {
+    Name = "t101-study"
+  }
+}
+</span><span class="no">EOT
+</span></code></pre></div></div> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 배포</span>
+terraform init <span class="o">&amp;&amp;</span> terraform plan <span class="o">&amp;&amp;</span> terraform apply <span class="nt">-auto-approve</span>
+
+<span class="c"># 상태 파일 확인 : JSON 형식</span>
+<span class="nb">ls
+cat </span>terraform.tfstate | jq
+...
+<span class="s2">"serial"</span>: 2,
+...
+</code></pre></div></div> <h3 id="태그-수정-후-상태-파일-확인">태그 수정 후 상태 파일 확인</h3> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat</span> <span class="o">&lt;&lt;</span><span class="no">EOT</span><span class="sh"> &gt; vpc.tf
+provider "aws" {
+  region  = "ap-northeast-2"
+}
+
+resource "aws_vpc" "myvpc" {
+  cidr_block       = "10.10.0.0/16"
+
+  tags = {
+    Name = "tf-state"
+  }
+}
+</span><span class="no">EOT
+</span></code></pre></div></div> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 배포 : plan 시 tfstate 상태와 코드 내용을 비교해서 검토</span>
+terraform plan <span class="o">&amp;&amp;</span> terraform apply <span class="nt">-auto-approve</span>
+
+<span class="c"># 상태 파일 비교 : 백업 파일 생성됨</span>
+<span class="nb">ls </span>terraform.tfstate<span class="k">*</span>
+terraform.tfstate        terraform.tfstate.backup
+
+diff terraform.tfstate terraform.tfstate.backup
+&lt;   <span class="s2">"serial"</span>: 4,
+<span class="nt">---</span>
+<span class="o">&gt;</span>   <span class="s2">"serial"</span>: 2,
+...
+</code></pre></div></div> <h3 id="한번-더-태그-수정-후-상태-파일-확인">한번 더 태그 수정 후 상태 파일 확인</h3> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat</span> <span class="o">&lt;&lt;</span><span class="no">EOT</span><span class="sh"> &gt; vpc.tf
+provider "aws" {
+  region  = "ap-northeast-2"
+}
+
+resource "aws_vpc" "myvpc" {
+  cidr_block       = "10.10.0.0/16"
+
+  tags = {
+    Name = "tf-state-tag-change"
+  }
+}
+</span><span class="no">EOT
+</span></code></pre></div></div> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 배포</span>
+terraform plan <span class="o">&amp;&amp;</span> terraform apply <span class="nt">-auto-approve</span>
+
+<span class="c"># 상태 파일 비교(바로 직전 상태 백업)</span>
+<span class="nb">ls </span>terraform.tfstate<span class="k">*</span>
+terraform.tfstate        terraform.tfstate.backup
+
+diff terraform.tfstate terraform.tfstate.backup
+&lt;   <span class="s2">"serial"</span>: 6,
+<span class="nt">---</span>
+<span class="o">&gt;</span>   <span class="s2">"serial"</span>: 4,
+...
+</code></pre></div></div> <h3 id="다음-실습을-위해-삭제-terraform-destroy--auto-approve"><strong>다음 실습을 위해 삭제</strong>: <code class="language-plaintext highlighter-rouge">**terraform destroy -auto-approve**</code></h3> <h2 id="이론-내용">이론 내용</h2> <ul> <li><strong>상태 파일</strong>은 배포할 때마다 변경되는 <strong>프라이빗 API</strong> <em>private API</em>로, 오직 테라폼 내부에서 사용하기 위한 것입니다.</li> <li><strong>테라폼 상태 파일</strong>을 <strong>직접 편집하거나 직접 읽는 코드로 작성해서는 안됩</strong>니다.</li> </ul> <blockquote> <p><code class="language-plaintext highlighter-rouge">팀 단위에서 테라폼 운영 시 문제점</code></p> </blockquote> <ol> <li>상태 파일을 저장하는 <strong>공유 스토리지</strong> <em>Shared storage for state files</em> <ul> <li>각 팀원이 <strong>동일한 테라폼 상태 파일 사용</strong>을 위해서, 공유 위치에 저장이 필요</li> </ul> </li> <li>상태 <strong>파일 잠금</strong> <em>Locking state files</em> <ul> <li>잠금 기능 없이 두 팀원이 동시에 테라폼 실행 시 여러 테라폼 프로세스가 상태 파일을 동시에 업데이트하여 <strong>충돌 가능</strong>(경쟁 상태 <em>race condition</em>)</li> </ul> </li> <li>상태 <strong>파일 격리</strong> <em>Isolating state files</em> <ul> <li>예를 들면 테스트 <em>dev</em> 와 검증 <em>stage</em> 과 상용 <em>prodction</em> <strong>각 환경에 대한 격리</strong>가 필요</li> </ul> </li> </ol> <blockquote> <p><code class="language-plaintext highlighter-rouge">상태 파일 공유로 버전 관리 시스템 비추천</code></p> </blockquote> <ol> <li><strong>수동 오류</strong> <em>Manual error</em> <ul> <li>테라폼을 실행하기 전에 최신 변경 사항을 가져오거나 실행하고 나서 push 하는 것을 잊기 쉽습니다(?).</li> <li>팀의 누군가가 이전 버전의 상태 파일로 테라폼을 실행하고, 그 결과 실수로 이전 버전으로 롤백하거나 이전에 배포된 인프라를 복제하는 문제가 발생 할 수 있음.</li> </ul> </li> <li><strong>잠금</strong> <em>Locking</em> <ul> <li>대부분의 버전 관리 시스템은 여러 명의 팀 구성원이 동시에 하나의 상태 파일에 terraform apply 명령을 실행하지 못하게 하는 잠금 기능이 제공되지 않음.</li> </ul> </li> <li><strong>시크릿</strong> <em>Secrets</em> <ul> <li>테라폼 상태 파일의 모든 데이터는 평문으로 저장됨. 민감 정보가 노출될 위험.</li> </ul> </li> </ol> <blockquote> <p><code class="language-plaintext highlighter-rouge">지원되는 원격 백엔드</code> : AWS S3, Azure Blob Storage, Google Cloud Storage, Consul, Postgres database 등 - <a href="https://developer.hashicorp.com/terraform/language/settings/backends/local">링크</a></p> </blockquote> <ol> <li>수동 오류 해결 : plan/apply 실행 시 마다 해당 백엔드에서 파일을 자동을 로드, apply 후 상태 파일을 백엔드에 자동 저장</li> <li>잠금 : apply 실행 시 테라폼은 자동으로 잠금을 활성화, -lock-timout=<strong>TIME</strong> 로 대기 시간 설정 지정 가능</li> <li>시크릿 : 대부분 원격 백엔드는 기본적으로 데이터를 보내거나 상태 파일을 저장할 때 암호화하는 기능을 지원</li> </ol> <h2 id="dynamodb-기본-사용---링크"><strong>DynamoDB 기본 사용</strong> - <a href="https://docs.aws.amazon.com/ko_kr/amazondynamodb/latest/developerguide/GettingStartedDynamoDB.html">링크</a></h2> <ol> <li>테이블 생성</li> </ol> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 테이블 생성</span>
+aws dynamodb create-table <span class="se">\</span>
+    <span class="nt">--table-name</span> Music <span class="se">\</span>
+    <span class="nt">--attribute-definitions</span> <span class="se">\</span>
+        <span class="nv">AttributeName</span><span class="o">=</span>Artist,AttributeType<span class="o">=</span>S <span class="se">\</span>
+        <span class="nv">AttributeName</span><span class="o">=</span>SongTitle,AttributeType<span class="o">=</span>S <span class="se">\</span>
+    <span class="nt">--key-schema</span> <span class="se">\</span>
+        <span class="nv">AttributeName</span><span class="o">=</span>Artist,KeyType<span class="o">=</span>HASH <span class="se">\</span>
+        <span class="nv">AttributeName</span><span class="o">=</span>SongTitle,KeyType<span class="o">=</span>RANGE <span class="se">\</span>
+    <span class="nt">--provisioned-throughput</span> <span class="se">\</span>
+        <span class="nv">ReadCapacityUnits</span><span class="o">=</span>5,WriteCapacityUnits<span class="o">=</span>5 <span class="se">\</span>
+    <span class="nt">--table-class</span> STANDARD
+
+<span class="c"># 테이블 생성 확인</span>
+aws dynamodb list-tables <span class="nt">--output</span> text
+TABLENAMES	Music
+
+aws dynamodb describe-table <span class="nt">--table-name</span> Music | jq
+aws dynamodb describe-table <span class="nt">--table-name</span> Music <span class="nt">--output</span> table
+</code></pre></div></div> <ol> <li>데이터 쓰기 - <a href="https://docs.aws.amazon.com/ko_kr/amazondynamodb/latest/developerguide/getting-started-step-2.html">링크</a></li> </ol> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># DynamoDB API</span>
+ aws dynamodb put-item <span class="se">\</span>
+    <span class="nt">--table-name</span> Music  <span class="se">\</span>
+    <span class="nt">--item</span> <span class="se">\</span>
+        <span class="s1">'{"Artist": {"S": "No One You Know"}, "SongTitle": {"S": "Call Me Today"}, "AlbumTitle": {"S": "Somewhat Famous"}, "Awards": {"N": "1"}}'</span>
+
+aws dynamodb put-item <span class="se">\</span>
+    <span class="nt">--table-name</span> Music  <span class="se">\</span>
+    <span class="nt">--item</span> <span class="se">\</span>
+        <span class="s1">'{"Artist": {"S": "No One You Know"}, "SongTitle": {"S": "Howdy"}, "AlbumTitle": {"S": "Somewhat Famous"}, "Awards": {"N": "2"}}'</span>
+
+<span class="c"># PartiQL for DynamoDB</span>
+aws dynamodb execute-statement <span class="nt">--statement</span> <span class="s2">"INSERT INTO Music  </span><span class="se">\</span><span class="s2">
+                VALUE  </span><span class="se">\</span><span class="s2">
+                {'Artist':'Acme Band','SongTitle':'Happy Day', 'AlbumTitle':'Songs About Life', 'Awards':'10'}"</span>
+                            
+aws dynamodb execute-statement <span class="nt">--statement</span> <span class="s2">"INSERT INTO Music  </span><span class="se">\</span><span class="s2">
+                VALUE  </span><span class="se">\</span><span class="s2">
+                {'Artist':'Acme Band','SongTitle':'PartiQL Rocks', 'AlbumTitle':'Another Album Title', 'Awards':'8'}"</span>
+</code></pre></div></div> <ol> <li>데이터 읽기 - <a href="https://docs.aws.amazon.com/ko_kr/amazondynamodb/latest/developerguide/getting-started-step-3.html">링크</a></li> </ol> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># DynamoDB API</span>
+aws dynamodb get-item <span class="nt">--consistent-read</span> <span class="se">\</span>
+    <span class="nt">--table-name</span> Music <span class="se">\</span>
+    <span class="nt">--key</span> <span class="s1">'{ "Artist": {"S": "Acme Band"}, "SongTitle": {"S": "Happy Day"}}'</span> | jq
+
+<span class="c"># PartiQL for DynamoDB</span>
+aws dynamodb execute-statement <span class="nt">--statement</span> <span class="s2">"SELECT * FROM Music   </span><span class="se">\</span><span class="s2">
+                                            WHERE Artist='Acme Band' AND SongTitle='Happy Day'"</span> | jq
+
+aws dynamodb execute-statement <span class="nt">--statement</span> <span class="s2">"SELECT * FROM Music   </span><span class="se">\</span><span class="s2">
+                                            WHERE Artist='Acme Band' AND SongTitle='Happy Day'"</span> <span class="nt">--output</span> table
+
+aws dynamodb execute-statement <span class="nt">--statement</span> <span class="s2">"SELECT * FROM Music"</span> <span class="nt">--output</span> table
+aws dynamodb execute-statement <span class="nt">--statement</span> <span class="s2">"SELECT * FROM Music"</span> <span class="nt">--output</span> text
+</code></pre></div></div> <ol> <li>데이터 업데이트</li> </ol> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># PartiQL for DynamoDB</span>
+aws dynamodb execute-statement <span class="nt">--statement</span> <span class="s2">"UPDATE Music  </span><span class="se">\</span><span class="s2">
+                                            SET AlbumTitle='Updated Album Title'  </span><span class="se">\</span><span class="s2">
+                                            WHERE Artist='Acme Band' AND SongTitle='Happy Day' </span><span class="se">\</span><span class="s2">
+                                            RETURNING ALL NEW *"</span>
+</code></pre></div></div> <ol> <li>데이터 쿼리 - <a href="https://docs.aws.amazon.com/ko_kr/amazondynamodb/latest/developerguide/getting-started-step-5.html">링크</a></li> </ol> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># PartiQL for DynamoDB</span>
+aws dynamodb execute-statement <span class="nt">--statement</span> <span class="s2">"SELECT * FROM Music   </span><span class="se">\</span><span class="s2">
+                                            WHERE Artist='Acme Band'"</span> | jq
+
+</code></pre></div></div> <ol> <li>테이블 삭제</li> </ol> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>aws dynamodb delete-table <span class="nt">--table-name</span> Music
+</code></pre></div></div> <h2 id="s3dynamodb-생성"><strong>S3/DynamoDB 생성</strong></h2> <h3 id="s3-버킷-생성--backendtf">S3 버킷 생성 : <strong>backend.tf</strong></h3> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 디렉터리 생성</span>
+<span class="nb">mkdir </span>tfstate-backend
+<span class="nb">cd </span>tfstate-backend
+
+<span class="c"># S3 버킷 이름은 고유해야되어서 자신의 NICKNAME 을 사용할 것</span>
+<span class="nv">NICKNAME</span><span class="o">=</span>gasida
+
+<span class="nb">cat</span> <span class="o">&lt;&lt;</span><span class="no">EOT</span><span class="sh"> &gt; backend.tf
+provider "aws" {
+  region = "ap-northeast-2"
+}
+
+resource "aws_s3_bucket" "mys3bucket" {
+  bucket = "</span><span class="nv">$NICKNAME</span><span class="sh">-t101study-tfstate"
+}
+
+# Enable versioning so you can see the full revision history of your state files
+resource "aws_s3_bucket_versioning" "mys3bucket_versioning" {
+  bucket = aws_s3_bucket.mys3bucket.id
+  versioning_configuration {
+    status = "Enabled"
+  }
+}
+
+output "s3_bucket_arn" {
+  value       = aws_s3_bucket.mys3bucket.arn
+  description = "The ARN of the S3 bucket"
+}
+</span><span class="no">EOT
+
+</span><span class="c"># 배포</span>
+terraform init <span class="o">&amp;&amp;</span> terraform plan <span class="o">&amp;&amp;</span> terraform apply <span class="nt">-auto-approve</span>
+terraform state list
+aws_s3_bucket.mys3bucket
+aws_s3_bucket_versioning.mys3bucket_versioning
+
+<span class="c"># S3 버킷 확인</span>
+aws s3 <span class="nb">ls
+</span>2022-10-23 13:48:05 gasida-t101study-tfstate
+...
+</code></pre></div></div> <h3 id="dynamodb-테이블-생성--테라폼에서-dynamodb-잠금을-사용하기-위해서는-lockid-라는-기본-키가-있는-테이블을-생성해야됨">DynamoDB 테이블 생성 : 테라폼에서 DynamoDB 잠금을 사용하기 위해서는 LockID 라는 기본 키가 있는 테이블을 생성해야됨</h3> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 코드 파일 수정</span>
+<span class="nb">cat</span> <span class="o">&lt;&lt;</span><span class="no">EOT</span><span class="sh"> &gt; backend.tf
+provider "aws" {
+  region = "ap-northeast-2"
+}
+
+resource "aws_s3_bucket" "mys3bucket" {
+  bucket = "</span><span class="nv">$NICKNAME</span><span class="sh">-t101study-tfstate"
+}
+
+# Enable versioning so you can see the full revision history of your state files
+resource "aws_s3_bucket_versioning" "mys3bucket_versioning" {
+  bucket = aws_s3_bucket.mys3bucket.id
+  versioning_configuration {
+    status = "Enabled"
+  }
+}
+
+resource "aws_dynamodb_table" "mydynamodbtable" {
+  name         = "terraform-locks"
+  billing_mode = "PAY_PER_REQUEST"
+  hash_key     = "LockID"
+
+  attribute {
+    name = "LockID"
+    type = "S"
+  }
+}
+
+output "s3_bucket_arn" {
+  value       = aws_s3_bucket.mys3bucket.arn
+  description = "The ARN of the S3 bucket"
+}
+
+output "dynamodb_table_name" {
+  value       = aws_dynamodb_table.mydynamodbtable.name
+  description = "The name of the DynamoDB table"
+}
+</span><span class="no">EOT
+
+</span><span class="c"># 배포</span>
+terraform plan <span class="o">&amp;&amp;</span> terraform apply <span class="nt">-auto-approve</span>
+dynamodb_table_name <span class="o">=</span> <span class="s2">"terraform-locks"</span>
+s3_bucket_arn <span class="o">=</span> <span class="s2">"arn:aws:s3:::gasida-t101study-tfstate"</span>
+
+terraform state list
+aws_dynamodb_table.mydynamodbtable
+aws_s3_bucket.mys3bucket
+aws_s3_bucket_versioning.mys3bucket_versioning
+
+<span class="c"># DynamoDB 테이블 생성 확인</span>
+aws dynamodb list-tables <span class="nt">--output</span> text
+TABLENAMES	terraform-locks
+
+aws dynamodb describe-table <span class="nt">--table-name</span> terraform-locks | jq
+aws dynamodb describe-table <span class="nt">--table-name</span> terraform-locks <span class="nt">--output</span> table
+</code></pre></div></div> <h2 id="dev-환경의-vpc와-ec2-생성"><strong>dev</strong> 환경의 VPC와 EC2 생성</h2> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 신규 디렉터리 생성 후 작업 진행</span>
+<span class="nb">cd</span> ..
+<span class="nb">mkdir </span>dev
+<span class="nb">cd </span>dev
+</code></pre></div></div> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat</span> <span class="o">&lt;&lt;</span><span class="no">EOT</span><span class="sh"> &gt; vpc.tf
+provider "aws" {
+  region  = "ap-northeast-2"
+}
+
+resource "aws_vpc" "myvpc" {
+  cidr_block       = "10.10.0.0/16"
+  enable_dns_support   = true
+  enable_dns_hostnames = true
+
+  tags = {
+    Name = "t101-study"
+  }
+}
+
+resource "aws_subnet" "mysubnet1" {
+  vpc_id     = aws_vpc.myvpc.id
+  cidr_block = "10.10.1.0/24"
+
+  availability_zone = "ap-northeast-2a"
+
+  tags = {
+    Name = "t101-subnet1"
+  }
+}
+
+resource "aws_subnet" "mysubnet2" {
+  vpc_id     = aws_vpc.myvpc.id
+  cidr_block = "10.10.2.0/24"
+
+  availability_zone = "ap-northeast-2c"
+
+  tags = {
+    Name = "t101-subnet2"
+  }
+}
+
+
+resource "aws_internet_gateway" "myigw" {
+  vpc_id = aws_vpc.myvpc.id
+
+  tags = {
+    Name = "t101-igw"
+  }
+}
+
+resource "aws_route_table" "myrt" {
+  vpc_id = aws_vpc.myvpc.id
+
+  tags = {
+    Name = "t101-rt"
+  }
+}
+
+resource "aws_route_table_association" "myrtassociation1" {
+  subnet_id      = aws_subnet.mysubnet1.id
+  route_table_id = aws_route_table.myrt.id
+}
+
+resource "aws_route_table_association" "myrtassociation2" {
+  subnet_id      = aws_subnet.mysubnet2.id
+  route_table_id = aws_route_table.myrt.id
+}
+
+resource "aws_route" "mydefaultroute" {
+  route_table_id         = aws_route_table.myrt.id
+  destination_cidr_block = "0.0.0.0/0"
+  gateway_id             = aws_internet_gateway.myigw.id
+}
+</span><span class="no">
+EOT
+</span></code></pre></div></div> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat</span> <span class="o">&lt;&lt;</span><span class="no">EOT</span><span class="sh"> &gt; sg.tf
+resource "aws_security_group" "mysg" {
+  vpc_id      = aws_vpc.myvpc.id
+  name        = "T101 SG"
+  description = "T101 Study SG"
+}
+
+resource "aws_security_group_rule" "mysginbound" {
+  type              = "ingress"
+  from_port         = 0
+  to_port           = 80
+  protocol          = "tcp"
+  cidr_blocks       = ["0.0.0.0/0"]
+  security_group_id = aws_security_group.mysg.id
+}
+
+resource "aws_security_group_rule" "mysgoutbound" {
+  type              = "egress"
+  from_port         = 0
+  to_port           = 0
+  protocol          = "-1"
+  cidr_blocks       = ["0.0.0.0/0"]
+  security_group_id = aws_security_group.mysg.id
+}
+</span><span class="no">EOT
+</span></code></pre></div></div> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat</span> <span class="o">&lt;&lt;</span><span class="no">EOT</span><span class="sh"> &gt; ec2.tf
+data "aws_ami" "my_amazonlinux2" {
+  most_recent = true
+  filter {
+    name   = "owner-alias"
+    values = ["amazon"]
+  }
+
+  filter {
+    name   = "name"
+    values = ["amzn2-ami-hvm-*-x86_64-ebs"]
+  }
+
+  owners = ["amazon"]
+}
+
+resource "aws_instance" "myec2" {
+
+  depends_on = [
+    aws_internet_gateway.myigw
+  ]
+
+  ami                         = data.aws_ami.my_amazonlinux2.id
+  associate_public_ip_address = true
+  instance_type               = "t2.micro"
+  vpc_security_group_ids      = ["</span><span class="se">\$</span><span class="sh">{aws_security_group.mysg.id}"]
+  subnet_id                   = aws_subnet.mysubnet1.id
+
+  user_data = &lt;&lt;-EOF
+              #!/bin/bash
+              wget https://busybox.net/downloads/binaries/1.31.0-defconfig-multiarch-musl/busybox-x86_64
+              mv busybox-x86_64 busybox
+              chmod +x busybox
+              IID=</span><span class="se">\$</span><span class="sh">(curl 169.254.169.254/latest/meta-data/instance-id)
+              LIP=</span><span class="se">\$</span><span class="sh">(curl 169.254.169.254/latest/meta-data/local-ipv4)
+              echo "&lt;h1&gt;Instance ID(</span><span class="se">\$</span><span class="sh">IID) : Private IP(</span><span class="se">\$</span><span class="sh">LIP) : Web Server&lt;/h1&gt;" &gt; index.html
+              nohup ./busybox httpd -f -p 80 &amp;
+              EOF
+
+  user_data_replace_on_change = true
+
+  tags = {
+    Name = "HallsHolicker-jjang"
+  }
+}
+
+output "myec2_public_ip" {
+  value       = aws_instance.myec2.public_ip
+  description = "The public IP of the Instance"
+}
+</span><span class="no">EOT
+</span></code></pre></div></div> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 배포</span>
+terraform init <span class="o">&amp;&amp;</span> terraform plan <span class="o">&amp;&amp;</span> terraform apply <span class="nt">-auto-approve</span>
+terraform state list
+<span class="nb">ls </span>terraform.tfstate<span class="k">*</span>
+terraform.tfstate        terraform.tfstate.backup
+
+<span class="c"># 출력된 EC2 퍼블릭IP로 cul 접속 확인</span>
+<span class="nv">MYIP</span><span class="o">=</span><span class="si">$(</span>terraform output <span class="nt">-raw</span> myec2_public_ip<span class="si">)</span>
+<span class="k">while </span><span class="nb">true</span><span class="p">;</span> <span class="k">do </span>curl <span class="nt">--connect-timeout</span> 1  http://<span class="nv">$MYIP</span>/ <span class="p">;</span> <span class="nb">echo</span> <span class="s2">"------------------------------"</span><span class="p">;</span> <span class="nb">date</span><span class="p">;</span> <span class="nb">sleep </span>1<span class="p">;</span> <span class="k">done</span>
+</code></pre></div></div> <h2 id="dev-환경에-백엔드-적용-실습">dev 환경에 <strong>백엔드 적용 실습</strong></h2> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># [터미널1] S3 버킷 모니티렁</span>
+<span class="nv">NICKNAME</span><span class="o">=</span>gasida
+<span class="k">while </span><span class="nb">true</span><span class="p">;</span> <span class="k">do </span>aws s3 <span class="nb">ls </span>s3://<span class="nv">$NICKNAME</span><span class="nt">-t101study-tfstate</span> <span class="nt">--recursive</span> <span class="nt">--human-readable</span> <span class="nt">--summarize</span> <span class="p">;</span> <span class="nb">echo</span> <span class="s2">"------------------------------"</span><span class="p">;</span> <span class="nb">date</span><span class="p">;</span> <span class="nb">sleep </span>1<span class="p">;</span> <span class="k">done</span>
+</code></pre></div></div> <h3 id="코드-파일-생성--backendtf">코드 파일 생성 : backend.tf</h3> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">NICKNAME</span><span class="o">=</span>gasida
+<span class="nb">cat</span> <span class="o">&lt;&lt;</span><span class="no">EOT</span><span class="sh"> &gt; backend.tf
+terraform {
+  backend "s3" {
+    bucket = "</span><span class="nv">$NICKNAME</span><span class="sh">-t101study-tfstate"
+    key    = "dev/terraform.tfstate"
+    region = "ap-northeast-2"
+    dynamodb_table = "terraform-locks"
+    # encrypt        = true
+  }
+}
+</span><span class="no">EOT
+</span></code></pre></div></div> <ul> <li>dev 환경에 백엔드 적용</li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># init 시 백엔드 적용</span>
+terraform init
+Initializing the backend...
+Do you want to copy existing state to the new backend?
+  Pre-existing state was found <span class="k">while </span>migrating the previous <span class="s2">"local"</span> backend to the
+  newly configured <span class="s2">"s3"</span> backend. No existing state was found <span class="k">in </span>the newly
+  configured <span class="s2">"s3"</span> backend. Do you want to copy this state to the new <span class="s2">"s3"</span>
+  backend? Enter <span class="s2">"yes"</span> to copy and <span class="s2">"no"</span> to start with an empty state.
+
+  Enter a value:  <span class="nb">yes
+
+ls </span>terraform.tfstate<span class="k">*</span>
+
+<span class="c"># S3 버킷에 파일 확인</span>
+<span class="c"># DynamoDB에 LockID 확인</span>
+</code></pre></div></div> <h3 id="ec2에-태그-변경-후-수정-적용-및-대기-시간-설정">EC2에 태그 변경 후 수정 적용 및 대기 시간 설정</h3> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 태그 변경</span>
+<span class="nb">sed</span> <span class="nt">-i</span> <span class="nt">-e</span> <span class="s1">'s/HallsHolicker-jjang/akbun-jjangg/g'</span> ec2.tf
+
+<span class="c"># 빠르게 수정되어서 lock-timeout 적용될 필요가 없는 것 같다...</span>
+terraform plan <span class="o">&amp;&amp;</span> terraform apply <span class="nt">-lock-timeout</span><span class="o">=</span>60s <span class="nt">-auto-approve</span>
+</code></pre></div></div> <h2 id="백엔드-좀-더-알아보기">백엔드 좀 더 알아보기</h2> <ul> <li>강제로 로컬에 terraform.tfstate 파일 삭제 후 확인</li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 강제로 로컬에 terraform.tfstate 파일 삭제 후 확인</span>
+<span class="nb">rm</span> <span class="nt">-f</span> terraform.tfstate terraform.tfstate.backup
+<span class="nb">sed</span> <span class="nt">-i</span> <span class="nt">-e</span> <span class="s1">'s/akbun-jjang/linuxer-jjangg/g'</span> ec2.tf
+
+<span class="c"># plan 실행 결과 어떻게 되나요?</span>
+terraform plan
+
+<span class="c"># apply 실행 결과 어떻게 되나요?</span>
+terraform apply <span class="nt">-auto-approve</span>
+<span class="nb">ls </span>terraform.tfstate<span class="k">*</span>
+
+<span class="c"># 버저닝된 파일 확인</span>
+aws s3api list-object-versions <span class="nt">--bucket</span> gasida-t101study-tfstate | egrep <span class="s2">"Key|VersionId|LastModified"</span>
+            <span class="s2">"Key"</span>: <span class="s2">"dev/terraform.tfstate"</span>,
+            <span class="s2">"VersionId"</span>: <span class="s2">"oyo59fIIQ239_tVTY88upFoVgnp630BC"</span>,
+            <span class="s2">"LastModified"</span>: <span class="s2">"2022-10-23T08:54:04+00:00"</span>,
+            <span class="s2">"Key"</span>: <span class="s2">"dev/terraform.tfstate"</span>,
+            <span class="s2">"VersionId"</span>: <span class="s2">"vlOO1wCPEy3mzAOB7W76171u_i3WSG8r"</span>,
+            <span class="s2">"LastModified"</span>: <span class="s2">"2022-10-23T08:53:04+00:00"</span>,
+            <span class="s2">"Key"</span>: <span class="s2">"dev/terraform.tfstate"</span>,
+            <span class="s2">"VersionId"</span>: <span class="s2">"ukF5F_CMKQhoF_jDGftbsMO0eNIGLmDV"</span>,
+            <span class="s2">"LastModified"</span>: <span class="s2">"2022-10-23T08:51:55+00:00"</span>,
+</code></pre></div></div> <h3 id="s3-버킷에-버전-표시-확인">S3 버킷에 <strong>버전 표시</strong> 확인</h3> <p><img src="/assets/img/post_img/t101_3_s3_version.png" alt="" /></p> <h2 id="stg-환경의-vpc와-ec2-생성-및-백엔드-설정">stg 환경의 VPC와 EC2 생성 및 백엔드 설정</h2> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 신규 디렉터리 생성 후 작업 진행</span>
+<span class="nb">cd</span> ..
+<span class="nb">mkdir </span>stg
+<span class="nb">cd </span>stg
+</code></pre></div></div> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat</span> <span class="o">&lt;&lt;</span><span class="no">EOT</span><span class="sh"> &gt; vpc.tf
+provider "aws" {
+  region  = "ap-northeast-2"
+}
+
+resource "aws_vpc" "stg_myvpc" {
+  cidr_block       = "10.20.0.0/16"
+  enable_dns_support   = true
+  enable_dns_hostnames = true
+
+  tags = {
+    Name = "stg_t101-study"
+  }
+}
+
+resource "aws_subnet" "stg_mysubnet1" {
+  vpc_id     = aws_vpc.stg_myvpc.id
+  cidr_block = "10.20.1.0/24"
+
+  availability_zone = "ap-northeast-2a"
+
+  tags = {
+    Name = "stg_t101-subnet1"
+  }
+}
+
+resource "aws_subnet" "stg_mysubnet2" {
+  vpc_id     = aws_vpc.stg_myvpc.id
+  cidr_block = "10.20.2.0/24"
+
+  availability_zone = "ap-northeast-2c"
+
+  tags = {
+    Name = "stg_t101-subnet2"
+  }
+}
+
+
+resource "aws_internet_gateway" "stg_myigw" {
+  vpc_id = aws_vpc.stg_myvpc.id
+
+  tags = {
+    Name = "stg_t101-igw"
+  }
+}
+
+resource "aws_route_table" "stg_myrt" {
+  vpc_id = aws_vpc.stg_myvpc.id
+
+  tags = {
+    Name = "stg_t101-rt"
+  }
+}
+
+resource "aws_route_table_association" "stg_myrtassociation1" {
+  subnet_id      = aws_subnet.stg_mysubnet1.id
+  route_table_id = aws_route_table.stg_myrt.id
+}
+
+resource "aws_route_table_association" "stg_myrtassociation2" {
+  subnet_id      = aws_subnet.stg_mysubnet2.id
+  route_table_id = aws_route_table.stg_myrt.id
+}
+
+resource "aws_route" "stg_mydefaultroute" {
+  route_table_id         = aws_route_table.stg_myrt.id
+  destination_cidr_block = "0.0.0.0/0"
+  gateway_id             = aws_internet_gateway.stg_myigw.id
+}
+</span><span class="no">
+EOT
+</span></code></pre></div></div> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat</span> <span class="o">&lt;&lt;</span><span class="no">EOT</span><span class="sh"> &gt; sg.tf
+resource "aws_security_group" "stg_mysg" {
+  vpc_id      = aws_vpc.stg_myvpc.id
+  name        = "T101 SG"
+  description = "T101 Study SG"
+}
+
+resource "aws_security_group_rule" "stg_mysginbound" {
+  type              = "ingress"
+  from_port         = 0
+  to_port           = 80
+  protocol          = "tcp"
+  cidr_blocks       = ["0.0.0.0/0"]
+  security_group_id = aws_security_group.stg_mysg.id
+}
+
+resource "aws_security_group_rule" "stg_mysgoutbound" {
+  type              = "egress"
+  from_port         = 0
+  to_port           = 0
+  protocol          = "-1"
+  cidr_blocks       = ["0.0.0.0/0"]
+  security_group_id = aws_security_group.stg_mysg.id
+}
+</span><span class="no">EOT
+</span></code></pre></div></div> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat</span> <span class="o">&lt;&lt;</span><span class="no">EOT</span><span class="sh"> &gt; ec2.tf
+data "aws_ami" "my_amazonlinux2" {
+  most_recent = true
+  filter {
+    name   = "owner-alias"
+    values = ["amazon"]
+  }
+
+  filter {
+    name   = "name"
+    values = ["amzn2-ami-hvm-*-x86_64-ebs"]
+  }
+
+  owners = ["amazon"]
+}
+
+resource "aws_instance" "stg_myec2" {
+
+  depends_on = [
+    aws_internet_gateway.stg_myigw
+  ]
+
+  ami                         = data.aws_ami.my_amazonlinux2.id
+  associate_public_ip_address = true
+  instance_type               = "t2.micro"
+  vpc_security_group_ids      = ["</span><span class="se">\$</span><span class="sh">{aws_security_group.stg_mysg.id}"]
+  subnet_id                   = aws_subnet.stg_mysubnet1.id
+
+  user_data = &lt;&lt;-EOF
+              #!/bin/bash
+              wget https://busybox.net/downloads/binaries/1.31.0-defconfig-multiarch-musl/busybox-x86_64
+              mv busybox-x86_64 busybox
+              chmod +x busybox
+              IID=</span><span class="se">\$</span><span class="sh">(curl 169.254.169.254/latest/meta-data/instance-id)
+              LIP=</span><span class="se">\$</span><span class="sh">(curl 169.254.169.254/latest/meta-data/local-ipv4)
+              echo "&lt;h1&gt;Instance ID(</span><span class="se">\$</span><span class="sh">IID) : Private IP(</span><span class="se">\$</span><span class="sh">LIP) : Web Server&lt;/h1&gt;" &gt; index.html
+              nohup ./busybox httpd -f -p 80 &amp;
+              EOF
+
+  user_data_replace_on_change = true
+
+  tags = {
+    Name = "HallsHolicker-jjang"
+  }
+}
+
+output "myec2_public_ip" {
+  value       = aws_instance.stg_myec2.public_ip
+  description = "The public IP of the Instance"
+}
+</span><span class="no">EOT
+</span></code></pre></div></div> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">NICKNAME</span><span class="o">=</span>gasida
+<span class="nb">cat</span> <span class="o">&lt;&lt;</span><span class="no">EOT</span><span class="sh"> &gt; backend.tf
+terraform {
+  backend "s3" {
+    bucket = "</span><span class="nv">$NICKNAME</span><span class="sh">-t101study-tfstate"
+    key    = "stg/terraform.tfstate"
+    region = "ap-northeast-2"
+    dynamodb_table = "terraform-locks"
+    # encrypt        = true
+  }
+}
+</span><span class="no">EOT
+</span></code></pre></div></div> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 배포</span>
+terraform init
+terraform plan <span class="o">&amp;&amp;</span> terraform apply <span class="nt">-lock-timeout</span><span class="o">=</span>60s <span class="nt">-auto-approve</span>
+terraform state list
+<span class="nb">ls </span>terraform.tfstate<span class="k">*</span>
+terraform.tfstate        terraform.tfstate.backup
+</code></pre></div></div> <h3 id="lockid-상태-확인--테라폼을-통해-apply-하는-도중에-아래-정보-확인-가능">LockID 상태 확인 : 테라폼을 통해 apply 하는 도중에 아래 정보 확인 가능</h3> <p><img src="/assets/img/post_img/t101_3_dynano_lock.png" alt="" /></p> <ul> <li><strong>LockID</strong> : gasida-t101study-tfstate/stg/terraform.tfstate</li> <li><strong>Info</strong> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">{</span><span class="s2">"ID"</span>:<span class="s2">"354ed19e-0446-d8c7-269a-3139fbdac463"</span>,<span class="s2">"Operation"</span>:<span class="s2">"OperationTypeApply"</span>,<span class="s2">"Info"</span>:<span class="s2">""</span>,<span class="s2">"Who"</span>:<span class="s2">"gasida@JongHoui-MacBookPro.local"</span>,<span class="s2">"Version"</span>:<span class="s2">"1.3.3"</span>,<span class="s2">"Created"</span>:<span class="s2">"2022-10-23T06:20:42.753567Z"</span>,<span class="s2">"Path"</span>:<span class="s2">"gasida-t101study-tfstate/stg/terraform.tfstate"</span><span class="o">}</span>
+</code></pre></div> </div> </li> </ul> <h3 id="배포-완료-후-s3-버킷과-dynamodb-확인">배포 완료 후 S3 버킷과 DynamoDB 확인</h3> <p><img src="/assets/img/post_img/t101_3_s3.png" alt="" /> <img src="/assets/img/post_img/t101_3_dynano_lock_2.png" alt="" /></p> <h2 id="테라폼-백엔드-단점---링크">테라폼 백엔드 <strong>단점</strong> - <a href="https://developer.hashicorp.com/terraform/language/settings/backends/configuration">링크</a></h2> <h3 id="테라폼의-backend-블록에는-변수나-참조를-사용-할-수-없음--아래-코드-사용할-수-없음">테라폼의 backend 블록에는 변수나 참조를 사용 할 수 없음 → 아래 코드 사용할 수 없음</h3> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># This will NOT work, Variables aren't allow in backend configuration.</span>
+terraform <span class="o">{</span>
+  backend <span class="s2">"s3"</span><span class="o">{</span>
+    bucket   <span class="o">=</span> var.bucket
+    region   <span class="o">=</span> var.region
+    dynaodb_table <span class="o">=</span> var.danamodb_table
+    key      <span class="o">=</span> <span class="s2">"example/terraform.tfstate"</span>
+    encrypt  <span class="o">=</span> ture
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div> <h3 id="그-결과-s3-버킷-이름-리전-dynamodb-테이블-이름을-모두-테라폼-모듈에-수동으로-복사붙여녛어야-함-심지어-key-값은-중복되면-안되며-고유하게-넣어야함">그 결과 S3 버킷 이름, 리전, DynamoDB 테이블 이름을 모두 테라폼 모듈에 수동으로 복사붙여녛어야 함, 심지어 <strong>key</strong> 값은 중복되면 안되며 고유하게 넣어야함</h3> <h3 id="partial-configuration-을-통해-일부-매개-변수를-전달해서-사용-할-수-있음---링크"><strong>partial configuration</strong> 을 통해 일부 매개 변수를 전달해서 사용 할 수 있음 - <a href="https://developer.hashicorp.com/terraform/language/settings/backends/configuration#partial-configuration">링크</a></h3> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># backend.hcl</span>
+bucket         <span class="o">=</span> <span class="s2">"terraform-up-and-running-state"</span>
+region         <span class="o">=</span> <span class="s2">"us-east-2"</span>
+dynamodb_table <span class="o">=</span> <span class="s2">"terraform-up-and-running-locks"</span>
+encrypt        <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+</code></pre></div></div> <h3 id="다만-이-경우에도-모듈마다-서로-다른-key-값을-설정해야-하기-때문에-key-매개-변수는-테라폼-코드에-있어야함">다만, 이 경우에도 모듈마다 서로 다른 key 값을 설정해야 하기 때문에 key 매개 변수는 테라폼 코드에 있어야함</h3> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Partial configuration. The other settings (e.g., bucket, region) will be</span>
+<span class="c"># passwd in form a file via -backend-config arguments to "terraform init"</span>
+terraform <span class="o">{</span>
+  backend <span class="s2">"s3"</span> <span class="o">{</span>
+    key <span class="o">=</span> <span class="s2">"example/terraform.tfstate"</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div> <h3 id="부분적으로-구성한-것들을-모두-결합하려면--backend-config-인수와-함께-terraform-init-명령을-실행">부분적으로 구성한 것들을 모두 결합하려면 -backend-config 인수와 함께 terraform init 명령을 실행</h3> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>terraform init <span class="nt">-backend-config</span><span class="o">=</span>backend.hcl
+</code></pre></div></div> <blockquote> <p>위 단점을 보완해주는 오픈 소스 <strong>테라그런트</strong>(Terragrunt)가 있음. 8장에서 다룰 예정 - <a href="https://terragrunt.gruntwork.io/">링크</a></p> </blockquote> <h2 id="실습-리소스-삭제">실습 리소스 삭제</h2> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 각 폴더에서 리소스 삭제</span>
+stg<span class="nv">$ </span>terraform destroy <span class="nt">-auto-approve</span>
+dev<span class="nv">$ </span>terraform destroy <span class="nt">-auto-approve</span>
+
+<span class="c"># S3 버킷에 객체 삭제</span>
+aws s3 <span class="nb">rm </span>s3://<span class="nv">$NICKNAME</span><span class="nt">-t101study-tfstate</span> <span class="nt">--recursive</span>
+
+<span class="c"># S3 버킷에 버저닝 객체 삭제 </span>
+aws s3api delete-objects <span class="se">\</span>
+    <span class="nt">--bucket</span> <span class="nv">$NICKNAME</span><span class="nt">-t101study-tfstate</span> <span class="se">\</span>
+    <span class="nt">--delete</span> <span class="s2">"</span><span class="si">$(</span>aws s3api list-object-versions <span class="se">\</span>
+    <span class="nt">--bucket</span> <span class="s2">"</span><span class="k">${</span><span class="nv">NICKNAME</span><span class="k">}</span><span class="s2">-t101study-tfstate"</span> <span class="se">\</span>
+    <span class="nt">--output</span><span class="o">=</span>json <span class="se">\</span>
+    <span class="nt">--query</span><span class="o">=</span><span class="s1">'{Objects: Versions[].{Key:Key,VersionId:VersionId}}'</span><span class="si">)</span><span class="s2">"</span>
+
+<span class="c"># S3 버킷에 삭제마커 삭제</span>
+aws s3api delete-objects <span class="nt">--bucket</span> <span class="nv">$NICKNAME</span><span class="nt">-t101study-tfstate</span> <span class="se">\</span>
+    <span class="nt">--delete</span> <span class="s2">"</span><span class="si">$(</span>aws s3api list-object-versions <span class="nt">--bucket</span> <span class="s2">"</span><span class="k">${</span><span class="nv">NICKNAME</span><span class="k">}</span><span class="s2">-t101study-tfstate"</span> <span class="se">\</span>
+    <span class="nt">--query</span><span class="o">=</span><span class="s1">'{Objects: DeleteMarkers[].{Key:Key,VersionId:VersionId}}'</span><span class="si">)</span><span class="s2">"</span>
+
+<span class="c"># 백엔드 리소스 삭제</span>
+tfstate-backend<span class="nv">$ </span>terraform destroy <span class="nt">-auto-approve</span>
+</code></pre></div></div> <div class="entry-meta"> <br> <hr> <span class="entry-tags"><a href="https://lahuman.github.io/tags/#terraform" title="Pages tagged terraform" class="tag"><span class="term">terraform</span></a><a href="https://lahuman.github.io/tags/#study" title="Pages tagged study" class="tag"><span class="term">study</span></a></span> <span class="social-share"> <a href="https://www.facebook.com/sharer/sharer.php?u=https://lahuman.github.io/t101_3week/" title="Share on Facebook" class="tag"> <span class="term"><i class="fa fa-facebook-square"></i> Share</span> </a> <a href="https://twitter.com/intent/tweet?text=https://lahuman.github.io/t101_3week/" title="Share on Twitter" class="tag"> <span class="term"><i class="fa fa-twitter-square"></i> Tweet</span> </a> <a href="https://plus.google.com/share?url=https://lahuman.github.io/t101_3week/" title="Share on Google+" class="tag"> <span class="term"><i class="fa fa-google-plus-square"></i> +1</span> </a> </span> <div style="clear:both"></div> </div> <ins class="kakao_ad_area" style="display:none;" data-ad-unit = "DAN-ubp67fs9s850" data-ad-width = "320" data-ad-height = "100"></ins> <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script> </div> </div> <section id="disqus_thread" class="animated fadeInUp"></section><!-- /#disqus_thread --> </header> <!-- JS --> <script src="https://lahuman.github.io/assets/js/jquery-1.12.0.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.dlmenu.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.goup.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.magnific-popup.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.fitvid.min.js"></script> <script src="https://lahuman.github.io/assets/js/scripts.js"></script> <!-- Global site tag (gtag.js) - Google Analytics --> <script async src="https://www.googletagmanager.com/gtag/js?id=UA-74095083-1"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-74095083-1'); </script> <script type="text/javascript"> var disqus_shortname = 'daniels-blog'; (function() { var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true; dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js'; (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq); })(); (function () { var s = document.createElement('script'); s.async = true; s.type = 'text/javascript'; s.src = '//' + disqus_shortname + '.disqus.com/count.js'; (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s); }()); </script> <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript> <!-- MathJax --> <script async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> </body> </html>
