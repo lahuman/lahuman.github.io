@@ -1,0 +1,585 @@
+<!DOCTYPE html> <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]--> <!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8"><![endif]--> <!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9"><![endif]--> <!--[if gt IE 8]><!--> <html class="no-js"><!--<![endif]--> <head> <meta charset="UTF-8"> <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"> <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1"> <title>#6 민감 정보 관리 &#8211; lahuman</title> <meta name="description" content="열심히 사는 아저씨"> <meta name="keywords" content="terraform, study"> <!-- Twitter Cards --> <meta name="twitter:card" content="summary"> <meta name="twitter:image" content="https://lahuman.github.io/assets/img/logo.png"> <meta name="twitter:title" content="#6 민감 정보 관리"> <meta name="twitter:description" content="Terraform 101 Study"> <!-- Open Graph --> <meta property="og:locale" content="ko_KR"> <meta property="og:type" content="article"> <meta property="og:title" content="#6 민감 정보 관리"> <meta property="og:description" content="Terraform 101 Study"> <meta property="og:url" content="https://lahuman.github.io/t101_6week/"> <meta property="og:site_name" content="lahuman"> <meta property="og:image" content="https://lahuman.github.io/assets/img/logo.png"> <link rel="canonical" href="https://lahuman.github.io/t101_6week/"> <link href="https://lahuman.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="lahuman Feed"> <!-- Handheld --> <meta name="HandheldFriendly" content="True"> <meta name="MobileOptimized" content="320"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- CSS --> <link rel="stylesheet" href="https://lahuman.github.io/assets/css/main.css"> <!-- JS --> <script src="https://lahuman.github.io/assets/js/modernizr-3.3.1.custom.min.js"></script> <!-- Favicons --> <link rel="apple-touch-icon" href="https://lahuman.github.io/assets/img/favicons/apple-icon-precomposed.png"> <link rel="apple-touch-icon" sizes="72x72" href="https://lahuman.github.io/assets/img/favicons/apple-icon-72x72.png"> <link rel="apple-touch-icon" sizes="114x114" href="https://lahuman.github.io/assets/img/favicons/apple-icon-114x114.png"> <link rel="apple-touch-icon" sizes="144x144" href="https://lahuman.github.io/assets/img/favicons/apple-icon-144x144.png"> <link rel="shortcut icon" type="image/png" href="https://lahuman.github.io/favicon.png" /> <link rel="shortcut icon" href="https://lahuman.github.io/favicon.ico" /> <!-- mermaid --> <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script> <script>mermaid.initialize({startOnLoad:true});</script> <!-- Background Image --> <style type="text/css">body {background-image:url(https://lahuman.github.io/assets/img/placeholder-big.jpg); background-repeat: no-repeat; background-size: cover; }</style> <!-- Post Feature Image --> </head> <body> <nav id="dl-menu" class="dl-menuwrapper" role="navigation"> <button class="dl-trigger">Open Menu</button> <ul class="dl-menu"> <li><a href="https://lahuman.github.io/">Home</a></li> <li> <a href="#">About</a> <ul class="dl-submenu"> <li> <img src="https://lahuman.github.io/assets/img/logo.png" alt="lahuman photo" class="author-photo"> <h4>lahuman</h4> <p>열심히 사는 아저씨</p> </li> <li><a href="https://lahuman.github.io/about/"><span class="btn btn-inverse">Learn More</span></a></li> <li> <a href="http://facebook.com/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-facebook-square"></i> Facebook</a> </li> <li> <a href="http://linkedin.com/in/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-linkedin-square"></i> LinkedIn</a> </li> <li> <a href="http://github.com/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-github"></i> Github</a> </li> </ul><!-- /.dl-submenu --> </li> <li> <a href="#">Posts</a> <ul class="dl-submenu"> <li><a href="https://lahuman.github.io/posts/">All Posts</a></li> <li><a href="https://lahuman.github.io/tags/">All Tags</a></li> </ul> </li> <li><a href="https://lahuman.github.io/projects/" >Projects</a></li> </ul><!-- /.dl-menu --> </nav><!-- /.dl-menuwrapper --> <!-- Header --> <header class="header" role="banner"> <div class="wrapper animated fadeIn"> <div class="content"> <div class="post-title "> <h1>#6 민감 정보 관리</h1> <h4>20 Nov 2022</h4> <p class="reading-time"> <i class="fa fa-clock-o"></i> Reading time ~22 minutes </p><!-- /.entry-reading-time --> <a class="btn zoombtn" href="https://lahuman.github.io/projects/"> <i class="fa fa-chevron-left"></i> </a> </div> <h1 id="managing-secrets-with-terraform">Managing Secrets with Terraform</h1> <h2 id="secret-management-basics">Secret Management Basics</h2> <p><code class="language-plaintext highlighter-rouge">배경</code> : 배포 과정에서 민감 정보 (DB암호, API 키, TLS인증서, SSH키, GPG 키 등)를 안전하게 관리가 필요함</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>resource <span class="s2">"aws_db_instance"</span> <span class="s2">"example"</span> <span class="o">{</span>
+  identifier_prefix   <span class="o">=</span> <span class="s2">"terraform-up-and-running"</span>
+  engine              <span class="o">=</span> <span class="s2">"mysql"</span>
+  allocated_storage   <span class="o">=</span> 10
+  instance_class      <span class="o">=</span> <span class="s2">"db.t2.micro"</span>
+  skip_final_snapshot <span class="o">=</span> <span class="nb">true
+  </span>db_name             <span class="o">=</span> var.db_name
+
+  <span class="c"># How to set these parameters securely?</span>
+  username <span class="o">=</span> <span class="s2">"???"</span>
+  password <span class="o">=</span> <span class="s2">"???"</span>
+<span class="o">}</span>
+</code></pre></div></div> <p><code class="language-plaintext highlighter-rouge">민감 정보 관리 규칙</code> : 첫번째 규칙(<strong>민감 정보</strong>를 <strong>평문</strong>으로 저장 하지 말것), 두번째 규칙(DO NOT STORE SECRETS IN PLAIN TEXT)</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>resource <span class="s2">"aws_db_instance"</span> <span class="s2">"example"</span> <span class="o">{</span>
+  identifier_prefix   <span class="o">=</span> <span class="s2">"terraform-up-and-running"</span>
+  engine              <span class="o">=</span> <span class="s2">"mysql"</span>
+  allocated_storage   <span class="o">=</span> 10
+  instance_class      <span class="o">=</span> <span class="s2">"db.t2.micro"</span>
+  skip_final_snapshot <span class="o">=</span> <span class="nb">true
+  </span>db_name             <span class="o">=</span> var.db_name
+
+  <span class="c"># DO NOT DO THIS!!!</span>
+  username <span class="o">=</span> <span class="s2">"admin"</span>
+  password <span class="o">=</span> <span class="s2">"password"</span>
+  <span class="c"># DO NOT DO THIS!!!</span>
+<span class="o">}</span>
+</code></pre></div></div> <ul> <li>버전 관리 시스템에 위 코드가 있을 경우 누구나 해당 데이터베이스를 비밀번호로 접속 할 수 있다</li> <li>또한 repo 를 복사해서 개인 PC의 로컬에 비밀번호 정보가 저장 될 수 있다 <ul> <li>이 경우 해당 비밀번호 접근 및 사용에 대한 통제나 감사를 확인 할 수 없다</li> </ul> </li> </ul> <p>⇒ 따라서, 비밀번호 관리 도구가 필요하다</p> <h2 id="secret-management-tools">Secret Management tools</h2> <p><code class="language-plaintext highlighter-rouge">The types of secrets you store</code> : 3가지 유형, 유형에 따라 관리 방식의 차이가 있음</p> <ul> <li>Personal secrets : 개인 소유의 암호, 예) 방문하는 웹 사이트 사용자 이름과 암호, SSH 키</li> <li>Customer secrets : 고객 소유의 암호, 예) 사이트를 운영하는데 고객의 사용자 이름과 암호, 고객의 개인정보 등 → 해싱 알고리즘 사용</li> <li>Infrastructure secrets : 인프라 관련 암호, 예) DB암호, API 키 등 → 암복호화 알고리즘 사용</li> </ul> <p><code class="language-plaintext highlighter-rouge">The way you store secrets</code> : 2가지 암호 저장 방식 - 파일 기반 암호 저장 vs 중앙 집중식 암호 저장</p> <ul> <li>File-based secret stores : 민감 정보를 암호화 후 저장 → 암호화 관련 키 관리가 중요 ⇒ 해결책 : AWS KMS, GCP KMS 혹은 PGP Key</li> <li>Centralized secret stores : 일반적으로 데이터베이스(MySQL, Psql, DynamoDB 등)에 비밀번호를 암호화하여 저장, 암호화 키는 서비스 자체 혹은 클라우드 KMS를 사용</li> </ul> <p><code class="language-plaintext highlighter-rouge">The interface you use to access secrets</code> : 암호 관리 툴은 API, CLI, UI 통해서 사용할 수 있음</p> <p><code class="language-plaintext highlighter-rouge">A comparison of secret management tools</code> : 툴 비교</p> <table> <thead> <tr> <th> </th> <th>Types of secrets</th> <th>Secret Storage</th> <th>Secret Interface</th> </tr> </thead> <tbody> <tr> <td>HashiCorp Vault</td> <td>Infrastructure</td> <td>Centralized service</td> <td>UI, API, CLI</td> </tr> <tr> <td>AWS Secrets Manager</td> <td>Infrastructure</td> <td>Centralized service</td> <td>UI, API, CLI</td> </tr> <tr> <td>GCP Secrets Manager</td> <td>Infrastructure</td> <td>Centralized service</td> <td>UI, API, CLI</td> </tr> <tr> <td>Azure Key Vault</td> <td>Infrastructure</td> <td>Centralized service</td> <td>UI, API, CLI</td> </tr> <tr> <td>Confidant</td> <td>Infrastructure</td> <td>Centralized service</td> <td>UI, API, CLI</td> </tr> <tr> <td>Keywhiz</td> <td>Infrastructure</td> <td>Centralized service</td> <td>API, CLI</td> </tr> <tr> <td>sops</td> <td>Infrastructure</td> <td>Files</td> <td>CLI</td> </tr> <tr> <td>git-secret</td> <td>Infrastructure</td> <td>Files</td> <td>CLI</td> </tr> <tr> <td>1Password</td> <td>Personal</td> <td>Centralized service</td> <td>UI, API, CLI</td> </tr> <tr> <td>LastPass</td> <td>Personal</td> <td>Centralized service</td> <td>UI, API, CLI</td> </tr> <tr> <td>Bitwarden</td> <td>Personal</td> <td>Centralized service</td> <td>UI, API, CLI</td> </tr> <tr> <td>KeePass</td> <td>Personal</td> <td>Files</td> <td>UI, CLI</td> </tr> <tr> <td>Keychain (macOS)</td> <td>Personal</td> <td>Files</td> <td>UI, CLI</td> </tr> <tr> <td>Credential Manager (Windows)</td> <td>Personal</td> <td>Files</td> <td>UI, CLI</td> </tr> <tr> <td>pass</td> <td>Personal</td> <td>Files</td> <td>CLI</td> </tr> <tr> <td>Active Directory</td> <td>Customer</td> <td>Centralized service</td> <td>UI, API, CLI</td> </tr> <tr> <td>Auth0</td> <td>Customer</td> <td>Centralized service</td> <td>UI, API, CLI</td> </tr> <tr> <td>Okta</td> <td>Customer</td> <td>Centralized service</td> <td>UI, API, CLI</td> </tr> <tr> <td>OneLogin</td> <td>Customer</td> <td>Centralized service</td> <td>UI, API, CLI</td> </tr> <tr> <td>Ping</td> <td>Customer</td> <td>Centralized service</td> <td>UI, API, CLI</td> </tr> <tr> <td>AWS Cognito</td> <td>Customer</td> <td>Centralized service</td> <td>UI, API, CLI</td> </tr> </tbody> </table> <h2 id="secret-management-tools-with-terraform">Secret Management tools with Terraform</h2> <ul> <li><strong>Providers</strong> <code class="language-plaintext highlighter-rouge">실습</code> : 인증관련 정보 노출 <ul> <li>IAM 자격 증명 정보를 코드의 Provider 에 직접 입력 → 안전하지 않다!</li> <li> <p>하나의 자격 증명만 사용하도록 하드 코딩되어 있어 실용적이지 않음</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  provider <span class="s2">"aws"</span> <span class="o">{</span>
+    region <span class="o">=</span> <span class="s2">"us-east-2"</span>
+        
+    <span class="c"># DO NOT DO THIS!!!</span>
+    access_key <span class="o">=</span> <span class="s2">"(ACCESS_KEY)"</span>
+    secret_key <span class="o">=</span> <span class="s2">"(SECRET_KEY)"</span>
+    <span class="c"># DO NOT DO THIS!!!</span>
+  <span class="o">}</span>
+</code></pre></div> </div> </li> <li> <p><strong>사용자</strong> Human users : <strong>환경 변수 사용</strong> The most common option is to use environment variables.</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">$ </span> <span class="nb">export </span><span class="nv">AWS_ACCESS_KEY_ID</span><span class="o">=(</span>YOUR_ACCESS_KEY_ID<span class="o">)</span>
+  <span class="nv">$ </span> <span class="nb">export </span><span class="nv">AWS_SECRET_ACCESS_KEY</span><span class="o">=(</span>YOUR_SECRET_ACCESS_KEY<span class="o">)</span>
+</code></pre></div> </div> <ul> <li>환경 변수 사용 시 코드에 암호가 들어가지 않고, 자격 증명이 디스크가 아닌 메모리에만 저장됨</li> <li><strong>다만 키정보를 어디에 저장할까</strong>? → 여전히 컴퓨터 파일에 평문으로 저장 시 문제 될 수 있음 ⇒ 1Password/LassPass 저장 후 사용 할 수 있음</li> <li> <p>예) 1Password : 로그인 후 키정보 획득 후 환경 변수에 저장</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">$ </span><span class="nb">eval</span> <span class="si">$(</span>op signin my<span class="si">)</span>
+  <span class="nv">$ </span><span class="nb">export </span><span class="nv">AWS_ACCESS_KEY_ID</span><span class="o">=</span><span class="si">$(</span>op get item <span class="s1">'aws-dev'</span> <span class="nt">--fields</span> <span class="s1">'id'</span><span class="si">)</span>
+  <span class="nv">$ </span><span class="nb">export </span><span class="nv">AWS_SECRET_ACCESS_KEY</span><span class="o">=</span><span class="si">$(</span>op get item <span class="s1">'aws-dev'</span> <span class="nt">--fields</span> <span class="s1">'secret'</span><span class="si">)</span>
+</code></pre></div> </div> </li> <li> <p><code class="language-plaintext highlighter-rouge">실습</code> 예) 오픈소스 aws-vault : - <a href="https://github.com/99designs/aws-vault">Github</a> <a href="https://www.44bits.io/ko/post/securing-aws-credentials-with-aws-vault">44bits</a></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c"># mac 설치</span>
+  brew <span class="nb">install</span> <span class="nt">--cask</span> aws-vault
+            
+  <span class="c"># 윈도우 설치</span>
+  choco <span class="nb">install </span>aws-vault  <span class="c"># 윈도우 Chocolatey</span>
+  scoop <span class="nb">install </span>aws-vault  <span class="c"># 윈도우 Scoop</span>
+            
+  <span class="c"># 버전 확인</span>
+  <span class="k">**</span>aws-vault <span class="nt">--version</span><span class="k">**</span>
+  v6.6.0
+            
+  <span class="c"># 설정</span>
+  <span class="c">#aws-vault add &lt;PROFILE_NAME&gt;</span>
+  <span class="k">**</span>aws-vault add t101<span class="k">**</span>
+  Enter Access Key Id: <span class="o">(</span>YOUR_ACCESS_KEY_ID<span class="o">)</span>
+  Enter Secret Key: <span class="o">(</span>YOUR_SECRET_ACCESS_KEY<span class="o">)</span>
+            
+  <span class="c"># 확인</span>
+  <span class="k">**</span>aws-vault <span class="nb">ls</span><span class="k">**</span>
+  Profile                  Credentials              Sessions
+  <span class="o">=======</span>                  <span class="o">===========</span>              <span class="o">========</span>
+  default                  -                        -
+  t101                     t101                     -
+            
+  <span class="c"># 사용</span>
+  <span class="c">#aws-vault exec &lt;PROFILE&gt; -- &lt;COMMAND&gt;</span>
+  <span class="k">**</span>aws-vault <span class="nb">exec </span>t101 <span class="nt">--</span> aws s3 <span class="nb">ls</span><span class="k">**</span>
+  aws-vault <span class="nb">exec</span> <span class="nt">--debug</span> t101 <span class="nt">--</span> aws s3 <span class="nb">ls</span>
+            
+  <span class="k">**</span>aws-vault <span class="nb">exec </span>t101 <span class="nt">--</span> terraform plan<span class="k">**</span>
+  aws-vault <span class="nb">exec </span>t101 <span class="nt">--</span> terraform apply
+</code></pre></div> </div> <ul> <li>aws-vault 설정 후 ~/.aws/credentials 파일은 삭제를 권장</li> <li>좀 더 보안 강화 : MFA 사용, IAM 사용자 기반 → IAM 역할 기반</li> </ul> </li> </ul> </li> <li><strong>머신(시스템) 사용자</strong> Machine users : 시스템에 따라 인증 방식이 조금 다름, 예) CI서버 <ul> <li>3가지 예 ⇒ 프로덕션 수준의 CI/CD workflows 관련 내용은 9장에서 다룸 <ul> <li>CircleCI as a CI server, with stored secrets</li> <li>EC2 Instance running Jenkins as a CI server, with IAM roles</li> <li>GitHub Actions as a CI server, with OIDC</li> </ul> </li> </ul> </li> </ul> </li> <li>[<strong>Providers] CircleCI as a CI server, with stored secrets</strong> : CI/CD 플랫폼인 CircleCI 를 통해 테라폼 코드를 실행한다고 가정 <ul> <li> <p><strong>.circleci/config.yml</strong> 파일로 빌드 단계 구성 및 terrfaform apply 로 job 실행 할 수 있다</p> <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="na">version</span><span class="pi">:</span> <span class="s1">'</span><span class="s">2.1'</span>
+  <span class="na">orbs</span><span class="pi">:</span>
+    <span class="c1"># Install Terraform using a CircleCi Orb</span>
+    <span class="na">terraform</span><span class="pi">:</span> <span class="s">circleci/terraform@1.1.0</span>
+  <span class="na">jobs</span><span class="pi">:</span>
+    <span class="c1"># Define a job to run 'terraform apply'</span>
+    <span class="na">terraform_apply</span><span class="pi">:</span>
+      <span class="na">executor</span><span class="pi">:</span> <span class="s">terraform/default</span>
+      <span class="na">steps</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s">checkout</span>         <span class="c1"># git clone the code</span>
+        <span class="pi">-</span> <span class="s">terraform/init</span>   <span class="c1"># Run 'terraform init'</span>
+        <span class="pi">-</span> <span class="s">terraform/apply</span>  <span class="c1"># Run 'terraform apply'</span>
+  <span class="na">workflows</span><span class="pi">:</span>
+    <span class="c1"># Create a workflow to run the 'terraform apply' job defined above</span>
+    <span class="na">deploy</span><span class="pi">:</span>
+      <span class="na">jobs</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s">terraform_apply</span>
+      <span class="c1"># Only run this workflow on commits to the main branch</span>
+      <span class="na">filters</span><span class="pi">:</span>
+        <span class="na">branches</span><span class="pi">:</span>
+          <span class="na">only</span><span class="pi">:</span>
+            <span class="pi">-</span> <span class="s">main</span>
+</code></pre></div> </div> </li> <li>A CircleCI <strong>Context</strong> with AWS credentials : 자격 증명을 CircleCI Context 에 저장 후 빌드 실행 시 워크플로우 환경변수(액세스키, 시크릿키)에 Context 정보를 노출</li> <li> <p>Finally, you update the workflows in your .circleci/config.yml file to use your CircleCI Context via the context parameter:</p> <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="na">workflows</span><span class="pi">:</span>
+    <span class="c1"># Create a workflow to run the 'terraform apply' job defined above</span>
+    <span class="na">deploy</span><span class="pi">:</span>
+      <span class="na">jobs</span><span class="pi">:</span>
+        <span class="err">*</span><span class="nv">*-</span> <span class="s">terraform_apply**</span>
+      <span class="c1"># Only run this workflow on commits to the main branch</span>
+      <span class="na">filters</span><span class="pi">:</span>
+        <span class="na">branches</span><span class="pi">:</span>
+          <span class="na">only</span><span class="pi">:</span>
+            <span class="pi">-</span> <span class="s">main</span>
+      <span class="c1"># Expose secrets in the CircleCI context as environment variables</span>
+      <span class="na">context</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s">example-context</span>
+</code></pre></div> </div> </li> <li>단점 : 자격 증명을 수동 관리, 영구 자격 증명 사용 필요</li> </ul> </li> <li>[<strong>Providers] EC2 Instance running Jenkins as a CI server, with IAM roles <code class="language-plaintext highlighter-rouge">실습</code></strong> : EC2에 Jenkins 설치 후 CI서버로 테라폼 코드를 실행한다고 가정 시 IAM roles 활용 - <a href="https://github.com/brikis98/terraform-up-and-running-code/tree/master/code/terraform/06-managing-secrets-with-terraform/ec2-iam-role">링크</a> <ul> <li>IAM role 는 특정 사용자에 연결되지 않으며, 영구적인 자격증명이 아닙니다.</li> </ul> </li> </ul> <div class="mermaid"> graph LR; A[dev-aws] -.-&gt;|STS assume role| B(STS); B -.-&gt;|AmazoneEc2 FullAccess| C(IAM Role); C -.-&gt;|단기 임시 보안| A; A -.-&gt;|EC2 Full 사용가능| EC2; </div> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- Role(EC2FullAccess) Switch 를 통해, EC2를 사용할 수 있습니다
+- sg.tf 코드 파일 생성
+    
+    ```bash
+    cat &lt;&lt;EOT &gt; sg.tf
+    resource "aws_security_group" "stg_mysg" {
+      name        = "T101 SG"
+      description = "T101 Study SG"
+    }
+    
+    resource "aws_security_group_rule" "stg_mysginbound" {
+      type              = "ingress"
+      from_port         = 0
+      to_port           = **22**
+      protocol          = "tcp"
+      cidr_blocks       = ["0.0.0.0/0"]
+      security_group_id = aws_security_group.stg_mysg.id
+    }
+    
+    resource "aws_security_group_rule" "stg_mysgoutbound" {
+      type              = "egress"
+      from_port         = 0
+      to_port           = 0
+      protocol          = "-1"
+      cidr_blocks       = ["0.0.0.0/0"]
+      security_group_id = aws_security_group.stg_mysg.id
+    }
+    EOT
+    ```
+    
+- iamec2.tf 코드 파일 생성
+    
+    ```bash
+    # SSH 키페어 이름 지정
+    SSHKP=&lt;각자 자신의 SSH 키페어 이름&gt;
+    SSHKP=kp-gasida
+    ```
+    
+    ```bash
+    cat &lt;&lt;EOT &gt; iamec2.tf
+    provider "aws" {
+      region = "ap-northeast-2"
+    }
+    
+    resource "aws_instance" "example" {
+      ami           = "ami-0eddbd81024d3fbdd"
+      instance_type = "t2.micro"
+      key_name      = "$SSHKP"
+      **vpc_security_group_ids**      = ["**\**${aws_security_group.**stg_mysg**.**id**}"]
+    
+      # Attach the instance profile
+      iam_instance_profile = aws_iam_instance_profile.instance.name
+    }
+    
+    **# Create an IAM role**
+    resource "aws_iam_role" "instance" {
+      name_prefix        = var.name
+      assume_role_policy = data.aws_iam_policy_document.assume_role.json
+    }
+    
+    **# Allow the IAM role to be assumed by EC2 instances**
+    data "aws_iam_policy_document" "assume_role" {
+      statement {
+        effect  = "Allow"
+        actions = ["sts:AssumeRole"]
+    
+        principals {
+          type        = "Service"
+          identifiers = ["ec2.amazonaws.com"]
+        }
+      }
+    }
+    
+    **# Attach the EC2 admin permissions to the IAM role**
+    resource "aws_iam_role_policy" "example" {
+      role   = aws_iam_role.instance.id
+      policy = data.aws_iam_policy_document.ec2_admin_permissions.json
+    }
+    
+    **# Create an IAM policy that grants EC2 admin permissions**
+    data "aws_iam_policy_document" "ec2_admin_permissions" {
+      statement {
+        effect    = "Allow"
+        actions   = ["ec2:*"]
+        resources = ["*"]
+      }
+    }
+    
+    **# Create an instance profile with the IAM role attached**
+    resource "aws_iam_instance_profile" "instance" {
+      role = aws_iam_role.instance.name
+    }
+    EOT
+    ```
+    
+- outputs.tf 코드 파일 생성
+    
+    ```bash
+    cat &lt;&lt;EOT &gt; outputs.tf
+    output "instance_id" {
+      value       = aws_instance.example.id
+      description = "The ID of the EC2 instance"
+    }
+    
+    output "instance_ip" {
+      value       = aws_instance.example.public_ip
+      description = "The public IP of the EC2 instance"
+    }
+    
+    output "iam_role_arn" {
+      value       = aws_iam_role.instance.arn
+      description = "The ARN of the IAM role"
+    }
+    EOT
+    ```
+    
+- variables.tf 코드 파일 생성
+    
+    ```bash
+    cat &lt;&lt;EOT &gt; variables.tf
+    variable "name" {
+      description = "The name used to namespace all the resources created by this module"
+      type        = string
+      default     = "ec2-iam-role-example"
+    }
+    EOT
+    ```
+    
+- init &amp; plan &amp; apply
+    
+    ```bash
+    #
+    **terraform init &amp;&amp; terraform plan &amp;&amp; terraform apply -auto-approve**
+    Outputs:
+    iam_role_arn = "arn:aws:iam::911283464785:role/ec2-iam-role-example20221120061438356500000001"
+    instance_id = "i-03df84ae71e7b9aa2"
+    instance_ip = "43.201.114.28"
+    ```
+    
+- 각자 자신의 SSH 키페어로 EC2 접속 후 IAM role 동작 확인
+    
+    ```bash
+    #ssh -i &lt;자신의 SSH 키파일 지정&gt; ec2-user@$(terraform output -raw instance_ip)
+    ssh -i ~/.ssh/kp-gasida.pem ec2-user@$(terraform output -raw instance_ip)
+    ---------------------------
+    curl -s http://169.254.169.254/latest/meta-data/
+    curl -s http://169.254.169.254/latest/meta-data/iam/security-credentials ; echo
+    IAMROLE=$(curl -s http://169.254.169.254/latest/meta-data/iam/security-credentials)
+    curl -s http://169.254.169.254/latest/meta-data/iam/security-credentials/$IAMROLE
+    
+    # EC2 관련 명령 실행 확인
+    export AWS_DEFAULT_REGION=ap-northeast-2
+    **aws ec2 describe-vpcs** --output table
+    **aws ec2 describe-instances** --query "Reservations[*].Instances[*].{PublicIPAdd:PublicIpAddress,InstanceName:Tags[?Key=='Name']|[0].Value,Status:State.Name}" --filters Name=instance-state-name,Values=running --output text
+    ---------------------------
+    ```
+    
+- 실습 자원 삭제
+    
+    ```bash
+    terraform destroy -auto-approve
+    # 다음 실습을 위해 테라폼 코드 등 파일들 삭제
+    ```
+</code></pre></div></div> <ul> <li>[<strong>Providers] GitHub Actions as a CI server, with OIDC</strong> : Github Actions 은 <strong>직접 자격 증명</strong>과 <strong>OIDC</strong> Open ID Connect 지원 <ul> <li> <p><strong>생활코딩</strong> <code class="language-plaintext highlighter-rouge">OAuth 2.0 역할</code> - <a href="https://youtu.be/vo_0PW3V5zU">링크</a></p> <p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/81d60a7a-ed11-4f73-a4aa-4eee65cebb29/Untitled.png" alt="Untitled" /></p> <ul> <li><strong>User</strong> : 사용자 ⇒ Resource Owner</li> <li><strong>mine</strong> : 내가 만들 서비스 ⇒ Client</li> <li><strong>Their</strong> : 사용자가 회원 가입해있는곳(구글 페이스북 등) ⇒ Resource Server &amp; Authorization Server (통상 인증 서버 역할은 R.S 에 통합)</li> </ul> <p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e7df9e78-6900-4e40-9258-5781c9facd27/Untitled.png" alt="Untitled" /></p> </li> <li> <p><strong>동작 관련 그림</strong> - 클라우드 공급자(AWS)와 애플리케이션(Github Actions)간에 누가 어떤 리소스를 사용할 수 있는지를 설정</p> <p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/11aa1353-6e08-4c33-895c-36526911f5d5/Untitled.png" alt="[https://medium.com/@forest.ruan/use-openid-connect-to-authenticate-aws-account-in-github-actions-455ff7710597](https://medium.com/@forest.ruan/use-openid-connect-to-authenticate-aws-account-in-github-actions-455ff7710597)" /></p> <p><a href="https://medium.com/@forest.ruan/use-openid-connect-to-authenticate-aws-account-in-github-actions-455ff7710597">https://medium.com/@forest.ruan/use-openid-connect-to-authenticate-aws-account-in-github-actions-455ff7710597</a></p> <p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0a566f84-d5c4-4ce2-b70e-ab8d8ed42bef/Untitled.png" alt="[https://benoitboure.com/securely-access-your-aws-resources-from-github-actions](https://benoitboure.com/securely-access-your-aws-resources-from-github-actions)" /></p> <p><a href="https://benoitboure.com/securely-access-your-aws-resources-from-github-actions">https://benoitboure.com/securely-access-your-aws-resources-from-github-actions</a></p> <p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c0e2aca3-310e-46d9-ab2c-1e66b7f85b56/Untitled.png" alt="[https://aws.amazon.com/ko/blogs/devops/integrating-with-github-actions-ci-cd-pipeline-to-deploy-a-web-app-to-amazon-ec2](https://aws.amazon.com/ko/blogs/devops/integrating-with-github-actions-ci-cd-pipeline-to-deploy-a-web-app-to-amazon-ec2/)" /></p> <p><a href="https://aws.amazon.com/ko/blogs/devops/integrating-with-github-actions-ci-cd-pipeline-to-deploy-a-web-app-to-amazon-ec2/">https://aws.amazon.com/ko/blogs/devops/integrating-with-github-actions-ci-cd-pipeline-to-deploy-a-web-app-to-amazon-ec2</a></p> </li> </ul> <p><a href="https://rocksea.tistory.com/467">Configure AWS Credentials For GitHub Actions with OIDC</a></p> <ul> <li> <p>You define GitHub Actions workflows in YAML files in a .github/workflows folder, such as the terraform.yml file shown here:</p> <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="na">name</span><span class="pi">:</span> <span class="s">Terraform Apply</span>
+  <span class="c1"># Only run this workflow on commits to the main branch</span>
+  <span class="na">on</span><span class="pi">:</span>
+    <span class="na">push</span><span class="pi">:</span>
+      <span class="na">branches</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s1">'</span><span class="s">main'</span>
+  <span class="na">jobs</span><span class="pi">:</span>
+    <span class="na">TerraformApply</span><span class="pi">:</span>
+      <span class="na">runs-on</span><span class="pi">:</span> <span class="s">ubuntu-latest</span>
+      <span class="na">steps</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/checkout@v2</span>
+        
+        <span class="c1"># Run Terraform using HashiCorp's setup-terraform Action</span>
+        <span class="pi">-</span> <span class="na">uses</span><span class="pi">:</span> <span class="s">hashicorp/setup-terraform@v1</span>
+            <span class="s">with</span><span class="err">:</span>
+              <span class="na">terraform_version</span><span class="pi">:</span> <span class="s">1.1.0</span>
+              <span class="na">terraform_wrapper</span><span class="pi">:</span> <span class="no">false</span>
+          <span class="na">run</span><span class="pi">:</span> <span class="pi">|</span>
+            <span class="s">terraform init</span>
+            <span class="s">terraform apply -auto-approve</span>
+</code></pre></div> </div> </li> <li> <p>OIDC 사용을 위해서 IAM OIDC identity provider 리소스를 사용하여 OIDC 정보 지정</p> <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1"># Create an IAM OIDC identity provider that trusts GitHub</span>
+  <span class="s">resource "aws_iam_openid_connect_provider" "github_actions" {</span>
+    <span class="s">url             = "https://token.actions.githubusercontent.com"</span>
+    <span class="s">client_id_list  = ["sts.amazonaws.com"]</span>
+    <span class="s">thumbprint_list = [</span>
+      <span class="s">data.tls_certificate.github.certificates[0].sha1_fingerprint</span>
+    <span class="s">]</span>
+  <span class="s">}</span>
+        
+  <span class="s"># Fetch GitHub's OIDC thumbprint</span>
+  <span class="s">data "tls_certificate" "github" {</span>
+    <span class="s">url = "https://token.actions.githubusercontent.com"</span>
+  <span class="s">}</span>
+</code></pre></div> </div> </li> <li> <p>IAM 역할 생성</p> <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="s">data "aws_iam_policy_document" "assume_role_policy" {</span>
+    <span class="s">statement {</span>
+      <span class="s">actions = ["sts:AssumeRoleWithWebIdentity"]</span>
+      <span class="s">effect  = "Allow"</span>
+        
+      <span class="s">principals {</span>
+        <span class="s">identifiers = [aws_iam_openid_connect_provider.github_actions.arn]</span>
+        <span class="s">type        = "Federated"</span>
+      <span class="s">}</span>
+        
+      <span class="s">condition {</span>
+        <span class="s">test     = "StringEquals"</span>
+        <span class="s">variable = "token.actions.githubusercontent.com:sub"</span>
+        <span class="s"># The repos and branches defined in var.allowed_repos_branches</span>
+        <span class="s"># will be able to assume this IAM role</span>
+        <span class="s">values = [</span>
+          <span class="s">for a in var.allowed_repos_branches</span> <span class="err">:</span>
+          <span class="s2">"</span><span class="s">repo:${a["org"]}/${a["repo"]}:ref:refs/heads/${a["branch"]}"</span>
+        <span class="s">]</span>
+      <span class="s">}</span>
+    <span class="s">}</span>
+  <span class="s">}</span>
+</code></pre></div> </div> </li> <li> <p>입력 변수로 특정 Github 저장소나 브랜치만 IAM 역할 사용 가능하게 설정 가능</p> <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="s">variable "allowed_repos_branches" {</span>
+    <span class="s">description = "GitHub repos/branches allowed to assume the IAM role."</span>
+    <span class="s">type = list(object({</span>
+      <span class="s">org    = string</span>
+      <span class="s">repo   = string</span>
+      <span class="s">branch = string</span>
+    <span class="s">}))</span>
+    <span class="s"># Example</span><span class="err">:</span>
+    <span class="c1"># allowed_repos_branches = [</span>
+    <span class="c1">#   {</span>
+    <span class="c1">#     org    = "brikis98"</span>
+    <span class="c1">#     repo   = "terraform-up-and-running-code"</span>
+    <span class="c1">#     branch = "main"</span>
+    <span class="c1">#   }</span>
+    <span class="c1"># ]</span>
+  <span class="err">}</span>
+</code></pre></div> </div> </li> <li> <p>먼저 워크플로우 맨 상단 빌드에 id-token: write 권한 부여</p> <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="na">permissions</span><span class="pi">:</span>
+    <span class="na">id-token</span><span class="pi">:</span> <span class="s">write</span>
+</code></pre></div> </div> </li> <li> <p>Terraform 실행 전, 아래 처럼 configure-aws-credentials 작업을 사용하여 AWS에 인증하는 빌드 단계를 추가</p> <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1"># Authenticate to AWS using OIDC</span>
+        <span class="pi">-</span> <span class="na">uses</span><span class="pi">:</span> <span class="s">aws-actions/configure-aws-credentials@v1</span>
+          <span class="na">with</span><span class="pi">:</span>
+            <span class="c1"># Specify the IAM role to assume here</span>
+            <span class="na">role-to-assume</span><span class="pi">:</span> <span class="s">arn:aws:iam::123456789012:role/example-role</span>
+            <span class="na">aws-region</span><span class="pi">:</span> <span class="s">us-east-2</span>
+        
+        <span class="c1"># Run Terraform using HashiCorp's setup-terraform Action</span>
+        <span class="pi">-</span> <span class="na">uses</span><span class="pi">:</span> <span class="s">hashicorp/setup-terraform@v1</span>
+            <span class="s">with</span><span class="err">:</span>
+              <span class="na">terraform_version</span><span class="pi">:</span> <span class="s">1.1.0</span>
+              <span class="na">terraform_wrapper</span><span class="pi">:</span> <span class="no">false</span>
+          <span class="na">run</span><span class="pi">:</span> <span class="pi">|</span>
+            <span class="s">terraform init</span>
+            <span class="s">terraform apply -auto-approve</span>
+</code></pre></div> </div> </li> </ul> </li> <li>[<strong>Resources and data sources]</strong> <strong>Environment variables</strong> : <strong>리소스</strong>와 <strong>데이터 소스</strong>에 민감 정보 노출 - 예) 데이터베이스 암호 등 <ul> <li>보완 방법 : Environment variables, Encrypted files, Secret stores</li> </ul> <p><strong>환경 변수</strong> Environment variables</p> <ul> <li> <p>아래 처럼 DB 계정 정보를 변수로 사용 설정</p> <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="s">variable "db_username" {</span>
+    <span class="s">description = "The username for the database"</span>
+    <span class="s">type        = string</span>
+    <span class="s">sensitive   = </span><span class="no">true</span>
+  <span class="s">}</span>
+        
+  <span class="s">variable "db_password" {</span>
+    <span class="s">description = "The password for the database"</span>
+    <span class="s">type        = string</span>
+    <span class="s">sensitive   = </span><span class="no">true</span>
+  <span class="s">}</span>
+</code></pre></div> </div> <ul> <li>위 정보를 리소스에 전달</li> </ul> <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="s">resource "aws_db_instance" "example" {</span>
+    <span class="s">identifier_prefix   = "terraform-up-and-running"</span>
+    <span class="s">engine              = "mysql"</span>
+    <span class="s">allocated_storage   = </span><span class="m">10</span>
+    <span class="s">instance_class      = "db.t2.micro"</span>
+    <span class="s">skip_final_snapshot = </span><span class="no">true</span>
+    <span class="s">db_name             = var.db_name</span>
+        
+    <span class="s"># Pass the secrets to the resource</span>
+    <span class="s">username = var.db_username</span>
+    <span class="s">password = var.db_password</span>
+  <span class="s">}</span>
+</code></pre></div> </div> <ul> <li><strong>환경 변수</strong>로 전달 : TF_VAR_<변수이름></변수이름></li> </ul> <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="s">$  export **TF_VAR_db_username**=(DB_USERNAME)</span>
+  <span class="s">$  export **TF_VAR_db_password**=(DB_PASSWORD)</span>
+</code></pre></div> </div> </li> <li><strong>장점</strong> : 모든 언어에서 환경 변수를 설정 및 쉽게 쓸 수 있고, 추가 비용이 들지 않음 <ul> <li>Keep plain-text secrets out of your code and version control system.</li> <li>Storing secrets is easy, as you can use just about any other secret management solution. That is, if your company already has a way to manage secrets, you can typically find a way to make it work with environment variables.</li> <li>Retrieving secrets is easy, as reading environment variables is straightforward in every language.</li> <li>Integrating with automated tests is easy, as you can easily set the environment variables to mock values.</li> <li>Using environment variables doesn’t cost any money, unlike some of the other secret management solutions discussed later.</li> </ul> </li> <li><strong>단점</strong> : 팀원 모두 환경 변수 수동 사용 관리가 필요, (테라폼 외부) 비밀 번호 관리 표준화가 어려움, 각 환경에서 버저닝/패키징/테스트 시 암호 환경 변수 지정 시 설정 오류 발생 가능 <ul> <li>Not everything is defined in the Terraform code itself. This makes understanding and maintaining the code harder. Everyone using your code has to know to take extra steps to either manually set these environment variables or run a wrapper script.</li> <li>Standardizing secret management practices is harder. Since all the management of secrets happens outside of Terraform, the code doesn’t enforce any security properties, and it’s possible someone is still managing the secrets in an insecure way (e.g., storing them in plain text).</li> <li>Since the secrets are not versioned, packaged, and tested with your code, configuration errors are more likely, such as adding a new secret in one environment (e.g., staging) but forgetting to add it in another environment (e.g., production).</li> </ul> </li> </ul> </li> <li>[<strong>Resources and data sources]</strong> <strong>Encrypted files</strong> <code class="language-plaintext highlighter-rouge">실습</code> <strong>**: 암호를 파일에 저장 후 버전 관리 → **암호화 키</strong>를 클라우드 공급자 KMS를 통해 안전하게 저장 혹은 PGP 키 사용 <ul> <li><strong>AWS KMS 소개</strong> <ul> <li>암호화는 키를 사용해 평문을 암호문으로 변환하는 프로세스다</li> <li>동일한 키를 사용해 암호문을 평문으로 변환할 수 있는데, 이를 복호화라고 한다</li> <li>AWS 키 관리 서비스 <strong>KMS</strong>는 공유 하드웨어 보안 모듈HSM 을 사용하면서 <strong>암호화키</strong>를 <strong>생성</strong>하고 <strong>관리</strong>할 수 있게 도와준다</li> <li>CloudHSM은 AWS 내에서 암호화키를 관리할 수 있지만 보안 강화를 위해 전용 HSM을 사용할 수 있는 서비스다</li> <li>용어 변경 참고 : 기존 Customer Master Key (<strong>CMK</strong>) → AWS <strong>KMS key</strong> 혹은 <strong>KMS key</strong> 로 변경 - <a href="https://docs.aws.amazon.com/kms/latest/developerguide/dochistory.html">링크</a></li> </ul> </li> <li> <p><code class="language-plaintext highlighter-rouge">AWS KMS 간단 실습</code> : KMS 웹 생성 화면 보여주고 아래 진행</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>        
+  <span class="c"># 키 생성(기본값)</span>
+  <span class="c"># aws kms create-key --description "my text encrypt descript demo"</span>
+  <span class="nv">CREATE_KEY_JSON</span><span class="o">=</span><span class="si">$(</span>aws kms create-key <span class="nt">--description</span> <span class="s2">"my text encrypt descript demo"</span><span class="si">)</span>
+  <span class="nb">echo</span> <span class="nv">$CREATE_KEY_JSON</span> | jq
+        
+  <span class="c"># 키 ID확인</span>
+  <span class="nv">KEY_ID</span><span class="o">=</span><span class="si">$(</span><span class="nb">echo</span> <span class="nv">$CREATE_KEY_JSON</span> | jq <span class="nt">-r</span> <span class="s2">".KeyMetadata.KeyId"</span><span class="si">)</span>
+  <span class="nb">echo</span> <span class="nv">$KEY_ID</span>
+        
+  <span class="c"># 키 alias 생성</span>
+  <span class="nb">export </span><span class="nv">ALIAS_SUFFIX</span><span class="o">=</span>&lt;각자 닉네임&gt;
+  <span class="nb">export </span><span class="nv">ALIAS_SUFFIX</span><span class="o">=</span>gasida
+  aws kms create-alias <span class="nt">--alias-name</span> <span class="nb">alias</span>/<span class="nv">$ALIAS_SUFFIX</span> <span class="nt">--target-key-id</span> <span class="nv">$KEY_ID</span>
+        
+  <span class="c"># 생성한 별칭 확인</span>
+  aws kms list-aliases
+        
+  <span class="c"># CMK로 평문을 암호화해보기</span>
+  <span class="nb">echo</span> <span class="s2">"Hello 123123"</span> <span class="o">&gt;</span> secrect.txt
+  aws kms encrypt <span class="nt">--key-id</span> <span class="nb">alias</span>/<span class="nv">$ALIAS_SUFFIX</span> <span class="nt">--cli-binary-format</span> raw-in-base64-out <span class="nt">--plaintext</span> file://secrect.txt <span class="nt">--output</span> text <span class="nt">--query</span> CiphertextBlob | <span class="nb">base64</span> <span class="nt">--decode</span> <span class="o">&gt;</span> secrect.txt.encrypted
+        
+  <span class="c"># 암호문 확인</span>
+  <span class="nb">cat </span>secrect.txt.encrypted
+        
+  <span class="c"># 복호화해보기</span>
+  aws kms decrypt <span class="nt">--ciphertext-blob</span> fileb://secrect.txt.encrypted <span class="nt">--output</span> text <span class="nt">--query</span> Plaintext | <span class="nb">base64</span> <span class="nt">--decode</span>
+  Hello 123123
+</code></pre></div> </div> </li> <li>AWS CMK(KMS Key) 생성을 위해 Key policy 생성 : 현재 사용자가 CMK 권한을 가질 수 있게 코드 설정 <ul> <li>현재 사용자 정보 확인</li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c"># aws cli 로 현재 사용자 정보 확인</span>
+  <span class="k">**</span>aws sts get-caller-identity | jq<span class="k">**</span>
+  <span class="o">{</span>
+    <span class="s2">"UserId"</span>: <span class="s2">"AIDA5ILF2FJIR2CFPVMG7"</span>,
+    <span class="s2">"Account"</span>: <span class="s2">"911283464785"</span>,
+    <span class="s2">"Arn"</span>: <span class="s2">"arn:aws:iam::911283464785:user/admin"</span>
+  <span class="o">}</span>
+</code></pre></div> </div> <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1"># 테라폼에서 aws_caller_identity 데이터소스로 사용자 정보 확인</span>
+  <span class="s">provider "aws" {</span>
+    <span class="s">region = "us-east-2"</span>
+  <span class="s">}</span>
+        
+  <span class="s"># Look up the details of the current user</span>
+  <span class="s">data "aws_caller_identity" "self" {}</span>
+</code></pre></div> </div> <ul> <li>아래 처럼 현재 사용자에 KMS 권한 부여 정책 생성 할 수 있음</li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  data <span class="s2">"aws_iam_policy_document"</span> <span class="s2">"cmk_admin_policy"</span> <span class="o">{</span>
+    statement <span class="o">{</span>
+      <span class="k">**</span>effect    <span class="o">=</span> <span class="s2">"Allow"</span>
+      resources <span class="o">=</span> <span class="o">[</span><span class="s2">"*"</span><span class="o">]</span>
+      actions   <span class="o">=</span> <span class="o">[</span><span class="s2">"kms:*"</span><span class="o">]</span>
+      principals <span class="o">{</span>
+        <span class="nb">type</span>        <span class="o">=</span> <span class="s2">"AWS"</span>
+        identifiers <span class="o">=</span> <span class="o">[</span>data.aws_caller_identity.self.arn]<span class="k">**</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+</code></pre></div> </div> <ul> <li>Next, you can create the CMK using the aws_kms_key resource:</li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  resource <span class="s2">"aws_kms_key"</span> <span class="s2">"cmk"</span> <span class="o">{</span>
+    policy <span class="o">=</span> data.aws_iam_policy_document.cmk_admin_policy.json
+  <span class="o">}</span>
+</code></pre></div> </div> <ul> <li>AWS KMS CMK ID는 긴 숫자로 이루어져 있어서, AWS KMS Alias 사용을 권고</li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  resource <span class="s2">"aws_kms_alias"</span> <span class="s2">"cmk"</span> <span class="o">{</span>
+    name          <span class="o">=</span> <span class="s2">"alias/kms-cmk-example"</span>
+    target_key_id <span class="o">=</span> aws_kms_key.cmk.id
+  <span class="o">}</span>
+</code></pre></div> </div> <ul> <li>CMK 생성 후에는 CMK로 암호/복호화 할 수 있음.</li> </ul> </li> <li> <p>먼저, DB계정 정보가 포함된 db-creds.yml 파일을 생성 <code class="language-plaintext highlighter-rouge">실습</code></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nb">cat</span> <span class="o">&lt;&lt;</span><span class="no">EOT</span><span class="sh"> &gt; db-creds.yml
+  username: admin
+  password: password
+</span><span class="no">  EOT
+</span></code></pre></div> </div> <ul> <li>AWS KMS CMK로 파일 암호화 하기 : 암호화파일 생성 후 db-creds.yml 삭제할 것</li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c"># CMK로 평문을 암호화해보기</span>
+  ~~#aws kms <span class="k">**</span>encrypt<span class="k">**</span> <span class="nt">--key-id</span> <span class="nb">alias</span>/<span class="nv">$ALIAS_SUFFIX</span>  <span class="nt">--cli-binary-format</span> raw-in-base64-out <span class="nt">--plaintext</span> file://<span class="k">**</span>db-creds.yml<span class="k">**</span> <span class="nt">--output</span> text <span class="nt">--query</span> CiphertextBlob | <span class="nb">base64</span> <span class="nt">--decode</span> | <span class="nb">tee</span> <span class="k">**</span>db-creds.yml.encrypted<span class="k">**</span>~~
+  aws kms <span class="k">**</span>encrypt<span class="k">**</span> <span class="nt">--key-id</span> <span class="nb">alias</span>/<span class="nv">$ALIAS_SUFFIX</span>  <span class="nt">--cli-binary-format</span> raw-in-base64-out <span class="nt">--plaintext</span> file://<span class="k">**</span>db-creds.yml<span class="k">**</span> <span class="nt">--output</span> text <span class="nt">--query</span> CiphertextBlob | <span class="nb">tee</span> <span class="k">**</span>db-creds.yml.encrypted2<span class="k">**</span>
+        
+  <span class="c"># 암호문 확인</span>
+  <span class="nb">cat </span>db-creds.yml.encrypted
+        
+  <span class="c"># 복호화해보기</span>
+  aws kms decrypt <span class="nt">--ciphertext-blob</span> fileb://db-creds.yml.encrypted <span class="nt">--output</span> text <span class="nt">--query</span> Plaintext | <span class="nb">base64</span> <span class="nt">--decode</span>
+</code></pre></div> </div> </li> <li>테라폼 코드에서 암호화(파일) 활용 할 수 있게 설정 <ul> <li>먼저 aws_kms_secrets data source 설정</li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  data <span class="s2">"aws_kms_secrets"</span> <span class="s2">"creds"</span> <span class="o">{</span>
+    secret <span class="o">{</span>
+      name    <span class="o">=</span> <span class="s2">"db"</span>
+      payload <span class="o">=</span> file<span class="o">(</span><span class="s2">"</span><span class="k">${</span><span class="nv">path</span><span class="p">.module</span><span class="k">}</span><span class="s2">/db-creds.yml.encrypted"</span><span class="o">)</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+</code></pre></div> </div> <ul> <li>아래 처럼 복호화된 값을 로컬 변수로 지정</li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  locals <span class="o">{</span>
+    db_creds <span class="o">=</span> yamldecode<span class="o">(</span>data.aws_kms_secrets.creds.plaintext[<span class="s2">"db"</span><span class="o">])</span>
+  <span class="o">}</span>
+</code></pre></div> </div> <ul> <li>DB 계정과 암호를 aws_kms_secrets 의 복호화된 로컬 변수를 전달</li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  resource <span class="s2">"aws_db_instance"</span> <span class="s2">"example"</span> <span class="o">{</span>
+    identifier_prefix   <span class="o">=</span> <span class="s2">"terraform-up-and-running"</span>
+    engine              <span class="o">=</span> <span class="s2">"mysql"</span>
+    allocated_storage   <span class="o">=</span> 10
+    instance_class      <span class="o">=</span> <span class="s2">"db.t2.micro"</span>
+    skip_final_snapshot <span class="o">=</span> <span class="nb">true
+    </span>db_name             <span class="o">=</span> var.db_name
+        
+    <span class="c"># Pass the secrets to the resource</span>
+    username <span class="o">=</span> local.db_creds.username
+    password <span class="o">=</span> local.db_creds.password
+  <span class="o">}</span>
+</code></pre></div> </div> <ul> <li>이제 안전하게 암호를 저장할 수 있고, 암호화된 파일은 버전 관리를 할 수 있습니다.</li> <li>또한 테라폼 코드에서 암호를 다시 읽을 수 있습니다.</li> </ul> </li> <li>rds.tf 코드 파일 생성 <ul> <li><code class="language-plaintext highlighter-rouge">payload</code> - (Required) Base64 encoded payload, as returned from a KMS encrypt operation ⇒ payload 타입이 base64를 강요함! - <a href="https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/kms_secrets">링크</a></li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nb">cat</span> <span class="o">&lt;&lt;</span><span class="no">EOT</span><span class="sh"> &gt; rds.tf
+  provider "aws" {
+    region = "ap-northeast-2"
+  }
+        
+  data "aws_kms_secrets" "creds" {
+    secret {
+      name    = "db"
+      payload = file("</span><span class="se">\$</span><span class="sh">{path.module}/**db-creds.yml.encrypted2**")
+    }
+  }
+        
+  locals {
+    db_creds = yamldecode(data.aws_kms_secrets.creds.plaintext["db"])
+  }
+        
+  resource "aws_db_instance" "example" {
+    identifier_prefix   = "terraform-up-and-running"
+    engine              = "mysql"
+    allocated_storage   = 10
+    instance_class      = "db.t2.micro"
+    skip_final_snapshot = true
+    db_name             = var.db_name
+        
+    # Pass the secrets to the resource
+    username = local.db_creds.username
+    password = local.db_creds.password
+  }
+</span><span class="no">  EOT
+</span></code></pre></div> </div> </li> <li> <p>variables.tf 코드 파일 생성</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nb">cat</span> <span class="o">&lt;&lt;</span><span class="no">EOT</span><span class="sh"> &gt; variables.tf
+  variable "db_name" {
+    description = "The name to use for the database"
+    type        = string
+    default     = "example"
+  }
+</span><span class="no">  EOT
+</span></code></pre></div> </div> </li> <li> <p>outputs.tf 코드 파일 생성</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nb">cat</span> <span class="o">&lt;&lt;</span><span class="no">EOT</span><span class="sh"> &gt; outputs.tf
+  output "address" {
+    value       = aws_db_instance.example.address
+    description = "Connect to the database at this endpoint"
+  }
+        
+  output "port" {
+    value       = aws_db_instance.example.port
+    description = "The port the database is listening on"
+  }
+</span><span class="no">  EOT
+</span></code></pre></div> </div> </li> <li> <p>init &amp; plan &amp; apply 후 삭제 <code class="language-plaintext highlighter-rouge">실습</code></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c">#</span>
+  terraform init &amp; terraform plan &amp; terraform apply <span class="nt">-auto-approve</span>
+        
+  <span class="c"># 리소스 생성 및 AWS RDS 정보 확인(username 등)</span>
+  aws rds describe-db-instances <span class="nt">--query</span> <span class="s2">"*[].[DBInstanceIdentifier,MasterUsername,Endpoint.Address,Endpoint.Port]"</span> <span class="nt">--output</span> text
+</code></pre></div> </div> <ul> <li>실습 완료 후 삭제</li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  terraform destroy <span class="nt">-auto-approve</span>
+</code></pre></div> </div> <ul> <li>키 비활성화 및 삭제 예약</li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c"># 생성한 키 ID 변수 지정</span>
+  <span class="nv">KEY_ID</span><span class="o">=</span><span class="si">$(</span><span class="nb">echo</span> <span class="nv">$CREATE_KEY_JSON</span> | jq <span class="nt">-r</span> <span class="s2">".KeyMetadata.KeyId"</span><span class="si">)</span>
+        
+  <span class="c"># 키 비활성화</span>
+  aws kms disable-key <span class="nt">--key-id</span> <span class="nv">$KEY_ID</span>
+        
+  <span class="c"># 키 삭제 예약 : 대기 기간(7일) </span>
+  aws kms schedule-key-deletion <span class="nt">--key-id</span> <span class="nv">$KEY_ID</span> <span class="nt">--pending-window-in-days</span> 7
+</code></pre></div> </div> </li> <li> <p>위 작업은 aws kms 작업 단계가 필요함 → sops 편리한 오픈소스 활용 가능</p> <p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/3a1bc13e-fce9-4cb6-b22d-aae2e2aad4b8/sops.gif" alt="sops.gif" /></p> <ul> <li>YAML, JSON, ENV, INI, BINARY 형식의 파일 암호화를 지원하고 AWS <strong>KMS</strong>, GCP <strong>KMS</strong>, Azure Key Vault, age, PGP 등을 이용하여 암호화하는 파일 편집기.</li> <li> <p>테라폼은 아직 sops 를 지원하지 않음 → <strong>carlpett/terraform-provider-sops</strong> 혹은 <strong>Terragrunt</strong> 는 내장 <strong>sops_decrypt_file function</strong> 사용 가능</p> <p>https://github.com/carlpett/terraform-provider-sops</p> </li> </ul> </li> <li><strong>장점</strong> : 암호를 평문 사용 절대 금지, <strong>클라우드 KMS</strong> 활용 <ul> <li>Keep plain-text secrets out of your code and version control system.</li> <li>Your secrets are stored in an encrypted format in version control, so they are versioned, packaged, and tested with the rest of your code. This helps reduce configuration errors, such as adding a new secret in one environment (e.g., staging) but forgetting to add it in another environment (e.g., production).</li> <li>Retrieving secrets is easy, assuming the encryption format you’re using is natively supported by Terraform or a third-party plugin.</li> <li>It works with a variety of different encryption options: AWS KMS, GCP KMS, PGP, etc.</li> <li>Everything is defined in the code. There are no extra manual steps or wrapper scripts required (although sops integration does require a third-party plugin).</li> </ul> </li> <li><strong>단점</strong> : 도구 학습 필요, 자동화 환경에 적용 시 어려움, 여전히 암호 변경 어려움, 감사 로그 취약, 비밀 번호 관리 표준화 어려움 <ul> <li>Storing secrets is harder. You either have to run lots of commands (e.g., aws kms encrypt) or use an external tool such as sops. There’s a learning curve to using these tools correctly and securely.</li> <li>Integrating with automated tests is harder, as you will need to do extra work to make encryption keys and encrypted test data available for your test environments.</li> <li>The secrets are now encrypted, but as they are still stored in version control, rotating and revoking secrets is hard. If anyone ever compromises the encryption key, they can go back and decrypt all the secrets that were ever encrypted with it.</li> <li>The ability to audit who accessed secrets is minimal. If you’re using a cloud key management service (e.g., AWS KMS), it will likely maintain an audit log of who used an encryption key, but you won’t be able to tell what the key was actually used for (i.e., what secrets were accessed).</li> <li>Most managed key services cost a small amount of money. For example, each key you store in AWS KMS costs $1/month, plus $0.03 per 10,000 API calls, where each decryption and encryption operation requires one API call. A typical usage pattern, where you have a small number of keys in KMS and your apps use those keys to decrypt secrets during boot, usually costs $1–$10/month. For larger deployments, where you have dozens of apps and hundreds of secrets, the price is typically in the $10–$50/month range.</li> <li>Standardizing secret management practices is harder. Different developers or teams may use different ways to store encryption keys or manage encrypted files, and mistakes are relatively common, such as not using encryption correctly or accidentally checking in a plain-text file into version control.</li> </ul> </li> </ul> </li> <li> <p>[<strong>Resources and data sources]</strong> <strong>Secret stores</strong> <code class="language-plaintext highlighter-rouge">실습</code> <em>**</em>: 중앙 집중식 비밀 저장소 서비스 사용 - AWS Secrets Manager, Google Secret Manager 등</p> <p><strong>AWS Secrets Manager에 데이터베이스 자격 증명을 저장 : 이름(db-creds)</strong></p> <p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/54f2d7b7-ff4c-45ce-83a4-3b7056d14018/Untitled.png" alt="Untitled" /></p> <ul> <li> <p>테라폼 코드 예시</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  data <span class="s2">"aws_secretsmanager_secret_version"</span> <span class="s2">"creds"</span> <span class="o">{</span>
+    secret_id <span class="o">=</span> <span class="s2">"db-creds"</span>
+  <span class="o">}</span>
+        
+  locals <span class="o">{</span>
+    db_creds <span class="o">=</span> jsondecode<span class="o">(</span>
+      data.aws_secretsmanager_secret_version.creds.secret_string
+    <span class="o">)</span>
+  <span class="o">}</span>
+        
+  resource <span class="s2">"aws_db_instance"</span> <span class="s2">"example"</span> <span class="o">{</span>
+    identifier_prefix   <span class="o">=</span> <span class="s2">"terraform-up-and-running"</span>
+    engine              <span class="o">=</span> <span class="s2">"mysql"</span>
+    allocated_storage   <span class="o">=</span> 10
+    instance_class      <span class="o">=</span> <span class="s2">"db.t2.micro"</span>
+    skip_final_snapshot <span class="o">=</span> <span class="nb">true
+    </span>db_name             <span class="o">=</span> var.db_name
+        
+    <span class="c"># Pass the secrets to the resource</span>
+    username <span class="o">=</span> local.db_creds.username
+    password <span class="o">=</span> local.db_creds.password
+  <span class="o">}</span>
+        
+  variable <span class="s2">"db_name"</span> <span class="o">{</span>
+    description <span class="o">=</span> <span class="s2">"The name to use for the database"</span>
+    <span class="nb">type</span>        <span class="o">=</span> string
+    default     <span class="o">=</span> <span class="s2">"example"</span>
+  <span class="o">}</span>
+        
+  output <span class="s2">"address"</span> <span class="o">{</span>
+    value       <span class="o">=</span> aws_db_instance.example.address
+    description <span class="o">=</span> <span class="s2">"Connect to the database at this endpoint"</span>
+  <span class="o">}</span>
+        
+  output <span class="s2">"port"</span> <span class="o">{</span>
+    value       <span class="o">=</span> aws_db_instance.example.port
+    description <span class="o">=</span> <span class="s2">"The port the database is listening on"</span>
+  <span class="o">}</span>
+</code></pre></div> </div> </li> <li><strong>장점</strong> : 보통 웹 UI 제공, 암호 변경 용이(회수, 갱신 스케줄링), 감사 로그 지원, 비밀번호 표준화 용이 <ul> <li>Keep plain-text secrets out of your code and version control system.</li> <li>Everything is defined in the code itself. There are no extra manual steps or wrapper scripts required.</li> <li>Storing secrets is easy, as you typically can use a web UI.</li> <li>Secret stores typically support rotating and revoking secrets, which is useful in case a secret gets compromised. You can even enable rotation on a scheduled basis (e.g., every 30 days) as a preventative measure.</li> <li>Secret stores typically support detailed audit logs that show you exactly who accessed what data.</li> <li>Secret stores make it easier to standardize all your secret practices, as they enforce specific types of encryption, storage, access patterns, etc.</li> </ul> </li> <li><strong>단점</strong> : 서비스 비용 발생, 그 외에는 Encrypted files 과 동일한 단점 보유 <ul> <li>Since the secrets are not versioned, packaged, and tested with your code, configuration errors are more likely, such as adding a new secret in one environment (e.g., staging) but forgetting to add it in another environment (e.g., production).</li> <li>Most managed secret stores cost money. For example, AWS Secrets Manager charges $0.40 per month for each secret you store, plus $0.05 for every 10,000 API calls you make to store or retrieve data. A typical usage pattern, where you have several dozen secrets stored across several environments and a handful of apps that read those secrets during boot, usually costs around $10–$25/month. With larger deployments, where you have dozens of apps reading hundreds of secrets, the price can go up to hundreds of dollars per month.</li> <li>If you’re using a self-managed secret store such as HashiCorp Vault, then you’re both spending money to run the store (e.g., paying AWS for 3–5 EC2 Instances to run Vault in a highly available mode) and spending time and money to have your developers deploy, configure, manage, update, and monitor the store. Developer time is very expensive, so depending on how much time they have to spend on setting up and managing the secret store, this could cost you thousands of dollars per month.</li> <li>Retrieving secrets is harder, especially in automated environments (e.g., an app booting up and trying to read a database password), as you have to solve how to do secure authentication between multiple machines.</li> <li>Integrating with automated tests is harder, as much of the code you’re testing now depends on a running, external system that either needs to be mocked out or have test data stored in it.</li> </ul> </li> </ul> </li> <li> <p>[<strong>State files and plan files</strong>] <code class="language-plaintext highlighter-rouge">실습</code> : <strong>상태</strong> 파일과 <strong>플랜</strong> 파일에 민감 정보 노출</p> <aside> ❓ 왜 상태 파일 자체를 저장 시 암호화 하면 안되는지에 대한 이유가 있을텐데… 아시는 분은 구글링 후 제보 부탁드립니다. </aside> <ul> <li><strong>State files</strong> : 테라폼 리소스와 데이터 소스에 전달되는 모든 <strong>민감정보</strong>는 테라폼 상태 파일에 <strong>평문</strong>으로 저장됨 <ul> <li><strong>백엔드 저장소에 저장 시 암호화</strong> Store Terraform state in a backend that supports encryption</li> <li><strong>백엔드 액세스에 대한 접근 통제</strong> Strictly control who can access your Terraform backend</li> </ul> </li> <li> <p><strong>plan files</strong> <code class="language-plaintext highlighter-rouge">실습</code> : 역시 암호화 및 파일 통제</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c"># plan 출력 내용을 파일로 저장</span>
+  terraform plan -<span class="k">**</span>out<span class="k">**</span><span class="o">=</span>t101.plan
+  <span class="c">#(참고) plan 출력 파일로 apply</span>
+  <span class="c">## terraform apply t101.plan</span>
+        
+  <span class="c"># plan 출력 내용을 파일 확인</span>
+  <span class="nb">cat </span>t101.plan
+        
+  <span class="c"># 평문</span>
+  terraform <span class="k">**</span>show<span class="k">**</span> t101.plan <span class="o">&gt;</span> t101.ansi
+  less t101.ansi
+</code></pre></div> </div> <ul> <li>Encrypt your Terraform plan files</li> <li>Strictly control who can access your plan files</li> </ul> </li> </ul> </li> </ul> <p><strong>A comparison of methods for machine users (e.g., a CI server) to pass secrets to Terraform providers</strong></p> <table> <thead> <tr> <th> </th> <th>Stored credentials</th> <th>IAM roles</th> <th>OIDC</th> </tr> </thead> <tbody> <tr> <td>Example</td> <td>CircleCI</td> <td>Jenkins on an EC2 Instance</td> <td>GitHub Actions</td> </tr> <tr> <td>Avoid manually managing credentials</td> <td>X</td> <td>O</td> <td>O</td> </tr> <tr> <td>Avoid using permanent credentials</td> <td>X</td> <td>O</td> <td>O</td> </tr> <tr> <td>Works inside of cloud provider</td> <td>X</td> <td>O</td> <td>X</td> </tr> <tr> <td>Works outside of cloud provider</td> <td>O</td> <td>X</td> <td>O</td> </tr> <tr> <td>Widely supported as of 2022</td> <td>O</td> <td>O</td> <td>X</td> </tr> </tbody> </table> <p>A comparison of methods for passing secrets to Terraform resources and data sources</p> <table> <thead> <tr> <th> </th> <th>Environment variables</th> <th>Encrypted files</th> <th>Centralized secret stores</th> </tr> </thead> <tbody> <tr> <td>Keeps plain-text secrets out of code</td> <td>O</td> <td>O</td> <td>O</td> </tr> <tr> <td>All secrets management defined as code</td> <td>X</td> <td>O</td> <td>O</td> </tr> <tr> <td>Audit log for access to encryption keys</td> <td>X</td> <td>O</td> <td>O</td> </tr> <tr> <td>Audit log for access to individual secrets</td> <td>X</td> <td>X</td> <td>O</td> </tr> <tr> <td>Rotating or revoking secrets is easy</td> <td>X</td> <td>X</td> <td>O</td> </tr> <tr> <td>Standardizing secrets management is easy</td> <td>X</td> <td>X</td> <td>O</td> </tr> <tr> <td>Secrets are versioned with the code</td> <td>X</td> <td>O</td> <td>X</td> </tr> <tr> <td>Storing secrets is easy</td> <td>O</td> <td>X</td> <td>O</td> </tr> <tr> <td>Retrieving secrets is easy</td> <td>O</td> <td>O</td> <td>X</td> </tr> <tr> <td>Integrating with automated testing is easy</td> <td>O</td> <td>X</td> <td>X</td> </tr> <tr> <td>Cost</td> <td>0</td> <td>$</td> <td>$$$</td> </tr> </tbody> </table> <div class="entry-meta"> <br> <hr> <span class="entry-tags"><a href="https://lahuman.github.io/tags/#terraform" title="Pages tagged terraform" class="tag"><span class="term">terraform</span></a><a href="https://lahuman.github.io/tags/#study" title="Pages tagged study" class="tag"><span class="term">study</span></a></span> <span class="social-share"> <a href="https://www.facebook.com/sharer/sharer.php?u=https://lahuman.github.io/t101_6week/" title="Share on Facebook" class="tag"> <span class="term"><i class="fa fa-facebook-square"></i> Share</span> </a> <a href="https://twitter.com/intent/tweet?text=https://lahuman.github.io/t101_6week/" title="Share on Twitter" class="tag"> <span class="term"><i class="fa fa-twitter-square"></i> Tweet</span> </a> <a href="https://plus.google.com/share?url=https://lahuman.github.io/t101_6week/" title="Share on Google+" class="tag"> <span class="term"><i class="fa fa-google-plus-square"></i> +1</span> </a> </span> <div style="clear:both"></div> </div> <ins class="kakao_ad_area" style="display:none;" data-ad-unit = "DAN-ubp67fs9s850" data-ad-width = "320" data-ad-height = "100"></ins> <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script> </div> </div> <section id="disqus_thread" class="animated fadeInUp"></section><!-- /#disqus_thread --> </header> <!-- JS --> <script src="https://lahuman.github.io/assets/js/jquery-1.12.0.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.dlmenu.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.goup.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.magnific-popup.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.fitvid.min.js"></script> <script src="https://lahuman.github.io/assets/js/scripts.js"></script> <!-- Global site tag (gtag.js) - Google Analytics --> <script async src="https://www.googletagmanager.com/gtag/js?id=UA-74095083-1"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-74095083-1'); </script> <script type="text/javascript"> var disqus_shortname = 'daniels-blog'; (function() { var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true; dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js'; (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq); })(); (function () { var s = document.createElement('script'); s.async = true; s.type = 'text/javascript'; s.src = '//' + disqus_shortname + '.disqus.com/count.js'; (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s); }()); </script> <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript> <!-- MathJax --> <script async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> </body> </html>
