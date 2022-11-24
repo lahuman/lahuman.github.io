@@ -102,170 +102,132 @@
       <span class="c1"># Expose secrets in the CircleCI context as environment variables</span>
       <span class="na">context</span><span class="pi">:</span>
         <span class="pi">-</span> <span class="s">example-context</span>
-</code></pre></div> </div> </li> <li>단점 : 자격 증명을 수동 관리, 영구 자격 증명 사용 필요</li> </ul> </li> <li>[<strong>Providers] EC2 Instance running Jenkins as a CI server, with IAM roles <code class="language-plaintext highlighter-rouge">실습</code></strong> : EC2에 Jenkins 설치 후 CI서버로 테라폼 코드를 실행한다고 가정 시 IAM roles 활용 - <a href="https://github.com/brikis98/terraform-up-and-running-code/tree/master/code/terraform/06-managing-secrets-with-terraform/ec2-iam-role">링크</a> <ul> <li>IAM role 는 특정 사용자에 연결되지 않으며, 영구적인 자격증명이 아닙니다.</li> </ul> </li> </ul> <div class="mermaid"> graph LR; A[dev-aws] -.-&gt;|STS assume role| B(STS); B -.-&gt;|AmazoneEc2 FullAccess| C(IAM Role); C -.-&gt;|단기 임시 보안| A; A -.-&gt;|EC2 Full 사용가능| EC2; </div> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- Role(EC2FullAccess) Switch 를 통해, EC2를 사용할 수 있습니다
-- sg.tf 코드 파일 생성
-    
-    ```bash
-    cat &lt;&lt;EOT &gt; sg.tf
-    resource "aws_security_group" "stg_mysg" {
-      name        = "T101 SG"
-      description = "T101 Study SG"
-    }
-    
-    resource "aws_security_group_rule" "stg_mysginbound" {
-      type              = "ingress"
-      from_port         = 0
-      to_port           = **22**
-      protocol          = "tcp"
-      cidr_blocks       = ["0.0.0.0/0"]
-      security_group_id = aws_security_group.stg_mysg.id
-    }
-    
-    resource "aws_security_group_rule" "stg_mysgoutbound" {
-      type              = "egress"
-      from_port         = 0
-      to_port           = 0
-      protocol          = "-1"
-      cidr_blocks       = ["0.0.0.0/0"]
-      security_group_id = aws_security_group.stg_mysg.id
-    }
-    EOT
-    ```
-    
-- iamec2.tf 코드 파일 생성
-    
-    ```bash
-    # SSH 키페어 이름 지정
-    SSHKP=&lt;각자 자신의 SSH 키페어 이름&gt;
-    SSHKP=kp-gasida
-    ```
-    
-    ```bash
-    cat &lt;&lt;EOT &gt; iamec2.tf
-    provider "aws" {
-      region = "ap-northeast-2"
-    }
-    
-    resource "aws_instance" "example" {
-      ami           = "ami-0eddbd81024d3fbdd"
-      instance_type = "t2.micro"
-      key_name      = "$SSHKP"
-      **vpc_security_group_ids**      = ["**\**${aws_security_group.**stg_mysg**.**id**}"]
-    
-      # Attach the instance profile
-      iam_instance_profile = aws_iam_instance_profile.instance.name
-    }
-    
-    **# Create an IAM role**
-    resource "aws_iam_role" "instance" {
-      name_prefix        = var.name
-      assume_role_policy = data.aws_iam_policy_document.assume_role.json
-    }
-    
-    **# Allow the IAM role to be assumed by EC2 instances**
-    data "aws_iam_policy_document" "assume_role" {
-      statement {
-        effect  = "Allow"
-        actions = ["sts:AssumeRole"]
-    
-        principals {
-          type        = "Service"
-          identifiers = ["ec2.amazonaws.com"]
-        }
+</code></pre></div> </div> </li> <li>단점 : 자격 증명을 수동 관리, 영구 자격 증명 사용 필요</li> </ul> </li> <li>[<strong>Providers] EC2 Instance running Jenkins as a CI server, with IAM roles <code class="language-plaintext highlighter-rouge">실습</code></strong> : EC2에 Jenkins 설치 후 CI서버로 테라폼 코드를 실행한다고 가정 시 IAM roles 활용 - <a href="https://github.com/brikis98/terraform-up-and-running-code/tree/master/code/terraform/06-managing-secrets-with-terraform/ec2-iam-role">링크</a> <ul> <li>IAM role 는 특정 사용자에 연결되지 않으며, 영구적인 자격증명이 아닙니다.</li> </ul> <div class="mermaid"> graph LR; A[dev-aws] -.-&gt;|STS assume role| B(STS); B -.-&gt;|AmazoneEc2 FullAccess| C(IAM Role); C -.-&gt;|단기 임시 보안| A; A -.-&gt;|EC2 Full 사용가능| EC2; </div> <ul> <li>Role(EC2FullAccess) Switch 를 통해, EC2를 사용할 수 있습니다</li> <li> <p>sg.tf 코드 파일 생성</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nb">cat</span> <span class="o">&lt;&lt;</span><span class="no">EOT</span><span class="sh"> &gt; sg.tf
+  resource "aws_security_group" "stg_mysg" {
+    name        = "T101 SG"
+    description = "T101 Study SG"
+  }
+        
+  resource "aws_security_group_rule" "stg_mysginbound" {
+    type              = "ingress"
+    from_port         = 0
+    to_port           = **22**
+    protocol          = "tcp"
+    cidr_blocks       = ["0.0.0.0/0"]
+    security_group_id = aws_security_group.stg_mysg.id
+  }
+        
+  resource "aws_security_group_rule" "stg_mysgoutbound" {
+    type              = "egress"
+    from_port         = 0
+    to_port           = 0
+    protocol          = "-1"
+    cidr_blocks       = ["0.0.0.0/0"]
+    security_group_id = aws_security_group.stg_mysg.id
+  }
+</span><span class="no">  EOT
+</span></code></pre></div> </div> </li> <li> <p>iamec2.tf 코드 파일 생성</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c"># SSH 키페어 이름 지정</span>
+  <span class="nv">SSHKP</span><span class="o">=</span>&lt;각자 자신의 SSH 키페어 이름&gt;
+  <span class="nv">SSHKP</span><span class="o">=</span>kp-gasida
+</code></pre></div> </div> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nb">cat</span> <span class="o">&lt;&lt;</span><span class="no">EOT</span><span class="sh"> &gt; iamec2.tf
+  provider "aws" {
+    region = "ap-northeast-2"
+  }
+        
+  resource "aws_instance" "example" {
+    ami           = "ami-0eddbd81024d3fbdd"
+    instance_type = "t2.micro"
+    key_name      = "</span><span class="nv">$SSHKP</span><span class="sh">"
+    **vpc_security_group_ids**      = ["**</span><span class="se">\*</span><span class="sh">*</span><span class="k">${</span><span class="nv">aws_security_group</span><span class="p">.**stg_mysg**.**id**</span><span class="k">}</span><span class="sh">"]
+        
+    # Attach the instance profile
+    iam_instance_profile = aws_iam_instance_profile.instance.name
+  }
+        
+  **# Create an IAM role**
+  resource "aws_iam_role" "instance" {
+    name_prefix        = var.name
+    assume_role_policy = data.aws_iam_policy_document.assume_role.json
+  }
+        
+  **# Allow the IAM role to be assumed by EC2 instances**
+  data "aws_iam_policy_document" "assume_role" {
+    statement {
+      effect  = "Allow"
+      actions = ["sts:AssumeRole"]
+        
+      principals {
+        type        = "Service"
+        identifiers = ["ec2.amazonaws.com"]
       }
     }
-    
-    **# Attach the EC2 admin permissions to the IAM role**
-    resource "aws_iam_role_policy" "example" {
-      role   = aws_iam_role.instance.id
-      policy = data.aws_iam_policy_document.ec2_admin_permissions.json
+  }
+        
+  **# Attach the EC2 admin permissions to the IAM role**
+  resource "aws_iam_role_policy" "example" {
+    role   = aws_iam_role.instance.id
+    policy = data.aws_iam_policy_document.ec2_admin_permissions.json
+  }
+        
+  **# Create an IAM policy that grants EC2 admin permissions**
+  data "aws_iam_policy_document" "ec2_admin_permissions" {
+    statement {
+      effect    = "Allow"
+      actions   = ["ec2:*"]
+      resources = ["*"]
     }
-    
-    **# Create an IAM policy that grants EC2 admin permissions**
-    data "aws_iam_policy_document" "ec2_admin_permissions" {
-      statement {
-        effect    = "Allow"
-        actions   = ["ec2:*"]
-        resources = ["*"]
-      }
-    }
-    
-    **# Create an instance profile with the IAM role attached**
-    resource "aws_iam_instance_profile" "instance" {
-      role = aws_iam_role.instance.name
-    }
-    EOT
-    ```
-    
-- outputs.tf 코드 파일 생성
-    
-    ```bash
-    cat &lt;&lt;EOT &gt; outputs.tf
-    output "instance_id" {
-      value       = aws_instance.example.id
-      description = "The ID of the EC2 instance"
-    }
-    
-    output "instance_ip" {
-      value       = aws_instance.example.public_ip
-      description = "The public IP of the EC2 instance"
-    }
-    
-    output "iam_role_arn" {
-      value       = aws_iam_role.instance.arn
-      description = "The ARN of the IAM role"
-    }
-    EOT
-    ```
-    
-- variables.tf 코드 파일 생성
-    
-    ```bash
-    cat &lt;&lt;EOT &gt; variables.tf
-    variable "name" {
-      description = "The name used to namespace all the resources created by this module"
-      type        = string
-      default     = "ec2-iam-role-example"
-    }
-    EOT
-    ```
-    
-- init &amp; plan &amp; apply
-    
-    ```bash
-    #
-    **terraform init &amp;&amp; terraform plan &amp;&amp; terraform apply -auto-approve**
-    Outputs:
-    iam_role_arn = "arn:aws:iam::911283464785:role/ec2-iam-role-example20221120061438356500000001"
-    instance_id = "i-03df84ae71e7b9aa2"
-    instance_ip = "43.201.114.28"
-    ```
-    
-- 각자 자신의 SSH 키페어로 EC2 접속 후 IAM role 동작 확인
-    
-    ```bash
-    #ssh -i &lt;자신의 SSH 키파일 지정&gt; ec2-user@$(terraform output -raw instance_ip)
-    ssh -i ~/.ssh/kp-gasida.pem ec2-user@$(terraform output -raw instance_ip)
-    ---------------------------
-    curl -s http://169.254.169.254/latest/meta-data/
-    curl -s http://169.254.169.254/latest/meta-data/iam/security-credentials ; echo
-    IAMROLE=$(curl -s http://169.254.169.254/latest/meta-data/iam/security-credentials)
-    curl -s http://169.254.169.254/latest/meta-data/iam/security-credentials/$IAMROLE
-    
-    # EC2 관련 명령 실행 확인
-    export AWS_DEFAULT_REGION=ap-northeast-2
-    **aws ec2 describe-vpcs** --output table
-    **aws ec2 describe-instances** --query "Reservations[*].Instances[*].{PublicIPAdd:PublicIpAddress,InstanceName:Tags[?Key=='Name']|[0].Value,Status:State.Name}" --filters Name=instance-state-name,Values=running --output text
-    ---------------------------
-    ```
-    
-- 실습 자원 삭제
-    
-    ```bash
-    terraform destroy -auto-approve
-    # 다음 실습을 위해 테라폼 코드 등 파일들 삭제
-    ```
-</code></pre></div></div> <ul> <li>[<strong>Providers] GitHub Actions as a CI server, with OIDC</strong> : Github Actions 은 <strong>직접 자격 증명</strong>과 <strong>OIDC</strong> Open ID Connect 지원 <ul> <li> <p><strong>생활코딩</strong> <code class="language-plaintext highlighter-rouge">OAuth 2.0 역할</code> - <a href="https://youtu.be/vo_0PW3V5zU">링크</a></p> <p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/81d60a7a-ed11-4f73-a4aa-4eee65cebb29/Untitled.png" alt="Untitled" /></p> <ul> <li><strong>User</strong> : 사용자 ⇒ Resource Owner</li> <li><strong>mine</strong> : 내가 만들 서비스 ⇒ Client</li> <li><strong>Their</strong> : 사용자가 회원 가입해있는곳(구글 페이스북 등) ⇒ Resource Server &amp; Authorization Server (통상 인증 서버 역할은 R.S 에 통합)</li> </ul> <p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e7df9e78-6900-4e40-9258-5781c9facd27/Untitled.png" alt="Untitled" /></p> </li> <li> <p><strong>동작 관련 그림</strong> - 클라우드 공급자(AWS)와 애플리케이션(Github Actions)간에 누가 어떤 리소스를 사용할 수 있는지를 설정</p> <p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/11aa1353-6e08-4c33-895c-36526911f5d5/Untitled.png" alt="[https://medium.com/@forest.ruan/use-openid-connect-to-authenticate-aws-account-in-github-actions-455ff7710597](https://medium.com/@forest.ruan/use-openid-connect-to-authenticate-aws-account-in-github-actions-455ff7710597)" /></p> <p><a href="https://medium.com/@forest.ruan/use-openid-connect-to-authenticate-aws-account-in-github-actions-455ff7710597">https://medium.com/@forest.ruan/use-openid-connect-to-authenticate-aws-account-in-github-actions-455ff7710597</a></p> <p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0a566f84-d5c4-4ce2-b70e-ab8d8ed42bef/Untitled.png" alt="[https://benoitboure.com/securely-access-your-aws-resources-from-github-actions](https://benoitboure.com/securely-access-your-aws-resources-from-github-actions)" /></p> <p><a href="https://benoitboure.com/securely-access-your-aws-resources-from-github-actions">https://benoitboure.com/securely-access-your-aws-resources-from-github-actions</a></p> <p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c0e2aca3-310e-46d9-ab2c-1e66b7f85b56/Untitled.png" alt="[https://aws.amazon.com/ko/blogs/devops/integrating-with-github-actions-ci-cd-pipeline-to-deploy-a-web-app-to-amazon-ec2](https://aws.amazon.com/ko/blogs/devops/integrating-with-github-actions-ci-cd-pipeline-to-deploy-a-web-app-to-amazon-ec2/)" /></p> <p><a href="https://aws.amazon.com/ko/blogs/devops/integrating-with-github-actions-ci-cd-pipeline-to-deploy-a-web-app-to-amazon-ec2/">https://aws.amazon.com/ko/blogs/devops/integrating-with-github-actions-ci-cd-pipeline-to-deploy-a-web-app-to-amazon-ec2</a></p> </li> </ul> <p><a href="https://rocksea.tistory.com/467">Configure AWS Credentials For GitHub Actions with OIDC</a></p> <ul> <li> <p>You define GitHub Actions workflows in YAML files in a .github/workflows folder, such as the terraform.yml file shown here:</p> <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="na">name</span><span class="pi">:</span> <span class="s">Terraform Apply</span>
+  }
+        
+  **# Create an instance profile with the IAM role attached**
+  resource "aws_iam_instance_profile" "instance" {
+    role = aws_iam_role.instance.name
+  }
+</span><span class="no">  EOT
+</span></code></pre></div> </div> </li> <li> <p>outputs.tf 코드 파일 생성</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nb">cat</span> <span class="o">&lt;&lt;</span><span class="no">EOT</span><span class="sh"> &gt; outputs.tf
+  output "instance_id" {
+    value       = aws_instance.example.id
+    description = "The ID of the EC2 instance"
+  }
+        
+  output "instance_ip" {
+    value       = aws_instance.example.public_ip
+    description = "The public IP of the EC2 instance"
+  }
+        
+  output "iam_role_arn" {
+    value       = aws_iam_role.instance.arn
+    description = "The ARN of the IAM role"
+  }
+</span><span class="no">  EOT
+</span></code></pre></div> </div> </li> <li> <p>variables.tf 코드 파일 생성</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nb">cat</span> <span class="o">&lt;&lt;</span><span class="no">EOT</span><span class="sh"> &gt; variables.tf
+  variable "name" {
+    description = "The name used to namespace all the resources created by this module"
+    type        = string
+    default     = "ec2-iam-role-example"
+  }
+</span><span class="no">  EOT
+</span></code></pre></div> </div> </li> <li> <p>init &amp; plan &amp; apply</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c">#</span>
+  <span class="k">**</span>terraform init <span class="o">&amp;&amp;</span> terraform plan <span class="o">&amp;&amp;</span> terraform apply <span class="nt">-auto-approve</span><span class="k">**</span>
+  Outputs:
+  iam_role_arn <span class="o">=</span> <span class="s2">"arn:aws:iam::911283464785:role/ec2-iam-role-example20221120061438356500000001"</span>
+  instance_id <span class="o">=</span> <span class="s2">"i-03df84ae71e7b9aa2"</span>
+  instance_ip <span class="o">=</span> <span class="s2">"43.201.114.28"</span>
+</code></pre></div> </div> </li> <li> <p>각자 자신의 SSH 키페어로 EC2 접속 후 IAM role 동작 확인</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c">#ssh -i &lt;자신의 SSH 키파일 지정&gt; ec2-user@$(terraform output -raw instance_ip)</span>
+  ssh <span class="nt">-i</span> ~/.ssh/kp-gasida.pem ec2-user@<span class="si">$(</span>terraform output <span class="nt">-raw</span> instance_ip<span class="si">)</span>
+  <span class="nt">---------------------------</span>
+  curl <span class="nt">-s</span> http://169.254.169.254/latest/meta-data/
+  curl <span class="nt">-s</span> http://169.254.169.254/latest/meta-data/iam/security-credentials <span class="p">;</span> <span class="nb">echo
+  </span><span class="nv">IAMROLE</span><span class="o">=</span><span class="si">$(</span>curl <span class="nt">-s</span> http://169.254.169.254/latest/meta-data/iam/security-credentials<span class="si">)</span>
+  curl <span class="nt">-s</span> http://169.254.169.254/latest/meta-data/iam/security-credentials/<span class="nv">$IAMROLE</span>
+        
+  <span class="c"># EC2 관련 명령 실행 확인</span>
+  <span class="nb">export </span><span class="nv">AWS_DEFAULT_REGION</span><span class="o">=</span>ap-northeast-2
+  <span class="k">**</span>aws ec2 describe-vpcs<span class="k">**</span> <span class="nt">--output</span> table
+  <span class="k">**</span>aws ec2 describe-instances<span class="k">**</span> <span class="nt">--query</span> <span class="s2">"Reservations[*].Instances[*].{PublicIPAdd:PublicIpAddress,InstanceName:Tags[?Key=='Name']|[0].Value,Status:State.Name}"</span> <span class="nt">--filters</span> <span class="nv">Name</span><span class="o">=</span>instance-state-name,Values<span class="o">=</span>running <span class="nt">--output</span> text
+  <span class="nt">---------------------------</span>
+</code></pre></div> </div> </li> <li> <p>실습 자원 삭제</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  terraform destroy <span class="nt">-auto-approve</span>
+  <span class="c"># 다음 실습을 위해 테라폼 코드 등 파일들 삭제</span>
+</code></pre></div> </div> </li> </ul> </li> <li>[<strong>Providers] GitHub Actions as a CI server, with OIDC</strong> : Github Actions 은 <strong>직접 자격 증명</strong>과 <strong>OIDC</strong> Open ID Connect 지원 <ul> <li> <p><strong>생활코딩</strong> <code class="language-plaintext highlighter-rouge">OAuth 2.0 역할</code> - <a href="https://youtu.be/vo_0PW3V5zU">링크</a></p> <ul> <li><strong>User</strong> : 사용자 ⇒ Resource Owner</li> <li><strong>mine</strong> : 내가 만들 서비스 ⇒ Client</li> <li><strong>Their</strong> : 사용자가 회원 가입해있는곳(구글 페이스북 등) ⇒ Resource Server &amp; Authorization Server (통상 인증 서버 역할은 R.S 에 통합)</li> </ul> </li> </ul> <p><a href="https://rocksea.tistory.com/467">Configure AWS Credentials For GitHub Actions with OIDC</a></p> <ul> <li> <p>You define GitHub Actions workflows in YAML files in a .github/workflows folder, such as the terraform.yml file shown here:</p> <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="na">name</span><span class="pi">:</span> <span class="s">Terraform Apply</span>
   <span class="c1"># Only run this workflow on commits to the main branch</span>
   <span class="na">on</span><span class="pi">:</span>
     <span class="na">push</span><span class="pi">:</span>
