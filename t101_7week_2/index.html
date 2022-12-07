@@ -1,0 +1,810 @@
+<!DOCTYPE html> <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]--> <!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8"><![endif]--> <!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9"><![endif]--> <!--[if gt IE 8]><!--> <html class="no-js"><!--<![endif]--> <head> <meta charset="UTF-8"> <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"> <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1"> <title>#7-2 프로덕션 수준의 테라폼 코드 &#8211; lahuman</title> <meta name="description" content="열심히 사는 아저씨"> <meta name="keywords" content="terraform, study"> <!-- Twitter Cards --> <meta name="twitter:card" content="summary"> <meta name="twitter:image" content="https://lahuman.github.io/assets/img/logo.png"> <meta name="twitter:title" content="#7-2 프로덕션 수준의 테라폼 코드"> <meta name="twitter:description" content="Terraform 101 Study"> <!-- Open Graph --> <meta property="og:locale" content="ko_KR"> <meta property="og:type" content="article"> <meta property="og:title" content="#7-2 프로덕션 수준의 테라폼 코드"> <meta property="og:description" content="Terraform 101 Study"> <meta property="og:url" content="https://lahuman.github.io/t101_7week_2/"> <meta property="og:site_name" content="lahuman"> <meta property="og:image" content="https://lahuman.github.io/assets/img/logo.png"> <link rel="canonical" href="https://lahuman.github.io/t101_7week_2/"> <link href="https://lahuman.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="lahuman Feed"> <!-- Handheld --> <meta name="HandheldFriendly" content="True"> <meta name="MobileOptimized" content="320"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- CSS --> <link rel="stylesheet" href="https://lahuman.github.io/assets/css/main.css"> <!-- JS --> <script src="https://lahuman.github.io/assets/js/modernizr-3.3.1.custom.min.js"></script> <!-- Favicons --> <link rel="apple-touch-icon" href="https://lahuman.github.io/assets/img/favicons/apple-icon-precomposed.png"> <link rel="apple-touch-icon" sizes="72x72" href="https://lahuman.github.io/assets/img/favicons/apple-icon-72x72.png"> <link rel="apple-touch-icon" sizes="114x114" href="https://lahuman.github.io/assets/img/favicons/apple-icon-114x114.png"> <link rel="apple-touch-icon" sizes="144x144" href="https://lahuman.github.io/assets/img/favicons/apple-icon-144x144.png"> <link rel="shortcut icon" type="image/png" href="https://lahuman.github.io/favicon.png" /> <link rel="shortcut icon" href="https://lahuman.github.io/favicon.ico" /> <!-- mermaid --> <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script> <script>mermaid.initialize({startOnLoad:true});</script> <!-- Background Image --> <style type="text/css">body {background-image:url(https://lahuman.github.io/assets/img/placeholder-big.jpg); background-repeat: no-repeat; background-size: cover; }</style> <!-- Post Feature Image --> </head> <body> <nav id="dl-menu" class="dl-menuwrapper" role="navigation"> <button class="dl-trigger">Open Menu</button> <ul class="dl-menu"> <li><a href="https://lahuman.github.io/">Home</a></li> <li> <a href="#">About</a> <ul class="dl-submenu"> <li> <img src="https://lahuman.github.io/assets/img/logo.png" alt="lahuman photo" class="author-photo"> <h4>lahuman</h4> <p>열심히 사는 아저씨</p> </li> <li><a href="https://lahuman.github.io/about/"><span class="btn btn-inverse">Learn More</span></a></li> <li> <a href="http://facebook.com/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-facebook-square"></i> Facebook</a> </li> <li> <a href="http://linkedin.com/in/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-linkedin-square"></i> LinkedIn</a> </li> <li> <a href="http://github.com/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-github"></i> Github</a> </li> </ul><!-- /.dl-submenu --> </li> <li> <a href="#">Posts</a> <ul class="dl-submenu"> <li><a href="https://lahuman.github.io/posts/">All Posts</a></li> <li><a href="https://lahuman.github.io/tags/">All Tags</a></li> </ul> </li> <li><a href="https://lahuman.github.io/projects/" >Projects</a></li> </ul><!-- /.dl-menu --> </nav><!-- /.dl-menuwrapper --> <!-- Header --> <header class="header" role="banner"> <div class="wrapper animated fadeIn"> <div class="content"> <div class="post-title "> <h1>#7-2 프로덕션 수준의 테라폼 코드</h1> <h4>04 Dec 2022</h4> <p class="reading-time"> <i class="fa fa-clock-o"></i> Reading time ~19 minutes </p><!-- /.entry-reading-time --> <a class="btn zoombtn" href="https://lahuman.github.io/projects/"> <i class="fa fa-chevron-left"></i> </a> </div> <h1 id="프로덕션-수준의-테라폼-코드">프로덕션 수준의 테라폼 코드</h1> <h3 id="소개">소개</h3> <p><code class="language-plaintext highlighter-rouge">프로덕션 수준의 인프라</code> By production-grade infrastructure</p> <ul> <li>서버, 데이터 저장소, 로드 밸런서, 보안 기능, 모니터링 및 경고 도구, 파이프라인 구축 및 비즈니스 운영에 필요한 기타 모든 기술을 의미 + 이중화 및 장애 대응 가능</li> <li>필자가 경험한 <strong>프로덕션 수준의 인프라</strong>를 만드는 프로젝트에 소요되는 대략적인 시간</li> </ul> <table> <thead> <tr> <th>인프라 유형</th> <th>예</th> <th>예상 소요 시간</th> </tr> </thead> <tbody> <tr> <td>관리형 서비스 Managed service</td> <td>Amazon RDS</td> <td>1~2주</td> </tr> <tr> <td>스스로 관리하는 분산 시스템 (상태 비저장)</td> <td> </td> <td> </td> </tr> <tr> <td>Self-managed distributed system (stateless)</td> <td>Node.js 앱이 실행되는 ASG 클러스터</td> <td>2~4</td> </tr> <tr> <td>스스로 관리하는 분산 시스템 (상태 저장)</td> <td> </td> <td> </td> </tr> <tr> <td>Self-managed distributed system (stateful)</td> <td>Amazon Elasticsearch cluster</td> <td>2~4개월</td> </tr> <tr> <td>전체 아키텍처 Entire architecture</td> <td>애플리케이션, 데이터 저장소, 로드 밸런서, 모니터링 등</td> <td>6~36개월</td> </tr> </tbody> </table> <blockquote> <p>실제 프로덕션 수준의 인프라를 테라폼으로 구성해본 경험해보신 분들은 대략 얼마정도의 기간이 소요되었나요?</p> </blockquote> <p>==&gt; 제 경우는 전체 구조를 잡는데 6개월 가량 소요 되었고, 이 또한 3~4번 이상 구조를 변경하면서 진행하였습니다.</p> <h3 id="1-프로덕션-수준-인프라-구축에-오랜-시간이-걸리는-이유">1. 프로덕션 수준 인프라 구축에 오랜 시간이 걸리는 이유</h3> <p><strong>Why It Takes So Long to Build Production-Grade Infrastructure</strong></p> <p><strong>DevOps 프로젝트</strong>는 다른 유형의 소프트웨어 프로젝트 보다 더 <strong>시간이 소요</strong>될 수 있다. 아래 법칙에 잘 들어맞는 예이다</p> <ul> <li><strong>호프스태터의 법칙</strong> Hofstadter’s Law : 호프스태터의 법칙을 계산에 넣어도 항상 예상한 것보다 더 오래 걸린다. <ol> <li><strong>데브옵스 산업</strong>이 여전히 <strong>석기 시대</strong>에 있기 때문 the industry is still in its <strong>infancy</strong></li> </ol> <ul> <li>아직 산업의 초기 단계이며, ‘Cloud Computing, IaC, DevOps, Docker, k8s’ 등 도구의 출현과 기술이 빠르게 변하고 있으면 충분히 성숙되지 않았음</li> </ul> </li> </ul> <ol> <li> <p>데브옵스가 특히 ‘<strong>야크 털 깎기</strong>’에 취약 The second reason is that DevOps seems to be particularly susceptible to yak shaving - <a href="https://www.lesstif.com/software-engineering/yak-shaving-29590364.html">링크</a></p> <p><a href="https://everydayconcepts.io/yak-shaving/">https://everydayconcepts.io/yak-shaving/</a></p> <ul> <li>야크 털 깎기 : <strong>어떤 목적을 달성하기 위해 원래 목적과 전혀 상관없는 일들을 계속해야 하며 그중 마지막 작업</strong> - 👍🏻 <a href="https://www.lesstif.com/software-engineering/yak-shaving-29590364.html">링크</a></li> </ul> </li> <li> <p>수행해야 하는 작업의 <strong>체크 리스트가 너무 많다</strong> long checklist of tasks that you must do to prepare infrastructure for production</p> <ul> <li>문제는 대다수 개발자가 체크 리스트에 있는 대부분의 항목을 알지 못하기 때문에 프로젝트를 평가할 때 중요하고 시간이 많이 걸리는 세부 사항을 잊어버린다</li> </ul> </li> </ol> <h3 id="2-프로덕션-수준-인프라-체크-리스트">2. 프로덕션 수준 인프라 체크 리스트</h3> <aside> ❓ 프로덕션 환경으로 전환하는 데 필요한 것이 뭐가 있죠? What are the requirements for going to production? </aside> <p><strong>The Production-Grade Infrastructure Checklist</strong></p> <p><img src="https://miro.medium.com/max/1400/1*-nYI19LZZKDQjdAx0qhlFw.webp" alt="" /></p> <ul> <li>예를 들어 서버나 로드밸런서가 다운되면 어떻게 될까요? 데이터 센터에 문제가 생긴다면?</li> <li>네트워킹 작업 역시 까다롭다. ‘VPC, VPN, Service Discovery, SSH Access’ 설정 등 모두 맻 개월이 걸릴 수도 있습니다.</li> <li>그러나 프로젝트 계획과 시간 예측에서 완전히 배제되는 경우가 많습니다.</li> </ul> <h3 id="3-프로덕션-수준-인프라-모듈">3. 프로덕션 수준 인프라 모듈</h3> <p><strong>Production-Grade Infrastructure Modules</strong></p> <p>작업 목록을 확인했으니, 구현하기 위해 <strong>재사용 가능한 모듈</strong>을 구축하는 <strong>모범 사례</strong>를 살표보자. 아래 다룰 주제.</p> <ul> <li><strong>소형 모듈</strong> Small modules</li> <li><strong>합성 가능한 모듈</strong> Composable modules</li> <li><strong>테스트 가능한 모듈</strong> Testable modules</li> <li><strong>릴리스 가능한 모듈</strong> Versioned modules</li> <li><strong>테라폼 모듈 외의 것들</strong> Beyond Terraform modules</li> </ul> <p><strong>3.1 소형 모듈 Small modules</strong></p> <p><strong>대형 모듈 단점</strong> : 상태 파일 격리에서 알아본 것처럼 ‘개발-스테이징-프로덕션’ 모든 인프라 환경을 단일 파일 또는 단일 모듈로 정의하는 것을 좋지 않을뿐더러 <strong>유해</strong>한 것으로 간주함</p> <ul> <li>속도가 느림 slow : 모든 인프라가 하나의 모듈에 정의되어 있으면 명령 실행 시 오래 걸림. terraform plan 시 20분 걸리기도 함</li> <li>안전하지 않음 insecure : 모든 인프라가 하나의 모듈에 정의되어 있으면 어떤 것을 변경하려면 모든 액세스 권한이 필요함. <ul> <li>따라서 모든 사용자가 관리자 권한이 필요하여 최소 권한 원칙 principle of least privilege 에 위배</li> </ul> </li> <li>위험성이 높음 risky : 예를 들어 스테이징 환경에서 프런트엔드 앱을 변경 시 오타나 잘못된 명령으로 프로덕션 데이터베이스를 삭제할 수 있다</li> <li>이해하기 어려움 understand : 한 곳에 코드가 많을수록 한 사람이 모든 것을 이해하기가 더 어려워짐.</li> <li>리뷰하기 어려움 review : 수집 줄의 코드로 구성된 모듈을 리뷰하는 것으 쉽지만, 수천 줄의 코드로 구성된 모듈을 리뷰하는 것은 거의 불가능하다. <ul> <li>terraform plan 실행 시 오래 거리고, plan 명령의 출력이 수천 줄이며 아무도 코드를 읽으려 하지 않는다.</li> <li>이 경우 데이터베이스가 삭제될 것임을 나타내는 빨간색 코드를 누구도 발견하지 못할 수도 있습니다.</li> </ul> </li> <li>테스트하기 어려움 test : 인프라 코드 테스트는 어렵다. 다음 장에서 살펴볼 예정</li> </ul> <p><strong>방안</strong> : <strong>소형 모듈</strong>로 코드를 작성, 클린 코드 Clean Code 내용</p> <ul> <li>함수의 첫 번째 규칙은 작어야 한다는 것입니다. The first rule of functions is that they should be small.</li> <li> <p>함수의 두 번째 규칙은 그보다 더 작아야 한다는 것입니다. The second rule of functions is that they should be smaller than that.</p> </li> <li>위 아키텍처라 2만 줄의 거대한 단일 테라폼 모듈로 정의되었다면, 즉시 <strong>코드 스멜</strong> code smell 로 취급해야 합니다. <ul> <li>코드 스멜 : 더 큰 문제를 일으킬 수 있는 코드의 특징 → SonarQube 솔루션 활용 할 수 있음 - <a href="https://docs.sonarqube.org/latest/user-guide/concepts/">링크</a></li> </ul> </li> <li>아래 처럼 여러 개의 작은 모듈로 리팩터링하자 : <strong>ASG, ALB, App → 코드를 소형 모듈 3개로 리팩터링</strong></li> </ul> <p><strong>Let’s refactor the code accordingly into three smaller modules:</strong></p> <ol> <li><strong>modules/cluster/asg-rolling-deploy</strong> : A generic, reusable, standalone module for deploying an ASG that can do a zero-downtime, rolling deployment. <ul> <li>무중단 롤링 배포를 수행할 수 있으며 ASG를 배포하기 위한 재사용 가능한 일반 독립형 모듈</li> </ul> </li> <li><strong>modules/networking/alb</strong> : A generic, reusable, standalone module for deploying an ALB. <ul> <li>ALB를 배포하기 위한 재사용 가능한 일반 독립형 모듈</li> </ul> </li> <li><strong>modules/services/hello-world-app</strong> : A module specifically for deploying the “Hello, World” app, which uses the asg-rolling-deploy and alb modules under the hood. <ul> <li>“Hello, World” 앱을 배포하기 위한 모듈</li> </ul> </li> </ol> <p><strong>코드 리팩터링</strong></p> <ol> <li>5장에서 배포한 webserver-cluster 를 terraform destroy 로 삭제 → asg-rolling-deploy 과 alb 모듈을 조립할 수 있다</li> <li>[asg-rolling-deploy 리팩터링] modules/cluster/asg-rolling-deploy 새 폴더를 만들고 module/services/webserver-cluster/main.tf ⇒ modules/cluster/<strong>asg-rolling-deploy/main.tf</strong> 로 리소스 이동 후 수정 <ul> <li> <p>small-modules/modules/cluster/<strong>asg-rolling-deploy/main.tf</strong> - <a href="https://github.com/brikis98/terraform-up-and-running-code/blob/master/code/terraform/08-production-grade-infrastructure/small-modules/modules/cluster/asg-rolling-deploy/main.tf">링크</a></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  terraform <span class="o">{</span>
+    required_version <span class="o">=</span> <span class="s2">"&gt;= 1.0.0, &lt; 2.0.0"</span>
+        
+    required_providers <span class="o">{</span>
+      aws <span class="o">=</span> <span class="o">{</span>
+        <span class="nb">source</span>  <span class="o">=</span> <span class="s2">"hashicorp/aws"</span>
+        version <span class="o">=</span> <span class="s2">"~&gt; 4.0"</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+        
+  resource <span class="s2">"aws_launch_configuration"</span> <span class="s2">"example"</span> <span class="o">{</span>
+    image_id        <span class="o">=</span> var.ami
+    instance_type   <span class="o">=</span> var.instance_type
+    security_groups <span class="o">=</span> <span class="o">[</span>aws_security_group.instance.id]
+    user_data       <span class="o">=</span> var.user_data
+        
+    <span class="c"># Required when using a launch configuration with an auto scaling group.</span>
+    lifecycle <span class="o">{</span>
+      create_before_destroy <span class="o">=</span> <span class="nb">true
+      </span>precondition <span class="o">{</span>
+        condition     <span class="o">=</span> data.aws_ec2_instance_type.instance.free_tier_eligible
+        error_message <span class="o">=</span> <span class="s2">"</span><span class="k">${</span><span class="nv">var</span><span class="p">.instance_type</span><span class="k">}</span><span class="s2"> is not part of the AWS Free Tier!"</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+        
+  resource <span class="s2">"aws_autoscaling_group"</span> <span class="s2">"example"</span> <span class="o">{</span>
+    name                 <span class="o">=</span> var.cluster_name
+    launch_configuration <span class="o">=</span> aws_launch_configuration.example.name
+        
+    vpc_zone_identifier  <span class="o">=</span> var.subnet_ids
+        
+    <span class="c"># Configure integrations with a load balancer</span>
+    target_group_arns    <span class="o">=</span> var.target_group_arns
+    health_check_type    <span class="o">=</span> var.health_check_type
+        
+    min_size <span class="o">=</span> var.min_size
+    max_size <span class="o">=</span> var.max_size
+        
+    <span class="c"># Use instance refresh to roll out changes to the ASG</span>
+    instance_refresh <span class="o">{</span>
+      strategy <span class="o">=</span> <span class="s2">"Rolling"</span>
+      preferences <span class="o">{</span>
+        min_healthy_percentage <span class="o">=</span> 50
+      <span class="o">}</span>
+    <span class="o">}</span>
+        
+    tag <span class="o">{</span>
+      key                 <span class="o">=</span> <span class="s2">"Name"</span>
+      value               <span class="o">=</span> var.cluster_name
+      propagate_at_launch <span class="o">=</span> <span class="nb">true</span>
+    <span class="o">}</span>
+        
+    dynamic <span class="s2">"tag"</span> <span class="o">{</span>
+      for_each <span class="o">=</span> <span class="o">{</span>
+        <span class="k">for </span>key, value <span class="k">in </span>var.custom_tags:
+        key <span class="o">=&gt;</span> upper<span class="o">(</span>value<span class="o">)</span>
+        <span class="k">if </span>key <span class="o">!=</span> <span class="s2">"Name"</span>
+      <span class="o">}</span>
+        
+      content <span class="o">{</span>
+        key                 <span class="o">=</span> tag.key
+        value               <span class="o">=</span> tag.value
+        propagate_at_launch <span class="o">=</span> <span class="nb">true</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+        
+    lifecycle <span class="o">{</span>
+      postcondition <span class="o">{</span>
+        condition     <span class="o">=</span> length<span class="o">(</span>self.availability_zones<span class="o">)</span> <span class="o">&gt;</span> 1
+        error_message <span class="o">=</span> <span class="s2">"You must use more than one AZ for high availability!"</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+        
+  <span class="o">}</span>
+        
+  resource <span class="s2">"aws_autoscaling_schedule"</span> <span class="s2">"scale_out_during_business_hours"</span> <span class="o">{</span>
+    count <span class="o">=</span> var.enable_autoscaling ? 1 : 0
+        
+    scheduled_action_name  <span class="o">=</span> <span class="s2">"</span><span class="k">${</span><span class="nv">var</span><span class="p">.cluster_name</span><span class="k">}</span><span class="s2">-scale-out-during-business-hours"</span>
+    min_size               <span class="o">=</span> 2
+    max_size               <span class="o">=</span> 10
+    desired_capacity       <span class="o">=</span> 10
+    recurrence             <span class="o">=</span> <span class="s2">"0 9 * * *"</span>
+    autoscaling_group_name <span class="o">=</span> aws_autoscaling_group.example.name
+  <span class="o">}</span>
+        
+  resource <span class="s2">"aws_autoscaling_schedule"</span> <span class="s2">"scale_in_at_night"</span> <span class="o">{</span>
+    count <span class="o">=</span> var.enable_autoscaling ? 1 : 0
+        
+    scheduled_action_name  <span class="o">=</span> <span class="s2">"</span><span class="k">${</span><span class="nv">var</span><span class="p">.cluster_name</span><span class="k">}</span><span class="s2">-scale-in-at-night"</span>
+    min_size               <span class="o">=</span> 2
+    max_size               <span class="o">=</span> 10
+    desired_capacity       <span class="o">=</span> 2
+    recurrence             <span class="o">=</span> <span class="s2">"0 17 * * *"</span>
+    autoscaling_group_name <span class="o">=</span> aws_autoscaling_group.example.name
+  <span class="o">}</span>
+        
+  resource <span class="s2">"aws_security_group"</span> <span class="s2">"instance"</span> <span class="o">{</span>
+    name <span class="o">=</span> <span class="s2">"</span><span class="k">${</span><span class="nv">var</span><span class="p">.cluster_name</span><span class="k">}</span><span class="s2">-instance"</span>
+  <span class="o">}</span>
+        
+  resource <span class="s2">"aws_security_group_rule"</span> <span class="s2">"allow_server_http_inbound"</span> <span class="o">{</span>
+    <span class="nb">type</span>              <span class="o">=</span> <span class="s2">"ingress"</span>
+    security_group_id <span class="o">=</span> aws_security_group.instance.id
+        
+    from_port   <span class="o">=</span> var.server_port
+    to_port     <span class="o">=</span> var.server_port
+    protocol    <span class="o">=</span> local.tcp_protocol
+    cidr_blocks <span class="o">=</span> local.all_ips
+  <span class="o">}</span>
+        
+  resource <span class="s2">"aws_cloudwatch_metric_alarm"</span> <span class="s2">"high_cpu_utilization"</span> <span class="o">{</span>
+    alarm_name  <span class="o">=</span> <span class="s2">"</span><span class="k">${</span><span class="nv">var</span><span class="p">.cluster_name</span><span class="k">}</span><span class="s2">-high-cpu-utilization"</span>
+    namespace   <span class="o">=</span> <span class="s2">"AWS/EC2"</span>
+    metric_name <span class="o">=</span> <span class="s2">"CPUUtilization"</span>
+        
+    dimensions <span class="o">=</span> <span class="o">{</span>
+      AutoScalingGroupName <span class="o">=</span> aws_autoscaling_group.example.name
+    <span class="o">}</span>
+        
+    comparison_operator <span class="o">=</span> <span class="s2">"GreaterThanThreshold"</span>
+    evaluation_periods  <span class="o">=</span> 1
+    period              <span class="o">=</span> 300
+    statistic           <span class="o">=</span> <span class="s2">"Average"</span>
+    threshold           <span class="o">=</span> 90
+    unit                <span class="o">=</span> <span class="s2">"Percent"</span>
+  <span class="o">}</span>
+        
+  resource <span class="s2">"aws_cloudwatch_metric_alarm"</span> <span class="s2">"low_cpu_credit_balance"</span> <span class="o">{</span>
+    count <span class="o">=</span> format<span class="o">(</span><span class="s2">"%.1s"</span>, var.instance_type<span class="o">)</span> <span class="o">==</span> <span class="s2">"t"</span> ? 1 : 0
+        
+    alarm_name  <span class="o">=</span> <span class="s2">"</span><span class="k">${</span><span class="nv">var</span><span class="p">.cluster_name</span><span class="k">}</span><span class="s2">-low-cpu-credit-balance"</span>
+    namespace   <span class="o">=</span> <span class="s2">"AWS/EC2"</span>
+    metric_name <span class="o">=</span> <span class="s2">"CPUCreditBalance"</span>
+        
+    dimensions <span class="o">=</span> <span class="o">{</span>
+      AutoScalingGroupName <span class="o">=</span> aws_autoscaling_group.example.name
+    <span class="o">}</span>
+        
+    comparison_operator <span class="o">=</span> <span class="s2">"LessThanThreshold"</span>
+    evaluation_periods  <span class="o">=</span> 1
+    period              <span class="o">=</span> 300
+    statistic           <span class="o">=</span> <span class="s2">"Minimum"</span>
+    threshold           <span class="o">=</span> 10
+    unit                <span class="o">=</span> <span class="s2">"Count"</span>
+  <span class="o">}</span>
+        
+  data <span class="s2">"aws_ec2_instance_type"</span> <span class="s2">"instance"</span> <span class="o">{</span>
+    instance_type <span class="o">=</span> var.instance_type
+  <span class="o">}</span>
+        
+  locals <span class="o">{</span>
+    tcp_protocol <span class="o">=</span> <span class="s2">"tcp"</span>
+    all_ips      <span class="o">=</span> <span class="o">[</span><span class="s2">"0.0.0.0/0"</span><span class="o">]</span>
+  <span class="o">}</span>
+</code></pre></div> </div> </li> </ul> </li> <li>[asg-rolling-deploy 리팩터링] 이제 변수를 module/services/webserver-cluster/variables.tf ⇒ modules/cluster/<strong>asg-rolling-deploy/variables.tf</strong> 로 이동 <ul> <li> <p>small-modules/modules/cluster/<strong>asg-rolling-deploy/variables.tf</strong> - <a href="https://github.com/brikis98/terraform-up-and-running-code/blob/master/code/terraform/08-production-grade-infrastructure/small-modules/modules/cluster/asg-rolling-deploy/variables.tf">링크</a></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c"># ---------------------------------------------------------------------------------------------------------------------</span>
+  <span class="c"># REQUIRED PARAMETERS</span>
+  <span class="c"># You must provide a value for each of these parameters.</span>
+  <span class="c"># ---------------------------------------------------------------------------------------------------------------------</span>
+        
+  variable <span class="s2">"cluster_name"</span> <span class="o">{</span>
+    description <span class="o">=</span> <span class="s2">"The name to use for all the cluster resources"</span>
+    <span class="nb">type</span>        <span class="o">=</span> string
+  <span class="o">}</span>
+        
+  variable <span class="s2">"ami"</span> <span class="o">{</span>
+    description <span class="o">=</span> <span class="s2">"The AMI to run in the cluster"</span>
+    <span class="nb">type</span>        <span class="o">=</span> string
+  <span class="o">}</span>
+        
+  variable <span class="s2">"instance_type"</span> <span class="o">{</span>
+    description <span class="o">=</span> <span class="s2">"The type of EC2 Instances to run (e.g. t2.micro)"</span>
+    <span class="nb">type</span>        <span class="o">=</span> string
+        
+    validation <span class="o">{</span>
+      condition     <span class="o">=</span> contains<span class="o">([</span><span class="s2">"t2.micro"</span>, <span class="s2">"t3.micro"</span><span class="o">]</span>, var.instance_type<span class="o">)</span>
+      error_message <span class="o">=</span> <span class="s2">"Only free tier is allowed: t2.micro | t3.micro."</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+        
+  variable <span class="s2">"min_size"</span> <span class="o">{</span>
+    description <span class="o">=</span> <span class="s2">"The minimum number of EC2 Instances in the ASG"</span>
+    <span class="nb">type</span>        <span class="o">=</span> number
+        
+    validation <span class="o">{</span>
+      condition     <span class="o">=</span> var.min_size <span class="o">&gt;</span> 0
+      error_message <span class="o">=</span> <span class="s2">"ASGs can't be empty or we'll have an outage!"</span>
+    <span class="o">}</span>
+        
+    validation <span class="o">{</span>
+      condition     <span class="o">=</span> var.min_size &lt;<span class="o">=</span> 10
+      error_message <span class="o">=</span> <span class="s2">"ASGs must have 10 or fewer instances to keep costs down."</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+        
+  variable <span class="s2">"max_size"</span> <span class="o">{</span>
+    description <span class="o">=</span> <span class="s2">"The maximum number of EC2 Instances in the ASG"</span>
+    <span class="nb">type</span>        <span class="o">=</span> number
+        
+    validation <span class="o">{</span>
+      condition     <span class="o">=</span> var.max_size <span class="o">&gt;</span> 0
+      error_message <span class="o">=</span> <span class="s2">"ASGs can't be empty or we'll have an outage!"</span>
+    <span class="o">}</span>
+        
+    validation <span class="o">{</span>
+      condition     <span class="o">=</span> var.max_size &lt;<span class="o">=</span> 10
+      error_message <span class="o">=</span> <span class="s2">"ASGs must have 10 or fewer instances to keep costs down."</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+        
+  variable <span class="s2">"subnet_ids"</span> <span class="o">{</span>
+    description <span class="o">=</span> <span class="s2">"The subnet IDs to deploy to"</span>
+    <span class="nb">type</span>        <span class="o">=</span> list<span class="o">(</span>string<span class="o">)</span>
+  <span class="o">}</span>
+        
+  variable <span class="s2">"enable_autoscaling"</span> <span class="o">{</span>
+    description <span class="o">=</span> <span class="s2">"If set to true, enable auto scaling"</span>
+    <span class="nb">type</span>        <span class="o">=</span> bool
+  <span class="o">}</span>
+        
+  <span class="c"># ---------------------------------------------------------------------------------------------------------------------</span>
+  <span class="c"># OPTIONAL PARAMETERS</span>
+  <span class="c"># These parameters have reasonable defaults.</span>
+  <span class="c"># ---------------------------------------------------------------------------------------------------------------------</span>
+        
+  variable <span class="s2">"target_group_arns"</span> <span class="o">{</span>
+    description <span class="o">=</span> <span class="s2">"The ARNs of ELB target groups in which to register Instances"</span>
+    <span class="nb">type</span>        <span class="o">=</span> list<span class="o">(</span>string<span class="o">)</span>
+    default     <span class="o">=</span> <span class="o">[]</span>
+  <span class="o">}</span>
+        
+  variable <span class="s2">"health_check_type"</span> <span class="o">{</span>
+    description <span class="o">=</span> <span class="s2">"The type of health check to perform. Must be one of: EC2, ELB."</span>
+    <span class="nb">type</span>        <span class="o">=</span> string
+    default     <span class="o">=</span> <span class="s2">"EC2"</span>
+        
+    validation <span class="o">{</span>
+      condition     <span class="o">=</span> contains<span class="o">([</span><span class="s2">"EC2"</span>, <span class="s2">"ELB"</span><span class="o">]</span>, var.health_check_type<span class="o">)</span>
+      error_message <span class="o">=</span> <span class="s2">"The health_check_type must be one of: EC2 | ELB."</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+        
+  variable <span class="s2">"user_data"</span> <span class="o">{</span>
+    description <span class="o">=</span> <span class="s2">"The User Data script to run in each Instance at boot"</span>
+    <span class="nb">type</span>        <span class="o">=</span> string
+    default     <span class="o">=</span> null
+  <span class="o">}</span>
+        
+  variable <span class="s2">"custom_tags"</span> <span class="o">{</span>
+    description <span class="o">=</span> <span class="s2">"Custom tags to set on the Instances in the ASG"</span>
+    <span class="nb">type</span>        <span class="o">=</span> map<span class="o">(</span>string<span class="o">)</span>
+    default     <span class="o">=</span> <span class="o">{}</span>
+  <span class="o">}</span>
+        
+  variable <span class="s2">"server_port"</span> <span class="o">{</span>
+    description <span class="o">=</span> <span class="s2">"The port the server will use for HTTP requests"</span>
+    <span class="nb">type</span>        <span class="o">=</span> number
+    default     <span class="o">=</span> 8080
+  <span class="o">}</span>
+</code></pre></div> </div> </li> </ul> </li> <li>[alb 리팩터링] modules/networking/alb 새 폴더 만들고, module/services/webserver-cluster/main.tf ⇒ modules/networking/<strong>alb/main.tf</strong> 로 리소스 이동 후 수정 <ul> <li> <p>small-modules/modules/networking/<strong>alb/main.tf</strong></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  terraform <span class="o">{</span>
+    required_version <span class="o">=</span> <span class="s2">"&gt;= 1.0.0, &lt; 2.0.0"</span>
+        
+    required_providers <span class="o">{</span>
+      aws <span class="o">=</span> <span class="o">{</span>
+        <span class="nb">source</span>  <span class="o">=</span> <span class="s2">"hashicorp/aws"</span>
+        version <span class="o">=</span> <span class="s2">"~&gt; 4.0"</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+        
+  resource <span class="s2">"aws_lb"</span> <span class="s2">"example"</span> <span class="o">{</span>
+    name               <span class="o">=</span> var.alb_name
+    load_balancer_type <span class="o">=</span> <span class="s2">"application"</span>
+        
+    subnets            <span class="o">=</span> var.subnet_ids
+        
+    security_groups    <span class="o">=</span> <span class="o">[</span>aws_security_group.alb.id]
+  <span class="o">}</span>
+        
+  resource <span class="s2">"aws_lb_listener"</span> <span class="s2">"http"</span> <span class="o">{</span>
+    load_balancer_arn <span class="o">=</span> aws_lb.example.arn
+    port              <span class="o">=</span> local.http_port
+    protocol          <span class="o">=</span> <span class="s2">"HTTP"</span>
+        
+    <span class="c"># By default, return a simple 404 page</span>
+    default_action <span class="o">{</span>
+      <span class="nb">type</span> <span class="o">=</span> <span class="s2">"fixed-response"</span>
+        
+      fixed_response <span class="o">{</span>
+        content_type <span class="o">=</span> <span class="s2">"text/plain"</span>
+        message_body <span class="o">=</span> <span class="s2">"404: page not found"</span>
+        status_code  <span class="o">=</span> 404
+      <span class="o">}</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+        
+  resource <span class="s2">"aws_security_group"</span> <span class="s2">"alb"</span> <span class="o">{</span>
+    name <span class="o">=</span> var.alb_name
+  <span class="o">}</span>
+        
+  resource <span class="s2">"aws_security_group_rule"</span> <span class="s2">"allow_http_inbound"</span> <span class="o">{</span>
+    <span class="nb">type</span>              <span class="o">=</span> <span class="s2">"ingress"</span>
+    security_group_id <span class="o">=</span> aws_security_group.alb.id
+        
+    from_port   <span class="o">=</span> local.http_port
+    to_port     <span class="o">=</span> local.http_port
+    protocol    <span class="o">=</span> local.tcp_protocol
+    cidr_blocks <span class="o">=</span> local.all_ips
+  <span class="o">}</span>
+        
+  resource <span class="s2">"aws_security_group_rule"</span> <span class="s2">"allow_all_outbound"</span> <span class="o">{</span>
+    <span class="nb">type</span>              <span class="o">=</span> <span class="s2">"egress"</span>
+    security_group_id <span class="o">=</span> aws_security_group.alb.id
+        
+    from_port   <span class="o">=</span> local.any_port
+    to_port     <span class="o">=</span> local.any_port
+    protocol    <span class="o">=</span> local.any_protocol
+    cidr_blocks <span class="o">=</span> local.all_ips
+  <span class="o">}</span>
+        
+  locals <span class="o">{</span>
+    http_port    <span class="o">=</span> 80
+    any_port     <span class="o">=</span> 0
+    any_protocol <span class="o">=</span> <span class="s2">"-1"</span>
+    tcp_protocol <span class="o">=</span> <span class="s2">"tcp"</span>
+    all_ips      <span class="o">=</span> <span class="o">[</span><span class="s2">"0.0.0.0/0"</span><span class="o">]</span>
+  <span class="o">}</span>
+</code></pre></div> </div> </li> </ul> </li> <li>[alb 리팩터링] 이제 변수 코드 파일 생성 modules/networking/<strong>alb/variables.tf</strong> <ul> <li> <p>small-modules/modules/networking/<strong>alb/variables.tf</strong></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c"># ---------------------------------------------------------------------------------------------------------------------</span>
+  <span class="c"># REQUIRED PARAMETERS</span>
+  <span class="c"># You must provide a value for each of these parameters.</span>
+  <span class="c"># ---------------------------------------------------------------------------------------------------------------------</span>
+        
+  variable <span class="s2">"alb_name"</span> <span class="o">{</span>
+    description <span class="o">=</span> <span class="s2">"The name to use for this ALB"</span>
+    <span class="nb">type</span>        <span class="o">=</span> string
+  <span class="o">}</span>
+        
+  variable <span class="s2">"subnet_ids"</span> <span class="o">{</span>
+    description <span class="o">=</span> <span class="s2">"The subnet IDs to deploy to"</span>
+    <span class="nb">type</span>        <span class="o">=</span> list<span class="o">(</span>string<span class="o">)</span>
+  <span class="o">}</span>
+</code></pre></div> </div> </li> </ul> </li> </ol> <p><strong>3.2 합성 가능한 모듈</strong> Composable modules</p> <p><strong>재사용 가능하고 합성 가능한 모듈</strong></p> <ul> <li><strong>외부에서 상태를 읽는 대신 입력 매개 변수를 통해 전달하고, 외부에 상태를 쓰는 대신 출력 매개 변수를 통해 계산 결과를 반환합니다.</strong></li> <li>모든 것을 입력 변수를 통해 전달하고 모든 것을 출력 변수를 통해 반환하며 간단한 모듈들을 결합해 더 복잡한 모듈을 만들수 있다.</li> <li>실제 사용 시에는 더 나은 합성과 재사용을 위해 아래 실습 내용 보다 모듈을 더욱 세분화해야 할 수도 있습니다.</li> </ul> <p><strong>코드 리팩터링</strong></p> <ol> <li>modules/cluster/<strong>asg-rolling-deploy/variables.tf</strong> 에 새로운 입력 변수 4개를 추가 <ul> <li> <p>small-modules/modules/cluster/<strong>asg-rolling-deploy/variables.tf</strong> - <a href="https://github.com/brikis98/terraform-up-and-running-code/blob/master/code/terraform/08-production-grade-infrastructure/small-modules/modules/cluster/asg-rolling-deploy/variables.tf">링크</a></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c"># ---------------------------------------------------------------------------------------------------------------------</span>
+  <span class="c"># REQUIRED PARAMETERS</span>
+  <span class="c"># You must provide a value for each of these parameters.</span>
+  <span class="c"># ---------------------------------------------------------------------------------------------------------------------</span>
+        
+  variable <span class="s2">"cluster_name"</span> <span class="o">{</span>
+    description <span class="o">=</span> <span class="s2">"The name to use for all the cluster resources"</span>
+    <span class="nb">type</span>        <span class="o">=</span> string
+  <span class="o">}</span>
+        
+  variable <span class="s2">"ami"</span> <span class="o">{</span>
+    description <span class="o">=</span> <span class="s2">"The AMI to run in the cluster"</span>
+    <span class="nb">type</span>        <span class="o">=</span> string
+  <span class="o">}</span>
+        
+  variable <span class="s2">"instance_type"</span> <span class="o">{</span>
+    description <span class="o">=</span> <span class="s2">"The type of EC2 Instances to run (e.g. t2.micro)"</span>
+    <span class="nb">type</span>        <span class="o">=</span> string
+        
+    validation <span class="o">{</span>
+      condition     <span class="o">=</span> contains<span class="o">([</span><span class="s2">"t2.micro"</span>, <span class="s2">"t3.micro"</span><span class="o">]</span>, var.instance_type<span class="o">)</span>
+      error_message <span class="o">=</span> <span class="s2">"Only free tier is allowed: t2.micro | t3.micro."</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+        
+  variable <span class="s2">"min_size"</span> <span class="o">{</span>
+    description <span class="o">=</span> <span class="s2">"The minimum number of EC2 Instances in the ASG"</span>
+    <span class="nb">type</span>        <span class="o">=</span> number
+        
+    validation <span class="o">{</span>
+      condition     <span class="o">=</span> var.min_size <span class="o">&gt;</span> 0
+      error_message <span class="o">=</span> <span class="s2">"ASGs can't be empty or we'll have an outage!"</span>
+    <span class="o">}</span>
+        
+    validation <span class="o">{</span>
+      condition     <span class="o">=</span> var.min_size &lt;<span class="o">=</span> 10
+      error_message <span class="o">=</span> <span class="s2">"ASGs must have 10 or fewer instances to keep costs down."</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+        
+  variable <span class="s2">"max_size"</span> <span class="o">{</span>
+    description <span class="o">=</span> <span class="s2">"The maximum number of EC2 Instances in the ASG"</span>
+    <span class="nb">type</span>        <span class="o">=</span> number
+        
+    validation <span class="o">{</span>
+      condition     <span class="o">=</span> var.max_size <span class="o">&gt;</span> 0
+      error_message <span class="o">=</span> <span class="s2">"ASGs can't be empty or we'll have an outage!"</span>
+    <span class="o">}</span>
+        
+    validation <span class="o">{</span>
+      condition     <span class="o">=</span> var.max_size &lt;<span class="o">=</span> 10
+      error_message <span class="o">=</span> <span class="s2">"ASGs must have 10 or fewer instances to keep costs down."</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+        
+  variable <span class="s2">"subnet_ids"</span> <span class="o">{</span>
+    description <span class="o">=</span> <span class="s2">"The subnet IDs to deploy to"</span>
+    <span class="nb">type</span>        <span class="o">=</span> list<span class="o">(</span>string<span class="o">)</span>
+  <span class="o">}</span>
+        
+  variable <span class="s2">"enable_autoscaling"</span> <span class="o">{</span>
+    description <span class="o">=</span> <span class="s2">"If set to true, enable auto scaling"</span>
+    <span class="nb">type</span>        <span class="o">=</span> bool
+  <span class="o">}</span>
+        
+  <span class="c"># ---------------------------------------------------------------------------------------------------------------------</span>
+  <span class="c"># OPTIONAL PARAMETERS</span>
+  <span class="c"># These parameters have reasonable defaults.</span>
+  <span class="c"># ---------------------------------------------------------------------------------------------------------------------</span>
+        
+  variable <span class="s2">"target_group_arns"</span> <span class="o">{</span>
+    description <span class="o">=</span> <span class="s2">"The ARNs of ELB target groups in which to register Instances"</span>
+    <span class="nb">type</span>        <span class="o">=</span> list<span class="o">(</span>string<span class="o">)</span>
+    default     <span class="o">=</span> <span class="o">[]</span>
+  <span class="o">}</span>
+        
+  variable <span class="s2">"health_check_type"</span> <span class="o">{</span>
+    description <span class="o">=</span> <span class="s2">"The type of health check to perform. Must be one of: EC2, ELB."</span>
+    <span class="nb">type</span>        <span class="o">=</span> string
+    default     <span class="o">=</span> <span class="s2">"EC2"</span>
+        
+    validation <span class="o">{</span>
+      condition     <span class="o">=</span> contains<span class="o">([</span><span class="s2">"EC2"</span>, <span class="s2">"ELB"</span><span class="o">]</span>, var.health_check_type<span class="o">)</span>
+      error_message <span class="o">=</span> <span class="s2">"The health_check_type must be one of: EC2 | ELB."</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+        
+  variable <span class="s2">"user_data"</span> <span class="o">{</span>
+    description <span class="o">=</span> <span class="s2">"The User Data script to run in each Instance at boot"</span>
+    <span class="nb">type</span>        <span class="o">=</span> string
+    default     <span class="o">=</span> null
+  <span class="o">}</span>
+        
+  variable <span class="s2">"custom_tags"</span> <span class="o">{</span>
+    description <span class="o">=</span> <span class="s2">"Custom tags to set on the Instances in the ASG"</span>
+    <span class="nb">type</span>        <span class="o">=</span> map<span class="o">(</span>string<span class="o">)</span>
+    default     <span class="o">=</span> <span class="o">{}</span>
+  <span class="o">}</span>
+        
+  variable <span class="s2">"server_port"</span> <span class="o">{</span>
+    description <span class="o">=</span> <span class="s2">"The port the server will use for HTTP requests"</span>
+    <span class="nb">type</span>        <span class="o">=</span> number
+    default     <span class="o">=</span> 8080
+  <span class="o">}</span>
+</code></pre></div> </div> </li> <li><strong>subnet_ids 는 asg-rolling-deploy 모듈을 배포할 서브넷을 지정</strong> <ul> <li><strong>webserver-cluster 모듈(5장)</strong>은 기본 VPC 및 기본 서브넷에 배포되도록 <strong>하드 코딩</strong>되어 있지만, subnet_ids 변수를 노출해 어떤 VPC나 서브넷에서도 사용할 수 있게 허용</li> </ul> </li> <li><strong>target_group_arns 과 health_check_type 변수는 ASG를 로드 밸런서와 통합하는 방식을 구성</strong> <ul> <li>webserver-cluster 모듈에는 ALB가 내장되어 있지만 asg-rolling-deploy 모듈은 일반 모듈이므로 로드 밸런서 설정을 입력 변수로 노출하면 다양한 상황에서 ASG를 사용 할 수 있다.</li> <li>예를 들어 로드 밸런서가 없거나 하나의 ALB 또는 여러 NLB를 사용하는 상황에서 ASG를 사용할 수 있음</li> </ul> </li> <li>위 3가지 입력 변수를 module/services/webserver-cluster/main.tf ⇒ modules/cluster/<strong>asg-rolling-deploy/main.tf</strong>의 aws_autoscaling_group 리소스에 전달하여 ALB와 같은 이전에 하드 코딩된 리소스 및 데이터 소스를 참조하는 설정으로 대체합니다. <ul> <li> <p>small-modules/modules/cluster/<strong>asg-rolling-deploy/main.tf</strong> - <a href="https://github.com/brikis98/terraform-up-and-running-code/blob/master/code/terraform/08-production-grade-infrastructure/small-modules/modules/cluster/asg-rolling-deploy/main.tf">링크</a></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  ...
+  resource <span class="s2">"aws_autoscaling_group"</span> <span class="s2">"example"</span> <span class="o">{</span>
+    name                 <span class="o">=</span> var.cluster_name
+    launch_configuration <span class="o">=</span> aws_launch_configuration.example.name
+            
+    vpc_zone_identifier  <span class="o">=</span> var.subnet_ids
+            
+    <span class="k">**</span><span class="c"># Configure integrations with a load balancer</span>
+    target_group_arns    <span class="o">=</span> var.target_group_arns
+    health_check_type    <span class="o">=</span> var.health_check_type<span class="k">**</span>
+            
+    min_size <span class="o">=</span> var.min_size
+    max_size <span class="o">=</span> var.max_size
+            
+    <span class="c"># Use instance refresh to roll out changes to the ASG</span>
+    instance_refresh <span class="o">{</span>
+      strategy <span class="o">=</span> <span class="s2">"Rolling"</span>
+      preferences <span class="o">{</span>
+        min_healthy_percentage <span class="o">=</span> 50
+      <span class="o">}</span>
+    <span class="o">}</span>
+            
+    tag <span class="o">{</span>
+      key                 <span class="o">=</span> <span class="s2">"Name"</span>
+      value               <span class="o">=</span> var.cluster_name
+      propagate_at_launch <span class="o">=</span> <span class="nb">true</span>
+    <span class="o">}</span>
+            
+    dynamic <span class="s2">"tag"</span> <span class="o">{</span>
+      for_each <span class="o">=</span> <span class="o">{</span>
+        <span class="k">for </span>key, value <span class="k">in </span>var.custom_tags:
+        key <span class="o">=&gt;</span> upper<span class="o">(</span>value<span class="o">)</span>
+        <span class="k">if </span>key <span class="o">!=</span> <span class="s2">"Name"</span>
+      <span class="o">}</span>
+            
+      content <span class="o">{</span>
+        key                 <span class="o">=</span> tag.key
+        value               <span class="o">=</span> tag.value
+        propagate_at_launch <span class="o">=</span> <span class="nb">true</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+            
+    lifecycle <span class="o">{</span>
+      postcondition <span class="o">{</span>
+        condition     <span class="o">=</span> length<span class="o">(</span>self.availability_zones<span class="o">)</span> <span class="o">&gt;</span> 1
+        error_message <span class="o">=</span> <span class="s2">"You must use more than one AZ for high availability!"</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+            
+  <span class="o">}</span>
+  ...
+</code></pre></div> </div> </li> </ul> </li> <li><strong>user_data 는 사용자 데이터 스크립트를 전달</strong> <ul> <li>webserver-cluster 모듈에 하드 코딩된 사용자 데이터 스크립크는 ‘<strong>Hello, World’</strong> 앱 배포에만 사용할 수 있습니다.</li> <li>그러나 사용자 데이터 스크립트를 입력 변수로 사용하면 asg-rolling-deploy 모듈은 ASG 전체에 어떤 앱이든 배포할 수 있습니다.</li> <li>이 user_data 변수를 아래 aws_launch_configuration 리소스로 전달합니다.</li> <li> <p>small-modules/modules/cluster/<strong>asg-rolling-deploy/main.tf</strong> - <a href="https://github.com/brikis98/terraform-up-and-running-code/blob/master/code/terraform/08-production-grade-infrastructure/small-modules/modules/cluster/asg-rolling-deploy/main.tf">링크</a></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  ...
+  resource <span class="s2">"aws_launch_configuration"</span> <span class="s2">"example"</span> <span class="o">{</span>
+    image_id        <span class="o">=</span> var.ami
+    instance_type   <span class="o">=</span> var.instance_type
+    security_groups <span class="o">=</span> <span class="o">[</span>aws_security_group.instance.id]
+    user_data       <span class="o">=</span> var.user_data
+            
+    <span class="c"># Required when using a launch configuration with an auto scaling group.</span>
+    lifecycle <span class="o">{</span>
+      create_before_destroy <span class="o">=</span> <span class="nb">true
+      </span>precondition <span class="o">{</span>
+        condition     <span class="o">=</span> data.aws_ec2_instance_type.instance.free_tier_eligible
+        error_message <span class="o">=</span> <span class="s2">"</span><span class="k">${</span><span class="nv">var</span><span class="p">.instance_type</span><span class="k">}</span><span class="s2"> is not part of the AWS Free Tier!"</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+  ...
+</code></pre></div> </div> </li> </ul> </li> </ul> </li> <li>출력 변수 추가 <ul> <li>아래 출력 변수 2개를 추가 : 아래 출력을 사용하여 보안 그룹에 사용자 정의 규칙을 추가하는 등 새로운 동작을 추가할수 있어서 asg-rolling-deploy 모듈의 재사용성을 높임 <ul> <li> <p>small-modules/modules/cluster/<strong>asg-rolling-deploy/outputs.tf</strong></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  output <span class="s2">"**asg_name**"</span> <span class="o">{</span>
+    value       <span class="o">=</span> aws_autoscaling_group.example.name
+    description <span class="o">=</span> <span class="s2">"The name of the Auto Scaling Group"</span>
+  <span class="o">}</span>
+            
+  output <span class="s2">"instance_security_group_id"</span> <span class="o">{</span>
+    value       <span class="o">=</span> aws_security_group.instance.id
+    description <span class="o">=</span> <span class="s2">"The ID of the EC2 Instance Security Group"</span>
+  <span class="o">}</span>
+</code></pre></div> </div> </li> </ul> </li> <li>비슷하게 modules/networking/<strong>alb/outputs.tf</strong> 에도 출력 변수를 추가 <ul> <li> <p>small-modules/modules/networking/<strong>alb/outputs.tf</strong></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  output <span class="s2">"alb_dns_name"</span> <span class="o">{</span>
+    value       <span class="o">=</span> aws_lb.example.dns_name
+    description <span class="o">=</span> <span class="s2">"The domain name of the load balancer"</span>
+  <span class="o">}</span>
+            
+  output <span class="s2">"alb_http_listener_arn"</span> <span class="o">{</span>
+    value       <span class="o">=</span> aws_lb_listener.http.arn
+    description <span class="o">=</span> <span class="s2">"The ARN of the HTTP listener"</span>
+  <span class="o">}</span>
+            
+  output <span class="s2">"alb_security_group_id"</span> <span class="o">{</span>
+    value       <span class="o">=</span> aws_security_group.alb.id
+    description <span class="o">=</span> <span class="s2">"The ALB Security Group ID"</span>
+  <span class="o">}</span>
+</code></pre></div> </div> </li> </ul> </li> </ul> </li> <li>[마지막 단계] asg-rolling-deploy 및 alb 모듈을 사용하여 webserver-cluster 모듈을 ‘Hello, World’ 앱을 배포할 수 있는 <strong>hello-world-app 모듈</strong>로 변환하는 것 <ul> <li>이를 위해 module/services/webserver-cluster 이름을 → module/services/hello-world-app 로 변경</li> <li>아래 리소스와 데이터 소스만 남겨 두자 <ul> <li> <p>module/services/hello-world-app/main.tf</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  ...
+  module <span class="s2">"asg"</span> <span class="o">{</span>
+    <span class="nb">source</span> <span class="o">=</span> <span class="s2">"../../cluster/asg-rolling-deploy"</span>
+            
+    cluster_name  <span class="o">=</span> <span class="s2">"hello-world-</span><span class="k">${</span><span class="nv">var</span><span class="p">.environment</span><span class="k">}</span><span class="s2">"</span>
+    ami           <span class="o">=</span> var.ami
+    instance_type <span class="o">=</span> var.instance_type
+            
+    user_data     <span class="o">=</span> templatefile<span class="o">(</span><span class="s2">"</span><span class="k">${</span><span class="nv">path</span><span class="p">.module</span><span class="k">}</span><span class="s2">/user-data.sh"</span>, <span class="o">{</span>
+      server_port <span class="o">=</span> var.server_port
+      db_address  <span class="o">=</span> data.terraform_remote_state.db.outputs.address
+      db_port     <span class="o">=</span> data.terraform_remote_state.db.outputs.port
+      server_text <span class="o">=</span> var.server_text
+    <span class="o">})</span>
+            
+    min_size           <span class="o">=</span> var.min_size
+    max_size           <span class="o">=</span> var.max_size
+    enable_autoscaling <span class="o">=</span> var.enable_autoscaling
+            
+    subnet_ids        <span class="o">=</span> data.aws_subnets.default.ids
+    target_group_arns <span class="o">=</span> <span class="o">[</span>aws_lb_target_group.asg.arn]
+    health_check_type <span class="o">=</span> <span class="s2">"ELB"</span>
+              
+    custom_tags <span class="o">=</span> var.custom_tags
+  <span class="o">}</span>
+            
+  module <span class="s2">"alb"</span> <span class="o">{</span>
+    <span class="nb">source</span> <span class="o">=</span> <span class="s2">"../../networking/alb"</span>
+            
+    alb_name   <span class="o">=</span> <span class="s2">"hello-world-</span><span class="k">${</span><span class="nv">var</span><span class="p">.environment</span><span class="k">}</span><span class="s2">"</span>
+    subnet_ids <span class="o">=</span> data.aws_subnets.default.ids
+  <span class="o">}</span>
+            
+  resource <span class="s2">"aws_lb_target_group"</span> <span class="s2">"asg"</span> <span class="o">{</span>
+    name     <span class="o">=</span> <span class="s2">"hello-world-</span><span class="k">${</span><span class="nv">var</span><span class="p">.environment</span><span class="k">}</span><span class="s2">"</span>
+    port     <span class="o">=</span> var.server_port
+    protocol <span class="o">=</span> <span class="s2">"HTTP"</span>
+    vpc_id   <span class="o">=</span> data.aws_vpc.default.id
+            
+    health_check <span class="o">{</span>
+      path                <span class="o">=</span> <span class="s2">"/"</span>
+      protocol            <span class="o">=</span> <span class="s2">"HTTP"</span>
+      matcher             <span class="o">=</span> <span class="s2">"200"</span>
+      interval            <span class="o">=</span> 15
+      <span class="nb">timeout</span>             <span class="o">=</span> 3
+      healthy_threshold   <span class="o">=</span> 2
+      unhealthy_threshold <span class="o">=</span> 2
+    <span class="o">}</span>
+  <span class="o">}</span>
+            
+  resource <span class="s2">"aws_lb_listener_rule"</span> <span class="s2">"asg"</span> <span class="o">{</span>
+    listener_arn <span class="o">=</span> module.alb.alb_http_listener_arn
+    priority     <span class="o">=</span> 100
+            
+    condition <span class="o">{</span>
+      path_pattern <span class="o">{</span>
+        values <span class="o">=</span> <span class="o">[</span><span class="s2">"*"</span><span class="o">]</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+            
+    action <span class="o">{</span>
+      <span class="nb">type</span>             <span class="o">=</span> <span class="s2">"forward"</span>
+      target_group_arn <span class="o">=</span> aws_lb_target_group.asg.arn
+    <span class="o">}</span>
+  <span class="o">}</span>
+            
+  data <span class="s2">"terraform_remote_state"</span> <span class="s2">"db"</span> <span class="o">{</span>
+    backend <span class="o">=</span> <span class="s2">"s3"</span>
+            
+    config <span class="o">=</span> <span class="o">{</span>
+      bucket <span class="o">=</span> var.db_remote_state_bucket
+      key    <span class="o">=</span> var.db_remote_state_key
+      region <span class="o">=</span> <span class="s2">"us-east-2"</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+            
+  data <span class="s2">"aws_vpc"</span> <span class="s2">"default"</span> <span class="o">{</span>
+    default <span class="o">=</span> <span class="nb">true</span>
+  <span class="o">}</span>
+            
+  data <span class="s2">"aws_subnets"</span> <span class="s2">"default"</span> <span class="o">{</span>
+    filter <span class="o">{</span>
+      name   <span class="o">=</span> <span class="s2">"vpc-id"</span>
+      values <span class="o">=</span> <span class="o">[</span>data.aws_vpc.default.id]
+    <span class="o">}</span>
+  <span class="o">}</span>
+</code></pre></div> </div> </li> </ul> </li> <li>modules/services/hello-world-app/variables.tf 에 아래 변수를 추가 <ul> <li> <p>modules/services/hello-world-app/variables.tf</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c"># ---------------------------------------------------------------------------------------------------------------------</span>
+  <span class="c"># REQUIRED PARAMETERS</span>
+  <span class="c"># You must provide a value for each of these parameters.</span>
+  <span class="c"># ---------------------------------------------------------------------------------------------------------------------</span>
+            
+  variable <span class="s2">"environment"</span> <span class="o">{</span>
+    description <span class="o">=</span> <span class="s2">"The name of the environment we're deploying to"</span>
+    <span class="nb">type</span>        <span class="o">=</span> string
+  <span class="o">}</span>
+  ...
+</code></pre></div> </div> </li> </ul> </li> <li>그리고 이전에 작성한 asg-rolling-deploy 모듈을 hello-world-app 모듈에 추가합니다</li> <li>그리고 이전에 생성한 alb 모듈을 hello-world-app 모듈에 추가합니다</li> <li>environment 입력 변수를 사용해 모든 리소스의 네임스페이스가 hello-world-stage, hello-world-prod 같은 환경을 기준으로 지정되도록 명명 규칙을 시행합니다.</li> <li>이 코드는 또한 이전에 추가한 새로운 subnet_ids, target_group_arns, health_check_type, and user_data 변수를 적절한 값으로 설정합니다.</li> <li>다음으로 이 앱에 대한 ALB 대상 그룹 및 리스너 규칙을 구성합니다.</li> <li>name 에서 environment 를 사용하도록 module/services/hello-world-app/main.tf에서 aws_lb_target_group 리소스를 업데이트합니다. <ul> <li> <p>module/services/hello-world-app/main.tf</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  ...
+  resource <span class="s2">"aws_lb_target_group"</span> <span class="s2">"asg"</span> <span class="o">{</span>
+    name     <span class="o">=</span> <span class="s2">"hello-world-</span><span class="k">${</span><span class="nv">var</span><span class="p">.environment</span><span class="k">}</span><span class="s2">"</span>
+    port     <span class="o">=</span> var.server_port
+    protocol <span class="o">=</span> <span class="s2">"HTTP"</span>
+    vpc_id   <span class="o">=</span> data.aws_vpc.default.id
+            
+    health_check <span class="o">{</span>
+      path                <span class="o">=</span> <span class="s2">"/"</span>
+      protocol            <span class="o">=</span> <span class="s2">"HTTP"</span>
+      matcher             <span class="o">=</span> <span class="s2">"200"</span>
+      interval            <span class="o">=</span> 15
+      <span class="nb">timeout</span>             <span class="o">=</span> 3
+      healthy_threshold   <span class="o">=</span> 2
+      unhealthy_threshold <span class="o">=</span> 2
+    <span class="o">}</span>
+  <span class="o">}</span>
+  ...
+</code></pre></div> </div> </li> </ul> </li> <li>이제 aws_lb_listener_rule 리소스의 listener_arn 매개 변수가 ALB 모듈의 alb_http_listener_arn 출력을 가리키도록 업데이트합니다. <ul> <li> <p>module/services/hello-world-app/main.tf</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  ...
+            
+  resource <span class="s2">"aws_lb_listener_rule"</span> <span class="s2">"asg"</span> <span class="o">{</span>
+    listener_arn <span class="o">=</span> module.alb.alb_http_listener_arn
+    priority     <span class="o">=</span> 100
+            
+    condition <span class="o">{</span>
+      path_pattern <span class="o">{</span>
+        values <span class="o">=</span> <span class="o">[</span><span class="s2">"*"</span><span class="o">]</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+            
+    action <span class="o">{</span>
+      <span class="nb">type</span>             <span class="o">=</span> <span class="s2">"forward"</span>
+      target_group_arn <span class="o">=</span> aws_lb_target_group.asg.arn
+    <span class="o">}</span>
+  <span class="o">}</span>
+  ...
+</code></pre></div> </div> </li> </ul> </li> <li>마지막으로 asg-rolling-deploy 및 alb 모듈의 중요한 출력을 hello-world-app 모듈의 출력으로 전달합니다. <ul> <li> <p>module/services/hello-world-app/outputs.tf</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  output <span class="s2">"alb_dns_name"</span> <span class="o">{</span>
+    value       <span class="o">=</span> module.alb.alb_dns_name
+    description <span class="o">=</span> <span class="s2">"The domain name of the load balancer"</span>
+  <span class="o">}</span>
+            
+  output <span class="s2">"asg_name"</span> <span class="o">{</span>
+    value       <span class="o">=</span> module.asg.asg_name
+    description <span class="o">=</span> <span class="s2">"The name of the Auto Scaling Group"</span>
+  <span class="o">}</span>
+            
+  output <span class="s2">"instance_security_group_id"</span> <span class="o">{</span>
+    value       <span class="o">=</span> module.asg.instance_security_group_id
+    description <span class="o">=</span> <span class="s2">"The ID of the EC2 Instance Security Group"</span>
+  <span class="o">}</span>
+</code></pre></div> </div> </li> </ul> </li> </ul> </li> </ol> <p><strong>3.3 테스트 가능한 모듈</strong> Testable modules</p> <p><strong>위에서 작성한 코드 작동 확인 실습</strong></p> <ol> <li>examples/asg/main.tf 작성 : asg-rolling-deploy 모듈을 사용하여 크기가 1인 ASG를 배포 <ul> <li> <p>examples/asg/main.tf</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  terraform <span class="o">{</span>
+    required_version <span class="o">=</span> <span class="s2">"&gt;= 1.0.0, &lt; 2.0.0"</span>
+        
+    required_providers <span class="o">{</span>
+      aws <span class="o">=</span> <span class="o">{</span>
+        <span class="nb">source</span>  <span class="o">=</span> <span class="s2">"hashicorp/aws"</span>
+        version <span class="o">=</span> <span class="s2">"~&gt; 4.0"</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+        
+  provider <span class="s2">"aws"</span> <span class="o">{</span>
+    region <span class="o">=</span> <span class="s2">"us-east-2"</span>
+  <span class="o">}</span>
+        
+  module <span class="s2">"asg"</span> <span class="o">{</span>
+    <span class="nb">source</span> <span class="o">=</span> <span class="s2">"../../modules/cluster/asg-rolling-deploy"</span>
+        
+    cluster_name  <span class="o">=</span> var.cluster_name
+        
+    ami           <span class="o">=</span> data.aws_ami.ubuntu.id
+    instance_type <span class="o">=</span> <span class="s2">"t2.micro"</span>
+        
+    min_size           <span class="o">=</span> 1
+    max_size           <span class="o">=</span> 1
+    enable_autoscaling <span class="o">=</span> <span class="nb">false
+        
+    </span>subnet_ids        <span class="o">=</span> data.aws_subnets.default.ids
+  <span class="o">}</span>
+        
+  data <span class="s2">"aws_vpc"</span> <span class="s2">"default"</span> <span class="o">{</span>
+    default <span class="o">=</span> <span class="nb">true</span>
+  <span class="o">}</span>
+        
+  data <span class="s2">"aws_subnets"</span> <span class="s2">"default"</span> <span class="o">{</span>
+    filter <span class="o">{</span>
+      name   <span class="o">=</span> <span class="s2">"vpc-id"</span>
+      values <span class="o">=</span> <span class="o">[</span>data.aws_vpc.default.id]
+    <span class="o">}</span>
+  <span class="o">}</span>
+        
+  data <span class="s2">"aws_ami"</span> <span class="s2">"ubuntu"</span> <span class="o">{</span>
+    most_recent <span class="o">=</span> <span class="nb">true
+    </span>owners      <span class="o">=</span> <span class="o">[</span><span class="s2">"099720109477"</span><span class="o">]</span> <span class="c"># Canonical</span>
+        
+    filter <span class="o">{</span>
+      name   <span class="o">=</span> <span class="s2">"name"</span>
+      values <span class="o">=</span> <span class="o">[</span><span class="s2">"ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"</span><span class="o">]</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+</code></pre></div> </div> </li> </ul> </li> <li> <p>배포 및 확인</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="c"># [터미널1] RDS 생성 모니터링</span>
+ <span class="k">while </span><span class="nb">true</span><span class="p">;</span> <span class="k">do</span> <span class="k">**</span>aws rds describe-db-instances<span class="k">**</span> <span class="nt">--query</span> <span class="s2">"*[].[Endpoint.Address,Endpoint.Port,MasterUsername]"</span> <span class="nt">--output</span> text  <span class="p">;</span> <span class="nb">echo</span> <span class="s2">"------------------------------"</span> <span class="p">;</span> <span class="nb">sleep </span>1<span class="p">;</span> <span class="k">done</span>
+    
+ <span class="c"># RDS 배포</span>
+ <span class="nb">cd</span> ~/terraform-up-and-running-code/code/terraform/08-production-grade-infrastructure/small-modules/examples/<span class="k">**</span>mysql<span class="k">**</span>
+    
+ <span class="c"># 환경변수에 지정</span>
+ <span class="nb">export </span><span class="nv">TF_VAR_db_username</span><span class="o">=</span><span class="s1">'cloudneta'</span>
+ <span class="nb">export </span><span class="nv">TF_VAR_db_password</span><span class="o">=</span><span class="s1">'cloudnetaQ!'</span>
+    
+ terraform init <span class="o">&amp;&amp;</span> terraform plan
+ terraform apply <span class="nt">-auto-approve</span>
+    
+ <span class="c"># [터미널2]</span>
+ <span class="k">while </span><span class="nb">true</span><span class="p">;</span> <span class="k">do </span>aws ec2 describe-instances <span class="nt">--query</span> <span class="s2">"Reservations[*].Instances[*].{PublicIPAdd:PublicIpAddress,InstanceName:Tags[?Key=='Name']|[0].Value,Status:State.Name}"</span> <span class="nt">--filters</span> <span class="nv">Name</span><span class="o">=</span>instance-state-name,Values<span class="o">=</span>running <span class="nt">--output</span> text <span class="p">;</span> <span class="nb">echo</span> <span class="s2">"------------------------------"</span> <span class="p">;</span> <span class="nb">sleep </span>1<span class="p">;</span> <span class="k">done</span>
+    
+ <span class="c"># 배포</span>
+ <span class="nb">cd</span> ~/terraform-up-and-running-code/code/terraform/08-production-grade-infrastructure/small-modules/examples/<span class="k">**</span>asg<span class="k">**</span>
+ terraform init
+ terraform plan
+ terraform apply <span class="nt">-auto-approve</span>
+    
+ <span class="c"># ALB 배포</span>
+ <span class="nb">cd</span> ~/terraform-up-and-running-code/code/terraform/08-production-grade-infrastructure/small-modules/examples/<span class="k">**</span>alb<span class="k">**</span>
+ terraform init <span class="o">&amp;&amp;</span> terraform plan
+ terraform apply <span class="nt">-auto-approve</span>
+    
+ <span class="c"># ALB DNS주소로 curl 접속 확인 </span>
+ <span class="nv">ALBDNS</span><span class="o">=</span><span class="si">$(</span>terraform output <span class="nt">-raw</span> alb_dns_name<span class="si">)</span>
+ <span class="k">while </span><span class="nb">true</span><span class="p">;</span> <span class="k">do </span>curl <span class="nt">--connect-timeout</span> 1  http://<span class="nv">$ALBDNS</span> <span class="p">;</span> <span class="nb">echo</span><span class="p">;</span> <span class="nb">echo</span> <span class="s2">"------------------------------"</span><span class="p">;</span> <span class="nb">date</span><span class="p">;</span> <span class="nb">sleep </span>1<span class="p">;</span> <span class="k">done
+ </span>curl <span class="nt">-s</span> http://<span class="nv">$ALBDNS</span>
+</code></pre></div> </div> </li> <li> <p>삭제</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">cd</span> ~/terraform-up-and-running-code/code/terraform/08-production-grade-infrastructure/small-modules/examples/alb
+ terraform destroy <span class="nt">-auto-approve</span>
+ <span class="nb">cd</span> ~/terraform-up-and-running-code/code/terraform/08-production-grade-infrastructure/small-modules/examples/asg
+ terraform destroy <span class="nt">-auto-approve</span>
+ <span class="nb">cd</span> ~/terraform-up-and-running-code/code/terraform/08-production-grade-infrastructure/small-modules/examples/mysql
+ terraform destroy <span class="nt">-auto-approve</span>
+</code></pre></div> </div> </li> </ol> <p><strong>3.4 릴리스 가능한 모듈</strong> Versioned modules</p> <p><strong>Validations</strong> : 테라폼 0.13 validation blocks 은 입력 변수를 체크</p> <ul> <li> <p>아래는 instance_type 으로 t2.micro 와 t3.micro 만 사용할 수 있게 설정</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  variable <span class="s2">"instance_type"</span> <span class="o">{</span>
+    description <span class="o">=</span> <span class="s2">"The type of EC2 Instances to run (e.g. t2.micro)"</span>
+    <span class="nb">type</span>        <span class="o">=</span> string
+    
+    validation <span class="o">{</span>
+      condition     <span class="o">=</span> contains<span class="o">([</span><span class="s2">"t2.micro"</span>, <span class="s2">"t3.micro"</span><span class="o">]</span>, var.instance_type<span class="o">)</span>
+      error_message <span class="o">=</span> <span class="s2">"Only free tier is allowed: t2.micro | t3.micro."</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+</code></pre></div> </div> </li> <li> <p>체크 검증 확인</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">$ </span>terraform apply <span class="nt">-var</span> <span class="nv">instance_type</span><span class="o">=</span><span class="s2">"m4.large"</span>
+  │ Error: Invalid value <span class="k">for </span>variable
+  │
+  │   on main.tf line 17:
+  │    1: variable <span class="s2">"instance_type"</span> <span class="o">{</span>
+  │     ├────────────────
+  │     │ var.instance_type is <span class="s2">"m4.large"</span>
+  │
+  │ Only free tier is allowed: t2.micro | t3.micro.
+  │
+  │ This was checked by the validation rule at main.tf:21,3-13.
+</code></pre></div> </div> </li> </ul> <p><strong>버전 Versioned Modules : 오늘 실행하던, 3년 후에 실행하던 동일한 결과를 얻을 수 있어야 한다!</strong></p> <ul> <li>두 가지 유형 버전 고려 : Versioning of the module’s dependencies , Versioning of the module itself</li> <li><strong>Versioning of the module’s dependencies</strong> : Terraform core, Providers, Modules <ul> <li>Terraform core : The version of the terraform binary you depend on → <strong>테라폼 실행 파일 버전</strong></li> <li>Providers : The version of each provider your code depends on, such as the aws provider → <strong>프로바이더 버전</strong></li> <li>Modules : The version of each module you depend on that are pulled in via module blocks → <strong>모듈 버전</strong></li> </ul> </li> <li> <p><strong>Terraform core 고정</strong> : required_version 사용</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  terraform <span class="o">{</span>
+    <span class="c"># Require any 1.x version of Terraform</span>
+    required_version <span class="o">=</span> <span class="s2">"&gt;= 1.0.0, &lt; 2.0.0"</span>
+  <span class="o">}</span>
+</code></pre></div> </div> <ul> <li>Production 환경에서는 버전을 직접 지정을 권장</li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  terraform <span class="o">{</span>
+    <span class="c"># Require Terraform at exactly version 1.2.3</span>
+    required_version <span class="o">=</span> <span class="s2">"1.2.3"</span>
+  <span class="o">}</span>
+</code></pre></div> </div> </li> <li> <p><strong>Providers 고정</strong> : required_providers 아래 version 사용</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  terraform <span class="o">{</span>
+    required_version <span class="o">=</span> <span class="s2">"&gt;= 1.0.0, &lt; 2.0.0"</span>
+    
+    required_providers <span class="o">{</span>
+      aws <span class="o">=</span> <span class="o">{</span>
+        <span class="nb">source</span>  <span class="o">=</span> <span class="s2">"hashicorp/aws"</span>
+        version <span class="o">=</span> <span class="s2">"~&gt; 4.0"</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+</code></pre></div> </div> </li> <li><strong>Modules 고정</strong> : 시맨틱 버전 관리와 함께 깃 태그를 사용</li> </ul> <p><strong>3.5 테라폼 모듈 외의 것들</strong> Beyond Terraform modules</p> <ul> <li>Provisioners</li> <li>Provisioners with null_resource</li> <li>External data source</li> </ul> <div class="entry-meta"> <br> <hr> <span class="entry-tags"><a href="https://lahuman.github.io/tags/#terraform" title="Pages tagged terraform" class="tag"><span class="term">terraform</span></a><a href="https://lahuman.github.io/tags/#study" title="Pages tagged study" class="tag"><span class="term">study</span></a></span> <span class="social-share"> <a href="https://www.facebook.com/sharer/sharer.php?u=https://lahuman.github.io/t101_7week_2/" title="Share on Facebook" class="tag"> <span class="term"><i class="fa fa-facebook-square"></i> Share</span> </a> <a href="https://twitter.com/intent/tweet?text=https://lahuman.github.io/t101_7week_2/" title="Share on Twitter" class="tag"> <span class="term"><i class="fa fa-twitter-square"></i> Tweet</span> </a> <a href="https://plus.google.com/share?url=https://lahuman.github.io/t101_7week_2/" title="Share on Google+" class="tag"> <span class="term"><i class="fa fa-google-plus-square"></i> +1</span> </a> </span> <div style="clear:both"></div> </div> <ins class="kakao_ad_area" style="display:none;" data-ad-unit = "DAN-ubp67fs9s850" data-ad-width = "320" data-ad-height = "100"></ins> <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script> </div> </div> <section id="disqus_thread" class="animated fadeInUp"></section><!-- /#disqus_thread --> </header> <!-- JS --> <script src="https://lahuman.github.io/assets/js/jquery-1.12.0.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.dlmenu.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.goup.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.magnific-popup.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.fitvid.min.js"></script> <script src="https://lahuman.github.io/assets/js/scripts.js"></script> <!-- Global site tag (gtag.js) - Google Analytics --> <script async src="https://www.googletagmanager.com/gtag/js?id=UA-74095083-1"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-74095083-1'); </script> <script type="text/javascript"> var disqus_shortname = 'daniels-blog'; (function() { var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true; dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js'; (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq); })(); (function () { var s = document.createElement('script'); s.async = true; s.type = 'text/javascript'; s.src = '//' + disqus_shortname + '.disqus.com/count.js'; (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s); }()); </script> <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript> <!-- MathJax --> <script async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> </body> </html>

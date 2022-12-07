@@ -1,0 +1,478 @@
+<!DOCTYPE html> <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]--> <!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8"><![endif]--> <!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9"><![endif]--> <!--[if gt IE 8]><!--> <html class="no-js"><!--<![endif]--> <head> <meta charset="UTF-8"> <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"> <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1"> <title>#7-1 책 예제 따라하기 &#8211; lahuman</title> <meta name="description" content="열심히 사는 아저씨"> <meta name="keywords" content="terraform, study"> <!-- Twitter Cards --> <meta name="twitter:card" content="summary"> <meta name="twitter:image" content="https://lahuman.github.io/assets/img/logo.png"> <meta name="twitter:title" content="#7-1 책 예제 따라하기"> <meta name="twitter:description" content="Terraform 101 Study"> <!-- Open Graph --> <meta property="og:locale" content="ko_KR"> <meta property="og:type" content="article"> <meta property="og:title" content="#7-1 책 예제 따라하기"> <meta property="og:description" content="Terraform 101 Study"> <meta property="og:url" content="https://lahuman.github.io/t101_7week_1/"> <meta property="og:site_name" content="lahuman"> <meta property="og:image" content="https://lahuman.github.io/assets/img/logo.png"> <link rel="canonical" href="https://lahuman.github.io/t101_7week_1/"> <link href="https://lahuman.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="lahuman Feed"> <!-- Handheld --> <meta name="HandheldFriendly" content="True"> <meta name="MobileOptimized" content="320"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- CSS --> <link rel="stylesheet" href="https://lahuman.github.io/assets/css/main.css"> <!-- JS --> <script src="https://lahuman.github.io/assets/js/modernizr-3.3.1.custom.min.js"></script> <!-- Favicons --> <link rel="apple-touch-icon" href="https://lahuman.github.io/assets/img/favicons/apple-icon-precomposed.png"> <link rel="apple-touch-icon" sizes="72x72" href="https://lahuman.github.io/assets/img/favicons/apple-icon-72x72.png"> <link rel="apple-touch-icon" sizes="114x114" href="https://lahuman.github.io/assets/img/favicons/apple-icon-114x114.png"> <link rel="apple-touch-icon" sizes="144x144" href="https://lahuman.github.io/assets/img/favicons/apple-icon-144x144.png"> <link rel="shortcut icon" type="image/png" href="https://lahuman.github.io/favicon.png" /> <link rel="shortcut icon" href="https://lahuman.github.io/favicon.ico" /> <!-- mermaid --> <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script> <script>mermaid.initialize({startOnLoad:true});</script> <!-- Background Image --> <style type="text/css">body {background-image:url(https://lahuman.github.io/assets/img/placeholder-big.jpg); background-repeat: no-repeat; background-size: cover; }</style> <!-- Post Feature Image --> </head> <body> <nav id="dl-menu" class="dl-menuwrapper" role="navigation"> <button class="dl-trigger">Open Menu</button> <ul class="dl-menu"> <li><a href="https://lahuman.github.io/">Home</a></li> <li> <a href="#">About</a> <ul class="dl-submenu"> <li> <img src="https://lahuman.github.io/assets/img/logo.png" alt="lahuman photo" class="author-photo"> <h4>lahuman</h4> <p>열심히 사는 아저씨</p> </li> <li><a href="https://lahuman.github.io/about/"><span class="btn btn-inverse">Learn More</span></a></li> <li> <a href="http://facebook.com/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-facebook-square"></i> Facebook</a> </li> <li> <a href="http://linkedin.com/in/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-linkedin-square"></i> LinkedIn</a> </li> <li> <a href="http://github.com/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-github"></i> Github</a> </li> </ul><!-- /.dl-submenu --> </li> <li> <a href="#">Posts</a> <ul class="dl-submenu"> <li><a href="https://lahuman.github.io/posts/">All Posts</a></li> <li><a href="https://lahuman.github.io/tags/">All Tags</a></li> </ul> </li> <li><a href="https://lahuman.github.io/projects/" >Projects</a></li> </ul><!-- /.dl-menu --> </nav><!-- /.dl-menuwrapper --> <!-- Header --> <header class="header" role="banner"> <div class="wrapper animated fadeIn"> <div class="content"> <div class="post-title "> <h1>#7-1 책 예제 따라하기</h1> <h4>04 Dec 2022</h4> <p class="reading-time"> <i class="fa fa-clock-o"></i> Reading time ~11 minutes </p><!-- /.entry-reading-time --> <a class="btn zoombtn" href="https://lahuman.github.io/projects/"> <i class="fa fa-chevron-left"></i> </a> </div> <h1 id="책-예제-따라하기">책 예제 따라하기</h1> <ul> <li>참고 링크 <ul> <li>Code Github - <a href="https://github.com/brikis98/terraform-up-and-running-code">원서</a></li> <li>[버전 관리] tfenv - <a href="https://github.com/tfutils/tfenv">링크</a></li> </ul> </li> </ul> <p><code class="language-plaintext highlighter-rouge">배경</code> : 책 뒤로 갈 수록 앞 부분의 실습 환경에서 점점 더 복잡해지는 코드 구성으로 현재 최신 테라폼 버전이나, 한국 리전으로 코드 변경의 어려움 → 여유 시간도 없다..</p> <p><code class="language-plaintext highlighter-rouge">목표</code> : 책의 실습 환경(미국 동부 <strong>오하이오</strong> 리전, 테라폼 v<strong>1.2.3</strong> 버전)으로 실습을 진행</p> <h3 id="사전-준비">사전 준비</h3> <ul> <li> <p><strong>기존 설치된 테라폼 삭제</strong></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c"># (옵션) 아래 두 줄 있다면 삭제</span>
+  <span class="nb">sudo </span>vi ~/.zshrc
+  autoload <span class="nt">-U</span> +X bashcompinit <span class="o">&amp;&amp;</span> bashcompinit
+  <span class="nb">complete</span> <span class="nt">-o</span> nospace <span class="nt">-C</span> /usr/local/bin/terraform terraform
+    
+  <span class="c"># 삭제</span>
+  brew remove terraform
+</code></pre></div> </div> </li> <li> <p><strong>tfenv 설치</strong> : 테라폼 버전 관리 툴 - <a href="https://dev.classmethod.jp/articles/managing-terraform-version-with-tfenv/">링크</a></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c"># 설치(Mac)</span>
+  brew <span class="nb">install </span>tfenv
+    
+  <span class="c"># 설치 가능 버전 확인</span>
+  tfenv list-remote | <span class="nb">head
+  </span>1.4.0-alpha20221109
+  1.3.6
+  ...
+    
+  <span class="c"># 현재 설치된 버전 확인</span>
+  tfenv list
+  No versions available. Please <span class="nb">install </span>one with: tfenv <span class="nb">install</span>
+    
+  <span class="c"># 특정 버전 설치</span>
+  <span class="c">#(옵션) export TFENV_ARCH=arm64  # mac Apple silicon M1/M2</span>
+  tfenv <span class="nb">install </span>1.2.3
+  tfenv list
+    
+  <span class="c"># 특정 버전 사용</span>
+  tfenv use 1.2.3 
+  Switching default version to v1.2.3
+  Default version <span class="o">(</span>when not overridden by .terraform-version or TFENV_TERRAFORM_VERSION<span class="o">)</span> is now: 1.2.3
+  <span class="k">****</span>
+  <span class="c"># 테라폼 버전 확인</span>
+  terraform version
+  Terraform v1.2.3
+  on darwin_amd64
+</code></pre></div> </div> </li> <li> <p>자격 증명의 리전을 <strong>오하이오</strong>로 설정 - <a href="https://docs.aws.amazon.com/ko_kr/cli/latest/userguide/cli-configure-envvars.html">링크</a></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c"># 방안1</span>
+  <span class="k">**</span>aws configure<span class="k">**</span>
+  AWS Access Key ID <span class="o">[</span><span class="k">****************</span>JG7Y]:
+  AWS Secret Access Key <span class="o">[</span><span class="k">****************</span>l9Et]:
+  Default region name <span class="o">[</span>ap-northeast-2]: us-east-2
+  Default output format <span class="o">[</span>json]:
+    
+  <span class="c"># 방안2</span>
+  <span class="nb">export </span><span class="nv">AWS_DEFAULT_REGION</span><span class="o">=</span>us-east-2
+</code></pre></div> </div> </li> <li> <p>책 실습 코드 다운로드</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c">#</span>
+  git clone https://github.com/brikis98/terraform-up-and-running-code.git
+  <span class="nb">cd </span>terraform-up-and-running-code/code/terraform
+  tree
+    
+  <span class="c">#</span>
+  <span class="nb">cat</span> .terraform-version
+  1.2.3
+</code></pre></div> </div> </li> <li> <p>EC2 배포 해보기</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c"># [터미널1] EC2 생성 모니터링</span>
+  <span class="nb">export </span><span class="nv">AWS_PAGER</span><span class="o">=</span><span class="s2">""</span>
+  <span class="k">while </span><span class="nb">true</span><span class="p">;</span> <span class="k">do</span> <span class="k">**</span>aws ec2 describe-instances<span class="k">**</span> <span class="nt">--query</span> <span class="s2">"Reservations[*].Instances[*].{PublicIPAdd:PublicIpAddress,InstanceName:Tags[?Key=='Name']|[0].Value,Status:State.Name}"</span> <span class="nt">--filters</span> <span class="nv">Name</span><span class="o">=</span>instance-state-name,Values<span class="o">=</span>running <span class="nt">--output</span> text <span class="p">;</span> <span class="nb">echo</span> <span class="s2">"------------------------------"</span> <span class="p">;</span> <span class="nb">sleep </span>1<span class="p">;</span> <span class="k">done</span>
+    
+  <span class="c"># [터미널2] </span>
+  <span class="nb">cd </span>00-preface/hello-world
+    
+  <span class="c"># 코드 확인</span>
+  <span class="nb">cat </span>main.tf
+  terraform <span class="o">{</span>
+    required_version <span class="o">=</span> <span class="s2">"&gt;= 1.0.0, &lt; 2.0.0"</span>
+    
+    required_providers <span class="o">{</span>
+      aws <span class="o">=</span> <span class="o">{</span>
+        <span class="nb">source</span>  <span class="o">=</span> <span class="s2">"hashicorp/aws"</span>
+        version <span class="o">=</span> <span class="s2">"~&gt; 4.0"</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+    
+  provider <span class="s2">"aws"</span> <span class="o">{</span>
+    region <span class="o">=</span> <span class="s2">"us-east-2"</span>
+  <span class="o">}</span>
+    
+  resource <span class="s2">"aws_instance"</span> <span class="s2">"example"</span> <span class="o">{</span>
+    ami           <span class="o">=</span> <span class="s2">"ami-0fb653ca2d3203ac1"</span>
+    instance_type <span class="o">=</span> <span class="s2">"t2.micro"</span>
+  <span class="o">}</span>
+    
+  <span class="c"># 배포</span>
+  terraform init
+  terraform plan
+  terraform apply
+  <span class="nb">yes</span>
+    
+  <span class="c"># EC2 생성 확인 후 삭제</span>
+  terraform destroy <span class="nt">-auto-approve</span>
+  <span class="nb">cd</span> ~/terraform-up-and-running-code/code/terraform
+</code></pre></div> </div> </li> </ul> <h3 id="chapter-02-intro-to-terraform-syntax">Chapter 02-intro-to-terraform-syntax</h3> <p><code class="language-plaintext highlighter-rouge">실습 구성</code></p> <div class="mermaid"> graph LR; F(((User))) --&gt; A; A[Elastic Load \nBalancer]; A --&gt; B(EC2 Instance); A --&gt; C(EC2 Instance); A --&gt; D(EC2 Instance); A --&gt; E(EC2 more...); subgraph AWS; A &amp; B &amp; C &amp; D &amp; E; end; </div> <p>실습</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># [터미널2] </span>
+<span class="nb">cd </span>02-intro-to-terraform-syntax/webserver-cluster
+<span class="nb">cat </span>main.tf variables.tf
+
+<span class="c"># 배포</span>
+terraform init
+terraform plan
+terraform apply <span class="nt">-auto-approve</span>
+
+<span class="c"># 배포 완료 후 ALB 접속 확인</span>
+<span class="nv">ALBDNS</span><span class="o">=</span><span class="si">$(</span>terraform output <span class="nt">-raw</span> alb_dns_name<span class="si">)</span>
+<span class="k">while </span><span class="nb">true</span><span class="p">;</span> <span class="k">do </span>curl <span class="nt">--connect-timeout</span> 1  http://<span class="nv">$ALBDNS</span>/ <span class="p">;</span> <span class="nb">echo</span><span class="p">;</span> <span class="nb">echo</span> <span class="s2">"------------------------------"</span><span class="p">;</span> <span class="nb">date</span><span class="p">;</span> <span class="nb">sleep </span>1<span class="p">;</span> <span class="k">done</span>
+
+<span class="c"># 삭제</span>
+terraform destroy <span class="nt">-auto-approve</span>
+<span class="nb">cd</span> ~/terraform-up-and-running-code/code/terraform
+</code></pre></div></div> <h3 id="chapter-03-terraform-state">Chapter 03-terraform-state</h3> <p><code class="language-plaintext highlighter-rouge">실습 구성</code> : ELB + ASG + RDS</p> <div class="mermaid"> graph LR; F(((User))) --&gt; A; A[Elastic Load \nBalancer]; A --&gt; B(EC2 Instance); A --&gt; C(EC2 Instance); A --&gt; D(EC2 Instance); A --&gt; E(EC2 more...); B &amp; C &amp; D &amp; E --&gt; G((MySQL \non RDS)) subgraph AWS; A &amp; B &amp; C &amp; D &amp; E &amp; G; end; </div> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.
+├── global
+│   └── s3
+│       ├── README.md
+│       ├── main.tf
+│       ├── outputs.tf
+│       ├── terraform.tfstate
+│       ├── terraform.tfstate.backup
+│       └── variables.tf
+└── stage
+    ├── data-stores
+    │   └── mysql
+    │       ├── README.md
+    │       ├── main.tf
+    │       ├── outputs.tf
+    │       └── variables.tf
+    └── services
+        └── webserver-cluster
+            ├── README.md
+            ├── main.tf
+            ├── outputs.tf
+            ├── user-data.sh
+            └── variables.tf
+</code></pre></div></div> <ul> <li><strong>S3/DynamoDB 생성</strong> <ul> <li>S3/DynamoDB 생성을 위한 환경변수 지정</li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c"># 환경변수에 지정</span>
+  <span class="nb">export </span><span class="nv">TF_VAR_bucket_name</span><span class="o">=</span>&lt;각자 닉네임&gt;-tfstate
+  <span class="nb">export </span><span class="nv">TF_VAR_table_name</span><span class="o">=</span>&lt;각자 닉네임&gt;-t101-locks
+  <span class="nb">export </span><span class="nv">TF_VAR_bucket_name</span><span class="o">=</span>gasida-t101-tfstate
+  <span class="nb">export </span><span class="nv">TF_VAR_table_name</span><span class="o">=</span>gasida-t101-locks
+    
+  <span class="c"># 환경변수 확인</span>
+  <span class="nb">export</span> | <span class="nb">grep </span>TF_VAR_
+    
+  <span class="c"># (옵션) 환경변수 지정 삭제</span>
+  <span class="nb">unset </span>TF_VAR_bucket_name
+  <span class="nb">unset </span>TF_VAR_table_name
+</code></pre></div> </div> <ul> <li>배포</li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c">#</span>
+  <span class="nb">cd </span>03-terraform-state/file-layout-example/global/s3
+  <span class="nb">cat </span>main.tf variables.tf
+    
+  <span class="c"># 초기화 및 검증 : 환경변수 적용 확인</span>
+  terraform init <span class="o">&amp;&amp;</span> terraform plan
+    
+  <span class="c"># 배포</span>
+  terraform apply <span class="nt">-auto-approve</span>
+    
+  <span class="c"># 확인</span>
+  aws s3 <span class="nb">ls
+  </span>aws dynamodb list-tables <span class="nt">--output</span> text
+    
+  <span class="c"># 이동</span>
+  <span class="nb">cd</span> ../..
+</code></pre></div> </div> </li> <li> <p><strong>RDS 배포</strong></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c"># [터미널1] RDS 생성 모니터링</span>
+  <span class="k">while </span><span class="nb">true</span><span class="p">;</span> <span class="k">do</span> <span class="k">**</span>aws rds describe-db-instances<span class="k">**</span> <span class="nt">--query</span> <span class="s2">"*[].[Endpoint.Address,Endpoint.Port,MasterUsername]"</span> <span class="nt">--output</span> text  <span class="p">;</span> <span class="nb">echo</span> <span class="s2">"------------------------------"</span> <span class="p">;</span> <span class="nb">sleep </span>1<span class="p">;</span> <span class="k">done</span>
+    
+  <span class="c"># [터미널2]</span>
+  <span class="nb">cd </span>stage/data-stores/mysql
+  <span class="nb">cat </span>main.tf variables.tf
+    
+  <span class="c"># 환경변수에 지정</span>
+  <span class="nb">export </span><span class="nv">TF_VAR_db_username</span><span class="o">=</span><span class="s1">'cloudneta'</span>
+  <span class="nb">export </span><span class="nv">TF_VAR_db_password</span><span class="o">=</span><span class="s1">'cloudnetaQ!'</span>
+    
+  <span class="c"># 환경변수 확인</span>
+  <span class="nb">export</span> | <span class="nb">grep </span>TF_VAR_
+    
+  <span class="c"># main.tf 에 백엔드 부분 수정</span>
+  vi main.tf
+    backend <span class="s2">"s3"</span> <span class="o">{</span>
+      <span class="c"># This backend configuration is filled in automatically at test time by Terratest. If you wish to run this example</span>
+      <span class="c"># manually, uncomment and fill in the config below.</span>
+      bucket         <span class="o">=</span> <span class="s2">"gasida-t101-tfstate"</span>
+      key            <span class="o">=</span> <span class="s2">"stage/data-stores/mysql/terraform.tfstate"</span>
+      region         <span class="o">=</span> <span class="s2">"us-east-2"</span>
+      dynamodb_table <span class="o">=</span> <span class="s2">"gasida-t101-locks"</span>
+      <span class="c"># encrypt        = true</span>
+    <span class="o">}</span>
+    
+  <span class="c"># 초기화 및 검증 : 환경변수 적용 확인</span>
+  terraform init <span class="o">&amp;&amp;</span> terraform plan
+    
+  <span class="c"># 배포 : RDS는 생성 시 6분 정도 시간 소요</span>
+  terraform apply <span class="nt">-auto-approve</span>
+  terraform output
+  aws s3 <span class="nb">ls </span>s3://<span class="nv">$TF_VAR_bucket_name</span> <span class="nt">--recursive</span> <span class="nt">--human-readable</span> <span class="nt">--summarize</span>
+    
+  <span class="c"># 이동</span>
+  <span class="nb">cd</span> ../..
+</code></pre></div> </div> </li> <li> <p>웹서버 클러스터 배포</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c">#</span>
+  <span class="nb">cd </span>services/webserver-cluster
+  <span class="nb">cat </span>main.tf variables.tf
+    
+  <span class="c"># 환경변수에 지정</span>
+  <span class="nb">export </span><span class="nv">TF_VAR_db_remote_state_bucket</span><span class="o">=</span><span class="nv">$TF_VAR_bucket_name</span>                       <span class="c"># description = "The name of the S3 bucket used for the database's remote state storage"</span>
+  <span class="nb">export </span><span class="nv">TF_VAR_db_remote_state_key</span><span class="o">=</span><span class="s1">'stage/data-stores/mysql/terraform.tfstate'</span>  <span class="c"># description = "The name of the key in the S3 bucket used for the database's remote state storage" </span>
+    
+  <span class="c"># 환경변수 확인</span>
+  <span class="nb">export</span> | <span class="nb">grep </span>TF_VAR_
+    
+  <span class="c"># 초기화 및 검증 : 환경변수 적용 확인</span>
+  terraform init <span class="o">&amp;&amp;</span> terraform plan
+    
+  <span class="c"># 배포</span>
+  terraform apply <span class="nt">-auto-approve</span>
+    
+  <span class="c"># ALB DNS주소로 curl 접속 확인 </span>
+  <span class="nv">ALBDNS</span><span class="o">=</span><span class="si">$(</span>terraform output <span class="nt">-raw</span> alb_dns_name<span class="si">)</span>
+  <span class="k">while </span><span class="nb">true</span><span class="p">;</span> <span class="k">do </span>curl <span class="nt">--connect-timeout</span> 1  http://<span class="nv">$ALBDNS</span> <span class="p">;</span> <span class="nb">echo</span><span class="p">;</span> <span class="nb">echo</span> <span class="s2">"------------------------------"</span><span class="p">;</span> <span class="nb">date</span><span class="p">;</span> <span class="nb">sleep </span>1<span class="p">;</span> <span class="k">done
+  </span>curl <span class="nt">-s</span> http://<span class="nv">$ALBDNS</span>
+    
+  <span class="c"># 삭제</span>
+  <span class="c"># 각 폴더에서 리소스 삭제</span>
+  stage/services/webserver-cluster<span class="nv">$ </span>terraform destroy <span class="nt">-auto-approve</span>
+  stage/data-stores/mysql<span class="nv">$ </span>terraform destroy <span class="nt">-auto-approve</span>
+  global/s3<span class="nv">$ </span>terraform destroy <span class="nt">-auto-approve</span>
+    
+  <span class="c"># 이동</span>
+  <span class="nb">cd</span> ~/terraform-up-and-running-code/code/terraform
+</code></pre></div> </div> </li> </ul> <h3 id="chapter-04-terraform-module">Chapter 04-terraform-module</h3> <p><code class="language-plaintext highlighter-rouge">실습 구성</code> : Staging 와 Production 환경 배포에 모듈 활용</p> <div class="mermaid"> graph LR; F(((Employee))) --&gt; A; A[Elastic Load \nBalancer]; A --&gt; B(EC2 Instance); A --&gt; C(EC2 Instance); A --&gt; D(EC2 Instance); A --&gt; E(EC2 more...); B &amp; C &amp; D &amp; E --&gt; G((MySQL \non RDS)) subgraph AWS-Staging; A &amp; B &amp; C &amp; D &amp; E &amp; G; end; style AWS-Staging fill:#68B984,stroke:#333,stroke-width:4px H(((User))) --&gt; I; I[Elastic Load \nBalancer]; I --&gt; J(EC2 Instance); I --&gt; K(EC2 Instance); I --&gt; L(EC2 Instance); I --&gt; M(EC2 more...); J &amp; K &amp; L &amp; M --&gt; N((MySQL \non RDS)) subgraph AWS-Production; I &amp; J &amp; K &amp; L &amp; M &amp; N; end; style AWS-Production fill:#F7A4A4,stroke:#333,stroke-width:4px </div> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.
+├── module-example
+│   ├── modules
+│   │   └── services
+│   │       └── webserver-cluster
+│   │           ├── README.md
+│   │           ├── main.tf
+│   │           ├── outputs.tf
+│   │           ├── user-data.sh
+│   │           └── variables.tf
+│   ├── prod
+│   │   ├── data-stores
+│   │   │   └── mysql
+│   │   │       ├── README.md
+│   │   │       ├── main.tf
+│   │   │       ├── outputs.tf
+│   │   │       └── variables.tf
+│   │   └── services
+│   │       └── webserver-cluster
+│   │           ├── README.md
+│   │           ├── main.tf
+│   │           ├── outputs.tf
+│   │           └── variables.tf
+│   └── stage
+│       ├── data-stores
+│       │   └── mysql
+│       │       ├── README.md
+│       │       ├── main.tf
+│       │       ├── outputs.tf
+│       │       └── variables.tf
+│       └── services
+│           └── webserver-cluster
+│               ├── README.md
+│               ├── main.tf
+│               ├── outputs.tf
+│               └── variables.tf
+└── multi-repo-example
+    └── live
+        ├── prod
+        │   ├── data-stores
+        │   │   └── mysql
+        │   │       ├── README.md
+        │   │       ├── main.tf
+        │   │       ├── outputs.tf
+        │   │       └── variables.tf
+        │   └── services
+        │       └── webserver-cluster
+        │           ├── README.md
+        │           ├── main.tf  ==&gt; modules/services/webserver-cluster 이용
+        │           ├── outputs.tf
+        │           └── variables.tf
+        └── stage
+            ├── data-stores
+            │   └── mysql
+            │       ├── README.md
+            │       ├── main.tf
+            │       ├── outputs.tf
+            │       └── variables.tf
+            └── services
+                └── webserver-cluster
+                    ├── README.md
+                    ├── main.tf ==&gt; modules/services/webserver-cluster 이용
+                    ├── outputs.tf
+                    └── variables.tf
+</code></pre></div></div> <ul> <li><strong>S3/DynamoDB 생성</strong> <ul> <li>S3/DynamoDB 생성을 위한 환경변수 지정</li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c"># 환경변수에 지정</span>
+  <span class="nb">export </span><span class="nv">TF_VAR_bucket_name</span><span class="o">=</span>gasida-t101-tfstate
+  <span class="nb">export </span><span class="nv">TF_VAR_table_name</span><span class="o">=</span>gasida-t101-locks
+    
+  <span class="c"># 환경변수 확인</span>
+  <span class="nb">export</span> | <span class="nb">grep </span>TF_VAR_
+    
+  <span class="c"># (옵션) 환경변수 지정 삭제</span>
+  <span class="nb">unset </span>TF_VAR_bucket_name
+  <span class="nb">unset </span>TF_VAR_table_name
+</code></pre></div> </div> <ul> <li>배포</li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c">#</span>
+  <span class="nb">cd </span>03-terraform-state/file-layout-example/global/s3
+  <span class="nb">cat </span>main.tf variables.tf
+    
+  <span class="c"># 초기화 및 검증 : 환경변수 적용 확인</span>
+  terraform init <span class="o">&amp;&amp;</span> terraform plan
+    
+  <span class="c"># 배포</span>
+  terraform apply <span class="nt">-auto-approve</span>
+    
+  <span class="c"># 확인</span>
+  aws s3 <span class="nb">ls
+  </span>aws dynamodb list-tables <span class="nt">--output</span> text
+    
+  <span class="c"># 이동</span>
+  <span class="nb">cd</span> ~/terraform-up-and-running-code/code/terraform
+</code></pre></div> </div> </li> <li> <p><strong>Staging RDS 배포</strong></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c"># [터미널1] RDS 생성 모니터링</span>
+  <span class="k">while </span><span class="nb">true</span><span class="p">;</span> <span class="k">do</span> <span class="k">**</span>aws rds describe-db-instances<span class="k">**</span> <span class="nt">--query</span> <span class="s2">"*[].[Endpoint.Address,Endpoint.Port,MasterUsername]"</span> <span class="nt">--output</span> text  <span class="p">;</span> <span class="nb">echo</span> <span class="s2">"------------------------------"</span> <span class="p">;</span> <span class="nb">sleep </span>1<span class="p">;</span> <span class="k">done</span>
+    
+  <span class="c"># [터미널2]</span>
+  <span class="nb">cd </span>04-terraform-module/module-example/stage/data-stores/mysql
+  <span class="nb">cat </span>main.tf variables.tf
+    
+  <span class="c"># 환경변수에 지정</span>
+  <span class="nb">export </span><span class="nv">TF_VAR_db_username</span><span class="o">=</span><span class="s1">'cloudneta'</span>
+  <span class="nb">export </span><span class="nv">TF_VAR_db_password</span><span class="o">=</span><span class="s1">'cloudnetaQ!'</span>
+    
+  <span class="c"># 환경변수 확인</span>
+  <span class="nb">export</span> | <span class="nb">grep </span>TF_VAR_
+    
+  <span class="c"># main.tf 에 백엔드 부분 수정</span>
+  vi main.tf
+    backend <span class="s2">"s3"</span> <span class="o">{</span>
+      <span class="c"># This backend configuration is filled in automatically at test time by Terratest. If you wish to run this example</span>
+      <span class="c"># manually, uncomment and fill in the config below.</span>
+      bucket         <span class="o">=</span> <span class="s2">"gasida-t101-tfstate"</span>
+      key            <span class="o">=</span> <span class="s2">"stage/data-stores/mysql/terraform.tfstate"</span>
+      region         <span class="o">=</span> <span class="s2">"us-east-2"</span>
+      dynamodb_table <span class="o">=</span> <span class="s2">"gasida-t101-locks"</span>
+      <span class="c"># encrypt        = true</span>
+    <span class="o">}</span>
+    
+  <span class="c"># 초기화 및 검증 : 환경변수 적용 확인</span>
+  terraform init <span class="o">&amp;&amp;</span> terraform plan
+    
+  <span class="c"># 배포 : RDS는 생성 시 6분 정도 시간 소요</span>
+  terraform apply <span class="nt">-auto-approve</span>
+  terraform output
+  aws s3 <span class="nb">ls </span>s3://<span class="nv">$TF_VAR_bucket_name</span> <span class="nt">--recursive</span> <span class="nt">--human-readable</span> <span class="nt">--summarize</span>
+    
+  <span class="c"># 이동</span>
+  <span class="nb">cd</span> ../../
+</code></pre></div> </div> </li> <li> <p><strong>모듈</strong>을 활용하여 <strong>Staging</strong> 웹서버 클러스터 배포</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c">#</span>
+  <span class="nb">cd </span>services/webserver-cluster
+  <span class="nb">cat </span>main.tf variables.tf
+    
+  <span class="c"># 환경변수에 지정</span>
+  <span class="nb">export </span><span class="nv">TF_VAR_db_remote_state_bucket</span><span class="o">=</span><span class="nv">$TF_VAR_bucket_name</span>                       <span class="c"># description = "The name of the S3 bucket used for the database's remote state storage"</span>
+  <span class="nb">export </span><span class="nv">TF_VAR_db_remote_state_key</span><span class="o">=</span><span class="s1">'stage/data-stores/mysql/terraform.tfstate'</span>  <span class="c"># description = "The name of the key in the S3 bucket used for the database's remote state storage" </span>
+    
+  <span class="c"># 환경변수 확인</span>
+  <span class="nb">export</span> | <span class="nb">grep </span>TF_VAR_
+    
+  <span class="c"># 초기화 및 검증 : 환경변수 적용 확인</span>
+  terraform init <span class="o">&amp;&amp;</span> terraform plan
+    
+  <span class="c"># 배포</span>
+  terraform apply <span class="nt">-auto-approve</span>
+    
+  <span class="c"># ALB DNS주소로 curl 접속 확인 </span>
+  <span class="nv">ALBDNS</span><span class="o">=</span><span class="si">$(</span>terraform output <span class="nt">-raw</span> alb_dns_name<span class="si">)</span>
+  <span class="k">while </span><span class="nb">true</span><span class="p">;</span> <span class="k">do </span>curl <span class="nt">--connect-timeout</span> 1  http://<span class="nv">$ALBDNS</span> <span class="p">;</span> <span class="nb">echo</span><span class="p">;</span> <span class="nb">echo</span> <span class="s2">"------------------------------"</span><span class="p">;</span> <span class="nb">date</span><span class="p">;</span> <span class="nb">sleep </span>1<span class="p">;</span> <span class="k">done
+  </span>curl <span class="nt">-s</span> http://<span class="nv">$ALBDNS</span>
+    
+  <span class="c"># 삭제</span>
+  <span class="c"># 각 폴더에서 리소스 삭제</span>
+  stage/services/webserver-cluster<span class="nv">$ </span>terraform destroy <span class="nt">-auto-approve</span>
+  stage/data-stores/mysql<span class="nv">$ </span>terraform destroy <span class="nt">-auto-approve</span>
+  03-terraform-state/file-layout-example/global/s3<span class="nv">$ </span>terraform destroy <span class="nt">-auto-approve</span> <span class="c"># 아래 Production 실습을 이어서 할 경우에는 실습 완료 후 삭제 할 것</span>
+    
+  <span class="c"># 이동</span>
+  <span class="nb">cd</span> ~/terraform-up-and-running-code/code/terraform
+</code></pre></div> </div> </li> </ul> <blockquote> <p>동일한 방법으로 <strong>Production</strong> 환경의 “<strong>RDS + 웹 서버 클러스터</strong>”를 배포해보자!</p> <ul> <li><strong>Production RDS 배포</strong></li> <li><strong>모듈</strong>을 활용하여 <strong>Production</strong> 웹서버 클러스터 배포</li> </ul> </blockquote> <h3 id="chapter-05-tips-and-tricks">Chapter 05-tips-and-tricks</h3> <p><code class="language-plaintext highlighter-rouge">실습 구성</code> : Zero-Downtime Deployment <strong>무중단 배포</strong></p> <div class="mermaid"> graph LR; F(((Employee))) --&gt; A; A[Elastic Load \nBalancer]; A --&gt; B(EC2 Instance); A --&gt; E(EC2 more...); B &amp; E --&gt; G((MySQL \non RDS)) subgraph AWS; A &amp; B &amp; E &amp; G; end; </div> <div class="mermaid"> graph LR; F(((Employee))) --&gt; A; A[Elastic Load \nBalancer]; A --&gt; B(EC2 Instance); A --&gt; E(EC2 more...); B &amp; E --&gt; G((MySQL \non RDS)) C(EC2 Instance); D(EC2 more...); subgraph AWS; A &amp; B &amp; E &amp; G &amp; C &amp; D; end; style C fill:#68B984,stroke:#333,stroke-width:4px style D fill:#68B984,stroke:#333,stroke-width:4px </div> <div class="mermaid"> graph LR; F(((Employee))) --&gt; A; A[Elastic Load \nBalancer]; A --&gt; B(EC2 Instance); A --&gt; E(EC2 more...); A --&gt; C(EC2 Instance); A --&gt; D(EC2 more...); B &amp; E &amp; C &amp; D --&gt; G((MySQL \non RDS)) subgraph AWS; A &amp; B &amp; E &amp; G &amp; C &amp; D; end; style C fill:#68B984,stroke:#333,stroke-width:4px style D fill:#68B984,stroke:#333,stroke-width:4px </div> <div class="mermaid"> graph LR; F(((Employee))) --&gt; A; A[Elastic Load \nBalancer]; B(EC2 Instance); E(EC2 more...); A --&gt; C(EC2 Instance); A --&gt; D(EC2 more...); C &amp; D --&gt; G((MySQL \non RDS)) subgraph AWS; A &amp; B &amp; E &amp; G &amp; C &amp; D; end; style C fill:#68B984,stroke:#333,stroke-width:4px style D fill:#68B984,stroke:#333,stroke-width:4px </div> <div class="mermaid"> graph LR; F(((Employee))) --&gt; A; A[Elastic Load \nBalancer]; A --&gt; C(EC2 Instance); A --&gt; D(EC2 more...); C &amp; D --&gt; G((MySQL \non RDS)) subgraph AWS; A &amp; G &amp; C &amp; D; end; style C fill:#68B984,stroke:#333,stroke-width:4px style D fill:#68B984,stroke:#333,stroke-width:4px </div> <ul> <li><strong>S3/DynamoDB 생성</strong> <ul> <li>S3/DynamoDB 생성을 위한 환경변수 지정</li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c"># 환경변수에 지정</span>
+  <span class="nb">export </span><span class="nv">TF_VAR_bucket_name</span><span class="o">=</span>gasida-t101-tfstate
+  <span class="nb">export </span><span class="nv">TF_VAR_table_name</span><span class="o">=</span>gasida-t101-locks
+    
+  <span class="c"># 환경변수 확인</span>
+  <span class="nb">export</span> | <span class="nb">grep </span>TF_VAR_
+</code></pre></div> </div> <ul> <li>배포</li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c">#</span>
+  <span class="nb">cd </span>03-terraform-state/file-layout-example/global/s3
+  <span class="nb">cat </span>main.tf variables.tf
+    
+  <span class="c"># 초기화 및 검증 : 환경변수 적용 확인</span>
+  terraform init <span class="o">&amp;&amp;</span> terraform plan
+    
+  <span class="c"># 배포</span>
+  terraform apply <span class="nt">-auto-approve</span>
+    
+  <span class="c"># 확인</span>
+  aws s3 <span class="nb">ls
+  </span>aws dynamodb list-tables <span class="nt">--output</span> text
+    
+  <span class="c"># 이동</span>
+  <span class="nb">cd</span> ~/terraform-up-and-running-code/code/terraform
+</code></pre></div> </div> </li> <li> <p><strong>Staging RDS 배포</strong></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c"># [터미널1] RDS 생성 모니터링</span>
+  <span class="k">while </span><span class="nb">true</span><span class="p">;</span> <span class="k">do</span> <span class="k">**</span>aws rds describe-db-instances<span class="k">**</span> <span class="nt">--query</span> <span class="s2">"*[].[Endpoint.Address,Endpoint.Port,MasterUsername]"</span> <span class="nt">--output</span> text  <span class="p">;</span> <span class="nb">echo</span> <span class="s2">"------------------------------"</span> <span class="p">;</span> <span class="nb">sleep </span>1<span class="p">;</span> <span class="k">done</span>
+    
+  <span class="c"># [터미널2]</span>
+  <span class="nb">cd </span>05-tips-and-tricks/module-example/stage/data-stores/mysql
+  <span class="nb">cat </span>main.tf variables.tf
+    
+  <span class="c"># 환경변수에 지정</span>
+  <span class="nb">export </span><span class="nv">TF_VAR_db_username</span><span class="o">=</span><span class="s1">'cloudneta'</span>
+  <span class="nb">export </span><span class="nv">TF_VAR_db_password</span><span class="o">=</span><span class="s1">'cloudnetaQ!'</span>
+    
+  <span class="c"># 환경변수 확인</span>
+  <span class="nb">export</span> | <span class="nb">grep </span>TF_VAR_
+    
+  <span class="c"># main.tf 에 백엔드 부분 수정</span>
+  vi main.tf
+    backend <span class="s2">"s3"</span> <span class="o">{</span>
+      <span class="c"># This backend configuration is filled in automatically at test time by Terratest. If you wish to run this example</span>
+      <span class="c"># manually, uncomment and fill in the config below.</span>
+      bucket         <span class="o">=</span> <span class="s2">"gasida-t101-tfstate"</span>
+      key            <span class="o">=</span> <span class="s2">"stage/data-stores/mysql/terraform.tfstate"</span>
+      region         <span class="o">=</span> <span class="s2">"us-east-2"</span>
+      dynamodb_table <span class="o">=</span> <span class="s2">"gasida-t101-locks"</span>
+      <span class="c"># encrypt        = true</span>
+    <span class="o">}</span>
+    
+  <span class="c"># 초기화 및 검증 : 환경변수 적용 확인</span>
+  terraform init <span class="o">&amp;&amp;</span> terraform plan
+    
+  <span class="c"># 배포 : RDS는 생성 시 6분 정도 시간 소요</span>
+  terraform apply <span class="nt">-auto-approve</span>
+  terraform output
+  aws s3 <span class="nb">ls </span>s3://<span class="nv">$TF_VAR_bucket_name</span> <span class="nt">--recursive</span> <span class="nt">--human-readable</span> <span class="nt">--summarize</span>
+    
+  <span class="c"># 이동</span>
+  <span class="nb">cd</span> ../../
+</code></pre></div> </div> </li> <li> <p><strong>모듈</strong>을 활용하여 <strong>Staging</strong> 웹서버 클러스터 배포 후 <strong>무중단 업그레이드</strong></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c">#</span>
+  <span class="nb">cd </span>services/webserver-cluster
+  <span class="nb">cat </span>main.tf variables.tf
+    
+  <span class="c"># 환경변수에 지정</span>
+  <span class="nb">export </span><span class="nv">TF_VAR_db_remote_state_bucket</span><span class="o">=</span><span class="nv">$TF_VAR_bucket_name</span>                       <span class="c"># description = "The name of the S3 bucket used for the database's remote state storage"</span>
+  <span class="nb">export </span><span class="nv">TF_VAR_db_remote_state_key</span><span class="o">=</span><span class="s1">'stage/data-stores/mysql/terraform.tfstate'</span>  <span class="c"># description = "The name of the key in the S3 bucket used for the database's remote state storage" </span>
+    
+  <span class="c"># 환경변수 확인</span>
+  <span class="nb">export</span> | <span class="nb">grep </span>TF_VAR_
+    
+  <span class="c"># 초기화 및 검증 : 환경변수 적용 확인</span>
+  terraform init <span class="o">&amp;&amp;</span> terraform plan <span class="nt">-var</span> <span class="nv">server_text</span><span class="o">=</span><span class="s1">'Old server text'</span>
+    
+  <span class="c"># 배포</span>
+  terraform apply <span class="nt">-auto-approve</span> <span class="nt">-var</span> <span class="nv">server_text</span><span class="o">=</span><span class="s1">'Old server text'</span>
+    
+  <span class="c"># ALB DNS주소로 curl 접속 확인 </span>
+  <span class="nv">ALBDNS</span><span class="o">=</span><span class="si">$(</span>terraform output <span class="nt">-raw</span> alb_dns_name<span class="si">)</span>
+  <span class="k">while </span><span class="nb">true</span><span class="p">;</span> <span class="k">do </span>curl <span class="nt">--connect-timeout</span> 1  http://<span class="nv">$ALBDNS</span> <span class="p">;</span> <span class="nb">echo</span><span class="p">;</span> <span class="nb">echo</span> <span class="s2">"------------------------------"</span><span class="p">;</span> <span class="nb">date</span><span class="p">;</span> <span class="nb">sleep </span>1<span class="p">;</span> <span class="k">done
+  </span>curl <span class="nt">-s</span> http://<span class="nv">$ALBDNS</span>
+    
+  <span class="c"># [터미널1]</span>
+  <span class="nv">ALBDNS</span><span class="o">=</span>&lt;직접입력&gt;
+  <span class="k">while </span><span class="nb">true</span><span class="p">;</span> <span class="k">do </span>curl <span class="nt">--connect-timeout</span> 1  http://<span class="nv">$ALBDNS</span> <span class="p">;</span> <span class="nb">echo</span><span class="p">;</span> <span class="nb">echo</span> <span class="s2">"------------------------------"</span><span class="p">;</span> <span class="nb">date</span><span class="p">;</span> <span class="nb">sleep </span>1<span class="p">;</span> <span class="k">done</span>
+    
+  <span class="c"># [터미널2]</span>
+  <span class="k">while </span><span class="nb">true</span><span class="p">;</span> <span class="k">do </span>aws ec2 describe-instances <span class="nt">--query</span> <span class="s2">"Reservations[*].Instances[*].{PublicIPAdd:PublicIpAddress,InstanceName:Tags[?Key=='Name']|[0].Value,Status:State.Name}"</span> <span class="nt">--filters</span> <span class="nv">Name</span><span class="o">=</span>instance-state-name,Values<span class="o">=</span>running <span class="nt">--output</span> text <span class="p">;</span> <span class="nb">echo</span> <span class="s2">"------------------------------"</span> <span class="p">;</span> <span class="nb">sleep </span>1<span class="p">;</span> <span class="k">done</span>
+    
+  <span class="c"># 무중단 업그레이드 배포 : 환경변수 수정 적용 &gt;&gt; 오토스케일링그룹 2개중 기존 그룹은 5분 정도 후에 EC2가 삭제됨(오래 걸리니 맘 편히 기다리자)</span>
+  terraform plan <span class="nt">-var</span> <span class="nv">server_text</span><span class="o">=</span><span class="s1">'NEW server text'</span>
+  terraform apply <span class="nt">-auto-approve</span> <span class="nt">-var</span> <span class="nv">server_text</span><span class="o">=</span><span class="s1">'NEW server text'</span>
+    
+  <span class="c"># 삭제</span>
+  <span class="c"># 각 폴더에서 리소스 삭제</span>
+  stage/services/webserver-cluster<span class="nv">$ </span>terraform destroy <span class="nt">-auto-approve</span>
+  stage/data-stores/mysql<span class="nv">$ </span>terraform destroy <span class="nt">-auto-approve</span>
+  03-terraform-state/file-layout-example/global/s3<span class="nv">$ </span>terraform destroy <span class="nt">-auto-approve</span>
+    
+  <span class="c"># 이동</span>
+  <span class="nb">cd</span> ~/terraform-up-and-running-code/code/terraform
+</code></pre></div> </div> </li> </ul> <div class="entry-meta"> <br> <hr> <span class="entry-tags"><a href="https://lahuman.github.io/tags/#terraform" title="Pages tagged terraform" class="tag"><span class="term">terraform</span></a><a href="https://lahuman.github.io/tags/#study" title="Pages tagged study" class="tag"><span class="term">study</span></a></span> <span class="social-share"> <a href="https://www.facebook.com/sharer/sharer.php?u=https://lahuman.github.io/t101_7week_1/" title="Share on Facebook" class="tag"> <span class="term"><i class="fa fa-facebook-square"></i> Share</span> </a> <a href="https://twitter.com/intent/tweet?text=https://lahuman.github.io/t101_7week_1/" title="Share on Twitter" class="tag"> <span class="term"><i class="fa fa-twitter-square"></i> Tweet</span> </a> <a href="https://plus.google.com/share?url=https://lahuman.github.io/t101_7week_1/" title="Share on Google+" class="tag"> <span class="term"><i class="fa fa-google-plus-square"></i> +1</span> </a> </span> <div style="clear:both"></div> </div> <ins class="kakao_ad_area" style="display:none;" data-ad-unit = "DAN-ubp67fs9s850" data-ad-width = "320" data-ad-height = "100"></ins> <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script> </div> </div> <section id="disqus_thread" class="animated fadeInUp"></section><!-- /#disqus_thread --> </header> <!-- JS --> <script src="https://lahuman.github.io/assets/js/jquery-1.12.0.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.dlmenu.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.goup.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.magnific-popup.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.fitvid.min.js"></script> <script src="https://lahuman.github.io/assets/js/scripts.js"></script> <!-- Global site tag (gtag.js) - Google Analytics --> <script async src="https://www.googletagmanager.com/gtag/js?id=UA-74095083-1"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-74095083-1'); </script> <script type="text/javascript"> var disqus_shortname = 'daniels-blog'; (function() { var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true; dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js'; (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq); })(); (function () { var s = document.createElement('script'); s.async = true; s.type = 'text/javascript'; s.src = '//' + disqus_shortname + '.disqus.com/count.js'; (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s); }()); </script> <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript> <!-- MathJax --> <script async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> </body> </html>
