@@ -1,0 +1,596 @@
+<h1 id="aws-with-terraform">AWS with Terraform</h1>
+
+<blockquote>
+  <p>최종 과제로 무엇을 할까 고민하다 결국 내가 “가장 기본이 되는 기초를 정리해보자!”가 되었습니다. 개인적으로 가장 인상 깊었던 2번째 시간의 코드를 좀더 상세하게 정리하여 보았습니다.</p>
+</blockquote>
+
+<div class="mermaid">
+flowchart LR;
+  subgraph AWS;
+    direction TB;
+    subgraph VPC;
+      subgraph subnet-A;
+        A(EC2);
+      end
+      subgraph subnet-C;
+        B(EC2);
+      end
+    end
+  end
+C[USER] --&gt; A &amp; B;
+</div>
+
+<h2 id="1-vpc와-subnet-생성">1. <a href="https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/configure-your-vpc.html">VPC</a>와 <a href="https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/configure-subnets.html">subnet</a> 생성</h2>
+
+<blockquote>
+  <p>(Amazon VPC란 무엇인가?)[https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/what-is-amazon-vpc.html] 를 보면 자세하게 설명 되어 있지만, 간단하게 주요 기능은 아래와 같습니다.</p>
+</blockquote>
+
+<ul>
+  <li>VPC :  자체 데이터 센터에서 운영하는 기존 네트워크와 아주 유사한 가상 네트워크</li>
+  <li>subnet : VPC의 ip 주소 범위</li>
+  <li>IP 주소 지정 : VPC와 subnet에 IPv4 또는 IPv6 주소 할당</li>
+  <li>라우팅 : <a href="https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/VPC_Route_Tables.html">라우팅 테이블</a>을 사용하여 서브넷 또는 게이트웨이의 네트워크 트래픽이 전달되는 위치를 결정</li>
+  <li>게이트웨이 및 엔드포인트 : <a href="https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/extend-intro.html">게이트웨이</a>는 VPC를 다른 네트워크에 연결</li>
+  <li>피어링 연결: <a href="https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html">VPC 피어링</a> 연결을 사용하여 두 VPC의 리소스 간 트래픽을 라우팅</li>
+  <li>트래픽 미러링 :  네트워크 인터페이스에서 <a href="https://docs.aws.amazon.com/vpc/latest/mirroring/what-is-traffic-mirroring.html">네트워크 트래픽을 복사</a>하고 심층 패킷 검사를 위해 보안 및 모니터링 어플라이언스로 전송</li>
+  <li>Transit Gateway : 중앙 허브 역할을 하는 <a href="https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/extend-tgw.html">전송 게이트웨이</a>를 사용하여 VPC, VPN 연결 및 AWS Direct Connect 연결 간에 트래픽을 라우팅</li>
+  <li>VPC 흐름 로그 : <a href="https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/flow-logs.html">흐름 로그</a>는 VPC의 네트워크 인터페이스로 들어오고 나가는 IP 트래픽에 대한 정보를 캡처</li>
+  <li>VPN 연결 : <a href="https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/vpn-connections.html">AWS Virtual Private Network(AWS VPN)</a>을 사용하여 온프레미스 네트워크에 VPC를 연결합니다.</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># AWS 사용
+provider "aws" {
+  region = "ap-northeast-3" 
+}
+
+# vpc 생성 
+resource "aws_vpc" "myvpc" {
+  cidr_block       = "10.10.0.0/16"
+  enable_dns_support   = true
+  enable_dns_hostnames = true
+
+  tags = {
+    Name = "lahuman-study"
+  }
+}
+
+# subnet-a 생성
+resource "aws_subnet" "mysubnet1" {
+  vpc_id     = aws_vpc.myvpc.id
+  cidr_block = "10.10.1.0/24"
+
+  availability_zone = "ap-northeast-3a"
+
+  tags = {
+    Name = "lahuman-subnet1"
+  }
+}
+
+# subnet-b 생성
+resource "aws_subnet" "mysubnet2" {
+  vpc_id     = aws_vpc.myvpc.id
+  cidr_block = "10.10.2.0/24"
+
+  availability_zone = "ap-northeast-3d"
+
+  tags = {
+    Name = "lahuman-subnet2"
+  }
+}
+
+# gateway 생성
+resource "aws_internet_gateway" "myigw" {
+  vpc_id = aws_vpc.myvpc.id
+
+  tags = {
+    Name = "lahuman-igw"
+  }
+}
+
+# 라우팅 테이블 생성
+resource "aws_route_table" "myrt" {
+  vpc_id = aws_vpc.myvpc.id
+
+  tags = {
+    Name = "lahuman-rt"
+  }
+}
+
+resource "aws_route_table_association" "myrtassociation1" {
+  subnet_id      = aws_subnet.mysubnet1.id
+  route_table_id = aws_route_table.myrt.id
+}
+
+resource "aws_route_table_association" "myrtassociation2" {
+  subnet_id      = aws_subnet.mysubnet2.id
+  route_table_id = aws_route_table.myrt.id
+}
+
+# 기본 라우팅 생성
+resource "aws_route" "mydefaultroute" {
+  route_table_id         = aws_route_table.myrt.id
+  destination_cidr_block = "0.0.0.0/0"
+  gateway_id             = aws_internet_gateway.myigw.id
+}
+</code></pre></div></div>
+
+<h2 id="보안-그룹-설정"><a href="https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/VPC_SecurityGroups.html">보안 그룹 설정</a></h2>
+
+<blockquote>
+  <p>보안 그룹은 연결된 리소스에 도달하고 나갈 수 있는 트래픽을 제어 합니다. VPC를 생성할 경우 VPC는 기본 보안 그룹과 함께 제공됩니다. 보안 그룹은 해당 보안 그룹이 생성된 VPC의 리소스에만 연결할 수 있습니다.
+각 보안 그룹에 대해 프로토콜 및 포트 번호를 기반으로 트래픽을 제어하는 규칙을 추가합니다. 인바운드 트래픽과 아웃바운드 트래픽에 대한 규칙 집합은 따로 생성해야 합니다.</p>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># 보안 그룹 생성
+resource "aws_security_group" "mysg" {
+  vpc_id      = aws_vpc.myvpc.id
+  name        = "lahuman SG"
+  description = "lahuman Study SG"
+}
+
+# inbound 보안 그룹 생성
+resource "aws_security_group_rule" "mysginbound" {
+  type              = "ingress"
+  from_port         = 0
+  to_port           = 80
+  protocol          = "tcp"
+  cidr_blocks       = ["0.0.0.0/0"]
+  security_group_id = aws_security_group.mysg.id
+}
+
+# outbound 보안 그룹 생성 
+resource "aws_security_group_rule" "mysgoutbound" {
+  type              = "egress"
+  from_port         = 0
+  to_port           = 0
+  protocol          = "-1"
+  cidr_blocks       = ["0.0.0.0/0"]
+  security_group_id = aws_security_group.mysg.id
+}
+</code></pre></div></div>
+
+<h2 id="ec2-생성"><a href="https://aws.amazon.com/ko/ec2/features/?trk=ec2_landing">Ec2</a> 생성</h2>
+
+<blockquote>
+  <p>Amazon Elastic Compute Cloud(Amazon EC2)는 최신 프로세서, 스토리지, 네트워킹, 운영 체제 및 구매 모델의 옵션과 함께 워크로드의 요구 사항에 가장 잘 부합할 수 있도록 가장 포괄적이고 심층적인 컴퓨팅 플랫폼을 제공합니다.</p>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># ec2 image 값 가져오기
+data "aws_ami" "my_amazonlinux2" {
+  most_recent = true
+  filter {
+    name   = "owner-alias"
+    values = ["amazon"]
+  }
+
+  filter {
+    name   = "name"
+    values = ["amzn2-ami-hvm-*-x86_64-ebs"]
+  }
+
+  owners = ["amazon"]
+}
+
+# ec2 생성
+resource "aws_instance" "myec2" {
+
+  depends_on = [
+    aws_internet_gateway.myigw
+  ]
+
+  ami                         = data.aws_ami.my_amazonlinux2.id
+  associate_public_ip_address = true
+  instance_type               = "t2.micro"
+  vpc_security_group_ids      = ["${aws_security_group.mysg.id}"]
+  subnet_id                   = aws_subnet.mysubnet1.id
+
+  user_data = &lt;&lt;-EOF
+              #!/bin/bash
+              wget https://busybox.net/downloads/binaries/1.31.0-defconfig-multiarch-musl/busybox-x86_64
+              mv busybox-x86_64 busybox
+              chmod +x busybox
+              IID=$(curl 169.254.169.254/latest/meta-data/instance-id)
+              LIP=$(curl 169.254.169.254/latest/meta-data/local-ipv4)
+              echo "&lt;h1&gt;Instance ID($IID) : Private IP($LIP) : Web Server&lt;/h1&gt;" &gt; index.html
+              nohup ./busybox httpd -f -p 80 &amp;
+              EOF
+
+  user_data_replace_on_change = true
+
+  tags = {
+    Name = "lahuman"
+  }
+}
+
+# ec2의 public IP를 전달
+output "myec2_public_ip" {
+  value       = aws_instance.myec2.public_ip
+  description = "The public IP of the Instance"
+}
+</code></pre></div></div>
+
+<h2 id="terraform-실행">terraform 실행</h2>
+
+<h3 id="terraform-plan"><a href="https://developer.hashicorp.com/terraform/cli/commands/plan">terraform plan</a></h3>
+
+<blockquote>
+  <p><code class="language-plaintext highlighter-rouge">terraform plan</code> 명령은 Terraform이 인프라에 적용할 계획인 변경 사항을 미리 볼 수 있는 실행 계획을 생성합니다.</p>
+</blockquote>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>terraform plan
+
+data.aws_ami.my_amazonlinux2: Reading...
+data.aws_ami.my_amazonlinux2: Read <span class="nb">complete </span>after 1s <span class="o">[</span><span class="nb">id</span><span class="o">=</span>ami-0fb60a39693356bdc]
+
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  <span class="c"># aws_instance.myec2 will be created</span>
+  + resource <span class="s2">"aws_instance"</span> <span class="s2">"myec2"</span> <span class="o">{</span>
+      + ami                                  <span class="o">=</span> <span class="s2">"ami-0fb60a39693356bdc"</span>
+      + arn                                  <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + associate_public_ip_address          <span class="o">=</span> <span class="nb">true</span>
+      + availability_zone                    <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + cpu_core_count                       <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + cpu_threads_per_core                 <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + disable_api_stop                     <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + disable_api_termination              <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + ebs_optimized                        <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + get_password_data                    <span class="o">=</span> <span class="nb">false</span>
+      + host_id                              <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + host_resource_group_arn              <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + iam_instance_profile                 <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + <span class="nb">id</span>                                   <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + instance_initiated_shutdown_behavior <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + instance_state                       <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + instance_type                        <span class="o">=</span> <span class="s2">"t2.micro"</span>
+      + ipv6_address_count                   <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + ipv6_addresses                       <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + key_name                             <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + monitoring                           <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + outpost_arn                          <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + password_data                        <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + placement_group                      <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + placement_partition_number           <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + primary_network_interface_id         <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + private_dns                          <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + private_ip                           <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + public_dns                           <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + public_ip                            <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + secondary_private_ips                <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + security_groups                      <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + source_dest_check                    <span class="o">=</span> <span class="nb">true</span>
+      + subnet_id                            <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + tags                                 <span class="o">=</span> <span class="o">{</span>
+          + <span class="s2">"Name"</span> <span class="o">=</span> <span class="s2">"HallsHolicker-jjang"</span>
+        <span class="o">}</span>
+      + tags_all                             <span class="o">=</span> <span class="o">{</span>
+          + <span class="s2">"Name"</span> <span class="o">=</span> <span class="s2">"HallsHolicker-jjang"</span>
+        <span class="o">}</span>
+      + tenancy                              <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + user_data                            <span class="o">=</span> <span class="s2">"8dff34d47d3190dd73611d8dd3ac482ed408aa71"</span>
+      + user_data_base64                     <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + user_data_replace_on_change          <span class="o">=</span> <span class="nb">true</span>
+      + vpc_security_group_ids               <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+
+      + capacity_reservation_specification <span class="o">{</span>
+          + capacity_reservation_preference <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+
+          + capacity_reservation_target <span class="o">{</span>
+              + capacity_reservation_id                 <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+              + capacity_reservation_resource_group_arn <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+      + ebs_block_device <span class="o">{</span>
+          + delete_on_termination <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+          + device_name           <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+          + encrypted             <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+          + iops                  <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+          + kms_key_id            <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+          + snapshot_id           <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+          + tags                  <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+          + throughput            <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+          + volume_id             <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+          + volume_size           <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+          + volume_type           <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+        <span class="o">}</span>
+
+      + enclave_options <span class="o">{</span>
+          + enabled <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+        <span class="o">}</span>
+
+      + ephemeral_block_device <span class="o">{</span>
+          + device_name  <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+          + no_device    <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+          + virtual_name <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+        <span class="o">}</span>
+
+      + maintenance_options <span class="o">{</span>
+          + auto_recovery <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+        <span class="o">}</span>
+
+      + metadata_options <span class="o">{</span>
+          + http_endpoint               <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+          + http_put_response_hop_limit <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+          + http_tokens                 <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+          + instance_metadata_tags      <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+        <span class="o">}</span>
+
+      + network_interface <span class="o">{</span>
+          + delete_on_termination <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+          + device_index          <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+          + network_card_index    <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+          + network_interface_id  <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+        <span class="o">}</span>
+
+      + private_dns_name_options <span class="o">{</span>
+          + enable_resource_name_dns_a_record    <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+          + enable_resource_name_dns_aaaa_record <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+          + hostname_type                        <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+        <span class="o">}</span>
+
+      + root_block_device <span class="o">{</span>
+          + delete_on_termination <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+          + device_name           <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+          + encrypted             <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+          + iops                  <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+          + kms_key_id            <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+          + tags                  <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+          + throughput            <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+          + volume_id             <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+          + volume_size           <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+          + volume_type           <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+  <span class="c"># aws_internet_gateway.myigw will be created</span>
+  + resource <span class="s2">"aws_internet_gateway"</span> <span class="s2">"myigw"</span> <span class="o">{</span>
+      + arn      <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + <span class="nb">id</span>       <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + owner_id <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + tags     <span class="o">=</span> <span class="o">{</span>
+          + <span class="s2">"Name"</span> <span class="o">=</span> <span class="s2">"lahuman-igw"</span>
+        <span class="o">}</span>
+      + tags_all <span class="o">=</span> <span class="o">{</span>
+          + <span class="s2">"Name"</span> <span class="o">=</span> <span class="s2">"lahuman-igw"</span>
+        <span class="o">}</span>
+      + vpc_id   <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+    <span class="o">}</span>
+
+  <span class="c"># aws_route.mydefaultroute will be created</span>
+  + resource <span class="s2">"aws_route"</span> <span class="s2">"mydefaultroute"</span> <span class="o">{</span>
+      + destination_cidr_block <span class="o">=</span> <span class="s2">"0.0.0.0/0"</span>
+      + gateway_id             <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + <span class="nb">id</span>                     <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + instance_id            <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + instance_owner_id      <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + network_interface_id   <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + origin                 <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + route_table_id         <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + state                  <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+    <span class="o">}</span>
+
+  <span class="c"># aws_route_table.myrt will be created</span>
+  + resource <span class="s2">"aws_route_table"</span> <span class="s2">"myrt"</span> <span class="o">{</span>
+      + arn              <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + <span class="nb">id</span>               <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + owner_id         <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + propagating_vgws <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + route            <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + tags             <span class="o">=</span> <span class="o">{</span>
+          + <span class="s2">"Name"</span> <span class="o">=</span> <span class="s2">"lahuman-rt"</span>
+        <span class="o">}</span>
+      + tags_all         <span class="o">=</span> <span class="o">{</span>
+          + <span class="s2">"Name"</span> <span class="o">=</span> <span class="s2">"lahuman-rt"</span>
+        <span class="o">}</span>
+      + vpc_id           <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+    <span class="o">}</span>
+
+  <span class="c"># aws_route_table_association.myrtassociation1 will be created</span>
+  + resource <span class="s2">"aws_route_table_association"</span> <span class="s2">"myrtassociation1"</span> <span class="o">{</span>
+      + <span class="nb">id</span>             <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + route_table_id <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + subnet_id      <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+    <span class="o">}</span>
+
+  <span class="c"># aws_route_table_association.myrtassociation2 will be created</span>
+  + resource <span class="s2">"aws_route_table_association"</span> <span class="s2">"myrtassociation2"</span> <span class="o">{</span>
+      + <span class="nb">id</span>             <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + route_table_id <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + subnet_id      <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+    <span class="o">}</span>
+
+  <span class="c"># aws_security_group.mysg will be created</span>
+  + resource <span class="s2">"aws_security_group"</span> <span class="s2">"mysg"</span> <span class="o">{</span>
+      + arn                    <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + description            <span class="o">=</span> <span class="s2">"lahuman Study SG"</span>
+      + egress                 <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + <span class="nb">id</span>                     <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + ingress                <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + name                   <span class="o">=</span> <span class="s2">"lahuman SG"</span>
+      + name_prefix            <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + owner_id               <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + revoke_rules_on_delete <span class="o">=</span> <span class="nb">false</span>
+      + tags_all               <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + vpc_id                 <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+    <span class="o">}</span>
+
+  <span class="c"># aws_security_group_rule.mysginbound will be created</span>
+  + resource <span class="s2">"aws_security_group_rule"</span> <span class="s2">"mysginbound"</span> <span class="o">{</span>
+      + cidr_blocks              <span class="o">=</span> <span class="o">[</span>
+          + <span class="s2">"0.0.0.0/0"</span>,
+        <span class="o">]</span>
+      + from_port                <span class="o">=</span> 0
+      + <span class="nb">id</span>                       <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + protocol                 <span class="o">=</span> <span class="s2">"tcp"</span>
+      + security_group_id        <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + security_group_rule_id   <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + self                     <span class="o">=</span> <span class="nb">false</span>
+      + source_security_group_id <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + to_port                  <span class="o">=</span> 80
+      + <span class="nb">type</span>                     <span class="o">=</span> <span class="s2">"ingress"</span>
+    <span class="o">}</span>
+
+  <span class="c"># aws_security_group_rule.mysgoutbound will be created</span>
+  + resource <span class="s2">"aws_security_group_rule"</span> <span class="s2">"mysgoutbound"</span> <span class="o">{</span>
+      + cidr_blocks              <span class="o">=</span> <span class="o">[</span>
+          + <span class="s2">"0.0.0.0/0"</span>,
+        <span class="o">]</span>
+      + from_port                <span class="o">=</span> 0
+      + <span class="nb">id</span>                       <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + protocol                 <span class="o">=</span> <span class="s2">"-1"</span>
+      + security_group_id        <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + security_group_rule_id   <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + self                     <span class="o">=</span> <span class="nb">false</span>
+      + source_security_group_id <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + to_port                  <span class="o">=</span> 0
+      + <span class="nb">type</span>                     <span class="o">=</span> <span class="s2">"egress"</span>
+    <span class="o">}</span>
+
+  <span class="c"># aws_subnet.mysubnet1 will be created</span>
+  + resource <span class="s2">"aws_subnet"</span> <span class="s2">"mysubnet1"</span> <span class="o">{</span>
+      + arn                                            <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + assign_ipv6_address_on_creation                <span class="o">=</span> <span class="nb">false</span>
+      + availability_zone                              <span class="o">=</span> <span class="s2">"us-east-2a"</span>
+      + availability_zone_id                           <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + cidr_block                                     <span class="o">=</span> <span class="s2">"10.10.1.0/24"</span>
+      + enable_dns64                                   <span class="o">=</span> <span class="nb">false</span>
+      + enable_resource_name_dns_a_record_on_launch    <span class="o">=</span> <span class="nb">false</span>
+      + enable_resource_name_dns_aaaa_record_on_launch <span class="o">=</span> <span class="nb">false</span>
+      + <span class="nb">id</span>                                             <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + ipv6_cidr_block_association_id                 <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + ipv6_native                                    <span class="o">=</span> <span class="nb">false</span>
+      + map_public_ip_on_launch                        <span class="o">=</span> <span class="nb">false</span>
+      + owner_id                                       <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + private_dns_hostname_type_on_launch            <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + tags                                           <span class="o">=</span> <span class="o">{</span>
+          + <span class="s2">"Name"</span> <span class="o">=</span> <span class="s2">"lahuman-subnet1"</span>
+        <span class="o">}</span>
+      + tags_all                                       <span class="o">=</span> <span class="o">{</span>
+          + <span class="s2">"Name"</span> <span class="o">=</span> <span class="s2">"lahuman-subnet1"</span>
+        <span class="o">}</span>
+      + vpc_id                                         <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+    <span class="o">}</span>
+
+  <span class="c"># aws_subnet.mysubnet2 will be created</span>
+  + resource <span class="s2">"aws_subnet"</span> <span class="s2">"mysubnet2"</span> <span class="o">{</span>
+      + arn                                            <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + assign_ipv6_address_on_creation                <span class="o">=</span> <span class="nb">false</span>
+      + availability_zone                              <span class="o">=</span> <span class="s2">"us-east-2d"</span>
+      + availability_zone_id                           <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + cidr_block                                     <span class="o">=</span> <span class="s2">"10.10.2.0/24"</span>
+      + enable_dns64                                   <span class="o">=</span> <span class="nb">false</span>
+      + enable_resource_name_dns_a_record_on_launch    <span class="o">=</span> <span class="nb">false</span>
+      + enable_resource_name_dns_aaaa_record_on_launch <span class="o">=</span> <span class="nb">false</span>
+      + <span class="nb">id</span>                                             <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + ipv6_cidr_block_association_id                 <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + ipv6_native                                    <span class="o">=</span> <span class="nb">false</span>
+      + map_public_ip_on_launch                        <span class="o">=</span> <span class="nb">false</span>
+      + owner_id                                       <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + private_dns_hostname_type_on_launch            <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + tags                                           <span class="o">=</span> <span class="o">{</span>
+          + <span class="s2">"Name"</span> <span class="o">=</span> <span class="s2">"lahuman-subnet2"</span>
+        <span class="o">}</span>
+      + tags_all                                       <span class="o">=</span> <span class="o">{</span>
+          + <span class="s2">"Name"</span> <span class="o">=</span> <span class="s2">"lahuman-subnet2"</span>
+        <span class="o">}</span>
+      + vpc_id                                         <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+    <span class="o">}</span>
+
+  <span class="c"># aws_vpc.myvpc will be created</span>
+  + resource <span class="s2">"aws_vpc"</span> <span class="s2">"myvpc"</span> <span class="o">{</span>
+      + arn                                  <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + cidr_block                           <span class="o">=</span> <span class="s2">"10.10.0.0/16"</span>
+      + default_network_acl_id               <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + default_route_table_id               <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + default_security_group_id            <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + dhcp_options_id                      <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + enable_classiclink                   <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + enable_classiclink_dns_support       <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + enable_dns_hostnames                 <span class="o">=</span> <span class="nb">true</span>
+      + enable_dns_support                   <span class="o">=</span> <span class="nb">true</span>
+      + enable_network_address_usage_metrics <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + <span class="nb">id</span>                                   <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + instance_tenancy                     <span class="o">=</span> <span class="s2">"default"</span>
+      + ipv6_association_id                  <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + ipv6_cidr_block                      <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + ipv6_cidr_block_network_border_group <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + main_route_table_id                  <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + owner_id                             <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+      + tags                                 <span class="o">=</span> <span class="o">{</span>
+          + <span class="s2">"Name"</span> <span class="o">=</span> <span class="s2">"lahuman-study"</span>
+        <span class="o">}</span>
+      + tags_all                             <span class="o">=</span> <span class="o">{</span>
+          + <span class="s2">"Name"</span> <span class="o">=</span> <span class="s2">"lahuman-study"</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+Plan: 12 to add, 0 to change, 0 to destroy.
+
+Changes to Outputs:
+  + myec2_public_ip <span class="o">=</span> <span class="o">(</span>known after apply<span class="o">)</span>
+</code></pre></div></div>
+
+<h3 id="terraform-apply"><a href="https://developer.hashicorp.com/terraform/cli/commands/apply">terraform apply</a></h3>
+
+<blockquote>
+  <p>terraform apply 명령은 Terraform 계획에서 제안된 작업을 실행합니다.</p>
+</blockquote>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>terraform apply
+...
+Apply <span class="nb">complete</span><span class="o">!</span> Resources: 12 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+myec2_public_ip <span class="o">=</span> <span class="s2">"18.218.237.189"</span>
+</code></pre></div></div>
+
+<h3 id="테스트">테스트</h3>
+
+<blockquote>
+  <p>배포된 리소스들이 문제 없이 동작하는지 확인해봅니다. 실제 테스트를 위해서 작업 실행 후 1~2분 정도 시간이 지나야 동작 됩니다.</p>
+</blockquote>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># terraform apply 실행후 바로 실행시 오류 발생 </span>
+<span class="nv">$ MYIP</span><span class="o">=</span><span class="si">$(</span>terraform output <span class="nt">-raw</span> myec2_public_ip<span class="si">)</span>
+ <span class="nv">$ </span><span class="k">while </span><span class="nb">true</span><span class="p">;</span> <span class="k">do </span>curl <span class="nt">--connect-timeout</span> 1  http://<span class="nv">$MYIP</span>/ <span class="p">;</span> <span class="nb">echo</span> <span class="s2">"------------------------------"</span><span class="p">;</span> <span class="nb">date</span><span class="p">;</span> <span class="nb">sleep </span>1<span class="p">;</span> <span class="k">done
+</span>curl: <span class="o">(</span>7<span class="o">)</span> Failed to connect to 18.218.237.189 port 80 after 194 ms: Connection refused
+<span class="nt">------------------------------</span>
+Wed Dec  7 16:09:09 KST 2022
+curl: <span class="o">(</span>7<span class="o">)</span> Failed to connect to 18.218.237.189 port 80 after 198 ms: Connection refused
+<span class="nt">------------------------------</span>
+</code></pre></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 1분 이후 실행시 정상 동작</span>
+<span class="nv">$ MYIP</span><span class="o">=</span><span class="si">$(</span>terraform output <span class="nt">-raw</span> myec2_public_ip<span class="si">)</span>
+<span class="nv">$ </span><span class="k">while </span><span class="nb">true</span><span class="p">;</span> <span class="k">do </span>curl <span class="nt">--connect-timeout</span> 1  http://<span class="nv">$MYIP</span>/ <span class="p">;</span> <span class="nb">echo</span> <span class="s2">"------------------------------"</span><span class="p">;</span> <span class="nb">date</span><span class="p">;</span> <span class="nb">sleep </span>1<span class="p">;</span> <span class="k">done</span>
+&lt;h1&gt;Instance ID<span class="o">(</span>i-0ae32a65e09bf78f2<span class="o">)</span> : Private IP<span class="o">(</span>10.10.1.30<span class="o">)</span> : Web Server&lt;/h1&gt;
+<span class="nt">------------------------------</span>
+Wed Dec  7 16:10:30 KST 2022
+&lt;h1&gt;Instance ID<span class="o">(</span>i-0ae32a65e09bf78f2<span class="o">)</span> : Private IP<span class="o">(</span>10.10.1.30<span class="o">)</span> : Web Server&lt;/h1&gt;
+<span class="nt">------------------------------</span>
+Wed Dec  7 16:10:31 KST 2022
+&lt;h1&gt;Instance ID<span class="o">(</span>i-0ae32a65e09bf78f2<span class="o">)</span> : Private IP<span class="o">(</span>10.10.1.30<span class="o">)</span> : Web Server&lt;/h1&gt;
+<span class="nt">------------------------------</span>
+Wed Dec  7 16:10:33 KST 2022
+&lt;h1&gt;Instance ID<span class="o">(</span>i-0ae32a65e09bf78f2<span class="o">)</span> : Private IP<span class="o">(</span>10.10.1.30<span class="o">)</span> : Web Server&lt;/h1&gt;
+<span class="nt">------------------------------</span>
+</code></pre></div></div>
+
+<h3 id="terraform-destroy"><a href="https://developer.hashicorp.com/terraform/cli/commands/destroy">terraform destroy</a></h3>
+
+<blockquote>
+  <p>terraform destroy 명령은 특정 Terraform 구성에서 관리하는 모든 원격 객체를 삭제합니다.</p>
+</blockquote>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>terraform destroy
+aws_vpc.myvpc: Destruction <span class="nb">complete </span>after 1s
+
+Destroy <span class="nb">complete</span><span class="o">!</span> Resources: 12 destroyed.
+</code></pre></div></div>
+
