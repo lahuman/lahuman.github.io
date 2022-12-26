@@ -1,0 +1,451 @@
+<!DOCTYPE html> <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]--> <!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8"><![endif]--> <!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9"><![endif]--> <!--[if gt IE 8]><!--> <html class="no-js"><!--<![endif]--> <head> <meta charset="UTF-8"> <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"> <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1"> <title>#8-1 Working with Multiple Providers &#8211; lahuman</title> <meta name="description" content="열심히 사는 아저씨"> <meta name="keywords" content="terraform, study"> <!-- Twitter Cards --> <meta name="twitter:card" content="summary"> <meta name="twitter:image" content="https://lahuman.github.io/assets/img/logo.png"> <meta name="twitter:title" content="#8-1 Working with Multiple Providers"> <meta name="twitter:description" content="Terraform 101 Study"> <!-- Open Graph --> <meta property="og:locale" content="ko_KR"> <meta property="og:type" content="article"> <meta property="og:title" content="#8-1 Working with Multiple Providers"> <meta property="og:description" content="Terraform 101 Study"> <meta property="og:url" content="https://lahuman.github.io/t101_8week_1/"> <meta property="og:site_name" content="lahuman"> <meta property="og:image" content="https://lahuman.github.io/assets/img/logo.png"> <link rel="canonical" href="https://lahuman.github.io/t101_8week_1/"> <link href="https://lahuman.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="lahuman Feed"> <!-- Handheld --> <meta name="HandheldFriendly" content="True"> <meta name="MobileOptimized" content="320"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- CSS --> <link rel="stylesheet" href="https://lahuman.github.io/assets/css/main.css"> <!-- JS --> <script src="https://lahuman.github.io/assets/js/modernizr-3.3.1.custom.min.js"></script> <!-- Favicons --> <link rel="apple-touch-icon" href="https://lahuman.github.io/assets/img/favicons/apple-icon-precomposed.png"> <link rel="apple-touch-icon" sizes="72x72" href="https://lahuman.github.io/assets/img/favicons/apple-icon-72x72.png"> <link rel="apple-touch-icon" sizes="114x114" href="https://lahuman.github.io/assets/img/favicons/apple-icon-114x114.png"> <link rel="apple-touch-icon" sizes="144x144" href="https://lahuman.github.io/assets/img/favicons/apple-icon-144x144.png"> <link rel="shortcut icon" type="image/png" href="https://lahuman.github.io/favicon.png" /> <link rel="shortcut icon" href="https://lahuman.github.io/favicon.ico" /> <!-- mermaid --> <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script> <script>mermaid.initialize({startOnLoad:true});</script> <!-- Background Image --> <style type="text/css">body {background-image:url(https://lahuman.github.io/assets/img/placeholder-big.jpg); background-repeat: no-repeat; background-size: cover; }</style> <!-- Post Feature Image --> </head> <body> <nav id="dl-menu" class="dl-menuwrapper" role="navigation"> <button class="dl-trigger">Open Menu</button> <ul class="dl-menu"> <li><a href="https://lahuman.github.io/">Home</a></li> <li> <a href="#">About</a> <ul class="dl-submenu"> <li> <img src="https://lahuman.github.io/assets/img/logo.png" alt="lahuman photo" class="author-photo"> <h4>lahuman</h4> <p>열심히 사는 아저씨</p> </li> <li><a href="https://lahuman.github.io/about/"><span class="btn btn-inverse">Learn More</span></a></li> <li> <a href="http://facebook.com/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-facebook-square"></i> Facebook</a> </li> <li> <a href="http://linkedin.com/in/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-linkedin-square"></i> LinkedIn</a> </li> <li> <a href="http://github.com/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-github"></i> Github</a> </li> </ul><!-- /.dl-submenu --> </li> <li> <a href="#">Posts</a> <ul class="dl-submenu"> <li><a href="https://lahuman.github.io/posts/">All Posts</a></li> <li><a href="https://lahuman.github.io/tags/">All Tags</a></li> </ul> </li> <li><a href="https://lahuman.github.io/projects/" >Projects</a></li> </ul><!-- /.dl-menu --> </nav><!-- /.dl-menuwrapper --> <!-- Header --> <header class="header" role="banner"> <div class="wrapper animated fadeIn"> <div class="content"> <div class="post-title "> <h1>#8-1 Working with Multiple Providers</h1> <h4>12 Dec 2022</h4> <p class="reading-time"> <i class="fa fa-clock-o"></i> Reading time ~11 minutes </p><!-- /.entry-reading-time --> <a class="btn zoombtn" href="https://lahuman.github.io/projects/"> <i class="fa fa-chevron-left"></i> </a> </div> <h1 id="working-with-multiple-providers">Working with Multiple Providers</h1> <ul> <li>참고 링크 <ul> <li>Code Github - <a href="https://github.com/brikis98/terraform-up-and-running-code">원서</a></li> </ul> </li> </ul> <h3 id="0-소개">0. 소개</h3> <p><code class="language-plaintext highlighter-rouge">single provider 블록</code></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>provider <span class="s2">"aws"</span> <span class="o">{</span>
+  region <span class="o">=</span> <span class="s2">"us-east-2"</span>
+<span class="o">}</span>
+</code></pre></div></div> <ul> <li>What if you need to deploy to <strong>multiple AWS regions?</strong></li> <li>What if you need to deploy to <strong>multiple AWS accounts?</strong></li> <li>What if you need to deploy to <strong>other clouds, such as Azure or GCP?</strong></li> </ul> <h3 id="1-working-with-one-provider">1. Working with One Provider</h3> <p><strong>1.1 What is a Provider?</strong></p> <p><code class="language-plaintext highlighter-rouge">테라폼 구성</code></p> <ol> <li> <p><strong>Core</strong> : 테라폼 <strong>바이너리</strong>이며, 모든 플랫폼에서 테라폼의 기본 기능을 제공(예. CMD)</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> This is the terraform <span class="k">**</span>binary<span class="k">**</span>, and it provides all the basic functionality <span class="k">in </span>Terraform that is used by all platforms, 
+ such as a command-line interface <span class="o">(</span>i.e., plan, apply, etc.<span class="o">)</span>, a parser and interpreter <span class="k">for </span>Terraform code <span class="o">(</span>HCL<span class="o">)</span>, 
+ the ability to build a dependency graph from resources and data sources, logic to <span class="nb">read </span>and write state files, and so on.
+ Under the hood, the code is written <span class="k">in </span>Go and lives <span class="k">in </span>an open <span class="nb">source </span>GitHub repo owned and maintained by HashiCorp.
+</code></pre></div> </div> </li> <li> <p><strong>Provider</strong> : 테라폼 코어를 위한 플러그인, 각 플러그인은 ‘AWS, Azure, GCP’ 등 외부 플랫폼과 통신</p> </li> </ol> <div class="mermaid"> graph LR; subgraph terraform code; A[Terraform] ; end; subgraph terraform providers; B(AWS provider); C(Azure provider); D(Google Cloud provider); end; A --&gt;|RPC| B &amp; C &amp; D; E((AWS)); F((Azure)); G((Google\nCloud)); B --&gt; |HTTP| E; C --&gt; |HTTP| F; D --&gt; |HTTP| G; </div> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- 초기에는 HashiCorp 가 프로바이더를 만들었지만, 지금은 주요 공급자의 경우 해당 공급자 회사에서 직접 프로바이더를 관리
+- 각 공급자는 특정 접두사를 할당하고, 해당 접두사를 포함하는 하나 이상의 리소스 및 데이터 소스를 표현합니다.
+- 예시 **aws_ prefix** : aws_instance, aws_autoscaling_group, aws_ami
+- 예시 **azurerm_ prefix** : azurerm_virtual_machine, azurerm_virtual_machine_scale_set, azurerm_image
+
+```bash
+The Terraform core communicates with plugins via remote procedure calls (RPCs), and those plugins, 
+in turn, communicate with their corresponding platforms via the network (e.g., via HTTP calls), as shown in Figure 7-1.
+```
+</code></pre></div></div> <p><strong>1.2 How Do You Install Providers?</strong></p> <ul> <li><code class="language-plaintext highlighter-rouge">Provider 설정</code> <ul> <li>provider 선언 후 terraform init 시 자동으로 provider 의 코드를 다운로드</li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  provider <span class="s2">"aws"</span> <span class="o">{</span>
+    region <span class="o">=</span> <span class="s2">"us-east-2"</span>
+  <span class="o">}</span>
+    
+  <span class="nv">$ </span>terraform init
+    
+  Initializing provider plugins...
+  - Finding hashicorp/aws versions matching <span class="s2">"4.19.0"</span>...
+  - Installing hashicorp/aws v4.19.0...
+  - Installed hashicorp/aws v4.19.0 <span class="o">(</span>signed by HashiCorp<span class="o">)</span>
+  ...
+</code></pre></div> </div> <ul> <li>provider 상세 설정</li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  terraform <span class="o">{</span>
+    required_providers <span class="o">{</span>
+      &lt;LOCAL_NAME&gt; <span class="o">=</span> <span class="o">{</span>
+        <span class="nb">source</span>  <span class="o">=</span> <span class="s2">"&lt;URL&gt;"</span>
+        version <span class="o">=</span> <span class="s2">"&lt;VERSION&gt;"</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+</code></pre></div> </div> <ul> <li><strong>LOCAL_NAME</strong> : provider 가 사용할 local name 이며, 각 provider 에서 유일한 이름이여야 함. 드문 경우 지만 만약 두 공급자가 http 중복 사용 시 로컬 이름으로 구별 할 수 있음</li> <li><strong>URL</strong> : 해당 provider 다운로드 URL 이며, 형식은 <code class="language-plaintext highlighter-rouge">[&lt;HOSTNAME&gt;/]&lt;NAMESPACE&gt;/&lt;TYPE</code> 이다 <ul> <li>HOSTNAME 은 공급자를 배포하는 테라폼 레지스트리의 호스트 이름, 생략 시 테라폼 공개 레지스트리를 가리킴</li> <li>NAMESPACE 는 조직 네임스페이스(일반적으로 회사 이름)</li> <li>TYPE은 공급자가 관리하는 플랫폼의 이름(일반적으로 TYPE는 기본 로컬 이름)</li> <li>예 aws 공급자 전체 URL) <strong>registry.terraform.io/hashicorp/aws</strong> → 생략 표현 가능 <strong>hashicorp/aws</strong></li> </ul> </li> <li><strong>VESION</strong> : 버전 조건, 예를 들어 <code class="language-plaintext highlighter-rouge">4.19.0</code> 처럼 특정 버전을 지정하거나, <code class="language-plaintext highlighter-rouge">&gt; 4.0 , &lt; 4.3</code> 처럼 버전 범위를 지정</li> <li>아래는 aws 4.x 공급자 버전 설치를 지정하는 코드 예시</li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  terraform <span class="o">{</span>
+    required_providers <span class="o">{</span>
+      aws <span class="o">=</span> <span class="o">{</span>
+        <span class="nb">source</span>  <span class="o">=</span> <span class="s2">"hashicorp/aws"</span>
+        version <span class="o">=</span> <span class="s2">"~&gt; 4.0"</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+</code></pre></div> </div> </li> </ul> <p><strong>1.3 How Do You Use Providers?</strong></p> <p><code class="language-plaintext highlighter-rouge">사용</code></p> <ol> <li> <p>required_providers 블록을 설정</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> terraform <span class="o">{</span>
+   required_providers <span class="o">{</span>
+     aws <span class="o">=</span> <span class="o">{</span>
+       <span class="nb">source</span>  <span class="o">=</span> <span class="s2">"hashicorp/aws"</span>
+       version <span class="o">=</span> <span class="s2">"~&gt; 4.0"</span>
+     <span class="o">}</span>
+   <span class="o">}</span>
+ <span class="o">}</span>
+</code></pre></div> </div> </li> <li> <p>provider 블록을 설정</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> provider <span class="s2">"aws"</span> <span class="o">{</span>
+   region <span class="o">=</span> <span class="s2">"us-east-2"</span>
+ <span class="o">}</span>
+</code></pre></div> </div> </li> </ol> <h3 id="2-working-with-multiple-copies-of-the-same-provider">2. Working with Multiple copies of the same provider</h3> <p><strong>2.1 Working with Multiple AWS Regions</strong></p> <ul> <li> <p><strong>[실습] 2개의 리전에 배포 시</strong></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  provider <span class="s2">"aws"</span> <span class="o">{</span>
+    region <span class="o">=</span> <span class="s2">"us-east-2"</span>
+  <span class="o">}</span>
+    
+  provider <span class="s2">"aws"</span> <span class="o">{</span>
+    region <span class="o">=</span> <span class="s2">"us-west-1"</span>
+  <span class="o">}</span>
+</code></pre></div> </div> <ul> <li>리전간 ‘리소스, 데이터 소스, 모듈’에 대한 구별? ⇒ <code class="language-plaintext highlighter-rouge">alias</code> 활용</li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  provider <span class="s2">"aws"</span> <span class="o">{</span>
+    region <span class="o">=</span> <span class="s2">"us-east-2"</span>
+    <span class="nb">alias</span>  <span class="o">=</span> <span class="s2">"region_1"</span>
+  <span class="o">}</span>
+    
+  provider <span class="s2">"aws"</span> <span class="o">{</span>
+    region <span class="o">=</span> <span class="s2">"us-west-1"</span>
+    <span class="nb">alias</span>  <span class="o">=</span> <span class="s2">"region_2"</span>
+  <span class="o">}</span>
+    
+  data <span class="s2">"aws_region"</span> <span class="s2">"region_1"</span> <span class="o">{</span>
+    provider <span class="o">=</span> aws.region_1
+  <span class="o">}</span>
+    
+  data <span class="s2">"aws_region"</span> <span class="s2">"region_2"</span> <span class="o">{</span>
+    provider <span class="o">=</span> aws.region_2
+  <span class="o">}</span>
+    
+  output <span class="s2">"region_1"</span> <span class="o">{</span>
+    value       <span class="o">=</span> data.aws_region.region_1.name
+    description <span class="o">=</span> <span class="s2">"The name of the first region"</span>
+  <span class="o">}</span>
+    
+  output <span class="s2">"region_2"</span> <span class="o">{</span>
+    value       <span class="o">=</span> data.aws_region.region_2.name
+    description <span class="o">=</span> <span class="s2">"The name of the second region"</span>
+  <span class="o">}</span>
+</code></pre></div> </div> <ul> <li><code class="language-plaintext highlighter-rouge">실습 따라하기</code></li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c"># 이동</span>
+  <span class="nb">cd</span> ~/terraform-up-and-running-code/code/terraform/07-working-with-multiple-providers
+    
+  <span class="c"># 테라폼 코드 파일 생성</span>
+  <span class="nb">cat</span> <span class="o">&lt;&lt;</span><span class="no">EOT</span><span class="sh"> &gt; multple-region.tf
+  terraform {
+    required_version = "&gt;= 1.0.0, &lt; 2.0.0"
+    
+    required_providers {
+      aws = {
+        source  = "hashicorp/aws"
+        version = "~&gt; 4.0"
+      }
+    }
+  }
+    
+  provider "aws" {
+    region = "us-east-2"
+    alias  = "region_1"
+  }
+    
+  provider "aws" {
+    region = "us-west-1"
+    alias  = "region_2"
+  }
+    
+  data "aws_region" "region_1" {
+    provider = aws.region_1
+  }
+    
+  data "aws_region" "region_2" {
+    provider = aws.region_2
+  }
+    
+  output "region_1" {
+    value       = data.aws_region.region_1.name
+    description = "The name of the first region"
+  }
+    
+  output "region_2" {
+    value       = data.aws_region.region_2.name
+    description = "The name of the second region"
+  }
+</span><span class="no">  EOT
+    
+</span>  <span class="c"># init &amp; plan &amp; apply</span>
+  tfenv use 1.2.3
+  <span class="k">**</span>terraform init
+  terraform plan &amp; terraform apply <span class="nt">-auto-approve</span><span class="k">**</span>
+  Outputs:
+  region_1 <span class="o">=</span> <span class="s2">"us-east-2"</span>
+  region_2 <span class="o">=</span> <span class="s2">"us-west-1"</span>
+</code></pre></div> </div> </li> <li><strong>[실습] 2개의 리전에 Ubuntu EC2 배포 시</strong> <ul> <li>리전 별 AMI ID값이 다르므로, 필터를 활용하자</li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  data <span class="s2">"aws_ami"</span> <span class="s2">"ubuntu_region_1"</span> <span class="o">{</span>
+    provider <span class="o">=</span> aws.region_1
+    
+    most_recent <span class="o">=</span> <span class="nb">true
+    </span>owners      <span class="o">=</span> <span class="o">[</span><span class="s2">"099720109477"</span><span class="o">]</span> <span class="c"># Canonical</span>
+    
+    filter <span class="o">{</span>
+      name   <span class="o">=</span> <span class="s2">"name"</span>
+      values <span class="o">=</span> <span class="o">[</span><span class="s2">"ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"</span><span class="o">]</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+    
+  data <span class="s2">"aws_ami"</span> <span class="s2">"ubuntu_region_2"</span> <span class="o">{</span>
+    provider <span class="o">=</span> aws.region_2
+    
+    most_recent <span class="o">=</span> <span class="nb">true
+    </span>owners      <span class="o">=</span> <span class="o">[</span><span class="s2">"099720109477"</span><span class="o">]</span> <span class="c"># Canonical</span>
+    
+    filter <span class="o">{</span>
+      name   <span class="o">=</span> <span class="s2">"name"</span>
+      values <span class="o">=</span> <span class="o">[</span><span class="s2">"ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"</span><span class="o">]</span>
+    <span class="o">}</span>
+</code></pre></div> </div> <ul> <li>ami 참조</li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  resource <span class="s2">"aws_instance"</span> <span class="s2">"region_1"</span> <span class="o">{</span>
+    provider <span class="o">=</span> aws.region_1
+    
+    ami           <span class="o">=</span> data.aws_ami.ubuntu_region_1.id
+    instance_type <span class="o">=</span> <span class="s2">"t2.micro"</span>
+  <span class="o">}</span>
+    
+  resource <span class="s2">"aws_instance"</span> <span class="s2">"region_2"</span> <span class="o">{</span>
+    provider <span class="o">=</span> aws.region_2
+    
+    ami           <span class="o">=</span> data.aws_ami.ubuntu_region_2.id
+    instance_type <span class="o">=</span> <span class="s2">"t2.micro"</span>
+  <span class="o">}</span>
+</code></pre></div> </div> <ul> <li>(옵션) output 으로 배포된 가용 영역(az) 확인</li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  output <span class="s2">"instance_region_1_az"</span> <span class="o">{</span>
+    value       <span class="o">=</span> aws_instance.region_1.availability_zone
+    description <span class="o">=</span> <span class="s2">"The AZ where the instance in the first region deployed"</span>
+  <span class="o">}</span>
+    
+  output <span class="s2">"instance_region_2_az"</span> <span class="o">{</span>
+    value       <span class="o">=</span> aws_instance.region_2.availability_zone
+    description <span class="o">=</span> <span class="s2">"The AZ where the instance in the second region deployed"</span>
+  <span class="o">}</span>
+</code></pre></div> </div> <ul> <li><code class="language-plaintext highlighter-rouge">실습 따라하기</code></li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c"># [터미널1] us-east-2</span>
+  <span class="k">while </span><span class="nb">true</span><span class="p">;</span> <span class="k">do </span>aws ec2 describe-instances <span class="nt">--region</span> us-east-2 <span class="nt">--query</span> <span class="s2">"Reservations[*].Instances[*].{PublicIPAdd:PublicIpAddress,InstanceName:Tags[?Key=='Name']|[0].Value,Status:State.Name}"</span> <span class="nt">--filters</span> <span class="nv">Name</span><span class="o">=</span>instance-state-name,Values<span class="o">=</span>running <span class="nt">--output</span> text <span class="p">;</span> <span class="nb">echo</span> <span class="s2">"------------------------------"</span> <span class="p">;</span> <span class="nb">sleep </span>1<span class="p">;</span> <span class="k">done</span>
+    
+  <span class="c"># [터미널2] us-west-1 </span>
+  <span class="k">while </span><span class="nb">true</span><span class="p">;</span> <span class="k">do </span>aws ec2 describe-instances <span class="nt">--region</span> us-west-1  <span class="nt">--query</span> <span class="s2">"Reservations[*].Instances[*].{PublicIPAdd:PublicIpAddress,InstanceName:Tags[?Key=='Name']|[0].Value,Status:State.Name}"</span> <span class="nt">--filters</span> <span class="nv">Name</span><span class="o">=</span>instance-state-name,Values<span class="o">=</span>running <span class="nt">--output</span> text <span class="p">;</span> <span class="nb">echo</span> <span class="s2">"------------------------------"</span> <span class="p">;</span> <span class="nb">sleep </span>1<span class="p">;</span> <span class="k">done</span>
+    
+  <span class="c"># 이동</span>
+  <span class="nb">cd</span> ~/terraform-up-and-running-code/code/terraform/07-working-with-multiple-providers/examples/multi-region
+  <span class="nb">cat </span>main.tf outputs.tf
+    
+  <span class="c"># init &amp; plan &amp; apply</span>
+  terraform init 
+  terraform plan <span class="o">&amp;&amp;</span> terraform apply <span class="nt">-auto-approve</span>
+  Outputs:
+    
+  instance_region_1_az <span class="o">=</span> <span class="s2">"us-east-2c"</span>
+  instance_region_2_az <span class="o">=</span> <span class="s2">"us-west-1c"</span>
+  region_1 <span class="o">=</span> <span class="s2">"us-east-2"</span>
+  region_2 <span class="o">=</span> <span class="s2">"us-west-1"</span>
+    
+  <span class="c"># 삭제 : 아래 RDS 배포 후 데이터 INSERT 등 실습 후 삭제해도 됨</span>
+  terraform destroy <span class="nt">-auto-approve</span>
+</code></pre></div> </div> </li> <li><strong>[실습] Primary RDS 의 replica RDS를 다른 리전에 배포 시</strong> <ul> <li> <p>Primary RDS 는 backup_retention_period 설정이 0보다 커야 되며, replicate_source_db ARN 설정 시 replica RDS 이다 - <a href="https://github.com/brikis98/terraform-up-and-running-code/blob/3rd-edition/code/terraform/07-working-with-multiple-providers/modules/data-stores/mysql/variables.tf">링크</a></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  variable <span class="s2">"backup_retention_period"</span> <span class="o">{</span>
+    description <span class="o">=</span> <span class="s2">"Days to retain backups. Must be &gt; 0 to enable replication."</span>
+    <span class="nb">type</span>        <span class="o">=</span> number
+    default     <span class="o">=</span> null
+  <span class="o">}</span>
+        
+  variable <span class="s2">"replicate_source_db"</span> <span class="o">{</span>
+    description <span class="o">=</span> <span class="s2">"If specified, replicate the RDS database at the given ARN."</span>
+    <span class="nb">type</span>        <span class="o">=</span> string
+    default     <span class="o">=</span> null
+  <span class="o">}</span>
+</code></pre></div> </div> </li> <li> <p>모듈의 main.tf 에서 사용 확인 : Primary 와 replica RDS가 다르므로 분기 사용 - <a href="https://github.com/brikis98/terraform-up-and-running-code/blob/3rd-edition/code/terraform/07-working-with-multiple-providers/modules/data-stores/mysql/main.tf">링크</a></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  resource <span class="s2">"aws_db_instance"</span> <span class="s2">"example"</span> <span class="o">{</span>
+    identifier_prefix   <span class="o">=</span> <span class="s2">"terraform-up-and-running"</span>
+    allocated_storage   <span class="o">=</span> 10
+    instance_class      <span class="o">=</span> <span class="s2">"db.t2.micro"</span>
+    skip_final_snapshot <span class="o">=</span> <span class="nb">true</span>
+        
+    <span class="c"># Enable backups</span>
+    backup_retention_period <span class="o">=</span> var.backup_retention_period
+        
+    <span class="c"># If specified, this DB will be a replica</span>
+    replicate_source_db <span class="o">=</span> var.replicate_source_db
+        
+    <span class="c"># Only set these params if replicate_source_db is not set</span>
+    engine   <span class="o">=</span> var.replicate_source_db <span class="o">==</span> null ? <span class="s2">"mysql"</span> : null
+    db_name  <span class="o">=</span> var.replicate_source_db <span class="o">==</span> null ? var.db_name : null
+    username <span class="o">=</span> var.replicate_source_db <span class="o">==</span> null ? var.db_username : null
+    password <span class="o">=</span> var.replicate_source_db <span class="o">==</span> null ? var.db_password : null
+  <span class="o">}</span>
+</code></pre></div> </div> </li> <li> <p>참고로 아래 값 미지정 시 null 지정됨 - <a href="https://github.com/brikis98/terraform-up-and-running-code/blob/3rd-edition/code/terraform/07-working-with-multiple-providers/modules/data-stores/mysql/variables.tf">링크</a></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  variable <span class="s2">"db_name"</span> <span class="o">{</span>
+    description <span class="o">=</span> <span class="s2">"Name for the DB."</span>
+    <span class="nb">type</span>        <span class="o">=</span> string
+    default     <span class="o">=</span> null
+  <span class="o">}</span>
+        
+  variable <span class="s2">"db_username"</span> <span class="o">{</span>
+    description <span class="o">=</span> <span class="s2">"Username for the DB."</span>
+    <span class="nb">type</span>        <span class="o">=</span> string
+    sensitive   <span class="o">=</span> <span class="nb">true
+    </span>default     <span class="o">=</span> null
+  <span class="o">}</span>
+        
+  variable <span class="s2">"db_password"</span> <span class="o">{</span>
+    description <span class="o">=</span> <span class="s2">"Password for the DB."</span>
+    <span class="nb">type</span>        <span class="o">=</span> string
+    sensitive   <span class="o">=</span> <span class="nb">true
+    </span>default     <span class="o">=</span> null
+  <span class="o">}</span>
+</code></pre></div> </div> </li> <li> <p>replica RDS 는 primary RDS의 ARM 정보 참조 필요 : output 출력 - <a href="https://github.com/brikis98/terraform-up-and-running-code/blob/3rd-edition/code/terraform/07-working-with-multiple-providers/modules/data-stores/mysql/outputs.tf">링크</a></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  output <span class="s2">"arn"</span> <span class="o">{</span>
+    value       <span class="o">=</span> aws_db_instance.example.arn
+    description <span class="o">=</span> <span class="s2">"The ARN of the database"</span>
+  <span class="o">}</span>
+</code></pre></div> </div> </li> <li><code class="language-plaintext highlighter-rouge">실습 따라하기</code> : 백엔드 리소스 배포</li> <li><strong>S3/DynamoDB 생성</strong> <ul> <li>S3/DynamoDB 생성을 위한 환경변수 지정</li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c"># 환경변수에 지정</span>
+  <span class="nb">export </span><span class="nv">TF_VAR_bucket_name</span><span class="o">=</span>gasida-t101-tfstate
+  <span class="nb">export </span><span class="nv">TF_VAR_table_name</span><span class="o">=</span>gasida-t101-locks
+        
+  <span class="c"># 환경변수 확인</span>
+  <span class="nb">export</span> | <span class="nb">grep </span>TF_VAR_
+</code></pre></div> </div> <ul> <li>배포</li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c"># 이동</span>
+  <span class="nb">cd</span> ~/terraform-up-and-running-code/code/terraform/03-terraform-state/file-layout-example/global/s3
+  <span class="nb">cat </span>main.tf variables.tf
+        
+  <span class="c"># 초기화 및 검증 및 배포 : 환경변수 적용 확인</span>
+  terraform init
+  terraform plan <span class="o">&amp;&amp;</span> terraform apply <span class="nt">-auto-approve</span>
+        
+  <span class="c"># 확인</span>
+  aws s3 <span class="nb">ls
+  </span>aws dynamodb list-tables <span class="nt">--output</span> text
+</code></pre></div> </div> </li> <li> <p>Primary RDS 리소스 생성 코드 내용 확인 - <a href="https://github.com/brikis98/terraform-up-and-running-code/blob/3rd-edition/code/terraform/07-working-with-multiple-providers/live/prod/data-stores/mysql/main.tf">링크</a></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  module <span class="s2">"mysql_primary"</span> <span class="o">{</span>
+    <span class="nb">source</span> <span class="o">=</span> <span class="s2">"../../../../modules/data-stores/mysql"</span>
+        
+    db_name     <span class="o">=</span> var.db_name
+    db_username <span class="o">=</span> var.db_username
+    db_password <span class="o">=</span> var.db_password
+        
+    <span class="c"># Must be enabled to support replication</span>
+    backup_retention_period <span class="o">=</span> 1
+  <span class="o">}</span>
+</code></pre></div> </div> </li> <li> <p>Replica RDS 리소스 생성 코드 내용 확인</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  module <span class="s2">"mysql_replica"</span> <span class="o">{</span>
+    <span class="nb">source</span> <span class="o">=</span> <span class="s2">"../../../../modules/data-stores/mysql"</span>
+        
+    <span class="c"># Make this a replica of the primary</span>
+    replicate_source_db <span class="o">=</span> module.mysql_primary.arn
+  <span class="o">}</span>
+</code></pre></div> </div> </li> <li> <p>리전 간 리소스 구분을 위해서 alias 사용 - <a href="https://github.com/brikis98/terraform-up-and-running-code/blob/3rd-edition/code/terraform/07-working-with-multiple-providers/live/prod/data-stores/mysql/main.tf">링크</a></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  provider <span class="s2">"aws"</span> <span class="o">{</span>
+    region <span class="o">=</span> <span class="s2">"us-east-2"</span>
+    <span class="nb">alias</span>  <span class="o">=</span> <span class="s2">"primary"</span>
+  <span class="o">}</span>
+        
+  provider <span class="s2">"aws"</span> <span class="o">{</span>
+    region <span class="o">=</span> <span class="s2">"us-west-1"</span>
+    <span class="nb">alias</span>  <span class="o">=</span> <span class="s2">"replica"</span>
+  <span class="o">}</span>
+        
+  ...
+        
+  module <span class="s2">"mysql_primary"</span> <span class="o">{</span>
+    <span class="nb">source</span> <span class="o">=</span> <span class="s2">"../../../../modules/data-stores/mysql"</span>
+        
+    providers <span class="o">=</span> <span class="o">{</span>
+      aws <span class="o">=</span> aws.primary
+    <span class="o">}</span>
+        
+    db_name     <span class="o">=</span> var.db_name
+        
+    db_username <span class="o">=</span> var.db_username
+    db_password <span class="o">=</span> var.db_password
+        
+    <span class="c"># Must be enabled to support replication</span>
+    backup_retention_period <span class="o">=</span> 1
+  <span class="o">}</span>
+        
+  module <span class="s2">"mysql_replica"</span> <span class="o">{</span>
+    <span class="nb">source</span> <span class="o">=</span> <span class="s2">"../../../../modules/data-stores/mysql"</span>
+        
+    providers <span class="o">=</span> <span class="o">{</span>
+      aws <span class="o">=</span> aws.replica
+    <span class="o">}</span>
+        
+    <span class="c"># Make this a replica of the primary</span>
+    replicate_source_db <span class="o">=</span> module.mysql_primary.arn
+  <span class="o">}</span>
+</code></pre></div> </div> </li> <li> <p>마지막으로 output 출력 - <a href="https://github.com/brikis98/terraform-up-and-running-code/blob/3rd-edition/code/terraform/07-working-with-multiple-providers/live/prod/data-stores/mysql/outputs.tf">링크</a></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  output <span class="s2">"primary_address"</span> <span class="o">{</span>
+    value       <span class="o">=</span> module.mysql_primary.address
+    description <span class="o">=</span> <span class="s2">"Connect to the primary database at this endpoint"</span>
+  <span class="o">}</span>
+        
+  output <span class="s2">"primary_port"</span> <span class="o">{</span>
+    value       <span class="o">=</span> module.mysql_primary.port
+    description <span class="o">=</span> <span class="s2">"The port the primary database is listening on"</span>
+  <span class="o">}</span>
+        
+  output <span class="s2">"primary_arn"</span> <span class="o">{</span>
+    value       <span class="o">=</span> module.mysql_primary.arn
+    description <span class="o">=</span> <span class="s2">"The ARN of the primary database"</span>
+  <span class="o">}</span>
+        
+  output <span class="s2">"replica_address"</span> <span class="o">{</span>
+    value       <span class="o">=</span> module.mysql_replica.address
+    description <span class="o">=</span> <span class="s2">"Connect to the replica database at this endpoint"</span>
+  <span class="o">}</span>
+        
+  output <span class="s2">"replica_port"</span> <span class="o">{</span>
+    value       <span class="o">=</span> module.mysql_replica.port
+    description <span class="o">=</span> <span class="s2">"The port the replica database is listening on"</span>
+  <span class="o">}</span>
+        
+  output <span class="s2">"replica_arn"</span> <span class="o">{</span>
+    value       <span class="o">=</span> module.mysql_replica.arn
+    description <span class="o">=</span> <span class="s2">"The ARN of the replica database"</span>
+  <span class="o">}</span>
+</code></pre></div> </div> </li> <li> <p>배포</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c"># [터미널1] us-east-2</span>
+  <span class="k">while </span><span class="nb">true</span><span class="p">;</span> <span class="k">do </span>aws rds describe-db-instances <span class="nt">--region</span> us-east-2 <span class="nt">--query</span> <span class="s2">"*[].[Endpoint.Address,Endpoint.Port,MasterUsername]"</span> <span class="nt">--output</span> text  <span class="p">;</span> <span class="nb">echo</span> <span class="s2">"------------------------------"</span> <span class="p">;</span> <span class="nb">sleep </span>1<span class="p">;</span> <span class="k">done</span>
+        
+  <span class="c"># [터미널2] us-west-1 </span>
+  <span class="k">while </span><span class="nb">true</span><span class="p">;</span> <span class="k">do </span>aws rds describe-db-instances <span class="nt">--region</span> us-west-1 <span class="nt">--query</span> <span class="s2">"*[].[Endpoint.Address,Endpoint.Port,MasterUsername]"</span> <span class="nt">--output</span> text  <span class="p">;</span> <span class="nb">echo</span> <span class="s2">"------------------------------"</span> <span class="p">;</span> <span class="nb">sleep </span>1<span class="p">;</span> <span class="k">done</span>
+        
+  <span class="c"># 환경변수에 지정</span>
+  <span class="nb">export </span><span class="nv">TF_VAR_db_username</span><span class="o">=</span><span class="s1">'cloudneta'</span>
+  <span class="nb">export </span><span class="nv">TF_VAR_db_password</span><span class="o">=</span><span class="s1">'cloudnetaQ!'</span>
+        
+  <span class="c"># 이동</span>
+  <span class="nb">cd</span> ~/terraform-up-and-running-code/code/terraform/07-working-with-multiple-providers/live/prod/data-stores/mysql
+        
+  <span class="c"># main.tf 에 백엔드 부분 수정</span>
+  vi main.tf
+    backend <span class="s2">"s3"</span> <span class="o">{</span>
+      <span class="c"># This backend configuration is filled in automatically at test time by Terratest. If you wish to run this example</span>
+      <span class="c"># manually, uncomment and fill in the config below.</span>
+      bucket         <span class="o">=</span> <span class="s2">"gasida-t101-tfstate"</span>
+      key            <span class="o">=</span> <span class="s2">"prod/data-stores/mysql/terraform.tfstate"</span>
+      region         <span class="o">=</span> <span class="s2">"us-east-2"</span>
+      dynamodb_table <span class="o">=</span> <span class="s2">"gasida-t101-locks"</span>
+      <span class="c"># encrypt        = true</span>
+    <span class="o">}</span>
+        
+  <span class="c"># 초기화 및 검증 : 환경변수 적용 확인</span>
+  terraform init
+  terraform plan
+        
+  <span class="c"># 배포 : 총 25분 정도 소요 (8분 후 primary 완료, 이후 16분 후 replica 생성 및 동기화 완료)</span>
+  terraform apply <span class="nt">-auto-approve</span>
+  terraform output
+  aws s3 <span class="nb">ls </span>s3://<span class="nv">$TF_VAR_bucket_name</span> <span class="nt">--recursive</span> <span class="nt">--human-readable</span> <span class="nt">--summarize</span>
+        
+  <span class="c"># (옵션) Primary RDS에 데이터 INSERT 후 Replica RDS에 복제되는지 확인 해볼것</span>
+        
+  <span class="c"># 삭제 6분 정도 소요</span>
+  terraform destroy <span class="nt">-auto-approve</span>
+        
+  <span class="c"># S3/DynamoDB 삭제</span>
+  <span class="nb">cd</span> ~/terraform-up-and-running-code/code/terraform/03-terraform-state/file-layout-example/global/s3
+  terraform destroy <span class="nt">-auto-approve</span>
+</code></pre></div> </div> <p><img src="/assets/img/post_img/multi_region_rds.png" alt="" /></p> </li> </ul> </li> </ul> <p><code class="language-plaintext highlighter-rouge">2가지 주의 사항</code></p> <ol> <li><strong>Warning 1 : Multiregion is hard 프로덕션 수준의 멀티 리전은 어렵다</strong> <ul> <li><strong>Active-Active</strong> 멀티 리전 서비스를 위해서 ‘<strong>지역간 지연 시간, 고유 ID, 최종 일관성</strong>’ 등 여러가지 고려사항이 많아서 쉽지 않다.</li> </ul> </li> <li><strong>Warning 2 : Use aliases sparingly Alias 를 빈번하게 사용하지 말자</strong> <ul> <li>별칭을 사용하여 두 리전에 배포하는 단일 테라폼 모듈은 한 리전이 다운 시, plan 과 apply 시도가 실패합니다</li> <li>프로덕션 환경은 멀티 리전의 별칭을 사용하는 것보다는, 3장에서 설명한 것 처럼 <strong>환경</strong>을 완전히 <strong>격리</strong>해야 합니다. 이를 통해 영향도를 최소화 할 수 있습니다.</li> </ul> </li> </ol> <p><strong>2.2 Working with Multiple AWS Accounts</strong></p> <p><code class="language-plaintext highlighter-rouge">멀티 계정 사용 이유</code></p> <ol> <li><strong>Isolation (aka compartmentalization)</strong> <ul> <li>Staging 과 Prod 간 다른 계정을 사용함으로써 영향도 최소화</li> </ul> </li> <li><strong>Authentication and authorization</strong> <ul> <li>다중 계정에 따른 인증과 권한 분리로 영향도 최소화(예를 들면 권한을 잘못 부여 시) 및 계정 별 다른 권한으로 통제 가능</li> </ul> </li> <li><strong>Auditing and reporting</strong> <ul> <li>모든 환경과 계정의 변경 사항 및 감사 추적을 위지하고, 규정 준수와 이상 징후 감시를 할 수 있고 비용 추적등에 용이</li> </ul> </li> </ol> <ul> <li> <p><code class="language-plaintext highlighter-rouge">사전 준비</code></p> <p><a href="https://www.notion.so/IAM-Organizations-ff73d68f941d4708bfbe1f01c34ea308">[중급 지식] IAM &amp; Organizations</a></p> <ol> <li> <p><strong>AWS Account 최소 2개 이상 생성</strong> 해두기 (아래는 예시)</p> <table> <thead> <tr> <th>가입 이메일명</th> <th>AWS Account ID</th> <th>별칭</th> <th>IAM User(관리자 수준)</th> </tr> </thead> <tbody> <tr> <td>gasida.seo@gmail.com</td> <td>911283464785</td> <td>awsgasida</td> <td>admin</td> </tr> <tr> <td>gasida.seo+aws1@gmail.com</td> <td>565813864476</td> <td>awsgasida2</td> <td>admin</td> </tr> <tr> <td>gasida.seo+aws2@gmail.com</td> <td>272704923229</td> <td>awsgasida3</td> <td>admin</td> </tr> </tbody> </table> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> aws sts get-caller-identity <span class="nt">--query</span> Account <span class="nt">--output</span> text
+ 911283464785
+</code></pre></div> </div> </li> <li> <p><strong>AWS Organizations 설정</strong> 및 <strong>계정 초대(추가)</strong> 해두기</p> <p><img src="/assets/img/post_img/aws_orgnizations.png" alt="" /></p> </li> <li> <p>계정 간 역할 전환을 위한 <strong>IAM Role 설정</strong> 해두기 : <strong><em>세번째 계정에 IAM Role 설정하는 것 보여주기</em></strong></p> <p><img src="/assets/img/post_img/iam_role.png" alt="" /></p> </li> <li> <p>첫 번째 계정에서 S3 버킷 정보 확인 → 두 번째 계정으로 역할 전환 후 S3 버킷 정보 확인 해보기 → 다시 전환 후 S3 버킷 정보 확인</p> </li> </ol> </li> <li> <p><code class="language-plaintext highlighter-rouge">실습 따라하기</code></p> <ul> <li> <p>main.tf 파일 확인 : alias child 는 IAM Role 역할 전환 - <a href="https://github.com/brikis98/terraform-up-and-running-code/blob/3rd-edition/code/terraform/07-working-with-multiple-providers/examples/multi-account-root/main.tf">링크</a></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  provider <span class="s2">"aws"</span> <span class="o">{</span>
+    region <span class="o">=</span> <span class="s2">"us-east-2"</span>
+    <span class="nb">alias</span>  <span class="o">=</span> <span class="s2">"parent"</span>
+  <span class="o">}</span>
+        
+  provider <span class="s2">"aws"</span> <span class="o">{</span>
+    region <span class="o">=</span> <span class="s2">"us-east-2"</span>
+    <span class="nb">alias</span>  <span class="o">=</span> <span class="s2">"child"</span>
+        
+    assume_role <span class="o">{</span>
+      role_arn <span class="o">=</span> var.child_iam_role_arn
+    <span class="o">}</span>
+  <span class="o">}</span>
+        
+  data <span class="s2">"aws_caller_identity"</span> <span class="s2">"parent"</span> <span class="o">{</span>
+    provider <span class="o">=</span> aws.parent
+  <span class="o">}</span>
+        
+  data <span class="s2">"aws_caller_identity"</span> <span class="s2">"child"</span> <span class="o">{</span>
+    provider <span class="o">=</span> aws.child
+  <span class="o">}</span>
+</code></pre></div> </div> </li> <li> <p>variables.tf 파일 확인 - <a href="https://github.com/brikis98/terraform-up-and-running-code/blob/3rd-edition/code/terraform/07-working-with-multiple-providers/examples/multi-account-root/variables.tf">링크</a></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  variable <span class="s2">"**child_iam_role_arn**"</span> <span class="o">{</span>
+    description <span class="o">=</span> <span class="s2">"The ARN of an IAM role to assume in the child AWS account"</span>
+    <span class="nb">type</span>        <span class="o">=</span> string
+  <span class="o">}</span>
+</code></pre></div> </div> </li> <li> <p>outputs.tf 파일 확인 : 각각의 caller 의 AWS Account 출력 - <a href="https://github.com/brikis98/terraform-up-and-running-code/blob/3rd-edition/code/terraform/07-working-with-multiple-providers/examples/multi-account-root/outputs.tf">링크</a></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  output <span class="s2">"parent_account_id"</span> <span class="o">{</span>
+    value       <span class="o">=</span> data.aws_caller_identity.parent.account_id
+    description <span class="o">=</span> <span class="s2">"The ID of the parent AWS account"</span>
+  <span class="o">}</span>
+        
+  output <span class="s2">"child_account_id"</span> <span class="o">{</span>
+    value       <span class="o">=</span> data.aws_caller_identity.child.account_id
+    description <span class="o">=</span> <span class="s2">"The ID of the child AWS account"</span>
+  <span class="o">}</span>
+</code></pre></div> </div> </li> <li> <p>배포 및 확인</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c"># 이동</span>
+  <span class="nb">cd</span> ~/terraform-up-and-running-code/code/terraform/07-working-with-multiple-providers/examples/multi-account-root
+  <span class="nb">cat </span>main.tf variables.tf
+        
+  <span class="c"># IAM Role ARN 지정</span>
+  <span class="c">#export TF_VAR_child_iam_role_arn='arn:aws:iam::&lt;자신의 두번쨰 혹은 세번째 계정 Account ID&gt;:role/&lt;해당 계정의 IAM Role 이름&gt;'</span>
+  <span class="nb">export </span><span class="nv">TF_VAR_child_iam_role_arn</span><span class="o">=</span><span class="s1">'arn:aws:iam::565813864476:role/ma-in-a2'</span>
+        
+  <span class="c"># 배포 확인</span>
+  terraform init
+  terraform plan <span class="o">&amp;&amp;</span> terraform apply <span class="nt">-auto-approve</span>
+  Outputs:
+  child_account_id <span class="o">=</span> <span class="s2">"565813864476"</span>
+  parent_account_id <span class="o">=</span> <span class="s2">"911283464785"</span>
+</code></pre></div> </div> </li> </ul> </li> </ul> <p><code class="language-plaintext highlighter-rouge">2가지 주의 사항</code></p> <ol> <li><strong>Warning 1</strong> : <strong>Cross-account IAM roles are double opt-in</strong> <ul> <li>교차 계정 역할 동작을 위해서 2개의 계정에서 모두 <strong>권한 등 설정</strong>이 필요함</li> </ul> </li> <li><strong>Warning 2 : Use aliases sparingly Alias 를 빈번하게 사용하지 말자</strong> <ul> <li>영향도 최소를 위해서 계정 간 분리를 하는 것을 권장</li> </ul> </li> </ol> <p><strong>2.3 Creating modules that can work with multiple providers</strong></p> <p><em>2.2와 거의 유사하여 Skip</em></p> <h3 id="3-working-with-multiple-different-providers">3. Working with multiple different providers</h3> <p><strong><em>도커와 쿠버네티스 실습 환경에서 진행되어 Skip</em></strong></p> <div class="entry-meta"> <br> <hr> <span class="entry-tags"><a href="https://lahuman.github.io/tags/#terraform" title="Pages tagged terraform" class="tag"><span class="term">terraform</span></a><a href="https://lahuman.github.io/tags/#study" title="Pages tagged study" class="tag"><span class="term">study</span></a></span> <span class="social-share"> <a href="https://www.facebook.com/sharer/sharer.php?u=https://lahuman.github.io/t101_8week_1/" title="Share on Facebook" class="tag"> <span class="term"><i class="fa fa-facebook-square"></i> Share</span> </a> <a href="https://twitter.com/intent/tweet?text=https://lahuman.github.io/t101_8week_1/" title="Share on Twitter" class="tag"> <span class="term"><i class="fa fa-twitter-square"></i> Tweet</span> </a> <a href="https://plus.google.com/share?url=https://lahuman.github.io/t101_8week_1/" title="Share on Google+" class="tag"> <span class="term"><i class="fa fa-google-plus-square"></i> +1</span> </a> </span> <div style="clear:both"></div> </div> <ins class="kakao_ad_area" style="display:none;" data-ad-unit = "DAN-ubp67fs9s850" data-ad-width = "320" data-ad-height = "100"></ins> <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script> </div> </div> <section id="disqus_thread" class="animated fadeInUp"></section><!-- /#disqus_thread --> </header> <!-- JS --> <script src="https://lahuman.github.io/assets/js/jquery-1.12.0.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.dlmenu.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.goup.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.magnific-popup.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.fitvid.min.js"></script> <script src="https://lahuman.github.io/assets/js/scripts.js"></script> <!-- Global site tag (gtag.js) - Google Analytics --> <script async src="https://www.googletagmanager.com/gtag/js?id=UA-74095083-1"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-74095083-1'); </script> <script type="text/javascript"> var disqus_shortname = 'daniels-blog'; (function() { var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true; dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js'; (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq); })(); (function () { var s = document.createElement('script'); s.async = true; s.type = 'text/javascript'; s.src = '//' + disqus_shortname + '.disqus.com/count.js'; (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s); }()); </script> <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript> <!-- MathJax --> <script async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> </body> </html>
