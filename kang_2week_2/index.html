@@ -1,4 +1,4 @@
-<!DOCTYPE html> <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]--> <!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8"><![endif]--> <!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9"><![endif]--> <!--[if gt IE 8]><!--> <html class="no-js"><!--<![endif]--> <head> <meta charset="UTF-8"> <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"> <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1"> <title>#2 Flannel CNI &#8211; lahuman</title> <meta name="description" content="열심히 사는 아저씨"> <meta name="keywords" content="kang, cni, flannel"> <!-- Twitter Cards --> <meta name="twitter:card" content="summary"> <meta name="twitter:image" content="https://lahuman.github.io/assets/img/logo.png"> <meta name="twitter:title" content="#2 Flannel CNI"> <meta name="twitter:description" content="Kubernetes Advanced Networking Study"> <!-- Open Graph --> <meta property="og:locale" content="ko_KR"> <meta property="og:type" content="article"> <meta property="og:title" content="#2 Flannel CNI"> <meta property="og:description" content="Kubernetes Advanced Networking Study"> <meta property="og:url" content="https://lahuman.github.io/kang_2week_2/"> <meta property="og:site_name" content="lahuman"> <meta property="og:image" content="https://lahuman.github.io/assets/img/logo.png"> <link rel="canonical" href="https://lahuman.github.io/kang_2week_2/"> <link href="https://lahuman.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="lahuman Feed"> <!-- Handheld --> <meta name="HandheldFriendly" content="True"> <meta name="MobileOptimized" content="320"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- CSS --> <link rel="stylesheet" href="https://lahuman.github.io/assets/css/main.css"> <!-- JS --> <script src="https://lahuman.github.io/assets/js/modernizr-3.3.1.custom.min.js"></script> <!-- Favicons --> <link rel="apple-touch-icon" href="https://lahuman.github.io/assets/img/favicons/apple-icon-precomposed.png"> <link rel="apple-touch-icon" sizes="72x72" href="https://lahuman.github.io/assets/img/favicons/apple-icon-72x72.png"> <link rel="apple-touch-icon" sizes="114x114" href="https://lahuman.github.io/assets/img/favicons/apple-icon-114x114.png"> <link rel="apple-touch-icon" sizes="144x144" href="https://lahuman.github.io/assets/img/favicons/apple-icon-144x144.png"> <link rel="shortcut icon" type="image/png" href="https://lahuman.github.io/favicon.png" /> <link rel="shortcut icon" href="https://lahuman.github.io/favicon.ico" /> <!-- mermaid --> <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script> <script>mermaid.initialize({startOnLoad:true});</script> <!-- Background Image --> <style type="text/css">body {background-image:url(https://lahuman.github.io/assets/img/placeholder-big.jpg); background-repeat: no-repeat; background-size: cover; }</style> <!-- Post Feature Image --> </head> <body> <nav id="dl-menu" class="dl-menuwrapper" role="navigation"> <button class="dl-trigger">Open Menu</button> <ul class="dl-menu"> <li><a href="https://lahuman.github.io/">Home</a></li> <li> <a href="#">About</a> <ul class="dl-submenu"> <li> <img src="https://lahuman.github.io/assets/img/logo.png" alt="lahuman photo" class="author-photo"> <h4>lahuman</h4> <p>열심히 사는 아저씨</p> </li> <li><a href="https://lahuman.github.io/about/"><span class="btn btn-inverse">Learn More</span></a></li> <li> <a href="http://facebook.com/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-facebook-square"></i> Facebook</a> </li> <li> <a href="http://linkedin.com/in/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-linkedin-square"></i> LinkedIn</a> </li> <li> <a href="http://github.com/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-github"></i> Github</a> </li> </ul><!-- /.dl-submenu --> </li> <li> <a href="#">Posts</a> <ul class="dl-submenu"> <li><a href="https://lahuman.github.io/posts/">All Posts</a></li> <li><a href="https://lahuman.github.io/tags/">All Tags</a></li> </ul> </li> <li><a href="https://lahuman.github.io/projects/" >Projects</a></li> </ul><!-- /.dl-menu --> </nav><!-- /.dl-menuwrapper --> <!-- Header --> <header class="header" role="banner"> <div class="wrapper animated fadeIn"> <div class="content"> <div class="post-title "> <h1>#2 Flannel CNI</h1> <h4>18 Jan 2022</h4> <p class="reading-time"> <i class="fa fa-clock-o"></i> Reading time ~9 minutes </p><!-- /.entry-reading-time --> <a class="btn zoombtn" href="https://lahuman.github.io/projects/"> <i class="fa fa-chevron-left"></i> </a> </div> <h1 id="flannel-cnicontainer-network-interface">Flannel CNI(Container Network Interface)</h1> <ul> <li>Flannel runs a small, single binary agent called <code class="language-plaintext highlighter-rouge">flanneld</code>on each host, and is responsible for allocating a subnet lease to each host out of a larger, preconfigured address space. Flannel은 각 호스트에서 <code class="language-plaintext highlighter-rouge">flanneld</code>라는 작은 단일 바이너리 에이전트를 실행하고 미리 구성된 더 큰 주소 공간에서 각 호스트에 서브넷 임대를 할당하는 역할을 합니다. → 모든 노드에 <code class="language-plaintext highlighter-rouge">flanneld</code> 가 동작</li> <li>네트워킹 환경 지원 (Backends) : <strong>VXLAN</strong>, host-gw, UDP, 그외에는 아직 실험적임 - <a href="https://github.com/flannel-io/flannel/blob/master/Documentation/backends.md">링크</a> <a href="https://msazure.club/flannel-networking-demystify/">링크2</a> <ul> <li><code class="language-plaintext highlighter-rouge">VXLAN</code>(권장) : Port(<code class="language-plaintext highlighter-rouge">UDP 8472</code>), DirecRouting 지원(같은 서브넷 노드와는 host-gw 처럼 동작) <ul> <li>단, 네트워크 엔지니어분들이 알고 있는 ‘L2 확장’ 이 아니라, 각 노드마다 별도의 서브넷이 있고, 해당 서브넷 대역끼리 NAT 없이 라우팅 처리됨</li> </ul> </li> <li>host-gw : 호스트 L2 모드?, 일반적으로 퍼블릭 클라우드 환경에서는 동작하지 않는다</li> <li>UDP (비권장) : VXLAN 지원하지 않는 오래된 커널 사용 시, Port(UDP 8285)</li> </ul> </li> <li>노드마다 flannel.1 생성 : VXLAN VTEP 역할</li> <li>노드마다 cni0 생성 : bridge 역할</li> </ul> <h2 id="flannel-cin-및-cni-동작-그림-설명">Flannel CIN 및 CNI 동작 그림 설명</h2> <p><img src="/assets/img/post_img/kang_2week_12.png" alt="[https://ikcoo.tistory.com/101](https://ikcoo.tistory.com/101)" /></p> <p><a href="https://ikcoo.tistory.com/101">https://ikcoo.tistory.com/101</a></p> <p><img src="/assets/img/post_img/kang_2week_13.png" alt="[https://ikcoo.tistory.com/101](https://ikcoo.tistory.com/101)" /></p> <p><a href="https://ikcoo.tistory.com/101">https://ikcoo.tistory.com/101</a></p> <p><img src="/assets/img/post_img/kang_2week_14.png" alt="[https://cilium.io/blog/2021/05/11/cni-benchmark](https://cilium.io/blog/2021/05/11/cni-benchmark)" /></p> <p><a href="https://cilium.io/blog/2021/05/11/cni-benchmark">https://cilium.io/blog/2021/05/11/cni-benchmark</a></p> <p><img src="/assets/img/post_img/kang_2week_15.png" alt="" /></p> <p><img src="/assets/img/post_img/kang_2week_16.png" alt="[https://docs.openshift.com/container-platform/3.4/architecture/additional_concepts/flannel.html](https://docs.openshift.com/container-platform/3.4/architecture/additional_concepts/flannel.html)" /></p> <p><a href="https://docs.openshift.com/container-platform/3.4/architecture/additional_concepts/flannel.html">https://docs.openshift.com/container-platform/3.4/architecture/additional_concepts/flannel.html</a></p> <h3 id="flannel-기본-정보-확인">Flannel 기본 정보 확인</h3> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 컨피그맵과 데몬셋 정보 확인</span>
+<!DOCTYPE html> <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]--> <!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8"><![endif]--> <!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9"><![endif]--> <!--[if gt IE 8]><!--> <html class="no-js"><!--<![endif]--> <head> <meta charset="UTF-8"> <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"> <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1"> <title>#2 Flannel CNI &#8211; lahuman</title> <meta name="description" content="열심히 사는 아저씨"> <meta name="keywords" content="kang, cni, flannel"> <!-- Twitter Cards --> <meta name="twitter:card" content="summary"> <meta name="twitter:image" content="https://lahuman.github.io/assets/img/logo.png"> <meta name="twitter:title" content="#2 Flannel CNI"> <meta name="twitter:description" content="Kubernetes Advanced Networking Study"> <!-- Open Graph --> <meta property="og:locale" content="ko_KR"> <meta property="og:type" content="article"> <meta property="og:title" content="#2 Flannel CNI"> <meta property="og:description" content="Kubernetes Advanced Networking Study"> <meta property="og:url" content="https://lahuman.github.io/kang_2week_2/"> <meta property="og:site_name" content="lahuman"> <meta property="og:image" content="https://lahuman.github.io/assets/img/logo.png"> <link rel="canonical" href="https://lahuman.github.io/kang_2week_2/"> <link href="https://lahuman.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="lahuman Feed"> <!-- Handheld --> <meta name="HandheldFriendly" content="True"> <meta name="MobileOptimized" content="320"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- CSS --> <link rel="stylesheet" href="https://lahuman.github.io/assets/css/main.css"> <!-- JS --> <script src="https://lahuman.github.io/assets/js/modernizr-3.3.1.custom.min.js"></script> <!-- Favicons --> <link rel="apple-touch-icon" href="https://lahuman.github.io/assets/img/favicons/apple-icon-precomposed.png"> <link rel="apple-touch-icon" sizes="72x72" href="https://lahuman.github.io/assets/img/favicons/apple-icon-72x72.png"> <link rel="apple-touch-icon" sizes="114x114" href="https://lahuman.github.io/assets/img/favicons/apple-icon-114x114.png"> <link rel="apple-touch-icon" sizes="144x144" href="https://lahuman.github.io/assets/img/favicons/apple-icon-144x144.png"> <link rel="shortcut icon" type="image/png" href="https://lahuman.github.io/favicon.png" /> <link rel="shortcut icon" href="https://lahuman.github.io/favicon.ico" /> <!-- mermaid --> <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script> <script>mermaid.initialize({startOnLoad:true});</script> <!-- Background Image --> <style type="text/css">body {background-image:url(https://lahuman.github.io/assets/img/placeholder-big.jpg); background-repeat: no-repeat; background-size: cover; }</style> <!-- Post Feature Image --> </head> <body> <nav id="dl-menu" class="dl-menuwrapper" role="navigation"> <button class="dl-trigger">Open Menu</button> <ul class="dl-menu"> <li><a href="https://lahuman.github.io/">Home</a></li> <li> <a href="#">About</a> <ul class="dl-submenu"> <li> <img src="https://lahuman.github.io/assets/img/logo.png" alt="lahuman photo" class="author-photo"> <h4>lahuman</h4> <p>열심히 사는 아저씨</p> </li> <li><a href="https://lahuman.github.io/about/"><span class="btn btn-inverse">Learn More</span></a></li> <li> <a href="http://facebook.com/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-facebook-square"></i> Facebook</a> </li> <li> <a href="http://linkedin.com/in/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-linkedin-square"></i> LinkedIn</a> </li> <li> <a href="http://github.com/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-github"></i> Github</a> </li> </ul><!-- /.dl-submenu --> </li> <li> <a href="#">Posts</a> <ul class="dl-submenu"> <li><a href="https://lahuman.github.io/posts/">All Posts</a></li> <li><a href="https://lahuman.github.io/tags/">All Tags</a></li> </ul> </li> <li><a href="https://lahuman.github.io/projects/" >Projects</a></li> </ul><!-- /.dl-menu --> </nav><!-- /.dl-menuwrapper --> <!-- Header --> <header class="header" role="banner"> <div class="wrapper animated fadeIn"> <div class="content"> <div class="post-title "> <h1>#2 Flannel CNI</h1> <h4>18 Jan 2022</h4> <p class="reading-time"> <i class="fa fa-clock-o"></i> Reading time ~9 minutes </p><!-- /.entry-reading-time --> <a class="btn zoombtn" href="https://lahuman.github.io/projects/"> <i class="fa fa-chevron-left"></i> </a> </div> <h1 id="flannel-cnicontainer-network-interface">Flannel CNI(Container Network Interface)</h1> <ul> <li>Flannel runs a small, single binary agent called <code class="highlighter-rouge">flanneld</code>on each host, and is responsible for allocating a subnet lease to each host out of a larger, preconfigured address space. Flannel은 각 호스트에서 <code class="highlighter-rouge">flanneld</code>라는 작은 단일 바이너리 에이전트를 실행하고 미리 구성된 더 큰 주소 공간에서 각 호스트에 서브넷 임대를 할당하는 역할을 합니다. → 모든 노드에 <code class="highlighter-rouge">flanneld</code> 가 동작</li> <li>네트워킹 환경 지원 (Backends) : <strong>VXLAN</strong>, host-gw, UDP, 그외에는 아직 실험적임 - <a href="https://github.com/flannel-io/flannel/blob/master/Documentation/backends.md">링크</a> <a href="https://msazure.club/flannel-networking-demystify/">링크2</a> <ul> <li><code class="highlighter-rouge">VXLAN</code>(권장) : Port(<code class="highlighter-rouge">UDP 8472</code>), DirecRouting 지원(같은 서브넷 노드와는 host-gw 처럼 동작) <ul> <li>단, 네트워크 엔지니어분들이 알고 있는 ‘L2 확장’ 이 아니라, 각 노드마다 별도의 서브넷이 있고, 해당 서브넷 대역끼리 NAT 없이 라우팅 처리됨</li> </ul> </li> <li>host-gw : 호스트 L2 모드?, 일반적으로 퍼블릭 클라우드 환경에서는 동작하지 않는다</li> <li>UDP (비권장) : VXLAN 지원하지 않는 오래된 커널 사용 시, Port(UDP 8285)</li> </ul> </li> <li>노드마다 flannel.1 생성 : VXLAN VTEP 역할</li> <li>노드마다 cni0 생성 : bridge 역할</li> </ul> <h2 id="flannel-cin-및-cni-동작-그림-설명">Flannel CIN 및 CNI 동작 그림 설명</h2> <p><img src="/assets/img/post_img/kang_2week_12.png" alt="[https://ikcoo.tistory.com/101](https://ikcoo.tistory.com/101)" /></p> <p><a href="https://ikcoo.tistory.com/101">https://ikcoo.tistory.com/101</a></p> <p><img src="/assets/img/post_img/kang_2week_13.png" alt="[https://ikcoo.tistory.com/101](https://ikcoo.tistory.com/101)" /></p> <p><a href="https://ikcoo.tistory.com/101">https://ikcoo.tistory.com/101</a></p> <p><img src="/assets/img/post_img/kang_2week_14.png" alt="[https://cilium.io/blog/2021/05/11/cni-benchmark](https://cilium.io/blog/2021/05/11/cni-benchmark)" /></p> <p><a href="https://cilium.io/blog/2021/05/11/cni-benchmark">https://cilium.io/blog/2021/05/11/cni-benchmark</a></p> <p><img src="/assets/img/post_img/kang_2week_15.png" alt="" /></p> <p><img src="/assets/img/post_img/kang_2week_16.png" alt="[https://docs.openshift.com/container-platform/3.4/architecture/additional_concepts/flannel.html](https://docs.openshift.com/container-platform/3.4/architecture/additional_concepts/flannel.html)" /></p> <p><a href="https://docs.openshift.com/container-platform/3.4/architecture/additional_concepts/flannel.html">https://docs.openshift.com/container-platform/3.4/architecture/additional_concepts/flannel.html</a></p> <h3 id="flannel-기본-정보-확인">Flannel 기본 정보 확인</h3> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 컨피그맵과 데몬셋 정보 확인</span>
 <span class="nv">$ </span>kubectl describe cm <span class="nt">-n</span> kube-system kube-flannel-cfg
 <span class="nv">$ </span>kubectl describe ds <span class="nt">-n</span> kube-system kube-flannel-ds
 
@@ -24,14 +24,14 @@
 
 <span class="c"># 기본 네트워크 정보 확인</span>
 <span class="nv">$ </span>ip <span class="nt">-c</span> <span class="nt">-br</span> addr
-<span class="nv">$ </span>ip <span class="nt">-c</span> <span class="nb">link</span> | <span class="nb">grep</span> <span class="nt">-E</span> <span class="s1">'flannel|cni|veth'</span> <span class="nt">-A1</span>
+<span class="nv">$ </span>ip <span class="nt">-c</span> link | <span class="nb">grep</span> <span class="nt">-E</span> <span class="s1">'flannel|cni|veth'</span> <span class="nt">-A1</span>
 <span class="nv">$ </span>ip <span class="nt">-c</span> addr
 <span class="nv">$ </span>ip <span class="nt">-c</span> <span class="nt">-d</span> addr show cni0
 <span class="nv">$ </span>ip <span class="nt">-c</span> <span class="nt">-d</span> addr show flannel.1
 
 <span class="c"># 라우팅 정보 확인</span>
 <span class="nv">$ </span>ip <span class="nt">-c</span> route | <span class="nb">grep </span>172.16.
-172.16.0.0/24 dev cni0 proto kernel scope <span class="nb">link </span>src 172.16.0.1
+172.16.0.0/24 dev cni0 proto kernel scope link src 172.16.0.1
 172.16.1.0/24 via 172.16.1.0 dev flannel.1 onlink
 172.16.2.0/24 via 172.16.2.0 dev flannel.1 onlink
 
@@ -78,12 +78,12 @@ bridge fdb show dev flannel.1
 
 <span class="nv">$ </span>ip <span class="nt">-c</span> <span class="nt">-d</span> addr show flannel.1
 5: flannel.1: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1450 qdisc noqueue state UNKNOWN group default
-    <span class="nb">link</span>/ether 42:44:84:8c:89:dd brd ff:ff:ff:ff:ff:ff promiscuity 0 minmtu 68 maxmtu 65535
-    vxlan <span class="nb">id </span>1 <span class="nb">local </span>192.168.100.10 dev enp0s8 srcport 0 0 dstport 8472 nolearning ttl auto ageing 300 udpcsum noudp6zerocsumtx noudp6zerocsumrx numtxqueues 1 numrxqueues 1 gso_max_size 65536 gso_max_segs 65535
+    link/ether 42:44:84:8c:89:dd brd ff:ff:ff:ff:ff:ff promiscuity 0 minmtu 68 maxmtu 65535
+    vxlan id 1 <span class="nb">local </span>192.168.100.10 dev enp0s8 srcport 0 0 dstport 8472 nolearning ttl auto ageing 300 udpcsum noudp6zerocsumtx noudp6zerocsumrx numtxqueues 1 numrxqueues 1 gso_max_size 65536 gso_max_segs 65535
     inet 172.16.0.0/32 brd 172.16.0.0 scope global flannel.1
        valid_lft forever preferred_lft forever
-    inet6 fe80::4044:84ff:fe8c:89dd/64 scope <span class="nb">link
-       </span>valid_lft forever preferred_lft forever
+    inet6 fe80::4044:84ff:fe8c:89dd/64 scope link
+       valid_lft forever preferred_lft forever
 
 <span class="nv">$ </span>kubectl describe node | <span class="nb">grep </span>VtepMAC
 Annotations:        flannel.alpha.coreos.com/backend-data: <span class="o">{</span><span class="s2">"VNI"</span>:1,<span class="s2">"VtepMAC"</span>:<span class="s2">"42:44:84:8c:89:dd"</span><span class="o">}</span>
@@ -143,7 +143,7 @@ pod/kube-flannel-ds-9v9k6
 pod/kube-flannel-ds-vxzwm
 
 <span class="c"># flannel 파드에 ps 정보 확인</span>
-<span class="nv">$ </span>kubectl <span class="nb">exec</span> <span class="nt">-it</span> <span class="nt">-n</span> kube-system pod/kube-flannel-ds-8tmnm <span class="nt">--</span> ps | <span class="nb">head</span> <span class="nt">-2</span>
+<span class="nv">$ </span>kubectl <span class="nb">exec</span> <span class="nt">-it</span> <span class="nt">-n</span> kube-system pod/kube-flannel-ds-8tmnm <span class="nt">--</span> ps | head <span class="nt">-2</span>
 Defaulted container <span class="s2">"kube-flannel"</span> out of: kube-flannel, install-cni-plugin <span class="o">(</span>init<span class="o">)</span>, install-cni <span class="o">(</span>init<span class="o">)</span>
 PID   USER     TIME  COMMAND
     1 root      5:46 /opt/bin/flanneld <span class="nt">--ip-masq</span> <span class="nt">--kube-subnet-mgr</span> <span class="nt">--iface</span><span class="o">=</span>enp0
@@ -152,7 +152,7 @@ PID   USER     TIME  COMMAND
 <span class="nv">$ </span>kubens kube-system <span class="o">&amp;&amp;</span> kubetail <span class="nt">-l</span> <span class="nv">app</span><span class="o">=</span>flannel <span class="nt">--since</span> 1h
 Context <span class="s2">"admin-k8s"</span> modified.
 Active namespace is <span class="s2">"kube-system"</span><span class="nb">.</span>
-Will <span class="nb">tail </span>9 logs...
+Will tail 9 logs...
 kube-flannel-ds-8tmnm kube-flannel
 kube-flannel-ds-8tmnm install-cni-plugin
 kube-flannel-ds-8tmnm install-cni
@@ -213,7 +213,7 @@ spec:
 NAME    READY   STATUS    RESTARTS   AGE   IP           NODE     NOMINATED NODE   READINESS GATES
 pod-1   1/1     Running   0          91s   172.16.1.3   k8s-w1   &lt;none&gt;           &lt;none&gt;
 pod-2   1/1     Running   0          91s   172.16.2.4   k8s-w2   &lt;none&gt;           &lt;none&gt;
-</code></pre></div></div> <blockquote> <p>파드 생성전에 <code class="language-plaintext highlighter-rouge">watch -d "ip link | egrep 'cni|veth' ;echo; brctl show cni0"</code> 명령어를 행하면 cni0를 찾을 수 없다고 합니다. 당황하지 말고, 파트 생성을 진행하여 보세요 아래의 이미지와 같은 결과를 얻게 됩니다.</p> </blockquote> <p><img src="/assets/img/post_img/kang_2week_17.png" alt="" /></p> <ul> <li>파드가 노드1대에 몰려 배포 시 사용하자</li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat</span> <span class="o">&lt;&lt;</span><span class="no">EOF</span><span class="sh"> | kubectl create -f -
+</code></pre></div></div> <blockquote> <p>파드 생성전에 <code class="highlighter-rouge">watch -d "ip link | egrep 'cni|veth' ;echo; brctl show cni0"</code> 명령어를 행하면 cni0를 찾을 수 없다고 합니다. 당황하지 말고, 파트 생성을 진행하여 보세요 아래의 이미지와 같은 결과를 얻게 됩니다.</p> </blockquote> <p><img src="/assets/img/post_img/kang_2week_17.png" alt="" /></p> <ul> <li>파드가 노드1대에 몰려 배포 시 사용하자</li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat</span> <span class="o">&lt;&lt;</span><span class="no">EOF</span><span class="sh"> | kubectl create -f -
 apiVersion: v1
 kind: Pod
 metadata:
@@ -253,13 +253,13 @@ spec:
 
 <span class="c"># 브리지 정보 확인</span>
 <span class="nv">$ </span>brctl show cni0
-bridge name     bridge <span class="nb">id               </span>STP enabled     interfaces
+bridge name     bridge id               STP enabled     interfaces
 cni0            8000.8e53f02dd93a       no              veth09e7e37a
                                                         vethe914fc0b
 
 <span class="c"># 브리지 연결 링크(veth) 확인</span>
-<span class="nv">$ </span>bridge <span class="nb">link
-</span>7: vethe914fc0b@enp0s8: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1450 master cni0 state forwarding priority 32 cost 2
+<span class="nv">$ </span>bridge link
+7: vethe914fc0b@enp0s8: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1450 master cni0 state forwarding priority 32 cost 2
 8: veth09e7e37a@enp0s8: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1450 master cni0 state forwarding priority 32 cost 2
 
 <span class="c"># 브리지 VLAN 정보 확인</span>
@@ -281,23 +281,23 @@ veth09e7e37a     1 PVID Egress Untagged
 <span class="c"># 네트워크 관련 정보들 확인</span>
 <span class="nv">$ </span>ip <span class="nt">-c</span> addr | <span class="nb">grep </span>veth <span class="nt">-A3</span>
 7: vethe914fc0b@if3: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1450 qdisc noqueue master cni0 state UP group default
-    <span class="nb">link</span>/ether 0a:44:6f:7b:aa:07 brd ff:ff:ff:ff:ff:ff link-netnsid 0
-    inet6 fe80::844:6fff:fe7b:aa07/64 scope <span class="nb">link
-       </span>valid_lft forever preferred_lft forever
+    link/ether 0a:44:6f:7b:aa:07 brd ff:ff:ff:ff:ff:ff link-netnsid 0
+    inet6 fe80::844:6fff:fe7b:aa07/64 scope link
+       valid_lft forever preferred_lft forever
 8: veth09e7e37a@if3: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1450 qdisc noqueue master cni0 state UP group default
-    <span class="nb">link</span>/ether a6:44:a7:30:50:97 brd ff:ff:ff:ff:ff:ff link-netnsid 1
-    inet6 fe80::a444:a7ff:fe30:5097/64 scope <span class="nb">link
-       </span>valid_lft forever preferred_lft forever
+    link/ether a6:44:a7:30:50:97 brd ff:ff:ff:ff:ff:ff link-netnsid 1
+    inet6 fe80::a444:a7ff:fe30:5097/64 scope link
+       valid_lft forever preferred_lft forever
 
 <span class="nv">$ </span>ip <span class="nt">-c</span> route
 default via 10.0.2.2 dev enp0s3 proto dhcp src 10.0.2.15 metric 100
-10.0.2.0/24 dev enp0s3 proto kernel scope <span class="nb">link </span>src 10.0.2.15
-10.0.2.2 dev enp0s3 proto dhcp scope <span class="nb">link </span>src 10.0.2.15 metric 100
-172.16.0.0/24 dev cni0 proto kernel scope <span class="nb">link </span>src 172.16.0.1
+10.0.2.0/24 dev enp0s3 proto kernel scope link src 10.0.2.15
+10.0.2.2 dev enp0s3 proto dhcp scope link src 10.0.2.15 metric 100
+172.16.0.0/24 dev cni0 proto kernel scope link src 172.16.0.1
 172.16.1.0/24 via 172.16.1.0 dev flannel.1 onlink
 172.16.2.0/24 via 172.16.2.0 dev flannel.1 onlink
-172.17.0.0/16 dev docker0 proto kernel scope <span class="nb">link </span>src 172.17.0.1 linkdown
-192.168.100.0/24 dev enp0s8 proto kernel scope <span class="nb">link </span>src 192.168.100.10
+172.17.0.0/16 dev docker0 proto kernel scope link src 172.17.0.1 linkdown
+192.168.100.0/24 dev enp0s8 proto kernel scope link src 192.168.100.10
 
 
 <span class="c"># 아래 mac 정보는 다른 노드들의 flannel.1 의 mac 주소 입니다</span>
@@ -313,17 +313,17 @@ default via 10.0.2.2 dev enp0s3 proto dhcp src 10.0.2.15 metric 100
 
 <span class="nv">$ </span>ip <span class="nt">-c</span> <span class="nt">-d</span> addr show flannel.1
 5: flannel.1: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1450 qdisc noqueue state UNKNOWN group default
-    <span class="nb">link</span>/ether 42:44:84:8c:89:dd brd ff:ff:ff:ff:ff:ff promiscuity 0 minmtu 68 maxmtu 65535
-    vxlan <span class="nb">id </span>1 <span class="nb">local </span>192.168.100.10 dev enp0s8 srcport 0 0 dstport 8472 nolearning ttl auto ageing 300 udpcsum noudp6zerocsumtx noudp6zerocsumrx numtxqueues 1 numrxqueues 1 gso_max_size 65536 gso_max_segs 65535
+    link/ether 42:44:84:8c:89:dd brd ff:ff:ff:ff:ff:ff promiscuity 0 minmtu 68 maxmtu 65535
+    vxlan id 1 <span class="nb">local </span>192.168.100.10 dev enp0s8 srcport 0 0 dstport 8472 nolearning ttl auto ageing 300 udpcsum noudp6zerocsumtx noudp6zerocsumrx numtxqueues 1 numrxqueues 1 gso_max_size 65536 gso_max_segs 65535
     inet 172.16.0.0/32 brd 172.16.0.0 scope global flannel.1
        valid_lft forever preferred_lft forever
-    inet6 fe80::4044:84ff:fe8c:89dd/64 scope <span class="nb">link
-       </span>valid_lft forever preferred_lft forever
+    inet6 fe80::4044:84ff:fe8c:89dd/64 scope link
+       valid_lft forever preferred_lft forever
 </code></pre></div></div> <h2 id="파드-shell-접속-후-확인">파드 Shell 접속 후 확인</h2> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>kubectl <span class="nb">exec</span> <span class="nt">-it</span> pod-1 <span class="nt">--</span> zsh
 
 <span class="nv">$ </span>ip <span class="nt">-c</span> addr show eth0
 3: eth0@if7: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1450 qdisc noqueue state UP group default
-    <span class="nb">link</span>/ether 9e:dc:9c:6b:82:b5 brd ff:ff:ff:ff:ff:ff link-netnsid 0
+    link/ether 9e:dc:9c:6b:82:b5 brd ff:ff:ff:ff:ff:ff link-netnsid 0
     inet 172.16.1.3/24 brd 172.16.1.255 scope global eth0
        valid_lft forever preferred_lft foreverforever
 

@@ -1,4 +1,4 @@
-<!DOCTYPE html> <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]--> <!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8"><![endif]--> <!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9"><![endif]--> <!--[if gt IE 8]><!--> <html class="no-js"><!--<![endif]--> <head> <meta charset="UTF-8"> <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"> <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1"> <title>#1 도커 네트워크 &#8211; lahuman</title> <meta name="description" content="열심히 사는 아저씨"> <meta name="keywords" content="kang, network, docker"> <!-- Twitter Cards --> <meta name="twitter:card" content="summary"> <meta name="twitter:image" content="https://lahuman.github.io/assets/img/logo.png"> <meta name="twitter:title" content="#1 도커 네트워크"> <meta name="twitter:description" content="Kubernetes Advanced Networking Study"> <!-- Open Graph --> <meta property="og:locale" content="ko_KR"> <meta property="og:type" content="article"> <meta property="og:title" content="#1 도커 네트워크"> <meta property="og:description" content="Kubernetes Advanced Networking Study"> <meta property="og:url" content="https://lahuman.github.io/kang_1week_2/"> <meta property="og:site_name" content="lahuman"> <meta property="og:image" content="https://lahuman.github.io/assets/img/logo.png"> <link rel="canonical" href="https://lahuman.github.io/kang_1week_2/"> <link href="https://lahuman.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="lahuman Feed"> <!-- Handheld --> <meta name="HandheldFriendly" content="True"> <meta name="MobileOptimized" content="320"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- CSS --> <link rel="stylesheet" href="https://lahuman.github.io/assets/css/main.css"> <!-- JS --> <script src="https://lahuman.github.io/assets/js/modernizr-3.3.1.custom.min.js"></script> <!-- Favicons --> <link rel="apple-touch-icon" href="https://lahuman.github.io/assets/img/favicons/apple-icon-precomposed.png"> <link rel="apple-touch-icon" sizes="72x72" href="https://lahuman.github.io/assets/img/favicons/apple-icon-72x72.png"> <link rel="apple-touch-icon" sizes="114x114" href="https://lahuman.github.io/assets/img/favicons/apple-icon-114x114.png"> <link rel="apple-touch-icon" sizes="144x144" href="https://lahuman.github.io/assets/img/favicons/apple-icon-144x144.png"> <link rel="shortcut icon" type="image/png" href="https://lahuman.github.io/favicon.png" /> <link rel="shortcut icon" href="https://lahuman.github.io/favicon.ico" /> <!-- mermaid --> <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script> <script>mermaid.initialize({startOnLoad:true});</script> <!-- Background Image --> <style type="text/css">body {background-image:url(https://lahuman.github.io/assets/img/placeholder-big.jpg); background-repeat: no-repeat; background-size: cover; }</style> <!-- Post Feature Image --> </head> <body> <nav id="dl-menu" class="dl-menuwrapper" role="navigation"> <button class="dl-trigger">Open Menu</button> <ul class="dl-menu"> <li><a href="https://lahuman.github.io/">Home</a></li> <li> <a href="#">About</a> <ul class="dl-submenu"> <li> <img src="https://lahuman.github.io/assets/img/logo.png" alt="lahuman photo" class="author-photo"> <h4>lahuman</h4> <p>열심히 사는 아저씨</p> </li> <li><a href="https://lahuman.github.io/about/"><span class="btn btn-inverse">Learn More</span></a></li> <li> <a href="http://facebook.com/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-facebook-square"></i> Facebook</a> </li> <li> <a href="http://linkedin.com/in/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-linkedin-square"></i> LinkedIn</a> </li> <li> <a href="http://github.com/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-github"></i> Github</a> </li> </ul><!-- /.dl-submenu --> </li> <li> <a href="#">Posts</a> <ul class="dl-submenu"> <li><a href="https://lahuman.github.io/posts/">All Posts</a></li> <li><a href="https://lahuman.github.io/tags/">All Tags</a></li> </ul> </li> <li><a href="https://lahuman.github.io/projects/" >Projects</a></li> </ul><!-- /.dl-menu --> </nav><!-- /.dl-menuwrapper --> <!-- Header --> <header class="header" role="banner"> <div class="wrapper animated fadeIn"> <div class="content"> <div class="post-title "> <h1>#1 도커 네트워크</h1> <h4>14 Jan 2022</h4> <p class="reading-time"> <i class="fa fa-clock-o"></i> Reading time ~35 minutes </p><!-- /.entry-reading-time --> <a class="btn zoombtn" href="https://lahuman.github.io/projects/"> <i class="fa fa-chevron-left"></i> </a> </div> <h1 id="도커-네트워크">도커 네트워크</h1> <blockquote> <p>앞의 <a href="https://lahuman.github.io/kang_1week_1/">컨테이너 격리</a>에 이어서 <code class="language-plaintext highlighter-rouge">Kubernetes Advanced Networking Study(이하 KANG)</code> 첫번째 시간에 내용을 정리 하였습니다. <a href="https://lahuman.github.io/kang_1week_1/">컨테이너 격리</a>를 아직 보시지 않으셨다면 보시고 읽기를 권장해드립니다.</p> </blockquote> <h2 id="실습-환경-구성">실습 환경 구성</h2> <p>새로운 빈 디렉토리를 생성하고 <code class="language-plaintext highlighter-rouge">Vagrantfile</code>를 아래와 같은 내용으로 생성합니다.</p> <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">Vagrant</span><span class="p">.</span><span class="nf">configure</span><span class="p">(</span><span class="s2">"2"</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
+<!DOCTYPE html> <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]--> <!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8"><![endif]--> <!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9"><![endif]--> <!--[if gt IE 8]><!--> <html class="no-js"><!--<![endif]--> <head> <meta charset="UTF-8"> <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"> <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1"> <title>#1 도커 네트워크 &#8211; lahuman</title> <meta name="description" content="열심히 사는 아저씨"> <meta name="keywords" content="kang, network, docker"> <!-- Twitter Cards --> <meta name="twitter:card" content="summary"> <meta name="twitter:image" content="https://lahuman.github.io/assets/img/logo.png"> <meta name="twitter:title" content="#1 도커 네트워크"> <meta name="twitter:description" content="Kubernetes Advanced Networking Study"> <!-- Open Graph --> <meta property="og:locale" content="ko_KR"> <meta property="og:type" content="article"> <meta property="og:title" content="#1 도커 네트워크"> <meta property="og:description" content="Kubernetes Advanced Networking Study"> <meta property="og:url" content="https://lahuman.github.io/kang_1week_2/"> <meta property="og:site_name" content="lahuman"> <meta property="og:image" content="https://lahuman.github.io/assets/img/logo.png"> <link rel="canonical" href="https://lahuman.github.io/kang_1week_2/"> <link href="https://lahuman.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="lahuman Feed"> <!-- Handheld --> <meta name="HandheldFriendly" content="True"> <meta name="MobileOptimized" content="320"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- CSS --> <link rel="stylesheet" href="https://lahuman.github.io/assets/css/main.css"> <!-- JS --> <script src="https://lahuman.github.io/assets/js/modernizr-3.3.1.custom.min.js"></script> <!-- Favicons --> <link rel="apple-touch-icon" href="https://lahuman.github.io/assets/img/favicons/apple-icon-precomposed.png"> <link rel="apple-touch-icon" sizes="72x72" href="https://lahuman.github.io/assets/img/favicons/apple-icon-72x72.png"> <link rel="apple-touch-icon" sizes="114x114" href="https://lahuman.github.io/assets/img/favicons/apple-icon-114x114.png"> <link rel="apple-touch-icon" sizes="144x144" href="https://lahuman.github.io/assets/img/favicons/apple-icon-144x144.png"> <link rel="shortcut icon" type="image/png" href="https://lahuman.github.io/favicon.png" /> <link rel="shortcut icon" href="https://lahuman.github.io/favicon.ico" /> <!-- mermaid --> <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script> <script>mermaid.initialize({startOnLoad:true});</script> <!-- Background Image --> <style type="text/css">body {background-image:url(https://lahuman.github.io/assets/img/placeholder-big.jpg); background-repeat: no-repeat; background-size: cover; }</style> <!-- Post Feature Image --> </head> <body> <nav id="dl-menu" class="dl-menuwrapper" role="navigation"> <button class="dl-trigger">Open Menu</button> <ul class="dl-menu"> <li><a href="https://lahuman.github.io/">Home</a></li> <li> <a href="#">About</a> <ul class="dl-submenu"> <li> <img src="https://lahuman.github.io/assets/img/logo.png" alt="lahuman photo" class="author-photo"> <h4>lahuman</h4> <p>열심히 사는 아저씨</p> </li> <li><a href="https://lahuman.github.io/about/"><span class="btn btn-inverse">Learn More</span></a></li> <li> <a href="http://facebook.com/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-facebook-square"></i> Facebook</a> </li> <li> <a href="http://linkedin.com/in/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-linkedin-square"></i> LinkedIn</a> </li> <li> <a href="http://github.com/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-github"></i> Github</a> </li> </ul><!-- /.dl-submenu --> </li> <li> <a href="#">Posts</a> <ul class="dl-submenu"> <li><a href="https://lahuman.github.io/posts/">All Posts</a></li> <li><a href="https://lahuman.github.io/tags/">All Tags</a></li> </ul> </li> <li><a href="https://lahuman.github.io/projects/" >Projects</a></li> </ul><!-- /.dl-menu --> </nav><!-- /.dl-menuwrapper --> <!-- Header --> <header class="header" role="banner"> <div class="wrapper animated fadeIn"> <div class="content"> <div class="post-title "> <h1>#1 도커 네트워크</h1> <h4>14 Jan 2022</h4> <p class="reading-time"> <i class="fa fa-clock-o"></i> Reading time ~35 minutes </p><!-- /.entry-reading-time --> <a class="btn zoombtn" href="https://lahuman.github.io/projects/"> <i class="fa fa-chevron-left"></i> </a> </div> <h1 id="도커-네트워크">도커 네트워크</h1> <blockquote> <p>앞의 <a href="https://lahuman.github.io/kang_1week_1/">컨테이너 격리</a>에 이어서 <code class="highlighter-rouge">Kubernetes Advanced Networking Study(이하 KANG)</code> 첫번째 시간에 내용을 정리 하였습니다. <a href="https://lahuman.github.io/kang_1week_1/">컨테이너 격리</a>를 아직 보시지 않으셨다면 보시고 읽기를 권장해드립니다.</p> </blockquote> <h2 id="실습-환경-구성">실습 환경 구성</h2> <p>새로운 빈 디렉토리를 생성하고 <code class="highlighter-rouge">Vagrantfile</code>를 아래와 같은 내용으로 생성합니다.</p> <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">Vagrant</span><span class="p">.</span><span class="nf">configure</span><span class="p">(</span><span class="s2">"2"</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
   <span class="n">config</span><span class="p">.</span><span class="nf">vm</span><span class="p">.</span><span class="nf">boot_timeout</span> <span class="o">=</span> <span class="mi">1800</span>
   <span class="n">config</span><span class="p">.</span><span class="nf">vm</span><span class="p">.</span><span class="nf">box</span> <span class="o">=</span> <span class="s2">"ubuntu/focal64"</span>
   <span class="n">config</span><span class="p">.</span><span class="nf">vm</span><span class="p">.</span><span class="nf">box_version</span> <span class="o">=</span> <span class="s2">"20211026.0.0"</span>
@@ -53,7 +53,7 @@
     <span class="k">end</span>
   <span class="k">end</span>
 <span class="k">end</span>
-</code></pre></div></div> <ul> <li>추가로 Virtualbox 설정 : 노드(VM)에 네트워크 NIC 2 번에 <code class="language-plaintext highlighter-rouge">무작위 모드</code>를 <code class="language-plaintext highlighter-rouge">모두 허용</code> 설정이 Vagrantfile 에 의해 되어 있습니다. 모두 허용일 경우 <code class="language-plaintext highlighter-rouge">패킷 스니핑(Sniffing)</code>이 가능하여 <code class="language-plaintext highlighter-rouge">wireshark</code> 등을 사용을 할 수 있습니다.</li> </ul> <p><img src="/assets/img/post_img/kang-docker-nt-04.png" alt="" /></p> <p>vagrant 명령어로 Ubuntu 3대 생성을 합니다.</p> <p><img src="/assets/img/post_img/kang-docker-nt-01.png" alt="" /></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>vagrant up
+</code></pre></div></div> <ul> <li>추가로 Virtualbox 설정 : 노드(VM)에 네트워크 NIC 2 번에 <code class="highlighter-rouge">무작위 모드</code>를 <code class="highlighter-rouge">모두 허용</code> 설정이 Vagrantfile 에 의해 되어 있습니다. 모두 허용일 경우 <code class="highlighter-rouge">패킷 스니핑(Sniffing)</code>이 가능하여 <code class="highlighter-rouge">wireshark</code> 등을 사용을 할 수 있습니다.</li> </ul> <p><img src="/assets/img/post_img/kang-docker-nt-04.png" alt="" /></p> <p>vagrant 명령어로 Ubuntu 3대 생성을 합니다.</p> <p><img src="/assets/img/post_img/kang-docker-nt-01.png" alt="" /></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>vagrant up
 
 <span class="c"># 배포 상태 확인</span>
 <span class="nv">$ </span>vagrant status
@@ -76,40 +76,40 @@ VM, run <span class="sb">`</span>vagrant status NAME<span class="sb">`</span><sp
 <span class="c"># 터미널3 (enp0s8 - 192.168.50.254)</span>
 <span class="nv">$ </span>vagrant ssh vm3
 </code></pre></div></div> <h2 id="red--blue-네트워크-네임스페이스-간-통신">RED &lt;==&gt; BLUE 네트워크 네임스페이스 간 통신</h2> <ul> <li>RED와 BLUE 네트워크 네임스페이스를 생성하고 직접 연결하여 통신을 테스트 합니다.</li> </ul> <p><img src="/assets/img/post_img/kang-docker-nt-02.png" alt="" /></p> <blockquote> <p>veth 에서 v 는 virtual 을 뜻 합니다. 즉 virtual ethernet 라는 의미입니다.</p> </blockquote> <p>네트워크 네임스페이스를 생성하면 Host 네트워크와 구별되어 생성됩니다.</p> <p><img src="/assets/img/post_img/kang-docker-nt-03.png" alt="" /></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># veth (가상 이더넷 디바이스) 생성, man ip-link</span>
-<span class="nv">$ </span>ip <span class="nb">link </span>add veth0 <span class="nb">type </span>veth peer name veth1
+<span class="nv">$ </span>ip link add veth0 <span class="nb">type </span>veth peer name veth1
 
 <span class="c"># veth 생성 확인(상태 DOWN), ifconfig 에는 peer 정보 확인 안됨</span>
-<span class="nv">$ </span>ip <span class="nt">-c</span> <span class="nb">link
-</span>1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
-    <span class="nb">link</span>/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+<span class="nv">$ </span>ip <span class="nt">-c</span> link
+1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
 2: enp0s3: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc fq_codel state UP mode DEFAULT group default qlen 1000
-    <span class="nb">link</span>/ether 02:31:14:45:32:03 brd ff:ff:ff:ff:ff:ff
+    link/ether 02:31:14:45:32:03 brd ff:ff:ff:ff:ff:ff
 3: enp0s8: &lt;BROADCAST,MULTICAST&gt; mtu 1500 qdisc noop state DOWN mode DEFAULT group default qlen 1000
-    <span class="nb">link</span>/ether 08:00:27:66:f0:26 brd ff:ff:ff:ff:ff:ff
+    link/ether 08:00:27:66:f0:26 brd ff:ff:ff:ff:ff:ff
 4: veth1@veth0: &lt;BROADCAST,MULTICAST,M-DOWN&gt; mtu 1500 qdisc noop state DOWN mode DEFAULT group default qlen 1000
-    <span class="nb">link</span>/ether 82:42:52:ac:5b:49 brd ff:ff:ff:ff:ff:ff
+    link/ether 82:42:52:ac:5b:49 brd ff:ff:ff:ff:ff:ff
 5: veth0@veth1: &lt;BROADCAST,MULTICAST,M-DOWN&gt; mtu 1500 qdisc noop state DOWN mode DEFAULT group default qlen 1000
-    <span class="nb">link</span>/ether ea:ad:dd:3b:ca:20 brd ff:ff:ff:ff:ff:ff
+    link/ether ea:ad:dd:3b:ca:20 brd ff:ff:ff:ff:ff:ff
 
 <span class="nv">$ </span>ip <span class="nt">-c</span> addr  <span class="c"># 축약 ip -c a</span>
 1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
-    <span class="nb">link</span>/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
     inet 127.0.0.1/8 scope host lo
        valid_lft forever preferred_lft forever
     inet6 ::1/128 scope host
        valid_lft forever preferred_lft forever
 2: enp0s3: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc fq_codel state UP group default qlen 1000
-    <span class="nb">link</span>/ether 02:31:14:45:32:03 brd ff:ff:ff:ff:ff:ff
+    link/ether 02:31:14:45:32:03 brd ff:ff:ff:ff:ff:ff
     inet 10.0.2.15/24 brd 10.0.2.255 scope global dynamic enp0s3
        valid_lft 85943sec preferred_lft 85943sec
-    inet6 fe80::31:14ff:fe45:3203/64 scope <span class="nb">link
-       </span>valid_lft forever preferred_lft forever
+    inet6 fe80::31:14ff:fe45:3203/64 scope link
+       valid_lft forever preferred_lft forever
 3: enp0s8: &lt;BROADCAST,MULTICAST&gt; mtu 1500 qdisc noop state DOWN group default qlen 1000
-    <span class="nb">link</span>/ether 08:00:27:66:f0:26 brd ff:ff:ff:ff:ff:ff
+    link/ether 08:00:27:66:f0:26 brd ff:ff:ff:ff:ff:ff
 4: veth1@veth0: &lt;BROADCAST,MULTICAST,M-DOWN&gt; mtu 1500 qdisc noop state DOWN group default qlen 1000
-    <span class="nb">link</span>/ether 82:42:52:ac:5b:49 brd ff:ff:ff:ff:ff:ff
+    link/ether 82:42:52:ac:5b:49 brd ff:ff:ff:ff:ff:ff
 5: veth0@veth1: &lt;BROADCAST,MULTICAST,M-DOWN&gt; mtu 1500 qdisc noop state DOWN group default qlen 1000
-    <span class="nb">link</span>/ether ea:ad:dd:3b:ca:20 brd ff:ff:ff:ff:ff:ff
+    link/ether ea:ad:dd:3b:ca:20 brd ff:ff:ff:ff:ff:ff
 
 <span class="c"># 네트워크 네임스페이스 생성 , man ip-netns</span>
 <span class="nv">$ </span>ip netns add RED
@@ -121,103 +121,103 @@ BLUE
 RED
 
 <span class="c"># veth0 을 RED 네트워크 네임스페이스로 옮김</span>
-<span class="nv">$ </span>ip <span class="nb">link set </span>veth0 netns RED
+<span class="nv">$ </span>ip link <span class="nb">set </span>veth0 netns RED
 <span class="nv">$ </span>ip netns list
 BLUE
-RED <span class="o">(</span><span class="nb">id</span>: 0<span class="o">)</span>
+RED <span class="o">(</span>id: 0<span class="o">)</span>
 
 <span class="c">## 호스트의 ip a 목록에서 보이지 않음, veth1의 peer 정보가 변경됨</span>
-<span class="nv">$ </span>ip <span class="nt">-c</span> <span class="nb">link
-</span>1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
-    <span class="nb">link</span>/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+<span class="nv">$ </span>ip <span class="nt">-c</span> link
+1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
 2: enp0s3: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc fq_codel state UP mode DEFAULT group default qlen 1000
-    <span class="nb">link</span>/ether 02:31:14:45:32:03 brd ff:ff:ff:ff:ff:ff
+    link/ether 02:31:14:45:32:03 brd ff:ff:ff:ff:ff:ff
 3: enp0s8: &lt;BROADCAST,MULTICAST&gt; mtu 1500 qdisc noop state DOWN mode DEFAULT group default qlen 1000
-    <span class="nb">link</span>/ether 08:00:27:66:f0:26 brd ff:ff:ff:ff:ff:ff
+    link/ether 08:00:27:66:f0:26 brd ff:ff:ff:ff:ff:ff
 4: veth1@if5: &lt;BROADCAST,MULTICAST&gt; mtu 1500 qdisc noop state DOWN mode DEFAULT group default qlen 1000
-    <span class="nb">link</span>/ether 82:42:52:ac:5b:49 brd ff:ff:ff:ff:ff:ff link-netns RED
+    link/ether 82:42:52:ac:5b:49 brd ff:ff:ff:ff:ff:ff link-netns RED
 
 <span class="c">## RED 네임스페이스에서 ip a 확인됨(상태 DOWN), peer 정보 확인, link-netns RED, man ip-netns</span>
 <span class="nv">$ </span>ip netns <span class="nb">exec </span>RED ip <span class="nt">-c</span> a
 1: lo: &lt;LOOPBACK&gt; mtu 65536 qdisc noop state DOWN group default qlen 1000
-    <span class="nb">link</span>/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
 5: veth0@if4: &lt;BROADCAST,MULTICAST&gt; mtu 1500 qdisc noop state DOWN group default qlen 1000
-    <span class="nb">link</span>/ether ea:ad:dd:3b:ca:20 brd ff:ff:ff:ff:ff:ff link-netnsid 0
+    link/ether ea:ad:dd:3b:ca:20 brd ff:ff:ff:ff:ff:ff link-netnsid 0
 
 <span class="c"># veth1 을 BLUE 네트워크 네임스페이스로 옮김</span>
-<span class="nv">$ </span>ip <span class="nb">link set </span>veth1 netns BLUE
-<span class="nv">$ </span>ip <span class="nt">-c</span> <span class="nb">link
-</span>1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
-    <span class="nb">link</span>/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+<span class="nv">$ </span>ip link <span class="nb">set </span>veth1 netns BLUE
+<span class="nv">$ </span>ip <span class="nt">-c</span> link
+1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
 2: enp0s3: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc fq_codel state UP mode DEFAULT group default qlen 1000
-    <span class="nb">link</span>/ether 02:31:14:45:32:03 brd ff:ff:ff:ff:ff:ff
+    link/ether 02:31:14:45:32:03 brd ff:ff:ff:ff:ff:ff
 3: enp0s8: &lt;BROADCAST,MULTICAST&gt; mtu 1500 qdisc noop state DOWN mode DEFAULT group default qlen 1000
-    <span class="nb">link</span>/ether 08:00:27:66:f0:26 brd ff:ff:ff:ff:ff:ff
+    link/ether 08:00:27:66:f0:26 brd ff:ff:ff:ff:ff:ff
 
 <span class="nv">$ </span>ip netns <span class="nb">exec </span>BLUE ip <span class="nt">-c</span> a
 1: lo: &lt;LOOPBACK&gt; mtu 65536 qdisc noop state DOWN group default qlen 1000
-    <span class="nb">link</span>/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
 6: veth1@if7: &lt;BROADCAST,MULTICAST&gt; mtu 1500 qdisc noop state DOWN group default qlen 1000
-    <span class="nb">link</span>/ether ca:0d:cb:43:e8:9b brd ff:ff:ff:ff:ff:ff link-netns RED
+    link/ether ca:0d:cb:43:e8:9b brd ff:ff:ff:ff:ff:ff link-netns RED
 
 
 <span class="c"># veth0, veth1 상태 활성화(state UP)</span>
-<span class="nv">$ </span>ip netns <span class="nb">exec </span>RED ip <span class="nb">link set </span>veth0 up
+<span class="nv">$ </span>ip netns <span class="nb">exec </span>RED ip link <span class="nb">set </span>veth0 up
 <span class="nv">$ </span>ip netns <span class="nb">exec </span>RED ip <span class="nt">-c</span> a
 1: lo: &lt;LOOPBACK&gt; mtu 65536 qdisc noop state DOWN group default qlen 1000
-    <span class="nb">link</span>/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
 7: veth0@if6: &lt;NO-CARRIER,BROADCAST,MULTICAST,UP&gt; mtu 1500 qdisc noqueue state LOWERLAYERDOWN group default qlen 1000
-    <span class="nb">link</span>/ether 66:6f:02:41:7d:1f brd ff:ff:ff:ff:ff:ff link-netns BLUE
+    link/ether 66:6f:02:41:7d:1f brd ff:ff:ff:ff:ff:ff link-netns BLUE
 
-<span class="nv">$ </span>ip netns <span class="nb">exec </span>BLUE ip <span class="nb">link set </span>veth1 up
+<span class="nv">$ </span>ip netns <span class="nb">exec </span>BLUE ip link <span class="nb">set </span>veth1 up
 <span class="nv">$ </span>ip netns <span class="nb">exec </span>BLUE ip <span class="nt">-c</span> a
 1: lo: &lt;LOOPBACK&gt; mtu 65536 qdisc noop state DOWN group default qlen 1000
-    <span class="nb">link</span>/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
 6: veth1@if7: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue state UP group default qlen 1000
-    <span class="nb">link</span>/ether ca:0d:cb:43:e8:9b brd ff:ff:ff:ff:ff:ff link-netns RED
-    inet6 fe80::c80d:cbff:fe43:e89b/64 scope <span class="nb">link </span>tentative
+    link/ether ca:0d:cb:43:e8:9b brd ff:ff:ff:ff:ff:ff link-netns RED
+    inet6 fe80::c80d:cbff:fe43:e89b/64 scope link tentative
        valid_lft forever preferred_lft forever
 
 <span class="c"># veth0, veth1 에 IP 설정</span>
 <span class="nv">$ </span>ip netns <span class="nb">exec </span>RED ip addr add 11.11.11.2/24 dev veth0
 <span class="nv">$ </span>ip netns <span class="nb">exec </span>RED ip <span class="nt">-c</span> a
 1: lo: &lt;LOOPBACK&gt; mtu 65536 qdisc noop state DOWN group default qlen 1000
-    <span class="nb">link</span>/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
 7: veth0@if6: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue state UP group default qlen 1000
-    <span class="nb">link</span>/ether 66:6f:02:41:7d:1f brd ff:ff:ff:ff:ff:ff link-netns BLUE
+    link/ether 66:6f:02:41:7d:1f brd ff:ff:ff:ff:ff:ff link-netns BLUE
     inet 11.11.11.2/24 scope global veth0
        valid_lft forever preferred_lft forever
-    inet6 fe80::646f:2ff:fe41:7d1f/64 scope <span class="nb">link</span>
+    inet6 fe80::646f:2ff:fe41:7d1f/64 scope link
 
 <span class="nv">$ </span>ip netns <span class="nb">exec </span>BLUE ip addr add 11.11.11.3/24 dev veth1
 <span class="nv">$ </span>ip netns <span class="nb">exec </span>BLUE ip <span class="nt">-c</span> a
 1: lo: &lt;LOOPBACK&gt; mtu 65536 qdisc noop state DOWN group default qlen 1000
-    <span class="nb">link</span>/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
 6: veth1@if7: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue state UP group default qlen 1000
-    <span class="nb">link</span>/ether ca:0d:cb:43:e8:9b brd ff:ff:ff:ff:ff:ff link-netns RED
+    link/ether ca:0d:cb:43:e8:9b brd ff:ff:ff:ff:ff:ff link-netns RED
     inet 11.11.11.3/24 scope global veth1
        valid_lft forever preferred_lft forever
-    inet6 fe80::c80d:cbff:fe43:e89b/64 scope <span class="nb">link
-       </span>valid_lft forever preferred_lft forever
+    inet6 fe80::c80d:cbff:fe43:e89b/64 scope link
+       valid_lft forever preferred_lft forever
 
 <span class="c"># 터미널1 (RED 11.11.11.2)</span>
 <span class="c">## nsenter : 네임스페이스에 attach 하여 지정한 프로그램을 실행</span>
 <span class="nv">$ </span>nsenter <span class="nt">--net</span><span class="o">=</span>/var/run/netns/RED
 <span class="nv">$ </span>ip <span class="nt">-c</span> a
 1: lo: &lt;LOOPBACK&gt; mtu 65536 qdisc noop state DOWN group default qlen 1000
-    <span class="nb">link</span>/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
 7: veth0@if6: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue state UP group default qlen 1000
-    <span class="nb">link</span>/ether 66:6f:02:41:7d:1f brd ff:ff:ff:ff:ff:ff link-netns BLUE
+    link/ether 66:6f:02:41:7d:1f brd ff:ff:ff:ff:ff:ff link-netns BLUE
     inet 11.11.11.2/24 scope global veth0
        valid_lft forever preferred_lft forever
-    inet6 fe80::646f:2ff:fe41:7d1f/64 scope <span class="nb">link
-       </span>valid_lft forever preferred_lft forever
+    inet6 fe80::646f:2ff:fe41:7d1f/64 scope link
+       valid_lft forever preferred_lft forever
 
 <span class="c">## neighbour/arp tables management , man ip-neighbour</span>
 <span class="nv">$ </span>ip <span class="nt">-c</span> neigh
 <span class="c">## 라우팅 정보, iptables 정보</span>
 <span class="nv">$ </span>ip <span class="nt">-c</span> route
-11.11.11.0/24 dev veth0 proto kernel scope <span class="nb">link </span>src 11.11.11.2
+11.11.11.0/24 dev veth0 proto kernel scope link src 11.11.11.2
 
 <span class="nv">$ </span>iptables <span class="nt">-t</span> filter <span class="nt">-S</span>
 <span class="nt">-P</span> INPUT ACCEPT
@@ -238,19 +238,19 @@ RED <span class="o">(</span><span class="nb">id</span>: 0<span class="o">)</span
 
 <span class="nv">$ </span>ip <span class="nt">-c</span> a
 1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
-    <span class="nb">link</span>/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
     inet 127.0.0.1/8 scope host lo
        valid_lft forever preferred_lft forever
     inet6 ::1/128 scope host
        valid_lft forever preferred_lft forever
 2: enp0s3: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc fq_codel state UP group default qlen 1000
-    <span class="nb">link</span>/ether 02:31:14:45:32:03 brd ff:ff:ff:ff:ff:ff
+    link/ether 02:31:14:45:32:03 brd ff:ff:ff:ff:ff:ff
     inet 10.0.2.15/24 brd 10.0.2.255 scope global dynamic enp0s3
        valid_lft 84535sec preferred_lft 84535sec
-    inet6 fe80::31:14ff:fe45:3203/64 scope <span class="nb">link
-       </span>valid_lft forever preferred_lft forever
+    inet6 fe80::31:14ff:fe45:3203/64 scope link
+       valid_lft forever preferred_lft forever
 3: enp0s8: &lt;BROADCAST,MULTICAST&gt; mtu 1500 qdisc noop state DOWN group default qlen 1000
-    <span class="nb">link</span>/ether 08:00:27:66:f0:26 brd ff:ff:ff:ff:ff:ff
+    link/ether 08:00:27:66:f0:26 brd ff:ff:ff:ff:ff:ff
 
 <span class="nv">$ </span>ip <span class="nt">-c</span> neigh
 10.0.2.2 dev enp0s3 lladdr 52:54:00:12:35:02 DELAY
@@ -258,8 +258,8 @@ RED <span class="o">(</span><span class="nb">id</span>: 0<span class="o">)</span
 
 <span class="nv">$ </span>ip <span class="nt">-c</span> route
 default via 10.0.2.2 dev enp0s3 proto dhcp src 10.0.2.15 metric 100
-10.0.2.0/24 dev enp0s3 proto kernel scope <span class="nb">link </span>src 10.0.2.15
-10.0.2.2 dev enp0s3 proto dhcp scope <span class="nb">link </span>src 10.0.2.15 metric 100
+10.0.2.0/24 dev enp0s3 proto kernel scope link src 10.0.2.15
+10.0.2.2 dev enp0s3 proto dhcp scope link src 10.0.2.15 metric 100
 
 <span class="nv">$ </span>iptables <span class="nt">-t</span> filter <span class="nt">-S</span>
 <span class="nt">-P</span> INPUT ACCEPT
@@ -275,18 +275,18 @@ default via 10.0.2.2 dev enp0s3 proto dhcp src 10.0.2.15 metric 100
 <span class="c"># 터미널3 (BLUE 11.11.11.3)</span>
 <span class="nv">$ </span>nsenter <span class="nt">--net</span><span class="o">=</span>/var/run/netns/BLUE
 1: lo: &lt;LOOPBACK&gt; mtu 65536 qdisc noop state DOWN group default qlen 1000
-    <span class="nb">link</span>/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
 6: veth1@if7: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue state UP group default qlen 1000
-    <span class="nb">link</span>/ether ca:0d:cb:43:e8:9b brd ff:ff:ff:ff:ff:ff link-netns RED
+    link/ether ca:0d:cb:43:e8:9b brd ff:ff:ff:ff:ff:ff link-netns RED
     inet 11.11.11.3/24 scope global veth1
        valid_lft forever preferred_lft forever
-    inet6 fe80::c80d:cbff:fe43:e89b/64 scope <span class="nb">link
-       </span>valid_lft forever preferred_lft forever
+    inet6 fe80::c80d:cbff:fe43:e89b/64 scope link
+       valid_lft forever preferred_lft forever
 
 <span class="nv">$ </span>ip <span class="nt">-c</span> neigh
 
 <span class="nv">$ </span>ip <span class="nt">-c</span> route
-11.11.11.0/24 dev veth1 proto kernel scope <span class="nb">link </span>src 11.11.11.3
+11.11.11.0/24 dev veth1 proto kernel scope link src 11.11.11.3
 
 <span class="nv">$ </span>iptables <span class="nt">-t</span> filter <span class="nt">-S</span>
 <span class="nt">-P</span> INPUT ACCEPT
@@ -307,8 +307,8 @@ tcpdump: verbose output suppressed, use <span class="nt">-v</span> or <span clas
 listening on veth1, link-type EN10MB <span class="o">(</span>Ethernet<span class="o">)</span>, capture size 262144 bytes
 06:09:18.956745 ARP, Request who-has 11.11.11.3 tell 11.11.11.2, length 28
 06:09:18.956760 ARP, Reply 11.11.11.3 is-at ca:0d:cb:43:e8:9b <span class="o">(</span>oui Unknown<span class="o">)</span>, length 28
-06:09:18.956762 IP 11.11.11.2 <span class="o">&gt;</span> 11.11.11.3: ICMP <span class="nb">echo </span>request, <span class="nb">id </span>3696, <span class="nb">seq </span>1, length 64
-06:09:18.956772 IP 11.11.11.3 <span class="o">&gt;</span> 11.11.11.2: ICMP <span class="nb">echo </span>reply, <span class="nb">id </span>3696, <span class="nb">seq </span>1, length 64
+06:09:18.956762 IP 11.11.11.2 <span class="o">&gt;</span> 11.11.11.3: ICMP <span class="nb">echo </span>request, id 3696, seq 1, length 64
+06:09:18.956772 IP 11.11.11.3 <span class="o">&gt;</span> 11.11.11.2: ICMP <span class="nb">echo </span>reply, id 3696, seq 1, length 64
 06:09:24.094659 ARP, Request who-has 11.11.11.2 tell 11.11.11.3, length 28
 06:09:24.094865 ARP, Reply 11.11.11.2 is-at 66:6f:02:41:7d:1f <span class="o">(</span>oui Unknown<span class="o">)</span>, length 28
 
@@ -333,68 +333,68 @@ ip netns delete RED
 ip netns delete BLUE
 </code></pre></div></div> <h2 id="red--bridgebr0--blue-간-통신">RED &lt;== Bridge(br0) ==&gt; BLUE 간 통신</h2> <ul> <li>arp table, route table, iptables 와 호스트의 bridge fdb 를 통하여 통신을 해봅니다.</li> </ul> <p><img src="/assets/img/post_img/kang-docker-nt-02.png" alt="" /></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 네트워크 네임스페이스 및 veth 생성</span>
 <span class="nv">$ </span>ip netns add RED
-<span class="nv">$ </span>ip <span class="nb">link </span>add reth0 <span class="nb">type </span>veth peer name reth1
-<span class="nv">$ </span>ip <span class="nb">link set </span>reth0 netns RED
+<span class="nv">$ </span>ip link add reth0 <span class="nb">type </span>veth peer name reth1
+<span class="nv">$ </span>ip link <span class="nb">set </span>reth0 netns RED
 <span class="nv">$ </span>ip netns add BLUE
-<span class="nv">$ </span>ip <span class="nb">link </span>add beth0 <span class="nb">type </span>veth peer name beth1
-<span class="nv">$ </span>ip <span class="nb">link set </span>beth0 netns BLUE
+<span class="nv">$ </span>ip link add beth0 <span class="nb">type </span>veth peer name beth1
+<span class="nv">$ </span>ip link <span class="nb">set </span>beth0 netns BLUE
 
 <span class="c"># 확인</span>
 <span class="nv">$ </span>ip netns list
-BLUE <span class="o">(</span><span class="nb">id</span>: 1<span class="o">)</span>
-RED <span class="o">(</span><span class="nb">id</span>: 0<span class="o">)</span>
+BLUE <span class="o">(</span>id: 1<span class="o">)</span>
+RED <span class="o">(</span>id: 0<span class="o">)</span>
 
-<span class="nv">$ </span>ip <span class="nt">-c</span> <span class="nb">link
-</span>1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
-    <span class="nb">link</span>/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+<span class="nv">$ </span>ip <span class="nt">-c</span> link
+1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
 2: enp0s3: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc fq_codel state UP mode DEFAULT group default qlen 1000
-    <span class="nb">link</span>/ether 02:31:14:45:32:03 brd ff:ff:ff:ff:ff:ff
+    link/ether 02:31:14:45:32:03 brd ff:ff:ff:ff:ff:ff
 3: enp0s8: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc fq_codel state UP mode DEFAULT group default qlen 1000
-    <span class="nb">link</span>/ether 08:00:27:40:48:37 brd ff:ff:ff:ff:ff:ff
+    link/ether 08:00:27:40:48:37 brd ff:ff:ff:ff:ff:ff
 4: docker0: &lt;NO-CARRIER,BROADCAST,MULTICAST,UP&gt; mtu 1500 qdisc noqueue state DOWN mode DEFAULT group default
-    <span class="nb">link</span>/ether 02:42:cd:05:9d:50 brd ff:ff:ff:ff:ff:ff
+    link/ether 02:42:cd:05:9d:50 brd ff:ff:ff:ff:ff:ff
 5: reth1@if6: &lt;BROADCAST,MULTICAST&gt; mtu 1500 qdisc noop state DOWN mode DEFAULT group default qlen 1000
-    <span class="nb">link</span>/ether 0e:7f:1d:23:77:01 brd ff:ff:ff:ff:ff:ff link-netns RED
+    link/ether 0e:7f:1d:23:77:01 brd ff:ff:ff:ff:ff:ff link-netns RED
 7: beth1@if8: &lt;BROADCAST,MULTICAST&gt; mtu 1500 qdisc noop state DOWN mode DEFAULT group default qlen 1000
-    <span class="nb">link</span>/ether 36:88:d0:d2:f6:03 brd ff:ff:ff:ff:ff:ff link-netns BLUE
+    link/ether 36:88:d0:d2:f6:03 brd ff:ff:ff:ff:ff:ff link-netns BLUE
 
 <span class="nv">$ </span>ip netns <span class="nb">exec </span>RED ip <span class="nt">-c</span> a
 1: lo: &lt;LOOPBACK&gt; mtu 65536 qdisc noop state DOWN group default qlen 1000
-    <span class="nb">link</span>/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
 6: reth0@if5: &lt;BROADCAST,MULTICAST&gt; mtu 1500 qdisc noop state DOWN group default qlen 1000
-    <span class="nb">link</span>/ether 66:f9:63:30:ea:4a brd ff:ff:ff:ff:ff:ff link-netnsid 0
+    link/ether 66:f9:63:30:ea:4a brd ff:ff:ff:ff:ff:ff link-netnsid 0
 
 <span class="nv">$ </span>ip netns <span class="nb">exec </span>BLUE ip <span class="nt">-c</span> a
 1: lo: &lt;LOOPBACK&gt; mtu 65536 qdisc noop state DOWN group default qlen 1000
-    <span class="nb">link</span>/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
 8: beth0@if7: &lt;BROADCAST,MULTICAST&gt; mtu 1500 qdisc noop state DOWN group default qlen 1000
-    <span class="nb">link</span>/ether 9a:a3:cd:aa:1e:ea brd ff:ff:ff:ff:ff:ff link-netnsid 0
+    link/ether 9a:a3:cd:aa:1e:ea brd ff:ff:ff:ff:ff:ff link-netnsid 0
 
 <span class="nv">$ </span>ip netns <span class="nb">exec </span>RED ip <span class="nt">-c</span> a
 1: lo: &lt;LOOPBACK&gt; mtu 65536 qdisc noop state DOWN group default qlen 1000
-    <span class="nb">link</span>/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
 9: reth0@if8: &lt;BROADCAST,MULTICAST&gt; mtu 1500 qdisc noop state DOWN group default qlen 1000
-    <span class="nb">link</span>/ether 12:de:f3:9e:68:6a brd ff:ff:ff:ff:ff:ff link-netnsid 0
+    link/ether 12:de:f3:9e:68:6a brd ff:ff:ff:ff:ff:ff link-netnsid 0
 
 <span class="nv">$ </span>ip netns <span class="nb">exec </span>BLUE ip <span class="nt">-c</span> a
 1: lo: &lt;LOOPBACK&gt; mtu 65536 qdisc noop state DOWN group default qlen 1000
-    <span class="nb">link</span>/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
 11: beth0@if10: &lt;BROADCAST,MULTICAST&gt; mtu 1500 qdisc noop state DOWN group default qlen 1000
-    <span class="nb">link</span>/ether 4a:3e:3b:d5:b9:3f brd ff:ff:ff:ff:ff:ff link-netnsid 0
+    link/ether 4a:3e:3b:d5:b9:3f brd ff:ff:ff:ff:ff:ff link-netnsid 0
 
 
 <span class="c"># 브리지 정보 확인</span>
 <span class="nv">$ </span>brctl show
-bridge name     bridge <span class="nb">id               </span>STP enabled     interfaces
+bridge name     bridge id               STP enabled     interfaces
 docker0         8000.0242cd059d50       no
 
 
 <span class="c"># br0 브리지 생성</span>
-<span class="nv">$ </span>ip <span class="nb">link </span>add br0 <span class="nb">type </span>bridge
+<span class="nv">$ </span>ip link add br0 <span class="nb">type </span>bridge
 
 <span class="c"># br0 브리지 정보 확인</span>
 <span class="nv">$ </span>brctl show br0
-bridge name     bridge <span class="nb">id               </span>STP enabled     interfaces
+bridge name     bridge id               STP enabled     interfaces
 br0             8000.000000000000       no
 
 <span class="nv">$ </span>brctl showmacs br0
@@ -402,7 +402,7 @@ br0port no      mac addr                is <span class="nb">local</span>?       
 
 <span class="nv">$ </span>brctl showstp br0
 br0
- bridge <span class="nb">id              </span>8000.000000000000
+ bridge id              8000.000000000000
  designated root        8000.000000000000
  root port                 0                    path cost                  0
  max age                  20.00                 bridge max age            20.00
@@ -413,23 +413,23 @@ br0
  topology change timer     0.00                 gc timer                   0.00
 
 <span class="c"># reth1 beth1 을 br0 연결</span>
-<span class="nv">$ </span>ip <span class="nb">link set </span>reth1 master br0
-<span class="nv">$ </span>ip <span class="nb">link set </span>beth1 master br0
+<span class="nv">$ </span>ip link <span class="nb">set </span>reth1 master br0
+<span class="nv">$ </span>ip link <span class="nb">set </span>beth1 master br0
 
 <span class="nv">$ </span> brctl show br0
-bridge name     bridge <span class="nb">id               </span>STP enabled     interfaces
+bridge name     bridge id               STP enabled     interfaces
 br0             8000.0e7f1d237701       no              beth1
                                                         reth1
 
 <span class="nv">$ </span> brctl showmacs br0
 port no mac addr                is <span class="nb">local</span>?       ageing timer
-  1     0e:7f:1d:23:77:01       <span class="nb">yes                </span>0.00
-  1     0e:7f:1d:23:77:01       <span class="nb">yes                </span>0.00
-  2     36:88:d0:d2:f6:03       <span class="nb">yes                </span>0.00
-  2     36:88:d0:d2:f6:03       <span class="nb">yes                </span>0.00
+  1     0e:7f:1d:23:77:01       yes                0.00
+  1     0e:7f:1d:23:77:01       yes                0.00
+  2     36:88:d0:d2:f6:03       yes                0.00
+  2     36:88:d0:d2:f6:03       yes                0.00
 
-<span class="nv">$ </span> ip <span class="nt">-br</span> <span class="nt">-c</span> <span class="nb">link
-</span>lo               UNKNOWN        00:00:00:00:00:00 &lt;LOOPBACK,UP,LOWER_UP&gt;
+<span class="nv">$ </span> ip <span class="nt">-br</span> <span class="nt">-c</span> link
+lo               UNKNOWN        00:00:00:00:00:00 &lt;LOOPBACK,UP,LOWER_UP&gt;
 enp0s3           UP             02:31:14:45:32:03 &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt;
 enp0s8           UP             08:00:27:40:48:37 &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt;
 docker0          DOWN           02:42:cd:05:9d:50 &lt;NO-CARRIER,BROADCAST,MULTICAST,UP&gt;
@@ -440,30 +440,30 @@ br0              DOWN           0e:7f:1d:23:77:01 &lt;BROADCAST,MULTICAST&gt;
 <span class="c"># reth0 beth0 에 IP 설정 및 활성화, br0 활성화</span>
 <span class="nv">$ </span>ip netns <span class="nb">exec </span>RED  ip addr add 11.11.11.2/24 dev reth0
 <span class="nv">$ </span>ip netns <span class="nb">exec </span>BLUE ip addr add 11.11.11.3/24 dev beth0
-<span class="nv">$ </span>ip netns <span class="nb">exec </span>RED  ip <span class="nb">link set </span>reth0 up<span class="p">;</span> ip <span class="nb">link set </span>reth1 up
-<span class="nv">$ </span>ip netns <span class="nb">exec </span>BLUE ip <span class="nb">link set </span>beth0 up<span class="p">;</span> ip <span class="nb">link set </span>beth1 up
-<span class="nv">$ </span>ip <span class="nb">link set </span>br0 up
+<span class="nv">$ </span>ip netns <span class="nb">exec </span>RED  ip link <span class="nb">set </span>reth0 up<span class="p">;</span> ip link <span class="nb">set </span>reth1 up
+<span class="nv">$ </span>ip netns <span class="nb">exec </span>BLUE ip link <span class="nb">set </span>beth0 up<span class="p">;</span> ip link <span class="nb">set </span>beth1 up
+<span class="nv">$ </span>ip link <span class="nb">set </span>br0 up
 <span class="nv">$ </span>ip <span class="nt">-br</span> <span class="nt">-c</span> addr
 ip netns <span class="nb">exec </span>RED  ip addr add 11.11.11.2/24 dev reth0
 ip netns <span class="nb">exec </span>BLUE ip addr add 11.11.11.3/24 dev beth0
-ip netns <span class="nb">exec </span>RED  ip <span class="nb">link set </span>reth0 up<span class="p">;</span> ip <span class="nb">link set </span>reth1 up
-ip netns <span class="nb">exec </span>BLUE ip <span class="nb">link set </span>beth0 up<span class="p">;</span> ip <span class="nb">link set </span>beth1 up
-ip <span class="nb">link set </span>br0 up
+ip netns <span class="nb">exec </span>RED  ip link <span class="nb">set </span>reth0 up<span class="p">;</span> ip link <span class="nb">set </span>reth1 up
+ip netns <span class="nb">exec </span>BLUE ip link <span class="nb">set </span>beth0 up<span class="p">;</span> ip link <span class="nb">set </span>beth1 up
+ip link <span class="nb">set </span>br0 up
 ip <span class="nt">-br</span> <span class="nt">-c</span> addr
 
 <span class="c"># 터미널1 (RED 11.11.11.2)</span>
 <span class="nv">$ </span>nsenter <span class="nt">--net</span><span class="o">=</span>/var/run/netns/RED
 <span class="nv">$ </span>ip <span class="nt">-c</span> a<span class="p">;</span><span class="nb">echo</span><span class="p">;</span> ip <span class="nt">-c</span> route<span class="p">;</span><span class="nb">echo</span><span class="p">;</span> ip <span class="nt">-c</span> neigh
 1: lo: &lt;LOOPBACK&gt; mtu 65536 qdisc noop state DOWN group default qlen 1000
-    <span class="nb">link</span>/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
 6: reth0@if5: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue state UP group default qlen 1000
-    <span class="nb">link</span>/ether 66:f9:63:30:ea:4a brd ff:ff:ff:ff:ff:ff link-netnsid 0
+    link/ether 66:f9:63:30:ea:4a brd ff:ff:ff:ff:ff:ff link-netnsid 0
     inet 11.11.11.2/24 scope global reth0
        valid_lft forever preferred_lft forever
-    inet6 fe80::64f9:63ff:fe30:ea4a/64 scope <span class="nb">link
-       </span>valid_lft forever preferred_lft forever
+    inet6 fe80::64f9:63ff:fe30:ea4a/64 scope link
+       valid_lft forever preferred_lft forever
 
-11.11.11.0/24 dev reth0 proto kernel scope <span class="nb">link </span>src 11.11.11.2
+11.11.11.0/24 dev reth0 proto kernel scope link src 11.11.11.2
 
 <span class="c">## 현재 네트워크 네임스페이스 정보 확인 </span>
 <span class="nv">$ </span>ip netns identify <span class="nv">$$</span>
@@ -472,10 +472,10 @@ RED
 <span class="c"># 터미널2 (호스트)</span>
 <span class="nv">$ </span>brctl showmacs br0
 port no mac addr                is <span class="nb">local</span>?       ageing timer
-  1     0e:7f:1d:23:77:01       <span class="nb">yes                </span>0.00
-  1     0e:7f:1d:23:77:01       <span class="nb">yes                </span>0.00
-  2     36:88:d0:d2:f6:03       <span class="nb">yes                </span>0.00
-  2     36:88:d0:d2:f6:03       <span class="nb">yes                </span>0.00
+  1     0e:7f:1d:23:77:01       yes                0.00
+  1     0e:7f:1d:23:77:01       yes                0.00
+  2     36:88:d0:d2:f6:03       yes                0.00
+  2     36:88:d0:d2:f6:03       yes                0.00
   1     66:f9:63:30:ea:4a       no                41.37
   2     9a:a3:cd:aa:1e:ea       no                27.04
 
@@ -581,15 +581,15 @@ Chain DOCKER-USER <span class="o">(</span>1 references<span class="o">)</span>
 <span class="nv">$ </span>nsenter <span class="nt">--net</span><span class="o">=</span>/var/run/netns/BLUE
 <span class="nv">$ </span>ip <span class="nt">-c</span> a<span class="p">;</span><span class="nb">echo</span><span class="p">;</span> ip <span class="nt">-c</span> route<span class="p">;</span><span class="nb">echo</span><span class="p">;</span> ip <span class="nt">-c</span> neigh
 1: lo: &lt;LOOPBACK&gt; mtu 65536 qdisc noop state DOWN group default qlen 1000
-    <span class="nb">link</span>/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
 8: beth0@if7: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue state UP group default qlen 1000
-    <span class="nb">link</span>/ether 9a:a3:cd:aa:1e:ea brd ff:ff:ff:ff:ff:ff link-netnsid 0
+    link/ether 9a:a3:cd:aa:1e:ea brd ff:ff:ff:ff:ff:ff link-netnsid 0
     inet 11.11.11.3/24 scope global beth0
        valid_lft forever preferred_lft forever
-    inet6 fe80::98a3:cdff:feaa:1eea/64 scope <span class="nb">link
-       </span>valid_lft forever preferred_lft forever
+    inet6 fe80::98a3:cdff:feaa:1eea/64 scope link
+       valid_lft forever preferred_lft forever
 
-11.11.11.0/24 dev beth0 proto kernel scope <span class="nb">link </span>src 11.11.11.3
+11.11.11.0/24 dev beth0 proto kernel scope link src 11.11.11.3
 
 11.11.11.2 dev beth0 lladdr 66:f9:63:30:ea:4a STALE
 
@@ -657,7 +657,7 @@ PING 11.11.11.3 <span class="o">(</span>11.11.11.3<span class="o">)</span> 56<sp
 <span class="nv">$ </span>tcpdump <span class="nt">-l</span> <span class="nt">-i</span> br0
 tcpdump: verbose output suppressed, use <span class="nt">-v</span> or <span class="nt">-vv</span> <span class="k">for </span>full protocol decode
 listening on br0, link-type EN10MB <span class="o">(</span>Ethernet<span class="o">)</span>, capture size 262144 bytes
-11:11:15.990975 IP 11.11.11.2 <span class="o">&gt;</span> 11.11.11.3: ICMP <span class="nb">echo </span>request, <span class="nb">id </span>7769, <span class="nb">seq </span>1, length 64
+11:11:15.990975 IP 11.11.11.2 <span class="o">&gt;</span> 11.11.11.3: ICMP <span class="nb">echo </span>request, id 7769, seq 1, length 64
 
 <span class="c"># 4개의 패킷이 DROP되었다고 표기되고 있음</span>
 <span class="c"># 패킷 전달 확인 (호스트) </span>
@@ -698,7 +698,7 @@ tcpdump: verbose output suppressed, use <span class="nt">-v</span> or <span clas
 listening on beth0, link-type EN10MB <span class="o">(</span>Ethernet<span class="o">)</span>, capture size 262144 bytes
 11:15:53.310290 ARP, Request who-has 11.11.11.3 tell 11.11.11.2, length 28
 11:15:53.310414 ARP, Reply 11.11.11.3 is-at 9a:a3:cd:aa:1e:ea <span class="o">(</span>oui Unknown<span class="o">)</span>, length 28
-</code></pre></div></div> <p>현재는 <code class="language-plaintext highlighter-rouge">11.11.11.3</code> 과 <code class="language-plaintext highlighter-rouge">11.11.11.2</code>간의 통신이 안되고 있습니다.</p> <h3 id="통신-실패-원인-분석">통신 실패 원인 분석</h3> <ul> <li><a href="https://www.netfilter.org/">Netfileter</a> : 커널 모듈로 네트워크 패킷을 처리하는 프레임워크 <ul> <li>네트워크 연산을 핸들러 형태로 처리할 수 있도록 <code class="language-plaintext highlighter-rouge">hook 지점</code>을 제공</li> <li>패킷이 어떻게 전송될 지에 대한 결정 방법을 제공</li> </ul> </li> </ul> <p><img src="/assets/img/post_img/kang-docker-nt-06.png" alt="" /></p> <ul> <li>INPUT, OUTPUT</li> </ul> <p><img src="/assets/img/post_img/kang-docker-nt-07.png" alt="" /></p> <ul> <li>FORWARD : 호스트 입장에서 ‘네트워크 네임스페이스’도 지나가는 패킷 처리(FORWARD)를 한다</li> </ul> <p><img src="/assets/img/post_img/kang-docker-nt-08.png" alt="" /></p> <h3 id="netfilter-과-iptables"><code class="language-plaintext highlighter-rouge">Netfilter</code> 과 <code class="language-plaintext highlighter-rouge">IPtables</code></h3> <p>패킷은 netfliter(일종의 백엔드) 에서 파놓은 여러 hook 를 통과하는데 hook 별로 iptables 에서 정의한 각 체인룰을 점검합니다.</p> <ul> <li>iptables(일종의 프런트엔드 혹은 애플리케이션) : Netfileter 가 파놓은 hook 에 룰을 등록하고 관리하는 방법을 제공하는 툴</li> </ul> <blockquote> <p>왜 Netfilter 과 iptables 처럼 구분해 놓을까요? 실제 iptables은 방화벽의 역할처럼 패킷을 차단, 허용하는 등의 필터링 기능을 수행하는 것은 아니며 리눅스 커널에 내장된 netfiler 라는 리눅스 커널 모듈을 통해 실제로 필터링이 동작합니다. iptables 는 netfilter 를 이용할 수 있도록 해주는 사용자 공간 응용 프로그램(User-Spac Application) 입니다.</p> </blockquote> <p><img src="/assets/img/post_img/kang-docker-nt-09.png" alt="" /></p> <ul> <li>hook 에 정의된 체인은 테이블 순서대로 등록된 룰을 체크하고 조건을 만족하면 action(target)을 트리거합니다. <ul> <li>table : 목적/용도별 rules 모음 → 예) filter, nat, mangle …</li> <li>chain : 패킷이 지나가는 hook 별로 존재 → 예) PREROUTING, FORWARD, INPUT … (넷필터의 hook 에 매핑됩니다)</li> <li>rule : table 과 chain matrix 에 대해서 정의 → 예) protocol type, dest/src.address, headers …</li> <li>action(target) : 패킷이 룰에 매칭되면 트리거됨 → 예) ACCEPT, DROP, REJECT … * -j : jump</li> </ul> </li> </ul> <p><img src="/assets/img/post_img/kang-docker-nt-10.png" alt="" /></p> <h3 id="red--blue-ping-허용-설정">RED → BLUE ping 허용 설정</h3> <p><img src="/assets/img/post_img/kang-docker-nt-11.png" alt="" /></p> <ul> <li>호스트 입장에서는 “외부(RED, src) → 외부(BLUE, dst)” 패킷이므로 FORWARD 체인의 filter 테이블 룰에 허용 정책을 추가 해야 합니다.</li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 터미널2 (호스트)</span>
+</code></pre></div></div> <p>현재는 <code class="highlighter-rouge">11.11.11.3</code> 과 <code class="highlighter-rouge">11.11.11.2</code>간의 통신이 안되고 있습니다.</p> <h3 id="통신-실패-원인-분석">통신 실패 원인 분석</h3> <ul> <li><a href="https://www.netfilter.org/">Netfileter</a> : 커널 모듈로 네트워크 패킷을 처리하는 프레임워크 <ul> <li>네트워크 연산을 핸들러 형태로 처리할 수 있도록 <code class="highlighter-rouge">hook 지점</code>을 제공</li> <li>패킷이 어떻게 전송될 지에 대한 결정 방법을 제공</li> </ul> </li> </ul> <p><img src="/assets/img/post_img/kang-docker-nt-06.png" alt="" /></p> <ul> <li>INPUT, OUTPUT</li> </ul> <p><img src="/assets/img/post_img/kang-docker-nt-07.png" alt="" /></p> <ul> <li>FORWARD : 호스트 입장에서 ‘네트워크 네임스페이스’도 지나가는 패킷 처리(FORWARD)를 한다</li> </ul> <p><img src="/assets/img/post_img/kang-docker-nt-08.png" alt="" /></p> <h3 id="netfilter-과-iptables"><code class="highlighter-rouge">Netfilter</code> 과 <code class="highlighter-rouge">IPtables</code></h3> <p>패킷은 netfliter(일종의 백엔드) 에서 파놓은 여러 hook 를 통과하는데 hook 별로 iptables 에서 정의한 각 체인룰을 점검합니다.</p> <ul> <li>iptables(일종의 프런트엔드 혹은 애플리케이션) : Netfileter 가 파놓은 hook 에 룰을 등록하고 관리하는 방법을 제공하는 툴</li> </ul> <blockquote> <p>왜 Netfilter 과 iptables 처럼 구분해 놓을까요? 실제 iptables은 방화벽의 역할처럼 패킷을 차단, 허용하는 등의 필터링 기능을 수행하는 것은 아니며 리눅스 커널에 내장된 netfiler 라는 리눅스 커널 모듈을 통해 실제로 필터링이 동작합니다. iptables 는 netfilter 를 이용할 수 있도록 해주는 사용자 공간 응용 프로그램(User-Spac Application) 입니다.</p> </blockquote> <p><img src="/assets/img/post_img/kang-docker-nt-09.png" alt="" /></p> <ul> <li>hook 에 정의된 체인은 테이블 순서대로 등록된 룰을 체크하고 조건을 만족하면 action(target)을 트리거합니다. <ul> <li>table : 목적/용도별 rules 모음 → 예) filter, nat, mangle …</li> <li>chain : 패킷이 지나가는 hook 별로 존재 → 예) PREROUTING, FORWARD, INPUT … (넷필터의 hook 에 매핑됩니다)</li> <li>rule : table 과 chain matrix 에 대해서 정의 → 예) protocol type, dest/src.address, headers …</li> <li>action(target) : 패킷이 룰에 매칭되면 트리거됨 → 예) ACCEPT, DROP, REJECT … * -j : jump</li> </ul> </li> </ul> <p><img src="/assets/img/post_img/kang-docker-nt-10.png" alt="" /></p> <h3 id="red--blue-ping-허용-설정">RED → BLUE ping 허용 설정</h3> <p><img src="/assets/img/post_img/kang-docker-nt-11.png" alt="" /></p> <ul> <li>호스트 입장에서는 “외부(RED, src) → 외부(BLUE, dst)” 패킷이므로 FORWARD 체인의 filter 테이블 룰에 허용 정책을 추가 해야 합니다.</li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 터미널2 (호스트)</span>
 <span class="c"># iptables 설정 정보 확인</span>
 <span class="nv">$ </span>iptables <span class="nt">-t</span> filter <span class="nt">-S</span>
 <span class="nt">-P</span> INPUT ACCEPT
@@ -830,8 +830,8 @@ Chain DOCKER-ISOLATION-STAGE-1 <span class="o">(</span>1 references<span class="
 <span class="nv">$ </span>tcpdump <span class="nt">-l</span> <span class="nt">-i</span> br0
 tcpdump: verbose output suppressed, use <span class="nt">-v</span> or <span class="nt">-vv</span> <span class="k">for </span>full protocol decode
 listening on br0, link-type EN10MB <span class="o">(</span>Ethernet<span class="o">)</span>, capture size 262144 bytes
-12:03:58.838303 IP 11.11.11.2 <span class="o">&gt;</span> 11.11.11.3: ICMP <span class="nb">echo </span>request, <span class="nb">id </span>16010, <span class="nb">seq </span>1, length 64
-12:03:58.838356 IP 11.11.11.3 <span class="o">&gt;</span> 11.11.11.2: ICMP <span class="nb">echo </span>reply, <span class="nb">id </span>16010, <span class="nb">seq </span>1, length 64
+12:03:58.838303 IP 11.11.11.2 <span class="o">&gt;</span> 11.11.11.3: ICMP <span class="nb">echo </span>request, id 16010, seq 1, length 64
+12:03:58.838356 IP 11.11.11.3 <span class="o">&gt;</span> 11.11.11.2: ICMP <span class="nb">echo </span>reply, id 16010, seq 1, length 64
 
 <span class="c">## 정보 확인</span>
 <span class="nv">$ </span>ip <span class="nt">-c</span> neigh
@@ -842,8 +842,8 @@ listening on br0, link-type EN10MB <span class="o">(</span>Ethernet<span class="
 <span class="nv">$ </span>tcpdump <span class="nt">-l</span> <span class="nt">-i</span> beth0
 tcpdump: verbose output suppressed, use <span class="nt">-v</span> or <span class="nt">-vv</span> <span class="k">for </span>full protocol decode
 listening on beth0, link-type EN10MB <span class="o">(</span>Ethernet<span class="o">)</span>, capture size 262144 bytes
-12:05:06.573888 IP 11.11.11.2 <span class="o">&gt;</span> 11.11.11.3: ICMP <span class="nb">echo </span>request, <span class="nb">id </span>16065, <span class="nb">seq </span>1, length 64
-12:05:06.573909 IP 11.11.11.3 <span class="o">&gt;</span> 11.11.11.2: ICMP <span class="nb">echo </span>reply, <span class="nb">id </span>16065, <span class="nb">seq </span>1, length 64
+12:05:06.573888 IP 11.11.11.2 <span class="o">&gt;</span> 11.11.11.3: ICMP <span class="nb">echo </span>request, id 16065, seq 1, length 64
+12:05:06.573909 IP 11.11.11.3 <span class="o">&gt;</span> 11.11.11.2: ICMP <span class="nb">echo </span>reply, id 16065, seq 1, length 64
 
 <span class="nv">$ </span>ip <span class="nt">-c</span> neigh
 11.11.11.2 dev beth0 lladdr 66:f9:63:30:ea:4a REACHABLE
@@ -867,21 +867,21 @@ listening on beth0, link-type EN10MB <span class="o">(</span>Ethernet<span class
 <span class="c">## 추가 정책 삭제 시 </span>
 <span class="nv">$ </span>iptables <span class="nt">-t</span> filter <span class="nt">-P</span> FORWARD DROP
 </code></pre></div></div> <h2 id="redblue--호스트--외부인터넷-통신">RED/BLUE ==&gt; 호스트 &amp; 외부(인터넷) 통신</h2> <p><img src="/assets/img/post_img/kang-docker-nt-12.png" alt="" /></p> <blockquote> <p>위의 실습을 진행하였을 경우 아래 명령어를 처리 하지 않아도 됩니다.</p> </blockquote> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>ip netns add RED
-<span class="nv">$ </span>ip <span class="nb">link </span>add reth0 netns RED <span class="nb">type </span>veth peer name reth1
+<span class="nv">$ </span>ip link add reth0 netns RED <span class="nb">type </span>veth peer name reth1
 
 <span class="nv">$ </span>ip netns add BLUE
-<span class="nv">$ </span>ip <span class="nb">link </span>add beth0 netns BLUE <span class="nb">type </span>veth peer name beth1
+<span class="nv">$ </span>ip link add beth0 netns BLUE <span class="nb">type </span>veth peer name beth1
 
-<span class="nv">$ </span>ip <span class="nb">link </span>add br0 <span class="nb">type </span>bridge
-<span class="nv">$ </span>ip <span class="nb">link set </span>reth1 master br0
-<span class="nv">$ </span>ip <span class="nb">link set </span>beth1 master br0
+<span class="nv">$ </span>ip link add br0 <span class="nb">type </span>bridge
+<span class="nv">$ </span>ip link <span class="nb">set </span>reth1 master br0
+<span class="nv">$ </span>ip link <span class="nb">set </span>beth1 master br0
 
 <span class="nv">$ </span>ip netns <span class="nb">exec </span>RED ip addr add 11.11.11.2/24 dev reth0
 <span class="nv">$ </span>ip netns <span class="nb">exec </span>BLUE ip addr add 11.11.11.3/24 dev beth0
 
-<span class="nv">$ </span>ip netns <span class="nb">exec </span>RED ip <span class="nb">link set </span>reth0 up<span class="p">;</span> ip <span class="nb">link set </span>reth1 up<span class="p">;</span>
-<span class="nv">$ </span>ip netns <span class="nb">exec </span>BLUE ip <span class="nb">link set </span>beth0 up<span class="p">;</span>  ip <span class="nb">link set </span>beth1 up<span class="p">;</span>
-<span class="nv">$ </span>ip <span class="nb">link set </span>br0 up
+<span class="nv">$ </span>ip netns <span class="nb">exec </span>RED ip link <span class="nb">set </span>reth0 up<span class="p">;</span> ip link <span class="nb">set </span>reth1 up<span class="p">;</span>
+<span class="nv">$ </span>ip netns <span class="nb">exec </span>BLUE ip link <span class="nb">set </span>beth0 up<span class="p">;</span>  ip link <span class="nb">set </span>beth1 up<span class="p">;</span>
+<span class="nv">$ </span>ip link <span class="nb">set </span>br0 up
 
 <span class="c"># iptables -t filter -A FORWARD -s 11.11.11.0/24 -j ACCEPT</span>
 <span class="nv">$ </span>iptables <span class="nt">-t</span> filter <span class="nt">-I</span> DOCKER-USER <span class="nt">-j</span> ACCEPT
@@ -901,46 +901,46 @@ PING 11.11.11.2 <span class="o">(</span>11.11.11.2<span class="o">)</span> 56<sp
 
 <span class="nv">$ </span>ip <span class="nt">-c</span> route
 default via 10.0.2.2 dev enp0s3 proto dhcp src 10.0.2.15 metric 100
-10.0.2.0/24 dev enp0s3 proto kernel scope <span class="nb">link </span>src 10.0.2.15
-10.0.2.2 dev enp0s3 proto dhcp scope <span class="nb">link </span>src 10.0.2.15 metric 100
-172.17.0.0/16 dev docker0 proto kernel scope <span class="nb">link </span>src 172.17.0.1 linkdown
-192.168.50.0/24 dev enp0s8 proto kernel scope <span class="nb">link </span>src 192.168.50.10
+10.0.2.0/24 dev enp0s3 proto kernel scope link src 10.0.2.15
+10.0.2.2 dev enp0s3 proto dhcp scope link src 10.0.2.15 metric 100
+172.17.0.0/16 dev docker0 proto kernel scope link src 172.17.0.1 linkdown
+192.168.50.0/24 dev enp0s8 proto kernel scope link src 192.168.50.10
 
 <span class="nv">$ </span>ip <span class="nt">-c</span> addr
 1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
-    <span class="nb">link</span>/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
     inet 127.0.0.1/8 scope host lo
        valid_lft forever preferred_lft forever
     inet6 ::1/128 scope host
        valid_lft forever preferred_lft forever
 2: enp0s3: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc fq_codel state UP group default qlen 1000
-    <span class="nb">link</span>/ether 02:31:14:45:32:03 brd ff:ff:ff:ff:ff:ff
+    link/ether 02:31:14:45:32:03 brd ff:ff:ff:ff:ff:ff
     inet 10.0.2.15/24 brd 10.0.2.255 scope global dynamic enp0s3
        valid_lft 67865sec preferred_lft 67865sec
-    inet6 fe80::31:14ff:fe45:3203/64 scope <span class="nb">link
-       </span>valid_lft forever preferred_lft forever
+    inet6 fe80::31:14ff:fe45:3203/64 scope link
+       valid_lft forever preferred_lft forever
 3: enp0s8: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc fq_codel state UP group default qlen 1000
-    <span class="nb">link</span>/ether 08:00:27:40:48:37 brd ff:ff:ff:ff:ff:ff
+    link/ether 08:00:27:40:48:37 brd ff:ff:ff:ff:ff:ff
     inet 192.168.50.10/24 brd 192.168.50.255 scope global enp0s8
        valid_lft forever preferred_lft forever
-    inet6 fe80::a00:27ff:fe40:4837/64 scope <span class="nb">link
-       </span>valid_lft forever preferred_lft forever
+    inet6 fe80::a00:27ff:fe40:4837/64 scope link
+       valid_lft forever preferred_lft forever
 4: docker0: &lt;NO-CARRIER,BROADCAST,MULTICAST,UP&gt; mtu 1500 qdisc noqueue state DOWN group default
-    <span class="nb">link</span>/ether 02:42:cd:05:9d:50 brd ff:ff:ff:ff:ff:ff
+    link/ether 02:42:cd:05:9d:50 brd ff:ff:ff:ff:ff:ff
     inet 172.17.0.1/16 brd 172.17.255.255 scope global docker0
        valid_lft forever preferred_lft forever
 5: reth1@if6: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue master br0 state UP group default qlen 1000
-    <span class="nb">link</span>/ether 0e:7f:1d:23:77:01 brd ff:ff:ff:ff:ff:ff link-netns RED
-    inet6 fe80::c7f:1dff:fe23:7701/64 scope <span class="nb">link
-       </span>valid_lft forever preferred_lft forever
+    link/ether 0e:7f:1d:23:77:01 brd ff:ff:ff:ff:ff:ff link-netns RED
+    inet6 fe80::c7f:1dff:fe23:7701/64 scope link
+       valid_lft forever preferred_lft forever
 7: beth1@if8: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue master br0 state UP group default qlen 1000
-    <span class="nb">link</span>/ether 36:88:d0:d2:f6:03 brd ff:ff:ff:ff:ff:ff link-netns BLUE
-    inet6 fe80::3488:d0ff:fed2:f603/64 scope <span class="nb">link
-       </span>valid_lft forever preferred_lft forever
+    link/ether 36:88:d0:d2:f6:03 brd ff:ff:ff:ff:ff:ff link-netns BLUE
+    inet6 fe80::3488:d0ff:fed2:f603/64 scope link
+       valid_lft forever preferred_lft forever
 9: br0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue state UP group default qlen 1000
-    <span class="nb">link</span>/ether 0e:7f:1d:23:77:01 brd ff:ff:ff:ff:ff:ff
-    inet6 fe80::c7f:1dff:fe23:7701/64 scope <span class="nb">link
-       </span>valid_lft forever preferred_lft forever
+    link/ether 0e:7f:1d:23:77:01 brd ff:ff:ff:ff:ff:ff
+    inet6 fe80::c7f:1dff:fe23:7701/64 scope link
+       valid_lft forever preferred_lft forever
 
 <span class="o">==============================================================</span>
 <span class="c"># 터미널2 (호스트) &gt;&gt; br0 에 IP 추가(라우팅 정보)</span>
@@ -974,27 +974,27 @@ rtt min/avg/max/mdev <span class="o">=</span> 0.050/0.050/0.050/0.000 ms
 ping: connect: Network is unreachable
 
 <span class="nv">$ </span>ip <span class="nt">-c</span> route
-11.11.11.0/24 dev reth0 proto kernel scope <span class="nb">link </span>src 11.11.11.2
+11.11.11.0/24 dev reth0 proto kernel scope link src 11.11.11.2
 
 <span class="nv">$ </span>ip <span class="nt">-c</span> addr
 1: lo: &lt;LOOPBACK&gt; mtu 65536 qdisc noop state DOWN group default qlen 1000
-    <span class="nb">link</span>/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
 6: reth0@if5: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue state UP group default qlen 1000
-    <span class="nb">link</span>/ether 66:f9:63:30:ea:4a brd ff:ff:ff:ff:ff:ff link-netnsid 0
+    link/ether 66:f9:63:30:ea:4a brd ff:ff:ff:ff:ff:ff link-netnsid 0
     inet 11.11.11.2/24 scope global reth0
        valid_lft forever preferred_lft forever
-    inet6 fe80::64f9:63ff:fe30:ea4a/64 scope <span class="nb">link
-       </span>valid_lft forever preferred_lft forever
+    inet6 fe80::64f9:63ff:fe30:ea4a/64 scope link
+       valid_lft forever preferred_lft forever
 
 <span class="o">==============================================================</span>
 <span class="c"># 터미널3 (호스트)</span>
 <span class="nv">$ </span>tcpdump <span class="nt">-i</span> any icmp <span class="nt">-n</span>
 tcpdump: verbose output suppressed, use <span class="nt">-v</span> or <span class="nt">-vv</span> <span class="k">for </span>full protocol decode
 listening on any, link-type LINUX_SLL <span class="o">(</span>Linux cooked v1<span class="o">)</span>, capture size 262144 bytes
-12:22:53.664815 IP 11.11.11.2 <span class="o">&gt;</span> 10.0.2.15: ICMP <span class="nb">echo </span>request, <span class="nb">id </span>16949, <span class="nb">seq </span>1, length 64
-12:22:53.664815 IP 11.11.11.2 <span class="o">&gt;</span> 10.0.2.15: ICMP <span class="nb">echo </span>request, <span class="nb">id </span>16949, <span class="nb">seq </span>1, length 64
-12:22:53.665046 IP 10.0.2.15 <span class="o">&gt;</span> 11.11.11.2: ICMP <span class="nb">echo </span>reply, <span class="nb">id </span>16949, <span class="nb">seq </span>1, length 64
-12:22:53.665049 IP 10.0.2.15 <span class="o">&gt;</span> 11.11.11.2: ICMP <span class="nb">echo </span>reply, <span class="nb">id </span>16949, <span class="nb">seq </span>1, length 64
+12:22:53.664815 IP 11.11.11.2 <span class="o">&gt;</span> 10.0.2.15: ICMP <span class="nb">echo </span>request, id 16949, seq 1, length 64
+12:22:53.664815 IP 11.11.11.2 <span class="o">&gt;</span> 10.0.2.15: ICMP <span class="nb">echo </span>request, id 16949, seq 1, length 64
+12:22:53.665046 IP 10.0.2.15 <span class="o">&gt;</span> 11.11.11.2: ICMP <span class="nb">echo </span>reply, id 16949, seq 1, length 64
+12:22:53.665049 IP 10.0.2.15 <span class="o">&gt;</span> 11.11.11.2: ICMP <span class="nb">echo </span>reply, id 16949, seq 1, length 64
 
 <span class="c"># 터미널1 (RED 11.11.11.2)</span>
 <span class="nv">$ </span>ip route add default via 11.11.11.1
@@ -1008,7 +1008,7 @@ rtt min/avg/max/mdev <span class="o">=</span> 0.248/0.248/0.248/0.000 ms
 
 <span class="nv">$ </span>ip <span class="nt">-c</span> route
 default via 11.11.11.1 dev reth0
-11.11.11.0/24 dev reth0 proto kernel scope <span class="nb">link </span>src 11.11.11.2
+11.11.11.0/24 dev reth0 proto kernel scope link src 11.11.11.2
 
 <span class="c">#  외부 대역(인터넷)과 통신이 안되는 이유가 무엇일까요?</span>
 <span class="nv">$ </span>ping <span class="nt">-c</span> 1 8.8.8.8
@@ -1127,10 +1127,10 @@ rtt min/avg/max/mdev <span class="o">=</span> 37.113/37.113/37.113/0.000 ms
 <span class="c"># 삭제</span>
 <span class="nv">$ </span>ip netns delete RED
 <span class="nv">$ </span>ip netns delete BLUE
-<span class="nv">$ </span>ip <span class="nb">link </span>delete br0
+<span class="nv">$ </span>ip link delete br0
 <span class="nv">$ </span>iptables <span class="nt">-t</span> filter <span class="nt">-D</span> DOCKER-USER <span class="nt">-j</span> ACCEPT
 <span class="nv">$ </span>iptables <span class="nt">-t</span> nat <span class="nt">-D</span> POSTROUTING <span class="nt">-s</span> 11.11.11.0/24 <span class="nt">-j</span> MASQUERADE
-</code></pre></div></div> <blockquote> <p>네트워크 네임스페이스만으로도 직접 <strong>수동</strong>으로 <strong>설정</strong>할 경우 <strong>복잡</strong>합니다. <strong>도커</strong>는 컨테이너 실행(run) 시 <strong>자동</strong>으로 해당 <strong>컨테이너</strong>의 <strong>네임스페이스</strong>(네트워크, 마운트, PID 등)를 생성(삭제 등)하여 호스트와 격리해줍니다.</p> </blockquote> <h2 id="도커-네트워크-모델">도커 네트워크 모델</h2> <ul> <li>기본 네트워크 모드 : <code class="language-plaintext highlighter-rouge">Bridge</code>, <code class="language-plaintext highlighter-rouge">Host</code>, None + 추가 네트워크 플러그인 : macvlan, ipvlan, overlay</li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker network <span class="nb">ls
+</code></pre></div></div> <blockquote> <p>네트워크 네임스페이스만으로도 직접 <strong>수동</strong>으로 <strong>설정</strong>할 경우 <strong>복잡</strong>합니다. <strong>도커</strong>는 컨테이너 실행(run) 시 <strong>자동</strong>으로 해당 <strong>컨테이너</strong>의 <strong>네임스페이스</strong>(네트워크, 마운트, PID 등)를 생성(삭제 등)하여 호스트와 격리해줍니다.</p> </blockquote> <h2 id="도커-네트워크-모델">도커 네트워크 모델</h2> <ul> <li>기본 네트워크 모드 : <code class="highlighter-rouge">Bridge</code>, <code class="highlighter-rouge">Host</code>, None + 추가 네트워크 플러그인 : macvlan, ipvlan, overlay</li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker network <span class="nb">ls
 </span>NETWORK ID     NAME      DRIVER    SCOPE
 6988f789afeb   bridge    bridge    <span class="nb">local
 </span>933453f3242a   host      host      <span class="nb">local
@@ -1138,4 +1138,4 @@ rtt min/avg/max/mdev <span class="o">=</span> 37.113/37.113/37.113/0.000 ms
 
 <span class="nv">$ </span>docker info | <span class="nb">grep </span>Network
 Network: bridge host ipvlan macvlan null overlay
-</code></pre></div></div> <ul> <li>컨테이너 기본 생성 시 자동으로 docker0 bridge를 사용 <ul> <li>기본 172.17.0.0/16 대역을 컨테이너가 사용, 대역 변경 설정 가능</li> </ul> </li> <li>Host 는 호스트의 환경을 그대로 사용. 애플리케이션 별도 포트 포워딩 없이 바로 서비스 가능. 컨테이너의 호스트 이름도 호스트 머신의 이름과 동일</li> <li>None 는 말 그래도 아무런 네트워크를 쓰지 않는 것. 외부와의 연결이 단절됨. 컨테이너 내부에 lo 인터페이스만 존재</li> </ul> <p><img src="/assets/img/post_img/kang-docker-nt-14.png" alt="" /></p> <blockquote> <p>도커 호스트가 다수 일 때, 컨테이너들 끼리 직접 통신을 하기 위해서는 네트워크 대역이 중복되지 않게 설정해야 되고 overlay 혹은 직접 라우팅이 가능하게 설정 등이 필요합니다. 이런 부분을 쿠버네티스에서는 CNI(Network Interface) 플러그인 (예. calico 등)이 처리하게 됩니다.</p> </blockquote> <h2 id="끝으로">끝으로</h2> <p><code class="language-plaintext highlighter-rouge">도커 네트워크</code>에서 macvlan, ipvlan, overlay의 설명은 참고 링크를 확인하여 주세요.</p> <ul> <li><a href="http://hicu.be/bridge-vs-macvlan">Bridge vs Macvlan</a></li> <li><a href="https://hicu.be/macvlan-vs-ipvlan">Macvlan vs Ipvlan</a></li> <li><a href="https://developers.redhat.com/blog/2018/10/22/introduction-to-linux-interfaces-for-virtual-networking">Introduction to Linux interfaces for virtual networking</a></li> </ul> <p>위의 예제는 대부분 <code class="language-plaintext highlighter-rouge">KANG</code>에서 실습한 예제 입니다.</p> <p>1주에 생각보다 많이 배워서 소화하는데 시간이 오래 걸렷네요. 2주차 스터디가 기대됩니다.</p> <h2 id="참고-자료">참고 자료</h2> <ul> <li><a href="https://www.netfilter.org/">Netfileter</a></li> <li><a href="https://docs.docker.com/network/iptables/">https://docs.docker.com/network/iptables/</a></li> <li><a href="http://hicu.be/bridge-vs-macvlan">Bridge vs Macvlan</a></li> <li><a href="https://hicu.be/macvlan-vs-ipvlan">Macvlan vs Ipvlan</a></li> <li><a href="https://developers.redhat.com/blog/2018/10/22/introduction-to-linux-interfaces-for-virtual-networking">Introduction to Linux interfaces for virtual networking</a></li> </ul> <div class="entry-meta"> <br> <hr> <span class="entry-tags"><a href="https://lahuman.github.io/tags/#kang" title="Pages tagged kang" class="tag"><span class="term">kang</span></a><a href="https://lahuman.github.io/tags/#network" title="Pages tagged network" class="tag"><span class="term">network</span></a><a href="https://lahuman.github.io/tags/#docker" title="Pages tagged docker" class="tag"><span class="term">docker</span></a></span> <span class="social-share"> <a href="https://www.facebook.com/sharer/sharer.php?u=https://lahuman.github.io/kang_1week_2/" title="Share on Facebook" class="tag"> <span class="term"><i class="fa fa-facebook-square"></i> Share</span> </a> <a href="https://twitter.com/intent/tweet?text=https://lahuman.github.io/kang_1week_2/" title="Share on Twitter" class="tag"> <span class="term"><i class="fa fa-twitter-square"></i> Tweet</span> </a> <a href="https://plus.google.com/share?url=https://lahuman.github.io/kang_1week_2/" title="Share on Google+" class="tag"> <span class="term"><i class="fa fa-google-plus-square"></i> +1</span> </a> </span> <div style="clear:both"></div> </div> <ins class="kakao_ad_area" style="display:none;" data-ad-unit = "DAN-ubp67fs9s850" data-ad-width = "320" data-ad-height = "100"></ins> <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script> </div> </div> <section id="disqus_thread" class="animated fadeInUp"></section><!-- /#disqus_thread --> </header> <!-- JS --> <script src="https://lahuman.github.io/assets/js/jquery-1.12.0.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.dlmenu.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.goup.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.magnific-popup.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.fitvid.min.js"></script> <script src="https://lahuman.github.io/assets/js/scripts.js"></script> <!-- Global site tag (gtag.js) - Google Analytics --> <script async src="https://www.googletagmanager.com/gtag/js?id=UA-74095083-1"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-74095083-1'); </script> <script type="text/javascript"> var disqus_shortname = 'daniels-blog'; (function() { var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true; dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js'; (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq); })(); (function () { var s = document.createElement('script'); s.async = true; s.type = 'text/javascript'; s.src = '//' + disqus_shortname + '.disqus.com/count.js'; (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s); }()); </script> <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript> <!-- MathJax --> <script async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> </body> </html>
+</code></pre></div></div> <ul> <li>컨테이너 기본 생성 시 자동으로 docker0 bridge를 사용 <ul> <li>기본 172.17.0.0/16 대역을 컨테이너가 사용, 대역 변경 설정 가능</li> </ul> </li> <li>Host 는 호스트의 환경을 그대로 사용. 애플리케이션 별도 포트 포워딩 없이 바로 서비스 가능. 컨테이너의 호스트 이름도 호스트 머신의 이름과 동일</li> <li>None 는 말 그래도 아무런 네트워크를 쓰지 않는 것. 외부와의 연결이 단절됨. 컨테이너 내부에 lo 인터페이스만 존재</li> </ul> <p><img src="/assets/img/post_img/kang-docker-nt-14.png" alt="" /></p> <blockquote> <p>도커 호스트가 다수 일 때, 컨테이너들 끼리 직접 통신을 하기 위해서는 네트워크 대역이 중복되지 않게 설정해야 되고 overlay 혹은 직접 라우팅이 가능하게 설정 등이 필요합니다. 이런 부분을 쿠버네티스에서는 CNI(Network Interface) 플러그인 (예. calico 등)이 처리하게 됩니다.</p> </blockquote> <h2 id="끝으로">끝으로</h2> <p><code class="highlighter-rouge">도커 네트워크</code>에서 macvlan, ipvlan, overlay의 설명은 참고 링크를 확인하여 주세요.</p> <ul> <li><a href="http://hicu.be/bridge-vs-macvlan">Bridge vs Macvlan</a></li> <li><a href="https://hicu.be/macvlan-vs-ipvlan">Macvlan vs Ipvlan</a></li> <li><a href="https://developers.redhat.com/blog/2018/10/22/introduction-to-linux-interfaces-for-virtual-networking">Introduction to Linux interfaces for virtual networking</a></li> </ul> <p>위의 예제는 대부분 <code class="highlighter-rouge">KANG</code>에서 실습한 예제 입니다.</p> <p>1주에 생각보다 많이 배워서 소화하는데 시간이 오래 걸렷네요. 2주차 스터디가 기대됩니다.</p> <h2 id="참고-자료">참고 자료</h2> <ul> <li><a href="https://www.netfilter.org/">Netfileter</a></li> <li><a href="https://docs.docker.com/network/iptables/">https://docs.docker.com/network/iptables/</a></li> <li><a href="http://hicu.be/bridge-vs-macvlan">Bridge vs Macvlan</a></li> <li><a href="https://hicu.be/macvlan-vs-ipvlan">Macvlan vs Ipvlan</a></li> <li><a href="https://developers.redhat.com/blog/2018/10/22/introduction-to-linux-interfaces-for-virtual-networking">Introduction to Linux interfaces for virtual networking</a></li> </ul> <div class="entry-meta"> <br> <hr> <span class="entry-tags"><a href="https://lahuman.github.io/tags/#kang" title="Pages tagged kang" class="tag"><span class="term">kang</span></a><a href="https://lahuman.github.io/tags/#network" title="Pages tagged network" class="tag"><span class="term">network</span></a><a href="https://lahuman.github.io/tags/#docker" title="Pages tagged docker" class="tag"><span class="term">docker</span></a></span> <span class="social-share"> <a href="https://www.facebook.com/sharer/sharer.php?u=https://lahuman.github.io/kang_1week_2/" title="Share on Facebook" class="tag"> <span class="term"><i class="fa fa-facebook-square"></i> Share</span> </a> <a href="https://twitter.com/intent/tweet?text=https://lahuman.github.io/kang_1week_2/" title="Share on Twitter" class="tag"> <span class="term"><i class="fa fa-twitter-square"></i> Tweet</span> </a> <a href="https://plus.google.com/share?url=https://lahuman.github.io/kang_1week_2/" title="Share on Google+" class="tag"> <span class="term"><i class="fa fa-google-plus-square"></i> +1</span> </a> </span> <div style="clear:both"></div> </div> <ins class="kakao_ad_area" style="display:none;" data-ad-unit = "DAN-ubp67fs9s850" data-ad-width = "320" data-ad-height = "100"></ins> <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script> </div> </div> <section id="disqus_thread" class="animated fadeInUp"></section><!-- /#disqus_thread --> </header> <!-- JS --> <script src="https://lahuman.github.io/assets/js/jquery-1.12.0.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.dlmenu.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.goup.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.magnific-popup.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.fitvid.min.js"></script> <script src="https://lahuman.github.io/assets/js/scripts.js"></script> <!-- Global site tag (gtag.js) - Google Analytics --> <script async src="https://www.googletagmanager.com/gtag/js?id=UA-74095083-1"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-74095083-1'); </script> <script type="text/javascript"> var disqus_shortname = 'daniels-blog'; (function() { var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true; dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js'; (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq); })(); (function () { var s = document.createElement('script'); s.async = true; s.type = 'text/javascript'; s.src = '//' + disqus_shortname + '.disqus.com/count.js'; (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s); }()); </script> <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript> <!-- MathJax --> <script async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> </body> </html>

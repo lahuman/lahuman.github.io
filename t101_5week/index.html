@@ -1,4 +1,4 @@
-<!DOCTYPE html> <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]--> <!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8"><![endif]--> <!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9"><![endif]--> <!--[if gt IE 8]><!--> <html class="no-js"><!--<![endif]--> <head> <meta charset="UTF-8"> <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"> <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1"> <title>#5 반복문 & 조건문 &#8211; lahuman</title> <meta name="description" content="열심히 사는 아저씨"> <meta name="keywords" content="terraform, study"> <!-- Twitter Cards --> <meta name="twitter:card" content="summary"> <meta name="twitter:image" content="https://lahuman.github.io/assets/img/logo.png"> <meta name="twitter:title" content="#5 반복문 & 조건문"> <meta name="twitter:description" content="Terraform 101 Study"> <!-- Open Graph --> <meta property="og:locale" content="ko_KR"> <meta property="og:type" content="article"> <meta property="og:title" content="#5 반복문 & 조건문"> <meta property="og:description" content="Terraform 101 Study"> <meta property="og:url" content="https://lahuman.github.io/t101_5week/"> <meta property="og:site_name" content="lahuman"> <meta property="og:image" content="https://lahuman.github.io/assets/img/logo.png"> <link rel="canonical" href="https://lahuman.github.io/t101_5week/"> <link href="https://lahuman.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="lahuman Feed"> <!-- Handheld --> <meta name="HandheldFriendly" content="True"> <meta name="MobileOptimized" content="320"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- CSS --> <link rel="stylesheet" href="https://lahuman.github.io/assets/css/main.css"> <!-- JS --> <script src="https://lahuman.github.io/assets/js/modernizr-3.3.1.custom.min.js"></script> <!-- Favicons --> <link rel="apple-touch-icon" href="https://lahuman.github.io/assets/img/favicons/apple-icon-precomposed.png"> <link rel="apple-touch-icon" sizes="72x72" href="https://lahuman.github.io/assets/img/favicons/apple-icon-72x72.png"> <link rel="apple-touch-icon" sizes="114x114" href="https://lahuman.github.io/assets/img/favicons/apple-icon-114x114.png"> <link rel="apple-touch-icon" sizes="144x144" href="https://lahuman.github.io/assets/img/favicons/apple-icon-144x144.png"> <link rel="shortcut icon" type="image/png" href="https://lahuman.github.io/favicon.png" /> <link rel="shortcut icon" href="https://lahuman.github.io/favicon.ico" /> <!-- mermaid --> <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script> <script>mermaid.initialize({startOnLoad:true});</script> <!-- Background Image --> <style type="text/css">body {background-image:url(https://lahuman.github.io/assets/img/placeholder-big.jpg); background-repeat: no-repeat; background-size: cover; }</style> <!-- Post Feature Image --> </head> <body> <nav id="dl-menu" class="dl-menuwrapper" role="navigation"> <button class="dl-trigger">Open Menu</button> <ul class="dl-menu"> <li><a href="https://lahuman.github.io/">Home</a></li> <li> <a href="#">About</a> <ul class="dl-submenu"> <li> <img src="https://lahuman.github.io/assets/img/logo.png" alt="lahuman photo" class="author-photo"> <h4>lahuman</h4> <p>열심히 사는 아저씨</p> </li> <li><a href="https://lahuman.github.io/about/"><span class="btn btn-inverse">Learn More</span></a></li> <li> <a href="http://facebook.com/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-facebook-square"></i> Facebook</a> </li> <li> <a href="http://linkedin.com/in/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-linkedin-square"></i> LinkedIn</a> </li> <li> <a href="http://github.com/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-github"></i> Github</a> </li> </ul><!-- /.dl-submenu --> </li> <li> <a href="#">Posts</a> <ul class="dl-submenu"> <li><a href="https://lahuman.github.io/posts/">All Posts</a></li> <li><a href="https://lahuman.github.io/tags/">All Tags</a></li> </ul> </li> <li><a href="https://lahuman.github.io/projects/" >Projects</a></li> </ul><!-- /.dl-menu --> </nav><!-- /.dl-menuwrapper --> <!-- Header --> <header class="header" role="banner"> <div class="wrapper animated fadeIn"> <div class="content"> <div class="post-title "> <h1>#5 반복문 & 조건문</h1> <h4>13 Nov 2022</h4> <p class="reading-time"> <i class="fa fa-clock-o"></i> Reading time ~26 minutes </p><!-- /.entry-reading-time --> <a class="btn zoombtn" href="https://lahuman.github.io/projects/"> <i class="fa fa-chevron-left"></i> </a> </div> <h1 id="반보문--조건문">반보문 &amp; 조건문</h1> <ul> <li>참고 링크 <ul> <li>[Docs] Built-in Fuctions - <a href="https://developer.hashicorp.com/terraform/language/functions">링크</a> &amp; Expressions - <a href="https://developer.hashicorp.com/terraform/language/expressions">링크</a></li> <li>Functions 활용하기 - <a href="https://terraform101.inflearn.devopsart.dev/advanced/function/">링크</a></li> </ul> </li> </ul> <h2 id="소개">소개</h2> <p><strong>테라폼</strong>은 유형을 <strong>반복</strong> Loops, <strong>if 문</strong> If-Statements을 사용하거나 무중단 배포를 할 수 있도록 count 메타 변수, for_each 표현식, create_before_destroy 생명 주기 블록 등 <strong>함수</strong>를 제공</p> <ul> <li>반복문 Loops</li> <li>조건문 Conditionals</li> <li>무중단 배포 Zero-downtime deployment</li> <li>테라폼의 주의 사항 Terraform gotchas</li> </ul> <blockquote> <p>아래 구문 함수 표현식등에 대한 연습은 <strong>terraform console</strong> 에서 간편하고 빠르게 테스트 해 볼 수 있음</p> </blockquote> <h2 id="반복문-loops">반복문 Loops</h2> <p>테라폼이 제공하는 <strong>반복문 구성</strong> looping constructs</p> <ul> <li><strong>count 매개변수</strong> parameter : 리소스와 모듈의 반복</li> <li><strong>for_each 표현식</strong> expressions : 리소스 내에서 리소스 및 인라인 블록, 모듈을 반복</li> <li><strong>for 표현식</strong> expressions : 리스트 lists 와 맵 maps 을 반복</li> <li><strong>for 문자열 지시어</strong> string directive : 문자열 내에서 리스트 lists 와 맵 maps 을 반복</li> </ul> <h3 id="count-매개-변수"><strong>count 매개 변수</strong></h3> <h4 id="실습1--iam-사용자-3명-생성"><code class="language-plaintext highlighter-rouge">실습1</code> : IAM 사용자 3명 생성</h4> <ul> <li>IAM 사용자 1명 생성 코드</li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>provider <span class="s2">"aws"</span> <span class="o">{</span>
+<!DOCTYPE html> <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]--> <!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8"><![endif]--> <!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9"><![endif]--> <!--[if gt IE 8]><!--> <html class="no-js"><!--<![endif]--> <head> <meta charset="UTF-8"> <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"> <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1"> <title>#5 반복문 & 조건문 &#8211; lahuman</title> <meta name="description" content="열심히 사는 아저씨"> <meta name="keywords" content="terraform, study"> <!-- Twitter Cards --> <meta name="twitter:card" content="summary"> <meta name="twitter:image" content="https://lahuman.github.io/assets/img/logo.png"> <meta name="twitter:title" content="#5 반복문 & 조건문"> <meta name="twitter:description" content="Terraform 101 Study"> <!-- Open Graph --> <meta property="og:locale" content="ko_KR"> <meta property="og:type" content="article"> <meta property="og:title" content="#5 반복문 & 조건문"> <meta property="og:description" content="Terraform 101 Study"> <meta property="og:url" content="https://lahuman.github.io/t101_5week/"> <meta property="og:site_name" content="lahuman"> <meta property="og:image" content="https://lahuman.github.io/assets/img/logo.png"> <link rel="canonical" href="https://lahuman.github.io/t101_5week/"> <link href="https://lahuman.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="lahuman Feed"> <!-- Handheld --> <meta name="HandheldFriendly" content="True"> <meta name="MobileOptimized" content="320"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- CSS --> <link rel="stylesheet" href="https://lahuman.github.io/assets/css/main.css"> <!-- JS --> <script src="https://lahuman.github.io/assets/js/modernizr-3.3.1.custom.min.js"></script> <!-- Favicons --> <link rel="apple-touch-icon" href="https://lahuman.github.io/assets/img/favicons/apple-icon-precomposed.png"> <link rel="apple-touch-icon" sizes="72x72" href="https://lahuman.github.io/assets/img/favicons/apple-icon-72x72.png"> <link rel="apple-touch-icon" sizes="114x114" href="https://lahuman.github.io/assets/img/favicons/apple-icon-114x114.png"> <link rel="apple-touch-icon" sizes="144x144" href="https://lahuman.github.io/assets/img/favicons/apple-icon-144x144.png"> <link rel="shortcut icon" type="image/png" href="https://lahuman.github.io/favicon.png" /> <link rel="shortcut icon" href="https://lahuman.github.io/favicon.ico" /> <!-- mermaid --> <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script> <script>mermaid.initialize({startOnLoad:true});</script> <!-- Background Image --> <style type="text/css">body {background-image:url(https://lahuman.github.io/assets/img/placeholder-big.jpg); background-repeat: no-repeat; background-size: cover; }</style> <!-- Post Feature Image --> </head> <body> <nav id="dl-menu" class="dl-menuwrapper" role="navigation"> <button class="dl-trigger">Open Menu</button> <ul class="dl-menu"> <li><a href="https://lahuman.github.io/">Home</a></li> <li> <a href="#">About</a> <ul class="dl-submenu"> <li> <img src="https://lahuman.github.io/assets/img/logo.png" alt="lahuman photo" class="author-photo"> <h4>lahuman</h4> <p>열심히 사는 아저씨</p> </li> <li><a href="https://lahuman.github.io/about/"><span class="btn btn-inverse">Learn More</span></a></li> <li> <a href="http://facebook.com/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-facebook-square"></i> Facebook</a> </li> <li> <a href="http://linkedin.com/in/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-linkedin-square"></i> LinkedIn</a> </li> <li> <a href="http://github.com/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-github"></i> Github</a> </li> </ul><!-- /.dl-submenu --> </li> <li> <a href="#">Posts</a> <ul class="dl-submenu"> <li><a href="https://lahuman.github.io/posts/">All Posts</a></li> <li><a href="https://lahuman.github.io/tags/">All Tags</a></li> </ul> </li> <li><a href="https://lahuman.github.io/projects/" >Projects</a></li> </ul><!-- /.dl-menu --> </nav><!-- /.dl-menuwrapper --> <!-- Header --> <header class="header" role="banner"> <div class="wrapper animated fadeIn"> <div class="content"> <div class="post-title "> <h1>#5 반복문 & 조건문</h1> <h4>13 Nov 2022</h4> <p class="reading-time"> <i class="fa fa-clock-o"></i> Reading time ~26 minutes </p><!-- /.entry-reading-time --> <a class="btn zoombtn" href="https://lahuman.github.io/projects/"> <i class="fa fa-chevron-left"></i> </a> </div> <h1 id="반보문--조건문">반보문 &amp; 조건문</h1> <ul> <li>참고 링크 <ul> <li>[Docs] Built-in Fuctions - <a href="https://developer.hashicorp.com/terraform/language/functions">링크</a> &amp; Expressions - <a href="https://developer.hashicorp.com/terraform/language/expressions">링크</a></li> <li>Functions 활용하기 - <a href="https://terraform101.inflearn.devopsart.dev/advanced/function/">링크</a></li> </ul> </li> </ul> <h2 id="소개">소개</h2> <p><strong>테라폼</strong>은 유형을 <strong>반복</strong> Loops, <strong>if 문</strong> If-Statements을 사용하거나 무중단 배포를 할 수 있도록 count 메타 변수, for_each 표현식, create_before_destroy 생명 주기 블록 등 <strong>함수</strong>를 제공</p> <ul> <li>반복문 Loops</li> <li>조건문 Conditionals</li> <li>무중단 배포 Zero-downtime deployment</li> <li>테라폼의 주의 사항 Terraform gotchas</li> </ul> <blockquote> <p>아래 구문 함수 표현식등에 대한 연습은 <strong>terraform console</strong> 에서 간편하고 빠르게 테스트 해 볼 수 있음</p> </blockquote> <h2 id="반복문-loops">반복문 Loops</h2> <p>테라폼이 제공하는 <strong>반복문 구성</strong> looping constructs</p> <ul> <li><strong>count 매개변수</strong> parameter : 리소스와 모듈의 반복</li> <li><strong>for_each 표현식</strong> expressions : 리소스 내에서 리소스 및 인라인 블록, 모듈을 반복</li> <li><strong>for 표현식</strong> expressions : 리스트 lists 와 맵 maps 을 반복</li> <li><strong>for 문자열 지시어</strong> string directive : 문자열 내에서 리스트 lists 와 맵 maps 을 반복</li> </ul> <h3 id="count-매개-변수"><strong>count 매개 변수</strong></h3> <h4 id="실습1--iam-사용자-3명-생성"><code class="highlighter-rouge">실습1</code> : IAM 사용자 3명 생성</h4> <ul> <li>IAM 사용자 1명 생성 코드</li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>provider <span class="s2">"aws"</span> <span class="o">{</span>
   region <span class="o">=</span> <span class="s2">"us-east-2"</span>
 <span class="o">}</span>
 
@@ -15,7 +15,7 @@ resource <span class="s2">"aws_iam_user"</span> <span class="s2">"example"</span
 count <span class="o">=</span> 3
 name  <span class="o">=</span> <span class="s2">"neo"</span>
 <span class="o">}</span>
-</code></pre></div></div> <h5 id="실습-시작--iamtf"><code class="language-plaintext highlighter-rouge">실습 시작</code> : iam.tf</h5> <ul> <li>아래 처럼 count.index 를 사용하여 반복문 안에 있는 각각의 반복 ieration 을 가리키는 인덱스를 얻을 수 있음</li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">NICKNAME</span><span class="o">=</span>&lt;각자 닉네임&gt;
+</code></pre></div></div> <h5 id="실습-시작--iamtf"><code class="highlighter-rouge">실습 시작</code> : iam.tf</h5> <ul> <li>아래 처럼 count.index 를 사용하여 반복문 안에 있는 각각의 반복 ieration 을 가리키는 인덱스를 얻을 수 있음</li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">NICKNAME</span><span class="o">=</span>&lt;각자 닉네임&gt;
 <span class="nv">NICKNAME</span><span class="o">=</span>gasida
 
 <span class="nb">cat</span> <span class="o">&lt;&lt;</span><span class="no">EOT</span><span class="sh"> &gt; iam.tf
@@ -25,7 +25,7 @@ region = "ap-northeast-2"
 
 resource "aws_iam_user" "myiam" {
 **count = 3**
-name  = "</span><span class="nv">$NICKNAME</span><span class="sh">.**</span><span class="se">\$</span><span class="sh">{count.index}**"
+name  = "</span><span class="nv">$NICKNAME</span><span class="sh">.**\</span><span class="k">${</span><span class="nv">count</span><span class="p">.index</span><span class="k">}</span><span class="sh">**"
 }
 </span><span class="no">EOT
 </span></code></pre></div></div> <ul> <li>init &amp; plan 실행 및 apply</li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#</span>
@@ -47,7 +47,7 @@ aws_iam_user.myiam[2]
 <span class="k">**</span>aws iam list-users | jq<span class="k">**</span>
 ...
 </code></pre></div></div> <ul> <li>다음 실습을 위해 iam user 삭제</li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>terraform destroy <span class="nt">-auto-approve</span>
-</code></pre></div></div> <h4 id="실습2--입력-변수를-통해-iam-사용자-생성"><code class="language-plaintext highlighter-rouge">실습2</code> : 입력 변수를 통해 IAM 사용자 생성</h4> <ul> <li>입력 변수 코드 생성 variables.tf</li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat</span> <span class="o">&lt;&lt;</span><span class="no">EOT</span><span class="sh"> &gt; variables.tf
+</code></pre></div></div> <h4 id="실습2--입력-변수를-통해-iam-사용자-생성"><code class="highlighter-rouge">실습2</code> : 입력 변수를 통해 IAM 사용자 생성</h4> <ul> <li>입력 변수 코드 생성 variables.tf</li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat</span> <span class="o">&lt;&lt;</span><span class="no">EOT</span><span class="sh"> &gt; variables.tf
 variable "user_names" {
   description = "Create IAM users with these names"
   type        = list(string)
@@ -96,7 +96,7 @@ first_arn <span class="o">=</span> <span class="s2">"arn:aws:iam::911283464785:u
 <span class="k">**</span>terraform state list<span class="k">**</span>
 <span class="k">**</span>terraform output<span class="k">**</span>
 </code></pre></div></div> <ul> <li>다음 실습을 위해 iam user 삭제 및 코드 파일 삭제</li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>terraform destroy <span class="nt">-auto-approve</span>
-<span class="nb">rm</span> &lt;코드 파일 삭제&gt;.tf
+rm &lt;코드 파일 삭제&gt;.tf
 </code></pre></div></div> <ul> <li>(참고) terrraform 0.13 부터는 <strong>모듈</strong>에 <strong>count</strong> 매개변수 사용 가능</li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#</span>
 <span class="k">**</span>As of Terraform 0.13, the count parameter can also be used on modules. 
 For example, imagine you had a module at modules/landing-zone/iam-user that can create a single IAM user:<span class="k">**</span> 
@@ -119,7 +119,7 @@ output <span class="s2">"user_arn"</span> <span class="o">{</span>
   description <span class="o">=</span> <span class="s2">"The ARN of the created IAM user"</span>
 <span class="o">}</span> 
 
-<span class="k">**</span>You could use this module with a count parameter to create three IAM <span class="nb">users </span>as follows:<span class="k">**</span> 
+<span class="k">**</span>You could use this module with a count parameter to create three IAM users as follows:<span class="k">**</span> 
 
 module <span class="s2">"users"</span> <span class="o">{</span>
   <span class="nb">source</span> <span class="o">=</span> <span class="s2">"../../../modules/landing-zone/iam-user"</span>
@@ -136,7 +136,7 @@ variable <span class="s2">"user_names"</span> <span class="o">{</span>
   default     <span class="o">=</span> <span class="o">[</span><span class="s2">"neo"</span>, <span class="s2">"trinity"</span>, <span class="s2">"morpheus"</span><span class="o">]</span>
 <span class="o">}</span> 
 
-<span class="k">**</span>And it outputs the ARNs of the created IAM <span class="nb">users </span>as follows:<span class="k">**</span>
+<span class="k">**</span>And it outputs the ARNs of the created IAM users as follows:<span class="k">**</span>
 
 output <span class="s2">"user_arns"</span> <span class="o">{</span>
   value       <span class="o">=</span> module.users[<span class="k">*</span><span class="o">]</span>.user_arn
@@ -159,7 +159,7 @@ all_arns <span class="o">=</span> <span class="o">[</span>
   <span class="s2">"arn:aws:iam::123456789012:user/trinity"</span>,
   <span class="s2">"arn:aws:iam::123456789012:user/morpheus"</span>,
 <span class="o">]</span>
-</code></pre></div></div> <h4 id="count-두-가지-제약-사항--실습3">count 두 가지 제약 사항 &amp; <code class="language-plaintext highlighter-rouge">실습3</code></h4> <h5 id="1-전체-리소스를-반복할-수는-있지만-리소스-내에서-인라인-블록을-반복할-수는-없습니다">1. 전체 리소스를 반복할 수는 있지만 리소스 내에서 <strong>인라인 블록을 반복할 수는 없습니다.</strong></h5> <ul> <li>예를 들어 아래 ASG 리소스에 태그 설정 방법에서 생각해보자</li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>resource <span class="s2">"aws_autoscaling_group"</span> <span class="s2">"example"</span> <span class="o">{</span>
+</code></pre></div></div> <h4 id="count-두-가지-제약-사항--실습3">count 두 가지 제약 사항 &amp; <code class="highlighter-rouge">실습3</code></h4> <h5 id="1-전체-리소스를-반복할-수는-있지만-리소스-내에서-인라인-블록을-반복할-수는-없습니다">1. 전체 리소스를 반복할 수는 있지만 리소스 내에서 <strong>인라인 블록을 반복할 수는 없습니다.</strong></h5> <ul> <li>예를 들어 아래 ASG 리소스에 태그 설정 방법에서 생각해보자</li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>resource <span class="s2">"aws_autoscaling_group"</span> <span class="s2">"example"</span> <span class="o">{</span>
   launch_configuration <span class="o">=</span> aws_launch_configuration.example.name
   vpc_zone_identifier  <span class="o">=</span> data.aws_subnets.default.ids
   target_group_arns    <span class="o">=</span> <span class="o">[</span>aws_lb_target_group.asg.arn]
@@ -176,9 +176,9 @@ all_arns <span class="o">=</span> <span class="o">[</span>
 <span class="o">}</span>
 </code></pre></div></div> <ul> <li>각각의 tag 를 사용하려면 key, value, propagate_at_launch 에 대한 값으로 새 인라인 블록을 만들어야 합니다.</li> <li>따라서 count 매개변수를 사용해서 이러한 태그를 반복하고 동적인 인라인 tag 블록을 생성하려고 시도할 수도 있지만, 인라인 블록 내에서는 count 사용은 지원하지 않습니다.</li> </ul> <h5 id="2-변경하려고-할-때-발생합니다">2. 변경하려고 할 때 발생합니다.</h5> <ul> <li>실습을 위해 다시 IAM 사용자 생성</li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">**</span>terraform apply <span class="nt">-auto-approve</span>
 ...<span class="k">**</span>
-aws_iam_user.myiam[2]: Refreshing state... <span class="o">[</span><span class="nb">id</span><span class="o">=</span>fullmoon]
-aws_iam_user.myiam[1]: Refreshing state... <span class="o">[</span><span class="nb">id</span><span class="o">=</span>akbun]
-aws_iam_user.myiam[0]: Refreshing state... <span class="o">[</span><span class="nb">id</span><span class="o">=</span>gasida]
+aws_iam_user.myiam[2]: Refreshing state... <span class="o">[</span><span class="nv">id</span><span class="o">=</span>fullmoon]
+aws_iam_user.myiam[1]: Refreshing state... <span class="o">[</span><span class="nv">id</span><span class="o">=</span>akbun]
+aws_iam_user.myiam[0]: Refreshing state... <span class="o">[</span><span class="nv">id</span><span class="o">=</span>gasida]
 ...
 </code></pre></div></div> <ul> <li>IAM 사용자 생성 목록에서 생각</li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>variable <span class="s2">"user_names"</span> <span class="o">{</span>
   description <span class="o">=</span> <span class="s2">"Create IAM users with these names"</span>
@@ -202,7 +202,7 @@ Terraform will perform the following actions:
 
 <span class="c"># aws_iam_user.myiam[1] will be **updated in-place**</span>
 ~ resource <span class="s2">"aws_iam_user"</span> <span class="s2">"myiam"</span> <span class="o">{</span>
-    <span class="nb">id</span>            <span class="o">=</span> <span class="s2">"akbun"</span>
+    id            <span class="o">=</span> <span class="s2">"akbun"</span>
   ~ name          <span class="o">=</span> <span class="s2">"**akbun**"</span> -&gt; <span class="s2">"**fullmoon**"</span>
     tags          <span class="o">=</span> <span class="o">{}</span>
     <span class="c"># (5 unchanged attributes hidden)</span>
@@ -213,7 +213,7 @@ Terraform will perform the following actions:
 - resource <span class="s2">"aws_iam_user"</span> <span class="s2">"myiam"</span> <span class="o">{</span>
   - arn           <span class="o">=</span> <span class="s2">"arn:aws:iam::911283464785:user/fullmoon"</span> -&gt; null
   - force_destroy <span class="o">=</span> <span class="nb">false</span> -&gt; null
-  - <span class="nb">id</span>            <span class="o">=</span> <span class="s2">"fullmoon"</span> -&gt; null
+  - id            <span class="o">=</span> <span class="s2">"fullmoon"</span> -&gt; null
   - name          <span class="o">=</span> <span class="s2">"**fullmoon**"</span> -&gt; null
   - path          <span class="o">=</span> <span class="s2">"/"</span> -&gt; null
   - tags          <span class="o">=</span> <span class="o">{}</span> -&gt; null
@@ -231,9 +231,9 @@ Changes to Outputs:
 <span class="o">]</span>
 </code></pre></div></div> <ul> <li>배열의 중간에 항목을 제거하면 모든 항목이 1칸씩 앞으로 당겨짐.</li> <li>테라폼이 인덱스 번호를 리소스 식별자로 보기 때문에 ‘인덱스 1에서는 버킷을 바꾸고, 인덱스2에서는 버킷을 삭제한다’라고 해석합니다.</li> <li>즉 count 사용 시 목록 중간 항목을 제거하면 테라폼은 해당 항목 뒤에 있는 모드 리소스를 삭제한 다음 해당 리소스를 처음부터 다시 만듬.</li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#</span>
 <span class="k">**</span>terraform apply <span class="nt">-auto-approve</span><span class="k">**</span>
-aws_iam_user.myiam[2]: Refreshing state... <span class="o">[</span><span class="nb">id</span><span class="o">=</span>fullmoon]
-aws_iam_user.myiam[1]: Refreshing state... <span class="o">[</span><span class="nb">id</span><span class="o">=</span>akbun]
-aws_iam_user.myiam[0]: Refreshing state... <span class="o">[</span><span class="nb">id</span><span class="o">=</span>gasida]
+aws_iam_user.myiam[2]: Refreshing state... <span class="o">[</span><span class="nv">id</span><span class="o">=</span>fullmoon]
+aws_iam_user.myiam[1]: Refreshing state... <span class="o">[</span><span class="nv">id</span><span class="o">=</span>akbun]
+aws_iam_user.myiam[0]: Refreshing state... <span class="o">[</span><span class="nv">id</span><span class="o">=</span>gasida]
 
 Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
   ~ update <span class="k">in</span><span class="nt">-place</span>
@@ -243,7 +243,7 @@ Terraform will perform the following actions:
 
   <span class="c"># aws_iam_user.myiam[1] will be updated in-place</span>
   ~ resource <span class="s2">"aws_iam_user"</span> <span class="s2">"myiam"</span> <span class="o">{</span>
-        <span class="nb">id</span>            <span class="o">=</span> <span class="s2">"akbun"</span>
+        id            <span class="o">=</span> <span class="s2">"akbun"</span>
       ~ name          <span class="o">=</span> <span class="s2">"akbun"</span> -&gt; <span class="s2">"fullmoon"</span>
         tags          <span class="o">=</span> <span class="o">{}</span>
         <span class="c"># (5 unchanged attributes hidden)</span>
@@ -254,7 +254,7 @@ Terraform will perform the following actions:
   - resource <span class="s2">"aws_iam_user"</span> <span class="s2">"myiam"</span> <span class="o">{</span>
       - arn           <span class="o">=</span> <span class="s2">"arn:aws:iam::911283464785:user/fullmoon"</span> -&gt; null
       - force_destroy <span class="o">=</span> <span class="nb">false</span> -&gt; null
-      - <span class="nb">id</span>            <span class="o">=</span> <span class="s2">"fullmoon"</span> -&gt; null
+      - id            <span class="o">=</span> <span class="s2">"fullmoon"</span> -&gt; null
       - name          <span class="o">=</span> <span class="s2">"fullmoon"</span> -&gt; null
       - path          <span class="o">=</span> <span class="s2">"/"</span> -&gt; null
       - tags          <span class="o">=</span> <span class="o">{}</span> -&gt; null
@@ -270,12 +270,12 @@ Changes to Outputs:
         <span class="s2">"arn:aws:iam::911283464785:user/akbun"</span>,
       - <span class="s2">"arn:aws:iam::911283464785:user/fullmoon"</span>,
     <span class="o">]</span>
-aws_iam_user.myiam[2]: Destroying... <span class="o">[</span><span class="nb">id</span><span class="o">=</span>fullmoon]
-aws_iam_user.myiam[1]: Modifying... <span class="o">[</span><span class="nb">id</span><span class="o">=</span>akbun]
+aws_iam_user.myiam[2]: Destroying... <span class="o">[</span><span class="nv">id</span><span class="o">=</span>fullmoon]
+aws_iam_user.myiam[1]: Modifying... <span class="o">[</span><span class="nv">id</span><span class="o">=</span>akbun]
 aws_iam_user.myiam[2]: Destruction <span class="nb">complete </span>after 1s
 ╷
 │ Error: Error updating IAM User akbun: EntityAlreadyExists: User with name fullmoon already exists.
-│ 	status code: 409, request <span class="nb">id</span>: 899d7c85-3bd0-4cc0-a556-6426f6466ea1
+│ 	status code: 409, request id: 899d7c85-3bd0-4cc0-a556-6426f6466ea1
 │
 │   with aws_iam_user.myiam[1],
 │   on iam.tf line 5, <span class="k">in </span>resource <span class="s2">"aws_iam_user"</span> <span class="s2">"myiam"</span>:
@@ -283,7 +283,7 @@ aws_iam_user.myiam[2]: Destruction <span class="nb">complete </span>after 1s
 │
 </code></pre></div></div> <ul> <li>다음 실습을 위해 iam user 삭제</li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>terraform destroy <span class="nt">-auto-approve</span>
 aws iam list-users | jq
-</code></pre></div></div> <h3 id="for_each-표현식"><strong>for_each 표현식</strong></h3> <h4 id="for_each-표현식을-사용한-반복문-처리--실습4">for_each 표현식을 사용한 반복문 처리 &amp; <code class="language-plaintext highlighter-rouge">실습4</code></h4> <blockquote> <p>배열 ARRAY 와 리스트 LIST 의 차이점은 무엇인가요?</p> </blockquote> <ul> <li>for_each 표현식을 사용하면 <strong>리스트</strong> lists, <strong>집합</strong> sets, <strong>맵</strong> maps 를 사용하여 전체 <strong>리소스</strong>의 여러 <strong>복사본</strong> 또는 리소스 내 <strong>인라인</strong> 블록의 여러 복사본, <strong>모듈</strong>의 복사본을 생성 할 수 있음</li> <li>먼저 for_each 를 사용하여 리소스의 여러 복사본을 만드는 구문</li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>resource <span class="s2">"&lt;PROVIDER&gt;_&lt;TYPE&gt;"</span> <span class="s2">"&lt;NAME&gt;"</span> <span class="o">{</span>
+</code></pre></div></div> <h3 id="for_each-표현식"><strong>for_each 표현식</strong></h3> <h4 id="for_each-표현식을-사용한-반복문-처리--실습4">for_each 표현식을 사용한 반복문 처리 &amp; <code class="highlighter-rouge">실습4</code></h4> <blockquote> <p>배열 ARRAY 와 리스트 LIST 의 차이점은 무엇인가요?</p> </blockquote> <ul> <li>for_each 표현식을 사용하면 <strong>리스트</strong> lists, <strong>집합</strong> sets, <strong>맵</strong> maps 를 사용하여 전체 <strong>리소스</strong>의 여러 <strong>복사본</strong> 또는 리소스 내 <strong>인라인</strong> 블록의 여러 복사본, <strong>모듈</strong>의 복사본을 생성 할 수 있음</li> <li>먼저 for_each 를 사용하여 리소스의 여러 복사본을 만드는 구문</li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>resource <span class="s2">"&lt;PROVIDER&gt;_&lt;TYPE&gt;"</span> <span class="s2">"&lt;NAME&gt;"</span> <span class="o">{</span>
   <span class="k">**</span>for_each <span class="o">=</span> &lt;COLLECTION&gt;<span class="k">**</span>
 
   <span class="k">**</span><span class="o">[</span>CONFIG ...]<span class="k">**</span>
@@ -394,9 +394,9 @@ variable "user_names" {
 }
 </span><span class="no">EOT
 </span></code></pre></div></div> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">**</span>terraform plan<span class="k">**</span>
-aws_iam_user.myiam[<span class="s2">"akbun"</span><span class="o">]</span>: Refreshing state... <span class="o">[</span><span class="nb">id</span><span class="o">=</span>akbun]
-aws_iam_user.myiam[<span class="s2">"fullmoon"</span><span class="o">]</span>: Refreshing state... <span class="o">[</span><span class="nb">id</span><span class="o">=</span>fullmoon]
-aws_iam_user.myiam[<span class="s2">"gasida"</span><span class="o">]</span>: Refreshing state... <span class="o">[</span><span class="nb">id</span><span class="o">=</span>gasida]
+aws_iam_user.myiam[<span class="s2">"akbun"</span><span class="o">]</span>: Refreshing state... <span class="o">[</span><span class="nv">id</span><span class="o">=</span>akbun]
+aws_iam_user.myiam[<span class="s2">"fullmoon"</span><span class="o">]</span>: Refreshing state... <span class="o">[</span><span class="nv">id</span><span class="o">=</span>fullmoon]
+aws_iam_user.myiam[<span class="s2">"gasida"</span><span class="o">]</span>: Refreshing state... <span class="o">[</span><span class="nv">id</span><span class="o">=</span>gasida]
 
 Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
   - destroy
@@ -408,7 +408,7 @@ Terraform will perform the following actions:
   - resource <span class="s2">"aws_iam_user"</span> <span class="s2">"myiam"</span> <span class="o">{</span>
       - arn           <span class="o">=</span> <span class="s2">"arn:aws:iam::911283464785:user/akbun"</span> -&gt; null
       - force_destroy <span class="o">=</span> <span class="nb">false</span> -&gt; null
-      - <span class="nb">id</span>            <span class="o">=</span> <span class="s2">"akbun"</span> -&gt; null
+      - id            <span class="o">=</span> <span class="s2">"akbun"</span> -&gt; null
       - name          <span class="o">=</span> <span class="s2">"akbun"</span> -&gt; null
       - path          <span class="o">=</span> <span class="s2">"/"</span> -&gt; null
       - tags          <span class="o">=</span> <span class="o">{}</span> -&gt; null
@@ -429,7 +429,7 @@ Changes to Outputs:
   <span class="nb">type</span>        <span class="o">=</span> map<span class="o">(</span>string<span class="o">)</span>
   default     <span class="o">=</span> <span class="o">{}</span>
 <span class="o">}</span>
-</code></pre></div></div> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- 다음으로 프로덕션 환경의 live/prod/services/webserver-cluster/main.tf에서 아래와 같이 일부 사용자 정의 태그를 설정합니다.
+</code></pre></div></div> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- 다음으로 프로덕션 환경의 live/prod/services/webserver-cluster/main.tf에서 아래와 같이 일부 사용자 정의 태그를 설정합니다.
 </code></pre></div></div> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>module <span class="s2">"webserver_cluster"</span> <span class="o">{</span>
   <span class="nb">source</span> <span class="o">=</span> <span class="s2">"../../../../modules/services/webserver-cluster"</span>
 
@@ -540,7 +540,7 @@ Plan: 0 to add, 1 to change, 0 to destroy.
   <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div></div> <ul> <li>(참고) for_each 를 모듈에서 활용</li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>for_each works with modules <span class="k">in </span>a more or less identical fashion. Using the iam-user module from earlier, 
-you can create three IAM <span class="nb">users </span>with it using for_each as follows:
+you can create three IAM users with it using for_each as follows:
 
 module <span class="s2">"users"</span> <span class="o">{</span>
   <span class="nb">source</span> <span class="o">=</span> <span class="s2">"../../../modules/landing-zone/iam-user"</span>
@@ -549,7 +549,7 @@ module <span class="s2">"users"</span> <span class="o">{</span>
   user_name <span class="o">=</span> each.value
 <span class="o">}</span> 
 
-And you can output the ARNs of those <span class="nb">users </span>as follows: 
+And you can output the ARNs of those users as follows: 
 
 output <span class="s2">"user_arns"</span> <span class="o">{</span>
   value       <span class="o">=</span> values<span class="o">(</span>module.users<span class="o">)[</span><span class="k">*</span><span class="o">]</span>.user_arn
@@ -571,7 +571,7 @@ all_arns <span class="o">=</span> <span class="o">[</span>
   <span class="s2">"arn:aws:iam::123456789012:user/neo"</span>,
   <span class="s2">"arn:aws:iam::123456789012:user/trinity"</span>,
 <span class="o">]</span>
-</code></pre></div></div> <h3 id="for-표현식"><strong>for 표현식</strong></h3> <ul> <li>for 표현식 Expressions 을 이용한 반복문 &amp; <code class="language-plaintext highlighter-rouge">실습5</code> <ul> <li>리소스와 인라인 블록을 반복하는 법을 알아보았습니다. 하지만 단일 값을 생성하기 위해 반복이 필요한 경우에는 어떻게 해야 할까요?</li> <li>names 의 리스트를 가진 테라폼 코드를 작성했다고 가정합니다 → 모든 이름을 대문자로 변환하려면 어떻게 해야 할까요?</li> </ul> </li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat</span> <span class="o">&lt;&lt;</span><span class="no">EOT</span><span class="sh"> &gt; main.tf
+</code></pre></div></div> <h3 id="for-표현식"><strong>for 표현식</strong></h3> <ul> <li>for 표현식 Expressions 을 이용한 반복문 &amp; <code class="highlighter-rouge">실습5</code> <ul> <li>리소스와 인라인 블록을 반복하는 법을 알아보았습니다. 하지만 단일 값을 생성하기 위해 반복이 필요한 경우에는 어떻게 해야 할까요?</li> <li>names 의 리스트를 가진 테라폼 코드를 작성했다고 가정합니다 → 모든 이름을 대문자로 변환하려면 어떻게 해야 할까요?</li> </ul> </li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat</span> <span class="o">&lt;&lt;</span><span class="no">EOT</span><span class="sh"> &gt; main.tf
 variable "**names**" {
   description = "A list of names"
   type        = list(string)
@@ -657,7 +657,7 @@ variable "hero_thousand_faces" {
 }
 
 output "bios" {
-  value = [for name, role in var.hero_thousand_faces : "</span><span class="se">\$</span><span class="sh">{name} is the </span><span class="se">\$</span><span class="sh">{role}"]
+  value = [for name, role in var.hero_thousand_faces : "\</span><span class="k">${</span><span class="nv">name</span><span class="k">}</span><span class="sh"> is the \</span><span class="k">${</span><span class="nv">role</span><span class="k">}</span><span class="sh">"]
 }
 </span><span class="no">EOT
 </span></code></pre></div></div> <ul> <li>. <ul> <li>apply</li> </ul> </li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#</span>
@@ -701,7 +701,7 @@ variable "hero_thousand_faces" {
 }
 
 output "bios" {
-  value = [for name, role in var.hero_thousand_faces : "</span><span class="se">\$</span><span class="sh">{name} is the </span><span class="se">\$</span><span class="sh">{role}"]
+  value = [for name, role in var.hero_thousand_faces : "\</span><span class="k">${</span><span class="nv">name</span><span class="k">}</span><span class="sh"> is the \</span><span class="k">${</span><span class="nv">role</span><span class="k">}</span><span class="sh">"]
 }
 
 output "upper_roles" {
@@ -721,7 +721,7 @@ upper_roles <span class="o">=</span> <span class="o">{</span>
   <span class="s2">"FULLMOON"</span> <span class="o">=</span> <span class="s2">"MENTOR"</span>
   <span class="s2">"GASIDA"</span> <span class="o">=</span> <span class="s2">"HERO"</span>
 <span class="o">}</span>
-</code></pre></div></div> <h3 id="문자열-지시자"><strong>문자열 지시자</strong></h3> <ul> <li>문자열 지시자를 사용하는 반복문 Loops with the for String Derective &amp; <code class="language-plaintext highlighter-rouge">실습6</code> <ul> <li>앞에서 문자열 내에 테라폼 코드를 참조할 수 있는 <strong>문자열 보간법</strong>을 배웠습니다.</li> </ul> </li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"Hello, </span><span class="k">${</span><span class="nv">var</span><span class="p">.name</span><span class="k">}</span><span class="s2">"</span>
+</code></pre></div></div> <h3 id="문자열-지시자"><strong>문자열 지시자</strong></h3> <ul> <li>문자열 지시자를 사용하는 반복문 Loops with the for String Derective &amp; <code class="highlighter-rouge">실습6</code> <ul> <li>앞에서 문자열 내에 테라폼 코드를 참조할 수 있는 <strong>문자열 보간법</strong>을 배웠습니다.</li> </ul> </li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"Hello, </span><span class="k">${</span><span class="nv">var</span><span class="p">.name</span><span class="k">}</span><span class="s2">"</span>
 </code></pre></div></div> <ul> <li><strong>문자열 지시자</strong>를 사용하면 문자열 보간과 유사한 구문으로 문자열 내에서 for 반복문, if문 같은 제어문을 사용할 수 있습니다.</li> <li>다만 달러 부호와 <strong>중괄호 ${..}</strong> 대신 <strong>백분율 부호 %{}..</strong> 를 사용한다는 차이가 있습니다.</li> <li>테라폼은 두 가지 유형의 문자열 지시자, for 반복문과 조건문을 지원합니다.</li> <li>이번 절에서는 for 반복문을 살펴보고 이 장의 뒷부분에서 조건문을 다룹니다.</li> <li>for 문자열 지시자는 다음 구문을 사용합니다.</li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>%<span class="o">{</span> <span class="k">for</span> &lt;ITEM&gt; <span class="k">in</span> &lt;COLLECTION&gt; <span class="o">}</span>&lt;BODY&gt;%<span class="o">{</span> endfor <span class="o">}</span>
 </code></pre></div></div> <ul> <li>여기서 COLLECTION 은 반복할 <strong>리스트</strong> 또는 <strong>맵</strong>이고 ITEM은 COLLECTION 의 각 항목에 할당할 로컬 변수의 이름이며 BODY는 ITEM을 참조할 수 있는 각각의 반복을 렌더링하는 대상입니다. 예를 들면 아래와 같습니다.</li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat</span> <span class="o">&lt;&lt;</span><span class="no">EOT</span><span class="sh"> &gt; main.tf
 variable "names" {
@@ -731,7 +731,7 @@ variable "names" {
 }
 
 output "for_directive" {
-  value = "%{ for name in var.names }</span><span class="se">\$</span><span class="sh">{name}, %{ endfor }"
+  value = "%{ for name in var.names }\</span><span class="k">${</span><span class="nv">name</span><span class="k">}</span><span class="sh">, %{ endfor }"
 }
 </span><span class="no">EOT
 </span></code></pre></div></div> <ul> <li>. <ul> <li>apply</li> </ul> </li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#</span>
@@ -748,11 +748,11 @@ variable "names" {
 }
 
 output "for_directive" {
-  value = "%{ for name in var.names }</span><span class="se">\$</span><span class="sh">{name}, %{ endfor }"
+  value = "%{ for name in var.names }\</span><span class="k">${</span><span class="nv">name</span><span class="k">}</span><span class="sh">, %{ endfor }"
 }
 
 output "for_directive_index" {
-  value = "%{ for i, name in var.names }(</span><span class="se">\$</span><span class="sh">{i}) </span><span class="se">\$</span><span class="sh">{name}, %{ endfor }"
+  value = "%{ for i, name in var.names }(\</span><span class="k">${</span><span class="nv">i</span><span class="k">}</span><span class="sh">) \</span><span class="k">${</span><span class="nv">name</span><span class="k">}</span><span class="sh">, %{ endfor }"
 }
 </span><span class="no">EOT
 </span></code></pre></div></div> <ul> <li>. <ul> <li>apply</li> </ul> </li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#</span>
@@ -762,7 +762,7 @@ Outputs:
 for_directive <span class="o">=</span> <span class="s2">"gasida, akbun, fullmoon, "</span>
 for_directive_index <span class="o">=</span> <span class="s2">"(0) gasida, (1) akbun, (2) fullmoon, "</span>
 </code></pre></div></div> <ul> <li>. <ul> <li>다음 실습을 위해 삭제</li> </ul> </li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>terraform destroy <span class="nt">-auto-approve</span>
-<span class="nb">rm</span> &lt;코드 파일 삭제&gt;.tf
+rm &lt;코드 파일 삭제&gt;.tf
 </code></pre></div></div> <ul> <li>그외 표현식 코드 참고</li> </ul> <p><a href="https://github.com/brikis98/terraform-up-and-running-code/blob/master/code/terraform/05-tips-and-tricks/loops-and-if-statements/live/global/string-directives/main.tf">terraform-up-and-running-code/main.tf at master · brikis98/terraform-up-and-running-code</a></p> <h2 id="조건문-conditionals">조건문 Conditionals</h2> <p>테라폼이 제공하는 <strong>조건문</strong> 구성 conditionals</p> <ul> <li><strong>count 매개 변수</strong> parameter : 조건부 리소스에서 사용</li> <li><strong>for_each 와 for 표현식</strong> expressions : 리소스 내의 조건부 리소스 및 인라인 블록에 사용</li> <li><strong>If 문자열 지시자</strong> if string directive : 문자열 내의 조건문에 사용</li> </ul> <h3 id="count-매개-변수-1"><strong>count 매개 변수</strong></h3> <p>count 매개변수를 사용하면 기본 반복문을 수행할 수 있습니다. 이를 응용하여 기본 조건문 작업을 수행할 수 있습니다. 먼저 if문을 살펴보고 이어서 if-else문으로 넘어가겠습니다.</p> <h4 id="count-매개-변수를-사용한-if문-if-statements-with-the-count-parameter">count 매개 변수를 사용한 if문 if-statements with the count parameter</h4> <ul> <li>챕터 4 ASG 환경에서 조건부로 일부 사용자에게는 모듈을 생성해주고 나머지 사용자에게는 생성해주지 않을 방법이 있을까요?</li> <li>이렇듯 조건부로 모듈을 생성하는 방법을 <strong>분기 처리</strong>라고 합니다.</li> <li>분기 처리 첫 번째 단계는 모듈의 오토스케일링 사용 여부를 지정하는데 사용할 Boolean 입력 변수 를 modules/services/webserver-cluster/variables.tf에 추가하는 것입니다. <ul> <li>코드 - <a href="https://github.com/brikis98/terraform-up-and-running-code/blob/master/code/terraform/05-tips-and-tricks/loops-and-if-statements/modules/services/webserver-cluster/variables.tf">링크</a></li> </ul> </li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>variable <span class="s2">"enable_autoscaling"</span> <span class="o">{</span>
   description <span class="o">=</span> <span class="s2">"If set to true, enable auto scaling"</span>
   <span class="nb">type</span>        <span class="o">=</span> bool
@@ -886,7 +886,7 @@ resource <span class="s2">"aws_iam_user_policy_attachment"</span> <span class="s
       propagate_at_launch <span class="o">=</span> <span class="nb">true</span>
     <span class="o">}</span>
   <span class="o">}</span>
-</code></pre></div></div> <ul> <li>중첩된 for 표현식은 일관성을 위해 var.custom_tags 를 반복하며 각 값을 대문자로 변환하고 모듈이 이미 자체 Name 태그를 설정했으므로, <ul> <li>for 표현식의 조건을 사용하여 key 집합을 Name 으로 필터링합니다.</li> </ul> </li> <li>for 표현식에서 값을 필터링하여 임의 조건부 논리를 구현할 수 있습니다.</li> <li>리소스의 복사본을 여러 개 만들 때는 count 보다 for_each 를 사용하는 것이 더 낫지만, <ul> <li>조건 논리의 경우 비어 있지 않은 컬렉션에 for_each 를 설정하는 것보다 count 를 0 또는 1로 설정하는 것이 간단합니다.</li> </ul> </li> <li>즉, <strong>리소스를 조건부로 생성</strong>할 때는 <strong>count</strong> 를 사용할 수 있지만, <strong>그 외 모든 유형의 반복문 또는 조건문</strong>에는 <strong>for_each</strong> 를 사용합니다.</li> </ul> <h3 id="if-문자열-지시자"><strong>if 문자열 지시자</strong></h3> <h4 id="if-문자열-지시자가-있는-조건문-conditionals-with-the-if-string-directive--실습7">if 문자열 지시자가 있는 조건문 Conditionals with the if String Directive &amp; <code class="language-plaintext highlighter-rouge">실습7</code></h4> <ul> <li>if 문자열 지시자를 살펴보겠습니다</li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>%<span class="o">{</span> <span class="k">if</span> &lt;CONDITION&gt; <span class="o">}</span>&lt;TRUEVAL&gt;%<span class="o">{</span> endif <span class="o">}</span>
+</code></pre></div></div> <ul> <li>중첩된 for 표현식은 일관성을 위해 var.custom_tags 를 반복하며 각 값을 대문자로 변환하고 모듈이 이미 자체 Name 태그를 설정했으므로, <ul> <li>for 표현식의 조건을 사용하여 key 집합을 Name 으로 필터링합니다.</li> </ul> </li> <li>for 표현식에서 값을 필터링하여 임의 조건부 논리를 구현할 수 있습니다.</li> <li>리소스의 복사본을 여러 개 만들 때는 count 보다 for_each 를 사용하는 것이 더 낫지만, <ul> <li>조건 논리의 경우 비어 있지 않은 컬렉션에 for_each 를 설정하는 것보다 count 를 0 또는 1로 설정하는 것이 간단합니다.</li> </ul> </li> <li>즉, <strong>리소스를 조건부로 생성</strong>할 때는 <strong>count</strong> 를 사용할 수 있지만, <strong>그 외 모든 유형의 반복문 또는 조건문</strong>에는 <strong>for_each</strong> 를 사용합니다.</li> </ul> <h3 id="if-문자열-지시자"><strong>if 문자열 지시자</strong></h3> <h4 id="if-문자열-지시자가-있는-조건문-conditionals-with-the-if-string-directive--실습7">if 문자열 지시자가 있는 조건문 Conditionals with the if String Directive &amp; <code class="highlighter-rouge">실습7</code></h4> <ul> <li>if 문자열 지시자를 살펴보겠습니다</li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>%<span class="o">{</span> <span class="k">if</span> &lt;CONDITION&gt; <span class="o">}</span>&lt;TRUEVAL&gt;%<span class="o">{</span> endif <span class="o">}</span>
 </code></pre></div></div> <ul> <li>. <ul> <li>CONDITION은 boolean 으로 평가되는 표현식이고, TRUEVAL은 CONDITION이 True로 평가되면 렌더링할 표현식입니다.</li> <li>다음과 같이 else절을 선택적으로 포함할 수 있습니다.</li> </ul> </li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>%<span class="o">{</span> <span class="k">if</span> &lt;CONDITION&gt; <span class="o">}</span>&lt;TRUEVAL&gt;%<span class="o">{</span> <span class="k">else</span> <span class="o">}</span>&lt;FALSEVAL&gt;%<span class="o">{</span> endif <span class="o">}</span>
 </code></pre></div></div> <ul> <li>. <ul> <li>FALSEVAL은 CONDITION이 false로 평가되면 렌더링할 표현식입니다.</li> </ul> </li> <li>예시 코드 입니다.</li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat</span> <span class="o">&lt;&lt;</span><span class="no">EOT</span><span class="sh"> &gt; main.tf
 variable "names" {
@@ -896,17 +896,17 @@ variable "names" {
 }
 
 output "for_directive" {
-  value = "%{ for name in var.names }</span><span class="se">\$</span><span class="sh">{name}, %{ endfor }"
+  value = "%{ for name in var.names }\</span><span class="k">${</span><span class="nv">name</span><span class="k">}</span><span class="sh">, %{ endfor }"
 }
 
 output "for_directive_index" {
-  value = "%{ for i, name in var.names }(</span><span class="se">\$</span><span class="sh">{i}) </span><span class="se">\$</span><span class="sh">{name}, %{ endfor }"
+  value = "%{ for i, name in var.names }(\</span><span class="k">${</span><span class="nv">i</span><span class="k">}</span><span class="sh">) \</span><span class="k">${</span><span class="nv">name</span><span class="k">}</span><span class="sh">, %{ endfor }"
 }
 
 output "for_directive_index_if" {
   value = &lt;&lt;EOF
 %{ for i, name in var.names }
-  </span><span class="se">\$</span><span class="sh">{name}%{ if i &lt; length(var.names) - 1 }, %{ endif }
+  \</span><span class="k">${</span><span class="nv">name</span><span class="k">}</span><span class="sh">%{ if i &lt; length(var.names) - 1 }, %{ endif }
 %{ endfor }
 EOF
 }
@@ -937,17 +937,17 @@ variable "names" {
 }
 
 output "for_directive" {
-  value = "%{ for name in var.names }</span><span class="se">\$</span><span class="sh">{name}, %{ endfor }"
+  value = "%{ for name in var.names }\</span><span class="k">${</span><span class="nv">name</span><span class="k">}</span><span class="sh">, %{ endfor }"
 }
 
 output "for_directive_index" {
-  value = "%{ for i, name in var.names }(</span><span class="se">\$</span><span class="sh">{i}) </span><span class="se">\$</span><span class="sh">{name}, %{ endfor }"
+  value = "%{ for i, name in var.names }(\</span><span class="k">${</span><span class="nv">i</span><span class="k">}</span><span class="sh">) \</span><span class="k">${</span><span class="nv">name</span><span class="k">}</span><span class="sh">, %{ endfor }"
 }
 
 output "for_directive_index_if" {
   value = &lt;&lt;EOF
 %{ for i, name in var.names }
-  </span><span class="se">\$</span><span class="sh">{name}%{ if i &lt; length(var.names) - 1 }, %{ endif }
+  \</span><span class="k">${</span><span class="nv">name</span><span class="k">}</span><span class="sh">%{ if i &lt; length(var.names) - 1 }, %{ endif }
 %{ endfor }
 EOF
 }
@@ -955,7 +955,7 @@ EOF
 output "for_directive_index_if_strip" {
   value = &lt;&lt;EOF
 %{~ for i, name in var.names ~}
-  </span><span class="se">\$</span><span class="sh">{name}%{ if i &lt; length(var.names) - 1 }, %{ endif }
+  \</span><span class="k">${</span><span class="nv">name</span><span class="k">}</span><span class="sh">%{ if i &lt; length(var.names) - 1 }, %{ endif }
 %{~ endfor ~}
 EOF
 }
@@ -980,17 +980,17 @@ variable "names" {
 }
 
 output "for_directive" {
-  value = "%{ for name in var.names }</span><span class="se">\$</span><span class="sh">{name}, %{ endfor }"
+  value = "%{ for name in var.names }\</span><span class="k">${</span><span class="nv">name</span><span class="k">}</span><span class="sh">, %{ endfor }"
 }
 
 output "for_directive_index" {
-  value = "%{ for i, name in var.names }(</span><span class="se">\$</span><span class="sh">{i}) </span><span class="se">\$</span><span class="sh">{name}, %{ endfor }"
+  value = "%{ for i, name in var.names }(\</span><span class="k">${</span><span class="nv">i</span><span class="k">}</span><span class="sh">) \</span><span class="k">${</span><span class="nv">name</span><span class="k">}</span><span class="sh">, %{ endfor }"
 }
 
 output "for_directive_index_if" {
   value = &lt;&lt;EOF
 %{ for i, name in var.names }
-  </span><span class="se">\$</span><span class="sh">{name}%{ if i &lt; length(var.names) - 1 }, %{ endif }
+  \</span><span class="k">${</span><span class="nv">name</span><span class="k">}</span><span class="sh">%{ if i &lt; length(var.names) - 1 }, %{ endif }
 %{ endfor }
 EOF
 }
@@ -998,7 +998,7 @@ EOF
 output "for_directive_index_if_strip" {
   value = &lt;&lt;EOF
 %{~ for i, name in var.names ~}
-  </span><span class="se">\$</span><span class="sh">{name}%{ if i &lt; length(var.names) - 1 }, %{ endif }
+  \</span><span class="k">${</span><span class="nv">name</span><span class="k">}</span><span class="sh">%{ if i &lt; length(var.names) - 1 }, %{ endif }
 %{~ endfor ~}
 EOF
 }
@@ -1006,7 +1006,7 @@ EOF
 output "for_directive_index_if_else_strip" {
   value = &lt;&lt;EOF
 %{~ for i, name in var.names ~}
-  </span><span class="se">\$</span><span class="sh">{name}%{ if i &lt; length(var.names) - 1 }, %{ else }.%{ endif }
+  \</span><span class="k">${</span><span class="nv">name</span><span class="k">}</span><span class="sh">%{ if i &lt; length(var.names) - 1 }, %{ else }.%{ endif }
 %{~ endfor ~}
 EOF
 }
@@ -1017,5 +1017,5 @@ terraform apply <span class="nt">-auto-approve</span>
 for_directive_index_if_else_strip <span class="o">=</span> <span class="s2">"  gasida,   akbun,   fullmoon"</span>
 for_directive_index_if_strip <span class="o">=</span> <span class="s2">"  gasida,   akbun,   fullmoon"</span>
 </code></pre></div></div> <ul> <li>실습 리소스 삭제</li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>terraform destroy <span class="nt">-auto-approve</span>
-<span class="nb">rm</span> &lt;코드 파일 삭제&gt;.tf
+rm &lt;코드 파일 삭제&gt;.tf
 </code></pre></div></div> <div class="entry-meta"> <br> <hr> <span class="entry-tags"><a href="https://lahuman.github.io/tags/#terraform" title="Pages tagged terraform" class="tag"><span class="term">terraform</span></a><a href="https://lahuman.github.io/tags/#study" title="Pages tagged study" class="tag"><span class="term">study</span></a></span> <span class="social-share"> <a href="https://www.facebook.com/sharer/sharer.php?u=https://lahuman.github.io/t101_5week/" title="Share on Facebook" class="tag"> <span class="term"><i class="fa fa-facebook-square"></i> Share</span> </a> <a href="https://twitter.com/intent/tweet?text=https://lahuman.github.io/t101_5week/" title="Share on Twitter" class="tag"> <span class="term"><i class="fa fa-twitter-square"></i> Tweet</span> </a> <a href="https://plus.google.com/share?url=https://lahuman.github.io/t101_5week/" title="Share on Google+" class="tag"> <span class="term"><i class="fa fa-google-plus-square"></i> +1</span> </a> </span> <div style="clear:both"></div> </div> <ins class="kakao_ad_area" style="display:none;" data-ad-unit = "DAN-ubp67fs9s850" data-ad-width = "320" data-ad-height = "100"></ins> <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script> </div> </div> <section id="disqus_thread" class="animated fadeInUp"></section><!-- /#disqus_thread --> </header> <!-- JS --> <script src="https://lahuman.github.io/assets/js/jquery-1.12.0.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.dlmenu.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.goup.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.magnific-popup.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.fitvid.min.js"></script> <script src="https://lahuman.github.io/assets/js/scripts.js"></script> <!-- Global site tag (gtag.js) - Google Analytics --> <script async src="https://www.googletagmanager.com/gtag/js?id=UA-74095083-1"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-74095083-1'); </script> <script type="text/javascript"> var disqus_shortname = 'daniels-blog'; (function() { var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true; dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js'; (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq); })(); (function () { var s = document.createElement('script'); s.async = true; s.type = 'text/javascript'; s.src = '//' + disqus_shortname + '.disqus.com/count.js'; (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s); }()); </script> <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript> <!-- MathJax --> <script async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> </body> </html>

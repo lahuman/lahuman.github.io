@@ -1,4 +1,4 @@
-<!DOCTYPE html> <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]--> <!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8"><![endif]--> <!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9"><![endif]--> <!--[if gt IE 8]><!--> <html class="no-js"><!--<![endif]--> <head> <meta charset="UTF-8"> <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"> <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1"> <title>Centos 7.5에서 Python Multiprocess 좀비프로세스 문제 &#8211; lahuman</title> <meta name="description" content="열심히 사는 아저씨"> <meta name="keywords" content="centos, multiprocess"> <!-- Twitter Cards --> <meta name="twitter:card" content="summary"> <meta name="twitter:image" content="https://lahuman.github.io/assets/img/logo.png"> <meta name="twitter:title" content="Centos 7.5에서 Python Multiprocess 좀비프로세스 문제"> <meta name="twitter:description" content="죽여도 살아난다."> <!-- Open Graph --> <meta property="og:locale" content="ko_KR"> <meta property="og:type" content="article"> <meta property="og:title" content="Centos 7.5에서 Python Multiprocess 좀비프로세스 문제"> <meta property="og:description" content="죽여도 살아난다."> <meta property="og:url" content="https://lahuman.github.io/Centos7.5_python_multiprocess/"> <meta property="og:site_name" content="lahuman"> <meta property="og:image" content="https://lahuman.github.io/assets/img/logo.png"> <link rel="canonical" href="https://lahuman.github.io/Centos7.5_python_multiprocess/"> <link href="https://lahuman.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="lahuman Feed"> <!-- Handheld --> <meta name="HandheldFriendly" content="True"> <meta name="MobileOptimized" content="320"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- CSS --> <link rel="stylesheet" href="https://lahuman.github.io/assets/css/main.css"> <!-- JS --> <script src="https://lahuman.github.io/assets/js/modernizr-3.3.1.custom.min.js"></script> <!-- Favicons --> <link rel="apple-touch-icon" href="https://lahuman.github.io/assets/img/favicons/apple-icon-precomposed.png"> <link rel="apple-touch-icon" sizes="72x72" href="https://lahuman.github.io/assets/img/favicons/apple-icon-72x72.png"> <link rel="apple-touch-icon" sizes="114x114" href="https://lahuman.github.io/assets/img/favicons/apple-icon-114x114.png"> <link rel="apple-touch-icon" sizes="144x144" href="https://lahuman.github.io/assets/img/favicons/apple-icon-144x144.png"> <link rel="shortcut icon" type="image/png" href="https://lahuman.github.io/favicon.png" /> <link rel="shortcut icon" href="https://lahuman.github.io/favicon.ico" /> <!-- mermaid --> <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script> <script>mermaid.initialize({startOnLoad:true});</script> <!-- Background Image --> <style type="text/css">body {background-image:url(https://lahuman.github.io/assets/img/placeholder-big.jpg); background-repeat: no-repeat; background-size: cover; }</style> <!-- Post Feature Image --> </head> <body> <nav id="dl-menu" class="dl-menuwrapper" role="navigation"> <button class="dl-trigger">Open Menu</button> <ul class="dl-menu"> <li><a href="https://lahuman.github.io/">Home</a></li> <li> <a href="#">About</a> <ul class="dl-submenu"> <li> <img src="https://lahuman.github.io/assets/img/logo.png" alt="lahuman photo" class="author-photo"> <h4>lahuman</h4> <p>열심히 사는 아저씨</p> </li> <li><a href="https://lahuman.github.io/about/"><span class="btn btn-inverse">Learn More</span></a></li> <li> <a href="http://facebook.com/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-facebook-square"></i> Facebook</a> </li> <li> <a href="http://linkedin.com/in/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-linkedin-square"></i> LinkedIn</a> </li> <li> <a href="http://github.com/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-github"></i> Github</a> </li> </ul><!-- /.dl-submenu --> </li> <li> <a href="#">Posts</a> <ul class="dl-submenu"> <li><a href="https://lahuman.github.io/posts/">All Posts</a></li> <li><a href="https://lahuman.github.io/tags/">All Tags</a></li> </ul> </li> <li><a href="https://lahuman.github.io/projects/" >Projects</a></li> </ul><!-- /.dl-menu --> </nav><!-- /.dl-menuwrapper --> <!-- Header --> <header class="header" role="banner"> <div class="wrapper animated fadeIn"> <div class="content"> <div class="post-title "> <h1>Centos 7.5에서 Python Multiprocess 좀비프로세스 문제</h1> <h4>10 May 2018</h4> <p class="reading-time"> <i class="fa fa-clock-o"></i> Reading time ~2 minutes </p><!-- /.entry-reading-time --> <a class="btn zoombtn" href="https://lahuman.github.io/posts/"> <i class="fa fa-chevron-left"></i> </a> </div> <h1 id="centos-75에서-python-multiprocess-좀비-프로세스-문제">CentOS 7.5에서 Python MultiProcess 좀비 프로세스 문제</h1> <h2 id="환경-정보">환경 정보</h2> <ul> <li>OS : CentOS 7.5</li> <li>Language : Python 2.7.5</li> </ul> <h2 id="현상">현상</h2> <p>프로그램에서 불규칙적으로 Multiprocess가 종료 되지 않고 남아 있음. kill -9 {PID} 로 Multiprocess를 종료 시키면, 종료 시점으로 새로운 프로세스가 생성되며 실행 시간은 00:00 으로 변경없이 유지됨.</p> <h2 id="문제점">문제점</h2> <p>Multiprocess는 Memory 자원을 반환 하지 않고 계속 점유 되는 문제 발생</p> <h2 id="코드-샘플">코드 샘플</h2> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from multiprocessing import Pool
+<!DOCTYPE html> <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]--> <!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8"><![endif]--> <!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9"><![endif]--> <!--[if gt IE 8]><!--> <html class="no-js"><!--<![endif]--> <head> <meta charset="UTF-8"> <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"> <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1"> <title>Centos 7.5에서 Python Multiprocess 좀비프로세스 문제 &#8211; lahuman</title> <meta name="description" content="열심히 사는 아저씨"> <meta name="keywords" content="centos, multiprocess"> <!-- Twitter Cards --> <meta name="twitter:card" content="summary"> <meta name="twitter:image" content="https://lahuman.github.io/assets/img/logo.png"> <meta name="twitter:title" content="Centos 7.5에서 Python Multiprocess 좀비프로세스 문제"> <meta name="twitter:description" content="죽여도 살아난다."> <!-- Open Graph --> <meta property="og:locale" content="ko_KR"> <meta property="og:type" content="article"> <meta property="og:title" content="Centos 7.5에서 Python Multiprocess 좀비프로세스 문제"> <meta property="og:description" content="죽여도 살아난다."> <meta property="og:url" content="https://lahuman.github.io/Centos7.5_python_multiprocess/"> <meta property="og:site_name" content="lahuman"> <meta property="og:image" content="https://lahuman.github.io/assets/img/logo.png"> <link rel="canonical" href="https://lahuman.github.io/Centos7.5_python_multiprocess/"> <link href="https://lahuman.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="lahuman Feed"> <!-- Handheld --> <meta name="HandheldFriendly" content="True"> <meta name="MobileOptimized" content="320"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- CSS --> <link rel="stylesheet" href="https://lahuman.github.io/assets/css/main.css"> <!-- JS --> <script src="https://lahuman.github.io/assets/js/modernizr-3.3.1.custom.min.js"></script> <!-- Favicons --> <link rel="apple-touch-icon" href="https://lahuman.github.io/assets/img/favicons/apple-icon-precomposed.png"> <link rel="apple-touch-icon" sizes="72x72" href="https://lahuman.github.io/assets/img/favicons/apple-icon-72x72.png"> <link rel="apple-touch-icon" sizes="114x114" href="https://lahuman.github.io/assets/img/favicons/apple-icon-114x114.png"> <link rel="apple-touch-icon" sizes="144x144" href="https://lahuman.github.io/assets/img/favicons/apple-icon-144x144.png"> <link rel="shortcut icon" type="image/png" href="https://lahuman.github.io/favicon.png" /> <link rel="shortcut icon" href="https://lahuman.github.io/favicon.ico" /> <!-- mermaid --> <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script> <script>mermaid.initialize({startOnLoad:true});</script> <!-- Background Image --> <style type="text/css">body {background-image:url(https://lahuman.github.io/assets/img/placeholder-big.jpg); background-repeat: no-repeat; background-size: cover; }</style> <!-- Post Feature Image --> </head> <body> <nav id="dl-menu" class="dl-menuwrapper" role="navigation"> <button class="dl-trigger">Open Menu</button> <ul class="dl-menu"> <li><a href="https://lahuman.github.io/">Home</a></li> <li> <a href="#">About</a> <ul class="dl-submenu"> <li> <img src="https://lahuman.github.io/assets/img/logo.png" alt="lahuman photo" class="author-photo"> <h4>lahuman</h4> <p>열심히 사는 아저씨</p> </li> <li><a href="https://lahuman.github.io/about/"><span class="btn btn-inverse">Learn More</span></a></li> <li> <a href="http://facebook.com/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-facebook-square"></i> Facebook</a> </li> <li> <a href="http://linkedin.com/in/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-linkedin-square"></i> LinkedIn</a> </li> <li> <a href="http://github.com/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-github"></i> Github</a> </li> </ul><!-- /.dl-submenu --> </li> <li> <a href="#">Posts</a> <ul class="dl-submenu"> <li><a href="https://lahuman.github.io/posts/">All Posts</a></li> <li><a href="https://lahuman.github.io/tags/">All Tags</a></li> </ul> </li> <li><a href="https://lahuman.github.io/projects/" >Projects</a></li> </ul><!-- /.dl-menu --> </nav><!-- /.dl-menuwrapper --> <!-- Header --> <header class="header" role="banner"> <div class="wrapper animated fadeIn"> <div class="content"> <div class="post-title "> <h1>Centos 7.5에서 Python Multiprocess 좀비프로세스 문제</h1> <h4>10 May 2018</h4> <p class="reading-time"> <i class="fa fa-clock-o"></i> Reading time ~2 minutes </p><!-- /.entry-reading-time --> <a class="btn zoombtn" href="https://lahuman.github.io/posts/"> <i class="fa fa-chevron-left"></i> </a> </div> <h1 id="centos-75에서-python-multiprocess-좀비-프로세스-문제">CentOS 7.5에서 Python MultiProcess 좀비 프로세스 문제</h1> <h2 id="환경-정보">환경 정보</h2> <ul> <li>OS : CentOS 7.5</li> <li>Language : Python 2.7.5</li> </ul> <h2 id="현상">현상</h2> <p>프로그램에서 불규칙적으로 Multiprocess가 종료 되지 않고 남아 있음. kill -9 {PID} 로 Multiprocess를 종료 시키면, 종료 시점으로 새로운 프로세스가 생성되며 실행 시간은 00:00 으로 변경없이 유지됨.</p> <h2 id="문제점">문제점</h2> <p>Multiprocess는 Memory 자원을 반환 하지 않고 계속 점유 되는 문제 발생</p> <h2 id="코드-샘플">코드 샘플</h2> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from multiprocessing import Pool
 
 def processing(arge):
     while True:
@@ -13,82 +13,82 @@ if __name__ == '__main__':
             results = pool.map(processing, [1,2,3,4,5,6,7,8,9])
             pool.close()
             pool.join()
-</code></pre></div></div> <h2 id="임시-해결책">임시 해결책</h2> <blockquote> <p>발등에 떨어진 불을 끄기 위한 임시 해결책 입니다.</p> </blockquote> <p>특정 시간 이상 좀비 프로세스로 돌고 있을 경우 강제로 kill 하는 프로그램 작성</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#!/usr/bin/python
-#-*- coding: utf-8 -*-
+</code></pre></div></div> <h2 id="임시-해결책">임시 해결책</h2> <blockquote> <p>발등에 떨어진 불을 끄기 위한 임시 해결책 입니다.</p> </blockquote> <p>특정 시간 이상 좀비 프로세스로 돌고 있을 경우 강제로 kill 하는 프로그램 작성</p> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/usr/bin/python</span>
+<span class="c">#-*- coding: utf-8 -*-</span>
 
-import sys
+<span class="kn">import</span> <span class="nn">sys</span>
 
-sys.getdefaultencoding()
+<span class="n">sys</span><span class="o">.</span><span class="n">getdefaultencoding</span><span class="p">()</span>
 
-reload(sys)
-sys.setdefaultencoding('utf-8')
-sys.getdefaultencoding()
-
-
-
-import os
-import time
-import datetime
-import commands
-import re
-
-# python_path &amp; name
-python_path = os.path.dirname (os.path.realpath(__file__))
-python_name = os.path.basename(os.path.realpath(__file__))
-
-# sleep
-#time_sleep_set	= 'day'	# time.sleep(day)
-#time_sleep_set	= 'min'	# time.sleep(min)
-time_sleep_set	= 'sec'	# time.sleep(sec)
-time_sleep_int	=  30
+<span class="nb">reload</span><span class="p">(</span><span class="n">sys</span><span class="p">)</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">setdefaultencoding</span><span class="p">(</span><span class="s">'utf-8'</span><span class="p">)</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">getdefaultencoding</span><span class="p">()</span>
 
 
-def main():
 
-	chk_kill_time = 20  #minutes
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">import</span> <span class="nn">commands</span>
+<span class="kn">import</span> <span class="nn">re</span>
 
-	chk_proc_list = ['Process Name']
+<span class="c"># python_path &amp; name</span>
+<span class="n">python_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span> <span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="n">__file__</span><span class="p">))</span>
+<span class="n">python_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="n">__file__</span><span class="p">))</span>
 
-	for chk_proc in chk_proc_list:
-
-		pid_list = commands.getoutput("ps -eo pid,ppid,lstart,command | grep "+ chk_proc +" | grep -v grep")
-
-		if ( pid_list != '' ):
-
-			time_chk = datetime.datetime.now() - datetime.timedelta(minutes=chk_kill_time)
-
-			for pid_time_cmd in pid_list.split('\n'):
-				re_dst_str	= pid_time_cmd
-
-				re_pattern	= r'^\s*(\d+)\s+(\d+)\s+(?:\w+)\s+(\w+)\s+(\d{1,2})\s+(\d\d):(\d\d):(\d\d)\s+(\d{4})\s+(.*)'
-				re_compile	= re.compile( re_pattern, re.I )
-				re_findall	= re_compile.findall(re_dst_str)
-				re_findlen	= len( re_findall )
-
-				if( re_findlen &gt; 0 ):
+<span class="c"># sleep</span>
+<span class="c">#time_sleep_set	= 'day'	# time.sleep(day)</span>
+<span class="c">#time_sleep_set	= 'min'	# time.sleep(min)</span>
+<span class="n">time_sleep_set</span>	<span class="o">=</span> <span class="s">'sec'</span>	<span class="c"># time.sleep(sec)</span>
+<span class="n">time_sleep_int</span>	<span class="o">=</span>  <span class="mi">30</span>
 
 
-					pid	= re_findall[0][0]
-					ppid	= re_findall[0][1]
-					time_m	= re_findall[0][2]
-					time_d	= re_findall[0][3]
-					time_h	= re_findall[0][4]
-					time_i	= re_findall[0][5]
-					time_s	= re_findall[0][6]
-					time_y	= re_findall[0][7]
-					cmd	= re_findall[0][8]
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
 
-					time_j	= time_y +'-'+ time_m +'-'+ time_d +' '
-					time_j += time_h +':'+ time_i +':'+ time_s
-					time_j	= datetime.datetime.strptime(time_j, '%Y-%b-%d %H:%M:%S')
+	<span class="n">chk_kill_time</span> <span class="o">=</span> <span class="mi">20</span>  <span class="c">#minutes</span>
 
-					# if ( ppid == '1' ): continue
-					if ( time_j &lt; time_chk ):
-						os.system( 'kill -9 '+ pid )
+	<span class="n">chk_proc_list</span> <span class="o">=</span> <span class="p">[</span><span class="s">'Process Name'</span><span class="p">]</span>
+
+	<span class="k">for</span> <span class="n">chk_proc</span> <span class="ow">in</span> <span class="n">chk_proc_list</span><span class="p">:</span>
+
+		<span class="n">pid_list</span> <span class="o">=</span> <span class="n">commands</span><span class="o">.</span><span class="n">getoutput</span><span class="p">(</span><span class="s">"ps -eo pid,ppid,lstart,command | grep "</span><span class="o">+</span> <span class="n">chk_proc</span> <span class="o">+</span><span class="s">" | grep -v grep"</span><span class="p">)</span>
+
+		<span class="k">if</span> <span class="p">(</span> <span class="n">pid_list</span> <span class="o">!=</span> <span class="s">''</span> <span class="p">):</span>
+
+			<span class="n">time_chk</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">-</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">minutes</span><span class="o">=</span><span class="n">chk_kill_time</span><span class="p">)</span>
+
+			<span class="k">for</span> <span class="n">pid_time_cmd</span> <span class="ow">in</span> <span class="n">pid_list</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">):</span>
+				<span class="n">re_dst_str</span>	<span class="o">=</span> <span class="n">pid_time_cmd</span>
+
+				<span class="n">re_pattern</span>	<span class="o">=</span> <span class="s">r'^\s*(\d+)\s+(\d+)\s+(?:\w+)\s+(\w+)\s+(\d{1,2})\s+(\d\d):(\d\d):(\d\d)\s+(\d{4})\s+(.*)'</span>
+				<span class="n">re_compile</span>	<span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="nb">compile</span><span class="p">(</span> <span class="n">re_pattern</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">I</span> <span class="p">)</span>
+				<span class="n">re_findall</span>	<span class="o">=</span> <span class="n">re_compile</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">re_dst_str</span><span class="p">)</span>
+				<span class="n">re_findlen</span>	<span class="o">=</span> <span class="nb">len</span><span class="p">(</span> <span class="n">re_findall</span> <span class="p">)</span>
+
+				<span class="k">if</span><span class="p">(</span> <span class="n">re_findlen</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">):</span>
 
 
-if __name__ == '__main__':
-	# while True:
-	main()
+					<span class="n">pid</span>	<span class="o">=</span> <span class="n">re_findall</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+					<span class="n">ppid</span>	<span class="o">=</span> <span class="n">re_findall</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+					<span class="n">time_m</span>	<span class="o">=</span> <span class="n">re_findall</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span>
+					<span class="n">time_d</span>	<span class="o">=</span> <span class="n">re_findall</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span>
+					<span class="n">time_h</span>	<span class="o">=</span> <span class="n">re_findall</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">4</span><span class="p">]</span>
+					<span class="n">time_i</span>	<span class="o">=</span> <span class="n">re_findall</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">5</span><span class="p">]</span>
+					<span class="n">time_s</span>	<span class="o">=</span> <span class="n">re_findall</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">6</span><span class="p">]</span>
+					<span class="n">time_y</span>	<span class="o">=</span> <span class="n">re_findall</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">7</span><span class="p">]</span>
+					<span class="n">cmd</span>	<span class="o">=</span> <span class="n">re_findall</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">8</span><span class="p">]</span>
+
+					<span class="n">time_j</span>	<span class="o">=</span> <span class="n">time_y</span> <span class="o">+</span><span class="s">'-'</span><span class="o">+</span> <span class="n">time_m</span> <span class="o">+</span><span class="s">'-'</span><span class="o">+</span> <span class="n">time_d</span> <span class="o">+</span><span class="s">' '</span>
+					<span class="n">time_j</span> <span class="o">+=</span> <span class="n">time_h</span> <span class="o">+</span><span class="s">':'</span><span class="o">+</span> <span class="n">time_i</span> <span class="o">+</span><span class="s">':'</span><span class="o">+</span> <span class="n">time_s</span>
+					<span class="n">time_j</span>	<span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">time_j</span><span class="p">,</span> <span class="s">'</span><span class="si">%</span><span class="s">Y-</span><span class="si">%</span><span class="s">b-</span><span class="si">%</span><span class="s">d </span><span class="si">%</span><span class="s">H:</span><span class="si">%</span><span class="s">M:</span><span class="si">%</span><span class="s">S'</span><span class="p">)</span>
+
+					<span class="c"># if ( ppid == '1' ): continue</span>
+					<span class="k">if</span> <span class="p">(</span> <span class="n">time_j</span> <span class="o">&lt;</span> <span class="n">time_chk</span> <span class="p">):</span>
+						<span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span> <span class="s">'kill -9 '</span><span class="o">+</span> <span class="n">pid</span> <span class="p">)</span>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+	<span class="c"># while True:</span>
+	<span class="n">main</span><span class="p">()</span>
 
 </code></pre></div></div> <h2 id="os-python-module-등의-환경적인-원인이-있을-수-있다고-생각은-하고-있다-추가적으로-python-version을-올리는-것에-대하여-고민-중이다">OS, Python, Module 등의 환경적인 원인이 있을 수 있다고 생각은 하고 있다. 추가적으로 Python version을 올리는 것에 대하여 고민 중이다.</h2> <div class="entry-meta"> <br> <hr> <span class="entry-tags"><a href="https://lahuman.github.io/tags/#centos" title="Pages tagged centos" class="tag"><span class="term">centos</span></a><a href="https://lahuman.github.io/tags/#multiprocess" title="Pages tagged multiprocess" class="tag"><span class="term">multiprocess</span></a></span> <span class="social-share"> <a href="https://www.facebook.com/sharer/sharer.php?u=https://lahuman.github.io/Centos7.5_python_multiprocess/" title="Share on Facebook" class="tag"> <span class="term"><i class="fa fa-facebook-square"></i> Share</span> </a> <a href="https://twitter.com/intent/tweet?text=https://lahuman.github.io/Centos7.5_python_multiprocess/" title="Share on Twitter" class="tag"> <span class="term"><i class="fa fa-twitter-square"></i> Tweet</span> </a> <a href="https://plus.google.com/share?url=https://lahuman.github.io/Centos7.5_python_multiprocess/" title="Share on Google+" class="tag"> <span class="term"><i class="fa fa-google-plus-square"></i> +1</span> </a> </span> <div style="clear:both"></div> </div> <ins class="kakao_ad_area" style="display:none;" data-ad-unit = "DAN-ubp67fs9s850" data-ad-width = "320" data-ad-height = "100"></ins> <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script> </div> </div> <section id="disqus_thread" class="animated fadeInUp"></section><!-- /#disqus_thread --> </header> <!-- JS --> <script src="https://lahuman.github.io/assets/js/jquery-1.12.0.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.dlmenu.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.goup.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.magnific-popup.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.fitvid.min.js"></script> <script src="https://lahuman.github.io/assets/js/scripts.js"></script> <!-- Global site tag (gtag.js) - Google Analytics --> <script async src="https://www.googletagmanager.com/gtag/js?id=UA-74095083-1"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-74095083-1'); </script> <script type="text/javascript"> var disqus_shortname = 'daniels-blog'; (function() { var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true; dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js'; (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq); })(); (function () { var s = document.createElement('script'); s.async = true; s.type = 'text/javascript'; s.src = '//' + disqus_shortname + '.disqus.com/count.js'; (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s); }()); </script> <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript> <!-- MathJax --> <script async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> </body> </html>

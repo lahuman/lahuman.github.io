@@ -1,0 +1,1636 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2023-04-10T04:23:34+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">react 에서 build 이후에 환경(dev, product 등)에 따른 상수 처리</title><link href="https://lahuman.github.io/react_env_after_build/" rel="alternate" type="text/html" title="react 에서 build 이후에 환경(dev, product 등)에 따른 상수 처리" /><published>2023-04-07T00:00:00+00:00</published><updated>2023-04-07T00:00:00+00:00</updated><id>https://lahuman.github.io/react_env_after_build</id><content type="html" xml:base="https://lahuman.github.io/react_env_after_build/">&lt;h1 id=&quot;react-에서-build-이후에-환경dev-product-등에-따른-상수-처리&quot;&gt;react 에서 build 이후에 환경(dev, product 등)에 따른 상수 처리&lt;/h1&gt;
+
+&lt;p&gt;일반적으로 React에서의 상수는 .env를 활용해서 관리합니다.&lt;/p&gt;
+
+&lt;p&gt;하지만, 환경에 따라 상수를 변경해야 한다면 어떻게 처리해야 할까요?&lt;/p&gt;
+
+&lt;p&gt;정답은 build 이후에 환경 변수를 주입 할수 있게 설계 하면 됩니다.&lt;/p&gt;
+
+&lt;p&gt;React에서는 &lt;code class=&quot;highlighter-rouge&quot;&gt;public&lt;/code&gt; 이라는 디렉토리가 있고 이는 정적 파일을 보관하는 곳입니다. 또한 이 디렉토리에 있는 파일들은 빌드 시 자동으로 &lt;code class=&quot;highlighter-rouge&quot;&gt;build&lt;/code&gt; 디렉토리에 복사 되며, 브라우저에서 접근이 가능한 파일로 사용이 됩니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;전역-상수-파일-생성&quot;&gt;전역 상수 파일 생성&lt;/h3&gt;
+
+&lt;p&gt;먼저 환경 변수는 전역값으로 처리 하기 위해서 &lt;code class=&quot;highlighter-rouge&quot;&gt;window&lt;/code&gt; 전역 객체에 &lt;code class=&quot;highlighter-rouge&quot;&gt;env&lt;/code&gt;키를 이용해서 저장 합니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// root 디렉토리에 키 값과 벨류 키값을 가진 _env-config.js 파일 생성&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;env&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;REACT_APP_API&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;V_REACT_APP_API&quot;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# 환경에 따라 변하지 않는 값은 여기에 넣습니다. &lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;REACT_APP_API&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;https://lahuman.github.io
+&lt;span class=&quot;nv&quot;&gt;REACT_APP_USER&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;lahuman
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;indexhtml-수정&quot;&gt;index.html 수정&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;public&lt;/code&gt; 디렉토리의 &lt;code class=&quot;highlighter-rouge&quot;&gt;index.html&lt;/code&gt;을 아래와 같이 수정합니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;lang=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;en&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+...
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;noscript&amp;gt;&lt;/span&gt;
+      You need to enable JavaScript to run this app.
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/noscript&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;root&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 추가하는 부분 START --&amp;gt;&lt;/span&gt; 
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;%PUBLIC_URL%/env-config.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 추가하는 부분 END --&amp;gt;&lt;/span&gt; 
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;유틸-생성&quot;&gt;유틸 생성&lt;/h3&gt;
+
+&lt;p&gt;상수를 불러오는 유틸을 만듭니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// env.ts&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;env&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;any&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;env&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;any&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;any&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;process&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;로컬 개발환경에는 &lt;code class=&quot;highlighter-rouge&quot;&gt;window.env&lt;/code&gt;가 없을 경우 &lt;code class=&quot;highlighter-rouge&quot;&gt;process.env&lt;/code&gt;의 상수를 호출하도록 합니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;소스코드에서-사용-예제&quot;&gt;소스코드에서 사용 예제&lt;/h3&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;env&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;./env&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;App&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;className&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;App&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;h1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;process&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;REACT_APP_API&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/h1&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;      &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;h1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;REACT_APP_API&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)}&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/h1&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;      &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;h2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;REACT_APP_USER&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)}&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/h2&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;    &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/div&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;  &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;배포&quot;&gt;배포&lt;/h3&gt;
+
+&lt;p&gt;이후 배포시 &lt;code class=&quot;highlighter-rouge&quot;&gt;sed&lt;/code&gt; 명령어를 이용해서 원하는 값으로 변경합니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# 변경하려는 값이 환경 변수에 있다는 가정하에 아래와 같이 처리 합니다. &lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# 아래 명령어는 빌드 이후 실행되기 때문에, build된 디렉토리 밑으로 env-config.js 파일을 생성합니다. &lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;cat &lt;/span&gt;_env-config.js  | sed &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+                        &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;s|V_REACT_APP_API|&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;REACT_APP_API&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;|g&quot;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; /build/env-config.js
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;결과-확인&quot;&gt;결과 확인&lt;/h3&gt;
+
+&lt;iframe src=&quot;//codesandbox.io/embed/react-evn-after-build-ydqmw9?fontsize=14&amp;amp;hidenavigation=1&amp;amp;theme=dark&quot; style=&quot;width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;&quot; title=&quot;react_evn_after_build&quot; allow=&quot;accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking&quot; sandbox=&quot;allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts&quot;&gt;&lt;/iframe&gt;
+
+&lt;h2 id=&quot;예제-코드-보기&quot;&gt;&lt;a href=&quot;https://codesandbox.io/s/react-evn-after-build-ydqmw9?file=/src/App.tsx&quot;&gt;예제 코드 보기&lt;/a&gt;&lt;/h2&gt;
+
+&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://bobbyhadz.com/blog/typescript-property-does-not-exist-on-type-window&quot;&gt;Property does not exist on type Window in TypeScript [Fixed]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="env" /><category term="react" /><summary type="html">.env로만 처리는 안되어 util을 만들어야 합니다</summary></entry><entry><title type="html">Scrum 101</title><link href="https://lahuman.github.io/scrum_101/" rel="alternate" type="text/html" title="Scrum 101 " /><published>2023-04-06T00:00:00+00:00</published><updated>2023-04-06T00:00:00+00:00</updated><id>https://lahuman.github.io/scrum_101</id><content type="html" xml:base="https://lahuman.github.io/scrum_101/">&lt;h1 id=&quot;스크럼-101&quot;&gt;&lt;strong&gt;스크럼 101&lt;/strong&gt;&lt;/h1&gt;
+
+&lt;iframe src=&quot;//www.slideshare.net/slideshow/embed_code/key/hiouN4Nagu9YTJ&quot; width=&quot;595&quot; height=&quot;485&quot; frameborder=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; scrolling=&quot;no&quot; style=&quot;border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&quot; allowfullscreen=&quot;&quot;&gt; &lt;/iframe&gt;
+&lt;div style=&quot;margin-bottom:5px&quot;&gt; &lt;strong&gt; &lt;a href=&quot;//www.slideshare.net/lahuman1/101-256992956&quot; title=&quot;스크럼 101&quot; target=&quot;_blank&quot;&gt;스크럼 101&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&quot;//www.slideshare.net/lahuman1&quot; target=&quot;_blank&quot;&gt;Daniel Lim&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.yes24.com/Product/Goods/115632480&quot;&gt;출근했더니 스크럼 마스터가 된 건에 관하여 - 니시무라 나오토&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;애자일-소프트웨어&quot;&gt;애자일 소프트웨어&lt;/h1&gt;
+
+&lt;h3 id=&quot;애자일-선언문&quot;&gt;&lt;a href=&quot;https://agilemanifesto.org/iso/ko/manifesto.html&quot;&gt;애자일 선언문&lt;/a&gt;&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;목적을 달성하기 위해 모든 관계자가 긴밀하게 협조&lt;/li&gt;
+  &lt;li&gt;한번에 전체를 완성하기 보다 조금씩 만들되, 조기에 동작시켜 피드백 받음&lt;/li&gt;
+  &lt;li&gt;사용자나 관계자의 피드백을 바탕으로 결과물과 계획을 지속적으로 보완&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;스크럼&quot;&gt;스크럼&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;가치와 위험도, 필요성을 기준으로 요구사항을 정렬&lt;/li&gt;
+  &lt;li&gt;순서대로 구현하며 성과를 극대화&lt;/li&gt;
+  &lt;li&gt;정해진 시간 안에 작업을 완료 - 타임박스(timebox)&lt;/li&gt;
+  &lt;li&gt;현재 상태와 문제점을 명확하게 밝힘 - 투명성(transparency)&lt;/li&gt;
+  &lt;li&gt;개발할 제품과 진척에 이상은 없는지 수시로 확인 - 점검(inspection)&lt;/li&gt;
+  &lt;li&gt;더 나은 방법으로 작업 방식 개선 - 보완(adaptation)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;3가지-역할-5가지-활동-3가지-산출물&quot;&gt;3가지 역할, 5가지 활동, 3가지 산출물&lt;/h1&gt;
+
+&lt;p&gt;스크럼을 프레임워크라고 부르는 특징&lt;/p&gt;
+
+&lt;h3 id=&quot;스크럼가이드--한글pdf&quot;&gt;&lt;a href=&quot;https://scrumguides.org/scrum-guide.html&quot;&gt;스크럼가이드&lt;/a&gt; :: &lt;a href=&quot;https://scrumguides.org/docs/scrumguide/v2020/2020-Scrum-Guide-Korean.pdf&quot;&gt;한글PDF&lt;/a&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;산출물-1-프로덕트-백로그&quot;&gt;산출물 #1 프로덕트 백로그&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;구현하고 싶은 것을 목록으로 만듦&lt;/li&gt;
+  &lt;li&gt;항목은 언제든지 추가, 삭제 가능&lt;/li&gt;
+  &lt;li&gt;우선순위에 맞춰 정렬&lt;/li&gt;
+  &lt;li&gt;우선순위가 높은 항목부터 작업량을 추정&lt;/li&gt;
+  &lt;li&gt;정기적으로 항목의 순서나 내용, 작업량을 보완&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;사용자-스토리&quot;&gt;사용자 스토리&lt;/h4&gt;
+
+&lt;p&gt;제품의 요구 사항을 &lt;code class=&quot;highlighter-rouge&quot;&gt;사용자&lt;/code&gt; 관점에서 &lt;code class=&quot;highlighter-rouge&quot;&gt;누가&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;어떤 목적으로&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;무엇을 하길 원한다&lt;/code&gt;와 같은 형식으로 작성&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;역할-1-프로덕트-오너&quot;&gt;역할 #1 프로덕트 오너&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;제품의 What을 담당&lt;/li&gt;
+  &lt;li&gt;제품의 가치 극대화&lt;/li&gt;
+  &lt;li&gt;1개의 제품에 1명의 프로덕트 오너&lt;/li&gt;
+  &lt;li&gt;프로덕트 백로그 관리(우선순위, 완료)&lt;/li&gt;
+  &lt;li&gt;개발자와 상의하되 간섭 X&lt;/li&gt;
+  &lt;li&gt;이해관계자와 협업&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;프로덕트-오너-업무&quot;&gt;프로덕트 오너 업무&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;거시적 관점 계획&lt;/li&gt;
+  &lt;li&gt;제품의 비전 명확히 하고 주변과 공유&lt;/li&gt;
+  &lt;li&gt;제품을 만드는데 소요되는 예산 관리&lt;/li&gt;
+  &lt;li&gt;프로덕트 백로그 최신 상태 업데이트&lt;/li&gt;
+  &lt;li&gt;다른 사람이 프로덕트 백로그를 이해할 수 있도록 설명&lt;/li&gt;
+  &lt;li&gt;이해관계자와 프로덕트 백로그를 검토하고, 납기나 구현 순서 상의&lt;/li&gt;
+  &lt;li&gt;프로덕트 백로그의 각 항목이 완료 되었는지 점검&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;역할-2-디밸로퍼&quot;&gt;역할 #2 디밸로퍼&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;제품의 How를 담당&lt;/li&gt;
+  &lt;li&gt;제품을 동작하게 만듦&lt;/li&gt;
+  &lt;li&gt;팀원은 3 ~ 9명 정도 적절&lt;/li&gt;
+  &lt;li&gt;팀원의 역량이 곧 제품 개발 능력&lt;/li&gt;
+  &lt;li&gt;특수 목적의 보조 팀을 두지 않는다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;기능횡단팀cross-functional-team&quot;&gt;기능횡단팀(cross functional team)&lt;/h3&gt;
+&lt;p&gt;스크럼 시 &lt;code class=&quot;highlighter-rouge&quot;&gt;요구 분석팀&lt;/code&gt; 이나, &lt;code class=&quot;highlighter-rouge&quot;&gt;테스트 팀&lt;/code&gt; 같이 특정 업무만 전담하는 보조팀을 두지 않습니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;자기-관리화self-managing&quot;&gt;자기 관리화(self-managing)&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;개발자 스스로 책임지고 개발 완료&lt;/li&gt;
+  &lt;li&gt;개발팀 내의 의사 결정은 개발자 상호 간의 합의&lt;/li&gt;
+  &lt;li&gt;작업 방식에 대한 외부 간섭 X&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;활동-1-스프린트&quot;&gt;활동 #1 스프린트&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;프로젝트를 짧은 주기로 나눠서 진행&lt;/li&gt;
+  &lt;li&gt;각 주기는 같은 간격이며 1달을 넘기지 않는다&lt;/li&gt;
+  &lt;li&gt;하나의 주기를 스프린트라 부름&lt;/li&gt;
+  &lt;li&gt;스크럼의 활동 중 가장 큰 덩어리로 다른 4가지 활동을 포함&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;활동-2-스프린트-플래닝&quot;&gt;활동 #2 스프린트 플래닝&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;질주 계획&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;개발계획 수립을 위한 착수 회의&lt;/li&gt;
+  &lt;li&gt;스프린트 기간동안 할 일을 계획&lt;/li&gt;
+  &lt;li&gt;Why: 왜 하는지 생각 - &lt;strong&gt;목표&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;What: 무엇을 할지 생각 - &lt;strong&gt;일감 선택 &amp;amp; 구체화&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;How: 어떻게 할지 생각 - &lt;strong&gt;스프린트 백로그&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;산출물-2-스프린트-백로그&quot;&gt;산출물 #2 스프린트 백로그&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;프로덕트 백로그에서 작업 항목 선택&lt;/li&gt;
+  &lt;li&gt;실행 가능하게 작업을 구체화&lt;/li&gt;
+  &lt;li&gt;작업을 추가하거나 삭제&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;하루안에 끝나는 크기로 분할&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;산출물-3-인크리먼트&quot;&gt;산출물 #3 인크리먼트&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;이전 스프린트의 결과물에 이번 스프린트의 작업 결과가 더한 개발의 증가분 의미하며, 결과물은 소프트웨어이고 스프린트 종료 시점에 점검하도록 동작 가능한 상태여야 합니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;개발자는 백로그를 작업한 결과로 동작하는 제품을 만듦&lt;/li&gt;
+  &lt;li&gt;이전 스프린트의 결과물에 이번 스프린트의 결과물이 더해 짐&lt;/li&gt;
+  &lt;li&gt;결과물은 릴리스 여부와 상관없이 동작하고 점검받을 수 있어야 함&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;완료-조건예제&quot;&gt;완료 조건(예제)&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;위키 문서에 제품 명세 등록, 위키 문서에 관련 자료 등록&lt;/li&gt;
+  &lt;li&gt;리포지터리에 소스 코드 등록&lt;/li&gt;
+  &lt;li&gt;모든 public 메소드의 테스트 코드 구현, 모든 테스트 코드 성공&lt;/li&gt;
+  &lt;li&gt;소스코드를 빌드하고 시연&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;활동-3-데일리-스크럼&quot;&gt;활동 #3 데일리 스크럼&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;진행 상황 점검 활동&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;목표 달성에 문제가 없는지 진행 사항 점검&lt;/li&gt;
+  &lt;li&gt;문제를 해결하기보다는 문제가 발생한 상황에 집중&lt;/li&gt;
+  &lt;li&gt;매일 하되, 15분의 타임 박스를 지켜야 함&lt;/li&gt;
+  &lt;li&gt;이야기가 길어지면 회의를 따로 잡음&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;질문에-답하며-상황-공유&quot;&gt;질문에 답하며 상황 공유&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;스프린트가 순항하고 있는지, 작업의 진척에는 문제가 없는지, 도와줘야 할 일이 무엇인지 점검&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;스프린트 목표를 달성하기 위해 어제 할 일은 무엇인가?&lt;/li&gt;
+  &lt;li&gt;스프린트 목표를 달성하기 위해서 오늘 할 일은 무엇인가?&lt;/li&gt;
+  &lt;li&gt;스프린트 목표를 달성하는 데 방해가 되거나 도움이 필요한 일은 무엇인가?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;활동-4-스프린트-리뷰&quot;&gt;활동 #4 스프린트 리뷰&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;스프린트 리뷰를 할 때, 제품의 이해관계자인 &lt;code class=&quot;highlighter-rouge&quot;&gt;스테이크홀더&lt;/code&gt;가 초대되며, 작업된 결과물을 점검하면서 그에 대한 피드백을 얻음&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;프로덕트 오너가 주관하고 이해관계자가 참석&lt;/li&gt;
+  &lt;li&gt;개발자가 만든 결과물을 이해관계자에게 시연&lt;/li&gt;
+  &lt;li&gt;피드백을 받고 프로덕트 백로그를 재점검&lt;/li&gt;
+  &lt;li&gt;완성된 것과 완성되지 않은 것을 구분&lt;/li&gt;
+  &lt;li&gt;전체 진행 상황과 남을 작업을 점검&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;시연과-피드백-이외에-해야-할-일&quot;&gt;시연과 피드백 이외에 해야 할 일&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;제품과 비즈니스 환경에 대해 설명&lt;/li&gt;
+  &lt;li&gt;스프린트 중에 완료하지 못한 것을 설명&lt;/li&gt;
+  &lt;li&gt;스프린트 중에 직면했던 어려움과 해결 과정 설명&lt;/li&gt;
+  &lt;li&gt;프로덕트 백로그에 새로 추가할 게 있는지 논의&lt;/li&gt;
+  &lt;li&gt;예상되는 잠재위험에 대해 논의&lt;/li&gt;
+  &lt;li&gt;현재 진척 상황을 감안하여 작업 완료 시점이나 릴리즈 날짜를 예측&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;활동-5-스프린트-레트로스펙티브회고&quot;&gt;활동 #5 스프린트 레트로스펙티브(회고)&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;일하는 방식을 개선&lt;/li&gt;
+  &lt;li&gt;사람, 관계, 프로세스, 툴의 관점에서 스프린트 점검&lt;/li&gt;
+  &lt;li&gt;버그를 고치기보다 버그를 유발하는 작업 방식에 집중&lt;/li&gt;
+  &lt;li&gt;한 번에 너무 많은 것을 고치려 하지 않음&lt;/li&gt;
+  &lt;li&gt;잘된 점과 안된  점을 정리&lt;/li&gt;
+  &lt;li&gt;다음 스프린트에서 실천할 항목을 뽑음&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;역할-3-스크럼-마스터&quot;&gt;역할 #3 스크럼 마스터&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;스크럼이라는 프레임워크가 자리 잡게 도움&lt;/li&gt;
+  &lt;li&gt;일하는 데 방해되는  요소 제거&lt;/li&gt;
+  &lt;li&gt;봉사하는 마음으로 팀을 지원(&lt;a href=&quot;https://ko.wikipedia.org/wiki/%EC%84%9C%EB%B2%88%ED%8A%B8_%EB%A6%AC%EB%8D%94%EC%8B%AD&quot;&gt;서번트 리더쉽&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;퍼실리테이터와 코치 역할 겸비&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;업무 할당이나 진척 관리 하지 않음&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+&lt;h3 id=&quot;스크럼-마스터가-하는-추가적인-일&quot;&gt;스크럼 마스터가 하는 추가적인 일&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;프로덕트 오너와 개발자에게 애자일 개발과 스크럼을 알려줌&lt;/li&gt;
+  &lt;li&gt;스프린트 플래닝이나 스프린트 회고 진행을 도움&lt;/li&gt;
+  &lt;li&gt;프로덕트 오너와 개발자의 커뮤니케이션 도움&lt;/li&gt;
+  &lt;li&gt;프로덕트 오너와 개발자의 생산성이 높아지도록 변화를 꾀함&lt;/li&gt;
+  &lt;li&gt;프로덕트 백로그와 스프린트 백로그를 잘 쓰는 방법을 알려줌&lt;/li&gt;
+  &lt;li&gt;프로덕트 백로그와 스프린트 백로그를 잘 관리하는 방법을 알려줌&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;스크럼의-5가지-가치&quot;&gt;스크럼의 5가지 가치&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;확약 : 목표를 달성하기 위해 전력을 다할 것을 굳게 약속&lt;/li&gt;
+  &lt;li&gt;전념 : 목표를 달성하기 위해 각자가 맡은 일에 집중&lt;/li&gt;
+  &lt;li&gt;공개 : 모든 상황과 문제를 투명하게 공유&lt;/li&gt;
+  &lt;li&gt;존중 : 팀원의 역량과 존재 가치를 존중&lt;/li&gt;
+  &lt;li&gt;용기 : 옳은 일을 한다는 용기로 어려움 극복&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;qa&quot;&gt;Q&amp;amp;A&lt;/h1&gt;
+
+&lt;p&gt;토론해보아요~&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h1 id=&quot;스크럼은-종착지를-알아야-달릴-수-있다&quot;&gt;스크럼은 종착지를 알아야 달릴 수 있다.&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;목표 : 실현해 주기를 바라는 것은 무엇인가?&lt;/li&gt;
+  &lt;li&gt;과제 : 달성해 주기를 바르는 것은 무엇인가?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;엘리베이터-피치-인셉션-덱&quot;&gt;엘리베이터 피치 &lt;a href=&quot;https://agilewarrior.wordpress.com/2010/11/06/the-agile-inception-deck/&quot;&gt;인셉션 덱&lt;/a&gt;&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;투자자가 엘리베이터에서 내리기 전의 아주 짧은 시간(15 ~ 30초) 안에 제품을 설명하는 기법&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;[영업의 달인]은 (projectNm)&lt;/li&gt;
+  &lt;li&gt;[실시간으로 고객 정보를 확인] 하고 싶은 (need, oppertunity)&lt;/li&gt;
+  &lt;li&gt;[영업 사원]을 위한 (target customer)&lt;/li&gt;
+  &lt;li&gt;[업무 지원 앱]입니다. (product category)&lt;/li&gt;
+  &lt;li&gt;이 제품은 [외근 중에도 업무]를 할 수 있는데 (key benefit, reason to buy)&lt;/li&gt;
+  &lt;li&gt;[이전 영업 지원 시스템]과는 달리 (competitive, alternative)&lt;/li&gt;
+  &lt;li&gt;[최신 정보 알림 기능]이 차별화 포인트 입니다. (primary differentiation)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;프로덕트-백로그-1-요구-사항-열거&quot;&gt;프로덕트 백로그 #1 요구 사항 열거&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;제품의 &lt;code class=&quot;highlighter-rouge&quot;&gt;각종 요구 사항&lt;/code&gt;과 &lt;code class=&quot;highlighter-rouge&quot;&gt;개선 사항&lt;/code&gt;, 개발에 필요한 &lt;code class=&quot;highlighter-rouge&quot;&gt;단순 작업&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;기능&lt;/th&gt;
+      &lt;th&gt;목적&lt;/th&gt;
+      &lt;th&gt;설명&lt;/th&gt;
+      &lt;th&gt;예상견적&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;일일보고&lt;/td&gt;
+      &lt;td&gt;최신 정보를 수집하여 영업 전략을 세움&lt;/td&gt;
+      &lt;td&gt;일별로 방문 고객, 일시, 담당자, 제안 정보 입력&lt;/td&gt;
+      &lt;td&gt;5&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;로그인&lt;/td&gt;
+      &lt;td&gt;대외비 정보 보호를 위함&lt;/td&gt;
+      &lt;td&gt;사원번호와 비밀번호로 인증&lt;/td&gt;
+      &lt;td&gt;3&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;…&lt;/td&gt;
+      &lt;td&gt;…&lt;/td&gt;
+      &lt;td&gt;…&lt;/td&gt;
+      &lt;td&gt;…&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;프로덕트-백로그-2-사용자-스토리&quot;&gt;프로덕트 백로그 #2 사용자 스토리&lt;/h1&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;스토리&lt;/th&gt;
+      &lt;th&gt;시연방법&lt;/th&gt;
+      &lt;th&gt;견적&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;난 영업사원인데 / 고객의 상황을 일일 보고로 기록하는 기능이 필요해 / 그건 최신 정보를 수집하여 영업 전략을 세우기 위해서야&lt;/td&gt;
+      &lt;td&gt;고객 정보 화면에서 방문 일시와 방문자, 상담 내용, 보고 내용을 등록한다. 확인 화면에서는…&lt;/td&gt;
+      &lt;td&gt;5&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;난 보안관리자 인데 / 사용자 제한 하는 기능이 필요해. / 그건 대외비 정보가 외부로…&lt;/td&gt;
+      &lt;td&gt;인증 전에 업무 화면에 들어가면 로그인 화면이 표시..&lt;/td&gt;
+      &lt;td&gt;3&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;사용자-스토리-1&quot;&gt;사용자 스토리&lt;/h3&gt;
+
+&lt;p&gt;누가(who), 무엇을(what), 왜(why) 하고 싶은지를 쓰면 되는데, 
+&lt;code class=&quot;highlighter-rouge&quot;&gt;난 [어떤 사용자]인데 / [어떤 기능]이 필요해 / 그건 [어떤 일을 달성] 하기 위해서야.&lt;/code&gt; 와 같은 표현 합니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;일감-분류&quot;&gt;일감 분류&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;진짜 중요함&lt;/li&gt;
+  &lt;li&gt;좀 중요함&lt;/li&gt;
+  &lt;li&gt;필요함&lt;/li&gt;
+  &lt;li&gt;있으면 좋고 없어도 그만&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;일감-기준-작업량-추정&quot;&gt;일감 기준 작업량 추정&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;쉽게 끝낼 수 있을 것 같다 ( 소 )&lt;/li&gt;
+  &lt;li&gt;손이 많이 갈 것 같다 ( 중 )&lt;/li&gt;
+  &lt;li&gt;꽤 애를 먹을 것 같다 ( 대 )&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;작업량-가늠-방안스토리-포인트-활용&quot;&gt;작업량 가늠 방안(스토리 포인트 활용)&lt;/h3&gt;
+&lt;p&gt;1,2,3,4,8,13,21,34… 과 같은 &lt;code class=&quot;highlighter-rouge&quot;&gt;피보나치 수&lt;/code&gt;를 활용&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;벨로시티velocity&quot;&gt;벨로시티(velocity)&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;한 스프린트에서 끝낼 수 있는 포인트 수&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;언제-끝나는가&quot;&gt;언제 끝나는가&lt;/h4&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;구현할 기능의 포인트 총합 / 벨로시티 = 필요한 스프린트 횟수&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;어떤-결과물이-나오는가&quot;&gt;어떤 결과물이 나오는가&lt;/h4&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;벨로시트 * 스프린트 횟수 = 구현할 수 있는 포인트의 총합&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;### 스크럼의 3가지 역할
+스크럼 오너, 스크럼 마스터, 개발자&lt;/p&gt;
+
+&lt;h3 id=&quot;5가지-활동&quot;&gt;5가지 활동&lt;/h3&gt;
+&lt;p&gt;스프린트, 스프린트 계획, 데일리 스크럼, 스프린트 리뷰, 스프린트 회고&lt;/p&gt;
+
+&lt;h3 id=&quot;3가지-산출물&quot;&gt;3가지 산출물&lt;/h3&gt;
+&lt;p&gt;프로덕트 백로그, 스프린트 백로그, 증가분&lt;/p&gt;
+
+&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.yes24.com/Product/Goods/115632480&quot;&gt;출근했더니 스크럼 마스터가 된 건에 관하여 - 니시무라 나오토&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="scrum" /><summary type="html">출근했더니 스크럼 마스터가 된 건에 관하여를 읽고</summary></entry><entry><title type="html">nestjs에서 swagger사용시, generic 타입에 대한 response schema 처리</title><link href="https://lahuman.github.io/nestjs_swagger_generic/" rel="alternate" type="text/html" title="nestjs에서 swagger사용시, generic 타입에 대한 response schema 처리" /><published>2023-03-22T00:00:00+00:00</published><updated>2023-03-22T00:00:00+00:00</updated><id>https://lahuman.github.io/nestjs_swagger_generic</id><content type="html" xml:base="https://lahuman.github.io/nestjs_swagger_generic/">&lt;h1 id=&quot;package-lockjson에서-nexus-repository-변경시-처리-방법&quot;&gt;package-lock.json에서 Nexus Repository 변경시 처리 방법&lt;/h1&gt;
+
+&lt;p&gt;페이징 처리시 다음의 DTO를 사용하고 있습니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Pagination&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;ApiProperty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+  &lt;span class=&quot;kr&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;results&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[];&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;ApiProperty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+  &lt;span class=&quot;kr&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;page_total&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;ApiProperty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+  &lt;span class=&quot;kr&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;total&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;kd&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;paginationResults&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;PaginationResultInterface&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;results&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;paginationResults&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;results&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;page_total&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;paginationResults&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;results&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;total&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;paginationResults&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;total&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;다른 부분의 표현은 문제가 없는데, &lt;code class=&quot;highlighter-rouge&quot;&gt;generic&lt;/code&gt; 타입인 &lt;code class=&quot;highlighter-rouge&quot;&gt;public results: T[];&lt;/code&gt;를 제대로 표현하지 못해서 아쉬움을 느끼고 있었습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://aalonso.dev/blog/how-to-generate-generics-dtos-with-nestjsswagger-422g&quot;&gt;How to generate Generics DTOs with nestjs/swagger&lt;/a&gt;를 찾아서 적용하니 잘 표현 되네요.&lt;/p&gt;
+
+&lt;p&gt;적용 방법은 아래와 같습니다.&lt;/p&gt;
+
+&lt;p&gt;우선 신규 &lt;code class=&quot;highlighter-rouge&quot;&gt;ApiOkResponsePaginated&lt;/code&gt; 데코레이터를 추가 합니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;ApiOkResponse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;getSchemaPath&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;ApiExtraModels&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;ApiProperty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'@nestjs/swagger'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;PaginationResultInterface&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'./pagination.results.interface'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;applyDecorators&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Type&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'@nestjs/common'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Pagination&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// 중요! ApiProperty 를 사용하지 않음&lt;/span&gt;
+  &lt;span class=&quot;kr&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;results&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[];&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;ApiProperty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+  &lt;span class=&quot;kr&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;page_total&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;ApiProperty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+  &lt;span class=&quot;kr&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;total&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;kd&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;paginationResults&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;PaginationResultInterface&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;results&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;paginationResults&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;results&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;page_total&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;paginationResults&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;results&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;total&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;paginationResults&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;total&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// 데코레이터 추가&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ApiOkResponsePaginated&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;DataDto&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;unknown&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;dataDto&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;DataDto&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;applyDecorators&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;ApiExtraModels&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Pagination&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;dataDto&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;ApiOkResponse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;schema&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;allOf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+          &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;$ref&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;getSchemaPath&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Pagination&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+          &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;na&quot;&gt;properties&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+              &lt;span class=&quot;na&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;na&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'array'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                &lt;span class=&quot;na&quot;&gt;items&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;$ref&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;getSchemaPath&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;dataDto&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+              &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+          &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;마지막으로 아래와 같이 사용하려는 컨트롤러에서 &lt;code class=&quot;highlighter-rouge&quot;&gt;@ApiResponse&lt;/code&gt; 대신 &lt;code class=&quot;highlighter-rouge&quot;&gt;@ApiOkResponsePaginated&lt;/code&gt; 를 사용합니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;ApiOperation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;summary&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'아이템 상품 목록 조회'&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;ApiOkResponsePaginated&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ItmPrdMRO&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// ApiOkResponsePaginated와 함께 사용할 generic 타입 지정&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;Get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'prd/list'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;getItmPrdMPaginate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(@&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;Query&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;dto&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;FindByCondDto&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;itmPrdMService&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getItmPrdMPaginate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;dto&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;설정을 하고 결과를 확인하면 아래와 같이 원하는 response schema를 확인 할 수 있습니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&quot;page_total&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&quot;total&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&quot;data&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&quot;id&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&quot;admAdminMIdNm&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;string&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&quot;itmDcd&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;string&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&quot;imgPath&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;string&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&quot;itmWearDcdNm&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;string&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&quot;avlbStrtDt&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;string&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&quot;avlbEndDt&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;string&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&quot;appItmNm&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;string&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&quot;itmNm&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;string&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&quot;prdAmt&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&quot;modDtm&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;string&quot;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://aalonso.dev/blog/how-to-generate-generics-dtos-with-nestjsswagger-422g&quot;&gt;How to generate Generics DTOs with nestjs/swagger&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="repository" /><category term="node" /><summary type="html">applyDecorators 를 이용해서 처리 하면 되네요!</summary></entry><entry><title type="html">package-lock.json에서 Nexus Repository 변경시 처리 방법</title><link href="https://lahuman.github.io/nexus_url_change/" rel="alternate" type="text/html" title="package-lock.json에서 Nexus Repository 변경시 처리 방법" /><published>2023-03-16T00:00:00+00:00</published><updated>2023-03-16T00:00:00+00:00</updated><id>https://lahuman.github.io/nexus_url_change</id><content type="html" xml:base="https://lahuman.github.io/nexus_url_change/">&lt;h1 id=&quot;package-lockjson에서-nexus-repository-변경시-처리-방법&quot;&gt;package-lock.json에서 Nexus Repository 변경시 처리 방법&lt;/h1&gt;
+
+&lt;h2 id=&quot;1-package-lockjson-파일에-대하여&quot;&gt;1. &lt;code class=&quot;highlighter-rouge&quot;&gt;package-lock.json&lt;/code&gt; 파일에 대하여&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;package-lock.json&lt;/code&gt; 파일은 NPM 패키지 매니저에서 사용하는 파일 중 하나로, 프로젝트의 의존성(dependency) 정보를 저장하는 파일입니다. 이 파일은 &lt;code class=&quot;highlighter-rouge&quot;&gt;npm install&lt;/code&gt; 명령을 실행할 때 자동으로 생성되며, 프로젝트에 필요한 의존성 패키지의 버전 정보를 담고 있습니다.&lt;/p&gt;
+
+&lt;p&gt;만약 Nexus Repository의 URL이 변경되거나 새로운 Nexus Repository를 사용해야 하는 경우, &lt;code class=&quot;highlighter-rouge&quot;&gt;package-lock.json&lt;/code&gt; 파일을 업데이트해야 합니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;package-lock.json&lt;/code&gt; 파일의 구조는 다음과 같습니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;lahuman&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&quot;version&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;1.0.0&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&quot;lockfileVersion&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&quot;requires&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&quot;packages&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// 의존성 패키지 정보가 포함된 객체들&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&quot;dependencies&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// 프로젝트의 모든 의존성 패키지 정보가 포함된 객체들&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;packages&lt;/code&gt; 객체는 프로젝트에서 사용되는 모든 패키지 정보를 포함합니다. &lt;code class=&quot;highlighter-rouge&quot;&gt;dependencies&lt;/code&gt; 객체는 packages 객체에서 사용되는 의존성 패키지 정보만을 포함합니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;package-lock.json&lt;/code&gt; 파일은 프로젝트에서 사용되는 패키지의 버전 정보를 포함하고 있기 때문에, 다른 환경에서 프로젝트를 재구성할 때 항상 이 파일을 함께 사용해야 합니다. 이를 통해 모든 개발자나 서버에서 일관된 패키지 버전을 사용할 수 있습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;2-repository-주소-변경-처리&quot;&gt;2. Repository 주소 변경 처리&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;package-lock.json&lt;/code&gt;파일에서 주소를 확인합니다.&lt;/p&gt;
+
+&lt;p&gt;주소는 &lt;code class=&quot;highlighter-rouge&quot;&gt;resolved&lt;/code&gt;라는 키를 기반으로 아래 예제와 같이 설정됩니다&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&quot;node_modules/react-mui-validation&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&quot;version&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;0.3.0&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&quot;resolved&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;https://registry.npmjs.org/react-mui-validation/-/react-mui-validation-0.3.0.tgz&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&quot;integrity&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;sha512-NQK4A/wx8P61rZ0CNz/IdTz+Rh9RlE6PVtrwxcoIGxhKo7mDwMI1QIudvaOUX+2vnsnRFFxpNN1mr10ITMqB5Q==&quot;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;주소를 변경하는 방법은 정규식을 이용하면 쉽게 처리가 가능합니다.&lt;/p&gt;
+
+&lt;p&gt;변경하려는 주소를 정규식 형식에서 사용 할 수 있도록 변경합니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# 변경할 주소 준비 &lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ NEXUS_REGISTRY&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;https://lahuman.github.io/&quot;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# 정규식에서 사용할 수 있는 형태로 주소 변경 - https\:\/\/lahuman\.github\.io\/&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;REPO_URL&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;NEXUS_REGISTRY&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt; | sed &lt;span class=&quot;s1&quot;&gt;'s#/#\\/#g; s#\.#\\.#g; s/:/\\:/g;'&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt; 
+&lt;span class=&quot;c&quot;&gt;# sed 명령어를 이용한 주소 변경 후 new 파일을 생성&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;sed &lt;span class=&quot;nt&quot;&gt;-E&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;s/&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;resolved&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;(.*org&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\/&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;)/&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;resolved&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;REPO_URL&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/g&quot;&lt;/span&gt; package-lock.json &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; new
+&lt;span class=&quot;c&quot;&gt;# 생성된 파일을 pacage-lock.json으로 변경&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;mv new package-lock.json
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;위의 명령어를 실행 후 확인을 하면 아래와 같이 주소가 변경 된 것을 확인 할 수 있습니다&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&quot;node_modules/react-mui-validation&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&quot;version&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;0.3.0&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&quot;resolved&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;https://lahuman.github.io/react-mui-validation/-/react-mui-validation-0.3.0.tgz&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&quot;integrity&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;sha512-NQK4A/wx8P61rZ0CNz/IdTz+Rh9RlE6PVtrwxcoIGxhKo7mDwMI1QIudvaOUX+2vnsnRFFxpNN1mr10ITMqB5Q==&quot;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;마지막으로&quot;&gt;마지막으로&lt;/h2&gt;
+
+&lt;p&gt;package-lock.json 파일은 일반적으로 Git 저장소에 커밋하여 프로젝트의 의존성 정보를 공유합니다. 
+이 파일은 package.json 파일의 의존성 정보를 기반으로 자동으로 생성되기 때문에 직접 수정하지 않아도 됩니다. 
+하지만 때로는 package-lock.json 파일을 직접 수정해야 하는 경우도 있습니다. 
+예를 들어, 의존성 패키지의 버전을 업그레이드하거나, 의존성 패키지를 수동으로 추가하거나 제거하는 경우 그리고 repository 주소 변경 등이 있습니다.&lt;/p&gt;</content><author><name></name></author><category term="repository" /><category term="node" /><summary type="html">정규식을 이용해서 package-lock.json의 주소를 변경 처리</summary></entry><entry><title type="html">Node, Nginx를 설치하는 Dockerfile</title><link href="https://lahuman.github.io/Dockerfile_node_nginx/" rel="alternate" type="text/html" title="Node, Nginx를 설치하는 Dockerfile" /><published>2023-02-22T00:00:00+00:00</published><updated>2023-02-22T00:00:00+00:00</updated><id>https://lahuman.github.io/Dockerfile_node_nginx</id><content type="html" xml:base="https://lahuman.github.io/Dockerfile_node_nginx/">&lt;h1 id=&quot;node-nginx를-설치하는-dockerfile&quot;&gt;Node, Nginx를 설치하는 Dockerfile&lt;/h1&gt;
+
+&lt;p&gt;Dockerfile에서 Amazone Linux를 기반으로 nginx를 설치 하는 방법은 일반적으로 아래와 같은 명령어를 이용합니다&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;from amazonlinux
+
+RUN  yum update &lt;span class=&quot;nt&quot;&gt;--security&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--bugfix&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt;
+
+RUN yum install &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt; python3 pip3
+RUN  yum &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt; install gcc-c++ make
+RUN  yum &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt; install curl
+
+&lt;span class=&quot;c&quot;&gt;# install nginx&lt;/span&gt;
+RUN amazon-linux-extras install &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt; nginx1
+RUN nginx &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;nginx에서 필요한 추가 모듈을 설치하기 위해서 (ex: &lt;code class=&quot;highlighter-rouge&quot;&gt;http_sub_module&lt;/code&gt;) 컴파일 설치를 해야 합니다. 
+이때 사용하는 &lt;code class=&quot;highlighter-rouge&quot;&gt;Dockerfile&lt;/code&gt;은 아래와 같습니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;from amazonlinux
+
+RUN  yum update &lt;span class=&quot;nt&quot;&gt;--security&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--bugfix&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt;
+
+RUN yum install &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt; python3 pip3
+RUN  yum &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt; install gcc-c++ make
+RUN  yum &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt; install curl
+
+&lt;span class=&quot;c&quot;&gt;# install node&lt;/span&gt;
+RUN curl &lt;span class=&quot;nt&quot;&gt;-sL&lt;/span&gt; https://rpm.nodesource.com/setup_16.x |  bash -
+RUN  yum install &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt; nodejs
+
+&lt;span class=&quot;c&quot;&gt;# datetime zone setting&lt;/span&gt;
+RUN date
+RUN mv /etc/localtime /etc/localtime_org
+RUN ln &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; /usr/share/zoneinfo/Asia/Seoul /etc/localtime
+RUN date
+
+&lt;span class=&quot;c&quot;&gt;# filebeat for opensearch&lt;/span&gt;
+COPY ./filebeat-oss-7.10.2-x86_64.rpm &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+RUN yum install &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt;  filebeat-oss-7.10.2-x86_64.rpm
+
+&lt;span class=&quot;c&quot;&gt;# install nginx&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# RUN amazon-linux-extras install -y nginx1&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# RUN nginx -v&lt;/span&gt;
+
+RUN yum install &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt; wget &lt;span class=&quot;nb&quot;&gt;tar &lt;/span&gt;gzip gcc g++ make gcc-c++ libxslt-devel perl curl
+
+&lt;span class=&quot;c&quot;&gt;# Nginx 설치 디렉토리 설정&lt;/span&gt;
+RUN mkdir nginx_source
+WORKDIR ./nginx_source/
+
+&lt;span class=&quot;c&quot;&gt;# nginx-1.20.2 다운&lt;/span&gt;
+RUN wget https://nginx.org/download/nginx-1.20.2.tar.gz
+RUN &lt;span class=&quot;nb&quot;&gt;tar &lt;/span&gt;xvf nginx-1.20.2.tar.gz
+
+&lt;span class=&quot;c&quot;&gt;# Nginx 설치를 위한 모듈들 설치 START&lt;/span&gt;
+RUN wget  https://sourceforge.net/projects/pcre/files/pcre/8.45/pcre-8.45.tar.gz
+RUN &lt;span class=&quot;nb&quot;&gt;tar &lt;/span&gt;xvf pcre-8.45.tar.gz
+
+RUN wget https://www.openssl.org/source/openssl-1.1.1l.tar.gz
+RUN &lt;span class=&quot;nb&quot;&gt;tar&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-xzvf&lt;/span&gt; openssl-1.1.1l.tar.gz
+
+&lt;span class=&quot;c&quot;&gt;# RUN wget https://fossies.org/linux/misc/legacy/zlib-1.2.11.tar.gz&lt;/span&gt;
+RUN wget https://github.com/madler/zlib/archive/v1.2.11.tar.gz
+RUN &lt;span class=&quot;nb&quot;&gt;tar &lt;/span&gt;zxf v1.2.11.tar.gz
+&lt;span class=&quot;c&quot;&gt;# Nginx 설치를 위한 모듈들 설치 END&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# 실행 계정 생성&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#RUN useradd --shell /sbin/nologin www-data&lt;/span&gt;
+
+RUN &lt;span class=&quot;nb&quot;&gt;ls&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-al&lt;/span&gt;
+WORKDIR ./nginx-1.20.2/
+&lt;span class=&quot;c&quot;&gt;# 컴파일 옵션 설정 **--with-http_sub_module** 내가 추가한 옵션이다.&lt;/span&gt;
+RUN  ./configure &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;--with-http_sub_module&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;--with-zlib&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;../zlib-1.2.11 &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;--with-pcre&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;../pcre-8.45 &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;--with-openssl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;../openssl-1.1.1l &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;--with-http_ssl_module&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;--with-debug&lt;/span&gt;  &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;--prefix&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/etc/nginx
+&lt;span class=&quot;c&quot;&gt;#  --user=www-data \&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#  --group=www-data&lt;/span&gt;
+
+RUN  make&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+RUN  make install&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+RUN /etc/nginx/sbin/nginx &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;위의 이미지에서 nginx 실행, 설정 파일의 위치는 아래와 같습니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# 설정파일 위치&lt;/span&gt;
+/etc/nginx/conf/nginx.conf
+&lt;span class=&quot;c&quot;&gt;# 실행 파일 위치&lt;/span&gt;
+/etc/nginx/sbin/nginx 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;해당 이미지는 nginx가 &lt;code class=&quot;highlighter-rouge&quot;&gt;foreground&lt;/code&gt;로 실행되고 있지 않기 때문에, 이미지 실행시 종료되지 않고 실행을 원한다면 &lt;code class=&quot;highlighter-rouge&quot;&gt;Dockerfile&lt;/code&gt;에 아래 명령어로 추가 해야 합니다&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# 외부 오픈 port&lt;/span&gt;
+EXPOSE 80
+&lt;span class=&quot;c&quot;&gt;# foreground 실행 명령어&lt;/span&gt;
+CMD &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;/etc/nginx/sbin/nginx&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;-g&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;daemon off;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;나중에 Docker 이미지 생성이 필요하면 참고 하려고 남겨 둡니다! :)&lt;/p&gt;</content><author><name></name></author><category term="dockerfile" /><category term="nginx" /><category term="node" /><summary type="html">Amazone 리눅스에서 Nginx complie 형식으로 설치</summary></entry><entry><title type="html">VSCode에서 Jest Debug 설정</title><link href="https://lahuman.github.io/jest_debug_vscode/" rel="alternate" type="text/html" title="VSCode에서 Jest Debug 설정" /><published>2023-01-27T00:00:00+00:00</published><updated>2023-01-27T00:00:00+00:00</updated><id>https://lahuman.github.io/jest_debug_vscode</id><content type="html" xml:base="https://lahuman.github.io/jest_debug_vscode/">&lt;h1 id=&quot;vscode에서-jest-debug-설정&quot;&gt;VSCode에서 Jest Debug 설정&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;테스트 케이스를 실행 중 에러가 발생했습니다. 이를 해결하기 위해서는 console.log 만으론 부족하여서, jest + debug 처리를 해보았습니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;시작하기&quot;&gt;시작하기&lt;/h2&gt;
+&lt;p&gt;vscode에서 왼쪽에 &lt;code class=&quot;highlighter-rouge&quot;&gt;run to debug&lt;/code&gt; 버튼을 클릭하여, &lt;code class=&quot;highlighter-rouge&quot;&gt;Run and Debug&lt;/code&gt; 버튼을 클릭하여 &lt;code class=&quot;highlighter-rouge&quot;&gt;.vscode&lt;/code&gt; 디렉토리 와 &lt;code class=&quot;highlighter-rouge&quot;&gt;launch.json&lt;/code&gt; 파일을 생성합니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;launch.json&lt;/code&gt; 파일은 아래와 같은 설정을 가집니다 .&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&quot;version&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;1.0.0&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&quot;configurations&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&quot;type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;node&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&quot;request&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;launch&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Jest: current file&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&quot;program&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;${workspaceFolder}/node_modules/jest-cli/bin/jest.js&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&quot;args&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;--config&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;./test/jest-e2e.json&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&quot;console&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;integratedTerminal&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&quot;disableOptimisticBPs&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&quot;windows&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;s2&quot;&gt;&quot;program&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;${workspaceFolder}/node_modules/jest/bin/jest&quot;&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;필요에 의해서 &lt;code class=&quot;highlighter-rouge&quot;&gt;args&lt;/code&gt; 의 값을 변경하여 실행 할 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;아래는 여러 옵션을 추가한 예제 입니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;args&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;--runInBand&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;--config&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;./test/jest-e2e.json&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;--testRegex&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;./test/user.e2e-spec.ts&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;--forceExit&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;더욱 자세한 설정은 &lt;a href=&quot;https://code.visualstudio.com/docs/editor/debugging#_launch-configurations&quot;&gt;Debugging in VS Code&lt;/a&gt; 또는 &lt;a href=&quot;https://code.visualstudio.com/docs/nodejs/nodejs-debugging#_launch-configuration-attributes&quot;&gt;Node.js debugging in VS Code&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;deguggin-시작하기&quot;&gt;deguggin 시작하기&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;breakpoint를 확인하려는 코드에 설정&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Ctrl + Shift + D&lt;/code&gt; 또는 왼쪽에 &lt;code class=&quot;highlighter-rouge&quot;&gt;Run and Debug&lt;/code&gt; 메뉴 선택&lt;/li&gt;
+  &lt;li&gt;상단에서 실행 버튼 클릭 또는 &lt;code class=&quot;highlighter-rouge&quot;&gt;F5&lt;/code&gt; 를 눌러서 debug 시작&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;//www.youtube.com/embed/YnkeDlf0IU4&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;h2 id=&quot;예제-코드-보기&quot;&gt;&lt;a href=&quot;https://github.com/lahuman/jest-debug-vscode&quot;&gt;예제 코드 보기&lt;/a&gt;&lt;/h2&gt;
+
+&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://gist.github.com/jherax/231b2dda7f9cce20e13f4590594fdb70&quot;&gt;VS Code: Debugging Jest&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="vscode" /><category term="jest" /><category term="debug" /><summary type="html">디버깅을 해보아요!</summary></entry><entry><title type="html">nestjs-pino 로깅 처리</title><link href="https://lahuman.github.io/nestjs_pino_logging/" rel="alternate" type="text/html" title="nestjs-pino 로깅 처리" /><published>2023-01-17T00:00:00+00:00</published><updated>2023-01-17T00:00:00+00:00</updated><id>https://lahuman.github.io/nestjs_pino_logging</id><content type="html" xml:base="https://lahuman.github.io/nestjs_pino_logging/">&lt;h1 id=&quot;nestjs-pino-로깅-처리&quot;&gt;nestjs-pino 로깅 처리&lt;/h1&gt;
+
+&lt;h2 id=&quot;상황-정리&quot;&gt;상황 정리&lt;/h2&gt;
+
+&lt;div class=&quot;mermaid&quot;&gt; 
+sequenceDiagram;
+    User-&amp;gt;&amp;gt;+Controller: Request with Auth;
+    Controller-&amp;gt;&amp;gt;+Service: Some logging;
+    Service-&amp;gt;&amp;gt;+Repository: Some logging;  
+    Repository--&amp;gt;&amp;gt;-Service: DTO;
+    Service--&amp;gt;&amp;gt;-Controller: Result;
+    Controller--&amp;gt;&amp;gt;-User: Response;
+&lt;/div&gt;
+
+&lt;p&gt;위와 같은 WEB 환경에서 &lt;code class=&quot;highlighter-rouge&quot;&gt;Some logging&lt;/code&gt;의 경우 &lt;code class=&quot;highlighter-rouge&quot;&gt;Request(요청)&lt;/code&gt; 정보가 없기 때문에 동시 다발적인 이벤트의 로그들을 추적하기가 불가능 합니다.&lt;/p&gt;
+
+&lt;p&gt;이를 &lt;a href=&quot;https://www.npmjs.com/package/nestjs-pino&quot;&gt;nestjs-pino&lt;/a&gt; 이용해서 각 로그별로 동일한 요청의 경우 연결 처리 할 수 있도록 작성합니다&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;a href=&quot;https://www.npmjs.com/package/nestjs-pino&quot;&gt;nestjs-pino&lt;/a&gt;에서도 적혀 있지만, &lt;a href=&quot;https://www.npmjs.com/package/pino-http&quot;&gt;pino-http&lt;/a&gt;모듈을 &lt;code class=&quot;highlighter-rouge&quot;&gt;nestjs&lt;/code&gt;에 녹인 프로젝트입니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;필요-모듈-정보&quot;&gt;필요 모듈 정보&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.npmjs.com/package/nestjs-pino&quot;&gt;nestjs-pino&lt;/a&gt; : nestjs와 연동 처리된 모듈&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.npmjs.com/package/pino-http&quot;&gt;pino-http&lt;/a&gt; : pino 로그에 request, response 정보를 bind 처리한 모듈&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.npmjs.com/package/file-stream-rotator&quot;&gt;file-stream-rotator&lt;/a&gt; : 파일 스트림을 기반으로 파일의 생명주기를 관리하는 모듈&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.npmjs.com/package/pino-pretty&quot;&gt;pino-pretty&lt;/a&gt; : pino 로그의 결과를 이쁘게 정렬하여 표기하는 모듈&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;기본-모듈-설치-및-설정&quot;&gt;기본 모듈 설치 및 설정&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.npmjs.com/package/nestjs-pino&quot;&gt;nestjs-pino&lt;/a&gt; 는 기본적으로 로그 파일 저장시 파일을 나눠주거나, 관리를 지원하지 않습니다.&lt;/p&gt;
+
+&lt;p&gt;이를 &lt;a href=&quot;https://www.npmjs.com/package/file-stream-rotator&quot;&gt;file-stream-rotator&lt;/a&gt; 모듈을 이용해서 로그 파일에 대한 생명주기 및 적재 관리를 합니다.&lt;/p&gt;
+
+&lt;p&gt;다음 명령어로 기본적인 모듈을 설치합니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;npm i nestjs-pino pino-http file-stream-rotator
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;nestjs-설정하기&quot;&gt;nestjs 설정하기&lt;/h2&gt;
+
+&lt;p&gt;먼저, nestjs의 &lt;code class=&quot;highlighter-rouge&quot;&gt;main.ts&lt;/code&gt;에서 Logging을 설정 합니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Logger&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;nestjs-pino&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;app&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;NestFactory&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;AppModule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;bufferLogs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;useLogger&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Logger&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이후 &lt;code class=&quot;highlighter-rouge&quot;&gt;app.module.ts&lt;/code&gt;에 아래와 같이 설정 합니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;LoggerModule&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;nestjs-pino&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;Module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;imports&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;LoggerModule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;forRoot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()],&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;AppModule&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;위의 예제는 기본 설정입니다.&lt;/p&gt;
+
+&lt;p&gt;위와 같이 설정 후 아래와 같이 로깅을 하면,&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// NestJS standard built-in logger.&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// Logs will be produced by pino internally&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Logger&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'@nestjs/common'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;MyService&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;kr&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;readonly&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;logger&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Logger&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;MyService&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// All logger methods have args format the same as pino, but pino methods&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// `trace` and `info` are mapped to `verbose` and `log` to satisfy&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// `LoggerService` interface of NestJS:&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;logger&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;verbose&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'bar'&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'baz %s'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'qux'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;logger&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;debug&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'foo %s %o'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'bar'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;baz&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'qux'&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;logger&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'foo'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;아래와 같이 표출 됩니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// Logs by injected Logger and PinoLogger &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;Services/Controllers. Every log
+// has it&lt;span class=&quot;s1&quot;&gt;'s request data and unique `req.id` (by default id is unique per
+// process, but you can set function to generate it from request context and
+// for example pass here incoming `X-Request-ID` header or generate UUID)
+{&quot;level&quot;:10,&quot;time&quot;:1629823792023,&quot;pid&quot;:15067,&quot;hostname&quot;:&quot;my-host&quot;,&quot;req&quot;:{&quot;id&quot;:1,&quot;method&quot;:&quot;GET&quot;,&quot;url&quot;:&quot;/&quot;,&quot;query&quot;:{},&quot;params&quot;:{&quot;0&quot;:&quot;&quot;},&quot;headers&quot;:{&quot;host&quot;:&quot;localhost:3000&quot;,&quot;user-agent&quot;:&quot;curl/7.64.1&quot;,&quot;accept&quot;:&quot;*/*&quot;},&quot;remoteAddress&quot;:&quot;::1&quot;,&quot;remotePort&quot;:63822},&quot;context&quot;:&quot;MyService&quot;,&quot;foo&quot;:&quot;bar&quot;,&quot;msg&quot;:&quot;baz qux&quot;}
+{&quot;level&quot;:20,&quot;time&quot;:1629823792023,&quot;pid&quot;:15067,&quot;hostname&quot;:&quot;my-host&quot;,&quot;req&quot;:{&quot;id&quot;:1,&quot;method&quot;:&quot;GET&quot;,&quot;url&quot;:&quot;/&quot;,&quot;query&quot;:{},&quot;params&quot;:{&quot;0&quot;:&quot;&quot;},&quot;headers&quot;:{&quot;host&quot;:&quot;localhost:3000&quot;,&quot;user-agent&quot;:&quot;curl/7.64.1&quot;,&quot;accept&quot;:&quot;*/*&quot;},&quot;remoteAddress&quot;:&quot;::1&quot;,&quot;remotePort&quot;:63822},&quot;context&quot;:&quot;MyService&quot;,&quot;msg&quot;:&quot;foo bar {\&quot;baz\&quot;:\&quot;qux\&quot;}&quot;}
+{&quot;level&quot;:30,&quot;time&quot;:1629823792023,&quot;pid&quot;:15067,&quot;hostname&quot;:&quot;my-host&quot;,&quot;req&quot;:{&quot;id&quot;:1,&quot;method&quot;:&quot;GET&quot;,&quot;url&quot;:&quot;/&quot;,&quot;query&quot;:{},&quot;params&quot;:{&quot;0&quot;:&quot;&quot;},&quot;headers&quot;:{&quot;host&quot;:&quot;localhost:3000&quot;,&quot;user-agent&quot;:&quot;curl/7.64.1&quot;,&quot;accept&quot;:&quot;*/*&quot;},&quot;remoteAddress&quot;:&quot;::1&quot;,&quot;remotePort&quot;:63822},&quot;context&quot;:&quot;MyService&quot;,&quot;msg&quot;:&quot;foo&quot;}
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;로깅-결과-이쁘게-표시-하기&quot;&gt;로깅 결과 이쁘게 표시 하기&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;a href=&quot;https://www.npmjs.com/package/pino-pretty&quot;&gt;pino-pretty&lt;/a&gt;는 stdout 리디렉션을 사용하기 때문에 경우에 따라 셸 제한으로 인해 명령이 오류와 함께 종료될 수 있습니다. 따라서 운영에서는 사용하지 말고, 개발시에만 사용하세요.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;로깅을 이쁘게 표기하기 위해서는 &lt;a href=&quot;https://www.npmjs.com/package/pino-pretty&quot;&gt;pino-pretty&lt;/a&gt;모듈을 설치하면 됩니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;npm install pino-pretty
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;설정은 아래와 같이 할 수 있습니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;LoggerModule&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'nestjs-pino'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;Module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;imports&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;LoggerModule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;forRoot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;pinoHttp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'add some name to every JSON line'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+          &lt;span class=&quot;na&quot;&gt;level&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;process&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;NODE_ENV&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!==&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'production'&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'debug'&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'info'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+          &lt;span class=&quot;c1&quot;&gt;// install 'pino-pretty' package in order to use the following option&lt;/span&gt;
+          &lt;span class=&quot;na&quot;&gt;transport&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;process&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;NODE_ENV&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!==&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'production'&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;target&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'pino-pretty'&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;undefined&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+          &lt;span class=&quot;na&quot;&gt;useLevelLabels&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+          &lt;span class=&quot;c1&quot;&gt;// and all the others...&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;MyModule&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;처리를 하면 다음과 같이 정렬된 로그를 확인 가능합니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;17:05:49.172] INFO &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;20249&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;: GET / 200 168 - Mozilla/5.0 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;Macintosh&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; Intel Mac OS X 10_15_7&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; AppleWebKit/537.36 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;KHTML, like Gecko&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; Chrome/108.0.0.0 Safari/537.36 ::1
+   &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&quot;level&quot;&lt;/span&gt;: 10,
+  &lt;span class=&quot;s2&quot;&gt;&quot;time&quot;&lt;/span&gt;: 1629823792023,
+  &lt;span class=&quot;s2&quot;&gt;&quot;pid&quot;&lt;/span&gt;: 15067,
+  &lt;span class=&quot;s2&quot;&gt;&quot;hostname&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;my-host&quot;&lt;/span&gt;,
+  &lt;span class=&quot;s2&quot;&gt;&quot;req&quot;&lt;/span&gt;: &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&quot;id&quot;&lt;/span&gt;: 1,
+    &lt;span class=&quot;s2&quot;&gt;&quot;method&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;GET&quot;&lt;/span&gt;,
+    &lt;span class=&quot;s2&quot;&gt;&quot;url&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;/&quot;&lt;/span&gt;,
+    &lt;span class=&quot;s2&quot;&gt;&quot;query&quot;&lt;/span&gt;: &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
+    &lt;span class=&quot;s2&quot;&gt;&quot;params&quot;&lt;/span&gt;: &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&quot;0&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
+    &lt;span class=&quot;s2&quot;&gt;&quot;headers&quot;&lt;/span&gt;: &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&quot;host&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;localhost:3000&quot;&lt;/span&gt;,
+      &lt;span class=&quot;s2&quot;&gt;&quot;user-agent&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;curl/7.64.1&quot;&lt;/span&gt;,
+      &lt;span class=&quot;s2&quot;&gt;&quot;accept&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;*/*&quot;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
+    &lt;span class=&quot;s2&quot;&gt;&quot;remoteAddress&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;::1&quot;&lt;/span&gt;,
+    &lt;span class=&quot;s2&quot;&gt;&quot;remotePort&quot;&lt;/span&gt;: 63822
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
+  &lt;span class=&quot;s2&quot;&gt;&quot;context&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;MyService&quot;&lt;/span&gt;,
+  &lt;span class=&quot;s2&quot;&gt;&quot;foo&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;bar&quot;&lt;/span&gt;,
+  &lt;span class=&quot;s2&quot;&gt;&quot;msg&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;baz qux&quot;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;로그-설정-파일-관리&quot;&gt;로그 설정 파일 관리&lt;/h2&gt;
+
+&lt;p&gt;다음은 &lt;code class=&quot;highlighter-rouge&quot;&gt;pinoLogging.ts&lt;/code&gt;로 로깅 설정에 대한 정보입니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;pino&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'pino'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;FileStreamRotator&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'file-stream-rotator'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;v4&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'uuid'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Level&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'fatal'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'error'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'warn'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'info'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'debug'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'trace'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;LOG_LEVEL&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;process&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;LOGGING_DEBUG&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'debug'&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'info'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// 로그 파일 관리 스트림 생성&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;rotatingLogStream&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;FileStreamRotator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getStream&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;filename&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;process&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;LOGGING_PATH&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;LOG_LEVEL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;LOG_LEVEL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;-%DATE%`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 파일 위치 &amp;amp; 이름&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;frequency&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'1h'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 주기 설정&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;date_format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'YYYY-MM-DD-HH'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 데이터 포멧 설정&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;process&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;LOGGING_MAXSIZE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 최대 파일 크기 설정&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;max_logs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;process&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;LOGGING_MAXFILES&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 파일 로깅&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;audit_file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;process&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;LOGGING_PATH&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/audit.json`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 정보 파일&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;extension&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'.log'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 로그 확장자&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;create_symlink&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 링크 파일 여부&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;symlink_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'tail-current.log'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//링크 파일 명&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;logginConfig&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;pinoHttp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;genReqId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// req - id 를 uuid로 생성&lt;/span&gt;
+          &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;uuid&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;v4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+          &lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;header&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'X-Request-Id'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;uuid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+          &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;uuid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;transport&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;LOG_LEVEL&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'debug'&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// debug일 경우 pretty 처리&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;target&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'pino-pretty'&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;undefined&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;level&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;LOG_LEVEL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 여기에도 있고, stream 상세에도 있어야 정상 동작 한다&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;stream&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;pino&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;multistream&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// multistream으로 여러군데 동시 출력&lt;/span&gt;
+          &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;na&quot;&gt;stream&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;rotatingLogStream&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;na&quot;&gt;level&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;LOG_LEVEL&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Level&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+          &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+          &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;na&quot;&gt;stream&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;process&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;stdout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 콘솔에 출력&lt;/span&gt;
+            &lt;span class=&quot;na&quot;&gt;level&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;process&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;LOGGING_CONSOLE_LEVEL&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Level&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+          &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;]),&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;formatters&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 로그 표시시 포멧&lt;/span&gt;
+          &lt;span class=&quot;nx&quot;&gt;level&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;level&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;level&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+          &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;redact&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 로그 표기시 제외 처리&lt;/span&gt;
+          &lt;span class=&quot;na&quot;&gt;remove&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+          &lt;span class=&quot;na&quot;&gt;paths&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+            &lt;span class=&quot;s1&quot;&gt;'email'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;s1&quot;&gt;'password'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;s1&quot;&gt;'req.query'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;s1&quot;&gt;'req.params'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;s1&quot;&gt;'req.query'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;s1&quot;&gt;'res.headers'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;s1&quot;&gt;'req.headers.host'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;s1&quot;&gt;'req.headers.connection'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;s1&quot;&gt;'req.headers.accept'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;s1&quot;&gt;'req.headers.origin'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;s1&quot;&gt;'req.headers.referer'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;s1&quot;&gt;'req.headers[&quot;content-type&quot;]'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;s1&quot;&gt;'req.headers[&quot;sec-ch-ua&quot;]'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;s1&quot;&gt;'req.headers[&quot;sec-ch-ua-mobile&quot;]'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;s1&quot;&gt;'req.headers[&quot;user-agent&quot;]'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;s1&quot;&gt;'req.headers[&quot;sec-ch-ua-platform&quot;]'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;s1&quot;&gt;'req.headers[&quot;sec-fetch-site&quot;]'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;s1&quot;&gt;'req.headers[&quot;sec-fetch-mode&quot;]'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;s1&quot;&gt;'req.headers[&quot;sec-fetch-dest&quot;]'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;s1&quot;&gt;'req.headers[&quot;accept-encoding&quot;]'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;s1&quot;&gt;'req.headers[&quot;accept-language&quot;]'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;s1&quot;&gt;'req.headers[&quot;if-none-match&quot;]'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+          &lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;timestamp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;pino&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;stdTimeFunctions&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;isoTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;전체-예제-코드-바로-가기&quot;&gt;&lt;a href=&quot;https://github.com/lahuman/nestjs_101&quot;&gt;전체 예제 코드 바로 가기&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;전체 예제 코드를 보면, &lt;a href=&quot;https://www.npmjs.com/package/nestjs-pino&quot;&gt;nestjs-pino&lt;/a&gt; 외에도 nestjs에서 사용되는 여러 모듈의 사용법을 정리해 두었습니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.npmjs.com/package/nestjs-pino&quot;&gt;nestjs-pino&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.npmjs.com/package/pino-http&quot;&gt;pino-http&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.npmjs.com/package/file-stream-rotator&quot;&gt;file-stream-rotator&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="nestjs" /><category term="pino" /><category term="logging" /><summary type="html">request 데이터를 로그에 삽입해주는 모듈(pino-http) + nestjs 입니다.</summary></entry><entry><title type="html">Node.js 메모리 옵션</title><link href="https://lahuman.github.io/node_memory_options/" rel="alternate" type="text/html" title="Node.js 메모리 옵션" /><published>2023-01-10T00:00:00+00:00</published><updated>2023-01-10T00:00:00+00:00</updated><id>https://lahuman.github.io/node_memory_options</id><content type="html" xml:base="https://lahuman.github.io/node_memory_options/">&lt;h1 id=&quot;nodejs-메모리-옵션&quot;&gt;Node.js 메모리 옵션&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;테스트 케이스를 로컬에서 돌릴때는 문제 없었는데, 운영에서 실행하니 메모리 부족 오류가 발생했습니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;오류-로그&quot;&gt;오류 로그&lt;/h2&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;&lt;span class=&quot;nt&quot;&gt;---&lt;/span&gt; Last few GCs &lt;span class=&quot;nt&quot;&gt;---&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;1516:0x56a6a70]    93701 ms: Scavenge 1952.6 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;2079.2&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; -&amp;gt; 1939.9 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;2079.2&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; MB, 5.0 / 0.3 ms  &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;average mu &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 0.309, current mu &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 0.242&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; task 
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;1516:0x56a6a70]    93740 ms: Scavenge 1953.1 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;2079.2&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; -&amp;gt; 1940.6 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;2079.2&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; MB, 5.0 / 0.2 ms  &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;average mu &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 0.309, current mu &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 0.242&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; task 
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;1516:0x56a6a70]    93799 ms: Scavenge 1956.1 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;2079.2&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; -&amp;gt; 1941.9 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;2079.2&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; MB, 5.5 / 0.7 ms  &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;average mu &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 0.309, current mu &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 0.242&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; allocation failure 
+
+
+&amp;lt;&lt;span class=&quot;nt&quot;&gt;---&lt;/span&gt; JS stacktrace &lt;span class=&quot;nt&quot;&gt;---&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+
+FATAL ERROR: Ineffective mark-compacts near heap limit Allocation failed - JavaScript heap out of memory
+ 1: 0xb09c10 node::Abort&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;node]
+ 2: 0xa1c193 node::FatalError&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;char const&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;, char const&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;node]
+ 3: 0xcf8dde v8::Utils::ReportOOMFailure&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;v8::internal::Isolate&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;, char const&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;, bool&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;node]
+ 4: 0xcf9157 v8::internal::V8::FatalProcessOutOfMemory&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;v8::internal::Isolate&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;, char const&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;, bool&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;node]
+ 5: 0xeb09f5  &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;node]
+ 6: 0xeb14d6  &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;node]
+ 7: 0xebf9fe  &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;node]
+ 8: 0xec0440 v8::internal::Heap::CollectGarbage&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;v8::internal::AllocationSpace, v8::internal::GarbageCollectionReason, v8::GCCallbackFlags&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;node]
+ 9: 0xec33be v8::internal::Heap::AllocateRawWithRetryOrFailSlowPath&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;int, v8::internal::AllocationType, v8::internal::AllocationOrigin, v8::internal::AllocationAlignment&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;node]
+10: 0xe84632 v8::internal::Factory::AllocateRaw&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;int, v8::internal::AllocationType, v8::internal::AllocationAlignment&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;node]
+11: 0xe7ef4c v8::internal::FactoryBase&amp;lt;v8::internal::Factory&amp;gt;::AllocateRawArray&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;int, v8::internal::AllocationType&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;node]
+12: 0xe7f025 v8::internal::FactoryBase&amp;lt;v8::internal::Factory&amp;gt;::NewFixedArrayWithFiller&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;v8::internal::Handle&amp;lt;v8::internal::Map&amp;gt;, int, v8::internal::Handle&amp;lt;v8::internal::Oddball&amp;gt;, v8::internal::AllocationType&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;node]
+13: 0x10e6c5b v8::internal::MaybeHandle&amp;lt;v8::internal::OrderedHashSet&amp;gt; v8::internal::OrderedHashTable&amp;lt;v8::internal::OrderedHashSet, 1&amp;gt;::Allocate&amp;lt;v8::internal::Isolate&amp;gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;v8::internal::Isolate&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;, int, v8::internal::AllocationType&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;node]
+14: 0x109c878 v8::internal::KeyAccumulator::AddKey&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;v8::internal::Handle&amp;lt;v8::internal::Object&amp;gt;, v8::internal::AddKeyConversion&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;node]
+15: 0x10a14e1 v8::internal::KeyAccumulator::CollectOwnPropertyNames&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;v8::internal::Handle&amp;lt;v8::internal::JSReceiver&amp;gt;, v8::internal::Handle&amp;lt;v8::internal::JSObject&amp;gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;node]
+16: 0x10a1a8f v8::internal::KeyAccumulator::CollectOwnKeys&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;v8::internal::Handle&amp;lt;v8::internal::JSReceiver&amp;gt;, v8::internal::Handle&amp;lt;v8::internal::JSObject&amp;gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;node]
+17: 0x10a1d23 v8::internal::KeyAccumulator::CollectKeys&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;v8::internal::Handle&amp;lt;v8::internal::JSReceiver&amp;gt;, v8::internal::Handle&amp;lt;v8::internal::JSReceiver&amp;gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;node]
+18: 0x10a2733 v8::internal::KeyAccumulator::GetKeys&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;v8::internal::Handle&amp;lt;v8::internal::JSReceiver&amp;gt;, v8::internal::KeyCollectionMode, v8::internal::PropertyFilter, v8::internal::GetKeysConversion, bool, bool&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;node]
+19: 0x10896bc v8::internal::JSReceiver::DefineProperties&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;v8::internal::Isolate&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;, v8::internal::Handle&amp;lt;v8::internal::Object&amp;gt;, v8::internal::Handle&amp;lt;v8::internal::Object&amp;gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;node]
+20: 0xd7c726 v8::internal::Builtin_ObjectDefineProperties&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;int, unsigned long&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;, v8::internal::Isolate&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;node]
+21: 0x15f2199  &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;node]
+Aborted &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;core dumped&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;oom-오류-수정-방법&quot;&gt;OOM 오류 수정 방법&lt;/h2&gt;
+
+&lt;p&gt;OOM 오류를 해결하려면 Node.js 명령줄 옵션을 사용하여 메모리 제한을 명시적으로 구성하기만 하면 됩니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# -max-old-space-size=&amp;lt;size_megabytes&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# 사용 예제 &lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;node &lt;span class=&quot;nt&quot;&gt;--max-old-space-size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;2048 index.js &lt;span class=&quot;c&quot;&gt;#increase to 2GB&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;node &lt;span class=&quot;nt&quot;&gt;--max-old-space-size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;3072 index.js &lt;span class=&quot;c&quot;&gt;#increase to 3GB&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;node &lt;span class=&quot;nt&quot;&gt;--max-old-space-size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;4096 index.js &lt;span class=&quot;c&quot;&gt;#increase to 4GB&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;node &lt;span class=&quot;nt&quot;&gt;--max-old-space-size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;5120 index.js &lt;span class=&quot;c&quot;&gt;#increase to 5GB&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;node &lt;span class=&quot;nt&quot;&gt;--max-old-space-size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;6144 index.js &lt;span class=&quot;c&quot;&gt;#increase to 6GB&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;node &lt;span class=&quot;nt&quot;&gt;--max-old-space-size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;7168 index.js &lt;span class=&quot;c&quot;&gt;#increase to 7GB&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;node &lt;span class=&quot;nt&quot;&gt;--max-old-space-size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;8192 index.js &lt;span class=&quot;c&quot;&gt;#increase to 8GB&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;사용-가이드&quot;&gt;사용 가이드&lt;/h2&gt;
+
+&lt;p&gt;메모리 값의 경우 환경, Node.js버젼의 기본값에 의존하는 대신 &lt;code class=&quot;highlighter-rouge&quot;&gt;--max-old-space-size&lt;/code&gt;를 항상 명시적으로 설정하는 것이 좋습니다.&lt;/p&gt;
+
+&lt;p&gt;예를 들어 메모리가 &lt;code class=&quot;highlighter-rouge&quot;&gt;2GB&lt;/code&gt;인 시스템에서는 이 값을 &lt;code class=&quot;highlighter-rouge&quot;&gt;1536(1.5GB)&lt;/code&gt;으로 설정하여 일부 메모리를 다른 용도로 남겨두어  &lt;code class=&quot;highlighter-rouge&quot;&gt;메모리 스와핑을 방지&lt;/code&gt;하는 것이 좋습니다.&lt;/p&gt;
+
+&lt;p&gt;또한 작은 컴퓨터(Raspberry Pi 보드 등)에서 Node.js를 사용하여 간단한 웹 서버를 실행하는 경우  Node.js가 소중한 메모리를 너무 많이 사용하지 않도록 128MB 정도의 작은 값으로 &lt;code class=&quot;highlighter-rouge&quot;&gt;--max-old-space-size&lt;/code&gt;를 이용해 설정할 수 있습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;gc-등-추가-옵션&quot;&gt;gc 등 추가 옵션&lt;/h2&gt;
+
+&lt;p&gt;대용량 접속(&lt;a href=&quot;https://blog.jayway.com/2015/04/13/600k-concurrent-websocket-connections-on-aws-using-node-js/&quot;&gt;600k concurrent websocket connections on AWS using Node.js&lt;/a&gt;)의 처리를 진행할 경우 gc(garbage collector)로 인해 몇초간 서버가 멈추는 현상이 발생할 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;gc를 수동으로 전환하기 위해서는 다음 옵션을 사용합니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;node &lt;span class=&quot;nt&quot;&gt;--trace-gc&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--expose-gc&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--nouse-idle-notification&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--max-new-space-size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;2048 &lt;span class=&quot;nt&quot;&gt;--max-old-space-size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;8192 index.js
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;--nouse-idle-notification&lt;/code&gt;: gc 자동 실행 방지&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;--expose-gc&lt;/code&gt; : gc() 함수를 자바스크립트에서 직접 호출&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;--trace-gc&lt;/code&gt; : gc 표출 &lt;a href=&quot;https://nodejs.org/en/docs/guides/diagnostics/memory/using-gc-traces/&quot;&gt;Tracing garbage collection&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;--max-new-space-size&lt;/code&gt; : 피크 성능을 줄여버리지만, 멈춤 시간을 짧게 가져가야 한다면 해당 값을 2048(2G) 정도로 작게 가져가면, 100ms 정도로 짧아짐&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;--noincremental-marking&lt;/code&gt; : 피크 성능이 중요하고 서버 멈춤을 늘려도 된다면 사용, 1GB 당 1초의 서버 멈춤 가능&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;--max-semi-space-size&lt;/code&gt; :  단기 객체용으로 예약된 최대 힙 크기&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;--max-executable-size&lt;/code&gt; : 실행 코드용으로 예약된 힙의 최대 크기(적시 컴파일된 JavaScript의 기본 코드 결과)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://medium.com/geekculture/node-js-default-memory-settings-3c0fe8a9ba1&quot;&gt;Node.js Default Memory Settings&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://blog.jayway.com/2015/04/13/600k-concurrent-websocket-connections-on-aws-using-node-js/&quot;&gt;600k concurrent websocket connections on AWS using Node.js&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/30252905/nodejs-decrease-v8-garbage-collector-memory-usage&quot;&gt;nodejs decrease v8 garbage collector memory usage&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="node" /><category term="memory" /><summary type="html">메모리와 성능에 관련된 기타 옵션</summary></entry><entry><title type="html">DBA 인터뷰 준비</title><link href="https://lahuman.github.io/dba_interview_question/" rel="alternate" type="text/html" title="DBA 인터뷰 준비" /><published>2023-01-06T00:00:00+00:00</published><updated>2023-01-06T00:00:00+00:00</updated><id>https://lahuman.github.io/dba_interview_question</id><content type="html" xml:base="https://lahuman.github.io/dba_interview_question/">&lt;h1 id=&quot;dba-면접관으로-선정-되었습니다&quot;&gt;DBA 면접관으로 선정 되었습니다.&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;DBA를 뽑으려고 면접을 진행하고 있습니다. 다음주에 면접인데, 면접 질문을 어떻게 준비할지 고민하다고 &lt;a href=&quot;https://chat.openai.com/chat&quot;&gt;openai&lt;/a&gt;를 활용해 보았습니다. 
+개인적으로 꽤 좋은 결과가 나왔다고 생각되네요!&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;1-어떤-데이터베이스-모델에-익숙하고-가장-많은-작업-경험이-있습니까&quot;&gt;1. 어떤 데이터베이스 모델에 익숙하고 가장 많은 작업 경험이 있습니까?&lt;/h2&gt;
+
+&lt;p&gt;관계형, 객체 지향 및 NoSQL을 비롯한 여러 데이터베이스 모델에 익숙합니다.&lt;/p&gt;
+
+&lt;p&gt;관계형 데이터베이스는 데이터를 행과 열의 테이블(관계라고도 함)로 구성하는 관계형 모델을 기반으로 합니다. 각 행은 고유한 레코드를 나타내고 각 열은 특정 속성 또는 데이터 조각을 나타냅니다.&lt;/p&gt;
+
+&lt;p&gt;객체 지향 데이터베이스는 데이터를 속성과 동작이 있는 객체로 나타내는 객체 지향 모델을 기반으로 합니다. 이러한 데이터베이스는 소프트웨어 응용 프로그램에서 볼 수 있는 것과 같은 복잡한 데이터 구조를 저장하고 조작하도록 설계되었습니다.&lt;/p&gt;
+
+&lt;p&gt;NoSQL 데이터베이스는 기존의 SQL 관계형 모델을 사용하지 않는 데이터베이스 클래스입니다. 반구조화, 비구조화 또는 다형성 데이터와 같이 관계형 모델에 적합하지 않은 대량의 데이터를 처리하도록 설계되었습니다. NoSQL 데이터베이스에는 키-값 저장소, 문서 데이터베이스 및 그래프 데이터베이스와 같은 다양한 유형이 포함됩니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;2-주어진-애플리케이션의-요구-사항을-충족하기-위해-데이터베이스-스키마를-어떻게-설계합니까&quot;&gt;2. 주어진 애플리케이션의 요구 사항을 충족하기 위해 데이터베이스 스키마를 어떻게 설계합니까?&lt;/h2&gt;
+
+&lt;p&gt;데이터베이스 스키마 설계에는 저장해야 하는 데이터와 서로 다른 데이터 엔터티 간의 관계를 결정하는 작업이 포함됩니다. 다음은 지정된 애플리케이션의 요구 사항을 충족하도록 데이터베이스 스키마를 설계하기 위해 따를 수 있는 몇 가지 단계입니다.&lt;/p&gt;
+
+&lt;p&gt;저장해야 하는 데이터 식별: 엔터티 유형 및 각 엔터티의 특성을 포함하여 애플리케이션이 저장해야 하는 데이터를 이해하는 것부터 시작합니다. 예를 들어 CRM(고객 관계 관리) 시스템용 스키마를 디자인하는 경우 “고객”, “주문” 및 “제품”과 같은 엔터티가 각각 고유한 특성을 가질 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;엔터티 간의 관계 결정: 다음으로 서로 다른 엔터티 간의 관계를 식별합니다. 예를 들어 고객이 여러 주문을 할 수 있으며 주문에 여러 제품이 포함될 수 있습니다. 이러한 관계는 테이블 간에 관련 데이터를 연결하는 데 사용되는 외래 키를 사용하여 나타낼 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;적절한 데이터 모델 선택: 식별한 데이터 및 관계를 기반으로 애플리케이션에 적합한 데이터 모델을 선택합니다. 가장 일반적인 데이터 모델은 관계형 모델과 객체 지향 모델입니다.&lt;/p&gt;
+
+&lt;p&gt;스키마의 시각적 표현 만들기: 엔터티-관계(ER) 다이어그램과 같은 도구를 사용하여 스키마의 시각적 표현을 만드는 것이 도움이 될 수 있습니다. ER 다이어그램은 스키마의 엔티티, 속성 및 관계를 보여줍니다.&lt;/p&gt;
+
+&lt;p&gt;스키마 정규화: 정규화는 중복성과 종속성을 최소화하기 위해 스키마에서 데이터를 구성하는 프로세스입니다. 이를 통해 필요한 저장 공간을 줄이고 쿼리 효율성을 높일 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;스키마 테스트 및 구체화: 스키마가 완성되면 애플리케이션의 요구 사항을 충족하는지 테스트하는 것이 중요합니다. 여기에는 샘플 쿼리를 실행하거나 스키마를 사용하여 테스트 환경에서 데이터를 저장 및 검색하는 작업이 포함될 수 있습니다. 필요한 경우 테스트 결과에 따라 스키마를 세분화할 수 있습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;3-데이터베이스에서-데이터-무결성과-일관성을-어떻게-보장합니까&quot;&gt;3. 데이터베이스에서 데이터 무결성과 일관성을 어떻게 보장합니까?&lt;/h2&gt;
+
+&lt;p&gt;데이터 유형 및 제약 조건 사용: 데이터 유형 및 제약 조건을 사용하여 데이터가 일관되고 올바른 형식으로 데이터베이스에 입력되도록 할 수 있습니다. 예를 들어 “integer” 데이터 유형으로 정의된 열은 정수 값만 저장할 수 있으며 “not null” 제약 조건을 사용하여 열을 비워 둘 수 없도록 할 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;트랜잭션 사용: 트랜잭션을 사용하면 일련의 데이터베이스 작업을 단일 작업 단위로 실행할 수 있습니다. 작업이 실패하면 전체 트랜잭션이 롤백되어 데이터베이스가 일관된 상태로 유지됩니다.&lt;/p&gt;
+
+&lt;p&gt;저장 프로시저 사용: 저장 프로시저는 데이터베이스에 저장할 수 있는 미리 정의된 SQL 문의 집합입니다. 복잡한 논리를 캡슐화하고 데이터가 일관되고 제어된 방식으로 조작되도록 하는 데 사용할 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;트리거 사용: 트리거는 테이블의 행 삽입 또는 업데이트와 같은 특정 이벤트에 대한 응답으로 자동으로 실행되는 특수 유형의 저장 프로시저입니다. 트리거는 유효하지 않은 데이터를 거부하거나 데이터가 데이터베이스의 다른 데이터와 일치하도록 추가 처리를 수행하여 데이터 무결성 및 일관성을 강화하는 데 사용할 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;참조 무결성 구현: 참조 무결성은 서로 다른 테이블에 있는 데이터 간의 관계가 유지되도록 하는 데이터베이스 개념입니다. 예를 들어 “customer” 테이블의 행이 “orders” 테이블의 행을 참조하는 경우 참조 무결성을 사용하여 주문 행에 대한 모든 참조를 먼저 제거하지 않는 한 주문 행을 삭제할 수 없도록 할 수 있습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;4-데이터베이스-시스템에서-성능과-확장성을-어떻게-처리합니까&quot;&gt;4. 데이터베이스 시스템에서 성능과 확장성을 어떻게 처리합니까?&lt;/h2&gt;
+
+&lt;p&gt;데이터베이스 시스템에서 성능과 확장성을 처리하는 방법에는 여러 가지가 있습니다.&lt;/p&gt;
+
+&lt;p&gt;인덱싱: 인덱싱은 검색을 쉽게 하기 위해 데이터베이스에서 데이터를 구성하는 방법입니다. 열 또는 열 집합에 인덱스를 생성하면 해당 열에서 특정 값을 검색하는 쿼리 속도를 높일 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;파티셔닝: 파티셔닝은 큰 테이블을 파티션이라고 하는 더 작은 조각으로 나누는 방법입니다. 이는 관련 파티션만 검색하면 되므로 데이터의 하위 집합에만 액세스하는 쿼리의 성능을 향상시킬 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;캐싱: 캐싱은 자주 액세스하는 데이터를 메모리에 저장하여 빠르게 검색할 수 있도록 하는 방법입니다. 캐시를 사용하면 디스크 액세스 횟수를 줄여 데이터베이스의 성능을 향상시킬 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;쿼리 최적화: 쿼리를 최적화하면 데이터베이스 엔진이 쿼리를 실행하는 데 필요한 작업량을 줄여 데이터베이스의 성능을 향상시킬 수 있습니다. 여기에는 가장 효율적인 쿼리 계획 선택, 적절한 인덱스 사용, 처리해야 하는 데이터 양 최소화가 포함될 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;샤딩: 샤딩은 데이터를 여러 데이터베이스 서버에 가로로 분할하는 방법입니다. 이것은 더 많은 양의 데이터와 더 많은 수의 동시 사용자를 처리할 수 있게 함으로써 데이터베이스 시스템의 확장성을 향상시킬 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;복제: 복제는 여러 데이터베이스 서버에서 데이터 복사본을 만드는 방법입니다. 이렇게 하면 읽기 작업을 여러 서버에 분산하고 장애 발생 시 백업을 제공하여 데이터베이스 시스템의 확장성과 가용성을 향상시킬 수 있습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;5-서로-다른-데이터베이스-시스템-또는-플랫폼-간의-데이터-마이그레이션을-어떻게-처리합니까&quot;&gt;5. 서로 다른 데이터베이스 시스템 또는 플랫폼 간의 데이터 마이그레이션을 어떻게 처리합니까?&lt;/h2&gt;
+
+&lt;p&gt;서로 다른 데이터베이스 시스템 또는 플랫폼 간의 데이터 마이그레이션은 신중한 계획 및 실행이 필요한 복잡한 프로세스일 수 있습니다. 다음은 데이터 마이그레이션을 처리하기 위해 수행할 수 있는 몇 가지 단계입니다.&lt;/p&gt;
+
+&lt;p&gt;마이그레이션 계획: 마이그레이션을 시작하기 전에 프로세스를 계획하고 발생할 수 있는 잠재적인 문제를 식별하는 것이 중요합니다. 여기에는 마이그레이션해야 하는 데이터, 데이터 크기, 마이그레이션 기간 및 데이터에 대한 종속성을 결정하는 작업이 포함될 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;대상 데이터베이스 준비: 데이터를 마이그레이션하기 전에 대상 데이터베이스를 준비하는 것이 중요합니다. 여기에는 필요한 테이블과 인덱스를 만들고 필수 보안 또는 액세스 제어를 설정하는 작업이 포함될 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;데이터 추출: 다음 단계는 원본 데이터베이스에서 데이터를 추출하는 것입니다. 여기에는 데이터를 파일로 내보내거나 대상 데이터베이스로 직접 전송하는 작업이 포함될 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;데이터 변환: 원본 및 대상 데이터베이스의 구조에 따라 새 스키마에 맞게 데이터를 변환해야 할 수 있습니다. 여기에는 데이터 유형 매핑, 데이터 형식 재지정 또는 데이터 병합 또는 분할이 포함될 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;데이터 로드: 데이터가 추출되고 변환되면 대상 데이터베이스에 로드할 수 있습니다. 여기에는 파일에서 데이터를 가져오거나 원본 데이터베이스에서 직접 전송하는 작업이 포함될 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;데이터 확인: 데이터가 마이그레이션된 후 올바르게 마이그레이션되었는지 확인하는 것이 중요합니다. 여기에는 데이터의 개수 또는 합계를 비교하거나 샘플 쿼리를 실행하여 데이터가 정확하고 완전한지 확인하는 작업이 포함될 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;애플리케이션 테스트: 데이터를 마이그레이션한 후 애플리케이션을 테스트하여 새 데이터와 함께 올바르게 작동하는지 확인하는 것이 중요합니다. 여기에는 응용 프로그램이 예상대로 작동하는지 확인하기 위해 기능 및 성능 테스트를 실행하는 것이 포함될 수 있습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;6-데이터베이스-시스템의-보안을-어떻게-보장합니까&quot;&gt;6. 데이터베이스 시스템의 보안을 어떻게 보장합니까?&lt;/h2&gt;
+
+&lt;p&gt;데이터베이스 시스템의 보안을 보장하기 위해 수행할 수 있는 몇 가지 단계가 있습니다.&lt;/p&gt;
+
+&lt;p&gt;액세스 제어 구현: 액세스 제어는 데이터베이스에 액세스할 수 있는 사람과 이들이 수행할 수 있는 작업을 규제하는 데 사용됩니다. 여기에는 사용자 계정 및 권한 설정과 인증 및 권한 부여 메커니즘 구현이 포함될 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;중요한 데이터 암호화: 중요한 데이터를 암호화하면 무단 액세스로부터 보호할 수 있습니다. 여기에는 저장 데이터(디스크에 저장될 때) 또는 전송 중(네트워크를 통해 전송될 때) 데이터 암호화가 포함될 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;방화벽 및 네트워크 보안 사용: 방화벽 및 기타 네트워크 보안 조치는 외부 소스에서 데이터베이스에 대한 무단 액세스를 방지하는 데 도움이 될 수 있습니다. 여기에는 IP 필터링, 포트 차단 및 침입 감지와 같은 조치가 포함될 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;보안 패치 및 업데이트 사용: 데이터베이스 시스템 및 관련 애플리케이션을 최신 보안 패치 및 업데이트로 최신 상태로 유지하는 것이 중요합니다. 이러한 패치는 취약성을 수정하고 새로운 위협으로부터 보호하는 데 도움이 될 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;데이터베이스 활동 모니터링 및 기록: 데이터베이스 활동을 모니터링하고 기록하면 보안 침해 또는 의심스러운 활동을 감지하고 조사하는 데 도움이 됩니다. 여기에는 로그인 시도, 쿼리 및 데이터베이스에서 수행된 기타 작업 추적이 포함될 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;정기적인 보안 감사 수행: 정기적인 보안 감사는 데이터베이스 시스템의 잠재적인 보안 취약성을 식별하고 해결하는 데 도움이 될 수 있습니다. 여기에는 보안 구성 검토, 시스템 취약성 테스트 및 필요한 변경 구현이 포함될 수 있습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;7-데이터베이스-시스템에서-재해-복구-및-비즈니스-연속성을-어떻게-처리합니까&quot;&gt;7. 데이터베이스 시스템에서 재해 복구 및 비즈니스 연속성을 어떻게 처리합니까?&lt;/h2&gt;
+
+&lt;p&gt;데이터베이스 시스템의 재해 복구 및 비즈니스 연속성에는 데이터베이스 시스템이 재해 또는 기타 중단으로부터 복구하고 계속 작동할 수 있도록 하는 계획 및 구현 조치가 포함됩니다. 다음은 데이터베이스 시스템에서 재해 복구 및 비즈니스 연속성을 처리하기 위해 수행할 수 있는 몇 가지 단계입니다.&lt;/p&gt;
+
+&lt;p&gt;재해 복구 계획 개발: 재해 복구 계획은 재해 또는 기타 중단으로부터 복구하기 위해 취해야 하는 단계를 간략하게 설명합니다. 여기에는 데이터베이스 시스템 및 관련 응용 프로그램을 복원하는 방법과 손실되었을 수 있는 데이터를 복구하는 방법에 대한 세부 정보가 포함되어야 합니다.&lt;/p&gt;
+
+&lt;p&gt;백업 생성: 데이터베이스 시스템 및 데이터의 백업을 정기적으로 생성하면 재해 또는 데이터 손실 시 복구할 수 있습니다. 백업은 오프사이트 위치 또는 클라우드 스토리지 서비스와 같은 안전한 위치에 저장해야 합니다.&lt;/p&gt;
+
+&lt;p&gt;복제 또는 장애 조치 사용: 복제 또는 장애 조치는 재해 또는 기타 중단 발생 시 데이터베이스 시스템을 계속 사용할 수 있도록 하는 데 도움이 됩니다. 복제에는 여러 서버에 데이터베이스 복사본을 만드는 작업이 포함되며 장애 조치에는 장애 발생 시 대기 서버로 전환하는 작업이 포함됩니다.&lt;/p&gt;
+
+&lt;p&gt;재해 복구 계획 테스트: 재해 복구 계획이 효과적이고 최신인지 정기적으로 테스트하는 것이 중요합니다. 여기에는 재해 시나리오를 시뮬레이션하고 복구 계획을 실행하여 예상대로 작동하는지 확인하는 작업이 포함될 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;계획 검토 및 업데이트: 재해 복구 계획은 효과적이고 적절하게 유지되도록 정기적으로 검토하고 업데이트해야 합니다. 여기에는 데이터베이스 시스템의 변경 사항이나 새로운 위협에 따라 계획을 조정하는 것이 포함될 수 있습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;8-데이터베이스-아키텍처의-새로운-기술과-모범-사례를-어떻게-최신-상태로-유지합니까&quot;&gt;8. 데이터베이스 아키텍처의 새로운 기술과 모범 사례를 어떻게 최신 상태로 유지합니까?&lt;/h2&gt;
+
+&lt;p&gt;데이터베이스 아키텍처의 새로운 기술과 모범 사례를 최신 상태로 유지하는 방법에는 여러 가지가 있습니다.&lt;/p&gt;
+
+&lt;p&gt;회의 및 워크숍 참석: 데이터베이스 아키텍처 및 관련 주제에 대한 회의 및 워크숍에 참석하면 새로운 기술과 모범 사례를 배울 수 있습니다. 이러한 이벤트는 종종 해당 분야 전문가의 프레젠테이션과 시연뿐만 아니라 다른 전문가와 네트워크를 형성할 수 있는 기회를 제공합니다.&lt;/p&gt;
+
+&lt;p&gt;업계 블로그 및 간행물 읽기: 데이터베이스 공급업체 또는 전문 조직에서 게시한 것과 같은 업계 블로그 및 간행물은 데이터베이스 아키텍처의 새로운 기술 및 모범 사례에 대한 업데이트를 제공할 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;온라인 커뮤니티 가입: 포럼, 메일링 리스트 및 소셜 미디어 그룹과 같은 온라인 커뮤니티는 데이터베이스 아키텍처 및 관련 주제에 대한 정보 및 지원의 좋은 출처가 될 수 있습니다. 이러한 커뮤니티는 종종 해당 분야의 현재 주제 및 동향에 대한 토론과 토론을 제공합니다.&lt;/p&gt;
+
+&lt;p&gt;온라인 과정 수강 또는 인증 획득: 데이터베이스 아키텍처 및 관련 항목에 대한 온라인 과정 및 인증은 새로운 기술 및 모범 사례에 대해 배울 수 있는 좋은 방법이 될 수 있습니다. 이러한 프로그램은 종종 새로운 기술에 대한 심도 있는 교육과 실습 경험을 제공합니다.&lt;/p&gt;
+
+&lt;p&gt;새로운 기술 실험: 최신 기술을 최신 상태로 유지하는 가장 좋은 방법 중 하나는 직접 사용해 보는 것입니다. 여기에는 테스트 환경을 설정하고 새로운 기술을 실험하여 작동 방식과 다양한 시나리오에서 사용할 수 있는 방법을 확인하는 것이 포함될 수 있습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;9-특정-프로젝트나-조직을-위해-데이터베이스-시스템을-설계하고-구현한-방법에-대한-예를-제공할-수-있습니까&quot;&gt;9. 특정 프로젝트나 조직을 위해 데이터베이스 시스템을 설계하고 구현한 방법에 대한 예를 제공할 수 있습니까?&lt;/h2&gt;
+
+&lt;p&gt;소규모 전자 상거래 웹 사이트를 위한 데이터베이스 시스템을 설계하고 구현한다고 가정합니다. 데이터베이스는 고객, 제품, 주문 및 결제에 대한 정보를 저장해야 합니다.&lt;/p&gt;
+
+&lt;p&gt;시작하려면 저장해야 하는 데이터와 서로 다른 데이터 엔터티 간의 관계를 식별해야 합니다. 예를 들어 고객이 여러 주문을 할 수 있으며 주문에 여러 제품이 포함될 수 있습니다. 다음 테이블을 만들기로 결정할 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;고객: 이름, 주소, 이메일과 같은 각 고객에 대한 정보를 저장합니다.
+제품: 이름, 가격 및 설명과 같은 각 제품에 대한 정보를 저장합니다.
+주문: 고객, 포함된 제품 및 총 비용과 같은 각 주문에 대한 정보를 저장합니다.
+결제: 결제 방법, 결제 금액, 적용된 주문 등 각 결제에 대한 정보를 저장합니다.
+데이터와 관계를 식별한 후에는 엔터티-관계(ER) 다이어그램과 같은 도구를 사용하여 스키마의 시각적 표현을 만들 수 있습니다. 이를 통해 데이터베이스 구조를 이해하고 애플리케이션의 요구 사항을 충족하는지 확인할 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;다음으로 애플리케이션에 적합한 데이터 모델을 선택해야 합니다. 구조화된 데이터를 저장하고 데이터 엔터티 간의 관계를 지원하는 데 적합하므로 관계형 모델을 사용하기로 결정할 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;스키마가 설계되면 MySQL 또는 PostgreSQL과 같은 데이터베이스 관리 시스템(DBMS)을 사용하여 데이터베이스와 테이블을 생성할 수 있습니다. 그런 다음 수동으로 데이터를 입력하거나 파일에서 데이터를 가져와 테이블에 데이터를 로드해야 합니다.&lt;/p&gt;
+
+&lt;p&gt;마지막으로 데이터베이스가 올바르게 작동하고 데이터가 올바르게 저장 및 검색되고 있는지 확인하기 위해 데이터베이스를 테스트해야 합니다. 또한 데이터베이스를 보호하고 재해 또는 기타 중단이 발생한 경우에도 데이터베이스가 계속 작동할 수 있도록 보안 조치 및 재해 복구 계획을 구현해야 할 수도 있습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;10-조직의-요구-사항을-충족하는-데이터베이스-시스템을-설계하고-구현하기-위해-개발자-및-기타-이해-관계자와-어떻게-협력합니까&quot;&gt;10. 조직의 요구 사항을 충족하는 데이터베이스 시스템을 설계하고 구현하기 위해 개발자 및 기타 이해 관계자와 어떻게 협력합니까?&lt;/h2&gt;
+
+&lt;p&gt;데이터베이스 시스템을 설계하고 구현하기 위해 개발자 및 기타 이해 관계자와 작업할 때 프로젝트의 목표와 요구 사항을 명확하게 전달하고 모든 관련 당사자를 설계 프로세스에 참여시키는 것이 중요합니다. 다음은 개발자 및 기타 이해 관계자와 효과적으로 작업하기 위해 따를 수 있는 몇 가지 단계입니다.&lt;/p&gt;
+
+&lt;p&gt;이해 관계자 식별: 개발자, 비즈니스 사용자 및 IT 직원을 포함하여 프로젝트의 모든 이해 관계자를 식별하는 것으로 시작합니다. 이러한 각 그룹은 데이터베이스 시스템에 대한 요구 사항과 요구 사항이 다를 수 있으므로 디자인 프로세스에 이들을 참여시키는 것이 중요합니다.&lt;/p&gt;
+
+&lt;p&gt;프로젝트 목표 및 요구 사항 정의: 저장해야 하는 데이터, 서로 다른 데이터 엔터티 간의 관계, 성능 및 확장성 요구 사항을 포함하여 프로젝트의 목표 및 요구 사항을 명확하게 정의합니다. 이렇게 하면 데이터베이스 시스템이 조직의 요구 사항을 충족하는지 확인하는 데 도움이 됩니다.&lt;/p&gt;
+
+&lt;p&gt;설계에 대한 협업: 개발자 및 기타 이해 관계자와 협력하여 데이터베이스 시스템을 설계합니다. 여기에는 엔터티 관계(ER) 다이어그램과 같은 도구를 사용하여 스키마의 시각적 표현을 생성하거나 요구 사항 및 사양 목록을 생성하는 작업이 포함될 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;데이터베이스 시스템 구현: 설계가 완료되면 개발자와 협력하여 데이터베이스 시스템을 구현합니다. 여기에는 데이터베이스 설정, 테이블 및 인덱스 생성, 데이터를 데이터베이스로 로드하는 작업이 포함될 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;시스템 테스트 및 수정: 데이터베이스 시스템을 구현한 후 올바르게 작동하고 프로젝트 요구 사항을 충족하는지 테스트하는 것이 중요합니다. 필요한 경우 테스트 결과에 따라 시스템을 개선할 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;시스템 유지 및 업데이트: 지속적인 유지 관리 및 업데이트는 데이터베이스 시스템이 조직의 요구 사항을 지속적으로 충족하도록 하는 데 중요합니다. 여기에는 스키마 업데이트, 성능 최적화 및 보안 패치 적용이 포함될 수 있습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://chat.openai.com/chat&quot;&gt;openai&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="dba" /><category term="interview" /><summary type="html">혼자서 북치고 장구치고 해야하네요</summary></entry><entry><title type="html">AWS의 CodePipeline 에서 SonarQube 사용하기</title><link href="https://lahuman.github.io/aws_snoarqube/" rel="alternate" type="text/html" title="AWS의 CodePipeline 에서 SonarQube 사용하기" /><published>2023-01-02T00:00:00+00:00</published><updated>2023-01-02T00:00:00+00:00</updated><id>https://lahuman.github.io/aws_snoarqube</id><content type="html" xml:base="https://lahuman.github.io/aws_snoarqube/">&lt;h1 id=&quot;aws의-code-pipline-에서-sonarqube-사용하기&quot;&gt;AWS의 Code pipline 에서 SonarQube 사용하기&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;SonarQube는 20개 이상의 프로그래밍 언어에서 버그, 코드 스멜, 보안 취약점을 발견할 목적으로 정적 코드 분석으로 자동 리뷰를 수행하기 위한 지속적인 코드 품질 검사용 오픈 소스 플랫폼입니다. 또한 중복 코드, 코딩 표준, 유닛 테스트, 코드 커버리지, 코드 복잡도, 주석, 버그 및 보안 취약점의 보고서를 제공합니다. &lt;a href=&quot;https://ko.wikipedia.org/wiki/%EC%86%8C%EB%82%98%ED%81%90%EB%B8%8C&quot;&gt;wiki&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;설치-준비&quot;&gt;설치 준비&lt;/h2&gt;
+
+&lt;p&gt;설치하는 방식은 쉽게 Docker Image를 이용하는 방식과 Ec2에 설치하는 방식이 있습니다. 
+이번 글에서는 간단하게 Ec2에 설치하는 방식으로 진행합니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;필요-소프트웨어&quot;&gt;필요 소프트웨어&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;JDK 11 또는 JRE 11 이상&lt;/li&gt;
+  &lt;li&gt;DBMS(Options)
+    &lt;ul&gt;
+      &lt;li&gt;PostgreSQL 11 이상&lt;/li&gt;
+      &lt;li&gt;Oracle 12C 이상&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Web browser(Client)
+    &lt;ul&gt;
+      &lt;li&gt;Microsoft Edge&lt;/li&gt;
+      &lt;li&gt;Mozilla Firefox&lt;/li&gt;
+      &lt;li&gt;Google Chrome&lt;/li&gt;
+      &lt;li&gt;Safari&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;hardware-권장-사양&quot;&gt;Hardware 권장 사양&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;1 core 이상의 CPU&lt;/li&gt;
+  &lt;li&gt;최소 3G 이상의 메모리&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;설치-하기&quot;&gt;설치 하기&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;AWS Ec2가 준비 되어 있다는 전제 하에, DBMS를 제외하고 설치를 진행합니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;1-업데이트--필요-패키지-설치&quot;&gt;1. 업데이트 &amp;amp; 필요 패키지 설치&lt;/h3&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;yum update &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;yum install wget unzip &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# file &amp;amp; memory update current session&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;sysctl &lt;span class=&quot;nt&quot;&gt;-w&lt;/span&gt; vm.max_map_count&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;524288
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;sysctl &lt;span class=&quot;nt&quot;&gt;-w&lt;/span&gt; fs.file-max&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;131072
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo ulimit&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-n&lt;/span&gt; 131072
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo ulimit&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; 8192
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/security/limits.conf&lt;/code&gt; 파일을 아래와 같이 수정해 두면 서버가 재부팅이 되어서 반영 됩니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;s2&quot;&gt;&quot;account-name&quot;&lt;/span&gt;   -   nofile   131072
+&lt;span class=&quot;s2&quot;&gt;&quot;account-name&quot;&lt;/span&gt;   -   nproc    8192
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;2-jdk-11-설치&quot;&gt;2. JDK 11 설치&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;open jdk 11을 설치 합니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;amazon-linux-extras install java-openjdk11
+
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;yum install java-11-openjdk-devel &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;또는 실행파일을 받아서 설치 할 수 있습니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;curl &lt;span class=&quot;nt&quot;&gt;-O&lt;/span&gt; https://download.java.net/java/GA/jdk11/13/GPL/openjdk-11.0.1_linux-x64_bin.tar.gz
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;tar &lt;/span&gt;zxvf openjdk-11.0.1_linux-x64_bin.tar.gz
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;chmod &lt;span class=&quot;nt&quot;&gt;-R&lt;/span&gt; 755 /usr/local/jdk-11.0.1
+&lt;span class=&quot;c&quot;&gt;# 이 부분은 .bashrc 에 추가 해도 됩니다. &lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;JAVA_HOME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/local/jdk-11.0.1
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$JAVA_HOME&lt;/span&gt;/bin:&lt;span class=&quot;nv&quot;&gt;$PATH&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;3-sonarqube-설치&quot;&gt;3. SonarQube 설치&lt;/h3&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# 작업 디렉터리로 이동&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /applications
+&lt;span class=&quot;c&quot;&gt;# 9.8 버젼으로 설치 진행&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-9.8.0.63668.zip
+
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;unzip sonarqube-9.8.0.63668.zip
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;4-sonarqube-실행&quot;&gt;4. SonarQube 실행&lt;/h3&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# OS 에 알맞은 실행 위치로 이동&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /applications/sonarqube-9.8.0.63668/bin/linux-x86-64
+&lt;span class=&quot;c&quot;&gt;# 명령어 확인&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;./sonar.sh
+/usr/local/jdk-11.0.1/bin/java
+Usage: ./sonar.sh &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; console | start | stop | force-stop | restart | status | dump &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# 실행&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;./sonar.sh start
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;5-9000-포트-열기&quot;&gt;5. 9000 포트 열기&lt;/h3&gt;
+
+&lt;p&gt;기본 포트는 &lt;code class=&quot;highlighter-rouge&quot;&gt;9000&lt;/code&gt;으로 해당 포트를 열고 &lt;code class=&quot;highlighter-rouge&quot;&gt;web browser&lt;/code&gt;로 접근하면 됩니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;sonarqube-연동-하기&quot;&gt;SonarQube 연동 하기&lt;/h2&gt;
+
+&lt;h3 id=&quot;1-로그인&quot;&gt;1. 로그인&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/sonarqube-login.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;로그인 초기 ID / PW는 &lt;code class=&quot;highlighter-rouge&quot;&gt;admin&lt;/code&gt;/&lt;code class=&quot;highlighter-rouge&quot;&gt;admin&lt;/code&gt; 입니다.&lt;/p&gt;
+
+&lt;p&gt;로그인을 하면 초기 비밀번호를 변경하라고 가이드 합니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;2-프로젝트-생성&quot;&gt;2. 프로젝트 생성&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Manually&lt;/code&gt; 추가 선택&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/sonarqube-create-project.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;내용 입력 후 저장 하면, 프로젝트 생성이 완료 됩니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;3-프로젝트-설정&quot;&gt;3. 프로젝트 설정&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Locally&lt;/code&gt; 를 선택하고&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/sonarqube-locally.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;토큰 생성 합니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/sonarqube-gen_token.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;분석하려는 언어 와 환경을 선택합니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/sonarqube-run-analysis.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;아래와 같은 sonar-scanner를 이용한 분석 처리 준비가 완료 되었습니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;sonar-scanner &lt;span class=&quot;se&quot;&gt;\ &lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;-Dsonar&lt;/span&gt;.projectKey&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;doc4sm &lt;span class=&quot;se&quot;&gt;\ &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;# project 이름&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;-Dsonar&lt;/span&gt;.sources&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\ &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;# 분석 소스 위치&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;-Dsonar&lt;/span&gt;.host.url&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;http://lahuman.github.io:9000 &lt;span class=&quot;se&quot;&gt;\ &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;# host 주소&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;-Dsonar&lt;/span&gt;.login&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;sqp_fasdfee85ujliuod4d38fa02b2d65f964726aca5 &lt;span class=&quot;c&quot;&gt;# 생성한 토큰 정보 &lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;a href=&quot;https://docs.sonarqube.org/9.8/analyzing-source-code/scanners/sonarscanner/&quot;&gt;sonarscanner&lt;/a&gt; 는 여서 받을 수 있습니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;4-프로젝트-분석-결과&quot;&gt;4. 프로젝트 분석 결과&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;a href=&quot;https://docs.sonarqube.org/9.8/analyzing-source-code/scanners/sonarscanner/&quot;&gt;sonarscanner&lt;/a&gt; 를 이용해서 분석을 진행하면, 아래와 같은 결과를 확인 할 수 있습니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/sonarqube-result.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;aws-codepipeline-과-연동하기&quot;&gt;AWS CodePipeline 과 연동하기&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;AWS CodePipeline 이 이미 존재하고, 여기에 Code-review를 추가하는 방식으로 연동 합니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;1-codecommit--pipeline--상세-이동-후-edit-add-stage-버튼을-클릭&quot;&gt;1. CodeCommit =&amp;gt; Pipeline =&amp;gt; 상세 이동 후 Edit add Stage 버튼을 클릭&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/aws-codepipeline-addstage.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;2-add-action-버튼-클릭-후-알맞은-값-설정&quot;&gt;2. Add Action 버튼 클릭 후 알맞은 값 설정&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/aws-codepipeline-addaction.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;3-create-build-project-버튼-클릭-후-build-project-설정&quot;&gt;3. Create Build Project 버튼 클릭 후 build project 설정&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/aws-codepipeline-create-build-project-1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/aws-codepipeline-create-build-project-2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/aws-codepipeline-create-build-project-3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;import build commands&lt;/code&gt;는 아래와 같습니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;version: 0.2
+env:
+  shell: bash
+phases:
+  pre_build:
+    commands:
+      - mkdir /downloads/sonarqube &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt;
+      - &lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /downloads/sonarqube
+      - wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.7.0.2747-linux.zip
+      - unzip sonar-scanner-cli-4.7.0.2747-linux.zip
+      - mv sonar-scanner-4.7.0.2747-linux /opt/sonar-scanner
+      - &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;sonar.host.url=http://lahuman.github.io:9000/ &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;  sonar.sourceEncoding=UTF-8 &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; sonar.qualitygate.wait=true &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; /opt/sonar-scanner/conf/sonar-scanner.properties
+      - &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;#/bin/bash &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; export PATH='&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$PATH&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;:/opt/sonar-scanner/bin'&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; /etc/profile.d/sonar-scanner.sh
+      - &lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; /etc/profile.d/sonar-scanner.sh
+      - sonar-scanner &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt;
+  build:
+    commands:
+      - &lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ../..
+      - &lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /codebuild/output/src&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;/src
+      - sonar-scanner &lt;span class=&quot;nt&quot;&gt;-Dsonar&lt;/span&gt;.projectKey&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;Example &lt;span class=&quot;nt&quot;&gt;-Dsonar&lt;/span&gt;.sources&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-Dsonar&lt;/span&gt;.host.url&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;http://lahuman.github.io:9000  &lt;span class=&quot;nt&quot;&gt;-Dsonar&lt;/span&gt;.login&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;sqp_017f2d65fa3rr34wesfd22369d98155fd4d493
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;4-설정-완료--저장&quot;&gt;4. 설정 완료 &amp;amp; 저장&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/aws-codepipeline-addaction-createproject.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;모든 설정이 완료 되었다면, 저장 버튼을 클릭합니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;5-pipeline-실행&quot;&gt;5. pipeline 실행&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/aws-codepipeline-done.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;추가-tip&quot;&gt;추가 TIP&lt;/h2&gt;
+
+&lt;p&gt;코드 변경 후 다시 &lt;code class=&quot;highlighter-rouge&quot;&gt;sonar-scanner&lt;/code&gt;을 진행하면,  &lt;code class=&quot;highlighter-rouge&quot;&gt;Coverage&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;Duplications&lt;/code&gt; 에서 실패가 발생합니다&lt;/p&gt;
+
+&lt;p&gt;기본적으로 해당 문제를 해결해서 처리하는게 좋지만, 임시로 처리 하기 위해서는 아래와 같이 &lt;code class=&quot;highlighter-rouge&quot;&gt;sonar-scanner&lt;/code&gt;에 예외 옵션을 주어야 합니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;sonar-scanner &lt;span class=&quot;se&quot;&gt;\ &lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;-Dsonar&lt;/span&gt;.projectKey&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;doc4sm &lt;span class=&quot;se&quot;&gt;\ &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;# project 이름&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;-Dsonar&lt;/span&gt;.cpd.exclusions&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;**&lt;/span&gt;/&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\ &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;# Duplications 제외 처리 &lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;-Dsonar&lt;/span&gt;.coverage.exclusions&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;**&lt;/span&gt;/&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\ &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;# Coverage 제외 처리 &lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;-Dsonar&lt;/span&gt;.sources&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\ &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;# 분석 소스 위치&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;-Dsonar&lt;/span&gt;.host.url&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;http://lahuman.github.io:9000 &lt;span class=&quot;se&quot;&gt;\ &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;# host 주소&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;-Dsonar&lt;/span&gt;.login&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;sqp_fasdfee85ujliuod4d38fa02b2d65f964726aca5 &lt;span class=&quot;c&quot;&gt;# 생성한 토큰 정보 &lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;전체 내용은 &lt;a href=&quot;https://awstip.com/installing-sonarqube-on-aws-ec2-instance-and-integrating-it-with-aws-codepipeline-abec99416ba4&quot;&gt;Installing SonarQube on AWS EC2 instance and Integrating it with AWS CodePipeline&lt;/a&gt;를 참조해서 작성했습니다.&lt;/p&gt;
+
+&lt;h1 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://awstip.com/installing-sonarqube-on-aws-ec2-instance-and-integrating-it-with-aws-codepipeline-abec99416ba4&quot;&gt;Installing SonarQube on AWS EC2 instance and Integrating it with AWS CodePipeline&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.sonarqube.org/latest/setup-and-upgrade/install-the-server/&quot;&gt;Install the server&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="soanrqube" /><category term="aws" /><summary type="html">정적 코드 분석을 해보아요!</summary></entry></feed>

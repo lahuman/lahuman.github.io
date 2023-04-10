@@ -6,9 +6,9 @@
 </code></pre></div></div> <p>Linux 용 jar 파일이 몇개가 있는데, 그중에 <a href="https://mvnrepository.com/artifact/org.eclipse.swt/org.eclipse.swt.gtk.linux.x86_64/4.3">다음</a>을 받으면 된다.</p> <h3 id="프로젝트-설정">프로젝트 설정</h3> <p>Eclipse 를 사용 중이면 프로젝트에서 <br /></p> <p><kbd>Properties</kbd> &gt; <kbd>Java Build Path</kbd> &gt; <kbd>add JARs..</kbd> 에 maven 에서 받은 라이브 러리 추가 한다.</p> <p class="image-left"><img src="https://lahuman.github.io/assets/img/post_img/library_change.png" alt="라이브러리 추가" /></p> <h3 id="linux에서-필요한-library-및-설정">Linux에서 필요한 library 및 설정</h3> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># swt 관련 라이브러리 검색</span>
 <span class="nv">$&gt;</span> aptitude search libswt-gtk
 <span class="c"># 검색된 라이브러리를 설치 3, 4 모두 설치 함</span>
-<span class="nv">$&gt;</span>  <span class="nb">sudo </span>apt-get <span class="nb">install </span>libswt-gtk-3-java libswt-gtk-3-jni libswt-gtk-3-java-gcj  libswt-gtk-4-java libswt-gtk-4-jni
+<span class="nv">$&gt;</span>  <span class="nb">sudo </span>apt-get install libswt-gtk-3-java libswt-gtk-3-jni libswt-gtk-3-java-gcj  libswt-gtk-4-java libswt-gtk-4-jni
 <span class="c"># 사용자 계정 밑에 링크를 추가 </span>
-<span class="nv">$&gt;</span> <span class="nb">ln</span> <span class="nt">-s</span> /usr/lib/jni/libswt-<span class="k">*</span> ~/.swt/lib/linux/x86_64/
+<span class="nv">$&gt;</span> ln <span class="nt">-s</span> /usr/lib/jni/libswt-<span class="k">*</span> ~/.swt/lib/linux/x86_64/
 <span class="c"># disabled되었다는 메시지 출력시 아래 명령 실행</span>
 <span class="nv">$&gt;</span> <span class="nb">sudo </span>execstack <span class="nt">-c</span> ~/.swt/lib/linux/x86_64/libswt-gtk-<span class="o">{</span>VERSION<span class="o">}</span>.so 
 </code></pre></div></div> <h3 id="실행용-jar-파일-만들기">실행용 jar 파일 만들기</h3> <p>Eclipse 에서 실행 되는 jar 를 만들기 위해서는 해당 프로젝트에서 마우스 오른쪽을 누르고, <br /></p> <p><kbd>Export</kbd> &gt; <kbd>Java</kbd> &gt; <kbd>Runnable JAR file</kbd> 을 선택 한다.</p> <p class="image-left"><img src="https://lahuman.github.io/assets/img/post_img/make_runnable_jar.png" alt="Runnable Jar" /></p> <h3 id="실행">실행</h3> <p>다음과 같이 실행 하면 된다.</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>java <span class="nt">-jar</span> <span class="o">{</span>filename.jar<span class="o">}</span>

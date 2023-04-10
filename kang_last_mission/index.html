@@ -1,4 +1,4 @@
-<!DOCTYPE html> <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]--> <!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8"><![endif]--> <!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9"><![endif]--> <!--[if gt IE 8]><!--> <html class="no-js"><!--<![endif]--> <head> <meta charset="UTF-8"> <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"> <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1"> <title>Nginx Ingress Controller - Custom Errors &#8211; lahuman</title> <meta name="description" content="열심히 사는 아저씨"> <meta name="keywords" content="kang, ingress, errorpage"> <!-- Twitter Cards --> <meta name="twitter:card" content="summary"> <meta name="twitter:image" content="https://lahuman.github.io/assets/img/logo.png"> <meta name="twitter:title" content="Nginx Ingress Controller - Custom Errors"> <meta name="twitter:description" content="Kubernetes Advanced Networking Study"> <!-- Open Graph --> <meta property="og:locale" content="ko_KR"> <meta property="og:type" content="article"> <meta property="og:title" content="Nginx Ingress Controller - Custom Errors"> <meta property="og:description" content="Kubernetes Advanced Networking Study"> <meta property="og:url" content="https://lahuman.github.io/kang_last_mission/"> <meta property="og:site_name" content="lahuman"> <meta property="og:image" content="https://lahuman.github.io/assets/img/logo.png"> <link rel="canonical" href="https://lahuman.github.io/kang_last_mission/"> <link href="https://lahuman.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="lahuman Feed"> <!-- Handheld --> <meta name="HandheldFriendly" content="True"> <meta name="MobileOptimized" content="320"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- CSS --> <link rel="stylesheet" href="https://lahuman.github.io/assets/css/main.css"> <!-- JS --> <script src="https://lahuman.github.io/assets/js/modernizr-3.3.1.custom.min.js"></script> <!-- Favicons --> <link rel="apple-touch-icon" href="https://lahuman.github.io/assets/img/favicons/apple-icon-precomposed.png"> <link rel="apple-touch-icon" sizes="72x72" href="https://lahuman.github.io/assets/img/favicons/apple-icon-72x72.png"> <link rel="apple-touch-icon" sizes="114x114" href="https://lahuman.github.io/assets/img/favicons/apple-icon-114x114.png"> <link rel="apple-touch-icon" sizes="144x144" href="https://lahuman.github.io/assets/img/favicons/apple-icon-144x144.png"> <link rel="shortcut icon" type="image/png" href="https://lahuman.github.io/favicon.png" /> <link rel="shortcut icon" href="https://lahuman.github.io/favicon.ico" /> <!-- mermaid --> <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script> <script>mermaid.initialize({startOnLoad:true});</script> <!-- Background Image --> <style type="text/css">body {background-image:url(https://lahuman.github.io/assets/img/placeholder-big.jpg); background-repeat: no-repeat; background-size: cover; }</style> <!-- Post Feature Image --> </head> <body> <nav id="dl-menu" class="dl-menuwrapper" role="navigation"> <button class="dl-trigger">Open Menu</button> <ul class="dl-menu"> <li><a href="https://lahuman.github.io/">Home</a></li> <li> <a href="#">About</a> <ul class="dl-submenu"> <li> <img src="https://lahuman.github.io/assets/img/logo.png" alt="lahuman photo" class="author-photo"> <h4>lahuman</h4> <p>열심히 사는 아저씨</p> </li> <li><a href="https://lahuman.github.io/about/"><span class="btn btn-inverse">Learn More</span></a></li> <li> <a href="http://facebook.com/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-facebook-square"></i> Facebook</a> </li> <li> <a href="http://linkedin.com/in/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-linkedin-square"></i> LinkedIn</a> </li> <li> <a href="http://github.com/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-github"></i> Github</a> </li> </ul><!-- /.dl-submenu --> </li> <li> <a href="#">Posts</a> <ul class="dl-submenu"> <li><a href="https://lahuman.github.io/posts/">All Posts</a></li> <li><a href="https://lahuman.github.io/tags/">All Tags</a></li> </ul> </li> <li><a href="https://lahuman.github.io/projects/" >Projects</a></li> </ul><!-- /.dl-menu --> </nav><!-- /.dl-menuwrapper --> <!-- Header --> <header class="header" role="banner"> <div class="wrapper animated fadeIn"> <div class="content"> <div class="post-title "> <h1>Nginx Ingress Controller - Custom Errors</h1> <h4>05 Mar 2022</h4> <p class="reading-time"> <i class="fa fa-clock-o"></i> Reading time ~10 minutes </p><!-- /.entry-reading-time --> <a class="btn zoombtn" href="https://lahuman.github.io/projects/"> <i class="fa fa-chevron-left"></i> </a> </div> <h1 id="nginx-ingress-controller---custom-errors">Nginx Ingress Controller - Custom Errors</h1> <blockquote> <p>KANG 스터디에서 졸업 과제로 무엇을 해야 하는지 도전 과제를 확인 중 <a href="https://kubernetes.github.io/ingress-nginx/examples/customization/custom-errors/">Custom Errors</a>를 보았습니다. 어렵지 않게 그리고 많이 사용될 것으로 생각되어서 도전해보게 되었습니다.</p> </blockquote> <p>시작하기에 앞서서 <a href="https://lahuman.github.io/kang_6week/">#6 Ingress</a>를 먼저 읽어주세요.</p> <h2 id="사용자-정의-오류-페이지란">사용자 정의 오류 페이지란?</h2> <p>백엔드를 사용 중 오류 발생시 만약 <code class="language-plaintext highlighter-rouge">Ingress Controller에 정의된 Error</code>라면, <code class="language-plaintext highlighter-rouge">사용자 정의 오류 페이지</code>를 보여주는 기능입니다.</p> <h2 id="사용자-정의-기본-백엔드-설정">사용자 정의 기본 백엔드 설정</h2> <p>먼저 사용자 정의 <code class="language-plaintext highlighter-rouge">default-backend-service</code>를 설정합니다. 이것은 나중에 Ingress 컨트롤러에서 사용됩니다.</p> <p>사용할 <code class="language-plaintext highlighter-rouge">default-baend-service</code>는 <a href="https://github.com/kenmoini/custom-nginx-ingress-errors">kenmoini/custom-nginx-ingress-errors</a> 로 <code class="language-plaintext highlighter-rouge">404</code>, <code class="language-plaintext highlighter-rouge">503</code>, <code class="language-plaintext highlighter-rouge">500</code> Error 페이지를 이쁘게 만들어 둔 이미지를 제공하고 있습니다.</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git clone https://github.com/kenmoini/custom-nginx-ingress-errors
+<!DOCTYPE html> <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]--> <!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8"><![endif]--> <!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9"><![endif]--> <!--[if gt IE 8]><!--> <html class="no-js"><!--<![endif]--> <head> <meta charset="UTF-8"> <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"> <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1"> <title>Nginx Ingress Controller - Custom Errors &#8211; lahuman</title> <meta name="description" content="열심히 사는 아저씨"> <meta name="keywords" content="kang, ingress, errorpage"> <!-- Twitter Cards --> <meta name="twitter:card" content="summary"> <meta name="twitter:image" content="https://lahuman.github.io/assets/img/logo.png"> <meta name="twitter:title" content="Nginx Ingress Controller - Custom Errors"> <meta name="twitter:description" content="Kubernetes Advanced Networking Study"> <!-- Open Graph --> <meta property="og:locale" content="ko_KR"> <meta property="og:type" content="article"> <meta property="og:title" content="Nginx Ingress Controller - Custom Errors"> <meta property="og:description" content="Kubernetes Advanced Networking Study"> <meta property="og:url" content="https://lahuman.github.io/kang_last_mission/"> <meta property="og:site_name" content="lahuman"> <meta property="og:image" content="https://lahuman.github.io/assets/img/logo.png"> <link rel="canonical" href="https://lahuman.github.io/kang_last_mission/"> <link href="https://lahuman.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="lahuman Feed"> <!-- Handheld --> <meta name="HandheldFriendly" content="True"> <meta name="MobileOptimized" content="320"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- CSS --> <link rel="stylesheet" href="https://lahuman.github.io/assets/css/main.css"> <!-- JS --> <script src="https://lahuman.github.io/assets/js/modernizr-3.3.1.custom.min.js"></script> <!-- Favicons --> <link rel="apple-touch-icon" href="https://lahuman.github.io/assets/img/favicons/apple-icon-precomposed.png"> <link rel="apple-touch-icon" sizes="72x72" href="https://lahuman.github.io/assets/img/favicons/apple-icon-72x72.png"> <link rel="apple-touch-icon" sizes="114x114" href="https://lahuman.github.io/assets/img/favicons/apple-icon-114x114.png"> <link rel="apple-touch-icon" sizes="144x144" href="https://lahuman.github.io/assets/img/favicons/apple-icon-144x144.png"> <link rel="shortcut icon" type="image/png" href="https://lahuman.github.io/favicon.png" /> <link rel="shortcut icon" href="https://lahuman.github.io/favicon.ico" /> <!-- mermaid --> <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script> <script>mermaid.initialize({startOnLoad:true});</script> <!-- Background Image --> <style type="text/css">body {background-image:url(https://lahuman.github.io/assets/img/placeholder-big.jpg); background-repeat: no-repeat; background-size: cover; }</style> <!-- Post Feature Image --> </head> <body> <nav id="dl-menu" class="dl-menuwrapper" role="navigation"> <button class="dl-trigger">Open Menu</button> <ul class="dl-menu"> <li><a href="https://lahuman.github.io/">Home</a></li> <li> <a href="#">About</a> <ul class="dl-submenu"> <li> <img src="https://lahuman.github.io/assets/img/logo.png" alt="lahuman photo" class="author-photo"> <h4>lahuman</h4> <p>열심히 사는 아저씨</p> </li> <li><a href="https://lahuman.github.io/about/"><span class="btn btn-inverse">Learn More</span></a></li> <li> <a href="http://facebook.com/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-facebook-square"></i> Facebook</a> </li> <li> <a href="http://linkedin.com/in/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-linkedin-square"></i> LinkedIn</a> </li> <li> <a href="http://github.com/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-github"></i> Github</a> </li> </ul><!-- /.dl-submenu --> </li> <li> <a href="#">Posts</a> <ul class="dl-submenu"> <li><a href="https://lahuman.github.io/posts/">All Posts</a></li> <li><a href="https://lahuman.github.io/tags/">All Tags</a></li> </ul> </li> <li><a href="https://lahuman.github.io/projects/" >Projects</a></li> </ul><!-- /.dl-menu --> </nav><!-- /.dl-menuwrapper --> <!-- Header --> <header class="header" role="banner"> <div class="wrapper animated fadeIn"> <div class="content"> <div class="post-title "> <h1>Nginx Ingress Controller - Custom Errors</h1> <h4>05 Mar 2022</h4> <p class="reading-time"> <i class="fa fa-clock-o"></i> Reading time ~10 minutes </p><!-- /.entry-reading-time --> <a class="btn zoombtn" href="https://lahuman.github.io/projects/"> <i class="fa fa-chevron-left"></i> </a> </div> <h1 id="nginx-ingress-controller---custom-errors">Nginx Ingress Controller - Custom Errors</h1> <blockquote> <p>KANG 스터디에서 졸업 과제로 무엇을 해야 하는지 도전 과제를 확인 중 <a href="https://kubernetes.github.io/ingress-nginx/examples/customization/custom-errors/">Custom Errors</a>를 보았습니다. 어렵지 않게 그리고 많이 사용될 것으로 생각되어서 도전해보게 되었습니다.</p> </blockquote> <p>시작하기에 앞서서 <a href="https://lahuman.github.io/kang_6week/">#6 Ingress</a>를 먼저 읽어주세요.</p> <h2 id="사용자-정의-오류-페이지란">사용자 정의 오류 페이지란?</h2> <p>백엔드를 사용 중 오류 발생시 만약 <code class="highlighter-rouge">Ingress Controller에 정의된 Error</code>라면, <code class="highlighter-rouge">사용자 정의 오류 페이지</code>를 보여주는 기능입니다.</p> <h2 id="사용자-정의-기본-백엔드-설정">사용자 정의 기본 백엔드 설정</h2> <p>먼저 사용자 정의 <code class="highlighter-rouge">default-backend-service</code>를 설정합니다. 이것은 나중에 Ingress 컨트롤러에서 사용됩니다.</p> <p>사용할 <code class="highlighter-rouge">default-baend-service</code>는 <a href="https://github.com/kenmoini/custom-nginx-ingress-errors">kenmoini/custom-nginx-ingress-errors</a> 로 <code class="highlighter-rouge">404</code>, <code class="highlighter-rouge">503</code>, <code class="highlighter-rouge">500</code> Error 페이지를 이쁘게 만들어 둔 이미지를 제공하고 있습니다.</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git clone https://github.com/kenmoini/custom-nginx-ingress-errors
 <span class="nv">$ </span><span class="nb">cd </span>custom-nginx-ingress-errors
 <span class="nv">$ </span>kubectl apply <span class="nt">-f</span> k8s-deployment.yaml
 service/nginx-errors created
@@ -10,15 +10,15 @@ deployment.apps/nginx-errors created
   <span class="na">name</span><span class="pi">:</span> <span class="s">nginx-errors</span>
   <span class="na">namespace</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
   <span class="na">labels</span><span class="pi">:</span>
-    <span class="na">app.kubernetes.io/name</span><span class="pi">:</span> <span class="s">nginx-errors</span>
-    <span class="na">app.kubernetes.io/part-of</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
+    <span class="s">app.kubernetes.io/name</span><span class="pi">:</span> <span class="s">nginx-errors</span>
+    <span class="s">app.kubernetes.io/part-of</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
 <span class="na">spec</span><span class="pi">:</span>
   <span class="na">selector</span><span class="pi">:</span>
-    <span class="na">app.kubernetes.io/name</span><span class="pi">:</span> <span class="s">nginx-errors</span>
-    <span class="na">app.kubernetes.io/part-of</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
+    <span class="s">app.kubernetes.io/name</span><span class="pi">:</span> <span class="s">nginx-errors</span>
+    <span class="s">app.kubernetes.io/part-of</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
   <span class="na">ports</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="na">port</span><span class="pi">:</span> <span class="m">80</span>
-    <span class="na">targetPort</span><span class="pi">:</span> <span class="m">8080</span>
+  <span class="pi">-</span> <span class="na">port</span><span class="pi">:</span> <span class="s">80</span>
+    <span class="na">targetPort</span><span class="pi">:</span> <span class="s">8080</span>
     <span class="na">name</span><span class="pi">:</span> <span class="s">http</span>
 <span class="nn">---</span>
 <span class="na">apiVersion</span><span class="pi">:</span> <span class="s">apps/v1</span>
@@ -27,25 +27,25 @@ deployment.apps/nginx-errors created
   <span class="na">name</span><span class="pi">:</span> <span class="s">nginx-errors</span>
   <span class="na">namespace</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
   <span class="na">labels</span><span class="pi">:</span>
-    <span class="na">app.kubernetes.io/name</span><span class="pi">:</span> <span class="s">nginx-errors</span>
-    <span class="na">app.kubernetes.io/part-of</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
+    <span class="s">app.kubernetes.io/name</span><span class="pi">:</span> <span class="s">nginx-errors</span>
+    <span class="s">app.kubernetes.io/part-of</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
 <span class="na">spec</span><span class="pi">:</span>
-  <span class="na">replicas</span><span class="pi">:</span> <span class="m">1</span>
+  <span class="na">replicas</span><span class="pi">:</span> <span class="s">1</span>
   <span class="na">selector</span><span class="pi">:</span>
     <span class="na">matchLabels</span><span class="pi">:</span>
-      <span class="na">app.kubernetes.io/name</span><span class="pi">:</span> <span class="s">nginx-errors</span>
-      <span class="na">app.kubernetes.io/part-of</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
+      <span class="s">app.kubernetes.io/name</span><span class="pi">:</span> <span class="s">nginx-errors</span>
+      <span class="s">app.kubernetes.io/part-of</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
   <span class="na">template</span><span class="pi">:</span>
     <span class="na">metadata</span><span class="pi">:</span>
       <span class="na">labels</span><span class="pi">:</span>
-        <span class="na">app.kubernetes.io/name</span><span class="pi">:</span> <span class="s">nginx-errors</span>
-        <span class="na">app.kubernetes.io/part-of</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
+        <span class="s">app.kubernetes.io/name</span><span class="pi">:</span> <span class="s">nginx-errors</span>
+        <span class="s">app.kubernetes.io/part-of</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
     <span class="na">spec</span><span class="pi">:</span>
       <span class="na">containers</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">nginx-error-server</span>
         <span class="na">image</span><span class="pi">:</span> <span class="s">kenmoini/custom-nginx-ingress-errors:latest</span>
         <span class="na">ports</span><span class="pi">:</span>
-        <span class="pi">-</span> <span class="na">containerPort</span><span class="pi">:</span> <span class="m">8080</span>
+        <span class="pi">-</span> <span class="na">containerPort</span><span class="pi">:</span> <span class="s">8080</span>
         <span class="c1"># Setting the environment variable DEBUG we can see the headers sent</span>
         <span class="c1"># by the ingress controller to the backend in the client response.</span>
         <span class="c1"># env:</span>
@@ -88,8 +88,8 @@ deployment.apps/nginx-errors created
 <span class="na">metadata</span><span class="pi">:</span>
   <span class="na">name</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
   <span class="na">labels</span><span class="pi">:</span>
-    <span class="na">app.kubernetes.io/name</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
-    <span class="na">app.kubernetes.io/instance</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
+    <span class="s">app.kubernetes.io/name</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
+    <span class="s">app.kubernetes.io/instance</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
 
 <span class="nn">---</span>
 <span class="c1"># 파일명 : nginx-ingress.yaml</span>
@@ -98,12 +98,12 @@ deployment.apps/nginx-errors created
 <span class="na">kind</span><span class="pi">:</span> <span class="s">ServiceAccount</span>
 <span class="na">metadata</span><span class="pi">:</span>
   <span class="na">labels</span><span class="pi">:</span>
-    <span class="na">helm.sh/chart</span><span class="pi">:</span> <span class="s">ingress-nginx-4.0.15</span>
-    <span class="na">app.kubernetes.io/name</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
-    <span class="na">app.kubernetes.io/instance</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
-    <span class="na">app.kubernetes.io/version</span><span class="pi">:</span> <span class="s">1.1.1</span>
-    <span class="na">app.kubernetes.io/managed-by</span><span class="pi">:</span> <span class="s">Helm</span>
-    <span class="na">app.kubernetes.io/component</span><span class="pi">:</span> <span class="s">controller</span>
+    <span class="s">helm.sh/chart</span><span class="pi">:</span> <span class="s">ingress-nginx-4.0.15</span>
+    <span class="s">app.kubernetes.io/name</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
+    <span class="s">app.kubernetes.io/instance</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
+    <span class="s">app.kubernetes.io/version</span><span class="pi">:</span> <span class="s">1.1.1</span>
+    <span class="s">app.kubernetes.io/managed-by</span><span class="pi">:</span> <span class="s">Helm</span>
+    <span class="s">app.kubernetes.io/component</span><span class="pi">:</span> <span class="s">controller</span>
   <span class="na">name</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
   <span class="na">namespace</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
 <span class="na">automountServiceAccountToken</span><span class="pi">:</span> <span class="no">true</span>
@@ -113,12 +113,12 @@ deployment.apps/nginx-errors created
 <span class="na">kind</span><span class="pi">:</span> <span class="s">ConfigMap</span>
 <span class="na">metadata</span><span class="pi">:</span>
   <span class="na">labels</span><span class="pi">:</span>
-    <span class="na">helm.sh/chart</span><span class="pi">:</span> <span class="s">ingress-nginx-4.0.15</span>
-    <span class="na">app.kubernetes.io/name</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
-    <span class="na">app.kubernetes.io/instance</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
-    <span class="na">app.kubernetes.io/version</span><span class="pi">:</span> <span class="s">1.1.1</span>
-    <span class="na">app.kubernetes.io/managed-by</span><span class="pi">:</span> <span class="s">Helm</span>
-    <span class="na">app.kubernetes.io/component</span><span class="pi">:</span> <span class="s">controller</span>
+    <span class="s">helm.sh/chart</span><span class="pi">:</span> <span class="s">ingress-nginx-4.0.15</span>
+    <span class="s">app.kubernetes.io/name</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
+    <span class="s">app.kubernetes.io/instance</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
+    <span class="s">app.kubernetes.io/version</span><span class="pi">:</span> <span class="s">1.1.1</span>
+    <span class="s">app.kubernetes.io/managed-by</span><span class="pi">:</span> <span class="s">Helm</span>
+    <span class="s">app.kubernetes.io/component</span><span class="pi">:</span> <span class="s">controller</span>
   <span class="na">name</span><span class="pi">:</span> <span class="s">ingress-nginx-controller</span>
   <span class="na">namespace</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
 <span class="na">data</span><span class="pi">:</span>
@@ -131,11 +131,11 @@ deployment.apps/nginx-errors created
 <span class="na">kind</span><span class="pi">:</span> <span class="s">ClusterRole</span>
 <span class="na">metadata</span><span class="pi">:</span>
   <span class="na">labels</span><span class="pi">:</span>
-    <span class="na">helm.sh/chart</span><span class="pi">:</span> <span class="s">ingress-nginx-4.0.15</span>
-    <span class="na">app.kubernetes.io/name</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
-    <span class="na">app.kubernetes.io/instance</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
-    <span class="na">app.kubernetes.io/version</span><span class="pi">:</span> <span class="s">1.1.1</span>
-    <span class="na">app.kubernetes.io/managed-by</span><span class="pi">:</span> <span class="s">Helm</span>
+    <span class="s">helm.sh/chart</span><span class="pi">:</span> <span class="s">ingress-nginx-4.0.15</span>
+    <span class="s">app.kubernetes.io/name</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
+    <span class="s">app.kubernetes.io/instance</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
+    <span class="s">app.kubernetes.io/version</span><span class="pi">:</span> <span class="s">1.1.1</span>
+    <span class="s">app.kubernetes.io/managed-by</span><span class="pi">:</span> <span class="s">Helm</span>
   <span class="na">name</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
 <span class="na">rules</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="na">apiGroups</span><span class="pi">:</span>
@@ -199,11 +199,11 @@ deployment.apps/nginx-errors created
 <span class="na">kind</span><span class="pi">:</span> <span class="s">ClusterRoleBinding</span>
 <span class="na">metadata</span><span class="pi">:</span>
   <span class="na">labels</span><span class="pi">:</span>
-    <span class="na">helm.sh/chart</span><span class="pi">:</span> <span class="s">ingress-nginx-4.0.15</span>
-    <span class="na">app.kubernetes.io/name</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
-    <span class="na">app.kubernetes.io/instance</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
-    <span class="na">app.kubernetes.io/version</span><span class="pi">:</span> <span class="s">1.1.1</span>
-    <span class="na">app.kubernetes.io/managed-by</span><span class="pi">:</span> <span class="s">Helm</span>
+    <span class="s">helm.sh/chart</span><span class="pi">:</span> <span class="s">ingress-nginx-4.0.15</span>
+    <span class="s">app.kubernetes.io/name</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
+    <span class="s">app.kubernetes.io/instance</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
+    <span class="s">app.kubernetes.io/version</span><span class="pi">:</span> <span class="s">1.1.1</span>
+    <span class="s">app.kubernetes.io/managed-by</span><span class="pi">:</span> <span class="s">Helm</span>
   <span class="na">name</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
 <span class="na">roleRef</span><span class="pi">:</span>
   <span class="na">apiGroup</span><span class="pi">:</span> <span class="s">rbac.authorization.k8s.io</span>
@@ -219,12 +219,12 @@ deployment.apps/nginx-errors created
 <span class="na">kind</span><span class="pi">:</span> <span class="s">Role</span>
 <span class="na">metadata</span><span class="pi">:</span>
   <span class="na">labels</span><span class="pi">:</span>
-    <span class="na">helm.sh/chart</span><span class="pi">:</span> <span class="s">ingress-nginx-4.0.15</span>
-    <span class="na">app.kubernetes.io/name</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
-    <span class="na">app.kubernetes.io/instance</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
-    <span class="na">app.kubernetes.io/version</span><span class="pi">:</span> <span class="s">1.1.1</span>
-    <span class="na">app.kubernetes.io/managed-by</span><span class="pi">:</span> <span class="s">Helm</span>
-    <span class="na">app.kubernetes.io/component</span><span class="pi">:</span> <span class="s">controller</span>
+    <span class="s">helm.sh/chart</span><span class="pi">:</span> <span class="s">ingress-nginx-4.0.15</span>
+    <span class="s">app.kubernetes.io/name</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
+    <span class="s">app.kubernetes.io/instance</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
+    <span class="s">app.kubernetes.io/version</span><span class="pi">:</span> <span class="s">1.1.1</span>
+    <span class="s">app.kubernetes.io/managed-by</span><span class="pi">:</span> <span class="s">Helm</span>
+    <span class="s">app.kubernetes.io/component</span><span class="pi">:</span> <span class="s">controller</span>
   <span class="na">name</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
   <span class="na">namespace</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
 <span class="na">rules</span><span class="pi">:</span>
@@ -303,12 +303,12 @@ deployment.apps/nginx-errors created
 <span class="na">kind</span><span class="pi">:</span> <span class="s">RoleBinding</span>
 <span class="na">metadata</span><span class="pi">:</span>
   <span class="na">labels</span><span class="pi">:</span>
-    <span class="na">helm.sh/chart</span><span class="pi">:</span> <span class="s">ingress-nginx-4.0.15</span>
-    <span class="na">app.kubernetes.io/name</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
-    <span class="na">app.kubernetes.io/instance</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
-    <span class="na">app.kubernetes.io/version</span><span class="pi">:</span> <span class="s">1.1.1</span>
-    <span class="na">app.kubernetes.io/managed-by</span><span class="pi">:</span> <span class="s">Helm</span>
-    <span class="na">app.kubernetes.io/component</span><span class="pi">:</span> <span class="s">controller</span>
+    <span class="s">helm.sh/chart</span><span class="pi">:</span> <span class="s">ingress-nginx-4.0.15</span>
+    <span class="s">app.kubernetes.io/name</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
+    <span class="s">app.kubernetes.io/instance</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
+    <span class="s">app.kubernetes.io/version</span><span class="pi">:</span> <span class="s">1.1.1</span>
+    <span class="s">app.kubernetes.io/managed-by</span><span class="pi">:</span> <span class="s">Helm</span>
+    <span class="s">app.kubernetes.io/component</span><span class="pi">:</span> <span class="s">controller</span>
   <span class="na">name</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
   <span class="na">namespace</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
 <span class="na">roleRef</span><span class="pi">:</span>
@@ -325,25 +325,25 @@ deployment.apps/nginx-errors created
 <span class="na">kind</span><span class="pi">:</span> <span class="s">Service</span>
 <span class="na">metadata</span><span class="pi">:</span>
   <span class="na">labels</span><span class="pi">:</span>
-    <span class="na">helm.sh/chart</span><span class="pi">:</span> <span class="s">ingress-nginx-4.0.15</span>
-    <span class="na">app.kubernetes.io/name</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
-    <span class="na">app.kubernetes.io/instance</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
-    <span class="na">app.kubernetes.io/version</span><span class="pi">:</span> <span class="s">1.1.1</span>
-    <span class="na">app.kubernetes.io/managed-by</span><span class="pi">:</span> <span class="s">Helm</span>
-    <span class="na">app.kubernetes.io/component</span><span class="pi">:</span> <span class="s">controller</span>
+    <span class="s">helm.sh/chart</span><span class="pi">:</span> <span class="s">ingress-nginx-4.0.15</span>
+    <span class="s">app.kubernetes.io/name</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
+    <span class="s">app.kubernetes.io/instance</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
+    <span class="s">app.kubernetes.io/version</span><span class="pi">:</span> <span class="s">1.1.1</span>
+    <span class="s">app.kubernetes.io/managed-by</span><span class="pi">:</span> <span class="s">Helm</span>
+    <span class="s">app.kubernetes.io/component</span><span class="pi">:</span> <span class="s">controller</span>
   <span class="na">name</span><span class="pi">:</span> <span class="s">ingress-nginx-controller-admission</span>
   <span class="na">namespace</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
 <span class="na">spec</span><span class="pi">:</span>
   <span class="na">type</span><span class="pi">:</span> <span class="s">ClusterIP</span>
   <span class="na">ports</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">https-webhook</span>
-      <span class="na">port</span><span class="pi">:</span> <span class="m">443</span>
+      <span class="na">port</span><span class="pi">:</span> <span class="s">443</span>
       <span class="na">targetPort</span><span class="pi">:</span> <span class="s">webhook</span>
       <span class="na">appProtocol</span><span class="pi">:</span> <span class="s">https</span>
   <span class="na">selector</span><span class="pi">:</span>
-    <span class="na">app.kubernetes.io/name</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
-    <span class="na">app.kubernetes.io/instance</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
-    <span class="na">app.kubernetes.io/component</span><span class="pi">:</span> <span class="s">controller</span>
+    <span class="s">app.kubernetes.io/name</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
+    <span class="s">app.kubernetes.io/instance</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
+    <span class="s">app.kubernetes.io/component</span><span class="pi">:</span> <span class="s">controller</span>
 <span class="nn">---</span>
 <span class="c1"># Source: ingress-nginx/templates/controller-service.yaml</span>
 <span class="na">apiVersion</span><span class="pi">:</span> <span class="s">v1</span>
@@ -351,12 +351,12 @@ deployment.apps/nginx-errors created
 <span class="na">metadata</span><span class="pi">:</span>
   <span class="na">annotations</span><span class="pi">:</span>
   <span class="na">labels</span><span class="pi">:</span>
-    <span class="na">helm.sh/chart</span><span class="pi">:</span> <span class="s">ingress-nginx-4.0.15</span>
-    <span class="na">app.kubernetes.io/name</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
-    <span class="na">app.kubernetes.io/instance</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
-    <span class="na">app.kubernetes.io/version</span><span class="pi">:</span> <span class="s">1.1.1</span>
-    <span class="na">app.kubernetes.io/managed-by</span><span class="pi">:</span> <span class="s">Helm</span>
-    <span class="na">app.kubernetes.io/component</span><span class="pi">:</span> <span class="s">controller</span>
+    <span class="s">helm.sh/chart</span><span class="pi">:</span> <span class="s">ingress-nginx-4.0.15</span>
+    <span class="s">app.kubernetes.io/name</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
+    <span class="s">app.kubernetes.io/instance</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
+    <span class="s">app.kubernetes.io/version</span><span class="pi">:</span> <span class="s">1.1.1</span>
+    <span class="s">app.kubernetes.io/managed-by</span><span class="pi">:</span> <span class="s">Helm</span>
+    <span class="s">app.kubernetes.io/component</span><span class="pi">:</span> <span class="s">controller</span>
   <span class="na">name</span><span class="pi">:</span> <span class="s">ingress-nginx-controller</span>
   <span class="na">namespace</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
 <span class="na">spec</span><span class="pi">:</span>
@@ -367,47 +367,47 @@ deployment.apps/nginx-errors created
     <span class="pi">-</span> <span class="s">IPv4</span>
   <span class="na">ports</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">http</span>
-      <span class="na">port</span><span class="pi">:</span> <span class="m">80</span>
+      <span class="na">port</span><span class="pi">:</span> <span class="s">80</span>
       <span class="na">protocol</span><span class="pi">:</span> <span class="s">TCP</span>
       <span class="na">targetPort</span><span class="pi">:</span> <span class="s">http</span>
       <span class="na">appProtocol</span><span class="pi">:</span> <span class="s">http</span>
     <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">https</span>
-      <span class="na">port</span><span class="pi">:</span> <span class="m">443</span>
+      <span class="na">port</span><span class="pi">:</span> <span class="s">443</span>
       <span class="na">protocol</span><span class="pi">:</span> <span class="s">TCP</span>
       <span class="na">targetPort</span><span class="pi">:</span> <span class="s">https</span>
       <span class="na">appProtocol</span><span class="pi">:</span> <span class="s">https</span>
   <span class="na">selector</span><span class="pi">:</span>
-    <span class="na">app.kubernetes.io/name</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
-    <span class="na">app.kubernetes.io/instance</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
-    <span class="na">app.kubernetes.io/component</span><span class="pi">:</span> <span class="s">controller</span>
+    <span class="s">app.kubernetes.io/name</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
+    <span class="s">app.kubernetes.io/instance</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
+    <span class="s">app.kubernetes.io/component</span><span class="pi">:</span> <span class="s">controller</span>
 <span class="nn">---</span>
 <span class="c1"># Source: ingress-nginx/templates/controller-deployment.yaml</span>
 <span class="na">apiVersion</span><span class="pi">:</span> <span class="s">apps/v1</span>
 <span class="na">kind</span><span class="pi">:</span> <span class="s">Deployment</span>
 <span class="na">metadata</span><span class="pi">:</span>
   <span class="na">labels</span><span class="pi">:</span>
-    <span class="na">helm.sh/chart</span><span class="pi">:</span> <span class="s">ingress-nginx-4.0.15</span>
-    <span class="na">app.kubernetes.io/name</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
-    <span class="na">app.kubernetes.io/instance</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
-    <span class="na">app.kubernetes.io/version</span><span class="pi">:</span> <span class="s">1.1.1</span>
-    <span class="na">app.kubernetes.io/managed-by</span><span class="pi">:</span> <span class="s">Helm</span>
-    <span class="na">app.kubernetes.io/component</span><span class="pi">:</span> <span class="s">controller</span>
+    <span class="s">helm.sh/chart</span><span class="pi">:</span> <span class="s">ingress-nginx-4.0.15</span>
+    <span class="s">app.kubernetes.io/name</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
+    <span class="s">app.kubernetes.io/instance</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
+    <span class="s">app.kubernetes.io/version</span><span class="pi">:</span> <span class="s">1.1.1</span>
+    <span class="s">app.kubernetes.io/managed-by</span><span class="pi">:</span> <span class="s">Helm</span>
+    <span class="s">app.kubernetes.io/component</span><span class="pi">:</span> <span class="s">controller</span>
   <span class="na">name</span><span class="pi">:</span> <span class="s">ingress-nginx-controller</span>
   <span class="na">namespace</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
 <span class="na">spec</span><span class="pi">:</span>
   <span class="na">selector</span><span class="pi">:</span>
     <span class="na">matchLabels</span><span class="pi">:</span>
-      <span class="na">app.kubernetes.io/name</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
-      <span class="na">app.kubernetes.io/instance</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
-      <span class="na">app.kubernetes.io/component</span><span class="pi">:</span> <span class="s">controller</span>
-  <span class="na">revisionHistoryLimit</span><span class="pi">:</span> <span class="m">10</span>
-  <span class="na">minReadySeconds</span><span class="pi">:</span> <span class="m">0</span>
+      <span class="s">app.kubernetes.io/name</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
+      <span class="s">app.kubernetes.io/instance</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
+      <span class="s">app.kubernetes.io/component</span><span class="pi">:</span> <span class="s">controller</span>
+  <span class="na">revisionHistoryLimit</span><span class="pi">:</span> <span class="s">10</span>
+  <span class="na">minReadySeconds</span><span class="pi">:</span> <span class="s">0</span>
   <span class="na">template</span><span class="pi">:</span>
     <span class="na">metadata</span><span class="pi">:</span>
       <span class="na">labels</span><span class="pi">:</span>
-        <span class="na">app.kubernetes.io/name</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
-        <span class="na">app.kubernetes.io/instance</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
-        <span class="na">app.kubernetes.io/component</span><span class="pi">:</span> <span class="s">controller</span>
+        <span class="s">app.kubernetes.io/name</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
+        <span class="s">app.kubernetes.io/instance</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
+        <span class="s">app.kubernetes.io/component</span><span class="pi">:</span> <span class="s">controller</span>
     <span class="na">spec</span><span class="pi">:</span>
       <span class="na">dnsPolicy</span><span class="pi">:</span> <span class="s">ClusterFirst</span>
       <span class="na">nodeName</span><span class="pi">:</span> <span class="s">k8s-m</span>
@@ -438,7 +438,7 @@ deployment.apps/nginx-errors created
                 <span class="pi">-</span> <span class="s">ALL</span>
               <span class="na">add</span><span class="pi">:</span>
                 <span class="pi">-</span> <span class="s">NET_BIND_SERVICE</span>
-            <span class="na">runAsUser</span><span class="pi">:</span> <span class="m">101</span>
+            <span class="na">runAsUser</span><span class="pi">:</span> <span class="s">101</span>
             <span class="na">allowPrivilegeEscalation</span><span class="pi">:</span> <span class="no">true</span>
           <span class="na">env</span><span class="pi">:</span>
             <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">POD_NAME</span>
@@ -452,34 +452,34 @@ deployment.apps/nginx-errors created
             <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">LD_PRELOAD</span>
               <span class="na">value</span><span class="pi">:</span> <span class="s">/usr/local/lib/libmimalloc.so</span>
           <span class="na">livenessProbe</span><span class="pi">:</span>
-            <span class="na">failureThreshold</span><span class="pi">:</span> <span class="m">5</span>
+            <span class="na">failureThreshold</span><span class="pi">:</span> <span class="s">5</span>
             <span class="na">httpGet</span><span class="pi">:</span>
               <span class="na">path</span><span class="pi">:</span> <span class="s">/healthz</span>
-              <span class="na">port</span><span class="pi">:</span> <span class="m">10254</span>
+              <span class="na">port</span><span class="pi">:</span> <span class="s">10254</span>
               <span class="na">scheme</span><span class="pi">:</span> <span class="s">HTTP</span>
-            <span class="na">initialDelaySeconds</span><span class="pi">:</span> <span class="m">10</span>
-            <span class="na">periodSeconds</span><span class="pi">:</span> <span class="m">10</span>
-            <span class="na">successThreshold</span><span class="pi">:</span> <span class="m">1</span>
-            <span class="na">timeoutSeconds</span><span class="pi">:</span> <span class="m">1</span>
+            <span class="na">initialDelaySeconds</span><span class="pi">:</span> <span class="s">10</span>
+            <span class="na">periodSeconds</span><span class="pi">:</span> <span class="s">10</span>
+            <span class="na">successThreshold</span><span class="pi">:</span> <span class="s">1</span>
+            <span class="na">timeoutSeconds</span><span class="pi">:</span> <span class="s">1</span>
           <span class="na">readinessProbe</span><span class="pi">:</span>
-            <span class="na">failureThreshold</span><span class="pi">:</span> <span class="m">3</span>
+            <span class="na">failureThreshold</span><span class="pi">:</span> <span class="s">3</span>
             <span class="na">httpGet</span><span class="pi">:</span>
               <span class="na">path</span><span class="pi">:</span> <span class="s">/healthz</span>
-              <span class="na">port</span><span class="pi">:</span> <span class="m">10254</span>
+              <span class="na">port</span><span class="pi">:</span> <span class="s">10254</span>
               <span class="na">scheme</span><span class="pi">:</span> <span class="s">HTTP</span>
-            <span class="na">initialDelaySeconds</span><span class="pi">:</span> <span class="m">10</span>
-            <span class="na">periodSeconds</span><span class="pi">:</span> <span class="m">10</span>
-            <span class="na">successThreshold</span><span class="pi">:</span> <span class="m">1</span>
-            <span class="na">timeoutSeconds</span><span class="pi">:</span> <span class="m">1</span>
+            <span class="na">initialDelaySeconds</span><span class="pi">:</span> <span class="s">10</span>
+            <span class="na">periodSeconds</span><span class="pi">:</span> <span class="s">10</span>
+            <span class="na">successThreshold</span><span class="pi">:</span> <span class="s">1</span>
+            <span class="na">timeoutSeconds</span><span class="pi">:</span> <span class="s">1</span>
           <span class="na">ports</span><span class="pi">:</span>
             <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">http</span>
-              <span class="na">containerPort</span><span class="pi">:</span> <span class="m">80</span>
+              <span class="na">containerPort</span><span class="pi">:</span> <span class="s">80</span>
               <span class="na">protocol</span><span class="pi">:</span> <span class="s">TCP</span>
             <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">https</span>
-              <span class="na">containerPort</span><span class="pi">:</span> <span class="m">443</span>
+              <span class="na">containerPort</span><span class="pi">:</span> <span class="s">443</span>
               <span class="na">protocol</span><span class="pi">:</span> <span class="s">TCP</span>
             <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">webhook</span>
-              <span class="na">containerPort</span><span class="pi">:</span> <span class="m">8443</span>
+              <span class="na">containerPort</span><span class="pi">:</span> <span class="s">8443</span>
               <span class="na">protocol</span><span class="pi">:</span> <span class="s">TCP</span>
           <span class="na">volumeMounts</span><span class="pi">:</span>
             <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">webhook-cert</span>
@@ -490,9 +490,9 @@ deployment.apps/nginx-errors created
               <span class="na">cpu</span><span class="pi">:</span> <span class="s">100m</span>
               <span class="na">memory</span><span class="pi">:</span> <span class="s">90Mi</span>
       <span class="na">nodeSelector</span><span class="pi">:</span>
-        <span class="na">kubernetes.io/os</span><span class="pi">:</span> <span class="s">linux</span>
+        <span class="s">kubernetes.io/os</span><span class="pi">:</span> <span class="s">linux</span>
       <span class="na">serviceAccountName</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
-      <span class="na">terminationGracePeriodSeconds</span><span class="pi">:</span> <span class="m">300</span>
+      <span class="na">terminationGracePeriodSeconds</span><span class="pi">:</span> <span class="s">300</span>
       <span class="na">volumes</span><span class="pi">:</span>
         <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">webhook-cert</span>
           <span class="na">secret</span><span class="pi">:</span>
@@ -505,12 +505,12 @@ deployment.apps/nginx-errors created
 <span class="na">kind</span><span class="pi">:</span> <span class="s">IngressClass</span>
 <span class="na">metadata</span><span class="pi">:</span>
   <span class="na">labels</span><span class="pi">:</span>
-    <span class="na">helm.sh/chart</span><span class="pi">:</span> <span class="s">ingress-nginx-4.0.15</span>
-    <span class="na">app.kubernetes.io/name</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
-    <span class="na">app.kubernetes.io/instance</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
-    <span class="na">app.kubernetes.io/version</span><span class="pi">:</span> <span class="s">1.1.1</span>
-    <span class="na">app.kubernetes.io/managed-by</span><span class="pi">:</span> <span class="s">Helm</span>
-    <span class="na">app.kubernetes.io/component</span><span class="pi">:</span> <span class="s">controller</span>
+    <span class="s">helm.sh/chart</span><span class="pi">:</span> <span class="s">ingress-nginx-4.0.15</span>
+    <span class="s">app.kubernetes.io/name</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
+    <span class="s">app.kubernetes.io/instance</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
+    <span class="s">app.kubernetes.io/version</span><span class="pi">:</span> <span class="s">1.1.1</span>
+    <span class="s">app.kubernetes.io/managed-by</span><span class="pi">:</span> <span class="s">Helm</span>
+    <span class="s">app.kubernetes.io/component</span><span class="pi">:</span> <span class="s">controller</span>
   <span class="na">name</span><span class="pi">:</span> <span class="s">nginx</span>
   <span class="na">namespace</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
 <span class="na">spec</span><span class="pi">:</span>
@@ -523,12 +523,12 @@ deployment.apps/nginx-errors created
 <span class="na">kind</span><span class="pi">:</span> <span class="s">ValidatingWebhookConfiguration</span>
 <span class="na">metadata</span><span class="pi">:</span>
   <span class="na">labels</span><span class="pi">:</span>
-    <span class="na">helm.sh/chart</span><span class="pi">:</span> <span class="s">ingress-nginx-4.0.15</span>
-    <span class="na">app.kubernetes.io/name</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
-    <span class="na">app.kubernetes.io/instance</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
-    <span class="na">app.kubernetes.io/version</span><span class="pi">:</span> <span class="s">1.1.1</span>
-    <span class="na">app.kubernetes.io/managed-by</span><span class="pi">:</span> <span class="s">Helm</span>
-    <span class="na">app.kubernetes.io/component</span><span class="pi">:</span> <span class="s">admission-webhook</span>
+    <span class="s">helm.sh/chart</span><span class="pi">:</span> <span class="s">ingress-nginx-4.0.15</span>
+    <span class="s">app.kubernetes.io/name</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
+    <span class="s">app.kubernetes.io/instance</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
+    <span class="s">app.kubernetes.io/version</span><span class="pi">:</span> <span class="s">1.1.1</span>
+    <span class="s">app.kubernetes.io/managed-by</span><span class="pi">:</span> <span class="s">Helm</span>
+    <span class="s">app.kubernetes.io/component</span><span class="pi">:</span> <span class="s">admission-webhook</span>
   <span class="na">name</span><span class="pi">:</span> <span class="s">ingress-nginx-admission</span>
 <span class="na">webhooks</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">validate.nginx.ingress.kubernetes.io</span>
@@ -560,15 +560,15 @@ deployment.apps/nginx-errors created
   <span class="na">name</span><span class="pi">:</span> <span class="s">ingress-nginx-admission</span>
   <span class="na">namespace</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
   <span class="na">annotations</span><span class="pi">:</span>
-    <span class="na">helm.sh/hook</span><span class="pi">:</span> <span class="s">pre-install,pre-upgrade,post-install,post-upgrade</span>
-    <span class="na">helm.sh/hook-delete-policy</span><span class="pi">:</span> <span class="s">before-hook-creation,hook-succeeded</span>
+    <span class="s">helm.sh/hook</span><span class="pi">:</span> <span class="s">pre-install,pre-upgrade,post-install,post-upgrade</span>
+    <span class="s">helm.sh/hook-delete-policy</span><span class="pi">:</span> <span class="s">before-hook-creation,hook-succeeded</span>
   <span class="na">labels</span><span class="pi">:</span>
-    <span class="na">helm.sh/chart</span><span class="pi">:</span> <span class="s">ingress-nginx-4.0.15</span>
-    <span class="na">app.kubernetes.io/name</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
-    <span class="na">app.kubernetes.io/instance</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
-    <span class="na">app.kubernetes.io/version</span><span class="pi">:</span> <span class="s">1.1.1</span>
-    <span class="na">app.kubernetes.io/managed-by</span><span class="pi">:</span> <span class="s">Helm</span>
-    <span class="na">app.kubernetes.io/component</span><span class="pi">:</span> <span class="s">admission-webhook</span>
+    <span class="s">helm.sh/chart</span><span class="pi">:</span> <span class="s">ingress-nginx-4.0.15</span>
+    <span class="s">app.kubernetes.io/name</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
+    <span class="s">app.kubernetes.io/instance</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
+    <span class="s">app.kubernetes.io/version</span><span class="pi">:</span> <span class="s">1.1.1</span>
+    <span class="s">app.kubernetes.io/managed-by</span><span class="pi">:</span> <span class="s">Helm</span>
+    <span class="s">app.kubernetes.io/component</span><span class="pi">:</span> <span class="s">admission-webhook</span>
 <span class="nn">---</span>
 <span class="c1"># Source: ingress-nginx/templates/admission-webhooks/job-patch/clusterrole.yaml</span>
 <span class="na">apiVersion</span><span class="pi">:</span> <span class="s">rbac.authorization.k8s.io/v1</span>
@@ -576,15 +576,15 @@ deployment.apps/nginx-errors created
 <span class="na">metadata</span><span class="pi">:</span>
   <span class="na">name</span><span class="pi">:</span> <span class="s">ingress-nginx-admission</span>
   <span class="na">annotations</span><span class="pi">:</span>
-    <span class="na">helm.sh/hook</span><span class="pi">:</span> <span class="s">pre-install,pre-upgrade,post-install,post-upgrade</span>
-    <span class="na">helm.sh/hook-delete-policy</span><span class="pi">:</span> <span class="s">before-hook-creation,hook-succeeded</span>
+    <span class="s">helm.sh/hook</span><span class="pi">:</span> <span class="s">pre-install,pre-upgrade,post-install,post-upgrade</span>
+    <span class="s">helm.sh/hook-delete-policy</span><span class="pi">:</span> <span class="s">before-hook-creation,hook-succeeded</span>
   <span class="na">labels</span><span class="pi">:</span>
-    <span class="na">helm.sh/chart</span><span class="pi">:</span> <span class="s">ingress-nginx-4.0.15</span>
-    <span class="na">app.kubernetes.io/name</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
-    <span class="na">app.kubernetes.io/instance</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
-    <span class="na">app.kubernetes.io/version</span><span class="pi">:</span> <span class="s">1.1.1</span>
-    <span class="na">app.kubernetes.io/managed-by</span><span class="pi">:</span> <span class="s">Helm</span>
-    <span class="na">app.kubernetes.io/component</span><span class="pi">:</span> <span class="s">admission-webhook</span>
+    <span class="s">helm.sh/chart</span><span class="pi">:</span> <span class="s">ingress-nginx-4.0.15</span>
+    <span class="s">app.kubernetes.io/name</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
+    <span class="s">app.kubernetes.io/instance</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
+    <span class="s">app.kubernetes.io/version</span><span class="pi">:</span> <span class="s">1.1.1</span>
+    <span class="s">app.kubernetes.io/managed-by</span><span class="pi">:</span> <span class="s">Helm</span>
+    <span class="s">app.kubernetes.io/component</span><span class="pi">:</span> <span class="s">admission-webhook</span>
 <span class="na">rules</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="na">apiGroups</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">admissionregistration.k8s.io</span>
@@ -600,15 +600,15 @@ deployment.apps/nginx-errors created
 <span class="na">metadata</span><span class="pi">:</span>
   <span class="na">name</span><span class="pi">:</span> <span class="s">ingress-nginx-admission</span>
   <span class="na">annotations</span><span class="pi">:</span>
-    <span class="na">helm.sh/hook</span><span class="pi">:</span> <span class="s">pre-install,pre-upgrade,post-install,post-upgrade</span>
-    <span class="na">helm.sh/hook-delete-policy</span><span class="pi">:</span> <span class="s">before-hook-creation,hook-succeeded</span>
+    <span class="s">helm.sh/hook</span><span class="pi">:</span> <span class="s">pre-install,pre-upgrade,post-install,post-upgrade</span>
+    <span class="s">helm.sh/hook-delete-policy</span><span class="pi">:</span> <span class="s">before-hook-creation,hook-succeeded</span>
   <span class="na">labels</span><span class="pi">:</span>
-    <span class="na">helm.sh/chart</span><span class="pi">:</span> <span class="s">ingress-nginx-4.0.15</span>
-    <span class="na">app.kubernetes.io/name</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
-    <span class="na">app.kubernetes.io/instance</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
-    <span class="na">app.kubernetes.io/version</span><span class="pi">:</span> <span class="s">1.1.1</span>
-    <span class="na">app.kubernetes.io/managed-by</span><span class="pi">:</span> <span class="s">Helm</span>
-    <span class="na">app.kubernetes.io/component</span><span class="pi">:</span> <span class="s">admission-webhook</span>
+    <span class="s">helm.sh/chart</span><span class="pi">:</span> <span class="s">ingress-nginx-4.0.15</span>
+    <span class="s">app.kubernetes.io/name</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
+    <span class="s">app.kubernetes.io/instance</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
+    <span class="s">app.kubernetes.io/version</span><span class="pi">:</span> <span class="s">1.1.1</span>
+    <span class="s">app.kubernetes.io/managed-by</span><span class="pi">:</span> <span class="s">Helm</span>
+    <span class="s">app.kubernetes.io/component</span><span class="pi">:</span> <span class="s">admission-webhook</span>
 <span class="na">roleRef</span><span class="pi">:</span>
   <span class="na">apiGroup</span><span class="pi">:</span> <span class="s">rbac.authorization.k8s.io</span>
   <span class="na">kind</span><span class="pi">:</span> <span class="s">ClusterRole</span>
@@ -625,15 +625,15 @@ deployment.apps/nginx-errors created
   <span class="na">name</span><span class="pi">:</span> <span class="s">ingress-nginx-admission</span>
   <span class="na">namespace</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
   <span class="na">annotations</span><span class="pi">:</span>
-    <span class="na">helm.sh/hook</span><span class="pi">:</span> <span class="s">pre-install,pre-upgrade,post-install,post-upgrade</span>
-    <span class="na">helm.sh/hook-delete-policy</span><span class="pi">:</span> <span class="s">before-hook-creation,hook-succeeded</span>
+    <span class="s">helm.sh/hook</span><span class="pi">:</span> <span class="s">pre-install,pre-upgrade,post-install,post-upgrade</span>
+    <span class="s">helm.sh/hook-delete-policy</span><span class="pi">:</span> <span class="s">before-hook-creation,hook-succeeded</span>
   <span class="na">labels</span><span class="pi">:</span>
-    <span class="na">helm.sh/chart</span><span class="pi">:</span> <span class="s">ingress-nginx-4.0.15</span>
-    <span class="na">app.kubernetes.io/name</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
-    <span class="na">app.kubernetes.io/instance</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
-    <span class="na">app.kubernetes.io/version</span><span class="pi">:</span> <span class="s">1.1.1</span>
-    <span class="na">app.kubernetes.io/managed-by</span><span class="pi">:</span> <span class="s">Helm</span>
-    <span class="na">app.kubernetes.io/component</span><span class="pi">:</span> <span class="s">admission-webhook</span>
+    <span class="s">helm.sh/chart</span><span class="pi">:</span> <span class="s">ingress-nginx-4.0.15</span>
+    <span class="s">app.kubernetes.io/name</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
+    <span class="s">app.kubernetes.io/instance</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
+    <span class="s">app.kubernetes.io/version</span><span class="pi">:</span> <span class="s">1.1.1</span>
+    <span class="s">app.kubernetes.io/managed-by</span><span class="pi">:</span> <span class="s">Helm</span>
+    <span class="s">app.kubernetes.io/component</span><span class="pi">:</span> <span class="s">admission-webhook</span>
 <span class="na">rules</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="na">apiGroups</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s1">'</span><span class="s">'</span>
@@ -650,15 +650,15 @@ deployment.apps/nginx-errors created
   <span class="na">name</span><span class="pi">:</span> <span class="s">ingress-nginx-admission</span>
   <span class="na">namespace</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
   <span class="na">annotations</span><span class="pi">:</span>
-    <span class="na">helm.sh/hook</span><span class="pi">:</span> <span class="s">pre-install,pre-upgrade,post-install,post-upgrade</span>
-    <span class="na">helm.sh/hook-delete-policy</span><span class="pi">:</span> <span class="s">before-hook-creation,hook-succeeded</span>
+    <span class="s">helm.sh/hook</span><span class="pi">:</span> <span class="s">pre-install,pre-upgrade,post-install,post-upgrade</span>
+    <span class="s">helm.sh/hook-delete-policy</span><span class="pi">:</span> <span class="s">before-hook-creation,hook-succeeded</span>
   <span class="na">labels</span><span class="pi">:</span>
-    <span class="na">helm.sh/chart</span><span class="pi">:</span> <span class="s">ingress-nginx-4.0.15</span>
-    <span class="na">app.kubernetes.io/name</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
-    <span class="na">app.kubernetes.io/instance</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
-    <span class="na">app.kubernetes.io/version</span><span class="pi">:</span> <span class="s">1.1.1</span>
-    <span class="na">app.kubernetes.io/managed-by</span><span class="pi">:</span> <span class="s">Helm</span>
-    <span class="na">app.kubernetes.io/component</span><span class="pi">:</span> <span class="s">admission-webhook</span>
+    <span class="s">helm.sh/chart</span><span class="pi">:</span> <span class="s">ingress-nginx-4.0.15</span>
+    <span class="s">app.kubernetes.io/name</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
+    <span class="s">app.kubernetes.io/instance</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
+    <span class="s">app.kubernetes.io/version</span><span class="pi">:</span> <span class="s">1.1.1</span>
+    <span class="s">app.kubernetes.io/managed-by</span><span class="pi">:</span> <span class="s">Helm</span>
+    <span class="s">app.kubernetes.io/component</span><span class="pi">:</span> <span class="s">admission-webhook</span>
 <span class="na">roleRef</span><span class="pi">:</span>
   <span class="na">apiGroup</span><span class="pi">:</span> <span class="s">rbac.authorization.k8s.io</span>
   <span class="na">kind</span><span class="pi">:</span> <span class="s">Role</span>
@@ -675,26 +675,26 @@ deployment.apps/nginx-errors created
   <span class="na">name</span><span class="pi">:</span> <span class="s">ingress-nginx-admission-create</span>
   <span class="na">namespace</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
   <span class="na">annotations</span><span class="pi">:</span>
-    <span class="na">helm.sh/hook</span><span class="pi">:</span> <span class="s">pre-install,pre-upgrade</span>
-    <span class="na">helm.sh/hook-delete-policy</span><span class="pi">:</span> <span class="s">before-hook-creation,hook-succeeded</span>
+    <span class="s">helm.sh/hook</span><span class="pi">:</span> <span class="s">pre-install,pre-upgrade</span>
+    <span class="s">helm.sh/hook-delete-policy</span><span class="pi">:</span> <span class="s">before-hook-creation,hook-succeeded</span>
   <span class="na">labels</span><span class="pi">:</span>
-    <span class="na">helm.sh/chart</span><span class="pi">:</span> <span class="s">ingress-nginx-4.0.15</span>
-    <span class="na">app.kubernetes.io/name</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
-    <span class="na">app.kubernetes.io/instance</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
-    <span class="na">app.kubernetes.io/version</span><span class="pi">:</span> <span class="s">1.1.1</span>
-    <span class="na">app.kubernetes.io/managed-by</span><span class="pi">:</span> <span class="s">Helm</span>
-    <span class="na">app.kubernetes.io/component</span><span class="pi">:</span> <span class="s">admission-webhook</span>
+    <span class="s">helm.sh/chart</span><span class="pi">:</span> <span class="s">ingress-nginx-4.0.15</span>
+    <span class="s">app.kubernetes.io/name</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
+    <span class="s">app.kubernetes.io/instance</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
+    <span class="s">app.kubernetes.io/version</span><span class="pi">:</span> <span class="s">1.1.1</span>
+    <span class="s">app.kubernetes.io/managed-by</span><span class="pi">:</span> <span class="s">Helm</span>
+    <span class="s">app.kubernetes.io/component</span><span class="pi">:</span> <span class="s">admission-webhook</span>
 <span class="na">spec</span><span class="pi">:</span>
   <span class="na">template</span><span class="pi">:</span>
     <span class="na">metadata</span><span class="pi">:</span>
       <span class="na">name</span><span class="pi">:</span> <span class="s">ingress-nginx-admission-create</span>
       <span class="na">labels</span><span class="pi">:</span>
-        <span class="na">helm.sh/chart</span><span class="pi">:</span> <span class="s">ingress-nginx-4.0.15</span>
-        <span class="na">app.kubernetes.io/name</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
-        <span class="na">app.kubernetes.io/instance</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
-        <span class="na">app.kubernetes.io/version</span><span class="pi">:</span> <span class="s">1.1.1</span>
-        <span class="na">app.kubernetes.io/managed-by</span><span class="pi">:</span> <span class="s">Helm</span>
-        <span class="na">app.kubernetes.io/component</span><span class="pi">:</span> <span class="s">admission-webhook</span>
+        <span class="s">helm.sh/chart</span><span class="pi">:</span> <span class="s">ingress-nginx-4.0.15</span>
+        <span class="s">app.kubernetes.io/name</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
+        <span class="s">app.kubernetes.io/instance</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
+        <span class="s">app.kubernetes.io/version</span><span class="pi">:</span> <span class="s">1.1.1</span>
+        <span class="s">app.kubernetes.io/managed-by</span><span class="pi">:</span> <span class="s">Helm</span>
+        <span class="s">app.kubernetes.io/component</span><span class="pi">:</span> <span class="s">admission-webhook</span>
     <span class="na">spec</span><span class="pi">:</span>
       <span class="na">containers</span><span class="pi">:</span>
         <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">create</span>
@@ -715,10 +715,10 @@ deployment.apps/nginx-errors created
       <span class="na">restartPolicy</span><span class="pi">:</span> <span class="s">OnFailure</span>
       <span class="na">serviceAccountName</span><span class="pi">:</span> <span class="s">ingress-nginx-admission</span>
       <span class="na">nodeSelector</span><span class="pi">:</span>
-        <span class="na">kubernetes.io/os</span><span class="pi">:</span> <span class="s">linux</span>
+        <span class="s">kubernetes.io/os</span><span class="pi">:</span> <span class="s">linux</span>
       <span class="na">securityContext</span><span class="pi">:</span>
         <span class="na">runAsNonRoot</span><span class="pi">:</span> <span class="no">true</span>
-        <span class="na">runAsUser</span><span class="pi">:</span> <span class="m">2000</span>
+        <span class="na">runAsUser</span><span class="pi">:</span> <span class="s">2000</span>
 <span class="nn">---</span>
 <span class="c1"># Source: ingress-nginx/templates/admission-webhooks/job-patch/job-patchWebhook.yaml</span>
 <span class="na">apiVersion</span><span class="pi">:</span> <span class="s">batch/v1</span>
@@ -727,26 +727,26 @@ deployment.apps/nginx-errors created
   <span class="na">name</span><span class="pi">:</span> <span class="s">ingress-nginx-admission-patch</span>
   <span class="na">namespace</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
   <span class="na">annotations</span><span class="pi">:</span>
-    <span class="na">helm.sh/hook</span><span class="pi">:</span> <span class="s">post-install,post-upgrade</span>
-    <span class="na">helm.sh/hook-delete-policy</span><span class="pi">:</span> <span class="s">before-hook-creation,hook-succeeded</span>
+    <span class="s">helm.sh/hook</span><span class="pi">:</span> <span class="s">post-install,post-upgrade</span>
+    <span class="s">helm.sh/hook-delete-policy</span><span class="pi">:</span> <span class="s">before-hook-creation,hook-succeeded</span>
   <span class="na">labels</span><span class="pi">:</span>
-    <span class="na">helm.sh/chart</span><span class="pi">:</span> <span class="s">ingress-nginx-4.0.15</span>
-    <span class="na">app.kubernetes.io/name</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
-    <span class="na">app.kubernetes.io/instance</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
-    <span class="na">app.kubernetes.io/version</span><span class="pi">:</span> <span class="s">1.1.1</span>
-    <span class="na">app.kubernetes.io/managed-by</span><span class="pi">:</span> <span class="s">Helm</span>
-    <span class="na">app.kubernetes.io/component</span><span class="pi">:</span> <span class="s">admission-webhook</span>
+    <span class="s">helm.sh/chart</span><span class="pi">:</span> <span class="s">ingress-nginx-4.0.15</span>
+    <span class="s">app.kubernetes.io/name</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
+    <span class="s">app.kubernetes.io/instance</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
+    <span class="s">app.kubernetes.io/version</span><span class="pi">:</span> <span class="s">1.1.1</span>
+    <span class="s">app.kubernetes.io/managed-by</span><span class="pi">:</span> <span class="s">Helm</span>
+    <span class="s">app.kubernetes.io/component</span><span class="pi">:</span> <span class="s">admission-webhook</span>
 <span class="na">spec</span><span class="pi">:</span>
   <span class="na">template</span><span class="pi">:</span>
     <span class="na">metadata</span><span class="pi">:</span>
       <span class="na">name</span><span class="pi">:</span> <span class="s">ingress-nginx-admission-patch</span>
       <span class="na">labels</span><span class="pi">:</span>
-        <span class="na">helm.sh/chart</span><span class="pi">:</span> <span class="s">ingress-nginx-4.0.15</span>
-        <span class="na">app.kubernetes.io/name</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
-        <span class="na">app.kubernetes.io/instance</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
-        <span class="na">app.kubernetes.io/version</span><span class="pi">:</span> <span class="s">1.1.1</span>
-        <span class="na">app.kubernetes.io/managed-by</span><span class="pi">:</span> <span class="s">Helm</span>
-        <span class="na">app.kubernetes.io/component</span><span class="pi">:</span> <span class="s">admission-webhook</span>
+        <span class="s">helm.sh/chart</span><span class="pi">:</span> <span class="s">ingress-nginx-4.0.15</span>
+        <span class="s">app.kubernetes.io/name</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
+        <span class="s">app.kubernetes.io/instance</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
+        <span class="s">app.kubernetes.io/version</span><span class="pi">:</span> <span class="s">1.1.1</span>
+        <span class="s">app.kubernetes.io/managed-by</span><span class="pi">:</span> <span class="s">Helm</span>
+        <span class="s">app.kubernetes.io/component</span><span class="pi">:</span> <span class="s">admission-webhook</span>
     <span class="na">spec</span><span class="pi">:</span>
       <span class="na">containers</span><span class="pi">:</span>
         <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">patch</span>
@@ -769,10 +769,10 @@ deployment.apps/nginx-errors created
       <span class="na">restartPolicy</span><span class="pi">:</span> <span class="s">OnFailure</span>
       <span class="na">serviceAccountName</span><span class="pi">:</span> <span class="s">ingress-nginx-admission</span>
       <span class="na">nodeSelector</span><span class="pi">:</span>
-        <span class="na">kubernetes.io/os</span><span class="pi">:</span> <span class="s">linux</span>
+        <span class="s">kubernetes.io/os</span><span class="pi">:</span> <span class="s">linux</span>
       <span class="na">securityContext</span><span class="pi">:</span>
         <span class="na">runAsNonRoot</span><span class="pi">:</span> <span class="no">true</span>
-        <span class="na">runAsUser</span><span class="pi">:</span> <span class="m">2000</span>
+        <span class="na">runAsUser</span><span class="pi">:</span> <span class="s">2000</span>
 </code></pre></div></div> <p>배포는 아래의 명령어로 진행합니다.</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>kubectl apply <span class="nt">-f</span>  nginx-ingress.yaml
 </code></pre></div></div> <h2 id="테스트-서비스-생성">테스트 서비스 생성</h2> <p>테스트 서비스는 스터디 6주차에 테스트 했던, svc1,2,3를 이용할 예정입니다.</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 생성</span>
 <span class="nv">$ </span>curl <span class="nt">-s</span> <span class="nt">-O</span> https://raw.githubusercontent.com/gasida/NDKS/main/7/svc1-pod.yaml
@@ -797,21 +797,21 @@ deployment.apps/nginx-errors created
           <span class="na">service</span><span class="pi">:</span>
             <span class="na">name</span><span class="pi">:</span> <span class="s">svc1-web</span>
             <span class="na">port</span><span class="pi">:</span>
-              <span class="na">number</span><span class="pi">:</span> <span class="m">80</span>
+              <span class="na">number</span><span class="pi">:</span> <span class="s">80</span>
       <span class="pi">-</span> <span class="na">path</span><span class="pi">:</span> <span class="s">/guest</span>
         <span class="na">pathType</span><span class="pi">:</span> <span class="s">Prefix</span>
         <span class="na">backend</span><span class="pi">:</span>
           <span class="na">service</span><span class="pi">:</span>
             <span class="na">name</span><span class="pi">:</span> <span class="s">svc2-guest</span>
             <span class="na">port</span><span class="pi">:</span>
-              <span class="na">number</span><span class="pi">:</span> <span class="m">8080</span>
+              <span class="na">number</span><span class="pi">:</span> <span class="s">8080</span>
       <span class="pi">-</span> <span class="na">path</span><span class="pi">:</span> <span class="s">/admin</span>
         <span class="na">pathType</span><span class="pi">:</span> <span class="s">Prefix</span>
         <span class="na">backend</span><span class="pi">:</span>
           <span class="na">service</span><span class="pi">:</span>
             <span class="na">name</span><span class="pi">:</span> <span class="s">svc3-admin</span>
             <span class="na">port</span><span class="pi">:</span>
-              <span class="na">number</span><span class="pi">:</span> <span class="m">8080</span>
+              <span class="na">number</span><span class="pi">:</span> <span class="s">8080</span>
       <span class="c1"># 503 에러를 발생시키키 위해서 없는 서비스 등록</span>
       <span class="pi">-</span> <span class="na">path</span><span class="pi">:</span> <span class="s">/error</span>
         <span class="na">pathType</span><span class="pi">:</span> <span class="s">Prefix</span>
@@ -819,7 +819,7 @@ deployment.apps/nginx-errors created
           <span class="na">service</span><span class="pi">:</span>
             <span class="na">name</span><span class="pi">:</span> <span class="s">error</span>
             <span class="na">port</span><span class="pi">:</span>
-              <span class="na">number</span><span class="pi">:</span> <span class="m">8080</span>
+              <span class="na">number</span><span class="pi">:</span> <span class="s">8080</span>
 <span class="s">EOT</span>
 </code></pre></div></div> <p>배포는 아래의 명령어로 진행합니다.</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>kubectl apply <span class="nt">-f</span>  ingress1.yaml
 </code></pre></div></div> <h2 id="200-400-503-error-테스트">200, 400, 503 Error 테스트</h2> <blockquote> <p>svc1~3 까지 접속 테스트를 해보고, 404, 503 Error 페이지를 확인 합니다.</p> </blockquote> <h3 id="설치된-ingress-정보-확인">설치된 ingress 정보 확인</h3> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 인그레스 관련된 정보 확인 : 포드(Nginx 서버), 서비스 타입 확인</span>
@@ -832,7 +832,7 @@ service/ingress-nginx-controller             NodePort    10.105.0.111    &lt;non
 service/ingress-nginx-controller-admission   ClusterIP   10.100.204.47   &lt;none&gt;        443/TCP                      3h13m
 
 <span class="c"># ingress-nginx-controller NodePort(HTTP 접속용) 변수 지정 및 포트 확인</span>
-<span class="nv">$ </span><span class="nb">export </span><span class="nv">IngHttp</span><span class="o">=</span><span class="si">$(</span>kubectl get service <span class="nt">-n</span> ingress-nginx ingress-nginx-controller <span class="nt">-o</span> <span class="nv">jsonpath</span><span class="o">=</span><span class="s1">'{.spec.ports[0].nodePort}'</span><span class="si">)</span>
+<span class="nv">$ </span><span class="nb">export </span><span class="nv">IngHttp</span><span class="o">=</span><span class="k">$(</span>kubectl get service <span class="nt">-n</span> ingress-nginx ingress-nginx-controller <span class="nt">-o</span> <span class="nv">jsonpath</span><span class="o">=</span><span class="s1">'{.spec.ports[0].nodePort}'</span><span class="k">)</span>
 <span class="nv">$ </span><span class="nb">echo</span> <span class="nv">$IngHttp</span>
 32050
 <span class="c"># main 노드의 IP 확인</span>

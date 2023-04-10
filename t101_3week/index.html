@@ -70,7 +70,7 @@ diff terraform.tfstate terraform.tfstate.backup
 <span class="nt">---</span>
 <span class="o">&gt;</span>   <span class="s2">"serial"</span>: 4,
 ...
-</code></pre></div></div> <h3 id="다음-실습을-위해-삭제-terraform-destroy--auto-approve"><strong>다음 실습을 위해 삭제</strong>: <code class="language-plaintext highlighter-rouge">**terraform destroy -auto-approve**</code></h3> <h2 id="이론-내용">이론 내용</h2> <ul> <li><strong>상태 파일</strong>은 배포할 때마다 변경되는 <strong>프라이빗 API</strong> <em>private API</em>로, 오직 테라폼 내부에서 사용하기 위한 것입니다.</li> <li><strong>테라폼 상태 파일</strong>을 <strong>직접 편집하거나 직접 읽는 코드로 작성해서는 안됩</strong>니다.</li> </ul> <blockquote> <p><code class="language-plaintext highlighter-rouge">팀 단위에서 테라폼 운영 시 문제점</code></p> </blockquote> <ol> <li>상태 파일을 저장하는 <strong>공유 스토리지</strong> <em>Shared storage for state files</em> <ul> <li>각 팀원이 <strong>동일한 테라폼 상태 파일 사용</strong>을 위해서, 공유 위치에 저장이 필요</li> </ul> </li> <li>상태 <strong>파일 잠금</strong> <em>Locking state files</em> <ul> <li>잠금 기능 없이 두 팀원이 동시에 테라폼 실행 시 여러 테라폼 프로세스가 상태 파일을 동시에 업데이트하여 <strong>충돌 가능</strong>(경쟁 상태 <em>race condition</em>)</li> </ul> </li> <li>상태 <strong>파일 격리</strong> <em>Isolating state files</em> <ul> <li>예를 들면 테스트 <em>dev</em> 와 검증 <em>stage</em> 과 상용 <em>prodction</em> <strong>각 환경에 대한 격리</strong>가 필요</li> </ul> </li> </ol> <blockquote> <p><code class="language-plaintext highlighter-rouge">상태 파일 공유로 버전 관리 시스템 비추천</code></p> </blockquote> <ol> <li><strong>수동 오류</strong> <em>Manual error</em> <ul> <li>테라폼을 실행하기 전에 최신 변경 사항을 가져오거나 실행하고 나서 push 하는 것을 잊기 쉽습니다(?).</li> <li>팀의 누군가가 이전 버전의 상태 파일로 테라폼을 실행하고, 그 결과 실수로 이전 버전으로 롤백하거나 이전에 배포된 인프라를 복제하는 문제가 발생 할 수 있음.</li> </ul> </li> <li><strong>잠금</strong> <em>Locking</em> <ul> <li>대부분의 버전 관리 시스템은 여러 명의 팀 구성원이 동시에 하나의 상태 파일에 terraform apply 명령을 실행하지 못하게 하는 잠금 기능이 제공되지 않음.</li> </ul> </li> <li><strong>시크릿</strong> <em>Secrets</em> <ul> <li>테라폼 상태 파일의 모든 데이터는 평문으로 저장됨. 민감 정보가 노출될 위험.</li> </ul> </li> </ol> <blockquote> <p><code class="language-plaintext highlighter-rouge">지원되는 원격 백엔드</code> : AWS S3, Azure Blob Storage, Google Cloud Storage, Consul, Postgres database 등 - <a href="https://developer.hashicorp.com/terraform/language/settings/backends/local">링크</a></p> </blockquote> <ol> <li>수동 오류 해결 : plan/apply 실행 시 마다 해당 백엔드에서 파일을 자동을 로드, apply 후 상태 파일을 백엔드에 자동 저장</li> <li>잠금 : apply 실행 시 테라폼은 자동으로 잠금을 활성화, -lock-timout=<strong>TIME</strong> 로 대기 시간 설정 지정 가능</li> <li>시크릿 : 대부분 원격 백엔드는 기본적으로 데이터를 보내거나 상태 파일을 저장할 때 암호화하는 기능을 지원</li> </ol> <h2 id="dynamodb-기본-사용---링크"><strong>DynamoDB 기본 사용</strong> - <a href="https://docs.aws.amazon.com/ko_kr/amazondynamodb/latest/developerguide/GettingStartedDynamoDB.html">링크</a></h2> <h3 id="테이블-생성">테이블 생성</h3> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 테이블 생성</span>
+</code></pre></div></div> <h3 id="다음-실습을-위해-삭제-terraform-destroy--auto-approve"><strong>다음 실습을 위해 삭제</strong>: <code class="highlighter-rouge">**terraform destroy -auto-approve**</code></h3> <h2 id="이론-내용">이론 내용</h2> <ul> <li><strong>상태 파일</strong>은 배포할 때마다 변경되는 <strong>프라이빗 API</strong> <em>private API</em>로, 오직 테라폼 내부에서 사용하기 위한 것입니다.</li> <li><strong>테라폼 상태 파일</strong>을 <strong>직접 편집하거나 직접 읽는 코드로 작성해서는 안됩</strong>니다.</li> </ul> <blockquote> <p><code class="highlighter-rouge">팀 단위에서 테라폼 운영 시 문제점</code></p> </blockquote> <ol> <li>상태 파일을 저장하는 <strong>공유 스토리지</strong> <em>Shared storage for state files</em> <ul> <li>각 팀원이 <strong>동일한 테라폼 상태 파일 사용</strong>을 위해서, 공유 위치에 저장이 필요</li> </ul> </li> <li>상태 <strong>파일 잠금</strong> <em>Locking state files</em> <ul> <li>잠금 기능 없이 두 팀원이 동시에 테라폼 실행 시 여러 테라폼 프로세스가 상태 파일을 동시에 업데이트하여 <strong>충돌 가능</strong>(경쟁 상태 <em>race condition</em>)</li> </ul> </li> <li>상태 <strong>파일 격리</strong> <em>Isolating state files</em> <ul> <li>예를 들면 테스트 <em>dev</em> 와 검증 <em>stage</em> 과 상용 <em>prodction</em> <strong>각 환경에 대한 격리</strong>가 필요</li> </ul> </li> </ol> <blockquote> <p><code class="highlighter-rouge">상태 파일 공유로 버전 관리 시스템 비추천</code></p> </blockquote> <ol> <li><strong>수동 오류</strong> <em>Manual error</em> <ul> <li>테라폼을 실행하기 전에 최신 변경 사항을 가져오거나 실행하고 나서 push 하는 것을 잊기 쉽습니다(?).</li> <li>팀의 누군가가 이전 버전의 상태 파일로 테라폼을 실행하고, 그 결과 실수로 이전 버전으로 롤백하거나 이전에 배포된 인프라를 복제하는 문제가 발생 할 수 있음.</li> </ul> </li> <li><strong>잠금</strong> <em>Locking</em> <ul> <li>대부분의 버전 관리 시스템은 여러 명의 팀 구성원이 동시에 하나의 상태 파일에 terraform apply 명령을 실행하지 못하게 하는 잠금 기능이 제공되지 않음.</li> </ul> </li> <li><strong>시크릿</strong> <em>Secrets</em> <ul> <li>테라폼 상태 파일의 모든 데이터는 평문으로 저장됨. 민감 정보가 노출될 위험.</li> </ul> </li> </ol> <blockquote> <p><code class="highlighter-rouge">지원되는 원격 백엔드</code> : AWS S3, Azure Blob Storage, Google Cloud Storage, Consul, Postgres database 등 - <a href="https://developer.hashicorp.com/terraform/language/settings/backends/local">링크</a></p> </blockquote> <ol> <li>수동 오류 해결 : plan/apply 실행 시 마다 해당 백엔드에서 파일을 자동을 로드, apply 후 상태 파일을 백엔드에 자동 저장</li> <li>잠금 : apply 실행 시 테라폼은 자동으로 잠금을 활성화, -lock-timout=<strong>TIME</strong> 로 대기 시간 설정 지정 가능</li> <li>시크릿 : 대부분 원격 백엔드는 기본적으로 데이터를 보내거나 상태 파일을 저장할 때 암호화하는 기능을 지원</li> </ol> <h2 id="dynamodb-기본-사용---링크"><strong>DynamoDB 기본 사용</strong> - <a href="https://docs.aws.amazon.com/ko_kr/amazondynamodb/latest/developerguide/GettingStartedDynamoDB.html">링크</a></h2> <h3 id="테이블-생성">테이블 생성</h3> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 테이블 생성</span>
 aws dynamodb create-table <span class="se">\</span>
     <span class="nt">--table-name</span> Music <span class="se">\</span>
     <span class="nt">--attribute-definitions</span> <span class="se">\</span>
@@ -133,7 +133,7 @@ aws dynamodb execute-statement <span class="nt">--statement</span> <span class="
 
 </code></pre></div></div> <h3 id="테이블-삭제">테이블 삭제</h3> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>aws dynamodb delete-table <span class="nt">--table-name</span> Music
 </code></pre></div></div> <h2 id="s3dynamodb-생성"><strong>S3/DynamoDB 생성</strong></h2> <h3 id="s3-버킷-생성--backendtf">S3 버킷 생성 : <strong>backend.tf</strong></h3> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 디렉터리 생성</span>
-<span class="nb">mkdir </span>tfstate-backend
+mkdir tfstate-backend
 <span class="nb">cd </span>tfstate-backend
 
 <span class="c"># S3 버킷 이름은 고유해야되어서 자신의 NICKNAME 을 사용할 것</span>
@@ -230,7 +230,7 @@ aws dynamodb describe-table <span class="nt">--table-name</span> terraform-locks
 aws dynamodb describe-table <span class="nt">--table-name</span> terraform-locks <span class="nt">--output</span> table
 </code></pre></div></div> <h2 id="dev-환경의-vpc와-ec2-생성"><strong>dev</strong> 환경의 VPC와 EC2 생성</h2> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 신규 디렉터리 생성 후 작업 진행</span>
 <span class="nb">cd</span> ..
-<span class="nb">mkdir </span>dev
+mkdir dev
 <span class="nb">cd </span>dev
 </code></pre></div></div> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat</span> <span class="o">&lt;&lt;</span><span class="no">EOT</span><span class="sh"> &gt; vpc.tf
 provider "aws" {
@@ -353,7 +353,7 @@ resource "aws_instance" "myec2" {
   ami                         = data.aws_ami.my_amazonlinux2.id
   associate_public_ip_address = true
   instance_type               = "t2.micro"
-  vpc_security_group_ids      = ["</span><span class="se">\$</span><span class="sh">{aws_security_group.mysg.id}"]
+  vpc_security_group_ids      = ["\</span><span class="k">${</span><span class="nv">aws_security_group</span><span class="p">.mysg.id</span><span class="k">}</span><span class="sh">"]
   subnet_id                   = aws_subnet.mysubnet1.id
 
   user_data = &lt;&lt;-EOF
@@ -361,9 +361,9 @@ resource "aws_instance" "myec2" {
               wget https://busybox.net/downloads/binaries/1.31.0-defconfig-multiarch-musl/busybox-x86_64
               mv busybox-x86_64 busybox
               chmod +x busybox
-              IID=</span><span class="se">\$</span><span class="sh">(curl 169.254.169.254/latest/meta-data/instance-id)
-              LIP=</span><span class="se">\$</span><span class="sh">(curl 169.254.169.254/latest/meta-data/local-ipv4)
-              echo "&lt;h1&gt;Instance ID(</span><span class="se">\$</span><span class="sh">IID) : Private IP(</span><span class="se">\$</span><span class="sh">LIP) : Web Server&lt;/h1&gt;" &gt; index.html
+              IID=\</span><span class="k">$(</span>curl 169.254.169.254/latest/meta-data/instance-id<span class="k">)</span><span class="sh">
+              LIP=\</span><span class="k">$(</span>curl 169.254.169.254/latest/meta-data/local-ipv4<span class="k">)</span><span class="sh">
+              echo "&lt;h1&gt;Instance ID(\</span><span class="nv">$IID</span><span class="sh">) : Private IP(\</span><span class="nv">$LIP</span><span class="sh">) : Web Server&lt;/h1&gt;" &gt; index.html
               nohup ./busybox httpd -f -p 80 &amp;
               EOF
 
@@ -386,11 +386,11 @@ terraform state list
 terraform.tfstate        terraform.tfstate.backup
 
 <span class="c"># 출력된 EC2 퍼블릭IP로 cul 접속 확인</span>
-<span class="nv">MYIP</span><span class="o">=</span><span class="si">$(</span>terraform output <span class="nt">-raw</span> myec2_public_ip<span class="si">)</span>
-<span class="k">while </span><span class="nb">true</span><span class="p">;</span> <span class="k">do </span>curl <span class="nt">--connect-timeout</span> 1  http://<span class="nv">$MYIP</span>/ <span class="p">;</span> <span class="nb">echo</span> <span class="s2">"------------------------------"</span><span class="p">;</span> <span class="nb">date</span><span class="p">;</span> <span class="nb">sleep </span>1<span class="p">;</span> <span class="k">done</span>
+<span class="nv">MYIP</span><span class="o">=</span><span class="k">$(</span>terraform output <span class="nt">-raw</span> myec2_public_ip<span class="k">)</span>
+<span class="k">while </span><span class="nb">true</span><span class="p">;</span> <span class="k">do </span>curl <span class="nt">--connect-timeout</span> 1  http://<span class="nv">$MYIP</span>/ <span class="p">;</span> <span class="nb">echo</span> <span class="s2">"------------------------------"</span><span class="p">;</span> date<span class="p">;</span> sleep 1<span class="p">;</span> <span class="k">done</span>
 </code></pre></div></div> <h2 id="dev-환경에-백엔드-적용-실습">dev 환경에 <strong>백엔드 적용 실습</strong></h2> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># [터미널1] S3 버킷 모니티렁</span>
 <span class="nv">NICKNAME</span><span class="o">=</span>gasida
-<span class="k">while </span><span class="nb">true</span><span class="p">;</span> <span class="k">do </span>aws s3 <span class="nb">ls </span>s3://<span class="nv">$NICKNAME</span><span class="nt">-t101study-tfstate</span> <span class="nt">--recursive</span> <span class="nt">--human-readable</span> <span class="nt">--summarize</span> <span class="p">;</span> <span class="nb">echo</span> <span class="s2">"------------------------------"</span><span class="p">;</span> <span class="nb">date</span><span class="p">;</span> <span class="nb">sleep </span>1<span class="p">;</span> <span class="k">done</span>
+<span class="k">while </span><span class="nb">true</span><span class="p">;</span> <span class="k">do </span>aws s3 <span class="nb">ls </span>s3://<span class="nv">$NICKNAME</span><span class="nt">-t101study-tfstate</span> <span class="nt">--recursive</span> <span class="nt">--human-readable</span> <span class="nt">--summarize</span> <span class="p">;</span> <span class="nb">echo</span> <span class="s2">"------------------------------"</span><span class="p">;</span> date<span class="p">;</span> sleep 1<span class="p">;</span> <span class="k">done</span>
 </code></pre></div></div> <h3 id="코드-파일-생성--backendtf">코드 파일 생성 : backend.tf</h3> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">NICKNAME</span><span class="o">=</span>gasida
 <span class="nb">cat</span> <span class="o">&lt;&lt;</span><span class="no">EOT</span><span class="sh"> &gt; backend.tf
 terraform {
@@ -412,20 +412,20 @@ Do you want to copy existing state to the new backend?
   configured <span class="s2">"s3"</span> backend. Do you want to copy this state to the new <span class="s2">"s3"</span>
   backend? Enter <span class="s2">"yes"</span> to copy and <span class="s2">"no"</span> to start with an empty state.
 
-  Enter a value:  <span class="nb">yes
+  Enter a value:  yes
 
-ls </span>terraform.tfstate<span class="k">*</span>
+<span class="nb">ls </span>terraform.tfstate<span class="k">*</span>
 
 <span class="c"># S3 버킷에 파일 확인</span>
 <span class="c"># DynamoDB에 LockID 확인</span>
 </code></pre></div></div> <h3 id="ec2에-태그-변경-후-수정-적용-및-대기-시간-설정">EC2에 태그 변경 후 수정 적용 및 대기 시간 설정</h3> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 태그 변경</span>
-<span class="nb">sed</span> <span class="nt">-i</span> <span class="nt">-e</span> <span class="s1">'s/HallsHolicker-jjang/akbun-jjangg/g'</span> ec2.tf
+sed <span class="nt">-i</span> <span class="nt">-e</span> <span class="s1">'s/HallsHolicker-jjang/akbun-jjangg/g'</span> ec2.tf
 
 <span class="c"># 빠르게 수정되어서 lock-timeout 적용될 필요가 없는 것 같다...</span>
 terraform plan <span class="o">&amp;&amp;</span> terraform apply <span class="nt">-lock-timeout</span><span class="o">=</span>60s <span class="nt">-auto-approve</span>
 </code></pre></div></div> <h2 id="백엔드-좀-더-알아보기">백엔드 좀 더 알아보기</h2> <ul> <li>강제로 로컬에 terraform.tfstate 파일 삭제 후 확인</li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 강제로 로컬에 terraform.tfstate 파일 삭제 후 확인</span>
-<span class="nb">rm</span> <span class="nt">-f</span> terraform.tfstate terraform.tfstate.backup
-<span class="nb">sed</span> <span class="nt">-i</span> <span class="nt">-e</span> <span class="s1">'s/akbun-jjang/linuxer-jjangg/g'</span> ec2.tf
+rm <span class="nt">-f</span> terraform.tfstate terraform.tfstate.backup
+sed <span class="nt">-i</span> <span class="nt">-e</span> <span class="s1">'s/akbun-jjang/linuxer-jjangg/g'</span> ec2.tf
 
 <span class="c"># plan 실행 결과 어떻게 되나요?</span>
 terraform plan
@@ -447,7 +447,7 @@ aws s3api list-object-versions <span class="nt">--bucket</span> gasida-t101study
             <span class="s2">"LastModified"</span>: <span class="s2">"2022-10-23T08:51:55+00:00"</span>,
 </code></pre></div></div> <h3 id="s3-버킷에-버전-표시-확인">S3 버킷에 <strong>버전 표시</strong> 확인</h3> <p><img src="/assets/img/post_img/t101_3_s3_version.png" alt="" /></p> <h2 id="stg-환경의-vpc와-ec2-생성-및-백엔드-설정">stg 환경의 VPC와 EC2 생성 및 백엔드 설정</h2> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 신규 디렉터리 생성 후 작업 진행</span>
 <span class="nb">cd</span> ..
-<span class="nb">mkdir </span>stg
+mkdir stg
 <span class="nb">cd </span>stg
 </code></pre></div></div> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat</span> <span class="o">&lt;&lt;</span><span class="no">EOT</span><span class="sh"> &gt; vpc.tf
 provider "aws" {
@@ -570,7 +570,7 @@ resource "aws_instance" "stg_myec2" {
   ami                         = data.aws_ami.my_amazonlinux2.id
   associate_public_ip_address = true
   instance_type               = "t2.micro"
-  vpc_security_group_ids      = ["</span><span class="se">\$</span><span class="sh">{aws_security_group.stg_mysg.id}"]
+  vpc_security_group_ids      = ["\</span><span class="k">${</span><span class="nv">aws_security_group</span><span class="p">.stg_mysg.id</span><span class="k">}</span><span class="sh">"]
   subnet_id                   = aws_subnet.stg_mysubnet1.id
 
   user_data = &lt;&lt;-EOF
@@ -578,9 +578,9 @@ resource "aws_instance" "stg_myec2" {
               wget https://busybox.net/downloads/binaries/1.31.0-defconfig-multiarch-musl/busybox-x86_64
               mv busybox-x86_64 busybox
               chmod +x busybox
-              IID=</span><span class="se">\$</span><span class="sh">(curl 169.254.169.254/latest/meta-data/instance-id)
-              LIP=</span><span class="se">\$</span><span class="sh">(curl 169.254.169.254/latest/meta-data/local-ipv4)
-              echo "&lt;h1&gt;Instance ID(</span><span class="se">\$</span><span class="sh">IID) : Private IP(</span><span class="se">\$</span><span class="sh">LIP) : Web Server&lt;/h1&gt;" &gt; index.html
+              IID=\</span><span class="k">$(</span>curl 169.254.169.254/latest/meta-data/instance-id<span class="k">)</span><span class="sh">
+              LIP=\</span><span class="k">$(</span>curl 169.254.169.254/latest/meta-data/local-ipv4<span class="k">)</span><span class="sh">
+              echo "&lt;h1&gt;Instance ID(\</span><span class="nv">$IID</span><span class="sh">) : Private IP(\</span><span class="nv">$LIP</span><span class="sh">) : Web Server&lt;/h1&gt;" &gt; index.html
               nohup ./busybox httpd -f -p 80 &amp;
               EOF
 
@@ -643,20 +643,20 @@ stg<span class="nv">$ </span>terraform destroy <span class="nt">-auto-approve</s
 dev<span class="nv">$ </span>terraform destroy <span class="nt">-auto-approve</span>
 
 <span class="c"># S3 버킷에 객체 삭제</span>
-aws s3 <span class="nb">rm </span>s3://<span class="nv">$NICKNAME</span><span class="nt">-t101study-tfstate</span> <span class="nt">--recursive</span>
+aws s3 rm s3://<span class="nv">$NICKNAME</span><span class="nt">-t101study-tfstate</span> <span class="nt">--recursive</span>
 
 <span class="c"># S3 버킷에 버저닝 객체 삭제 </span>
 aws s3api delete-objects <span class="se">\</span>
     <span class="nt">--bucket</span> <span class="nv">$NICKNAME</span><span class="nt">-t101study-tfstate</span> <span class="se">\</span>
-    <span class="nt">--delete</span> <span class="s2">"</span><span class="si">$(</span>aws s3api list-object-versions <span class="se">\</span>
+    <span class="nt">--delete</span> <span class="s2">"</span><span class="k">$(</span>aws s3api list-object-versions <span class="se">\</span>
     <span class="nt">--bucket</span> <span class="s2">"</span><span class="k">${</span><span class="nv">NICKNAME</span><span class="k">}</span><span class="s2">-t101study-tfstate"</span> <span class="se">\</span>
     <span class="nt">--output</span><span class="o">=</span>json <span class="se">\</span>
-    <span class="nt">--query</span><span class="o">=</span><span class="s1">'{Objects: Versions[].{Key:Key,VersionId:VersionId}}'</span><span class="si">)</span><span class="s2">"</span>
+    <span class="nt">--query</span><span class="o">=</span><span class="s1">'{Objects: Versions[].{Key:Key,VersionId:VersionId}}'</span><span class="k">)</span><span class="s2">"</span>
 
 <span class="c"># S3 버킷에 삭제마커 삭제</span>
 aws s3api delete-objects <span class="nt">--bucket</span> <span class="nv">$NICKNAME</span><span class="nt">-t101study-tfstate</span> <span class="se">\</span>
-    <span class="nt">--delete</span> <span class="s2">"</span><span class="si">$(</span>aws s3api list-object-versions <span class="nt">--bucket</span> <span class="s2">"</span><span class="k">${</span><span class="nv">NICKNAME</span><span class="k">}</span><span class="s2">-t101study-tfstate"</span> <span class="se">\</span>
-    <span class="nt">--query</span><span class="o">=</span><span class="s1">'{Objects: DeleteMarkers[].{Key:Key,VersionId:VersionId}}'</span><span class="si">)</span><span class="s2">"</span>
+    <span class="nt">--delete</span> <span class="s2">"</span><span class="k">$(</span>aws s3api list-object-versions <span class="nt">--bucket</span> <span class="s2">"</span><span class="k">${</span><span class="nv">NICKNAME</span><span class="k">}</span><span class="s2">-t101study-tfstate"</span> <span class="se">\</span>
+    <span class="nt">--query</span><span class="o">=</span><span class="s1">'{Objects: DeleteMarkers[].{Key:Key,VersionId:VersionId}}'</span><span class="k">)</span><span class="s2">"</span>
 
 <span class="c"># 백엔드 리소스 삭제</span>
 tfstate-backend<span class="nv">$ </span>terraform destroy <span class="nt">-auto-approve</span>

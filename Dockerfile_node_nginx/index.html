@@ -2,43 +2,43 @@
 
 RUN  yum update <span class="nt">--security</span> <span class="nt">--bugfix</span> <span class="nt">-y</span>
 
-RUN yum <span class="nb">install</span> <span class="nt">-y</span> python3 pip3
-RUN  yum <span class="nt">-y</span> <span class="nb">install </span>gcc-c++ make
-RUN  yum <span class="nt">-y</span> <span class="nb">install </span>curl
+RUN yum install <span class="nt">-y</span> python3 pip3
+RUN  yum <span class="nt">-y</span> install gcc-c++ make
+RUN  yum <span class="nt">-y</span> install curl
 
 <span class="c"># install nginx</span>
-RUN amazon-linux-extras <span class="nb">install</span> <span class="nt">-y</span> nginx1
+RUN amazon-linux-extras install <span class="nt">-y</span> nginx1
 RUN nginx <span class="nt">-v</span>
-</code></pre></div></div> <p>nginx에서 필요한 추가 모듈을 설치하기 위해서 (ex: <code class="language-plaintext highlighter-rouge">http_sub_module</code>) 컴파일 설치를 해야 합니다. 이때 사용하는 <code class="language-plaintext highlighter-rouge">Dockerfile</code>은 아래와 같습니다.</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from amazonlinux
+</code></pre></div></div> <p>nginx에서 필요한 추가 모듈을 설치하기 위해서 (ex: <code class="highlighter-rouge">http_sub_module</code>) 컴파일 설치를 해야 합니다. 이때 사용하는 <code class="highlighter-rouge">Dockerfile</code>은 아래와 같습니다.</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from amazonlinux
 
 RUN  yum update <span class="nt">--security</span> <span class="nt">--bugfix</span> <span class="nt">-y</span>
 
-RUN yum <span class="nb">install</span> <span class="nt">-y</span> python3 pip3
-RUN  yum <span class="nt">-y</span> <span class="nb">install </span>gcc-c++ make
-RUN  yum <span class="nt">-y</span> <span class="nb">install </span>curl
+RUN yum install <span class="nt">-y</span> python3 pip3
+RUN  yum <span class="nt">-y</span> install gcc-c++ make
+RUN  yum <span class="nt">-y</span> install curl
 
 <span class="c"># install node</span>
 RUN curl <span class="nt">-sL</span> https://rpm.nodesource.com/setup_16.x |  bash -
-RUN  yum <span class="nb">install</span> <span class="nt">-y</span> nodejs
+RUN  yum install <span class="nt">-y</span> nodejs
 
 <span class="c"># datetime zone setting</span>
-RUN <span class="nb">date
-</span>RUN <span class="nb">mv</span> /etc/localtime /etc/localtime_org
-RUN <span class="nb">ln</span> <span class="nt">-s</span> /usr/share/zoneinfo/Asia/Seoul /etc/localtime
-RUN <span class="nb">date</span>
+RUN date
+RUN mv /etc/localtime /etc/localtime_org
+RUN ln <span class="nt">-s</span> /usr/share/zoneinfo/Asia/Seoul /etc/localtime
+RUN date
 
 <span class="c"># filebeat for opensearch</span>
 COPY ./filebeat-oss-7.10.2-x86_64.rpm <span class="nb">.</span>
-RUN yum <span class="nb">install</span> <span class="nt">-y</span>  filebeat-oss-7.10.2-x86_64.rpm
+RUN yum install <span class="nt">-y</span>  filebeat-oss-7.10.2-x86_64.rpm
 
 <span class="c"># install nginx</span>
 <span class="c"># RUN amazon-linux-extras install -y nginx1</span>
 <span class="c"># RUN nginx -v</span>
 
-RUN yum <span class="nb">install</span> <span class="nt">-y</span> wget <span class="nb">tar gzip </span>gcc g++ make gcc-c++ libxslt-devel perl curl
+RUN yum install <span class="nt">-y</span> wget <span class="nb">tar </span>gzip gcc g++ make gcc-c++ libxslt-devel perl curl
 
 <span class="c"># Nginx 설치 디렉토리 설정</span>
-RUN <span class="nb">mkdir </span>nginx_source
+RUN mkdir nginx_source
 WORKDIR ./nginx_source/
 
 <span class="c"># nginx-1.20.2 다운</span>
@@ -75,14 +75,14 @@ RUN  ./configure <span class="se">\</span>
 <span class="c">#  --group=www-data</span>
 
 RUN  make<span class="p">;</span>
-RUN  make <span class="nb">install</span><span class="p">;</span>
+RUN  make install<span class="p">;</span>
 
 RUN /etc/nginx/sbin/nginx <span class="nt">-v</span>
 </code></pre></div></div> <p>위의 이미지에서 nginx 실행, 설정 파일의 위치는 아래와 같습니다.</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 설정파일 위치</span>
 /etc/nginx/conf/nginx.conf
 <span class="c"># 실행 파일 위치</span>
 /etc/nginx/sbin/nginx 
-</code></pre></div></div> <p>해당 이미지는 nginx가 <code class="language-plaintext highlighter-rouge">foreground</code>로 실행되고 있지 않기 때문에, 이미지 실행시 종료되지 않고 실행을 원한다면 <code class="language-plaintext highlighter-rouge">Dockerfile</code>에 아래 명령어로 추가 해야 합니다</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 외부 오픈 port</span>
+</code></pre></div></div> <p>해당 이미지는 nginx가 <code class="highlighter-rouge">foreground</code>로 실행되고 있지 않기 때문에, 이미지 실행시 종료되지 않고 실행을 원한다면 <code class="highlighter-rouge">Dockerfile</code>에 아래 명령어로 추가 해야 합니다</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 외부 오픈 port</span>
 EXPOSE 80
 <span class="c"># foreground 실행 명령어</span>
 CMD <span class="o">[</span><span class="s2">"/etc/nginx/sbin/nginx"</span>, <span class="s2">"-g"</span>, <span class="s2">"daemon off;"</span><span class="o">]</span>

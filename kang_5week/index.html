@@ -66,7 +66,7 @@ Corefile:
 <span class="o">}</span>
 
 <span class="c"># (옵션) 헬스체크(Liveness) , 준비체크(Readiness)</span>
-<span class="nv">$ COREDNSPOD1</span><span class="o">=</span><span class="si">$(</span>kubectl get pod <span class="nt">-n</span> kube-system <span class="nt">-l</span> k8s-app<span class="o">=</span>kube-dns <span class="nt">-o</span> <span class="nv">jsonpath</span><span class="o">=</span><span class="s1">'{.items[0].status.podIP}'</span><span class="si">)</span>
+<span class="nv">$ COREDNSPOD1</span><span class="o">=</span><span class="k">$(</span>kubectl get pod <span class="nt">-n</span> kube-system <span class="nt">-l</span> k8s-app<span class="o">=</span>kube-dns <span class="nt">-o</span> <span class="nv">jsonpath</span><span class="o">=</span><span class="s1">'{.items[0].status.podIP}'</span><span class="k">)</span>
 <span class="nv">$ </span><span class="nb">echo</span> <span class="nv">$COREDNSPOD1</span>
 
 <span class="nv">$ </span>curl <span class="nv">$COREDNSPOD1</span>:8080/health<span class="p">;</span> <span class="nb">echo
@@ -106,8 +106,8 @@ options ndots:5
 <span class="c"># coreDNS 파드가 동작하는 노드에서 cali 인터페이스 패킷 캡쳐 확인</span>
 <span class="nv">$ </span>ps <span class="nt">-ef</span> | <span class="nb">grep </span>coredns
 <span class="nv">$ </span>lsns <span class="nt">-t</span> net
-<span class="nv">$ </span>ip <span class="nt">-c</span> <span class="nb">link</span>
-<span class="nv">$ CoreDNSveth</span><span class="o">=</span><span class="si">$(</span>calicoctl get workloadEndpoint <span class="nt">-n</span> kube-system | <span class="nb">grep </span>coredns | <span class="nb">awk</span> <span class="s1">'{print $5}'</span> | <span class="nb">cut</span> <span class="nt">-d</span> <span class="s2">"/"</span> <span class="nt">-f</span> 1<span class="si">)</span>
+<span class="nv">$ </span>ip <span class="nt">-c</span> link
+<span class="nv">$ CoreDNSveth</span><span class="o">=</span><span class="k">$(</span>calicoctl get workloadEndpoint <span class="nt">-n</span> kube-system | <span class="nb">grep </span>coredns | awk <span class="s1">'{print $5}'</span> | cut <span class="nt">-d</span> <span class="s2">"/"</span> <span class="nt">-f</span> 1<span class="k">)</span>
 <span class="nv">$ </span>tcpdump <span class="nt">-i</span> <span class="nv">$CoreDNSveth</span> <span class="nt">-nn</span> udp port 53
 22:38:51.989852 IP 172.16.228.90.54107 <span class="o">&gt;</span> 172.16.29.25.53: 7433+ A? naver.com.default.svc.cluster.local. <span class="o">(</span>53<span class="o">)</span>
 22:38:51.990255 IP 172.16.29.25.53 <span class="o">&gt;</span> 172.16.228.90.54107: 7433 NXDomain<span class="k">*</span>- 0/1/0 <span class="o">(</span>146<span class="o">)</span>
