@@ -1,4 +1,50 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2023-04-16T08:03:05+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">이직 1년 5개월만에 작성하는 회고</title><link href="https://lahuman.github.io/20230412/" rel="alternate" type="text/html" title="이직 1년 5개월만에 작성하는 회고" /><published>2023-04-12T00:00:00+00:00</published><updated>2023-04-12T00:00:00+00:00</updated><id>https://lahuman.github.io/20230412</id><content type="html" xml:base="https://lahuman.github.io/20230412/">&lt;h1 id=&quot;이직-1년-후-회고&quot;&gt;이직 1년 후 회고&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2023-04-16T08:58:47+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">한 입 크기로 잘라 먹는 리액트</title><link href="https://lahuman.github.io/react_book_review/" rel="alternate" type="text/html" title="한 입 크기로 잘라 먹는 리액트" /><published>2023-04-16T00:00:00+00:00</published><updated>2023-04-16T00:00:00+00:00</updated><id>https://lahuman.github.io/react_book_review</id><content type="html" xml:base="https://lahuman.github.io/react_book_review/">&lt;h1 id=&quot;도서-서평&quot;&gt;도서 서평&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;이벤트로 도서를 받게 되었습니다. 강의로도 유명한 책이라 기대를 하고 읽었습니다. 내용은 초심자를 위한 내용으로 자바스크립트와 리액트를 처음 시작하시는 분이 보시면 좋을 내용입니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/react_book.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;책-내용-요약&quot;&gt;책 내용 요약&lt;/h2&gt;
+
+&lt;h3 id=&quot;12장-자바스크립트-기초--실전&quot;&gt;1,2장 자바스크립트 기초 &amp;amp; 실전&lt;/h3&gt;
+
+&lt;p&gt;자바스크립트의 기초부터 시작합니다. 기초부터 시작하기 때문에 이미 알고 있는 내용이라면 빠르게 훑어보기를 추천 합니다.&lt;/p&gt;
+
+&lt;p&gt;자바스크립트 실전에는 많이 사용되는 문법과 팁에 대하여 설명하고 있기 때문에 처음 자바스크립트를 시작하는 분들에게는 읽어 두면 좋은 내용입니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;3장-nodejs&quot;&gt;3장 Node.js&lt;/h3&gt;
+
+&lt;p&gt;Node.js, npm, vscode 설치 방법이 간단하게 정리 되어 있습니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;4-5-6장-리액트&quot;&gt;4, 5, 6장 리액트&lt;/h3&gt;
+
+&lt;p&gt;4장부터는 리액트의 내용이 시작됩니다. 
+사실 1~3장을 알고 있는 독자라면 4장부터 읽는 것을 추천 드립니다. 
+리액트의 동작 원리와 구조 그리고 컴포넌트와 hook 등을 설명하고 예제를 보여줍니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;7-8-9-10장-프로젝트&quot;&gt;7, 8, 9, 10장 프로젝트&lt;/h3&gt;
+
+&lt;p&gt;4~6장에서 배운 내용을 기반으로 간단한 toy 프로젝트를 진행합니다. 
+프로젝트를 진행하면서 최적화에 대하여도 설명을 합니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;11장-배포&quot;&gt;11장 배포&lt;/h3&gt;
+
+&lt;p&gt;파이어 베이스로 빌드 배포 하는 내용을 간략하게 다룹니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;총평&quot;&gt;총평&lt;/h2&gt;
+
+&lt;p&gt;처음 자바스크립트와 리액트를 배우는 사람이 보기 좋은 책으로 추천 합니다. 다른 책들이 리액트에만 집중해서 다루었다면 이 책은 자바스크립트의 기초 부터 프로젝트 배포까지 폭넓게 다루었습니다.&lt;/p&gt;
+
+&lt;p&gt;만약 회사 내에서 신입분들과 리액트 스터디를 하게 된다면 이 책으로 진행하면 좋겠다는 생각을 했습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://product.kyobobook.co.kr/detail/S000201352991&quot;&gt;도서-한입 크기로 잘라 먹는 리액트(React.js)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.udemy.com/course/winterlood-react-basic/&quot;&gt;강의-한입 크기로 잘라 먹는 리액트(React.js)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="리액트" /><category term="도서" /><summary type="html">도서 서평</summary></entry><entry><title type="html">이직 1년 5개월만에 작성하는 회고</title><link href="https://lahuman.github.io/20230412/" rel="alternate" type="text/html" title="이직 1년 5개월만에 작성하는 회고" /><published>2023-04-12T00:00:00+00:00</published><updated>2023-04-12T00:00:00+00:00</updated><id>https://lahuman.github.io/20230412</id><content type="html" xml:base="https://lahuman.github.io/20230412/">&lt;h1 id=&quot;이직-1년-후-회고&quot;&gt;이직 1년 후 회고&lt;/h1&gt;
 
 &lt;p&gt;지난 1년 5개월 동안 GSSHOP에서 삼성화재로 이직한 후를 회고해봅니다.&lt;/p&gt;
 
@@ -1285,94 +1331,4 @@ sequenceDiagram;
   &lt;li&gt;&lt;a href=&quot;https://www.npmjs.com/package/nestjs-pino&quot;&gt;nestjs-pino&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.npmjs.com/package/pino-http&quot;&gt;pino-http&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.npmjs.com/package/file-stream-rotator&quot;&gt;file-stream-rotator&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="nestjs" /><category term="pino" /><category term="logging" /><summary type="html">request 데이터를 로그에 삽입해주는 모듈(pino-http) + nestjs 입니다.</summary></entry><entry><title type="html">Node.js 메모리 옵션</title><link href="https://lahuman.github.io/node_memory_options/" rel="alternate" type="text/html" title="Node.js 메모리 옵션" /><published>2023-01-10T00:00:00+00:00</published><updated>2023-01-10T00:00:00+00:00</updated><id>https://lahuman.github.io/node_memory_options</id><content type="html" xml:base="https://lahuman.github.io/node_memory_options/">&lt;h1 id=&quot;nodejs-메모리-옵션&quot;&gt;Node.js 메모리 옵션&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;테스트 케이스를 로컬에서 돌릴때는 문제 없었는데, 운영에서 실행하니 메모리 부족 오류가 발생했습니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;오류-로그&quot;&gt;오류 로그&lt;/h2&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;&lt;span class=&quot;nt&quot;&gt;---&lt;/span&gt; Last few GCs &lt;span class=&quot;nt&quot;&gt;---&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
-
-&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;1516:0x56a6a70]    93701 ms: Scavenge 1952.6 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;2079.2&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; -&amp;gt; 1939.9 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;2079.2&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; MB, 5.0 / 0.3 ms  &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;average mu &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 0.309, current mu &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 0.242&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; task 
-&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;1516:0x56a6a70]    93740 ms: Scavenge 1953.1 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;2079.2&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; -&amp;gt; 1940.6 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;2079.2&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; MB, 5.0 / 0.2 ms  &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;average mu &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 0.309, current mu &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 0.242&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; task 
-&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;1516:0x56a6a70]    93799 ms: Scavenge 1956.1 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;2079.2&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; -&amp;gt; 1941.9 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;2079.2&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; MB, 5.5 / 0.7 ms  &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;average mu &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 0.309, current mu &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 0.242&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; allocation failure 
-
-
-&amp;lt;&lt;span class=&quot;nt&quot;&gt;---&lt;/span&gt; JS stacktrace &lt;span class=&quot;nt&quot;&gt;---&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
-
-FATAL ERROR: Ineffective mark-compacts near heap limit Allocation failed - JavaScript heap out of memory
- 1: 0xb09c10 node::Abort&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;node]
- 2: 0xa1c193 node::FatalError&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;char const&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;, char const&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;node]
- 3: 0xcf8dde v8::Utils::ReportOOMFailure&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;v8::internal::Isolate&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;, char const&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;, bool&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;node]
- 4: 0xcf9157 v8::internal::V8::FatalProcessOutOfMemory&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;v8::internal::Isolate&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;, char const&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;, bool&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;node]
- 5: 0xeb09f5  &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;node]
- 6: 0xeb14d6  &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;node]
- 7: 0xebf9fe  &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;node]
- 8: 0xec0440 v8::internal::Heap::CollectGarbage&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;v8::internal::AllocationSpace, v8::internal::GarbageCollectionReason, v8::GCCallbackFlags&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;node]
- 9: 0xec33be v8::internal::Heap::AllocateRawWithRetryOrFailSlowPath&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;int, v8::internal::AllocationType, v8::internal::AllocationOrigin, v8::internal::AllocationAlignment&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;node]
-10: 0xe84632 v8::internal::Factory::AllocateRaw&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;int, v8::internal::AllocationType, v8::internal::AllocationAlignment&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;node]
-11: 0xe7ef4c v8::internal::FactoryBase&amp;lt;v8::internal::Factory&amp;gt;::AllocateRawArray&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;int, v8::internal::AllocationType&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;node]
-12: 0xe7f025 v8::internal::FactoryBase&amp;lt;v8::internal::Factory&amp;gt;::NewFixedArrayWithFiller&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;v8::internal::Handle&amp;lt;v8::internal::Map&amp;gt;, int, v8::internal::Handle&amp;lt;v8::internal::Oddball&amp;gt;, v8::internal::AllocationType&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;node]
-13: 0x10e6c5b v8::internal::MaybeHandle&amp;lt;v8::internal::OrderedHashSet&amp;gt; v8::internal::OrderedHashTable&amp;lt;v8::internal::OrderedHashSet, 1&amp;gt;::Allocate&amp;lt;v8::internal::Isolate&amp;gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;v8::internal::Isolate&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;, int, v8::internal::AllocationType&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;node]
-14: 0x109c878 v8::internal::KeyAccumulator::AddKey&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;v8::internal::Handle&amp;lt;v8::internal::Object&amp;gt;, v8::internal::AddKeyConversion&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;node]
-15: 0x10a14e1 v8::internal::KeyAccumulator::CollectOwnPropertyNames&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;v8::internal::Handle&amp;lt;v8::internal::JSReceiver&amp;gt;, v8::internal::Handle&amp;lt;v8::internal::JSObject&amp;gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;node]
-16: 0x10a1a8f v8::internal::KeyAccumulator::CollectOwnKeys&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;v8::internal::Handle&amp;lt;v8::internal::JSReceiver&amp;gt;, v8::internal::Handle&amp;lt;v8::internal::JSObject&amp;gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;node]
-17: 0x10a1d23 v8::internal::KeyAccumulator::CollectKeys&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;v8::internal::Handle&amp;lt;v8::internal::JSReceiver&amp;gt;, v8::internal::Handle&amp;lt;v8::internal::JSReceiver&amp;gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;node]
-18: 0x10a2733 v8::internal::KeyAccumulator::GetKeys&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;v8::internal::Handle&amp;lt;v8::internal::JSReceiver&amp;gt;, v8::internal::KeyCollectionMode, v8::internal::PropertyFilter, v8::internal::GetKeysConversion, bool, bool&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;node]
-19: 0x10896bc v8::internal::JSReceiver::DefineProperties&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;v8::internal::Isolate&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;, v8::internal::Handle&amp;lt;v8::internal::Object&amp;gt;, v8::internal::Handle&amp;lt;v8::internal::Object&amp;gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;node]
-20: 0xd7c726 v8::internal::Builtin_ObjectDefineProperties&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;int, unsigned long&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;, v8::internal::Isolate&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;node]
-21: 0x15f2199  &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;node]
-Aborted &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;core dumped&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;oom-오류-수정-방법&quot;&gt;OOM 오류 수정 방법&lt;/h2&gt;
-
-&lt;p&gt;OOM 오류를 해결하려면 Node.js 명령줄 옵션을 사용하여 메모리 제한을 명시적으로 구성하기만 하면 됩니다.&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# -max-old-space-size=&amp;lt;size_megabytes&amp;gt;&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;# 사용 예제 &lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;node &lt;span class=&quot;nt&quot;&gt;--max-old-space-size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;2048 index.js &lt;span class=&quot;c&quot;&gt;#increase to 2GB&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;node &lt;span class=&quot;nt&quot;&gt;--max-old-space-size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;3072 index.js &lt;span class=&quot;c&quot;&gt;#increase to 3GB&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;node &lt;span class=&quot;nt&quot;&gt;--max-old-space-size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;4096 index.js &lt;span class=&quot;c&quot;&gt;#increase to 4GB&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;node &lt;span class=&quot;nt&quot;&gt;--max-old-space-size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;5120 index.js &lt;span class=&quot;c&quot;&gt;#increase to 5GB&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;node &lt;span class=&quot;nt&quot;&gt;--max-old-space-size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;6144 index.js &lt;span class=&quot;c&quot;&gt;#increase to 6GB&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;node &lt;span class=&quot;nt&quot;&gt;--max-old-space-size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;7168 index.js &lt;span class=&quot;c&quot;&gt;#increase to 7GB&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;node &lt;span class=&quot;nt&quot;&gt;--max-old-space-size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;8192 index.js &lt;span class=&quot;c&quot;&gt;#increase to 8GB&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;사용-가이드&quot;&gt;사용 가이드&lt;/h2&gt;
-
-&lt;p&gt;메모리 값의 경우 환경, Node.js버젼의 기본값에 의존하는 대신 &lt;code class=&quot;highlighter-rouge&quot;&gt;--max-old-space-size&lt;/code&gt;를 항상 명시적으로 설정하는 것이 좋습니다.&lt;/p&gt;
-
-&lt;p&gt;예를 들어 메모리가 &lt;code class=&quot;highlighter-rouge&quot;&gt;2GB&lt;/code&gt;인 시스템에서는 이 값을 &lt;code class=&quot;highlighter-rouge&quot;&gt;1536(1.5GB)&lt;/code&gt;으로 설정하여 일부 메모리를 다른 용도로 남겨두어  &lt;code class=&quot;highlighter-rouge&quot;&gt;메모리 스와핑을 방지&lt;/code&gt;하는 것이 좋습니다.&lt;/p&gt;
-
-&lt;p&gt;또한 작은 컴퓨터(Raspberry Pi 보드 등)에서 Node.js를 사용하여 간단한 웹 서버를 실행하는 경우  Node.js가 소중한 메모리를 너무 많이 사용하지 않도록 128MB 정도의 작은 값으로 &lt;code class=&quot;highlighter-rouge&quot;&gt;--max-old-space-size&lt;/code&gt;를 이용해 설정할 수 있습니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;gc-등-추가-옵션&quot;&gt;gc 등 추가 옵션&lt;/h2&gt;
-
-&lt;p&gt;대용량 접속(&lt;a href=&quot;https://blog.jayway.com/2015/04/13/600k-concurrent-websocket-connections-on-aws-using-node-js/&quot;&gt;600k concurrent websocket connections on AWS using Node.js&lt;/a&gt;)의 처리를 진행할 경우 gc(garbage collector)로 인해 몇초간 서버가 멈추는 현상이 발생할 수 있습니다.&lt;/p&gt;
-
-&lt;p&gt;gc를 수동으로 전환하기 위해서는 다음 옵션을 사용합니다.&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;node &lt;span class=&quot;nt&quot;&gt;--trace-gc&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--expose-gc&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--nouse-idle-notification&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--max-new-space-size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;2048 &lt;span class=&quot;nt&quot;&gt;--max-old-space-size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;8192 index.js
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;--nouse-idle-notification&lt;/code&gt;: gc 자동 실행 방지&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;--expose-gc&lt;/code&gt; : gc() 함수를 자바스크립트에서 직접 호출&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;--trace-gc&lt;/code&gt; : gc 표출 &lt;a href=&quot;https://nodejs.org/en/docs/guides/diagnostics/memory/using-gc-traces/&quot;&gt;Tracing garbage collection&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;--max-new-space-size&lt;/code&gt; : 피크 성능을 줄여버리지만, 멈춤 시간을 짧게 가져가야 한다면 해당 값을 2048(2G) 정도로 작게 가져가면, 100ms 정도로 짧아짐&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;--noincremental-marking&lt;/code&gt; : 피크 성능이 중요하고 서버 멈춤을 늘려도 된다면 사용, 1GB 당 1초의 서버 멈춤 가능&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;--max-semi-space-size&lt;/code&gt; :  단기 객체용으로 예약된 최대 힙 크기&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;--max-executable-size&lt;/code&gt; : 실행 코드용으로 예약된 힙의 최대 크기(적시 컴파일된 JavaScript의 기본 코드 결과)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://medium.com/geekculture/node-js-default-memory-settings-3c0fe8a9ba1&quot;&gt;Node.js Default Memory Settings&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://blog.jayway.com/2015/04/13/600k-concurrent-websocket-connections-on-aws-using-node-js/&quot;&gt;600k concurrent websocket connections on AWS using Node.js&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/30252905/nodejs-decrease-v8-garbage-collector-memory-usage&quot;&gt;nodejs decrease v8 garbage collector memory usage&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="node" /><category term="memory" /><summary type="html">메모리와 성능에 관련된 기타 옵션</summary></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><category term="nestjs" /><category term="pino" /><category term="logging" /><summary type="html">request 데이터를 로그에 삽입해주는 모듈(pino-http) + nestjs 입니다.</summary></entry></feed>
