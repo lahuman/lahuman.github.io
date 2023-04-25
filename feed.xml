@@ -1,4 +1,48 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2023-04-24T07:35:21+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">nestjs에서 사용자 정의 validate 구현하기</title><link href="https://lahuman.github.io/nestjs_custom_validate/" rel="alternate" type="text/html" title="nestjs에서 사용자 정의 validate 구현하기" /><published>2023-04-24T00:00:00+00:00</published><updated>2023-04-24T00:00:00+00:00</updated><id>https://lahuman.github.io/nestjs_custom_validate</id><content type="html" xml:base="https://lahuman.github.io/nestjs_custom_validate/">&lt;h1 id=&quot;nestjs에서-사용자-정의-validate-구현하기&quot;&gt;nestjs에서 사용자 정의 validate 구현하기&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2023-04-25T04:55:56+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">데이터베이스 용어 사전 구축 - 01</title><link href="https://lahuman.github.io/meta_system_01/" rel="alternate" type="text/html" title="데이터베이스 용어 사전 구축 - 01" /><published>2023-04-25T00:00:00+00:00</published><updated>2023-04-25T00:00:00+00:00</updated><id>https://lahuman.github.io/meta_system_01</id><content type="html" xml:base="https://lahuman.github.io/meta_system_01/">&lt;h1 id=&quot;데이터베이스-용어-사전-구축---01&quot;&gt;데이터베이스 용어 사전 구축 - 01&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;데이터베이스 단어 표준은 데이터베이스 관련 용어와 용어 사용을 표준화하는 시스템입니다. 데이터베이스 단어 표준은 데이터베이스 관련 문서, 코드, 메타데이터 등에서 사용되는 용어의 일관성과 품질을 향상시켜 데이터베이스 개발, 관리, 운영 등의 업무를 원활하게 수행할 수 있도록 도와줍니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;왜-단어용어-표준이-필요-할까&quot;&gt;왜 단어(용어) 표준이 필요 할까?&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;일관성 있는 용어 사용: 설계 과정에서 사용되는 용어는 다양한 이해관계자들이 이해할 수 있는 공통 용어를 사용해야 합니다. 만약 이해관계자들이 서로 다른 용어를 사용하게 된다면, 의사소통이 원활하지 않아서 설계 결과물의 품질이 떨어질 수 있습니다. 따라서 단어 표준을 사용하여 일관성 있는 용어 사용을 유지하면, 설계 결과물의 품질을 높일 수 있습니다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;설계 문서의 가독성 개선: 설계 문서는 다양한 이해관계자들이 함께 사용하는 문서입니다. 이러한 이유로 설계 문서는 읽기 쉽고 이해하기 쉬운 문서여야 합니다. 만약 설계 문서에서 서로 다른 용어가 사용된다면, 문서의 가독성이 떨어져 이해관계자들이 설계 결과물을 이해하는 데 어려움을 겪을 수 있습니다. 따라서 단어 표준을 사용하여 설계 문서의 가독성을 개선할 수 있습니다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;데이터 모델링 일관성 유지: 데이터 모델링은 설계 과정에서 가장 중요한 부분입니다. 데이터 모델링에서는 다양한 개체와 속성, 관계 등이 정의되며, 이러한 요소들은 후속적인 개발 과정에서 매우 중요한 역할을 합니다. 만약 데이터 모델링에서 일관성 없는 용어가 사용된다면, 후속적인 개발 과정에서 데이터 모델링과 관련된 문제가 발생할 가능성이 높아집니다. 따라서 단어 표준을 사용하여 데이터 모델링의 일관성을 유지할 수 있습니다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;유지보수성 향상: 설계는 소프트웨어 개발의 초기 단계이며, 이후에는 유지보수가 필요합니다. 만약 설계에서 일관성 없는 용어가 사용된다면, 유지보수 단계에서 문제가 발생할 가능성이 높아집니다. 따라서 단어 표준을 사용하여 유지보수성을 향상시킬 수 있습니다.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;표준-규칙&quot;&gt;표준 규칙&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;한글/영문은 가능하면 &lt;code class=&quot;highlighter-rouge&quot;&gt;명사&lt;/code&gt;를 사용
+    &lt;ul&gt;
+      &lt;li&gt;상품, 금액, 갯수, 여부&lt;/li&gt;
+      &lt;li&gt;product, price, count, yn&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;영문명은 &lt;code class=&quot;highlighter-rouge&quot;&gt;Full 단어&lt;/code&gt;로 표시&lt;/li&gt;
+  &lt;li&gt;테이블의 경우 도메인_역할_타입
+    &lt;ul&gt;
+      &lt;li&gt;타입(접미사) : m : main, d : data, h : history&lt;/li&gt;
+      &lt;li&gt;상품 도메인의 아이템 역할의 메인의 경우 : 상품_아이템_메인 =&amp;gt; product_item_m&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;표준 테이블 기본 항목
+    &lt;ul&gt;
+      &lt;li&gt;등록자, 등록일, 등록시스템, 수정자, 수정일, 수정시스템, 사용여부&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;</content><author><name></name></author><category term="meta" /><category term="system" /><summary type="html">단어, 도메인, 용어 관리 시스템 구축</summary></entry><entry><title type="html">nestjs에서 사용자 정의 validate 구현하기</title><link href="https://lahuman.github.io/nestjs_custom_validate/" rel="alternate" type="text/html" title="nestjs에서 사용자 정의 validate 구현하기" /><published>2023-04-24T00:00:00+00:00</published><updated>2023-04-24T00:00:00+00:00</updated><id>https://lahuman.github.io/nestjs_custom_validate</id><content type="html" xml:base="https://lahuman.github.io/nestjs_custom_validate/">&lt;h1 id=&quot;nestjs에서-사용자-정의-validate-구현하기&quot;&gt;nestjs에서 사용자 정의 validate 구현하기&lt;/h1&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;&lt;a href=&quot;https://www.npmjs.com/package/class-validator&quot;&gt;class-validator&lt;/a&gt;에서는 많은 validation 조건을 제공하여 줍니다. 하지만 사용자 정의 옵션이 필요할 때가 있는데, 이때 설정이 생각보다 복잡하네요.&lt;/p&gt;
@@ -1029,111 +1073,4 @@ graph TD;
 &lt;p&gt;package-lock.json 파일은 일반적으로 Git 저장소에 커밋하여 프로젝트의 의존성 정보를 공유합니다. 
 이 파일은 package.json 파일의 의존성 정보를 기반으로 자동으로 생성되기 때문에 직접 수정하지 않아도 됩니다. 
 하지만 때로는 package-lock.json 파일을 직접 수정해야 하는 경우도 있습니다. 
-예를 들어, 의존성 패키지의 버전을 업그레이드하거나, 의존성 패키지를 수동으로 추가하거나 제거하는 경우 그리고 repository 주소 변경 등이 있습니다.&lt;/p&gt;</content><author><name></name></author><category term="repository" /><category term="node" /><summary type="html">정규식을 이용해서 package-lock.json의 주소를 변경 처리</summary></entry><entry><title type="html">Node, Nginx를 설치하는 Dockerfile</title><link href="https://lahuman.github.io/Dockerfile_node_nginx/" rel="alternate" type="text/html" title="Node, Nginx를 설치하는 Dockerfile" /><published>2023-02-22T00:00:00+00:00</published><updated>2023-02-22T00:00:00+00:00</updated><id>https://lahuman.github.io/Dockerfile_node_nginx</id><content type="html" xml:base="https://lahuman.github.io/Dockerfile_node_nginx/">&lt;h1 id=&quot;node-nginx를-설치하는-dockerfile&quot;&gt;Node, Nginx를 설치하는 Dockerfile&lt;/h1&gt;
-
-&lt;p&gt;Dockerfile에서 Amazone Linux를 기반으로 nginx를 설치 하는 방법은 일반적으로 아래와 같은 명령어를 이용합니다&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;from amazonlinux
-
-RUN  yum update &lt;span class=&quot;nt&quot;&gt;--security&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--bugfix&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt;
-
-RUN yum install &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt; python3 pip3
-RUN  yum &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt; install gcc-c++ make
-RUN  yum &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt; install curl
-
-&lt;span class=&quot;c&quot;&gt;# install nginx&lt;/span&gt;
-RUN amazon-linux-extras install &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt; nginx1
-RUN nginx &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;nginx에서 필요한 추가 모듈을 설치하기 위해서 (ex: &lt;code class=&quot;highlighter-rouge&quot;&gt;http_sub_module&lt;/code&gt;) 컴파일 설치를 해야 합니다. 
-이때 사용하는 &lt;code class=&quot;highlighter-rouge&quot;&gt;Dockerfile&lt;/code&gt;은 아래와 같습니다.&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;from amazonlinux
-
-RUN  yum update &lt;span class=&quot;nt&quot;&gt;--security&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--bugfix&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt;
-
-RUN yum install &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt; python3 pip3
-RUN  yum &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt; install gcc-c++ make
-RUN  yum &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt; install curl
-
-&lt;span class=&quot;c&quot;&gt;# install node&lt;/span&gt;
-RUN curl &lt;span class=&quot;nt&quot;&gt;-sL&lt;/span&gt; https://rpm.nodesource.com/setup_16.x |  bash -
-RUN  yum install &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt; nodejs
-
-&lt;span class=&quot;c&quot;&gt;# datetime zone setting&lt;/span&gt;
-RUN date
-RUN mv /etc/localtime /etc/localtime_org
-RUN ln &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; /usr/share/zoneinfo/Asia/Seoul /etc/localtime
-RUN date
-
-&lt;span class=&quot;c&quot;&gt;# filebeat for opensearch&lt;/span&gt;
-COPY ./filebeat-oss-7.10.2-x86_64.rpm &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
-RUN yum install &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt;  filebeat-oss-7.10.2-x86_64.rpm
-
-&lt;span class=&quot;c&quot;&gt;# install nginx&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# RUN amazon-linux-extras install -y nginx1&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# RUN nginx -v&lt;/span&gt;
-
-RUN yum install &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt; wget &lt;span class=&quot;nb&quot;&gt;tar &lt;/span&gt;gzip gcc g++ make gcc-c++ libxslt-devel perl curl
-
-&lt;span class=&quot;c&quot;&gt;# Nginx 설치 디렉토리 설정&lt;/span&gt;
-RUN mkdir nginx_source
-WORKDIR ./nginx_source/
-
-&lt;span class=&quot;c&quot;&gt;# nginx-1.20.2 다운&lt;/span&gt;
-RUN wget https://nginx.org/download/nginx-1.20.2.tar.gz
-RUN &lt;span class=&quot;nb&quot;&gt;tar &lt;/span&gt;xvf nginx-1.20.2.tar.gz
-
-&lt;span class=&quot;c&quot;&gt;# Nginx 설치를 위한 모듈들 설치 START&lt;/span&gt;
-RUN wget  https://sourceforge.net/projects/pcre/files/pcre/8.45/pcre-8.45.tar.gz
-RUN &lt;span class=&quot;nb&quot;&gt;tar &lt;/span&gt;xvf pcre-8.45.tar.gz
-
-RUN wget https://www.openssl.org/source/openssl-1.1.1l.tar.gz
-RUN &lt;span class=&quot;nb&quot;&gt;tar&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-xzvf&lt;/span&gt; openssl-1.1.1l.tar.gz
-
-&lt;span class=&quot;c&quot;&gt;# RUN wget https://fossies.org/linux/misc/legacy/zlib-1.2.11.tar.gz&lt;/span&gt;
-RUN wget https://github.com/madler/zlib/archive/v1.2.11.tar.gz
-RUN &lt;span class=&quot;nb&quot;&gt;tar &lt;/span&gt;zxf v1.2.11.tar.gz
-&lt;span class=&quot;c&quot;&gt;# Nginx 설치를 위한 모듈들 설치 END&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;# 실행 계정 생성&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#RUN useradd --shell /sbin/nologin www-data&lt;/span&gt;
-
-RUN &lt;span class=&quot;nb&quot;&gt;ls&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-al&lt;/span&gt;
-WORKDIR ./nginx-1.20.2/
-&lt;span class=&quot;c&quot;&gt;# 컴파일 옵션 설정 **--with-http_sub_module** 내가 추가한 옵션이다.&lt;/span&gt;
-RUN  ./configure &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;--with-http_sub_module&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;--with-zlib&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;../zlib-1.2.11 &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;--with-pcre&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;../pcre-8.45 &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;--with-openssl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;../openssl-1.1.1l &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;--with-http_ssl_module&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;--with-debug&lt;/span&gt;  &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;--prefix&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/etc/nginx
-&lt;span class=&quot;c&quot;&gt;#  --user=www-data \&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#  --group=www-data&lt;/span&gt;
-
-RUN  make&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-RUN  make install&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-RUN /etc/nginx/sbin/nginx &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;위의 이미지에서 nginx 실행, 설정 파일의 위치는 아래와 같습니다.&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# 설정파일 위치&lt;/span&gt;
-/etc/nginx/conf/nginx.conf
-&lt;span class=&quot;c&quot;&gt;# 실행 파일 위치&lt;/span&gt;
-/etc/nginx/sbin/nginx 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;해당 이미지는 nginx가 &lt;code class=&quot;highlighter-rouge&quot;&gt;foreground&lt;/code&gt;로 실행되고 있지 않기 때문에, 이미지 실행시 종료되지 않고 실행을 원한다면 &lt;code class=&quot;highlighter-rouge&quot;&gt;Dockerfile&lt;/code&gt;에 아래 명령어로 추가 해야 합니다&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# 외부 오픈 port&lt;/span&gt;
-EXPOSE 80
-&lt;span class=&quot;c&quot;&gt;# foreground 실행 명령어&lt;/span&gt;
-CMD &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;/etc/nginx/sbin/nginx&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;-g&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;daemon off;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;나중에 Docker 이미지 생성이 필요하면 참고 하려고 남겨 둡니다! :)&lt;/p&gt;</content><author><name></name></author><category term="dockerfile" /><category term="nginx" /><category term="node" /><summary type="html">Amazone 리눅스에서 Nginx complie 형식으로 설치</summary></entry></feed>
+예를 들어, 의존성 패키지의 버전을 업그레이드하거나, 의존성 패키지를 수동으로 추가하거나 제거하는 경우 그리고 repository 주소 변경 등이 있습니다.&lt;/p&gt;</content><author><name></name></author><category term="repository" /><category term="node" /><summary type="html">정규식을 이용해서 package-lock.json의 주소를 변경 처리</summary></entry></feed>
