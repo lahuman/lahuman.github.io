@@ -1,4 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2023-04-25T04:55:56+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">데이터베이스 용어 사전 구축 - 01</title><link href="https://lahuman.github.io/meta_system_01/" rel="alternate" type="text/html" title="데이터베이스 용어 사전 구축 - 01" /><published>2023-04-25T00:00:00+00:00</published><updated>2023-04-25T00:00:00+00:00</updated><id>https://lahuman.github.io/meta_system_01</id><content type="html" xml:base="https://lahuman.github.io/meta_system_01/">&lt;h1 id=&quot;데이터베이스-용어-사전-구축---01&quot;&gt;데이터베이스 용어 사전 구축 - 01&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2023-04-26T01:35:24+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">속이 좁아 속이…</title><link href="https://lahuman.github.io/20230426/" rel="alternate" type="text/html" title="속이 좁아 속이..." /><published>2023-04-26T00:00:00+00:00</published><updated>2023-04-26T00:00:00+00:00</updated><id>https://lahuman.github.io/20230426</id><content type="html" xml:base="https://lahuman.github.io/20230426/">&lt;h1 id=&quot;나란-사람은-속이-좁다&quot;&gt;나란 사람은 속이 좁다&lt;/h1&gt;
+
+&lt;p&gt;원래 간장종지 만한 속마음이었는데, 지금은 밥그릇 정도로 커졌다.&lt;/p&gt;
+
+&lt;p&gt;그나마, 커졌는데 여전히 좁다.&lt;/p&gt;
+
+&lt;p&gt;태생이 좁게 태어난건지, 욕심이 많아서 그런건지 잘 바뀌지 않는다.&lt;/p&gt;</content><author><name></name></author><category term="단상" /><summary type="html">나는 속이 좁다.</summary></entry><entry><title type="html">데이터베이스 용어 사전 구축 - 01</title><link href="https://lahuman.github.io/meta_system_01/" rel="alternate" type="text/html" title="데이터베이스 용어 사전 구축 - 01" /><published>2023-04-25T00:00:00+00:00</published><updated>2023-04-25T00:00:00+00:00</updated><id>https://lahuman.github.io/meta_system_01</id><content type="html" xml:base="https://lahuman.github.io/meta_system_01/">&lt;h1 id=&quot;데이터베이스-용어-사전-구축---01&quot;&gt;데이터베이스 용어 사전 구축 - 01&lt;/h1&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;데이터베이스 단어 표준은 데이터베이스 관련 용어와 용어 사용을 표준화하는 시스템입니다. 데이터베이스 단어 표준은 데이터베이스 관련 문서, 코드, 메타데이터 등에서 사용되는 용어의 일관성과 품질을 향상시켜 데이터베이스 개발, 관리, 운영 등의 업무를 원활하게 수행할 수 있도록 도와줍니다.&lt;/p&gt;
@@ -1000,77 +1006,4 @@ graph TD;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://aalonso.dev/blog/how-to-generate-generics-dtos-with-nestjsswagger-422g&quot;&gt;How to generate Generics DTOs with nestjs/swagger&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="repository" /><category term="node" /><summary type="html">applyDecorators 를 이용해서 처리 하면 되네요!</summary></entry><entry><title type="html">package-lock.json에서 Nexus Repository 변경시 처리 방법</title><link href="https://lahuman.github.io/nexus_url_change/" rel="alternate" type="text/html" title="package-lock.json에서 Nexus Repository 변경시 처리 방법" /><published>2023-03-16T00:00:00+00:00</published><updated>2023-03-16T00:00:00+00:00</updated><id>https://lahuman.github.io/nexus_url_change</id><content type="html" xml:base="https://lahuman.github.io/nexus_url_change/">&lt;h1 id=&quot;package-lockjson에서-nexus-repository-변경시-처리-방법&quot;&gt;package-lock.json에서 Nexus Repository 변경시 처리 방법&lt;/h1&gt;
-
-&lt;h2 id=&quot;1-package-lockjson-파일에-대하여&quot;&gt;1. &lt;code class=&quot;highlighter-rouge&quot;&gt;package-lock.json&lt;/code&gt; 파일에 대하여&lt;/h2&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;package-lock.json&lt;/code&gt; 파일은 NPM 패키지 매니저에서 사용하는 파일 중 하나로, 프로젝트의 의존성(dependency) 정보를 저장하는 파일입니다. 이 파일은 &lt;code class=&quot;highlighter-rouge&quot;&gt;npm install&lt;/code&gt; 명령을 실행할 때 자동으로 생성되며, 프로젝트에 필요한 의존성 패키지의 버전 정보를 담고 있습니다.&lt;/p&gt;
-
-&lt;p&gt;만약 Nexus Repository의 URL이 변경되거나 새로운 Nexus Repository를 사용해야 하는 경우, &lt;code class=&quot;highlighter-rouge&quot;&gt;package-lock.json&lt;/code&gt; 파일을 업데이트해야 합니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;package-lock.json&lt;/code&gt; 파일의 구조는 다음과 같습니다.&lt;/p&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;s2&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;lahuman&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;s2&quot;&gt;&quot;version&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;1.0.0&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;s2&quot;&gt;&quot;lockfileVersion&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;s2&quot;&gt;&quot;requires&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;s2&quot;&gt;&quot;packages&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;// 의존성 패키지 정보가 포함된 객체들&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
-  &lt;span class=&quot;s2&quot;&gt;&quot;dependencies&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;// 프로젝트의 모든 의존성 패키지 정보가 포함된 객체들&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;packages&lt;/code&gt; 객체는 프로젝트에서 사용되는 모든 패키지 정보를 포함합니다. &lt;code class=&quot;highlighter-rouge&quot;&gt;dependencies&lt;/code&gt; 객체는 packages 객체에서 사용되는 의존성 패키지 정보만을 포함합니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;package-lock.json&lt;/code&gt; 파일은 프로젝트에서 사용되는 패키지의 버전 정보를 포함하고 있기 때문에, 다른 환경에서 프로젝트를 재구성할 때 항상 이 파일을 함께 사용해야 합니다. 이를 통해 모든 개발자나 서버에서 일관된 패키지 버전을 사용할 수 있습니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;2-repository-주소-변경-처리&quot;&gt;2. Repository 주소 변경 처리&lt;/h2&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;package-lock.json&lt;/code&gt;파일에서 주소를 확인합니다.&lt;/p&gt;
-
-&lt;p&gt;주소는 &lt;code class=&quot;highlighter-rouge&quot;&gt;resolved&lt;/code&gt;라는 키를 기반으로 아래 예제와 같이 설정됩니다&lt;/p&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
-  &lt;span class=&quot;s2&quot;&gt;&quot;node_modules/react-mui-validation&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;s2&quot;&gt;&quot;version&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;0.3.0&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-      &lt;span class=&quot;s2&quot;&gt;&quot;resolved&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;https://registry.npmjs.org/react-mui-validation/-/react-mui-validation-0.3.0.tgz&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-      &lt;span class=&quot;s2&quot;&gt;&quot;integrity&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;sha512-NQK4A/wx8P61rZ0CNz/IdTz+Rh9RlE6PVtrwxcoIGxhKo7mDwMI1QIudvaOUX+2vnsnRFFxpNN1mr10ITMqB5Q==&quot;&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;주소를 변경하는 방법은 정규식을 이용하면 쉽게 처리가 가능합니다.&lt;/p&gt;
-
-&lt;p&gt;변경하려는 주소를 정규식 형식에서 사용 할 수 있도록 변경합니다.&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# 변경할 주소 준비 &lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;$ NEXUS_REGISTRY&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;https://lahuman.github.io/&quot;&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# 정규식에서 사용할 수 있는 형태로 주소 변경 - https\:\/\/lahuman\.github\.io\/&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;REPO_URL&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;NEXUS_REGISTRY&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt; | sed &lt;span class=&quot;s1&quot;&gt;'s#/#\\/#g; s#\.#\\.#g; s/:/\\:/g;'&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt; 
-&lt;span class=&quot;c&quot;&gt;# sed 명령어를 이용한 주소 변경 후 new 파일을 생성&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;sed &lt;span class=&quot;nt&quot;&gt;-E&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;s/&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;resolved&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;(.*org&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\/&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;)/&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;resolved&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;REPO_URL&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/g&quot;&lt;/span&gt; package-lock.json &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; new
-&lt;span class=&quot;c&quot;&gt;# 생성된 파일을 pacage-lock.json으로 변경&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;mv new package-lock.json
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;위의 명령어를 실행 후 확인을 하면 아래와 같이 주소가 변경 된 것을 확인 할 수 있습니다&lt;/p&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
-    &lt;span class=&quot;s2&quot;&gt;&quot;node_modules/react-mui-validation&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;s2&quot;&gt;&quot;version&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;0.3.0&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-      &lt;span class=&quot;s2&quot;&gt;&quot;resolved&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;https://lahuman.github.io/react-mui-validation/-/react-mui-validation-0.3.0.tgz&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-      &lt;span class=&quot;s2&quot;&gt;&quot;integrity&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;sha512-NQK4A/wx8P61rZ0CNz/IdTz+Rh9RlE6PVtrwxcoIGxhKo7mDwMI1QIudvaOUX+2vnsnRFFxpNN1mr10ITMqB5Q==&quot;&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;마지막으로&quot;&gt;마지막으로&lt;/h2&gt;
-
-&lt;p&gt;package-lock.json 파일은 일반적으로 Git 저장소에 커밋하여 프로젝트의 의존성 정보를 공유합니다. 
-이 파일은 package.json 파일의 의존성 정보를 기반으로 자동으로 생성되기 때문에 직접 수정하지 않아도 됩니다. 
-하지만 때로는 package-lock.json 파일을 직접 수정해야 하는 경우도 있습니다. 
-예를 들어, 의존성 패키지의 버전을 업그레이드하거나, 의존성 패키지를 수동으로 추가하거나 제거하는 경우 그리고 repository 주소 변경 등이 있습니다.&lt;/p&gt;</content><author><name></name></author><category term="repository" /><category term="node" /><summary type="html">정규식을 이용해서 package-lock.json의 주소를 변경 처리</summary></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><category term="repository" /><category term="node" /><summary type="html">applyDecorators 를 이용해서 처리 하면 되네요!</summary></entry></feed>
