@@ -1,4 +1,40 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2023-06-14T07:28:44+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">REDIS 접속 관리를 위한 Connection pool이 필요할까요?</title><link href="https://lahuman.github.io/redis_single_thread_pool/" rel="alternate" type="text/html" title="REDIS 접속 관리를 위한 Connection pool이 필요할까요? " /><published>2023-06-13T00:00:00+00:00</published><updated>2023-06-13T00:00:00+00:00</updated><id>https://lahuman.github.io/redis_single_thread_pool</id><content type="html" xml:base="https://lahuman.github.io/redis_single_thread_pool/">&lt;h1 id=&quot;redis-접속-관리를-위한-connection-pool이-필요할까요&quot;&gt;REDIS 접속 관리를 위한 Connection pool이 필요할까요?&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2023-06-23T01:31:34+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">01. 루틴 만들기</title><link href="https://lahuman.github.io/routine_01/" rel="alternate" type="text/html" title="01. 루틴 만들기" /><published>2023-06-22T00:00:00+00:00</published><updated>2023-06-22T00:00:00+00:00</updated><id>https://lahuman.github.io/routine_01</id><content type="html" xml:base="https://lahuman.github.io/routine_01/">&lt;h1 id=&quot;나날이-게을러-지는-나를-반성하는-프로그램을-만들어-보자&quot;&gt;나날이 게을러 지는 나를 반성하는 프로그램을 만들어 보자!&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;요즘 많이 게을러 졌다. 공부도 재미 없고 일도 재미 없다. 이를 극복하기 위한 방안으로 루틴을 만들어 보려고 한다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;루틴이란&quot;&gt;루틴이란?&lt;/h2&gt;
+
+&lt;p&gt;“루틴”은 주로 일상적인 일련의 활동이나 행동 패턴을 의미합니다. 이는 개인이나 조직이 정기적으로 반복하거나 예측 가능한 일정에 따라 수행하는 활동들을 포함합니다. 루틴은 주로 생활의 일부로서 자동적으로 이루어지는 것들을 의미하며, 특정한 목적을 가지고 이루어지는 경우도 있습니다.&lt;/p&gt;
+
+&lt;p&gt;예를 들어, 개인의 루틴은 아침에 일어나서 세면하고 식사를 하고 출근하는 것일 수 있습니다. 이는 매일 반복되며 예상 가능한 일정에 따라 수행되는 활동입니다. 또한, 운동하는 습관이나 공부하는 시간을 정해두는 것도 루틴의 예입니다.&lt;/p&gt;
+
+&lt;p&gt;조직이나 기업에서도 루틴은 중요한 역할을 합니다. 회의 일정, 업무 프로세스, 일일 업무 등은 루틴에 속할 수 있습니다. 이를 통해 조직은 일상적인 활동을 체계적으로 관리하고 효율적으로 운영할 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;루틴은 안정감과 예측 가능성을 제공하여 개인이나 조직이 목표를 달성하고 생산적인 활동을 수행하는 데 도움을 줍니다. 그러나 일상적인 루틴에 갇혀 창의성이나 유연성이 부족해질 수도 있으므로 적절한 균형을 유지하는 것이 중요합니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;주요-기능&quot;&gt;주요 기능&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;TODO : 루틴을 만들기 위해서 해야 할 일&lt;/li&gt;
+  &lt;li&gt;알람 기능 : 루틴 시작 시간을 알려 줌&lt;/li&gt;
+  &lt;li&gt;이력 확인 : 주, 월 기준으로 TODO 성공/실패 표기&lt;/li&gt;
+  &lt;li&gt;회원 가입 / 로그인 : 회원 별 관리를 위한 기본 기능&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;todo-등록-항목&quot;&gt;TODO 등록 항목&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;*반복 : 매일 / 업무일 / 주말 / 한번만 선택 가능&lt;/li&gt;
+  &lt;li&gt;알람 : HH:MM 형식으로 알람 시간&lt;/li&gt;
+  &lt;li&gt;할일 : 해야 할 일을 TEXT 형식으로 작성&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&quot;마지막으로&quot;&gt;마지막으로&lt;/h1&gt;
+
+&lt;p&gt;요즘 많이 게을러져서 일을 벌리고 마무리를 못하고 있네요. 
+조금씩 천천히 진행 예정입니다.&lt;/p&gt;</content><author><name></name></author><category term="routine" /><category term="todo" /><summary type="html">간단한 TODO 리스트와 알람 기능으로 루틴을 만들자!</summary></entry><entry><title type="html">REDIS 접속 관리를 위한 Connection pool이 필요할까요?</title><link href="https://lahuman.github.io/redis_single_thread_pool/" rel="alternate" type="text/html" title="REDIS 접속 관리를 위한 Connection pool이 필요할까요? " /><published>2023-06-13T00:00:00+00:00</published><updated>2023-06-13T00:00:00+00:00</updated><id>https://lahuman.github.io/redis_single_thread_pool</id><content type="html" xml:base="https://lahuman.github.io/redis_single_thread_pool/">&lt;h1 id=&quot;redis-접속-관리를-위한-connection-pool이-필요할까요&quot;&gt;REDIS 접속 관리를 위한 Connection pool이 필요할까요?&lt;/h1&gt;
 
 &lt;p&gt;Redis는 기본적으로 싱글 스레드로 동작하는 인메모리 데이터베이스입니다. 이는 Redis가 단일 스레드로 모든 요청을 처리하고, 이벤트 루프를 사용하여 비동기 입출력(IO) 작업을 처리한다는 것을 의미합니다.&lt;/p&gt;
 
@@ -430,100 +466,4 @@ graph TD;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://github.com/peaceiris/actions-gh-pages#readme&quot;&gt;actions-gh-pages&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="github" /><category term="jekyll" /><category term="action" /><summary type="html">github에서 commit 되면 정적 페이지 빌드와 배포 처리</summary></entry><entry><title type="html">react 에서 build 이후에 환경(dev, product 등)에 따른 상수 처리</title><link href="https://lahuman.github.io/react_env_after_build/" rel="alternate" type="text/html" title="react 에서 build 이후에 환경(dev, product 등)에 따른 상수 처리" /><published>2023-04-07T00:00:00+00:00</published><updated>2023-04-07T00:00:00+00:00</updated><id>https://lahuman.github.io/react_env_after_build</id><content type="html" xml:base="https://lahuman.github.io/react_env_after_build/">&lt;h1 id=&quot;react-에서-build-이후에-환경dev-product-등에-따른-상수-처리&quot;&gt;react 에서 build 이후에 환경(dev, product 등)에 따른 상수 처리&lt;/h1&gt;
-
-&lt;p&gt;일반적으로 React에서의 상수는 .env를 활용해서 관리합니다.&lt;/p&gt;
-
-&lt;p&gt;하지만, 환경에 따라 상수를 변경해야 한다면 어떻게 처리해야 할까요?&lt;/p&gt;
-
-&lt;p&gt;정답은 build 이후에 환경 변수를 주입 할수 있게 설계 하면 됩니다.&lt;/p&gt;
-
-&lt;p&gt;React에서는 &lt;code class=&quot;highlighter-rouge&quot;&gt;public&lt;/code&gt; 이라는 디렉토리가 있고 이는 정적 파일을 보관하는 곳입니다. 또한 이 디렉토리에 있는 파일들은 빌드 시 자동으로 &lt;code class=&quot;highlighter-rouge&quot;&gt;build&lt;/code&gt; 디렉토리에 복사 되며, 브라우저에서 접근이 가능한 파일로 사용이 됩니다.&lt;/p&gt;
-
-&lt;h3 id=&quot;전역-상수-파일-생성&quot;&gt;전역 상수 파일 생성&lt;/h3&gt;
-
-&lt;p&gt;먼저 환경 변수는 전역값으로 처리 하기 위해서 &lt;code class=&quot;highlighter-rouge&quot;&gt;window&lt;/code&gt; 전역 객체에 &lt;code class=&quot;highlighter-rouge&quot;&gt;env&lt;/code&gt;키를 이용해서 저장 합니다.&lt;/p&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// root 디렉토리에 키 값과 벨류 키값을 가진 _env-config.js 파일 생성&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;env&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;REACT_APP_API&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;V_REACT_APP_API&quot;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# 환경에 따라 변하지 않는 값은 여기에 넣습니다. &lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;REACT_APP_API&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;https://lahuman.github.io
-&lt;span class=&quot;nv&quot;&gt;REACT_APP_USER&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;lahuman
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;indexhtml-수정&quot;&gt;index.html 수정&lt;/h3&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;public&lt;/code&gt; 디렉토리의 &lt;code class=&quot;highlighter-rouge&quot;&gt;index.html&lt;/code&gt;을 아래와 같이 수정합니다.&lt;/p&gt;
-
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;lang=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;en&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-...
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;noscript&amp;gt;&lt;/span&gt;
-      You need to enable JavaScript to run this app.
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/noscript&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;root&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 추가하는 부분 START --&amp;gt;&lt;/span&gt; 
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;%PUBLIC_URL%/env-config.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 추가하는 부분 END --&amp;gt;&lt;/span&gt; 
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;유틸-생성&quot;&gt;유틸 생성&lt;/h3&gt;
-
-&lt;p&gt;상수를 불러오는 유틸을 만듭니다.&lt;/p&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// env.ts&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;env&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;any&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;env&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;any&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;any&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;process&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;로컬 개발환경에는 &lt;code class=&quot;highlighter-rouge&quot;&gt;window.env&lt;/code&gt;가 없을 경우 &lt;code class=&quot;highlighter-rouge&quot;&gt;process.env&lt;/code&gt;의 상수를 호출하도록 합니다.&lt;/p&gt;
-
-&lt;h3 id=&quot;소스코드에서-사용-예제&quot;&gt;소스코드에서 사용 예제&lt;/h3&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;env&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;./env&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;App&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;className&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;App&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;h1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;process&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;REACT_APP_API&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/h1&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
-&lt;/span&gt;      &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;h1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;REACT_APP_API&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)}&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/h1&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
-&lt;/span&gt;      &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;h2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;REACT_APP_USER&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)}&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/h2&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
-&lt;/span&gt;    &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/div&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
-&lt;/span&gt;  &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;배포&quot;&gt;배포&lt;/h3&gt;
-
-&lt;p&gt;이후 배포시 &lt;code class=&quot;highlighter-rouge&quot;&gt;sed&lt;/code&gt; 명령어를 이용해서 원하는 값으로 변경합니다.&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# 변경하려는 값이 환경 변수에 있다는 가정하에 아래와 같이 처리 합니다. &lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# 아래 명령어는 빌드 이후 실행되기 때문에, build된 디렉토리 밑으로 env-config.js 파일을 생성합니다. &lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;cat &lt;/span&gt;_env-config.js  | sed &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-                        &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;s|V_REACT_APP_API|&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;REACT_APP_API&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;|g&quot;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; /build/env-config.js
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;결과-확인&quot;&gt;결과 확인&lt;/h3&gt;
-
-&lt;iframe src=&quot;//codesandbox.io/embed/react-evn-after-build-ydqmw9?fontsize=14&amp;amp;hidenavigation=1&amp;amp;theme=dark&quot; style=&quot;width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;&quot; title=&quot;react_evn_after_build&quot; allow=&quot;accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking&quot; sandbox=&quot;allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts&quot;&gt;&lt;/iframe&gt;
-
-&lt;h2 id=&quot;예제-코드-보기&quot;&gt;&lt;a href=&quot;https://codesandbox.io/s/react-evn-after-build-ydqmw9?file=/src/App.tsx&quot;&gt;예제 코드 보기&lt;/a&gt;&lt;/h2&gt;
-
-&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://bobbyhadz.com/blog/typescript-property-does-not-exist-on-type-window&quot;&gt;Property does not exist on type Window in TypeScript [Fixed]&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="env" /><category term="react" /><summary type="html">.env로만 처리는 안되어 util을 만들어야 합니다</summary></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><category term="github" /><category term="jekyll" /><category term="action" /><summary type="html">github에서 commit 되면 정적 페이지 빌드와 배포 처리</summary></entry></feed>
