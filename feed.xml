@@ -1,4 +1,34 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2023-06-23T01:31:34+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">01. 루틴 만들기</title><link href="https://lahuman.github.io/routine_01/" rel="alternate" type="text/html" title="01. 루틴 만들기" /><published>2023-06-22T00:00:00+00:00</published><updated>2023-06-22T00:00:00+00:00</updated><id>https://lahuman.github.io/routine_01</id><content type="html" xml:base="https://lahuman.github.io/routine_01/">&lt;h1 id=&quot;나날이-게을러-지는-나를-반성하는-프로그램을-만들어-보자&quot;&gt;나날이 게을러 지는 나를 반성하는 프로그램을 만들어 보자!&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2023-07-05T04:38:10+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Module not found: Can’t resolve ‘encoding’</title><link href="https://lahuman.github.io/nestjs13_encoding_error/" rel="alternate" type="text/html" title="Module not found: Can't resolve 'encoding'" /><published>2023-07-05T00:00:00+00:00</published><updated>2023-07-05T00:00:00+00:00</updated><id>https://lahuman.github.io/nestjs13_encoding_error</id><content type="html" xml:base="https://lahuman.github.io/nestjs13_encoding_error/">&lt;h1 id=&quot;nextjs-를-사용한-개인-플젝-중-cant-resolve-encoding-오류를-만나다&quot;&gt;nextjs 를 사용한 개인 플젝 중 Can’t resolve ‘encoding’ 오류를 만나다&lt;/h1&gt;
+
+&lt;h2 id=&quot;오류-내용&quot;&gt;오류 내용&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;node-fetch에서 encoding 모듈을 찾을 수 없다는 오류가 로그에서 확인되었습니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;...
+Module not found: Can&lt;span class=&quot;s1&quot;&gt;'t resolve '&lt;/span&gt;encoding&lt;span class=&quot;s1&quot;&gt;' in '&lt;/span&gt;/Users/lahuman/DEV/routine/web/node_modules/.pnpm/node-fetch@2.6.7/node_modules/node-fetch/lib&lt;span class=&quot;s1&quot;&gt;'
+...
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;해결-방법&quot;&gt;해결 방법&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;네, 찾을 수 없는 모듈은 설치해주면 되죠!&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;pnpm add &lt;span class=&quot;nt&quot;&gt;-D&lt;/span&gt; encoding
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;마치며&quot;&gt;마치며&lt;/h2&gt;
+
+&lt;p&gt;사실 위에 오류로그를 무시해도 동작에는 문제가 없습니다. 
+찝찝함을 없애기 위해서 방안을 찾아보니 너무나도 단순하게 모듈을 설치하라는 가이드가 나오네요.&lt;/p&gt;
+
+&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/supabase/supabase-js/issues/612&quot;&gt;Can’t resolve ‘encoding’ #612&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="nextjs" /><category term="error" /><summary type="html">Nextjs13을 사용 중 이상한 오류가 난다.</summary></entry><entry><title type="html">01. 루틴 만들기</title><link href="https://lahuman.github.io/routine_01/" rel="alternate" type="text/html" title="01. 루틴 만들기" /><published>2023-06-22T00:00:00+00:00</published><updated>2023-06-22T00:00:00+00:00</updated><id>https://lahuman.github.io/routine_01</id><content type="html" xml:base="https://lahuman.github.io/routine_01/">&lt;h1 id=&quot;나날이-게을러-지는-나를-반성하는-프로그램을-만들어-보자&quot;&gt;나날이 게을러 지는 나를 반성하는 프로그램을 만들어 보자!&lt;/h1&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;요즘 많이 게을러 졌다. 공부도 재미 없고 일도 재미 없다. 이를 극복하기 위한 방안으로 루틴을 만들어 보려고 한다.&lt;/p&gt;
@@ -330,140 +360,4 @@
 
 &lt;p&gt;현재 팀원은 초기 3명에서 12명까지 늘어났고, 이전에는 주로 JAVA 프로젝트만 진행하던 곳에서는 처음으로 Node.js와 React.js를 활용한 프로젝트를 진행하고 있습니다.&lt;/p&gt;
 
-&lt;p&gt;아쉬운 부분도 있었고, 힘든 부분도 있었지만, 적어도 한 걸음씩 나아가고 있다고 생각합니다.&lt;/p&gt;</content><author><name></name></author><category term="단상" /><category term="이직" /><category term="회고" /><summary type="html">1년이 지났을때 작성하려고 했지만, 정신이 없어서 이제 작성하네요.</summary></entry><entry><title type="html">github action으로 jekyll 빌드와 배포 하기</title><link href="https://lahuman.github.io/githubaction_jekyll_build/" rel="alternate" type="text/html" title="github action으로 jekyll 빌드와 배포 하기" /><published>2023-04-11T00:00:00+00:00</published><updated>2023-04-11T00:00:00+00:00</updated><id>https://lahuman.github.io/githubaction_jekyll_build</id><content type="html" xml:base="https://lahuman.github.io/githubaction_jekyll_build/">&lt;h1 id=&quot;github-action으로-jekyll-빌드와-배포-하기&quot;&gt;github action으로 jekyll 빌드와 배포 하기&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;다음의 단계로 배포 처리를 합니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;div class=&quot;mermaid&quot;&gt; 
-graph TD;
-    A[GITHUB] --&amp;gt;|설정| B(개인토큰발급);
-    B --&amp;gt; C(Repository);
-    C --&amp;gt;|설정| D(secret key 등록);
-    D --&amp;gt;|파일생성| E(/.github/workflows/build.yml);
-    E --&amp;gt; F(자동빌드배포);
-&lt;/div&gt;
-
-&lt;h2 id=&quot;설정--개인-토큰-발급&quot;&gt;설정 &amp;gt; 개인 토큰 발급&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/setting_token.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;프로필 사진&lt;/code&gt;을 클릭 후 &lt;code class=&quot;highlighter-rouge&quot;&gt;Settings&lt;/code&gt; 선택&lt;/li&gt;
-  &lt;li&gt;아래 메뉴에 &lt;code class=&quot;highlighter-rouge&quot;&gt;Developer settings&lt;/code&gt; 선택&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Personal access tokens&lt;/code&gt; 선택&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Create New tokens&lt;/code&gt; 선택 후 &lt;code class=&quot;highlighter-rouge&quot;&gt;tokens (classic)&lt;/code&gt; 선택&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/create_token.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;이름을 설정하고, &lt;code class=&quot;highlighter-rouge&quot;&gt;Expiration&lt;/code&gt;을 &lt;code class=&quot;highlighter-rouge&quot;&gt;No Expiration&lt;/code&gt;으로 설정
-    &lt;ul&gt;
-      &lt;li&gt;만료일을 설정 시 추후 변경 필요함&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Select scopes&lt;/code&gt;에서 &lt;code class=&quot;highlighter-rouge&quot;&gt;repo&lt;/code&gt; 선택
-    &lt;ul&gt;
-      &lt;li&gt;repository에 읽고 쓰고 등의 처리를 위해 필요&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Generated Token&lt;/code&gt; 버튼 클릭으로 토큰 생성&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/copy_token.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;토큰 복사
-    &lt;ul&gt;
-      &lt;li&gt;토큰 값은 다시 확인이 불가하니 꼭 잘 저장 해야 함&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/repository_settings.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;원천 소스가 되는 &lt;code class=&quot;highlighter-rouge&quot;&gt;Repository&lt;/code&gt;로 이동&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Secrets and variables&lt;/code&gt; 선택&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Secrets&lt;/code&gt; 탭에 &lt;code class=&quot;highlighter-rouge&quot;&gt;New Repository Secret&lt;/code&gt; 선택&lt;/li&gt;
-  &lt;li&gt;Name을 &lt;code class=&quot;highlighter-rouge&quot;&gt;JEKYLL_MOON&lt;/code&gt;로 만들고 Secret에 생성된 토큰 값을 붙여 넣음&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/github_workflows.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;root에 &lt;code class=&quot;highlighter-rouge&quot;&gt;.github/workflows&lt;/code&gt; 디렉토리를 생성후 &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll_build-and_push.yml&lt;/code&gt; 파일을 생성&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;div class=&quot;language-yml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Jekyll build and deploy&lt;/span&gt;
-
-&lt;span class=&quot;na&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;branches&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;master&lt;/span&gt;
-
-&lt;span class=&quot;na&quot;&gt;jobs&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;build_and_deploy&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;runs-on&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;ubuntu-latest&lt;/span&gt;
-
-    &lt;span class=&quot;na&quot;&gt;steps&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;    
-    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Checkout source repository&lt;/span&gt;
-      &lt;span class=&quot;na&quot;&gt;uses&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;actions/checkout@v2&lt;/span&gt;
-
-    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Set up Node&lt;/span&gt;
-      &lt;span class=&quot;na&quot;&gt;uses&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;actions/setup-node@v3&lt;/span&gt;
-      &lt;span class=&quot;na&quot;&gt;with&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;node-version&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;16.14.2&lt;/span&gt;
-        
-    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Set up Ruby&lt;/span&gt;
-      &lt;span class=&quot;na&quot;&gt;uses&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;ruby/setup-ruby@v1&lt;/span&gt;
-      &lt;span class=&quot;na&quot;&gt;with&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;ruby-version&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;2.7&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 3.x 로 설정시 오류 발생하여 2.7로 고정&lt;/span&gt;
-
-    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Cache Ruby gems&lt;/span&gt;
-      &lt;span class=&quot;na&quot;&gt;uses&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;actions/cache@v2&lt;/span&gt;
-      &lt;span class=&quot;na&quot;&gt;with&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;vendor/bundle&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;$-gems-$&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;restore-keys&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;|&lt;/span&gt;
-          &lt;span class=&quot;no&quot;&gt;$-gems-&lt;/span&gt;
-    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Install dependencies&lt;/span&gt;
-      &lt;span class=&quot;na&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;|&lt;/span&gt;
-        &lt;span class=&quot;no&quot;&gt;bundle config path vendor/bundle&lt;/span&gt;
-        &lt;span class=&quot;no&quot;&gt;bundle install --jobs 4 --retry 3&lt;/span&gt;
-    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Build Jekyll site&lt;/span&gt;
-      &lt;span class=&quot;na&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;bundle exec jekyll build&lt;/span&gt;
-
-    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Deploy to target repository&lt;/span&gt;
-      &lt;span class=&quot;na&quot;&gt;uses&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;peaceiris/actions-gh-pages@v3&lt;/span&gt;
-      &lt;span class=&quot;na&quot;&gt;with&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;personal_token&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 생성한 token 정보 설정&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;publish_dir&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;./_site&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;user_name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;github-actions[bot]'&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;user_email&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;github-actions[bot]@users.noreply.github.com'&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;publish_branch&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;master&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 대상 repository branch 정보&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;external_repository&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;lahuman/lahuman.github.io'&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 대상 repository&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;파일 저장이 완료 되면 아래와 같이 github action이 실행됩니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/github_action.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;2017년부터 운영 중이던 github 블로그의 빌드와 배포를 &lt;code class=&quot;highlighter-rouge&quot;&gt;github action&lt;/code&gt;을 이용해서 처리 했습니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;알고 있었는데, 시도하는게 어려웠습니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;오늘은 뒤로 후퇴하는게 아닌 앞으로 한 걸음 내딛었다고 생각되네요.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/peaceiris/actions-gh-pages#readme&quot;&gt;actions-gh-pages&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="github" /><category term="jekyll" /><category term="action" /><summary type="html">github에서 commit 되면 정적 페이지 빌드와 배포 처리</summary></entry></feed>
+&lt;p&gt;아쉬운 부분도 있었고, 힘든 부분도 있었지만, 적어도 한 걸음씩 나아가고 있다고 생각합니다.&lt;/p&gt;</content><author><name></name></author><category term="단상" /><category term="이직" /><category term="회고" /><summary type="html">1년이 지났을때 작성하려고 했지만, 정신이 없어서 이제 작성하네요.</summary></entry></feed>
