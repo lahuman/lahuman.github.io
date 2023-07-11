@@ -1,4 +1,92 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2023-07-05T04:38:10+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Module not found: Can’t resolve ‘encoding’</title><link href="https://lahuman.github.io/nestjs13_encoding_error/" rel="alternate" type="text/html" title="Module not found: Can't resolve 'encoding'" /><published>2023-07-05T00:00:00+00:00</published><updated>2023-07-05T00:00:00+00:00</updated><id>https://lahuman.github.io/nestjs13_encoding_error</id><content type="html" xml:base="https://lahuman.github.io/nestjs13_encoding_error/">&lt;h1 id=&quot;nextjs-를-사용한-개인-플젝-중-cant-resolve-encoding-오류를-만나다&quot;&gt;nextjs 를 사용한 개인 플젝 중 Can’t resolve ‘encoding’ 오류를 만나다&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2023-07-11T02:06:07+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Blocking / Non-Blocking 과 동기 / 비동기의 차이</title><link href="https://lahuman.github.io/block-nonblock_async_sync/" rel="alternate" type="text/html" title="Blocking / Non-Blocking 과 동기 / 비동기의 차이" /><published>2023-07-11T00:00:00+00:00</published><updated>2023-07-11T00:00:00+00:00</updated><id>https://lahuman.github.io/block-nonblock_async_sync</id><content type="html" xml:base="https://lahuman.github.io/block-nonblock_async_sync/">&lt;h1 id=&quot;blocking--non-blocking-과-동기--비동기의-차이&quot;&gt;Blocking / Non-Blocking 과 동기 / 비동기의 차이&lt;/h1&gt;
+
+&lt;h2 id=&quot;단어-정의&quot;&gt;단어 정의&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;caller : 호출 하는 함수&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;callee : 호출 당하는 함수&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;blocking :&lt;/li&gt;
+  &lt;li&gt;non-Blocking :&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;동기-blocking&quot;&gt;동기 Blocking&lt;/h2&gt;
+
+&lt;div class=&quot;mermaid&quot;&gt; 
+sequenceDiagram;
+    alt Blocking;
+        Caller-&amp;gt;&amp;gt;+Callee: call;
+        note right of Callee: getResult;
+        Callee-&amp;gt;&amp;gt;-Caller: return value;
+    end;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;비동기-blocking&quot;&gt;비동기 Blocking&lt;/h2&gt;
+
+&lt;div class=&quot;mermaid&quot;&gt; 
+sequenceDiagram;
+    alt Blocking;
+        Caller-&amp;gt;&amp;gt;+Callee: call;
+        note right of Callee: getResult;
+        note right of Callee: callback;
+        Callee-&amp;gt;&amp;gt;-Caller: return value;
+    end
+&lt;/div&gt;
+
+&lt;h2 id=&quot;동기-non-blocking&quot;&gt;동기 Non-blocking&lt;/h2&gt;
+
+&lt;div class=&quot;mermaid&quot;&gt; 
+sequenceDiagram;
+    Caller-&amp;gt;&amp;gt;+Callee: call;
+    note right of Callee: getResult; 
+    Callee-&amp;gt;&amp;gt;+Caller: return future;
+    Caller-&amp;gt;&amp;gt;-Callee: isDone;
+    Callee-&amp;gt;&amp;gt;+Caller: No;
+    Caller-&amp;gt;&amp;gt;-Callee: isDone;
+    Callee-&amp;gt;&amp;gt;+Caller: No;
+    Caller-&amp;gt;&amp;gt;-Callee: isDone;
+    Callee-&amp;gt;&amp;gt;-Caller: Yes;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;비동기-non-blocking&quot;&gt;비동기 Non-blocking&lt;/h2&gt;
+
+&lt;div class=&quot;mermaid&quot;&gt; 
+sequenceDiagram;
+    Caller-&amp;gt;&amp;gt;Callee: call;
+    Callee-&amp;gt;&amp;gt;Caller: return void;
+    note right of Callee: getResult; 
+    note right of Callee: callback; 
+&lt;/div&gt;
+
+&lt;h2 id=&quot;정리&quot;&gt;정리&lt;/h2&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt; &lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;동기&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;비동기&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Blocking&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;caller는 아무것도 할수 없는 상태가 되며, 결과를 얻은 후 직접 처리&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;caller는 아무것도 할수 없는 상태가 된며, 결과는 caller가 처리&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Non-Blocking&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;caller는 자기 할 일을 할 수 있고, 결과를 얻은 후 직접 처리&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;caller는 자기 할 일을 할 수 있고, 결과는 callee가 처리&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://storage.googleapis.com/static.fastcampus.co.kr/prod/uploads/202306/042009-717/[%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4]-%EA%B5%90%EC%9C%A1%EA%B3%BC%EC%A0%95%EC%86%8C%EA%B0%9C%EC%84%9C-spring-webflux-%EC%99%84%EC%A0%84-%EC%A0%95%EB%B3%B5---%EC%BD%94%EB%A3%A8%ED%8B%B4%EB%B6%80%ED%84%B0-%EB%A6%AC%EC%95%A1%ED%8B%B0%EB%B8%8C-msa-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EA%B9%8C%EC%A7%80.pdf&quot;&gt;Spring WebFlux 완전 정보&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="개념" /><summary type="html">한번 정리해보자!</summary></entry><entry><title type="html">Module not found: Can’t resolve ‘encoding’</title><link href="https://lahuman.github.io/nestjs13_encoding_error/" rel="alternate" type="text/html" title="Module not found: Can't resolve 'encoding'" /><published>2023-07-05T00:00:00+00:00</published><updated>2023-07-05T00:00:00+00:00</updated><id>https://lahuman.github.io/nestjs13_encoding_error</id><content type="html" xml:base="https://lahuman.github.io/nestjs13_encoding_error/">&lt;h1 id=&quot;nextjs-를-사용한-개인-플젝-중-cant-resolve-encoding-오류를-만나다&quot;&gt;nextjs 를 사용한 개인 플젝 중 Can’t resolve ‘encoding’ 오류를 만나다&lt;/h1&gt;
 
 &lt;h2 id=&quot;오류-내용&quot;&gt;오류 내용&lt;/h2&gt;
 
@@ -352,12 +440,4 @@ Module not found: Can&lt;span class=&quot;s1&quot;&gt;'t resolve '&lt;/span&gt;e
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://product.kyobobook.co.kr/detail/S000201352991&quot;&gt;도서-한입 크기로 잘라 먹는 리액트(React.js)&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.udemy.com/course/winterlood-react-basic/&quot;&gt;강의-한입 크기로 잘라 먹는 리액트(React.js)&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="리액트" /><category term="도서" /><summary type="html">도서 서평</summary></entry><entry><title type="html">이직 1년 5개월만에 작성하는 회고</title><link href="https://lahuman.github.io/20230412/" rel="alternate" type="text/html" title="이직 1년 5개월만에 작성하는 회고" /><published>2023-04-12T00:00:00+00:00</published><updated>2023-04-12T00:00:00+00:00</updated><id>https://lahuman.github.io/20230412</id><content type="html" xml:base="https://lahuman.github.io/20230412/">&lt;h1 id=&quot;이직-1년-후-회고&quot;&gt;이직 1년 후 회고&lt;/h1&gt;
-
-&lt;p&gt;지난 1년 5개월 동안 GSSHOP에서 삼성화재로 이직한 후를 회고해봅니다.&lt;/p&gt;
-
-&lt;p&gt;2021년 12월 1일에 입사하였습니다. 금융사에서 꿈을 키워나가기 위해 선택한 곳이었습니다. 내 팀을 조성하고, 팀원들과 함께 성장할 수 있는 환경을 만들어보고 싶었습니다.&lt;/p&gt;
-
-&lt;p&gt;현재 팀원은 초기 3명에서 12명까지 늘어났고, 이전에는 주로 JAVA 프로젝트만 진행하던 곳에서는 처음으로 Node.js와 React.js를 활용한 프로젝트를 진행하고 있습니다.&lt;/p&gt;
-
-&lt;p&gt;아쉬운 부분도 있었고, 힘든 부분도 있었지만, 적어도 한 걸음씩 나아가고 있다고 생각합니다.&lt;/p&gt;</content><author><name></name></author><category term="단상" /><category term="이직" /><category term="회고" /><summary type="html">1년이 지났을때 작성하려고 했지만, 정신이 없어서 이제 작성하네요.</summary></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><category term="리액트" /><category term="도서" /><summary type="html">도서 서평</summary></entry></feed>
