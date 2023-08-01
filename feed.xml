@@ -1,4 +1,34 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2023-07-25T06:30:50+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">02. 루틴 만들기</title><link href="https://lahuman.github.io/routine_02/" rel="alternate" type="text/html" title="02. 루틴 만들기" /><published>2023-07-25T00:00:00+00:00</published><updated>2023-07-25T00:00:00+00:00</updated><id>https://lahuman.github.io/routine_02</id><content type="html" xml:base="https://lahuman.github.io/routine_02/">&lt;h1 id=&quot;결국-한달간-빈둥-거리며-고민했습니다&quot;&gt;결국 한달간 빈둥(?) 거리며 고민했습니다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2023-08-01T01:51:06+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">3. Daily-Quest</title><link href="https://lahuman.github.io/routine_03/" rel="alternate" type="text/html" title="3. Daily-Quest" /><published>2023-08-01T00:00:00+00:00</published><updated>2023-08-01T00:00:00+00:00</updated><id>https://lahuman.github.io/routine_03</id><content type="html" xml:base="https://lahuman.github.io/routine_03/">&lt;h1 id=&quot;daily-quest-1차-완료&quot;&gt;Daily-Quest 1차 완료&lt;/h1&gt;
+
+&lt;h2 id=&quot;사용-기술&quot;&gt;사용 기술&lt;/h2&gt;
+
+&lt;h3 id=&quot;api&quot;&gt;API&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;nestjs&lt;/li&gt;
+  &lt;li&gt;typeorm&lt;/li&gt;
+  &lt;li&gt;sqlite3&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;web&quot;&gt;WEB&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;nextjs&lt;/li&gt;
+  &lt;li&gt;tailwindcss&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;기존에 공부했던, firebase와 연계하여 로그인 처리를 하도록 하였습니다&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;마치며&quot;&gt;마치며,&lt;/h2&gt;
+
+&lt;p&gt;한동안 개인 플젝의 좌초가 잦았습니다. 이유는 욕심은 많고 시간은 조금만 내다보니 가다가 멈추게 되네요. 
+욕심을 조금 내려놓고 PoC를 중점으로 구현해보았습니다.&lt;/p&gt;
+
+&lt;p&gt;기능 추가는 일단 좀 사용해보고 결정해야겠습니다&lt;/p&gt;
+
+&lt;h2 id=&quot;바로가기&quot;&gt;바로가기&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;http://52.78.54.82:6001&quot;&gt;daily-quest&lt;/a&gt;
+&lt;a href=&quot;https://github.com/lahuman/daily-quest&quot;&gt;소스 코드&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><category term="routine" /><category term="todo" /><summary type="html">API / WEB 개발 진행</summary></entry><entry><title type="html">2. Daily-Quest</title><link href="https://lahuman.github.io/routine_02/" rel="alternate" type="text/html" title="2. Daily-Quest" /><published>2023-07-25T00:00:00+00:00</published><updated>2023-07-25T00:00:00+00:00</updated><id>https://lahuman.github.io/routine_02</id><content type="html" xml:base="https://lahuman.github.io/routine_02/">&lt;h1 id=&quot;결국-한달간-빈둥-거리며-고민했습니다&quot;&gt;결국 한달간 빈둥(?) 거리며 고민했습니다.&lt;/h1&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;한달 가까이 nextjs를 학습하고, firebase 연동을 테스트 했습니다. (사실 일주일 했네요. ㅋ)&lt;/p&gt;
@@ -171,7 +201,7 @@ Module not found: Can&lt;span class=&quot;s1&quot;&gt;'t resolve '&lt;/span&gt;e
 &lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://github.com/supabase/supabase-js/issues/612&quot;&gt;Can’t resolve ‘encoding’ #612&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="nextjs" /><category term="error" /><summary type="html">Nextjs13을 사용 중 이상한 오류가 난다.</summary></entry><entry><title type="html">01. 루틴 만들기</title><link href="https://lahuman.github.io/routine_01/" rel="alternate" type="text/html" title="01. 루틴 만들기" /><published>2023-06-22T00:00:00+00:00</published><updated>2023-06-22T00:00:00+00:00</updated><id>https://lahuman.github.io/routine_01</id><content type="html" xml:base="https://lahuman.github.io/routine_01/">&lt;h1 id=&quot;나날이-게을러-지는-나를-반성하는-프로그램을-만들어-보자&quot;&gt;나날이 게을러 지는 나를 반성하는 프로그램을 만들어 보자!&lt;/h1&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="nextjs" /><category term="error" /><summary type="html">Nextjs13을 사용 중 이상한 오류가 난다.</summary></entry><entry><title type="html">1. Daily-Quest</title><link href="https://lahuman.github.io/routine_01/" rel="alternate" type="text/html" title="1. Daily-Quest" /><published>2023-06-22T00:00:00+00:00</published><updated>2023-06-22T00:00:00+00:00</updated><id>https://lahuman.github.io/routine_01</id><content type="html" xml:base="https://lahuman.github.io/routine_01/">&lt;h1 id=&quot;나날이-게을러-지는-나를-반성하는-프로그램을-만들어-보자&quot;&gt;나날이 게을러 지는 나를 반성하는 프로그램을 만들어 보자!&lt;/h1&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;요즘 많이 게을러 졌다. 공부도 재미 없고 일도 재미 없다. 이를 극복하기 위한 방안으로 루틴을 만들어 보려고 한다.&lt;/p&gt;
@@ -419,34 +449,4 @@ Module not found: Can&lt;span class=&quot;s1&quot;&gt;'t resolve '&lt;/span&gt;e
 &lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/60062318/how-to-inject-service-to-validator-constraint-interface-in-nestjs-using-class-va&quot;&gt;How to inject service to validator constraint interface in nestjs using class-validator?&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="nestjs" /><category term="validate" /><summary type="html">쉬운 듯 어려움</summary></entry><entry><title type="html">nestjs에서 registerAsync 사용시 isGlobal 설정</title><link href="https://lahuman.github.io/nestjs_registerAsync_isGlobal/" rel="alternate" type="text/html" title="nestjs에서 registerAsync 사용시 isGlobal 설정" /><published>2023-04-18T00:00:00+00:00</published><updated>2023-04-18T00:00:00+00:00</updated><id>https://lahuman.github.io/nestjs_registerAsync_isGlobal</id><content type="html" xml:base="https://lahuman.github.io/nestjs_registerAsync_isGlobal/">&lt;h1 id=&quot;nestjs에서-registerasync-사용시-isglobal-설정&quot;&gt;nestjs에서 registerAsync 사용시 isGlobal 설정&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;useFactory에 &lt;code class=&quot;highlighter-rouge&quot;&gt;isGlobal&lt;/code&gt;을 설정 했지만, 동작 하지 않아서 테스트 해보다 보니 위치가 아래와 같습니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;Module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;imports&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;ConfigModule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;forRoot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
-      &lt;span class=&quot;na&quot;&gt;envFilePath&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'.env.local'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'.env'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
-      &lt;span class=&quot;na&quot;&gt;isGlobal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-      &lt;span class=&quot;na&quot;&gt;load&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;database&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;logging&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;redis&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cache&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;throttler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}),&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;CacheModule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;registerAsync&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
-      &lt;span class=&quot;na&quot;&gt;isGlobal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// 여기에 들어가야 한다.&lt;/span&gt;
-      &lt;span class=&quot;na&quot;&gt;imports&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ConfigModule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
-      &lt;span class=&quot;na&quot;&gt;inject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ConfigService&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
-      &lt;span class=&quot;na&quot;&gt;useFactory&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;configService&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ConfigService&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;configService&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'cacheConfig'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 여기에 넣었다가 실패..&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}),&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;controllers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;AppController&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;providers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;AppModule&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;NestModule&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;별것도 아닌데 하루 종일 삽질 했네요.&lt;/p&gt;</content><author><name></name></author><category term="nestjs" /><category term="registerAsync" /><category term="isGlobal" /><summary type="html">isGobal 설정 삽질기</summary></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><category term="nestjs" /><category term="validate" /><summary type="html">쉬운 듯 어려움</summary></entry></feed>
