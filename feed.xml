@@ -1,4 +1,69 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2023-08-01T02:09:07+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">[Nestjs TIP] whitelist 사용시 주의점!</title><link href="https://lahuman.github.io/nestjs_whitelist_options/" rel="alternate" type="text/html" title="[Nestjs TIP] whitelist 사용시 주의점!" /><published>2023-08-01T00:00:00+00:00</published><updated>2023-08-01T00:00:00+00:00</updated><id>https://lahuman.github.io/nestjs_whitelist_options</id><content type="html" xml:base="https://lahuman.github.io/nestjs_whitelist_options/">&lt;h1 id=&quot;whitelist-옵션-사용시-주의점&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;whitelist&lt;/code&gt; 옵션 사용시 주의점!&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2023-08-01T02:24:16+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">[Nestjs TIP] Request Header에 validate 처리</title><link href="https://lahuman.github.io/nestjs_header_validate/" rel="alternate" type="text/html" title="[Nestjs TIP] Request Header에 validate 처리" /><published>2023-08-01T00:00:00+00:00</published><updated>2023-08-01T00:00:00+00:00</updated><id>https://lahuman.github.io/nestjs_header_validate</id><content type="html" xml:base="https://lahuman.github.io/nestjs_header_validate/">&lt;h1 id=&quot;nestjs에서-request-header-validate-처리-방법&quot;&gt;Nestjs에서 Request Header validate 처리 방법&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/nestjs/nest/issues/4798&quot;&gt;Validate Headers&lt;/a&gt; 를 참고해서 처리 했습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;validateCustomDecorators&lt;/code&gt; 옵션을 &lt;code class=&quot;highlighter-rouge&quot;&gt;true&lt;/code&gt;롤 꼭 설정 해야 합니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// main.ts&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;bootstrap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// ... &lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;useGlobalPipes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ValidationPipe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;validateCustomDecorators&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// &amp;lt;-- Add this to allow the validation pipe to work with our custom decorator&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// ...&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;bootstrap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// request-header.decorator.ts&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;RequestHeaders&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;createParamDecorator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;property&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;symbol&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ctx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ExecutionContext&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;headers&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ctx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;switchToHttp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getRequest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;property&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'string'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;property&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'number'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;property&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'symbol'&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;property&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// refresh-header.dto.ts&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;RefreshHeaderDTO&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;IsString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;IsDefined&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;Expose&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'authorization'&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;authorization&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+
+&lt;span class=&quot;c1&quot;&gt;// app.controller.ts&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;Controller&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;AppController&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kr&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;readonly&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;appService&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;AppService&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;
+
+  &lt;span class=&quot;nx&quot;&gt;ApiOperation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;summary&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'사용자 토큰 만료시 refresh 토큰으로 호출'&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;Post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'/refresh'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;refresh&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(@&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;RequestHeaders&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;RefreshHeaderDTO&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;userService&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;tokenRefresh&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;authorization&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Bearer '&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;사용한 전체 코드는 &lt;a href=&quot;https://github.com/lahuman/daily-quest&quot;&gt;daily-quest&lt;/a&gt;에서 확인 가능합니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/nestjs/nest/issues/4798&quot;&gt;Validate Headers&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="nestjs" /><category term="header" /><category term="validation" /><summary type="html">validateCustomDecorators를 이용한 header validate</summary></entry><entry><title type="html">[Nestjs TIP] whitelist 사용시 주의점!</title><link href="https://lahuman.github.io/nestjs_whitelist_options/" rel="alternate" type="text/html" title="[Nestjs TIP] whitelist 사용시 주의점!" /><published>2023-08-01T00:00:00+00:00</published><updated>2023-08-01T00:00:00+00:00</updated><id>https://lahuman.github.io/nestjs_whitelist_options</id><content type="html" xml:base="https://lahuman.github.io/nestjs_whitelist_options/">&lt;h1 id=&quot;whitelist-옵션-사용시-주의점&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;whitelist&lt;/code&gt; 옵션 사용시 주의점!&lt;/h1&gt;
 
 &lt;h2 id=&quot;프로퍼티-제거하기&quot;&gt;&lt;a href=&quot;https://docs.nestjs.com/techniques/validation#stripping-properties&quot;&gt;프로퍼티 제거하기&lt;/a&gt;&lt;/h2&gt;
 
@@ -44,13 +109,15 @@
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;whitelist&lt;/code&gt; 옵션은 검증되지 않는 값(검증 규칙이 없는)을 제외 처리 하는 옵션으로 보안상 처리를 위해서 사용하는 것을 권고 합니다.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;whitelist&lt;/code&gt; 옵션은 검증되지 않는 값(검증 규칙이 없는)을 제외 처리 하는 옵션으로 &lt;code class=&quot;highlighter-rouge&quot;&gt;보안상 처리를 위해서 사용하는 것을 권고&lt;/code&gt; 합니다.&lt;/p&gt;
+
+&lt;p&gt;사용한 전체 코드는 &lt;a href=&quot;https://github.com/lahuman/daily-quest&quot;&gt;daily-quest&lt;/a&gt;에서 확인 가능합니다.&lt;/p&gt;
 
 &lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://docs.nestjs.com/techniques/validation#stripping-properties&quot;&gt;프로퍼티 제거하기&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="nestjs" /><category term="whitelist" /><category term="validation" /><summary type="html">Controller의 Body 에 객체 값이 안나온다?</summary></entry><entry><title type="html">3. Daily-Quest</title><link href="https://lahuman.github.io/routine_03/" rel="alternate" type="text/html" title="3. Daily-Quest" /><published>2023-08-01T00:00:00+00:00</published><updated>2023-08-01T00:00:00+00:00</updated><id>https://lahuman.github.io/routine_03</id><content type="html" xml:base="https://lahuman.github.io/routine_03/">&lt;h1 id=&quot;daily-quest-1차-완료&quot;&gt;Daily-Quest 1차 완료&lt;/h1&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="nestjs" /><category term="whitelist" /><category term="validation" /><summary type="html">Controller의 @Body()에 객체 값이 안나온다?</summary></entry><entry><title type="html">3. Daily-Quest</title><link href="https://lahuman.github.io/routine_03/" rel="alternate" type="text/html" title="3. Daily-Quest" /><published>2023-08-01T00:00:00+00:00</published><updated>2023-08-01T00:00:00+00:00</updated><id>https://lahuman.github.io/routine_03</id><content type="html" xml:base="https://lahuman.github.io/routine_03/">&lt;h1 id=&quot;daily-quest-1차-완료&quot;&gt;Daily-Quest 1차 완료&lt;/h1&gt;
 
 &lt;h2 id=&quot;사용-기술&quot;&gt;사용 기술&lt;/h2&gt;
 
@@ -362,48 +429,4 @@ Module not found: Can&lt;span class=&quot;s1&quot;&gt;'t resolve '&lt;/span&gt;e
 
 &lt;p&gt;그나마, 커졌는데 여전히 좁다.&lt;/p&gt;
 
-&lt;p&gt;태생이 좁게 태어난건지, 욕심이 많아서 그런건지 잘 바뀌지 않는다.&lt;/p&gt;</content><author><name></name></author><category term="단상" /><summary type="html">나는 속이 좁다.</summary></entry><entry><title type="html">01. 데이터베이스 용어 사전 구축 필요성</title><link href="https://lahuman.github.io/meta_system_01/" rel="alternate" type="text/html" title="01. 데이터베이스 용어 사전 구축 필요성" /><published>2023-04-25T00:00:00+00:00</published><updated>2023-04-25T00:00:00+00:00</updated><id>https://lahuman.github.io/meta_system_01</id><content type="html" xml:base="https://lahuman.github.io/meta_system_01/">&lt;h1 id=&quot;01-데이터베이스-용어-사전-구축-필요성&quot;&gt;01. 데이터베이스 용어 사전 구축 필요성&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;데이터베이스 단어 표준은 데이터베이스 관련 용어와 용어 사용을 표준화하는 시스템입니다. 데이터베이스 단어 표준은 데이터베이스 관련 문서, 코드, 메타데이터 등에서 사용되는 용어의 일관성과 품질을 향상시켜 데이터베이스 개발, 관리, 운영 등의 업무를 원활하게 수행할 수 있도록 도와줍니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;왜-단어용어-표준이-필요-할까&quot;&gt;왜 단어(용어) 표준이 필요 할까?&lt;/h2&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;일관성 있는 용어 사용: 설계 과정에서 사용되는 용어는 다양한 이해관계자들이 이해할 수 있는 공통 용어를 사용해야 합니다. 만약 이해관계자들이 서로 다른 용어를 사용하게 된다면, 의사소통이 원활하지 않아서 설계 결과물의 품질이 떨어질 수 있습니다. 따라서 단어 표준을 사용하여 일관성 있는 용어 사용을 유지하면, 설계 결과물의 품질을 높일 수 있습니다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;설계 문서의 가독성 개선: 설계 문서는 다양한 이해관계자들이 함께 사용하는 문서입니다. 이러한 이유로 설계 문서는 읽기 쉽고 이해하기 쉬운 문서여야 합니다. 만약 설계 문서에서 서로 다른 용어가 사용된다면, 문서의 가독성이 떨어져 이해관계자들이 설계 결과물을 이해하는 데 어려움을 겪을 수 있습니다. 따라서 단어 표준을 사용하여 설계 문서의 가독성을 개선할 수 있습니다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;데이터 모델링 일관성 유지: 데이터 모델링은 설계 과정에서 가장 중요한 부분입니다. 데이터 모델링에서는 다양한 개체와 속성, 관계 등이 정의되며, 이러한 요소들은 후속적인 개발 과정에서 매우 중요한 역할을 합니다. 만약 데이터 모델링에서 일관성 없는 용어가 사용된다면, 후속적인 개발 과정에서 데이터 모델링과 관련된 문제가 발생할 가능성이 높아집니다. 따라서 단어 표준을 사용하여 데이터 모델링의 일관성을 유지할 수 있습니다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;유지보수성 향상: 설계는 소프트웨어 개발의 초기 단계이며, 이후에는 유지보수가 필요합니다. 만약 설계에서 일관성 없는 용어가 사용된다면, 유지보수 단계에서 문제가 발생할 가능성이 높아집니다. 따라서 단어 표준을 사용하여 유지보수성을 향상시킬 수 있습니다.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;표준-규칙&quot;&gt;표준 규칙&lt;/h2&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;한글/영문은 가능하면 &lt;code class=&quot;highlighter-rouge&quot;&gt;명사&lt;/code&gt;를 사용
-    &lt;ul&gt;
-      &lt;li&gt;상품, 금액, 갯수, 여부&lt;/li&gt;
-      &lt;li&gt;product, price, count, yn&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;영문명은 &lt;code class=&quot;highlighter-rouge&quot;&gt;Full 단어&lt;/code&gt;로 표시&lt;/li&gt;
-  &lt;li&gt;테이블의 경우 도메인_역할_타입
-    &lt;ul&gt;
-      &lt;li&gt;타입(접미사) : m : main, d : data, h : history&lt;/li&gt;
-      &lt;li&gt;상품 도메인의 아이템 역할의 메인의 경우 : 상품_아이템_메인 =&amp;gt; product_item_m&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;표준 테이블 기본 항목
-    &lt;ul&gt;
-      &lt;li&gt;등록자, 등록일, 등록시스템, 수정자, 수정일, 수정시스템, 사용여부&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;</content><author><name></name></author><category term="meta" /><category term="system" /><summary type="html">단어, 도메인, 용어 관리 시스템 구축</summary></entry></feed>
+&lt;p&gt;태생이 좁게 태어난건지, 욕심이 많아서 그런건지 잘 바뀌지 않는다.&lt;/p&gt;</content><author><name></name></author><category term="단상" /><summary type="html">나는 속이 좁다.</summary></entry></feed>
