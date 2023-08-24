@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2023-08-24T08:15:29+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Typescript에서 특정 key를 가진 타입 생성</title><link href="https://lahuman.github.io/typescript_key_value_class/" rel="alternate" type="text/html" title="Typescript에서 특정 key를 가진 타입 생성" /><published>2023-08-24T00:00:00+00:00</published><updated>2023-08-24T00:00:00+00:00</updated><id>https://lahuman.github.io/typescript_key_value_class</id><content type="html" xml:base="https://lahuman.github.io/typescript_key_value_class/">&lt;h1 id=&quot;typescript에서-특정-key를-가진-타입-생성&quot;&gt;Typescript에서 특정 key를 가진 타입 생성&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2023-08-24T08:23:20+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Typescript에서 특정 key를 가진 타입 생성</title><link href="https://lahuman.github.io/typescript_key_value_class/" rel="alternate" type="text/html" title="Typescript에서 특정 key를 가진 타입 생성" /><published>2023-08-24T00:00:00+00:00</published><updated>2023-08-24T00:00:00+00:00</updated><id>https://lahuman.github.io/typescript_key_value_class</id><content type="html" xml:base="https://lahuman.github.io/typescript_key_value_class/">&lt;h1 id=&quot;typescript에서-특정-key를-가진-타입-생성&quot;&gt;Typescript에서 특정 key를 가진 타입 생성&lt;/h1&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;약속된 키만 가진 클래스를 생성하려다 실패했습니다. 검색을 해보니, Type이나, Record를 사용하라고 되어 있네요.&lt;/p&gt;
@@ -40,7 +40,7 @@
 &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt; 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h2 id=&quot;record-이용시-옵션-key-처리&quot;&gt;&lt;a href=&quot;https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type&quot;&gt;Record&lt;/a&gt; 이용시 옵션 key 처리&lt;/h2&gt;
+&lt;h2 id=&quot;옵션-key-처리&quot;&gt;옵션 key 처리&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type&quot;&gt;Record&lt;/a&gt;은 key를 필수 값으로 만듭니다.&lt;/p&gt;
 
@@ -48,7 +48,21 @@
 
 &lt;p&gt;코드는 아래와 같습니다.&lt;/p&gt;
 
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// type&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;DayOfTheWeek&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;sunday&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;monday&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;tuesday&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;wednesday&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;thursday&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;friday&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;saturday&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ChoresMap&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;DAY&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;DayOfTheWeek&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;chores&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Partial&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ChoresMap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; 
+    &lt;span class=&quot;s2&quot;&gt;&quot;sunday&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;do the dishes&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&quot;monday&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;walk the dog&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&quot;tuesday&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;water the plants&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&quot;wednesday&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;take out the trash&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&quot;thursday&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;clean your room&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&quot;friday&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;mow the lawn&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// Record&lt;/span&gt;
 &lt;span class=&quot;kr&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;CatInfo&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;nl&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
   &lt;span class=&quot;nl&quot;&gt;breed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
