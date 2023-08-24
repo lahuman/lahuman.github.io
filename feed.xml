@@ -1,4 +1,72 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2023-08-23T00:09:38+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">암호화와 복호화를 AWS Encryption SDK를 활용하여 Node.js와 Python 언어로 구현</title><link href="https://lahuman.github.io/aws_kms_encode_decode_node_python/" rel="alternate" type="text/html" title="암호화와 복호화를 AWS Encryption SDK를 활용하여 Node.js와 Python 언어로 구현" /><published>2023-08-23T00:00:00+00:00</published><updated>2023-08-23T00:00:00+00:00</updated><id>https://lahuman.github.io/aws_kms_encode_decode_node_python</id><content type="html" xml:base="https://lahuman.github.io/aws_kms_encode_decode_node_python/">&lt;h1 id=&quot;암호화와-복호화를-aws-encryption-sdk를-활용하여-nodejs와-python-언어로-구현&quot;&gt;암호화와 복호화를 AWS Encryption SDK를 활용하여 Node.js와 Python 언어로 구현&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2023-08-24T08:15:29+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Typescript에서 특정 key를 가진 타입 생성</title><link href="https://lahuman.github.io/typescript_key_value_class/" rel="alternate" type="text/html" title="Typescript에서 특정 key를 가진 타입 생성" /><published>2023-08-24T00:00:00+00:00</published><updated>2023-08-24T00:00:00+00:00</updated><id>https://lahuman.github.io/typescript_key_value_class</id><content type="html" xml:base="https://lahuman.github.io/typescript_key_value_class/">&lt;h1 id=&quot;typescript에서-특정-key를-가진-타입-생성&quot;&gt;Typescript에서 특정 key를 가진 타입 생성&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;약속된 키만 가진 클래스를 생성하려다 실패했습니다. 검색을 해보니, Type이나, Record를 사용하라고 되어 있네요.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;type을-이용한-처리&quot;&gt;type을 이용한 처리&lt;/h2&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;DayOfTheWeek&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;sunday&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;monday&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;tuesday&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;wednesday&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;thursday&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;friday&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;saturday&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ChoresMap&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;DAY&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;DayOfTheWeek&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;chores&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ChoresMap&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// ERROR! Property 'saturday' is missing in type '...'&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&quot;sunday&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;do the dishes&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&quot;monday&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;walk the dog&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&quot;tuesday&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;water the plants&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&quot;wednesday&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;take out the trash&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&quot;thursday&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;clean your room&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&quot;friday&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;mow the lawn&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;record-를-이용한-처리&quot;&gt;&lt;a href=&quot;https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type&quot;&gt;Record&lt;/a&gt; 를 이용한 처리&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Record는 프로퍼티 키가 Keys이고 프로퍼티 값이 Type인 객체 유형을 생성합니다. 이 유틸리티는 타입의 프로퍼티를 다른 타입에 매핑하는 데 사용할 수 있습니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kr&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;CatInfo&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;breed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+ 
+&lt;span class=&quot;nx&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;CatName&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;miffy&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;boris&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;mordred&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+ 
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cats&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Record&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;CatName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;CatInfo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;miffy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;breed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Persian&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;boris&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;breed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Maine Coon&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;mordred&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;16&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;breed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;British Shorthair&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;record-이용시-옵션-key-처리&quot;&gt;&lt;a href=&quot;https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type&quot;&gt;Record&lt;/a&gt; 이용시 옵션 key 처리&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type&quot;&gt;Record&lt;/a&gt;은 key를 필수 값으로 만듭니다.&lt;/p&gt;
+
+&lt;p&gt;이를 &lt;code class=&quot;highlighter-rouge&quot;&gt;옵션&lt;/code&gt;으로 처리 하기 위해서는 &lt;code class=&quot;highlighter-rouge&quot;&gt;Partial&lt;/code&gt;을 이용합니다.&lt;/p&gt;
+
+&lt;p&gt;코드는 아래와 같습니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;kr&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;CatInfo&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;breed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+ 
+&lt;span class=&quot;nx&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;CatName&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;miffy&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;boris&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;mordred&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+ 
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cats&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Partial&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Record&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;CatName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;CatInfo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 을 이용한 옵션 처리&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;miffy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;breed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Persian&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;boris&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;breed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Maine Coon&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/13315131/enforcing-the-type-of-the-indexed-members-of-a-typescript-object&quot;&gt;Enforcing the type of the indexed members of a Typescript object?&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/53276792/define-a-list-of-optional-keys-for-typescript-record&quot;&gt;Define a list of optional keys for Typescript Record&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="typescript" /><category term="type" /><category term="record" /><summary type="html">방법이 몇가지 있는데, 골라 쓰세요</summary></entry><entry><title type="html">암호화와 복호화를 AWS Encryption SDK를 활용하여 Node.js와 Python 언어로 구현</title><link href="https://lahuman.github.io/aws_kms_encode_decode_node_python/" rel="alternate" type="text/html" title="암호화와 복호화를 AWS Encryption SDK를 활용하여 Node.js와 Python 언어로 구현" /><published>2023-08-23T00:00:00+00:00</published><updated>2023-08-23T00:00:00+00:00</updated><id>https://lahuman.github.io/aws_kms_encode_decode_node_python</id><content type="html" xml:base="https://lahuman.github.io/aws_kms_encode_decode_node_python/">&lt;h1 id=&quot;암호화와-복호화를-aws-encryption-sdk를-활용하여-nodejs와-python-언어로-구현&quot;&gt;암호화와 복호화를 AWS Encryption SDK를 활용하여 Node.js와 Python 언어로 구현&lt;/h1&gt;
 
 &lt;h2 id=&quot;사전지식&quot;&gt;사전지식&lt;/h2&gt;
 
@@ -911,34 +979,4 @@ sequenceDiagram;
 &lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://storage.googleapis.com/static.fastcampus.co.kr/prod/uploads/202306/042009-717/[%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4]-%EA%B5%90%EC%9C%A1%EA%B3%BC%EC%A0%95%EC%86%8C%EA%B0%9C%EC%84%9C-spring-webflux-%EC%99%84%EC%A0%84-%EC%A0%95%EB%B3%B5---%EC%BD%94%EB%A3%A8%ED%8B%B4%EB%B6%80%ED%84%B0-%EB%A6%AC%EC%95%A1%ED%8B%B0%EB%B8%8C-msa-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EA%B9%8C%EC%A7%80.pdf&quot;&gt;Spring WebFlux 완전 정보&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="개념" /><summary type="html">한번 정리해보자!</summary></entry><entry><title type="html">Module not found: Can’t resolve ‘encoding’</title><link href="https://lahuman.github.io/nextjs13_encoding_error/" rel="alternate" type="text/html" title="Module not found: Can't resolve 'encoding'" /><published>2023-07-05T00:00:00+00:00</published><updated>2023-07-05T00:00:00+00:00</updated><id>https://lahuman.github.io/nextjs13_encoding_error</id><content type="html" xml:base="https://lahuman.github.io/nextjs13_encoding_error/">&lt;h1 id=&quot;nextjs-를-사용한-개인-플젝-중-cant-resolve-encoding-오류를-만나다&quot;&gt;nextjs 를 사용한 개인 플젝 중 Can’t resolve ‘encoding’ 오류를 만나다&lt;/h1&gt;
-
-&lt;h2 id=&quot;오류-내용&quot;&gt;오류 내용&lt;/h2&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;node-fetch에서 encoding 모듈을 찾을 수 없다는 오류가 로그에서 확인되었습니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;...
-Module not found: Can&lt;span class=&quot;s1&quot;&gt;'t resolve '&lt;/span&gt;encoding&lt;span class=&quot;s1&quot;&gt;' in '&lt;/span&gt;/Users/lahuman/DEV/routine/web/node_modules/.pnpm/node-fetch@2.6.7/node_modules/node-fetch/lib&lt;span class=&quot;s1&quot;&gt;'
-...
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;해결-방법&quot;&gt;해결 방법&lt;/h2&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;네, 찾을 수 없는 모듈은 설치해주면 되죠!&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;pnpm add &lt;span class=&quot;nt&quot;&gt;-D&lt;/span&gt; encoding
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;마치며&quot;&gt;마치며&lt;/h2&gt;
-
-&lt;p&gt;사실 위에 오류로그를 무시해도 동작에는 문제가 없습니다. 
-찝찝함을 없애기 위해서 방안을 찾아보니 너무나도 단순하게 모듈을 설치하라는 가이드가 나오네요.&lt;/p&gt;
-
-&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/supabase/supabase-js/issues/612&quot;&gt;Can’t resolve ‘encoding’ #612&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="nextjs" /><category term="error" /><summary type="html">Nextjs13을 사용 중 이상한 오류가 난다.</summary></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><category term="개념" /><summary type="html">한번 정리해보자!</summary></entry></feed>
