@@ -1,4 +1,40 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2023-09-01T07:56:16+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">4. Daily-Quest</title><link href="https://lahuman.github.io/routine_04/" rel="alternate" type="text/html" title="4. Daily-Quest" /><published>2023-09-01T00:00:00+00:00</published><updated>2023-09-01T00:00:00+00:00</updated><id>https://lahuman.github.io/routine_04</id><content type="html" xml:base="https://lahuman.github.io/routine_04/">&lt;h1 id=&quot;나만-쓰는-서비스이지만-열심히-업뎃-하자&quot;&gt;나만 쓰는 서비스이지만, 열심히 업뎃 하자!&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2023-09-07T02:05:02+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">typescript에서의 class, interface 그리고 duck type</title><link href="https://lahuman.github.io/typescript_duck_structural/" rel="alternate" type="text/html" title="typescript에서의 class, interface 그리고 duck type" /><published>2023-09-07T00:00:00+00:00</published><updated>2023-09-07T00:00:00+00:00</updated><id>https://lahuman.github.io/typescript_duck_structural</id><content type="html" xml:base="https://lahuman.github.io/typescript_duck_structural/">&lt;h1 id=&quot;typescript에서의-duck-typing&quot;&gt;typescript에서의 duck typing?&lt;/h1&gt;
+
+&lt;p&gt;다음 코드가 타입스크립트에서도 안될꺼라 생각했다.&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;CatInfo&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;breed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;age&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;breed&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;C1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;CatInfo2&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;breed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;age&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;breed&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;C2&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;c1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;CatInfo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;CatInfo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;c2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;CatInfo2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;CatInfo2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;hello&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;CatInfo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;instanceof&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;CatInfo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;hello&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;c2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;하지만 잘된다. 몰랐다.&lt;/p&gt;
+
+&lt;p&gt;오늘부터 알았다!&lt;/p&gt;
+
+&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://soopdop.github.io/2020/12/09/duck-typing/&quot;&gt;TypeScript와 Duck Typing의 관계 쉽게 설명하기&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="typescript" /><summary type="html">타입스크립트를 아는 줄 알았는데 모르고 있었다.</summary></entry><entry><title type="html">4. Daily-Quest</title><link href="https://lahuman.github.io/routine_04/" rel="alternate" type="text/html" title="4. Daily-Quest" /><published>2023-09-01T00:00:00+00:00</published><updated>2023-09-01T00:00:00+00:00</updated><id>https://lahuman.github.io/routine_04</id><content type="html" xml:base="https://lahuman.github.io/routine_04/">&lt;h1 id=&quot;나만-쓰는-서비스이지만-열심히-업뎃-하자&quot;&gt;나만 쓰는 서비스이지만, 열심히 업뎃 하자!&lt;/h1&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;쿼스트에 점수(Point)와 퀘스트의 담당자(Member)를 추가 하였습니다.&lt;/p&gt;
@@ -1041,34 +1077,4 @@ curl &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; &lt;span class=&quot;s2&qu
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://docs.nestjs.com/techniques/validation#stripping-properties&quot;&gt;프로퍼티 제거하기&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="nestjs" /><category term="whitelist" /><category term="validation" /><summary type="html">Controller의 @Body()에 객체 값이 안나온다?</summary></entry><entry><title type="html">3. Daily-Quest</title><link href="https://lahuman.github.io/routine_03/" rel="alternate" type="text/html" title="3. Daily-Quest" /><published>2023-08-01T00:00:00+00:00</published><updated>2023-08-01T00:00:00+00:00</updated><id>https://lahuman.github.io/routine_03</id><content type="html" xml:base="https://lahuman.github.io/routine_03/">&lt;h1 id=&quot;daily-quest-1차-완료&quot;&gt;Daily-Quest 1차 완료&lt;/h1&gt;
-
-&lt;h2 id=&quot;사용-기술&quot;&gt;사용 기술&lt;/h2&gt;
-
-&lt;h3 id=&quot;api&quot;&gt;API&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;nestjs&lt;/li&gt;
-  &lt;li&gt;typeorm&lt;/li&gt;
-  &lt;li&gt;sqlite3&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;web&quot;&gt;WEB&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;nextjs&lt;/li&gt;
-  &lt;li&gt;tailwindcss&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;기존에 공부했던, firebase와 연계하여 로그인 처리를 하도록 하였습니다&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;마치며&quot;&gt;마치며,&lt;/h2&gt;
-
-&lt;p&gt;한동안 개인 플젝의 좌초가 잦았습니다. 이유는 욕심은 많고 시간은 조금만 내다보니 가다가 멈추게 되네요. 
-욕심을 조금 내려놓고 PoC를 중점으로 구현해보았습니다.&lt;/p&gt;
-
-&lt;p&gt;기능 추가는 일단 좀 사용해보고 결정해야겠습니다&lt;/p&gt;
-
-&lt;h2 id=&quot;바로가기&quot;&gt;바로가기&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&quot;http://52.78.54.82:6001&quot;&gt;daily-quest&lt;/a&gt;
-&lt;a href=&quot;https://github.com/lahuman/daily-quest&quot;&gt;소스 코드&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><category term="routine" /><category term="todo" /><summary type="html">API / WEB 개발 진행</summary></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><category term="nestjs" /><category term="whitelist" /><category term="validation" /><summary type="html">Controller의 @Body()에 객체 값이 안나온다?</summary></entry></feed>
