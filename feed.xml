@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2023-09-07T05:02:54+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">typescript에서의 class, interface 그리고 duck type</title><link href="https://lahuman.github.io/typescript_duck_structural/" rel="alternate" type="text/html" title="typescript에서의 class, interface 그리고 duck type" /><published>2023-09-07T00:00:00+00:00</published><updated>2023-09-07T00:00:00+00:00</updated><id>https://lahuman.github.io/typescript_duck_structural</id><content type="html" xml:base="https://lahuman.github.io/typescript_duck_structural/">&lt;h1 id=&quot;typescript에서의-duck-typing&quot;&gt;typescript에서의 duck typing?&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2023-09-07T23:25:03+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">typescript에서의 class, interface 그리고 duck type</title><link href="https://lahuman.github.io/typescript_duck_structural/" rel="alternate" type="text/html" title="typescript에서의 class, interface 그리고 duck type" /><published>2023-09-07T00:00:00+00:00</published><updated>2023-09-07T00:00:00+00:00</updated><id>https://lahuman.github.io/typescript_duck_structural</id><content type="html" xml:base="https://lahuman.github.io/typescript_duck_structural/">&lt;h1 id=&quot;typescript에서의-duck-typing&quot;&gt;typescript에서의 duck typing?&lt;/h1&gt;
 
 &lt;p&gt;다음 코드가 타입스크립트에서도 안될꺼라 생각했다.&lt;/p&gt;
 
@@ -31,7 +31,7 @@
 
 &lt;p&gt;위와 같이 &lt;code class=&quot;highlighter-rouge&quot;&gt;구조&lt;/code&gt;가 같으면 같은 타입이라고 간주하는 방식을 &lt;code class=&quot;highlighter-rouge&quot;&gt;Structural Typing&lt;/code&gt;하고, &lt;code class=&quot;highlighter-rouge&quot;&gt;이름&lt;/code&gt; 또는 &lt;code class=&quot;highlighter-rouge&quot;&gt;hashCode&lt;/code&gt; 등으로 구분하는 방식을 &lt;code class=&quot;highlighter-rouge&quot;&gt;Nominal Typing&lt;/code&gt; 라고 합니다.&lt;/p&gt;
 
-&lt;p&gt;만약, &lt;code class=&quot;highlighter-rouge&quot;&gt;Nominal Typing&lt;/code&gt; 방식을 사용하는 것처럼 트릭을 다음과 같이 줄 수 있습니다.&lt;/p&gt;
+&lt;p&gt;typescript에서 &lt;code class=&quot;highlighter-rouge&quot;&gt;Nominal Typing&lt;/code&gt; 방식을 사용하고 싶다면,다음과 같이 트릭을 이용할 수 있습니다.&lt;/p&gt;
 
 &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;CatInfo&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;kr&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
@@ -65,12 +65,14 @@
 &lt;h2 id=&quot;정리&quot;&gt;정리&lt;/h2&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Duck Typing : 객체의 변수 및 메소드의 집합이 객체의 타입을 결정&lt;/li&gt;
-  &lt;li&gt;Structural Typing : 컴파일 시점에 &lt;code class=&quot;highlighter-rouge&quot;&gt;Duck Typing&lt;/code&gt; 와 같이 객체의 구조로 객체의 타입을 결정&lt;/li&gt;
+  &lt;li&gt;Duck Typing : &lt;code class=&quot;highlighter-rouge&quot;&gt;런타입 시점&lt;/code&gt;에 객체의 변수 및 메소드의 집합이 객체의 타입을 결정&lt;/li&gt;
+  &lt;li&gt;Structural Typing : &lt;code class=&quot;highlighter-rouge&quot;&gt;컴파일 시점&lt;/code&gt;에 &lt;code class=&quot;highlighter-rouge&quot;&gt;Duck Typing&lt;/code&gt; 와 같이 객체의 구조로 객체의 타입을 결정&lt;/li&gt;
   &lt;li&gt;Nominal Typing : 클래스의 이름 또는 hashCode 등으로 객체의 타입을 결정&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Typescript는 &lt;code class=&quot;highlighter-rouge&quot;&gt;Structural Typing&lt;/code&gt;을 지원하지만, 몇가지 트릭을 이용하면, &lt;code class=&quot;highlighter-rouge&quot;&gt;Nominal Typing&lt;/code&gt;과 같이 사용이 가능하다.&lt;/p&gt;
+&lt;p&gt;javascript에서는 &lt;code class=&quot;highlighter-rouge&quot;&gt;Duck Typing&lt;/code&gt;을 지원하고, typescript에서는 &lt;code class=&quot;highlighter-rouge&quot;&gt;Structural Typing&lt;/code&gt; 지원합니다.  둘의 차이는 어느 타이밍에 객체의 타입을 결정하는지에 따라 다를뿐 동작은 동일합니다.&lt;/p&gt;
+
+&lt;p&gt;또한, Typescript는 &lt;code class=&quot;highlighter-rouge&quot;&gt;Structural Typing&lt;/code&gt;을 지원하지만, 몇가지 트릭을 이용하면, &lt;code class=&quot;highlighter-rouge&quot;&gt;Nominal Typing&lt;/code&gt;과 같이 사용이 가능하다.&lt;/p&gt;
 
 &lt;p&gt;잘 알고 쓰자!!!&lt;/p&gt;
 
