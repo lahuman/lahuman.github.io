@@ -1,0 +1,94 @@
+<!DOCTYPE html> <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]--> <!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8"><![endif]--> <!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9"><![endif]--> <!--[if gt IE 8]><!--> <html class="no-js"><!--<![endif]--> <head> <meta charset="UTF-8"> <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"> <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1"> <title>Pocketbase &#8211; lahuman</title> <meta name="description" content="열심히 사는 아저씨"> <meta name="keywords" content="pocketbase, opensource"> <!-- Twitter Cards --> <meta name="twitter:card" content="summary"> <meta name="twitter:image" content="https://lahuman.github.io/assets/img/logo.png"> <meta name="twitter:title" content="Pocketbase"> <meta name="twitter:description" content="토이프로젝트의 API는 이걸로 끝!"> <!-- Open Graph --> <meta property="og:locale" content="ko_KR"> <meta property="og:type" content="article"> <meta property="og:title" content="Pocketbase"> <meta property="og:description" content="토이프로젝트의 API는 이걸로 끝!"> <meta property="og:url" content="https://lahuman.github.io/pocketbase/"> <meta property="og:site_name" content="lahuman"> <meta property="og:image" content="https://lahuman.github.io/assets/img/logo.png"> <link rel="canonical" href="https://lahuman.github.io/pocketbase/"> <link href="https://lahuman.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="lahuman Feed"> <!-- Handheld --> <meta name="HandheldFriendly" content="True"> <meta name="MobileOptimized" content="320"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- CSS --> <link rel="stylesheet" href="https://lahuman.github.io/assets/css/main.css"> <!-- JS --> <script src="https://lahuman.github.io/assets/js/modernizr-3.3.1.custom.min.js"></script> <!-- Favicons --> <link rel="apple-touch-icon" href="https://lahuman.github.io/assets/img/favicons/apple-icon-precomposed.png"> <link rel="apple-touch-icon" sizes="72x72" href="https://lahuman.github.io/assets/img/favicons/apple-icon-72x72.png"> <link rel="apple-touch-icon" sizes="114x114" href="https://lahuman.github.io/assets/img/favicons/apple-icon-114x114.png"> <link rel="apple-touch-icon" sizes="144x144" href="https://lahuman.github.io/assets/img/favicons/apple-icon-144x144.png"> <link rel="shortcut icon" type="image/png" href="https://lahuman.github.io/favicon.png" /> <link rel="shortcut icon" href="https://lahuman.github.io/favicon.ico" /> <!-- mermaid --> <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script> <script>mermaid.initialize({startOnLoad:true});</script> <!-- Background Image --> <style type="text/css">body {background-image:url(https://lahuman.github.io/assets/img/placeholder-big.jpg); background-repeat: no-repeat; background-size: cover; }</style> <!-- Post Feature Image --> </head> <body> <nav id="dl-menu" class="dl-menuwrapper" role="navigation"> <button class="dl-trigger">Open Menu</button> <ul class="dl-menu"> <li><a href="https://lahuman.github.io/">Home</a></li> <li> <a href="#">About</a> <ul class="dl-submenu"> <li> <img src="https://lahuman.github.io/assets/img/logo.png" alt="lahuman photo" class="author-photo"> <h4>lahuman</h4> <p>열심히 사는 아저씨</p> </li> <li><a href="https://lahuman.github.io/about/"><span class="btn btn-inverse">Learn More</span></a></li> <li> <a href="http://facebook.com/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-facebook-square"></i> Facebook</a> </li> <li> <a href="http://linkedin.com/in/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-linkedin-square"></i> LinkedIn</a> </li> <li> <a href="http://github.com/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-github"></i> Github</a> </li> </ul><!-- /.dl-submenu --> </li> <li> <a href="#">Posts</a> <ul class="dl-submenu"> <li><a href="https://lahuman.github.io/posts/">All Posts</a></li> <li><a href="https://lahuman.github.io/tags/">All Tags</a></li> </ul> </li> <li><a href="https://lahuman.github.io/projects/" >Projects</a></li> </ul><!-- /.dl-menu --> </nav><!-- /.dl-menuwrapper --> <!-- Header --> <header class="header" role="banner"> <div class="wrapper animated fadeIn"> <div class="content"> <div class="post-title "> <h1>Pocketbase</h1> <h4>22 Sep 2023</h4> <p class="reading-time"> <i class="fa fa-clock-o"></i> Reading time ~2 minutes </p><!-- /.entry-reading-time --> <a class="btn zoombtn" href="https://lahuman.github.io/posts/"> <i class="fa fa-chevron-left"></i> </a> </div> <h1 id="간단하게-pocketbase를-flyio에-올리는-방법을-설명합니다">간단하게 Pocketbase를 fly.io에 올리는 방법을 설명합니다.</h1> <h2 id="flyio-설치-및-가입">fly.io 설치 및 가입</h2> <h3 id="1-설치">1. 설치</h3> <p>다음 명령어로 쉽게 설치가 가능합니다.</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Windows:</span>
+<span class="nv">$ </span>iwr https://fly.io/install.ps1 <span class="nt">-useb</span> | iex
+<span class="c"># Linux</span>
+<span class="nv">$ </span>curl <span class="nt">-L</span> https://fly.io/install.sh | sh
+<span class="c"># Mac</span>
+<span class="nv">$ </span>brew install flyctl
+<span class="c"># or</span>
+<span class="nv">$ </span>curl <span class="nt">-L</span> https://fly.io/install.sh | sh
+</code></pre></div></div> <h3 id="2-가입">2. 가입</h3> <blockquote> <p>웹 브라우저가 뜨고 신규 가입을 진행합니다.</p> </blockquote> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>flyctl auth signup
+</code></pre></div></div> <h3 id="3-로그인">3. 로그인</h3> <blockquote> <p>가입 정보로 로그인 처리</p> </blockquote> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>flyctl auth login
+</code></pre></div></div> <h2 id="docker-파일-생성">docker 파일 생성</h2> <p>fly.io 에서 실행될 dockerfile을 생성합니다.</p> <h3 id="1-작업-디렉터리-생성">1. 작업 디렉터리 생성</h3> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 작업 디렉터리 새성</span>
+<span class="nv">$ </span>mkdir project
+<span class="nv">$ </span><span class="nb">cd </span>project
+</code></pre></div></div> <h3 id="2-docker-파일-생성">2. docker 파일 생성</h3> <blockquote> <p>2023.09.22 기준 <code class="highlighter-rouge">0.18.6</code>이 최신 버전입니다.</p> </blockquote> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+FROM alpine:latest
+
+ARG <span class="nv">PB_VERSION</span><span class="o">=</span>0.18.6
+
+RUN apk add <span class="nt">--no-cache</span> <span class="se">\</span>
+    unzip <span class="se">\</span>
+    ca-certificates <span class="se">\</span>
+    openssh
+
+<span class="c"># download and unzip PocketBase</span>
+ADD https://github.com/pocketbase/pocketbase/releases/download/v<span class="k">${</span><span class="nv">PB_VERSION</span><span class="k">}</span>/pocketbase_<span class="k">${</span><span class="nv">PB_VERSION</span><span class="k">}</span>_linux_amd64.zip /tmp/pb.zip
+RUN unzip /tmp/pb.zip <span class="nt">-d</span> /pb/
+
+EXPOSE 8080
+
+<span class="c"># start PocketBase</span>
+CMD <span class="o">[</span><span class="s2">"/pb/pocketbase"</span>, <span class="s2">"serve"</span>, <span class="s2">"--http=0.0.0.0:8080"</span><span class="o">]</span>
+</code></pre></div></div> <h3 id="3-fly-앱-생성">3. fly 앱 생성</h3> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>fly launch
+Creating app <span class="k">in</span> /Users/k/project
+Scanning <span class="nb">source </span>code
+Detected a Dockerfile app
+? Choose an app name <span class="o">(</span>leave blank to generate one<span class="o">)</span>: you2
+automatically selected personal organization: Daniel
+Some regions require a paid plan <span class="o">(</span>bom, fra, maa<span class="o">)</span><span class="nb">.</span>
+See https://fly.io/plans to <span class="nb">set </span>up a plan.
+
+? Choose a region <span class="k">for </span>deployment: Tokyo, Japan <span class="o">(</span>nrt<span class="o">)</span>
+App will use <span class="s1">'nrt'</span> region as primary
+
+Created app <span class="s1">'you2'</span> <span class="k">in </span>organization <span class="s1">'personal'</span>
+Admin URL: https://fly.io/apps/you2
+Hostname: you2.fly.dev
+? Would you like to <span class="nb">set </span>up a Postgresql database now? No
+? Would you like to <span class="nb">set </span>up an Upstash Redis database now? No
+Wrote config file fly.toml
+? Would you like to deploy now? No <span class="c"># fly.toml 파일만 생성하고, 실제 deploy 하지 않는다.</span>
+Validating /Users/k/DEV/pocketBase/project/fly.toml
+Platform: machines
+✓ Configuration is valid
+Your app is ready! Deploy with <span class="sb">`</span>flyctl deploy<span class="sb">`</span>
+</code></pre></div></div> <p>이후 생성된 fly.toml 파일에서 자동 정지 부분을 <code class="highlighter-rouge">false</code>로 수정합니다.</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>app <span class="o">=</span> <span class="s2">"you2"</span>
+primary_region <span class="o">=</span> <span class="s2">"nrt"</span>
+
+<span class="o">[</span>build]
+  <span class="nv">PB_VERSION</span><span class="o">=</span><span class="s2">"0.18.6"</span>
+
+<span class="c"># mounts 추가</span>
+<span class="o">[</span>mounts]
+  destination <span class="o">=</span> <span class="s2">"/pb/pb_data"</span>
+  <span class="nb">source</span> <span class="o">=</span> <span class="s2">"pb_data"</span>
+
+<span class="o">[</span>http_service]
+  internal_port <span class="o">=</span> 8080
+  force_https <span class="o">=</span> <span class="nb">true
+  </span>auto_stop_machines <span class="o">=</span> <span class="nb">false
+  </span>auto_start_machines <span class="o">=</span> <span class="nb">true
+  </span>min_machines_running <span class="o">=</span> 0
+  processes <span class="o">=</span> <span class="o">[</span><span class="s2">"app"</span><span class="o">]</span>
+  <span class="c"># 추가</span>
+  <span class="o">[</span>http_service.concurrency]
+    <span class="nb">type</span> <span class="o">=</span> <span class="s2">"requests"</span>
+    soft_limit <span class="o">=</span> 500
+    hard_limit <span class="o">=</span> 550
+</code></pre></div></div> <h3 id="4-fly-배포">4. fly 배포</h3> <p>먼저 디스크를 생성 합니다.</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>fly volumes create pb_data <span class="nt">--size</span><span class="o">=</span>1
+ Warning! Individual volumes are pinned to individual hosts. You should create two or more volumes per application. You will have downtime <span class="k">if </span>you only create one. Learn more at https://fly.io/docs/reference/volumes/
+? Do you still want to use the volumes feature? Yes
+Some regions require a paid plan <span class="o">(</span>bom, fra, maa<span class="o">)</span><span class="nb">.</span>
+See https://fly.io/plans to <span class="nb">set </span>up a plan.
+
+? Select region: Tokyo, Japan <span class="o">(</span>nrt<span class="o">)</span>
+        ID: vol_dfdfaefedfzz
+      Name: pb_data
+       App: you2
+    Region: nrt
+      Zone: fe01
+   Size GB: 1
+ Encrypted: <span class="nb">true
+</span>Created at: 22 Sep 23 02:31 UTC
+</code></pre></div></div> <p>이후 배포 합니다.</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>fly deploy
+</code></pre></div></div> <p>이후 다음 주소로 접근하면 접근이 됩니다.</p> <p>https://{앱명}.fly.dev/</p> <h2 id="관리자-화면-접근">관리자 화면 접근</h2> <p>가장 먼저 다음의 관리자 화면에서 비밀번호를 설정하세요!</p> <p>https://{앱명}.fly.dev/_</p> <p>이후 활용 하면 되니다.</p> <h2 id="참고자료">참고자료</h2> <ul> <li><a href="https://pocketbase.io/">PocketBase</a></li> <li><a href="https://dev.to/marselit/build-and-deploy-a-pocketbase-project-oi4">Build and deploy a Pocketbase project with Docker and Fly.io</a></li> <li><a href="https://mycodings.fly.dev/blog/2023-09-09-build-my-own-pocketbase-server-on-flyio">PocketBase 활용법 1탄. 나만의 pocketbase 서버 만들기 in Fly.io</a></li> </ul> <div class="entry-meta"> <br> <hr> <span class="entry-tags"><a href="https://lahuman.github.io/tags/#pocketbase" title="Pages tagged pocketbase" class="tag"><span class="term">pocketbase</span></a><a href="https://lahuman.github.io/tags/#opensource" title="Pages tagged opensource" class="tag"><span class="term">opensource</span></a></span> <span class="social-share"> <a href="https://www.facebook.com/sharer/sharer.php?u=https://lahuman.github.io/pocketbase/" title="Share on Facebook" class="tag"> <span class="term"><i class="fa fa-facebook-square"></i> Share</span> </a> <a href="https://twitter.com/intent/tweet?text=https://lahuman.github.io/pocketbase/" title="Share on Twitter" class="tag"> <span class="term"><i class="fa fa-twitter-square"></i> Tweet</span> </a> <a href="https://plus.google.com/share?url=https://lahuman.github.io/pocketbase/" title="Share on Google+" class="tag"> <span class="term"><i class="fa fa-google-plus-square"></i> +1</span> </a> </span> <div style="clear:both"></div> </div> <ins class="kakao_ad_area" style="display:none;" data-ad-unit = "DAN-ubp67fs9s850" data-ad-width = "320" data-ad-height = "100"></ins> <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script> </div> </div> <section id="disqus_thread" class="animated fadeInUp"></section><!-- /#disqus_thread --> </header> <!-- JS --> <script src="https://lahuman.github.io/assets/js/jquery-1.12.0.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.dlmenu.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.goup.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.magnific-popup.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.fitvid.min.js"></script> <script src="https://lahuman.github.io/assets/js/scripts.js"></script> <!-- Global site tag (gtag.js) - Google Analytics --> <script async src="https://www.googletagmanager.com/gtag/js?id=UA-74095083-1"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-74095083-1'); </script> <script type="text/javascript"> var disqus_shortname = 'daniels-blog'; (function() { var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true; dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js'; (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq); })(); (function () { var s = document.createElement('script'); s.async = true; s.type = 'text/javascript'; s.src = '//' + disqus_shortname + '.disqus.com/count.js'; (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s); }()); </script> <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript> <!-- MathJax --> <script async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> </body> </html>
