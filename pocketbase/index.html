@@ -8,13 +8,13 @@
 <span class="nv">$ </span>curl <span class="nt">-L</span> https://fly.io/install.sh | sh
 </code></pre></div></div> <h3 id="2-가입">2. 가입</h3> <blockquote> <p>웹 브라우저가 뜨고 신규 가입을 진행합니다.</p> </blockquote> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>flyctl auth signup
 </code></pre></div></div> <h3 id="3-로그인">3. 로그인</h3> <blockquote> <p>가입 정보로 로그인 처리</p> </blockquote> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>flyctl auth login
-</code></pre></div></div> <h2 id="docker-파일-생성">docker 파일 생성</h2> <p>fly.io 에서 실행될 dockerfile을 생성합니다.</p> <h3 id="1-작업-디렉터리-생성">1. 작업 디렉터리 생성</h3> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 작업 디렉터리 새성</span>
+</code></pre></div></div> <h2 id="docker-파일-생성">docker 파일 생성</h2> <p>fly.io 에서 실행될 dockerfile을 생성합니다.</p> <h3 id="1-작업-디렉터리-생성">1. 작업 디렉터리 생성</h3> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 작업 디렉터리 생성</span>
 <span class="nv">$ </span>mkdir project
 <span class="nv">$ </span><span class="nb">cd </span>project
-</code></pre></div></div> <h3 id="2-docker-파일-생성">2. docker 파일 생성</h3> <blockquote> <p>2023.09.22 기준 <code class="highlighter-rouge">0.18.6</code>이 최신 버전입니다.</p> </blockquote> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div> <h3 id="2-docker-파일-생성">2. docker 파일 생성</h3> <blockquote> <p>2023.09.26 기준 <code class="highlighter-rouge">0.18.8</code>이 최신 버전입니다.</p> </blockquote> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 FROM alpine:latest
 
-ARG <span class="nv">PB_VERSION</span><span class="o">=</span>0.18.6
+ARG <span class="nv">PB_VERSION</span><span class="o">=</span>0.18.8
 
 RUN apk add <span class="nt">--no-cache</span> <span class="se">\</span>
     unzip <span class="se">\</span>
@@ -56,7 +56,7 @@ Your app is ready! Deploy with <span class="sb">`</span>flyctl deploy<span class
 primary_region <span class="o">=</span> <span class="s2">"nrt"</span>
 
 <span class="o">[</span>build]
-  <span class="nv">PB_VERSION</span><span class="o">=</span><span class="s2">"0.18.6"</span>
+  <span class="nv">PB_VERSION</span><span class="o">=</span><span class="s2">"0.18.8"</span>
 
 <span class="c"># mounts 추가</span>
 <span class="o">[</span>mounts]

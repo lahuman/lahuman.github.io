@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2023-09-22T07:43:02+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Pocketbase</title><link href="https://lahuman.github.io/pocketbase/" rel="alternate" type="text/html" title="Pocketbase" /><published>2023-09-22T00:00:00+00:00</published><updated>2023-09-22T00:00:00+00:00</updated><id>https://lahuman.github.io/pocketbase</id><content type="html" xml:base="https://lahuman.github.io/pocketbase/">&lt;h1 id=&quot;간단하게-pocketbase를-flyio에-올리는-방법을-설명합니다&quot;&gt;간단하게 Pocketbase를 fly.io에 올리는 방법을 설명합니다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2023-09-26T01:55:34+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Pocketbase</title><link href="https://lahuman.github.io/pocketbase/" rel="alternate" type="text/html" title="Pocketbase" /><published>2023-09-22T00:00:00+00:00</published><updated>2023-09-22T00:00:00+00:00</updated><id>https://lahuman.github.io/pocketbase</id><content type="html" xml:base="https://lahuman.github.io/pocketbase/">&lt;h1 id=&quot;간단하게-pocketbase를-flyio에-올리는-방법을-설명합니다&quot;&gt;간단하게 Pocketbase를 fly.io에 올리는 방법을 설명합니다.&lt;/h1&gt;
 
 &lt;h2 id=&quot;flyio-설치-및-가입&quot;&gt;fly.io 설치 및 가입&lt;/h2&gt;
 
@@ -40,7 +40,7 @@
 
 &lt;h3 id=&quot;1-작업-디렉터리-생성&quot;&gt;1. 작업 디렉터리 생성&lt;/h3&gt;
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# 작업 디렉터리 새성&lt;/span&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# 작업 디렉터리 생성&lt;/span&gt;
 &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;mkdir project
 &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;project
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -48,13 +48,13 @@
 &lt;h3 id=&quot;2-docker-파일-생성&quot;&gt;2. docker 파일 생성&lt;/h3&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;2023.09.22 기준 &lt;code class=&quot;highlighter-rouge&quot;&gt;0.18.6&lt;/code&gt;이 최신 버전입니다.&lt;/p&gt;
+  &lt;p&gt;2023.09.26 기준 &lt;code class=&quot;highlighter-rouge&quot;&gt;0.18.8&lt;/code&gt;이 최신 버전입니다.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
 FROM alpine:latest
 
-ARG &lt;span class=&quot;nv&quot;&gt;PB_VERSION&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0.18.6
+ARG &lt;span class=&quot;nv&quot;&gt;PB_VERSION&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0.18.8
 
 RUN apk add &lt;span class=&quot;nt&quot;&gt;--no-cache&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
     unzip &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
@@ -104,7 +104,7 @@ Your app is ready! Deploy with &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;fl
 primary_region &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;nrt&quot;&lt;/span&gt;
 
 &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;build]
-  &lt;span class=&quot;nv&quot;&gt;PB_VERSION&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;0.18.6&quot;&lt;/span&gt;
+  &lt;span class=&quot;nv&quot;&gt;PB_VERSION&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;0.18.8&quot;&lt;/span&gt;
 
 &lt;span class=&quot;c&quot;&gt;# mounts 추가&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;mounts]
