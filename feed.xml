@@ -1,4 +1,49 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2023-09-26T01:55:34+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Pocketbase</title><link href="https://lahuman.github.io/pocketbase/" rel="alternate" type="text/html" title="Pocketbase" /><published>2023-09-22T00:00:00+00:00</published><updated>2023-09-22T00:00:00+00:00</updated><id>https://lahuman.github.io/pocketbase</id><content type="html" xml:base="https://lahuman.github.io/pocketbase/">&lt;h1 id=&quot;간단하게-pocketbase를-flyio에-올리는-방법을-설명합니다&quot;&gt;간단하게 Pocketbase를 fly.io에 올리는 방법을 설명합니다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2023-10-06T08:56:10+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">휴일 여부 확인 REST API</title><link href="https://lahuman.github.io/holiday_api/" rel="alternate" type="text/html" title="휴일 여부 확인 REST API" /><published>2023-10-06T00:00:00+00:00</published><updated>2023-10-06T00:00:00+00:00</updated><id>https://lahuman.github.io/holiday_api</id><content type="html" xml:base="https://lahuman.github.io/holiday_api/">&lt;h1 id=&quot;휴일-여뷰를-확인해주는-api를-매번-찾느니-하나-만들자&quot;&gt;휴일 여뷰를 확인해주는 API를 매번 찾느니, 하나 만들자!&lt;/h1&gt;
+
+&lt;h2 id=&quot;임시-공휴일-등-매년-변경되는-휴일은-어떻게-알-수-있는데&quot;&gt;임시 공휴일 등, 매년 변경되는 휴일은 어떻게 알 수 있는데?&lt;/h2&gt;
+
+&lt;p&gt;공공 데이터 포털에서 제공하는 오픈 API인 &lt;a href=&quot;https://www.data.go.kr/tcs/dss/selectApiDataDetailView.do?publicDataPk=15012690&quot;&gt;한국천문연구원_특일 정보&lt;/a&gt; 를 활용하면 해당 년도의 휴일을 가져올 수 있습니다. 
+이를 이용해서 최근 2년치 휴일 정보를 업데이트 할 예정입니다&lt;/p&gt;
+
+&lt;h2 id=&quot;어떻게-구성-할-껀데&quot;&gt;어떻게 구성 할 껀데?&lt;/h2&gt;
+
+&lt;p&gt;크게 2가지 API로 제공 예정입니다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;년도 기준 휴일 정보 제공&lt;/li&gt;
+  &lt;li&gt;년월일 기준 휴일 여부 제공&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;응답 형식은 JSON 형식으로 제공 예정입니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;어디에-데이터를-적재할껀데&quot;&gt;어디에 데이터를 적재할껀데?&lt;/h2&gt;
+
+&lt;p&gt;따로 서버를 구성하지 않고 이전 프로젝트에서 사용한 fly.io의 pocketbase를 활용할 예정입니다.&lt;/p&gt;
+
+&lt;p&gt;firebase를 이용해보려고 했지만, document에 접근 하기 위해서는 권한 설정이 필요해서 이번엔 pocketbase로 처리 합니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;어떻게-동작하는데&quot;&gt;어떻게 동작하는데?&lt;/h2&gt;
+
+&lt;p&gt;매일 1회 아래와 같이 공공 데이터 포털에서 데이터를 조회 후 새로 적재 예정입니다.&lt;/p&gt;
+
+&lt;div class=&quot;mermaid&quot;&gt; 
+graph TD;
+    A[휴일] --&amp;gt;|공공데이터포털| B(가져오기);
+    B --&amp;gt; C{성공};
+    C --&amp;gt;|성공| D(올해/내년 데이터 조회);
+    C --&amp;gt;|실패| E[종료];
+    D --&amp;gt; F(올해 / 내년 데이터 삭제);
+    F --&amp;gt; G(올해 / 내년 데이터 적재);
+    G --&amp;gt; E;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;데이터-적재를-실행을-어디서-할껀데&quot;&gt;데이터 적재를 실행을 어디서 할껀데?&lt;/h2&gt;
+
+&lt;p&gt;github의 action을 이용해서 일일 배치를 만들어볼 예정입니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;언어는-무엇을-사용할껀데&quot;&gt;언어는 무엇을 사용할껀데?&lt;/h2&gt;
+
+&lt;p&gt;이번에 1.0으로 릴리즈한 &lt;a href=&quot;https://bun.sh/&quot;&gt;bun&lt;/a&gt;을 활용해볼 예정입니다!&lt;/p&gt;</content><author><name></name></author><category term="holiday" /><category term="api" /><summary type="html">프로젝트마다 한번씩 사용하는 휴일 처리를 API로 제공하자!</summary></entry><entry><title type="html">Pocketbase</title><link href="https://lahuman.github.io/pocketbase/" rel="alternate" type="text/html" title="Pocketbase" /><published>2023-09-22T00:00:00+00:00</published><updated>2023-09-22T00:00:00+00:00</updated><id>https://lahuman.github.io/pocketbase</id><content type="html" xml:base="https://lahuman.github.io/pocketbase/">&lt;h1 id=&quot;간단하게-pocketbase를-flyio에-올리는-방법을-설명합니다&quot;&gt;간단하게 Pocketbase를 fly.io에 올리는 방법을 설명합니다.&lt;/h1&gt;
 
 &lt;h2 id=&quot;flyio-설치-및-가입&quot;&gt;fly.io 설치 및 가입&lt;/h2&gt;
 
@@ -1094,102 +1139,4 @@ AWS 암호화 SDK는 하나 이상의 래핑 키로 암호화하여 데이터를
 &lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.yes24.com/Product/Goods/118919000?pid=123487&amp;amp;cosemkid=go16844732694948627&amp;amp;gclid=CjwKCAjwxOymBhAFEiwAnodBLHi-nKqu7Rau7vUw9MmF3vwHlxLI8c3xHgGXcAeELmEzobRn84UvwRoCrDUQAvD_BwE&quot;&gt;개발자를 넘어 기술 리더로 가는 길&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="독서" /><category term="시니어" /><summary type="html">시니어 그리고 스태프 엔지니어</summary></entry><entry><title type="html">Nexus 시작시 NullPointException 이 발생하면서 오류가 나는 현상</title><link href="https://lahuman.github.io/nexus_nullportinexception_startup/" rel="alternate" type="text/html" title="Nexus 시작시 NullPointException 이 발생하면서 오류가 나는 현상" /><published>2023-08-11T00:00:00+00:00</published><updated>2023-08-11T00:00:00+00:00</updated><id>https://lahuman.github.io/nexus_nullportinexception_startup</id><content type="html" xml:base="https://lahuman.github.io/nexus_nullportinexception_startup/">&lt;h1 id=&quot;nexus-시작시-nullpointexception-이-발생하면서-오류가-나는-현상&quot;&gt;Nexus 시작시 NullPointException 이 발생하면서 오류가 나는 현상&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;현재 외부 Nexus Repository에서 내부 Nexus Repository에 복제 처리를 하고 있습니다. Nexus에서 갑자기 오류가 발생했습니다. 그냥 재부팅을 했을 뿐인데 오류가 발생하였다고 합니다. 해당 내역이 이미  &lt;a href=&quot;https://support.sonatype.com/hc/en-us/articles/4403663666835-Starting-Nexus-Repository-3-as-a-service-may-result-in-a-Karaf-NullPointerException-on-start-up&quot;&gt;nexus의 팁&lt;/a&gt;에 올라와 있어서 따라해보니, 복구가 문제 없이 되었습니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;문제&quot;&gt;문제&lt;/h2&gt;
-
-&lt;p&gt;Nexus3을 빠르게 중지했다가 다시 시작하면 Nexus3 리포지토리가 전혀 시작되지 않을 수 있으며 로깅에 다음과 같은 예외가 발생할 수 있습니다&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;2023-08-11 09:50:14,365+0900 INFO  &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;FelixStartLevel] &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;SYSTEM org.sonatype.nexus.pax.logging.NexusLogActivator - start
-2023-08-11 09:50:14,790+0900 INFO  &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;FelixStartLevel] &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;SYSTEM org.sonatype.nexus.features.internal.FeaturesWrapper - Fast FeaturesService starting
-2023-08-11 09:50:14,845+0900 ERROR &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;FelixStartLevel] &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;SYSTEM org.apache.karaf.deployer.features.FeatureDeploymentListener - Unable to update deployed features &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;bundle: org.apache.felix.framework - 6.0.5
-java.lang.NullPointerException: null
-        at org.apache.karaf.deployer.features.FeatureDeploymentListener.bundleChanged&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;FeatureDeploymentListener.java:254&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-        at org.apache.karaf.deployer.features.FeatureDeploymentListener.init&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;FeatureDeploymentListener.java:90&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-        at org.apache.karaf.deployer.features.osgi.Activator&lt;span class=&quot;nv&quot;&gt;$DeploymentFinishedListener&lt;/span&gt;.deploymentEvent&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;Activator.java:86&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-        at org.apache.karaf.features.internal.service.FeaturesServiceImpl.registerListener&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;FeaturesServiceImpl.java:296&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-        at org.apache.karaf.deployer.features.osgi.Activator.doStart&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;Activator.java:53&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-        at org.apache.karaf.util.tracker.BaseActivator.start&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;BaseActivator.java:92&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-        at org.apache.felix.framework.util.SecureAction.startActivator&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;SecureAction.java:698&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-        at org.apache.felix.framework.Felix.activateBundle&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;Felix.java:2402&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-        at org.apache.felix.framework.Felix.startBundle&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;Felix.java:2308&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-        at org.apache.felix.framework.Felix.setActiveStartLevel&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;Felix.java:1539&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-        at org.apache.felix.framework.FrameworkStartLevelImpl.run&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;FrameworkStartLevelImpl.java:308&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-        at java.lang.Thread.run&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;Thread.java:748&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-2023-08-11 09:50:14,847+0900 ERROR &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;FelixStartLevel] &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;SYSTEM org.apache.karaf.deployer.features.FeatureDeploymentListener - Unable to update deployed features &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;bundle: org.apache.karaf.features.extension - 4.3.6
-java.lang.NullPointerException: null
-        at org.apache.karaf.deployer.features.FeatureDeploymentListener.bundleChanged&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;FeatureDeploymentListener.java:254&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-        at org.apache.karaf.deployer.features.FeatureDeploymentListener.init&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;FeatureDeploymentListener.java:90&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-        at org.apache.karaf.deployer.features.osgi.Activator&lt;span class=&quot;nv&quot;&gt;$DeploymentFinishedListener&lt;/span&gt;.deploymentEvent&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;Activator.java:86&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-        at org.apache.karaf.features.internal.service.FeaturesServiceImpl.registerListener&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;FeaturesServiceImpl.java:296&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-        at org.apache.karaf.deployer.features.osgi.Activator.doStart&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;Activator.java:53&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-        at org.apache.karaf.util.tracker.BaseActivator.start&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;BaseActivator.java:92&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-        at org.apache.felix.framework.util.SecureAction.startActivator&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;SecureAction.java:698&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-        at org.apache.felix.framework.Felix.activateBundle&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;Felix.java:2402&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-        at org.apache.felix.framework.Felix.startBundle&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;Felix.java:2308&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-        at org.apache.felix.framework.Felix.setActiveStartLevel&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;Felix.java:1539&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-        at org.apache.felix.framework.FrameworkStartLevelImpl.run&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;FrameworkStartLevelImpl.java:308&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-        at java.lang.Thread.run&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;Thread.java:748&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;원인&quot;&gt;원인&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;이 문제는 시스템이 빠르게 재시작된 후(systemd를 통해 Nexus 리포지토리가 자동으로 시작되는 경우) 자주 관찰되었습니다.&lt;/li&gt;
-  &lt;li&gt;이 오류는 부팅 시퀀스가 시작될 때 바로 발생합니다.&lt;/li&gt;
-  &lt;li&gt;문제 발생 시 캡처된 로깅 또는 스레드 덤프에는 문제가 어디에 있는지 알 수 있는 힌트가 없습니다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;해결-방법---race-condition-between-the-featuresservice-and-featuredeploymentlistener&quot;&gt;해결 방법 - &lt;a href=&quot;https://issues.apache.org/jira/browse/KARAF-6074&quot;&gt;Race condition between the FeaturesService and FeatureDeploymentListener&lt;/a&gt;&lt;/h2&gt;
-
-&lt;p&gt;손상된 파일을 찾기 위한 명령어&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# 설치 위치와 버젼 정보를 변경&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;_VER&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;3.38.0-01&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;_INSTALL_DIR&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;/application/nexus-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;_VER&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;dirname &lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;_INSTALL_DIR&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%/&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;})&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-curl &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;/tmp/nexus-unix.tar.gz&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-L&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;https://download.sonatype.com/nexus/3/nexus-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;_VER&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;-unix.tar.gz&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;tar&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--diff&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;/tmp/nexus-unix.tar.gz&quot;&lt;/span&gt; nexus-&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;_VER&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;/etc/karaf | &lt;span class=&quot;nb&quot;&gt;grep&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-vE&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'(Uid|Gid|Mod time) differs'&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;“karaf” 디렉터리 아래의 모든 파일을 복원하는 명령의 예입니다&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;dirname &lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;_INSTALL_DIR&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%/&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;})&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;tar&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-xv&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;/tmp/nexus-unix.tar.gz&quot;&lt;/span&gt; nexus-&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;_VER&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;/etc/karaf
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;가능한-원인&quot;&gt;가능한 원인&lt;/h2&gt;
-
-&lt;p&gt;마운트된 디스크(넥서스 리포지토리 관련)가 충분히 빨리 마운트되지 않거나 ‘systemd’가 시작되기 전에 네트워크가 완전히 초기화 및 가동되지 않아 발생할 수 있습니다.&lt;/p&gt;
-
-&lt;p&gt;만약, 네트워크 마운트에 의존하는 경우 Nexus 리포지토리 서비스가 시작되기 전에 네트워크 마운트를 완전히 사용할 수 있는지 확인하면 이 문제를 해결할 수 있습니다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;의존하는 마운트를 설정합니다(블롭 스토어 또는 Nexus 리포지토리 데이터 중 하나).&lt;/li&gt;
-  &lt;li&gt;실행&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;systemctl list-units | &lt;span class=&quot;nb&quot;&gt;grep&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'.mount'&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;마운트 ‘단위’의 이름을 가져옵니다.&lt;/li&gt;
-  &lt;li&gt;서비스 [단위] 섹션 옵션에 네트워크와 마운트를 모두 추가하고 &lt;code class=&quot;highlighter-rouge&quot;&gt;Requires&lt;/code&gt; 및 &lt;code class=&quot;highlighter-rouge&quot;&gt;After&lt;/code&gt;를 선택합니다.
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;Unit]
-...
-&lt;span class=&quot;nv&quot;&gt;Requires&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;network.target network-online.target &amp;lt;required mount 1&amp;gt;.mount &amp;lt;required mount2&amp;gt;.mount multi-user.target
-&lt;span class=&quot;nv&quot;&gt;After&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;network.target network-online.target &amp;lt;required mount 1&amp;gt;.mount &amp;lt;required mount2&amp;gt;.mount multi-user.target
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://support.sonatype.com/hc/en-us/articles/4403663666835-Starting-Nexus-Repository-3-as-a-service-may-result-in-a-Karaf-NullPointerException-on-start-up&quot;&gt;Starting Nexus Repository 3 as a service may result in a Karaf NullPointerException on start-up&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="nexus" /><category term="fix" /><summary type="html">Starting Nexus Repository 3 as a service may result in a Karaf NullPointerException on start-up</summary></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><category term="독서" /><category term="시니어" /><summary type="html">시니어 그리고 스태프 엔지니어</summary></entry></feed>
