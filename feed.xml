@@ -1,4 +1,109 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2023-10-11T01:40:56+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">1. 휴일 확인 REST API 설계</title><link href="https://lahuman.github.io/holiday_api_01/" rel="alternate" type="text/html" title="1. 휴일 확인 REST API 설계" /><published>2023-10-06T00:00:00+00:00</published><updated>2023-10-06T00:00:00+00:00</updated><id>https://lahuman.github.io/holiday_api_01</id><content type="html" xml:base="https://lahuman.github.io/holiday_api_01/">&lt;h1 id=&quot;휴일-여뷰를-확인해주는-api를-매번-찾느니-하나-만들자&quot;&gt;휴일 여뷰를 확인해주는 API를 매번 찾느니, 하나 만들자!&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2023-10-11T01:47:36+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">2. 휴일 확인 REST API</title><link href="https://lahuman.github.io/holiday_api_02/" rel="alternate" type="text/html" title="2. 휴일 확인 REST API" /><published>2023-10-11T00:00:00+00:00</published><updated>2023-10-11T00:00:00+00:00</updated><id>https://lahuman.github.io/holiday_api_02</id><content type="html" xml:base="https://lahuman.github.io/holiday_api_02/">&lt;h1 id=&quot;휴일-확인-api&quot;&gt;휴일 확인 API&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;해당 API에서는 미래 년도 3년치의 데이터만 제공합니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;년도-기준-공휴일-정보-제공&quot;&gt;년도 기준 공휴일 정보 제공&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;주소 : https://lahuman.vercel.app/api/holidays/${year}&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;예제&quot;&gt;예제&lt;/h3&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;curl &lt;span class=&quot;nt&quot;&gt;-XGET&lt;/span&gt; https://lahuman.vercel.app/api/holidays/2025
+&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&quot;holidays&quot;&lt;/span&gt;: &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;s2&quot;&gt;&quot;name&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;1월1일&quot;&lt;/span&gt;,
+            &lt;span class=&quot;s2&quot;&gt;&quot;date&quot;&lt;/span&gt;: 20250101
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
+        &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;s2&quot;&gt;&quot;name&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;설날&quot;&lt;/span&gt;,
+            &lt;span class=&quot;s2&quot;&gt;&quot;date&quot;&lt;/span&gt;: 20250128
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
+        &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;s2&quot;&gt;&quot;name&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;설날&quot;&lt;/span&gt;,
+            &lt;span class=&quot;s2&quot;&gt;&quot;date&quot;&lt;/span&gt;: 20250129
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
+        &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;s2&quot;&gt;&quot;name&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;설날&quot;&lt;/span&gt;,
+            &lt;span class=&quot;s2&quot;&gt;&quot;date&quot;&lt;/span&gt;: 20250130
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
+        &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;s2&quot;&gt;&quot;name&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;삼일절&quot;&lt;/span&gt;,
+            &lt;span class=&quot;s2&quot;&gt;&quot;date&quot;&lt;/span&gt;: 20250301
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
+        &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;s2&quot;&gt;&quot;name&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;대체공휴일&quot;&lt;/span&gt;,
+            &lt;span class=&quot;s2&quot;&gt;&quot;date&quot;&lt;/span&gt;: 20250303
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
+        &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;s2&quot;&gt;&quot;name&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;부처님오신날&quot;&lt;/span&gt;,
+            &lt;span class=&quot;s2&quot;&gt;&quot;date&quot;&lt;/span&gt;: 20250505
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
+        &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;s2&quot;&gt;&quot;name&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;대체공휴일&quot;&lt;/span&gt;,
+            &lt;span class=&quot;s2&quot;&gt;&quot;date&quot;&lt;/span&gt;: 20250506
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
+        &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;s2&quot;&gt;&quot;name&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;현충일&quot;&lt;/span&gt;,
+            &lt;span class=&quot;s2&quot;&gt;&quot;date&quot;&lt;/span&gt;: 20250606
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
+        &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;s2&quot;&gt;&quot;name&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;광복절&quot;&lt;/span&gt;,
+            &lt;span class=&quot;s2&quot;&gt;&quot;date&quot;&lt;/span&gt;: 20250815
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
+        &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;s2&quot;&gt;&quot;name&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;추석&quot;&lt;/span&gt;,
+            &lt;span class=&quot;s2&quot;&gt;&quot;date&quot;&lt;/span&gt;: 20251005
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
+        &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;s2&quot;&gt;&quot;name&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;추석&quot;&lt;/span&gt;,
+            &lt;span class=&quot;s2&quot;&gt;&quot;date&quot;&lt;/span&gt;: 20251006
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
+        &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;s2&quot;&gt;&quot;name&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;추석&quot;&lt;/span&gt;,
+            &lt;span class=&quot;s2&quot;&gt;&quot;date&quot;&lt;/span&gt;: 20251007
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
+        &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;s2&quot;&gt;&quot;name&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;대체공휴일&quot;&lt;/span&gt;,
+            &lt;span class=&quot;s2&quot;&gt;&quot;date&quot;&lt;/span&gt;: 20251008
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
+        &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;s2&quot;&gt;&quot;name&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;한글날&quot;&lt;/span&gt;,
+            &lt;span class=&quot;s2&quot;&gt;&quot;date&quot;&lt;/span&gt;: 20251009
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
+        &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;s2&quot;&gt;&quot;name&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;기독탄신일&quot;&lt;/span&gt;,
+            &lt;span class=&quot;s2&quot;&gt;&quot;date&quot;&lt;/span&gt;: 20251225
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;날짜-기준-휴일-여부&quot;&gt;날짜 기준 휴일 여부&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;단순하게 휴일 여부(주말 포함)만 확인합니다&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;주소 : https://lahuman.vercel.app/api/isHoliday/${date}&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;예제-1&quot;&gt;예제&lt;/h3&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;curl &lt;span class=&quot;nt&quot;&gt;-XGET&lt;/span&gt; https://lahuman.vercel.app/api/isHoliday/20250505
+&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;holiday&quot;&lt;/span&gt;:true&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;마치며&quot;&gt;마치며&lt;/h2&gt;
+
+&lt;p&gt;이번에 작업을 하면서 batch 처리를 git action을 사용해보았는데, 세상이 참 좋다는 생각을 했습니다.&lt;/p&gt;
+
+&lt;p&gt;무료로 사용할 수 있는 것들이 정말 많아졌네요!&lt;/p&gt;</content><author><name></name></author><category term="holiday" /><category term="api" /><summary type="html">개발 완료! 사용법 문서</summary></entry><entry><title type="html">1. 휴일 확인 REST API 설계</title><link href="https://lahuman.github.io/holiday_api_01/" rel="alternate" type="text/html" title="1. 휴일 확인 REST API 설계" /><published>2023-10-06T00:00:00+00:00</published><updated>2023-10-06T00:00:00+00:00</updated><id>https://lahuman.github.io/holiday_api_01</id><content type="html" xml:base="https://lahuman.github.io/holiday_api_01/">&lt;h1 id=&quot;휴일-여뷰를-확인해주는-api를-매번-찾느니-하나-만들자&quot;&gt;휴일 여뷰를 확인해주는 API를 매번 찾느니, 하나 만들자!&lt;/h1&gt;
 
 &lt;h2 id=&quot;임시-공휴일-등-매년-변경되는-휴일은-어떻게-알-수-있는데&quot;&gt;임시 공휴일 등, 매년 변경되는 휴일은 어떻게 알 수 있는데?&lt;/h2&gt;
 
@@ -956,187 +1061,4 @@ AWS 암호화 SDK는 하나 이상의 래핑 키로 암호화하여 데이터를
   &lt;li&gt;&lt;a href=&quot;https://docs.aws.amazon.com/encryption-sdk/latest/developer-guide/js-examples.html&quot;&gt;AWS Encryption SDK for JavaScript examples&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://docs.aws.amazon.com/encryption-sdk/latest/developer-guide/python-example-code.html&quot;&gt;AWS Encryption SDK for Python example code&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://github.com/aws/aws-encryption-sdk-python/tree/master/examples&quot;&gt;aws-encryption-sdk-python&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="aws" /><category term="encryption" /><summary type="html">키링을 이용한 암/복호화 처리</summary></entry><entry><title type="html">개발자를 넘어 기술 리더로 가는 길을 읽고</title><link href="https://lahuman.github.io/career_ladder/" rel="alternate" type="text/html" title="개발자를 넘어 기술 리더로 가는 길을 읽고" /><published>2023-08-16T00:00:00+00:00</published><updated>2023-08-16T00:00:00+00:00</updated><id>https://lahuman.github.io/career_ladder</id><content type="html" xml:base="https://lahuman.github.io/career_ladder/">&lt;h1 id=&quot;시니어&quot;&gt;시니어&lt;/h1&gt;
-
-&lt;iframe src=&quot;//www.slideshare.net/slideshow/embed_code/key/gTfMMmRhqj1wRW?startSlide=1&quot; width=&quot;597&quot; height=&quot;486&quot; frameborder=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; scrolling=&quot;no&quot; style=&quot;border:1px solid #CCC; border-width:1px; margin-bottom:5px;max-width: 100%;&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
-&lt;div style=&quot;margin-bottom:5px&quot;&gt;&lt;strong&gt;&lt;a href=&quot;//www.slideshare.net/lahuman1/ss-259914255&quot; title=&quot;개발자를 넘어 기술 리더로 가는 길을 읽고&quot; target=&quot;_blank&quot;&gt;개발자를 넘어 기술 리더로 가는 길을 읽고&lt;/a&gt;&lt;/strong&gt; from &lt;strong&gt;&lt;a href=&quot;//www.slideshare.net/lahuman1&quot; target=&quot;_blank&quot;&gt;Daniel Lim&lt;/a&gt;&lt;/strong&gt;&lt;/div&gt;
-
-&lt;p&gt;부제 : &lt;a href=&quot;https://www.yes24.com/Product/Goods/118919000?pid=123487&amp;amp;cosemkid=go16844732694948627&amp;amp;gclid=CjwKCAjwxOymBhAFEiwAnodBLHi-nKqu7Rau7vUw9MmF3vwHlxLI8c3xHgGXcAeELmEzobRn84UvwRoCrDUQAvD_BwE&quot;&gt;개발자를 넘어 기술 리더로 가는 길&lt;/a&gt;을 읽고&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;전환점&quot;&gt;전환점&lt;/h1&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets//img/post_img/turning_point.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;마르코-로저스-1&quot;&gt;&lt;a href=&quot;https://marcorogers.com/blog/category/Engineering+Management&quot;&gt;마르코 로저스&lt;/a&gt; &lt;a href=&quot;https://www.youtube.com/watch?v=jA1Q94d2z10&quot;&gt;[1]&lt;/a&gt;&lt;/h4&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;시니어&lt;/strong&gt;는 전환점 역할&lt;/li&gt;
-  &lt;li&gt;시니어보다 낮은 직급은 &lt;strong&gt;자율성&lt;/strong&gt;을 기르는데 힘을 쏟으며, 그보다 높은 직급은 &lt;strong&gt;영향력&lt;/strong&gt;과 &lt;strong&gt;책임감&lt;/strong&gt;을 키우기 위해서 노력&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h6 id=&quot;시니어-단계에-이르더라도-꾸준히-자기-개발을-지속하면-한-단계-더-나아가-기술-전문-리더쉽에-도달할-수-있으며-이를-스태프-엔지니어라-칭합니다&quot;&gt;시니어 단계에 이르더라도 꾸준히 자기 개발을 지속하면 한 단계 더 나아가 &lt;code class=&quot;highlighter-rouge&quot;&gt;기술 전문 리더쉽&lt;/code&gt;에 도달할 수 있으며, 이를 &lt;code class=&quot;highlighter-rouge&quot;&gt;스태프 엔지니어&lt;/code&gt;라 칭합니다.&lt;/h6&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;경력-사다리-예시&quot;&gt;경력 사다리 예시&lt;/h1&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets//img/post_img/career_ladder.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;매니저
-    &lt;ul&gt;
-      &lt;li&gt;프로젝트를 제시간에 완료 하도록 관리&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;스태프 엔지니어
-    &lt;ul&gt;
-      &lt;li&gt;견고한 시스템 결과물을 구성, 기업의 기술 환경이 적합한지 확인&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;두 직급은 핵심 역할이 다르기에 서로 협력할 때 최고의 팀이 형성됩니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;직함의-중요성&quot;&gt;직함의 중요성&lt;/h1&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;구성원들이 자기 경력을 잘 쌓고 있는지 스스로 인지&lt;/li&gt;
-  &lt;li&gt;필요한 경우 구성원에게 권위 부여&lt;/li&gt;
-  &lt;li&gt;직책별 기대치를 기업 외부에 쉽게 알림&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;업무 면에서 상향식 접근(Bottom-up)을 하고, 모든 아이디어를 평등하게 존중하더라도 직함은 매우 중요합니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;직함은 상징적인 의미를 지니고 있으며, 기업은 직원의 자질을 기업 안팎으로 알리기 위해서 직함을 사용합니다. - &lt;a href=&quot;https://scholar.google.com/citations?view_op=view_citation&amp;amp;hl=en&amp;amp;user=8GZ6cc0AAAAJ&amp;amp;citation_for_view=8GZ6cc0AAAAJ:u5HHmVD_uO8C&quot;&gt;콜로라도대 교수 키프코루코스키 박사&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;스태프-엔지니어-1&quot;&gt;스태프 엔지니어 #1&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;조직을 성공을 이끄는 것을 목표로 다른 동료의 &lt;strong&gt;롤모델&lt;/strong&gt;이 되어야 한다&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;팀 문화를 조성&lt;/li&gt;
-  &lt;li&gt;좋은 영향력 행사&lt;/li&gt;
-  &lt;li&gt;팀원의 기준 충족 확인 책임&lt;/li&gt;
-  &lt;li&gt;스스로 모범을 보여야 함&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;em&gt;본인의 업무가 아니더리도 기업이 필요로 하는 모든 종류의 업무 처리&lt;/em&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;스태프-엔지니어-2&quot;&gt;스태프 엔지니어 #2&lt;/h1&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets//img/post_img/three_pillar.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;세-기둥&quot;&gt;세 기둥&lt;/h1&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;빅 픽처 관점의 사고력
-    &lt;ul&gt;
-      &lt;li&gt;주어진 상황에서 한 발 물러나 더 넓은 시야를 확보하며 당장의 세부사항보다는 그 상황을 전체적으로 이해하는 능력&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;성공적인 프로젝트 실행력
-    &lt;ul&gt;
-      &lt;li&gt;프로젝트의 성공을 위해 다양한 인력과 협업하고 정치적 자본이나 영향력을 적극 활용하며 기업 문화를 조정하여 변화를 주도하는 능력&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;조직 차원의 레벨업
-    &lt;ul&gt;
-      &lt;li&gt;엔지니어로서의 기술적인 역량과 표준을 높이는 책임을 지며 롤 모델로서 행동하거나 가르치고 멘토링을 통해 영향력을 행사하는 능력&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;스태프-엔지니어-3&quot;&gt;스태프 엔지니어 #3&lt;/h1&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;커뮤니케이선 및 리더십&lt;/li&gt;
-  &lt;li&gt;복잡한 문제 탐색하기&lt;/li&gt;
-  &lt;li&gt;업무상 관점 제시하기&lt;/li&gt;
-  &lt;li&gt;멘토링 후원 그리고 위임하기&lt;/li&gt;
-  &lt;li&gt;다른 사람이 관심을 갖도록 문제 구성하기&lt;/li&gt;
-  &lt;li&gt;리더가 아니어도 리더처럼 행동하기&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;더-많은-내용은&quot;&gt;더 많은 내용은&lt;/h1&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.yes24.com/Product/Goods/118919000?pid=123487&amp;amp;cosemkid=go16844732694948627&amp;amp;gclid=CjwKCAjwxOymBhAFEiwAnodBLHi-nKqu7Rau7vUw9MmF3vwHlxLI8c3xHgGXcAeELmEzobRn84UvwRoCrDUQAvD_BwE&quot;&gt;개발자를 넘어 기술리더로 가는 길&lt;/a&gt; 읽어보세요! :)&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h5 id=&quot;조직-유형학-모델&quot;&gt;조직 유형학 모델&lt;/h5&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;병리학적 조직&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;관료주의적 조직&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;생산적 조직&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;권력주의&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;규칙주의&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;성과주의&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;협력수준 낮음&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;협력 수준 중간&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;협력 수준 높음&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;의사전달 차단&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;무시&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;훈련&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;책임을 회피&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;좁은 책임 범위&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;위험 분담&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;커뮤니케이션 지양&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;용인&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;권장&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;실패가 희생양&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;처벌&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;질문&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;아이디어 억제&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;아이디어 문제&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;아이디어 구현&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h6 id=&quot;그룹-정보가-활발하게-공유-되는-높은-신뢰성을-가진-기업-문화에서-생성성-향상&quot;&gt;그룹 정보가 활발하게 공유 되는 높은 신뢰성을 가진 기업 문화에서 생성성 향상&lt;/h6&gt;
-
-&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.yes24.com/Product/Goods/118919000?pid=123487&amp;amp;cosemkid=go16844732694948627&amp;amp;gclid=CjwKCAjwxOymBhAFEiwAnodBLHi-nKqu7Rau7vUw9MmF3vwHlxLI8c3xHgGXcAeELmEzobRn84UvwRoCrDUQAvD_BwE&quot;&gt;개발자를 넘어 기술 리더로 가는 길&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="독서" /><category term="시니어" /><summary type="html">시니어 그리고 스태프 엔지니어</summary></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><category term="aws" /><category term="encryption" /><summary type="html">키링을 이용한 암/복호화 처리</summary></entry></feed>
