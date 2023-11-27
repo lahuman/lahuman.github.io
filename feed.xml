@@ -1,4 +1,41 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2023-11-16T15:40:38+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">내가 생각하는 개발자란?</title><link href="https://lahuman.github.io/what_is_developer/" rel="alternate" type="text/html" title="내가 생각하는 개발자란?" /><published>2023-10-20T00:00:00+00:00</published><updated>2023-10-20T00:00:00+00:00</updated><id>https://lahuman.github.io/what_is_developer</id><content type="html" xml:base="https://lahuman.github.io/what_is_developer/">&lt;h1 id=&quot;문제를-해결하는-사람&quot;&gt;문제를 해결하는 사람&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2023-11-27T13:48:02+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">수행했던 주요 프로젝트 내용과 프로젝트의 성과</title><link href="https://lahuman.github.io/2023_project/" rel="alternate" type="text/html" title="수행했던 주요 프로젝트 내용과 프로젝트의 성과" /><published>2023-11-27T00:00:00+00:00</published><updated>2023-11-27T00:00:00+00:00</updated><id>https://lahuman.github.io/2023_project</id><content type="html" xml:base="https://lahuman.github.io/2023_project/">&lt;h1 id=&quot;2023년도-수행했던-주요-프로젝트-내용과-프로젝트의-성과&quot;&gt;2023년도 수행했던 주요 프로젝트 내용과 프로젝트의 성과&lt;/h1&gt;
+
+&lt;p&gt;입사 후 진행 한 22년 4월 부터 진행된 O모O모의 개발 총괄을 맡았습니다. 
+O모O모는 2022년 11월에 서비스를 시작하였고, 초기 매타버스 기반(유니티-외주)에서 웹 기반(내재화)의 커뮤니티로 변화를 꾀하며  &lt;code class=&quot;highlighter-rouge&quot;&gt;2023년 5월에 10만 회원을 돌파&lt;/code&gt; 후, 23년 11월 기준 약 &lt;code class=&quot;highlighter-rouge&quot;&gt;25만명의 회원이 사용하는 서비스&lt;/code&gt;로 성장했습니다.&lt;/p&gt;
+
+&lt;p&gt;회사에서 처음으로 클라우드 기반의 개발로 진행하였고, 외부에서 입사한 동료들과의 함께 하는 첫  프로젝트였습니다.&lt;/p&gt;
+
+&lt;p&gt;초기 프로젝트를 진행할 때, 이전 회사인 GSSHOP에서 진행하였던 애자일 방식의 개발을 도입하였습니다.
+저의 경우는 팀원으로만 참여하였던 애자일 방식에서 처음으로 스크럼에 마스터가 되어서 진행하였습니다.&lt;/p&gt;
+
+&lt;p&gt;진행 방식으로는 매일 아침 스크럼 미팅을 하고, 매 2주간 스프린트를 진행하였습니다. 
+스프린트가 종료 되면 회고를 하고 그라운드 룰을 함께 만들어가며 동료들과 진행하였습니다.&lt;/p&gt;
+
+&lt;p&gt;JIRA와 Confluence, Slack 기반으로 업무, 지식공유, 소통을 하였습니다. 
+다들 처음에는 어색해하였지만, 2번의 스프린트(4주)가 지나자 익숙해지며 좋은 결과를 만들어 갈 수 있었습니다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;참고 내용 : &lt;a href=&quot;https://lahuman.github.io/going_scrum/&quot;&gt;합시다, 스크럼&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;NODEJS를 처음 사용하는 동료를 위해서 코드 리뷰를 통한 성장을 지원하고, 제가 가진 지식을 기반으로 추가적인 학습 시간과 학습 내용을 공유 하는 시간을 매 스프린트 회고마다 가졌습니다.&lt;/p&gt;
+
+&lt;p&gt;Backend 개발시 유지보수를 고려해서 typescript 기반의 프레임워크인 Nestjs로 진행하고 필요한 Boilerplate code를 제공하였습니다.
+마찬가지로 관리자 페이지 역시 Reactjs + MUI로 구성을 개발 할 수 있도록 Boilerplate code를 작성하였습니다.&lt;/p&gt;
+
+&lt;p&gt;또한 프로젝트 막바지에는 클라우드 엔지니어와 함께 AWS 기반의 CI/CD를 code commit 기반으로 구성하고, 
+ 개발서버에서 운영서버까지의 소스코드의 파이프라인에 대하여 함께 논의하며 구축하였습니다.&lt;/p&gt;
+
+&lt;p&gt;결론적으로 O모O모의 성과는 좋았고, 이는 저 혼자의 힘으로 해낼  수 없는 일이었습니다.
+저를 믿고 따라준 좋은 동료들과 함께여서 좋은 성과를 내었습니다.&lt;/p&gt;</content><author><name></name></author><category term="O모O모" /><category term="role" /><category term="scrum" /><summary type="html">지금 회사에서의 경험</summary></entry><entry><title type="html">지금 기분이 태도가 되지 않게</title><link href="https://lahuman.github.io/20231117/" rel="alternate" type="text/html" title="지금 기분이 태도가 되지 않게" /><published>2023-11-17T00:00:00+00:00</published><updated>2023-11-17T00:00:00+00:00</updated><id>https://lahuman.github.io/20231117</id><content type="html" xml:base="https://lahuman.github.io/20231117/">&lt;h1 id=&quot;기분이-태도가-되지-않게&quot;&gt;&lt;a href=&quot;https://www.yes24.com/Product/Goods/90872322&quot;&gt;기분이 태도가 되지 않게&lt;/a&gt;&lt;/h1&gt;
+
+&lt;p&gt;책을 읽고 반성하는 하루 입니다.&lt;/p&gt;
+
+&lt;p&gt;년중 행사처럼 쓰는 말이지만, 불평 불만을 줄이도록 노력해야겠습니다.&lt;/p&gt;
+
+&lt;p&gt;특히 통제할 수 없는 불평 불만은 하지 않도록 조심해야겠습니다.&lt;/p&gt;
+
+&lt;p&gt;책은 명상을 하듯이 조금씩 곱씹으면 읽기 좋습니다.&lt;/p&gt;</content><author><name></name></author><category term="독서" /><summary type="html">도서 후기</summary></entry><entry><title type="html">내가 생각하는 개발자란?</title><link href="https://lahuman.github.io/what_is_developer/" rel="alternate" type="text/html" title="내가 생각하는 개발자란?" /><published>2023-10-20T00:00:00+00:00</published><updated>2023-10-20T00:00:00+00:00</updated><id>https://lahuman.github.io/what_is_developer</id><content type="html" xml:base="https://lahuman.github.io/what_is_developer/">&lt;h1 id=&quot;문제를-해결하는-사람&quot;&gt;문제를 해결하는 사람&lt;/h1&gt;
 
 &lt;p&gt;신입 개발자 때 목표는,&lt;/p&gt;
 
@@ -629,115 +666,4 @@ See https://fly.io/plans to &lt;span class=&quot;nb&quot;&gt;set &lt;/span&gt;up
   &lt;li&gt;&lt;a href=&quot;https://tech.kakao.com/2016/03/11/redis-scan/&quot;&gt;Redis의 SCAN은 어떻게 동작하는가?&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://redis.io/commands/scan/&quot;&gt;SCAN&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://github.com/redis/ioredis#streamify-scanning&quot;&gt;Streamify Scanning&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="redis" /><category term="scan" /><category term="scanstream" /><summary type="html">scanStream으로 변경 처리</summary></entry><entry><title type="html">typescript에서의 class, interface 그리고 duck type</title><link href="https://lahuman.github.io/typescript_duck_structural/" rel="alternate" type="text/html" title="typescript에서의 class, interface 그리고 duck type" /><published>2023-09-07T00:00:00+00:00</published><updated>2023-09-07T00:00:00+00:00</updated><id>https://lahuman.github.io/typescript_duck_structural</id><content type="html" xml:base="https://lahuman.github.io/typescript_duck_structural/">&lt;h1 id=&quot;typescript에서의-duck-typing&quot;&gt;typescript에서의 duck typing?&lt;/h1&gt;
-
-&lt;p&gt;다음 코드가 타입스크립트에서도 안될꺼라 생각했다.&lt;/p&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;CatInfo&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;breed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;kd&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;age&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;breed&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;C1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;CatInfo2&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;breed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;kd&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;age&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;breed&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;C2&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;c1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;CatInfo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;CatInfo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;c2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;CatInfo2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;CatInfo2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;hello&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;CatInfo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;instanceof&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;CatInfo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;hello&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;c2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;하지만 잘된다. 몰랐다.&lt;/p&gt;
-
-&lt;p&gt;위와 같이 &lt;code class=&quot;highlighter-rouge&quot;&gt;구조&lt;/code&gt;가 같으면 같은 타입이라고 간주하는 방식을 &lt;code class=&quot;highlighter-rouge&quot;&gt;Structural Typing&lt;/code&gt;하고, &lt;code class=&quot;highlighter-rouge&quot;&gt;이름&lt;/code&gt; 또는 &lt;code class=&quot;highlighter-rouge&quot;&gt;hashCode&lt;/code&gt; 등으로 구분하는 방식을 &lt;code class=&quot;highlighter-rouge&quot;&gt;Nominal Typing&lt;/code&gt; 라고 합니다.&lt;/p&gt;
-
-&lt;p&gt;typescript에서 &lt;code class=&quot;highlighter-rouge&quot;&gt;Nominal Typing&lt;/code&gt; 방식을 사용하고 싶다면,다음과 같이 트릭을 이용할 수 있습니다.&lt;/p&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;CatInfo&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;kr&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;kr&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;breed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;kd&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;age&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;breed&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;C1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;CatInfo2&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;kr&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;kr&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;breed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;kd&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;age&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;breed&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;C2&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;c1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;CatInfo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;CatInfo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;c2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;CatInfo2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;CatInfo2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;hello&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;CatInfo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;instanceof&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;CatInfo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;hello&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;c2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// error&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;property&lt;/code&gt; 항목 중 한개라도  &lt;code class=&quot;highlighter-rouge&quot;&gt;private&lt;/code&gt;으로 선언하면 &lt;code class=&quot;highlighter-rouge&quot;&gt;Nominal Typing&lt;/code&gt; 방식처럼 동작 합니다.&lt;/p&gt;
-
-&lt;p&gt;다른 방법도 &lt;a href=&quot;https://michalzalecki.com/nominal-typing-in-typescript/&quot;&gt;Nominal typing techniques in TypeScript&lt;/a&gt; 를 참조하면 보여집니다&lt;/p&gt;
-
-&lt;h2 id=&quot;정리&quot;&gt;정리&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Duck Typing : &lt;code class=&quot;highlighter-rouge&quot;&gt;런타입 시점&lt;/code&gt;에 객체의 변수 및 메소드의 집합이 객체의 타입을 결정&lt;/li&gt;
-  &lt;li&gt;Structural Typing : &lt;code class=&quot;highlighter-rouge&quot;&gt;컴파일 시점&lt;/code&gt;에 &lt;code class=&quot;highlighter-rouge&quot;&gt;Duck Typing&lt;/code&gt; 와 같이 객체의 구조로 객체의 타입을 결정&lt;/li&gt;
-  &lt;li&gt;Nominal Typing : 클래스의 이름 또는 hashCode 등으로 객체의 타입을 결정&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;javascript에서는 &lt;code class=&quot;highlighter-rouge&quot;&gt;Duck Typing&lt;/code&gt;을 지원하고, typescript에서는 &lt;code class=&quot;highlighter-rouge&quot;&gt;Structural Typing&lt;/code&gt; 지원합니다.  둘의 차이는 어느 타이밍에 객체의 타입을 결정하는지에 따라 다를뿐 동작은 동일합니다.&lt;/p&gt;
-
-&lt;p&gt;또한, Typescript는 &lt;code class=&quot;highlighter-rouge&quot;&gt;Structural Typing&lt;/code&gt;을 지원하지만, 몇가지 트릭을 이용하면, &lt;code class=&quot;highlighter-rouge&quot;&gt;Nominal Typing&lt;/code&gt;과 같이 사용이 가능하다.&lt;/p&gt;
-
-&lt;p&gt;잘 알고 쓰자!!!&lt;/p&gt;
-
-&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://soopdop.github.io/2020/12/09/duck-typing/&quot;&gt;TypeScript와 Duck Typing의 관계 쉽게 설명하기&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://michalzalecki.com/nominal-typing-in-typescript/&quot;&gt;Nominal typing techniques in TypeScript&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://toss.tech/article/typescript-type-compatibility&quot;&gt;TypeScript 타입 시스템 뜯어보기: 타입 호환성&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="typescript" /><summary type="html">타입스크립트를 아는 줄 알았는데 모르고 있었다.</summary></entry><entry><title type="html">4. Daily-Quest</title><link href="https://lahuman.github.io/routine_04/" rel="alternate" type="text/html" title="4. Daily-Quest" /><published>2023-09-01T00:00:00+00:00</published><updated>2023-09-01T00:00:00+00:00</updated><id>https://lahuman.github.io/routine_04</id><content type="html" xml:base="https://lahuman.github.io/routine_04/">&lt;h1 id=&quot;나만-쓰는-서비스이지만-열심히-업뎃-하자&quot;&gt;나만 쓰는 서비스이지만, 열심히 업뎃 하자!&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;쿼스트에 점수(Point)와 퀘스트의 담당자(Member)를 추가 하였습니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;담당자---member&quot;&gt;담당자 - Member&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/dq_member.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;담당자를 등록 하고, 담당자의 총 포인트를 확인 할 수 있습니다. 담당자의 삭제 기능은 복잡함 때문에 제외처리 했습니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;점수---point&quot;&gt;점수 - Point&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/dq_quest.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Quest 등록시 담당자와 포인트를 등록하는 항목이 추가 되었습니다.
-포인트의 경우 음수/양수로 입력이 가능하고 음수의 경우 빨간색, 양수의 경우 파란색으로 표기 됩니다.&lt;/p&gt;
-
-&lt;p&gt;해당 값들은 옵션으로 입력하지 않으면 포인트는 0으로 표기 됩니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;마치며&quot;&gt;마치며&lt;/h2&gt;
-
-&lt;p&gt;아이들의 퀘스트 관리용으로 잘 사용하고 있습니다. 
-혼자 쓰는게 조금 아쉽지만 재미있게 사용하고 있네요!&lt;/p&gt;
-
-&lt;h2 id=&quot;바로가기&quot;&gt;바로가기&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&quot;http://52.78.54.82:6001&quot;&gt;daily-quest&lt;/a&gt;
-&lt;a href=&quot;https://github.com/lahuman/daily-quest&quot;&gt;소스 코드&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><category term="routine" /><category term="todo" /><summary type="html">Member / Point 기능 추가</summary></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><category term="redis" /><category term="scan" /><category term="scanstream" /><summary type="html">scanStream으로 변경 처리</summary></entry></feed>
