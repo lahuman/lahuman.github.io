@@ -1,4 +1,44 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2023-12-30T13:23:40+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">목적이 없는 일은 마치 방향타 없는 배와 같다</title><link href="https://lahuman.github.io/20231203/" rel="alternate" type="text/html" title="목적이 없는 일은 마치 방향타 없는 배와 같다" /><published>2023-12-03T00:00:00+00:00</published><updated>2023-12-03T00:00:00+00:00</updated><id>https://lahuman.github.io/20231203</id><content type="html" xml:base="https://lahuman.github.io/20231203/">&lt;h1 id=&quot;프로젝트나-팀을-이끄는-데-있어-목적이-명확해야-합니다&quot;&gt;프로젝트나 팀을 이끄는 데 있어 목적이 명확해야 합니다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2024-01-09T01:06:15+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">docker 에서 실행중인 컨테이너를 이미지로 전환 처리</title><link href="https://lahuman.github.io/docker-commit/" rel="alternate" type="text/html" title="docker 에서 실행중인 컨테이너를 이미지로 전환 처리" /><published>2023-12-30T00:00:00+00:00</published><updated>2023-12-30T00:00:00+00:00</updated><id>https://lahuman.github.io/docker-commit</id><content type="html" xml:base="https://lahuman.github.io/docker-commit/">&lt;h1 id=&quot;컨테이너의-변경-사항으로-새-이미지-만들기&quot;&gt;컨테이너의 변경 사항으로 새 이미지 만들기&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;사건의 발달은 6000번 포트로 서비스를 오픈했을때, chrome에서 접근하지 못하는 문제가 발생했습니다. 
+원인으로 &lt;a href=&quot;https://gajy.tistory.com/65?fbclid=IwAR1cvnSRDTgkYb8QXX3INHOEQ6az519k2QCN6d6LLp-8kiT-Q64DDLJgKXY&quot;&gt;6000번 포트의 비밀 (ERR_UNSAFE_PORT)&lt;/a&gt;를 보면 보안상의 이유로 막았다고 합니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;문제는 이미 설정한 컨테이너를 지우고 다시 작업하기 귀찮은 상황이었습니다. 
+그래서 찾은게 &lt;a href=&quot;https://docs.docker.com/engine/reference/commandline/commit/&quot;&gt;docker commit&lt;/a&gt;라는 명령입니다.&lt;/p&gt;
+
+&lt;p&gt;해당 명령어를 이용해서 실행중인 컨테이너를 새 이미지로 만들 수 있습니다. 
+저는 아래와 같이 사용 하였습니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 6000번 포트를 연동하고 있는 컨테이너
+$ docker ps
+CONTAINER ID   IMAGE                        COMMAND               CREATED        STATUS       PORTS                                                                                                                           NAMES
+4d4f0a0acbae   ssh_alpine                    &quot;/usr/sbin/sshd -D&quot;   8 hours ago    Up 8 hours   0.0.0.0:6000-6001-&amp;gt;6000-6001/tcp, :::6000-6001-&amp;gt;6000-6001/tcp   dqserver
+
+# 컨테이너를 이미지로 생성
+$ docker commit dqserver dqserver_image
+
+# 기존 이미지 중지 및 삭제
+$ docker stop dqserver
+$ docker rm dqserver
+
+# 포트를 변경해서 신규 이미지 생성
+$ docker run -it -d -p 6002:6002 -p 6001:6001  --name dqserver dqserver_image
+$ docker ps
+CONTAINER ID   IMAGE                        COMMAND               CREATED        STATUS       PORTS                                                                                                                           NAMES
+4d4f0a0acbae   dqserver_image                    &quot;/usr/sbin/sshd -D&quot;   8 hours ago    Up 8 hours   0.0.0.0:6001-6002-&amp;gt;6001-6002/tcp, :::6001-6002-&amp;gt;6001-6002/tcp   dqserver
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;참고로 이미지가 커밋되는 동안 커밋되는 컨테이너와 해당 프로세스는 일시 중지됩니다. 이렇게 하면 커밋을 생성하는 과정에서 데이터 손상이 발생할 가능성이 줄어듭기 때문입니다. 동작을 원하지 않는 경우 –pause 옵션을 false로 설정하세요.&lt;/p&gt;
+
+&lt;p&gt;추가적인 설명은 &lt;a href=&quot;https://docs.docker.com/engine/reference/commandline/commit/&quot;&gt;docker commit&lt;/a&gt;를 확인하세요!&lt;/p&gt;
+
+&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.docker.com/engine/reference/commandline/commit/&quot;&gt;docker commit&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://gajy.tistory.com/65?fbclid=IwAR1cvnSRDTgkYb8QXX3INHOEQ6az519k2QCN6d6LLp-8kiT-Q64DDLJgKXY&quot;&gt;6000번 포트의 비밀 (ERR_UNSAFE_PORT)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="propose" /><category term="단상" /><summary type="html">외부 연결 포트를 변경하는지 등의 처리를 할때 용의</summary></entry><entry><title type="html">목적이 없는 일은 마치 방향타 없는 배와 같다</title><link href="https://lahuman.github.io/20231203/" rel="alternate" type="text/html" title="목적이 없는 일은 마치 방향타 없는 배와 같다" /><published>2023-12-03T00:00:00+00:00</published><updated>2023-12-03T00:00:00+00:00</updated><id>https://lahuman.github.io/20231203</id><content type="html" xml:base="https://lahuman.github.io/20231203/">&lt;h1 id=&quot;프로젝트나-팀을-이끄는-데-있어-목적이-명확해야-합니다&quot;&gt;프로젝트나 팀을 이끄는 데 있어 목적이 명확해야 합니다.&lt;/h1&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;목적이 없는 일은 마치 방향타 없는 배&lt;/code&gt;와 같습니다. 
 목표를 설정하고 그에 맞는 방향으로 나아가는 것이 중요합니다. 
@@ -511,65 +551,4 @@ See https://fly.io/plans to &lt;span class=&quot;nb&quot;&gt;set &lt;/span&gt;up
   &lt;li&gt;&lt;a href=&quot;https://pocketbase.io/&quot;&gt;PocketBase&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://dev.to/marselit/build-and-deploy-a-pocketbase-project-oi4&quot;&gt;Build and deploy a Pocketbase project with Docker and Fly.io&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://mycodings.fly.dev/blog/2023-09-09-build-my-own-pocketbase-server-on-flyio&quot;&gt;PocketBase 활용법 1탄. 나만의 pocketbase 서버 만들기 in Fly.io&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="pocketbase" /><category term="opensource" /><summary type="html">토이프로젝트의 API는 이걸로 끝!</summary></entry><entry><title type="html">평가 시스템 구축</title><link href="https://lahuman.github.io/human_rating/" rel="alternate" type="text/html" title="평가 시스템 구축" /><published>2023-09-21T00:00:00+00:00</published><updated>2023-09-21T00:00:00+00:00</updated><id>https://lahuman.github.io/human_rating</id><content type="html" xml:base="https://lahuman.github.io/human_rating/">&lt;h1 id=&quot;평가-시스템-구축&quot;&gt;평가 시스템 구축&lt;/h1&gt;
-
-&lt;h2 id=&quot;why&quot;&gt;Why??&lt;/h2&gt;
-
-&lt;p&gt;평가의 당위성은 개인 및 조직의 성과 향상, 개발 기회 제공, 조직 문화 강화, 리더십 발전 등 다양한 이점을 제공하며, 이를 통해 조직의 효율성과 효과성을 향상시킬 수 있습니다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;360도 피드백: 평가는 주로 360도 피드백 과정의 일부로 활용됩니다. 이는 개별 직원의 역량과 성과를 면밀히 평가하고 발전시키기 위한 방법입니다. 평가를 통해 다양한 관점에서의 피드백을 얻어 자신의 강점과 약점을 파악할 수 있습니다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;객관성과 균형성: 평가는 주관적인 평가와 달리 객관적인 데이터를 제공할 수 있습니다. 여러 동료의 의견을 종합하면 개인적인 편향을 줄이고 조직 내에서 공평한 평가가 이루어질 가능성이 높아집니다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;성과 개선: 평가는 개인 및 팀의 성과를 개선하기 위한 중요한 당위성을 가집니다. 동료의 피드백을 통해 개인과 팀이 어떻게 더 나은 방향으로 나아갈 수 있는지에 대한 힌트를 얻을 수 있습니다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;개발 기회 제공: 평가는 개인 개발과 성장을 위한 기회를 제공합니다. 동료들의 의견을 토대로 개인적인 학습과 발전 계획을 수립하고 향상된 역량을 개발할 수 있습니다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;조직 문화 강화: 평가는 조직 내 협력과 업무 환경을 개선하는데 도움을 줄 수 있습니다. 동료 간 소통과 협력을 강화하고 조직 문화의 개선에 기여할 수 있습니다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;리더십 개발: 리더나 매니저에 대한 평가는 리더십 스킬의 발전을 위해 중요합니다. 동료들의 평가를 통해 리더는 자신의 리더십 스타일을 평가하고 개선할 수 있습니다.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;사용-기술&quot;&gt;사용 기술&lt;/h2&gt;
-
-&lt;h3 id=&quot;api&quot;&gt;API&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://pocketbase.io/&quot;&gt;PocketBase&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;a href=&quot;https://pocketbase.io/&quot;&gt;PocketBase&lt;/a&gt;는 실시간 구독, 내장된 인증 관리, 편리한 대시보드 UI, 간단한 REST 방식의 API를 갖춘 임베디드 데이터베이스(SQLite)로 구성된 오픈 소스 백엔드입니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&quot;web&quot;&gt;WEB&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://nextjs.org/&quot;&gt;nextjs&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://vercel.com/&quot;&gt;vercel&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;a href=&quot;https://nextjs.org/&quot;&gt;nextjs&lt;/a&gt;로 개발하고 &lt;a href=&quot;https://vercel.com/&quot;&gt;vercel&lt;/a&gt;에 배포 했습니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;마치며&quot;&gt;마치며,&lt;/h2&gt;
-
-&lt;p&gt;동료들에게 나에 대한 평가를 요청 드렸습니다&lt;/p&gt;
-
-&lt;p&gt;결과는&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/human_rating.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;평균 3.5를 넘어서 아직까진 잘하고 있구나라는 생각을 하게 되네요! :)&lt;/p&gt;
-
-&lt;h2 id=&quot;바로가기&quot;&gt;바로가기&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/lahuman/human-rating&quot;&gt;UI 소스코드&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="rating" /><summary type="html">평가가 왜 필요할까요?</summary></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><category term="pocketbase" /><category term="opensource" /><summary type="html">토이프로젝트의 API는 이걸로 끝!</summary></entry></feed>
