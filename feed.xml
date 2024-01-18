@@ -1,4 +1,34 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2024-01-09T01:06:15+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">docker 에서 실행중인 컨테이너를 이미지로 전환 처리</title><link href="https://lahuman.github.io/docker-commit/" rel="alternate" type="text/html" title="docker 에서 실행중인 컨테이너를 이미지로 전환 처리" /><published>2023-12-30T00:00:00+00:00</published><updated>2023-12-30T00:00:00+00:00</updated><id>https://lahuman.github.io/docker-commit</id><content type="html" xml:base="https://lahuman.github.io/docker-commit/">&lt;h1 id=&quot;컨테이너의-변경-사항으로-새-이미지-만들기&quot;&gt;컨테이너의 변경 사항으로 새 이미지 만들기&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2024-01-18T02:31:13+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">생성형 AI(Generative AI)의 이해</title><link href="https://lahuman.github.io/generative_ai/" rel="alternate" type="text/html" title="생성형 AI(Generative AI)의 이해" /><published>2024-01-18T00:00:00+00:00</published><updated>2024-01-18T00:00:00+00:00</updated><id>https://lahuman.github.io/generative_ai</id><content type="html" xml:base="https://lahuman.github.io/generative_ai/">&lt;h1 id=&quot;생성형-aigenerative-ai란&quot;&gt;생성형 AI(Generative AI)란?&lt;/h1&gt;
+
+&lt;p&gt;인공지능(AI) 분야에서 주목받는 최신 발전 중 하나는 &lt;code class=&quot;highlighter-rouge&quot;&gt;생성형 AI(Generative AI)&lt;/code&gt;의 등장입니다. 생성형 AI는 &lt;code class=&quot;highlighter-rouge&quot;&gt;기계가 인간의 창작물과 매우 유사한 텍스트, 이미지, 심지어 음악을 생성할 수 있는 기술&lt;/code&gt;을 지칭합니다. 이 기술의 복잡성과 다양성은 업계에서 큰 관심을 받고 있는데, 이를 통해 새로운 창작물을 만들어내는 가능성이 열린 것입니다.&lt;/p&gt;
+
+&lt;p&gt;생성형 AI는 간단하면서도 강력한 원리에 기반하고 있습니다. 주어진 입력이나 컨텍스트에 따라 의미 있는 결과물을 창출할 수 있는 능력을 가지고 있습니다. 이러한 AI가 주목받는 이유 중 하나는 인간과 유사한 대화를 이어가면서 다양한 주제에 걸쳐 일관된 콘텐츠를 생성할 수 있다는 점입니다. 대표적인 예로는 &lt;code class=&quot;highlighter-rouge&quot;&gt;챗봇&lt;/code&gt; 중 &lt;code class=&quot;highlighter-rouge&quot;&gt;OpenAI의 GPT(Generative Pre-trained Transformer) 모델&lt;/code&gt;이 있습니다. 특히 GPT-3 및 그 후속 모델은 다양한 주제에 대한 이해와 일관된 텍스트 생성 능력을 입증하여 많은 주목을 받았습니다.&lt;/p&gt;
+
+&lt;p&gt;생성형 AI로 개발된 응용 프로그램은 알파고와는 달리 &lt;code class=&quot;highlighter-rouge&quot;&gt;광범위한 분야에서 유용성&lt;/code&gt;을 보여주고 있습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;fmfoundation-model&quot;&gt;FM(Foundation Model)&lt;/h2&gt;
+
+&lt;p&gt;FM(Foundation Model)은 다양한 생성형 AI 애플리케이션의 기초를 제공합니다. 이는 광범위한 데이터 세트에 대한 사전 훈련된 모델로, 개발자와 연구원이 신속하게 구축할 수 있는 출발점을 제공합니다. FM은 특정 작업에 맞게 미세 조정하거나 다양한 애플리케이션에서 그대로 활용할 수 있는 기초 역할을 합니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;amazon-bedrock-생성형-ai로-가는-관문&quot;&gt;&lt;a href=&quot;https://aws.amazon.com/ko/bedrock/&quot;&gt;Amazon Bedrock&lt;/a&gt;: 생성형 AI로 가는 관문&lt;/h2&gt;
+
+&lt;p&gt;Amazon Bedrock은 AI21 Labs, Anthropic, Cohere, Meta, Stability AI 및 Amazon과 같은 선도적인 AI 회사들의 고성능 파운데이션 모델(FM)을 하나의 API로 제공하는 &lt;code class=&quot;highlighter-rouge&quot;&gt;완전히 관리되는 서비스&lt;/code&gt;(SaaS 형태)입니다. 생성형 AI 애플리케이션을 구축하는 데 필요한 다양한 기능 세트를 활용하여 &lt;code class=&quot;highlighter-rouge&quot;&gt;개인 정보 보호 및 보안을 유지&lt;/code&gt;하면서 개발을 간소화할 수 있습니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;amazon-bedrock-security-and-privacy&quot;&gt;&lt;a href=&quot;https://aws.amazon.com/ko/bedrock/security-compliance/&quot;&gt;Amazon Bedrock Security and Privacy&lt;/a&gt;&lt;/h3&gt;
+
+&lt;h4 id=&quot;애플리케이션의-보안-유지&quot;&gt;애플리케이션의 보안 유지&lt;/h4&gt;
+
+&lt;p&gt;Amazon bedrock을 사용하면 생성형 AI 애플리케이션의 기본 모델을 사용자 정의하는 데 사용하여 데이터를 완벽하게 제어할 수 있습니다. 데이터는 전송 중 및 미사용 시 &lt;code class=&quot;highlighter-rouge&quot;&gt;암호화&lt;/code&gt;됩니다. 또한, &lt;code class=&quot;highlighter-rouge&quot;&gt;AWS 키 관리 서비스(AWS KMS)를 사용하여 암호화 키를 생성, 관리 및 제어&lt;/code&gt;할 수 있습니다. ID 기반 정책은 데이터를 더욱 효과적으로 제어하여 사용자와 역할이 어떤 리소스에서, 어떤 조건에서, 어떤 작업을 수행할 수 있는지 관리할 수 있도록 도와줍니다&lt;/p&gt;
+
+&lt;h4 id=&quot;포괄적인-데이터-보호-및-개인정보-보호로-구축&quot;&gt;포괄적인 데이터 보호 및 개인정보 보호로 구축&lt;/h4&gt;
+
+&lt;p&gt;아마존 bedrock은 데이터를 사용자가 제어할 수 있도록 도와줍니다. 기본 모델을 조정할 때는 해당 모델의 &lt;code class=&quot;highlighter-rouge&quot;&gt;비공개 사본을 기반&lt;/code&gt;으로 합니다. 즉, &lt;code class=&quot;highlighter-rouge&quot;&gt;사용자의 데이터는 모델 제공업체와 공유되지 않으며 기본 모델을 개선하는 데 사용되지 않습니다.&lt;/code&gt; AWS PrivateLink를 사용하면 VPC를 인터넷 트래픽에 노출하지 않고도 Amazon 가상 프라이빗 클라우드(VPC)에서 Amazon bedrock으로 프라이빗 연결을 설정할 수 있습니다. 마지막으로, bedrock은 ISO, SOC, CSA STAR 레벨 2를 포함한 일반적인 규정 준수 표준의 적용 범위를 벗어나지 않으며, HIPAA를 준수하고, 고객이 GDPR을 준수하면서 bedrock을 사용할 수 있습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://aws.amazon.com/ko/bedrock/&quot;&gt;Amazon Bedrock&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://amarpreet-s.medium.com/generative-ai-with-aws-bedrock-4e1a2770db0c&quot;&gt;Generative AI with AWS Bedrock&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="generative" /><category term="ai" /><summary type="html">대표적인 예로 AWS BEDROCK 까지 알아보자</summary></entry><entry><title type="html">docker 에서 실행중인 컨테이너를 이미지로 전환 처리</title><link href="https://lahuman.github.io/docker-commit/" rel="alternate" type="text/html" title="docker 에서 실행중인 컨테이너를 이미지로 전환 처리" /><published>2023-12-30T00:00:00+00:00</published><updated>2023-12-30T00:00:00+00:00</updated><id>https://lahuman.github.io/docker-commit</id><content type="html" xml:base="https://lahuman.github.io/docker-commit/">&lt;h1 id=&quot;컨테이너의-변경-사항으로-새-이미지-만들기&quot;&gt;컨테이너의 변경 사항으로 새 이미지 만들기&lt;/h1&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;사건의 발달은 6000번 포트로 서비스를 오픈했을때, chrome에서 접근하지 못하는 문제가 발생했습니다. 
@@ -38,7 +68,7 @@ CONTAINER ID   IMAGE                        COMMAND               CREATED       
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://docs.docker.com/engine/reference/commandline/commit/&quot;&gt;docker commit&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://gajy.tistory.com/65?fbclid=IwAR1cvnSRDTgkYb8QXX3INHOEQ6az519k2QCN6d6LLp-8kiT-Q64DDLJgKXY&quot;&gt;6000번 포트의 비밀 (ERR_UNSAFE_PORT)&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="propose" /><category term="단상" /><summary type="html">외부 연결 포트를 변경하는지 등의 처리를 할때 용의</summary></entry><entry><title type="html">목적이 없는 일은 마치 방향타 없는 배와 같다</title><link href="https://lahuman.github.io/20231203/" rel="alternate" type="text/html" title="목적이 없는 일은 마치 방향타 없는 배와 같다" /><published>2023-12-03T00:00:00+00:00</published><updated>2023-12-03T00:00:00+00:00</updated><id>https://lahuman.github.io/20231203</id><content type="html" xml:base="https://lahuman.github.io/20231203/">&lt;h1 id=&quot;프로젝트나-팀을-이끄는-데-있어-목적이-명확해야-합니다&quot;&gt;프로젝트나 팀을 이끄는 데 있어 목적이 명확해야 합니다.&lt;/h1&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="docker" /><category term="container" /><summary type="html">외부 연결 포트를 변경하는지 등의 처리를 할때 용의</summary></entry><entry><title type="html">목적이 없는 일은 마치 방향타 없는 배와 같다</title><link href="https://lahuman.github.io/20231203/" rel="alternate" type="text/html" title="목적이 없는 일은 마치 방향타 없는 배와 같다" /><published>2023-12-03T00:00:00+00:00</published><updated>2023-12-03T00:00:00+00:00</updated><id>https://lahuman.github.io/20231203</id><content type="html" xml:base="https://lahuman.github.io/20231203/">&lt;h1 id=&quot;프로젝트나-팀을-이끄는-데-있어-목적이-명확해야-합니다&quot;&gt;프로젝트나 팀을 이끄는 데 있어 목적이 명확해야 합니다.&lt;/h1&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;목적이 없는 일은 마치 방향타 없는 배&lt;/code&gt;와 같습니다. 
 목표를 설정하고 그에 맞는 방향으로 나아가는 것이 중요합니다. 
@@ -381,174 +411,4 @@ graph TD;
 
 &lt;h2 id=&quot;언어는-무엇을-사용할껀데&quot;&gt;언어는 무엇을 사용할껀데?&lt;/h2&gt;
 
-&lt;p&gt;이번에 1.0으로 릴리즈한 &lt;a href=&quot;https://bun.sh/&quot;&gt;bun&lt;/a&gt;을 활용해볼 예정입니다!&lt;/p&gt;</content><author><name></name></author><category term="holiday" /><category term="api" /><summary type="html">프로젝트마다 한번씩 사용하는 휴일 처리를 API로 제공하자!</summary></entry><entry><title type="html">Pocketbase</title><link href="https://lahuman.github.io/pocketbase/" rel="alternate" type="text/html" title="Pocketbase" /><published>2023-09-22T00:00:00+00:00</published><updated>2023-09-22T00:00:00+00:00</updated><id>https://lahuman.github.io/pocketbase</id><content type="html" xml:base="https://lahuman.github.io/pocketbase/">&lt;h1 id=&quot;간단하게-pocketbase를-flyio에-올리는-방법을-설명합니다&quot;&gt;간단하게 Pocketbase를 fly.io에 올리는 방법을 설명합니다.&lt;/h1&gt;
-
-&lt;h2 id=&quot;flyio-설치-및-가입&quot;&gt;fly.io 설치 및 가입&lt;/h2&gt;
-
-&lt;h3 id=&quot;1-설치&quot;&gt;1. 설치&lt;/h3&gt;
-
-&lt;p&gt;다음 명령어로 쉽게 설치가 가능합니다.&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# Windows:&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;iwr https://fly.io/install.ps1 &lt;span class=&quot;nt&quot;&gt;-useb&lt;/span&gt; | iex
-&lt;span class=&quot;c&quot;&gt;# Linux&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;curl &lt;span class=&quot;nt&quot;&gt;-L&lt;/span&gt; https://fly.io/install.sh | sh
-&lt;span class=&quot;c&quot;&gt;# Mac&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;brew install flyctl
-&lt;span class=&quot;c&quot;&gt;# or&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;curl &lt;span class=&quot;nt&quot;&gt;-L&lt;/span&gt; https://fly.io/install.sh | sh
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;2-가입&quot;&gt;2. 가입&lt;/h3&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;웹 브라우저가 뜨고 신규 가입을 진행합니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;flyctl auth signup
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;3-로그인&quot;&gt;3. 로그인&lt;/h3&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;가입 정보로 로그인 처리&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;flyctl auth login
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;docker-파일-생성&quot;&gt;docker 파일 생성&lt;/h2&gt;
-
-&lt;p&gt;fly.io 에서 실행될 dockerfile을 생성합니다.&lt;/p&gt;
-
-&lt;h3 id=&quot;1-작업-디렉터리-생성&quot;&gt;1. 작업 디렉터리 생성&lt;/h3&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# 작업 디렉터리 생성&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;mkdir project
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;project
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;2-docker-파일-생성&quot;&gt;2. docker 파일 생성&lt;/h3&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;2023.09.26 기준 &lt;code class=&quot;highlighter-rouge&quot;&gt;0.18.8&lt;/code&gt;이 최신 버전입니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-FROM alpine:latest
-
-ARG &lt;span class=&quot;nv&quot;&gt;PB_VERSION&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0.18.8
-
-RUN apk add &lt;span class=&quot;nt&quot;&gt;--no-cache&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-    unzip &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-    ca-certificates &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-    openssh
-
-&lt;span class=&quot;c&quot;&gt;# download and unzip PocketBase&lt;/span&gt;
-ADD https://github.com/pocketbase/pocketbase/releases/download/v&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PB_VERSION&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;/pocketbase_&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PB_VERSION&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;_linux_amd64.zip /tmp/pb.zip
-RUN unzip /tmp/pb.zip &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; /pb/
-
-EXPOSE 8080
-
-&lt;span class=&quot;c&quot;&gt;# start PocketBase&lt;/span&gt;
-CMD &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;/pb/pocketbase&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;serve&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;--http=0.0.0.0:8080&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;3-fly-앱-생성&quot;&gt;3. fly 앱 생성&lt;/h3&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;fly launch
-Creating app &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; /Users/k/project
-Scanning &lt;span class=&quot;nb&quot;&gt;source &lt;/span&gt;code
-Detected a Dockerfile app
-? Choose an app name &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;leave blank to generate one&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;: you2
-automatically selected personal organization: Daniel
-Some regions require a paid plan &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;bom, fra, maa&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
-See https://fly.io/plans to &lt;span class=&quot;nb&quot;&gt;set &lt;/span&gt;up a plan.
-
-? Choose a region &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;deployment: Tokyo, Japan &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;nrt&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-App will use &lt;span class=&quot;s1&quot;&gt;'nrt'&lt;/span&gt; region as primary
-
-Created app &lt;span class=&quot;s1&quot;&gt;'you2'&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;organization &lt;span class=&quot;s1&quot;&gt;'personal'&lt;/span&gt;
-Admin URL: https://fly.io/apps/you2
-Hostname: you2.fly.dev
-? Would you like to &lt;span class=&quot;nb&quot;&gt;set &lt;/span&gt;up a Postgresql database now? No
-? Would you like to &lt;span class=&quot;nb&quot;&gt;set &lt;/span&gt;up an Upstash Redis database now? No
-Wrote config file fly.toml
-? Would you like to deploy now? No &lt;span class=&quot;c&quot;&gt;# fly.toml 파일만 생성하고, 실제 deploy 하지 않는다.&lt;/span&gt;
-Validating /Users/k/DEV/pocketBase/project/fly.toml
-Platform: machines
-✓ Configuration is valid
-Your app is ready! Deploy with &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;flyctl deploy&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;이후 생성된 fly.toml 파일에서 자동 정지 부분을 &lt;code class=&quot;highlighter-rouge&quot;&gt;false&lt;/code&gt;로 수정합니다.&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;app &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;you2&quot;&lt;/span&gt;
-primary_region &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;nrt&quot;&lt;/span&gt;
-
-&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;build]
-  &lt;span class=&quot;nv&quot;&gt;PB_VERSION&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;0.18.8&quot;&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;# mounts 추가&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;mounts]
-  destination &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;/pb/pb_data&quot;&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;pb_data&quot;&lt;/span&gt;
-
-&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;http_service]
-  internal_port &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 8080
-  force_https &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;true
-  &lt;/span&gt;auto_stop_machines &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;false
-  &lt;/span&gt;auto_start_machines &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;true
-  &lt;/span&gt;min_machines_running &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 0
-  processes &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;app&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
-  &lt;span class=&quot;c&quot;&gt;# 추가&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;http_service.concurrency]
-    &lt;span class=&quot;nb&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;requests&quot;&lt;/span&gt;
-    soft_limit &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 500
-    hard_limit &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 550
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;4-fly-배포&quot;&gt;4. fly 배포&lt;/h3&gt;
-
-&lt;p&gt;먼저 디스크를 생성 합니다.&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;fly volumes create pb_data &lt;span class=&quot;nt&quot;&gt;--size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1
- Warning! Individual volumes are pinned to individual hosts. You should create two or more volumes per application. You will have downtime &lt;span class=&quot;k&quot;&gt;if &lt;/span&gt;you only create one. Learn more at https://fly.io/docs/reference/volumes/
-? Do you still want to use the volumes feature? Yes
-Some regions require a paid plan &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;bom, fra, maa&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
-See https://fly.io/plans to &lt;span class=&quot;nb&quot;&gt;set &lt;/span&gt;up a plan.
-
-? Select region: Tokyo, Japan &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;nrt&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-        ID: vol_dfdfaefedfzz
-      Name: pb_data
-       App: you2
-    Region: nrt
-      Zone: fe01
-   Size GB: 1
- Encrypted: &lt;span class=&quot;nb&quot;&gt;true
-&lt;/span&gt;Created at: 22 Sep 23 02:31 UTC
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;이후 배포 합니다.&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;fly deploy
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;이후 다음 주소로 접근하면 접근이 됩니다.&lt;/p&gt;
-
-&lt;p&gt;https://{앱명}.fly.dev/&lt;/p&gt;
-
-&lt;h2 id=&quot;관리자-화면-접근&quot;&gt;관리자 화면 접근&lt;/h2&gt;
-
-&lt;p&gt;가장 먼저 다음의 관리자 화면에서 비밀번호를 설정하세요!&lt;/p&gt;
-
-&lt;p&gt;https://{앱명}.fly.dev/_&lt;/p&gt;
-
-&lt;p&gt;이후 활용 하면 되니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://pocketbase.io/&quot;&gt;PocketBase&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://dev.to/marselit/build-and-deploy-a-pocketbase-project-oi4&quot;&gt;Build and deploy a Pocketbase project with Docker and Fly.io&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://mycodings.fly.dev/blog/2023-09-09-build-my-own-pocketbase-server-on-flyio&quot;&gt;PocketBase 활용법 1탄. 나만의 pocketbase 서버 만들기 in Fly.io&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="pocketbase" /><category term="opensource" /><summary type="html">토이프로젝트의 API는 이걸로 끝!</summary></entry></feed>
+&lt;p&gt;이번에 1.0으로 릴리즈한 &lt;a href=&quot;https://bun.sh/&quot;&gt;bun&lt;/a&gt;을 활용해볼 예정입니다!&lt;/p&gt;</content><author><name></name></author><category term="holiday" /><category term="api" /><summary type="html">프로젝트마다 한번씩 사용하는 휴일 처리를 API로 제공하자!</summary></entry></feed>
