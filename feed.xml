@@ -1,4 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2024-01-22T01:54:21+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">생성형 AI(Generative AI)의 이해</title><link href="https://lahuman.github.io/generative_ai/" rel="alternate" type="text/html" title="생성형 AI(Generative AI)의 이해" /><published>2024-01-18T00:00:00+00:00</published><updated>2024-01-18T00:00:00+00:00</updated><id>https://lahuman.github.io/generative_ai</id><content type="html" xml:base="https://lahuman.github.io/generative_ai/">&lt;h1 id=&quot;생성형-aigenerative-ai란&quot;&gt;생성형 AI(Generative AI)란?&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2024-01-25T12:54:38+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">함께 일하고 싶은 동료, 그리고 함께 하면 피곤한 동료</title><link href="https://lahuman.github.io/20240125/" rel="alternate" type="text/html" title="함께 일하고 싶은 동료, 그리고 함께 하면 피곤한 동료" /><published>2024-01-25T00:00:00+00:00</published><updated>2024-01-25T00:00:00+00:00</updated><id>https://lahuman.github.io/20240125</id><content type="html" xml:base="https://lahuman.github.io/20240125/">&lt;h1 id=&quot;결국-사람인데&quot;&gt;결국 사람인데…&lt;/h1&gt;
+
+&lt;p&gt;함께 일울 하면 힘이 되는 사람이 있고,&lt;/p&gt;
+
+&lt;p&gt;함께 일을 하면 기운 빠지게 만드는 사람이 있습니다.&lt;/p&gt;
+
+&lt;p&gt;서로 맞지 않는다고 생각하는데 어떻게 계속 함께 일하게 되네요.&lt;/p&gt;
+
+&lt;p&gt;늘 사람이 가장 어렵고 힘드네요.&lt;/p&gt;</content><author><name></name></author><category term="phase" /><summary type="html">함께 하기 싫은 사람과 함께 해야 할 때도 있다</summary></entry><entry><title type="html">생성형 AI(Generative AI)의 이해</title><link href="https://lahuman.github.io/generative_ai/" rel="alternate" type="text/html" title="생성형 AI(Generative AI)의 이해" /><published>2024-01-18T00:00:00+00:00</published><updated>2024-01-18T00:00:00+00:00</updated><id>https://lahuman.github.io/generative_ai</id><content type="html" xml:base="https://lahuman.github.io/generative_ai/">&lt;h1 id=&quot;생성형-aigenerative-ai란&quot;&gt;생성형 AI(Generative AI)란?&lt;/h1&gt;
 
 &lt;p&gt;인공지능(AI) 분야에서 주목받는 최신 발전 중 하나는 &lt;code class=&quot;highlighter-rouge&quot;&gt;생성형 AI(Generative AI)&lt;/code&gt;의 등장입니다. 생성형 AI는 &lt;code class=&quot;highlighter-rouge&quot;&gt;기계가 인간의 창작물과 매우 유사한 텍스트, 이미지, 심지어 음악을 생성할 수 있는 기술&lt;/code&gt;을 지칭합니다. 이 기술의 복잡성과 다양성은 업계에서 큰 관심을 받고 있는데, 이를 통해 새로운 창작물을 만들어내는 가능성이 열린 것입니다.&lt;/p&gt;
 
@@ -381,49 +389,4 @@ graph TD;
 
 &lt;p&gt;이번에 작업을 하면서 batch 처리를 git action을 사용해보았는데, 세상이 참 좋다는 생각을 했습니다.&lt;/p&gt;
 
-&lt;p&gt;무료로 사용할 수 있는 것들이 정말 많아졌네요!&lt;/p&gt;</content><author><name></name></author><category term="holiday" /><category term="api" /><summary type="html">개발 완료! 사용법 문서</summary></entry><entry><title type="html">1. 휴일 확인 REST API 설계</title><link href="https://lahuman.github.io/holiday_api_01/" rel="alternate" type="text/html" title="1. 휴일 확인 REST API 설계" /><published>2023-10-06T00:00:00+00:00</published><updated>2023-10-06T00:00:00+00:00</updated><id>https://lahuman.github.io/holiday_api_01</id><content type="html" xml:base="https://lahuman.github.io/holiday_api_01/">&lt;h1 id=&quot;휴일-여뷰를-확인해주는-api를-매번-찾느니-하나-만들자&quot;&gt;휴일 여뷰를 확인해주는 API를 매번 찾느니, 하나 만들자!&lt;/h1&gt;
-
-&lt;h2 id=&quot;임시-공휴일-등-매년-변경되는-휴일은-어떻게-알-수-있는데&quot;&gt;임시 공휴일 등, 매년 변경되는 휴일은 어떻게 알 수 있는데?&lt;/h2&gt;
-
-&lt;p&gt;공공 데이터 포털에서 제공하는 오픈 API인 &lt;a href=&quot;https://www.data.go.kr/tcs/dss/selectApiDataDetailView.do?publicDataPk=15012690&quot;&gt;한국천문연구원_특일 정보&lt;/a&gt; 를 활용하면 해당 년도의 휴일을 가져올 수 있습니다. 
-이를 이용해서 최근 2년치 휴일 정보를 업데이트 할 예정입니다&lt;/p&gt;
-
-&lt;h2 id=&quot;어떻게-구성-할-껀데&quot;&gt;어떻게 구성 할 껀데?&lt;/h2&gt;
-
-&lt;p&gt;크게 2가지 API로 제공 예정입니다.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;년도 기준 휴일 정보 제공&lt;/li&gt;
-  &lt;li&gt;년월일 기준 휴일 여부 제공&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;응답 형식은 JSON 형식으로 제공 예정입니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;어디에-데이터를-적재할껀데&quot;&gt;어디에 데이터를 적재할껀데?&lt;/h2&gt;
-
-&lt;p&gt;따로 서버를 구성하지 않고 이전 프로젝트에서 사용한 fly.io의 pocketbase를 활용할 예정입니다.&lt;/p&gt;
-
-&lt;p&gt;firebase를 이용해보려고 했지만, document에 접근 하기 위해서는 권한 설정이 필요해서 이번엔 pocketbase로 처리 합니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;어떻게-동작하는데&quot;&gt;어떻게 동작하는데?&lt;/h2&gt;
-
-&lt;p&gt;매일 1회 아래와 같이 공공 데이터 포털에서 데이터를 조회 후 새로 적재 예정입니다.&lt;/p&gt;
-
-&lt;div class=&quot;mermaid&quot;&gt; 
-graph TD;
-    A[휴일] --&amp;gt;|공공데이터포털| B(가져오기);
-    B --&amp;gt; C{성공};
-    C --&amp;gt;|성공| D(올해/내년 데이터 조회);
-    C --&amp;gt;|실패| E[종료];
-    D --&amp;gt; F(올해 / 내년 데이터 삭제);
-    F --&amp;gt; G(올해 / 내년 데이터 적재);
-    G --&amp;gt; E;
-&lt;/div&gt;
-
-&lt;h2 id=&quot;데이터-적재를-실행을-어디서-할껀데&quot;&gt;데이터 적재를 실행을 어디서 할껀데?&lt;/h2&gt;
-
-&lt;p&gt;github의 action을 이용해서 일일 배치를 만들어볼 예정입니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;언어는-무엇을-사용할껀데&quot;&gt;언어는 무엇을 사용할껀데?&lt;/h2&gt;
-
-&lt;p&gt;이번에 1.0으로 릴리즈한 &lt;a href=&quot;https://bun.sh/&quot;&gt;bun&lt;/a&gt;을 활용해볼 예정입니다!&lt;/p&gt;</content><author><name></name></author><category term="holiday" /><category term="api" /><summary type="html">프로젝트마다 한번씩 사용하는 휴일 처리를 API로 제공하자!</summary></entry></feed>
+&lt;p&gt;무료로 사용할 수 있는 것들이 정말 많아졌네요!&lt;/p&gt;</content><author><name></name></author><category term="holiday" /><category term="api" /><summary type="html">개발 완료! 사용법 문서</summary></entry></feed>
