@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2024-01-25T12:54:38+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">함께 일하고 싶은 동료, 그리고 함께 하면 피곤한 동료</title><link href="https://lahuman.github.io/20240125/" rel="alternate" type="text/html" title="함께 일하고 싶은 동료, 그리고 함께 하면 피곤한 동료" /><published>2024-01-25T00:00:00+00:00</published><updated>2024-01-25T00:00:00+00:00</updated><id>https://lahuman.github.io/20240125</id><content type="html" xml:base="https://lahuman.github.io/20240125/">&lt;h1 id=&quot;결국-사람인데&quot;&gt;결국 사람인데…&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2024-01-25T13:40:39+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">함께 일하고 싶은 동료, 그리고 함께 하면 피곤한 동료</title><link href="https://lahuman.github.io/20240125/" rel="alternate" type="text/html" title="함께 일하고 싶은 동료, 그리고 함께 하면 피곤한 동료" /><published>2024-01-25T00:00:00+00:00</published><updated>2024-01-25T00:00:00+00:00</updated><id>https://lahuman.github.io/20240125</id><content type="html" xml:base="https://lahuman.github.io/20240125/">&lt;h1 id=&quot;결국-사람인데&quot;&gt;결국 사람인데…&lt;/h1&gt;
 
 &lt;p&gt;함께 일울 하면 힘이 되는 사람이 있고,&lt;/p&gt;
 
@@ -6,7 +6,83 @@
 
 &lt;p&gt;서로 맞지 않는다고 생각하는데 어떻게 계속 함께 일하게 되네요.&lt;/p&gt;
 
-&lt;p&gt;늘 사람이 가장 어렵고 힘드네요.&lt;/p&gt;</content><author><name></name></author><category term="phase" /><summary type="html">함께 하기 싫은 사람과 함께 해야 할 때도 있다</summary></entry><entry><title type="html">생성형 AI(Generative AI)의 이해</title><link href="https://lahuman.github.io/generative_ai/" rel="alternate" type="text/html" title="생성형 AI(Generative AI)의 이해" /><published>2024-01-18T00:00:00+00:00</published><updated>2024-01-18T00:00:00+00:00</updated><id>https://lahuman.github.io/generative_ai</id><content type="html" xml:base="https://lahuman.github.io/generative_ai/">&lt;h1 id=&quot;생성형-aigenerative-ai란&quot;&gt;생성형 AI(Generative AI)란?&lt;/h1&gt;
+&lt;p&gt;늘 사람이 가장 어렵고 힘드네요.&lt;/p&gt;</content><author><name></name></author><category term="phase" /><summary type="html">함께 하기 싫은 사람과 함께 해야 할 때도 있다</summary></entry><entry><title type="html">kotlin + Spring</title><link href="https://lahuman.github.io/spring_kotlin/" rel="alternate" type="text/html" title="kotlin + Spring" /><published>2024-01-25T00:00:00+00:00</published><updated>2024-01-25T00:00:00+00:00</updated><id>https://lahuman.github.io/spring_kotlin</id><content type="html" xml:base="https://lahuman.github.io/spring_kotlin/">&lt;h1 id=&quot;이번에는-코프링이다&quot;&gt;이번에는 코프링이다!&lt;/h1&gt;
+
+&lt;p&gt;이번 프로젝트는 kotlin + spring으로 결정했습니다.&lt;/p&gt;
+
+&lt;p&gt;익숙한 nodejs를 선택하지 않은 이유는 2가지가 있습니다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;새로운 걸 할때가 되었다.&lt;/li&gt;
+  &lt;li&gt;동료중에 코틀린 좀 치는 분이 계시다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;자바 + Spring은 경험했었지만, 코틀린은 처음이라 기대 반 걱정반입니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;코틀린으로-시작해보자&quot;&gt;코틀린으로 시작해보자&lt;/h2&gt;
+
+&lt;p&gt;기본 문법은 가법게 책과 동영상으로 익히고 바로 spring을 접해보기로 했습니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;spring-기본-설정-프로젝트-생성하기&quot;&gt;spring 기본 설정 프로젝트 생성하기&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://start.spring.io/&quot;&gt;Spring initializer&lt;/a&gt; 를 통해서 프로젝트를 생성하거나, 아래와 같은 curl 명령어를 이용해서 파일을 다운 받을 수 있습니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;mkdir blog &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;blog
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;curl https://start.spring.io/starter.zip &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;language&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;kotlin &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;gradle-project-kotlin &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;dependencies&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;web,mustache,jpa,h2,devtools &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;packageName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;com.example.blog &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;Blog &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; blog.zip
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;아래는 주요 설정을 설명 합니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;buildgradlekts&quot;&gt;build.gradle.kts&lt;/h3&gt;
+
+&lt;p&gt;JSR 305 어노테이션 + Spring null 가능성 어노테이션에 대한 Kotlin 지원은 컴파일 시 null 관련 문제를 처리할 수 있는 이점과 함께 Kotlin 개발자에게 전체 Spring Framework API에 대한 null 안전성을 제공합니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-gradle highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;tasks&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;withType&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;KotlinCompile&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;kotlinOptions&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;freeCompilerArgs&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;-Xjsr305=strict&quot;&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;jpa-지연-로딩-처리를-위한-설정&quot;&gt;JPA 지연 로딩 처리를 위한 설정&lt;/h3&gt;
+
+&lt;p&gt;지연 가져오기가 예상대로 작동하도록 하려면 &lt;a href=&quot;https://youtrack.jetbrains.com/issue/KT-28525&quot;&gt;KT-28525&lt;/a&gt;에 설명된 대로 엔티티를 열어야 합니다. 이를 위해 Kotlin &lt;code class=&quot;highlighter-rouge&quot;&gt;allopen&lt;/code&gt; 플러그인을 사용하겠습니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-gradle highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;plugins&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;kotlin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;plugin.allopen&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;version&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;1.8.0&quot;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;allOpen&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;annotation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;jakarta.persistence.Entity&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;annotation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;jakarta.persistence.Embeddable&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;annotation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;jakarta.persistence.MappedSuperclass&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;controller&quot;&gt;controller&lt;/h2&gt;
+
+&lt;p&gt;Hello World를 화면에 출력하는 단순한 REST API 입니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;@RestController&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;@RequestMapping&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/api/hello&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Controller&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+  &lt;span class=&quot;n&quot;&gt;@GetMapping&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;findAll&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Hello World&quot;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;단순하게 Controller만 생성해보았습니다.&lt;/p&gt;
+
+&lt;p&gt;이후 jpa 연계 부터 많은 작업을 해야 하는데, 새롭게 배우는 내용들을 작성해보려고 합니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://spring.io/guides/tutorials/spring-boot-kotlin/&quot;&gt;Building web applications with Spring Boot and Kotlin
+&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="kotlin" /><category term="spring" /><summary type="html">그래 너로 정했다! 코프링~</summary></entry><entry><title type="html">생성형 AI(Generative AI)의 이해</title><link href="https://lahuman.github.io/generative_ai/" rel="alternate" type="text/html" title="생성형 AI(Generative AI)의 이해" /><published>2024-01-18T00:00:00+00:00</published><updated>2024-01-18T00:00:00+00:00</updated><id>https://lahuman.github.io/generative_ai</id><content type="html" xml:base="https://lahuman.github.io/generative_ai/">&lt;h1 id=&quot;생성형-aigenerative-ai란&quot;&gt;생성형 AI(Generative AI)란?&lt;/h1&gt;
 
 &lt;p&gt;인공지능(AI) 분야에서 주목받는 최신 발전 중 하나는 &lt;code class=&quot;highlighter-rouge&quot;&gt;생성형 AI(Generative AI)&lt;/code&gt;의 등장입니다. 생성형 AI는 &lt;code class=&quot;highlighter-rouge&quot;&gt;기계가 인간의 창작물과 매우 유사한 텍스트, 이미지, 심지어 음악을 생성할 수 있는 기술&lt;/code&gt;을 지칭합니다. 이 기술의 복잡성과 다양성은 업계에서 큰 관심을 받고 있는데, 이를 통해 새로운 창작물을 만들어내는 가능성이 열린 것입니다.&lt;/p&gt;
 
@@ -284,109 +360,4 @@ graph TD;
 
 &lt;p&gt;힘들땐 개발만큰 재미난게 없네요.&lt;/p&gt;
 
-&lt;p&gt;주말이나 연휴동안 개인 프로젝트 개발만 신나게 했습니다.&lt;/p&gt;</content><author><name></name></author><category term="PM" /><summary type="html">개발이 싫은게 아니라, 지금 하는 업무가 싫다.</summary></entry><entry><title type="html">2. 휴일 확인 REST API</title><link href="https://lahuman.github.io/holiday_api_02/" rel="alternate" type="text/html" title="2. 휴일 확인 REST API" /><published>2023-10-11T00:00:00+00:00</published><updated>2023-10-11T00:00:00+00:00</updated><id>https://lahuman.github.io/holiday_api_02</id><content type="html" xml:base="https://lahuman.github.io/holiday_api_02/">&lt;h1 id=&quot;휴일-확인-api&quot;&gt;휴일 확인 API&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;해당 API에서는 미래 년도 3년치의 데이터만 제공합니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;년도-기준-공휴일-정보-제공&quot;&gt;년도 기준 공휴일 정보 제공&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;주소 : https://lahuman.vercel.app/api/holidays/${year}&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;예제&quot;&gt;예제&lt;/h3&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;curl &lt;span class=&quot;nt&quot;&gt;-XGET&lt;/span&gt; https://lahuman.vercel.app/api/holidays/2025
-&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;s2&quot;&gt;&quot;holidays&quot;&lt;/span&gt;: &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;s2&quot;&gt;&quot;name&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;1월1일&quot;&lt;/span&gt;,
-            &lt;span class=&quot;s2&quot;&gt;&quot;date&quot;&lt;/span&gt;: 20250101
-        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
-        &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;s2&quot;&gt;&quot;name&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;설날&quot;&lt;/span&gt;,
-            &lt;span class=&quot;s2&quot;&gt;&quot;date&quot;&lt;/span&gt;: 20250128
-        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
-        &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;s2&quot;&gt;&quot;name&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;설날&quot;&lt;/span&gt;,
-            &lt;span class=&quot;s2&quot;&gt;&quot;date&quot;&lt;/span&gt;: 20250129
-        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
-        &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;s2&quot;&gt;&quot;name&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;설날&quot;&lt;/span&gt;,
-            &lt;span class=&quot;s2&quot;&gt;&quot;date&quot;&lt;/span&gt;: 20250130
-        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
-        &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;s2&quot;&gt;&quot;name&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;삼일절&quot;&lt;/span&gt;,
-            &lt;span class=&quot;s2&quot;&gt;&quot;date&quot;&lt;/span&gt;: 20250301
-        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
-        &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;s2&quot;&gt;&quot;name&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;대체공휴일&quot;&lt;/span&gt;,
-            &lt;span class=&quot;s2&quot;&gt;&quot;date&quot;&lt;/span&gt;: 20250303
-        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
-        &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;s2&quot;&gt;&quot;name&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;부처님오신날&quot;&lt;/span&gt;,
-            &lt;span class=&quot;s2&quot;&gt;&quot;date&quot;&lt;/span&gt;: 20250505
-        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
-        &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;s2&quot;&gt;&quot;name&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;대체공휴일&quot;&lt;/span&gt;,
-            &lt;span class=&quot;s2&quot;&gt;&quot;date&quot;&lt;/span&gt;: 20250506
-        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
-        &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;s2&quot;&gt;&quot;name&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;현충일&quot;&lt;/span&gt;,
-            &lt;span class=&quot;s2&quot;&gt;&quot;date&quot;&lt;/span&gt;: 20250606
-        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
-        &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;s2&quot;&gt;&quot;name&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;광복절&quot;&lt;/span&gt;,
-            &lt;span class=&quot;s2&quot;&gt;&quot;date&quot;&lt;/span&gt;: 20250815
-        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
-        &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;s2&quot;&gt;&quot;name&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;추석&quot;&lt;/span&gt;,
-            &lt;span class=&quot;s2&quot;&gt;&quot;date&quot;&lt;/span&gt;: 20251005
-        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
-        &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;s2&quot;&gt;&quot;name&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;추석&quot;&lt;/span&gt;,
-            &lt;span class=&quot;s2&quot;&gt;&quot;date&quot;&lt;/span&gt;: 20251006
-        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
-        &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;s2&quot;&gt;&quot;name&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;추석&quot;&lt;/span&gt;,
-            &lt;span class=&quot;s2&quot;&gt;&quot;date&quot;&lt;/span&gt;: 20251007
-        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
-        &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;s2&quot;&gt;&quot;name&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;대체공휴일&quot;&lt;/span&gt;,
-            &lt;span class=&quot;s2&quot;&gt;&quot;date&quot;&lt;/span&gt;: 20251008
-        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
-        &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;s2&quot;&gt;&quot;name&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;한글날&quot;&lt;/span&gt;,
-            &lt;span class=&quot;s2&quot;&gt;&quot;date&quot;&lt;/span&gt;: 20251009
-        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
-        &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;s2&quot;&gt;&quot;name&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;기독탄신일&quot;&lt;/span&gt;,
-            &lt;span class=&quot;s2&quot;&gt;&quot;date&quot;&lt;/span&gt;: 20251225
-        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;날짜-기준-휴일-여부&quot;&gt;날짜 기준 휴일 여부&lt;/h2&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;단순하게 휴일 여부(주말 포함)만 확인합니다&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;주소 : https://lahuman.vercel.app/api/isHoliday/${date}&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;예제-1&quot;&gt;예제&lt;/h3&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;curl &lt;span class=&quot;nt&quot;&gt;-XGET&lt;/span&gt; https://lahuman.vercel.app/api/isHoliday/20250505
-&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;holiday&quot;&lt;/span&gt;:true&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;마치며&quot;&gt;마치며&lt;/h2&gt;
-
-&lt;p&gt;이번에 작업을 하면서 batch 처리를 git action을 사용해보았는데, 세상이 참 좋다는 생각을 했습니다.&lt;/p&gt;
-
-&lt;p&gt;무료로 사용할 수 있는 것들이 정말 많아졌네요!&lt;/p&gt;</content><author><name></name></author><category term="holiday" /><category term="api" /><summary type="html">개발 완료! 사용법 문서</summary></entry></feed>
+&lt;p&gt;주말이나 연휴동안 개인 프로젝트 개발만 신나게 했습니다.&lt;/p&gt;</content><author><name></name></author><category term="PM" /><summary type="html">개발이 싫은게 아니라, 지금 하는 업무가 싫다.</summary></entry></feed>
