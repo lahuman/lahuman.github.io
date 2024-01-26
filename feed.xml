@@ -1,4 +1,59 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2024-01-25T13:40:39+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">함께 일하고 싶은 동료, 그리고 함께 하면 피곤한 동료</title><link href="https://lahuman.github.io/20240125/" rel="alternate" type="text/html" title="함께 일하고 싶은 동료, 그리고 함께 하면 피곤한 동료" /><published>2024-01-25T00:00:00+00:00</published><updated>2024-01-25T00:00:00+00:00</updated><id>https://lahuman.github.io/20240125</id><content type="html" xml:base="https://lahuman.github.io/20240125/">&lt;h1 id=&quot;결국-사람인데&quot;&gt;결국 사람인데…&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2024-01-26T06:28:02+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">[kotlin + Spring]swagger 를 설정하자!</title><link href="https://lahuman.github.io/spring_kotlin_swagger/" rel="alternate" type="text/html" title="[kotlin + Spring]swagger 를 설정하자!" /><published>2024-01-26T00:00:00+00:00</published><updated>2024-01-26T00:00:00+00:00</updated><id>https://lahuman.github.io/spring_kotlin_swagger</id><content type="html" xml:base="https://lahuman.github.io/spring_kotlin_swagger/">&lt;h1 id=&quot;springdoc-openapi-v230&quot;&gt;&lt;a href=&quot;https://springdoc.org/&quot;&gt;springdoc-openapi v2.3.0&lt;/a&gt;&lt;/h1&gt;
+
+&lt;p&gt;springBoot 3.x 부터는 &lt;a href=&quot;https://springdoc.org/&quot;&gt;springdoc-openapi v2.3.0&lt;/a&gt; 모듈을 사용해야 합니다. 
+이전 버젼은 &lt;code class=&quot;highlighter-rouge&quot;&gt;springdoc-openapi v1.7.0&lt;/code&gt;을 이용해야 합니다.&lt;/p&gt;
+
+&lt;p&gt;설치는 &lt;code class=&quot;highlighter-rouge&quot;&gt;build.gradle.kts&lt;/code&gt; 에 아래 디펜던시를 추가 합니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-gradle highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;implementation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;org.springdoc:springdoc-openapi-starter-webmvc-ui:2.3.0&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Swagger 설정은 다음과 같이 단순하게 class를 추가해서 설정할 수 있습니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;io.lahuman.config&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;io.swagger.v3.oas.annotations.OpenAPIDefinition&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;io.swagger.v3.oas.annotations.info.Info&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;io.swagger.v3.oas.annotations.servers.Server&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.springframework.context.annotation.Configuration&lt;/span&gt;
+
+
+&lt;span class=&quot;n&quot;&gt;@OpenAPIDefinition&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;info&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Info&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;title&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;제목&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;description&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;설명&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;version&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;v1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;servers&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;Server&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;\${springdoc.swagger-ui.server}&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;@Configuration&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;SwaggerConfig&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;추가로 &lt;code class=&quot;highlighter-rouge&quot;&gt;/resource/application.yml&lt;/code&gt;에 몇가지 설정을 넣어서 마무리 하면 됩니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-yml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;na&quot;&gt;springdoc&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;default-consumes-media-type&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;application/json&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;default-produces-media-type&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;application/json&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;swagger-ui&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;tags-sorter&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;alpha&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;server&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;http://localhost:8080/&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;/swagger-ui.html&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;server&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;servlet&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;context-path&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;/&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;encoding&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;force&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;true&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;실제 swagger 화면을 보기 위한 접속 주소는 &lt;code class=&quot;highlighter-rouge&quot;&gt;http://localhost:8080/swagger-ui.html&lt;/code&gt; 으로 접근하면 swagger 화면을 확인 할 수 있습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://springdoc.org/&quot;&gt;springdoc-openapi v2.3.0&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="kotlin" /><category term="spring" /><category term="swagger" /><summary type="html">swagger 설정!</summary></entry><entry><title type="html">함께 일하고 싶은 동료, 그리고 함께 하면 피곤한 동료</title><link href="https://lahuman.github.io/20240125/" rel="alternate" type="text/html" title="함께 일하고 싶은 동료, 그리고 함께 하면 피곤한 동료" /><published>2024-01-25T00:00:00+00:00</published><updated>2024-01-25T00:00:00+00:00</updated><id>https://lahuman.github.io/20240125</id><content type="html" xml:base="https://lahuman.github.io/20240125/">&lt;h1 id=&quot;결국-사람인데&quot;&gt;결국 사람인데…&lt;/h1&gt;
 
 &lt;p&gt;함께 일울 하면 힘이 되는 사람이 있고,&lt;/p&gt;
 
@@ -80,8 +135,7 @@
 &lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://spring.io/guides/tutorials/spring-boot-kotlin/&quot;&gt;Building web applications with Spring Boot and Kotlin
-&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://spring.io/guides/tutorials/spring-boot-kotlin/&quot;&gt;Building web applications with Spring Boot and Kotlin&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</content><author><name></name></author><category term="kotlin" /><category term="spring" /><summary type="html">그래 너로 정했다! 코프링~</summary></entry><entry><title type="html">생성형 AI(Generative AI)의 이해</title><link href="https://lahuman.github.io/generative_ai/" rel="alternate" type="text/html" title="생성형 AI(Generative AI)의 이해" /><published>2024-01-18T00:00:00+00:00</published><updated>2024-01-18T00:00:00+00:00</updated><id>https://lahuman.github.io/generative_ai</id><content type="html" xml:base="https://lahuman.github.io/generative_ai/">&lt;h1 id=&quot;생성형-aigenerative-ai란&quot;&gt;생성형 AI(Generative AI)란?&lt;/h1&gt;
 
 &lt;p&gt;인공지능(AI) 분야에서 주목받는 최신 발전 중 하나는 &lt;code class=&quot;highlighter-rouge&quot;&gt;생성형 AI(Generative AI)&lt;/code&gt;의 등장입니다. 생성형 AI는 &lt;code class=&quot;highlighter-rouge&quot;&gt;기계가 인간의 창작물과 매우 유사한 텍스트, 이미지, 심지어 음악을 생성할 수 있는 기술&lt;/code&gt;을 지칭합니다. 이 기술의 복잡성과 다양성은 업계에서 큰 관심을 받고 있는데, 이를 통해 새로운 창작물을 만들어내는 가능성이 열린 것입니다.&lt;/p&gt;
@@ -354,10 +408,4 @@ graph TD;
 
 &lt;p&gt;또한 마지막 판매자 구매자의 마지막 읽은 채팅ID를 가지고 있습니다.&lt;/p&gt;
 
-&lt;h2 id=&quot;샘플을-모두-적성하였으나-코드가-너무-번잡-스러워서-정리후-올릴-예정입니다&quot;&gt;샘플을 모두 적성하였으나, 코드가 너무 번잡 스러워서 정리후 올릴 예정입니다!&lt;/h2&gt;</content><author><name></name></author><category term="chatting" /><summary type="html">당근 마켓 클론 채팅 생성</summary></entry><entry><title type="html">일하기 싫다.</title><link href="https://lahuman.github.io/20231012/" rel="alternate" type="text/html" title="일하기 싫다." /><published>2023-10-12T00:00:00+00:00</published><updated>2023-10-12T00:00:00+00:00</updated><id>https://lahuman.github.io/20231012</id><content type="html" xml:base="https://lahuman.github.io/20231012/">&lt;h1 id=&quot;이해-관계자와의-소통이-쉽지-않네요&quot;&gt;이해 관계자와의 소통이 쉽지 않네요.&lt;/h1&gt;
-
-&lt;p&gt;주말에는 개인 개발이나 신나게 해야겠습니다.&lt;/p&gt;
-
-&lt;p&gt;힘들땐 개발만큰 재미난게 없네요.&lt;/p&gt;
-
-&lt;p&gt;주말이나 연휴동안 개인 프로젝트 개발만 신나게 했습니다.&lt;/p&gt;</content><author><name></name></author><category term="PM" /><summary type="html">개발이 싫은게 아니라, 지금 하는 업무가 싫다.</summary></entry></feed>
+&lt;h2 id=&quot;샘플을-모두-적성하였으나-코드가-너무-번잡-스러워서-정리후-올릴-예정입니다&quot;&gt;샘플을 모두 적성하였으나, 코드가 너무 번잡 스러워서 정리후 올릴 예정입니다!&lt;/h2&gt;</content><author><name></name></author><category term="chatting" /><summary type="html">당근 마켓 클론 채팅 생성</summary></entry></feed>
