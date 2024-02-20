@@ -1,4 +1,204 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2024-02-06T23:53:18+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">[kotlin + Spring]swagger 를 설정하자!</title><link href="https://lahuman.github.io/spring_kotlin_swagger/" rel="alternate" type="text/html" title="[kotlin + Spring]swagger 를 설정하자!" /><published>2024-01-26T00:00:00+00:00</published><updated>2024-01-26T00:00:00+00:00</updated><id>https://lahuman.github.io/spring_kotlin_swagger</id><content type="html" xml:base="https://lahuman.github.io/spring_kotlin_swagger/">&lt;h1 id=&quot;springdoc-openapi-v230&quot;&gt;&lt;a href=&quot;https://springdoc.org/&quot;&gt;springdoc-openapi v2.3.0&lt;/a&gt;&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2024-02-20T02:18:32+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">JDK21 + Spring 3.2 + virtual thread</title><link href="https://lahuman.github.io/jdk21_virtual_thread/" rel="alternate" type="text/html" title="JDK21 + Spring 3.2 + virtual thread" /><published>2024-02-20T00:00:00+00:00</published><updated>2024-02-20T00:00:00+00:00</updated><id>https://lahuman.github.io/jdk21_virtual_thread</id><content type="html" xml:base="https://lahuman.github.io/jdk21_virtual_thread/">&lt;h1 id=&quot;virtual-thread를-사용해보자&quot;&gt;Virtual Thread를 사용해보자!&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;이번 프로젝트는 kotlin + jdk21 + spring 3.2의 환경입니다. jdk21이면 많이 이야기되는 virtual thread를 사용할지를 이야기 하기 위한 사전 조사를 했습니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;virtual-thread란&quot;&gt;Virtual Thread란?&lt;/h2&gt;
+
+&lt;p&gt;우선 Virtual Thread를 이해하기 위해서는 몇가지 알아야 하는 사항이 있습니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;platform-thread&quot;&gt;Platform Thread&lt;/h3&gt;
+
+&lt;h4 id=&quot;system-call&quot;&gt;System call&lt;/h4&gt;
+&lt;div class=&quot;mermaid&quot;&gt; 
+flowchart LR;
+    A[CPU] --&amp;gt;B{Scheduler};
+    subgraph OS-Linux;
+    B --&amp;gt; C[Thread 1];
+    B --&amp;gt; E[Thread 2];
+    B --&amp;gt; F[Thread N];
+    end;
+    subgraph JNI;
+    F --&amp;gt; G[[JNI]];
+    E --&amp;gt; G;
+    C --&amp;gt; G;
+    end;
+    subgraph JVM;
+    G --&amp;gt; H[Thread 1];
+    G --&amp;gt; I[Thread 2];
+    G --&amp;gt; J[Thread N];
+    end;
+&lt;/div&gt;
+
+&lt;p&gt;Platform Thread는 OS Thread를 감싼 형태로 구현됩니다.&lt;/p&gt;
+
+&lt;h4 id=&quot;thread의-생애-주기&quot;&gt;Thread의 생애 주기&lt;/h4&gt;
+&lt;div class=&quot;mermaid&quot;&gt; 
+flowchart LR;
+    A[NEW] --&amp;gt;|start| B[RUNNABLE];
+    B --&amp;gt;|run| C[RUNNING];
+    E[NON-RUNNABLE];
+    subgraph context switch;
+    C -.-&amp;gt;|yield| B;
+    E -.-&amp;gt;|sleep end, i/o completes,  etc| B;
+    C -.-&amp;gt;|sleep, block i/o, etc| E;
+    end;
+    C --&amp;gt;|stop| D[TERMINATIED];
+&lt;/div&gt;
+
+&lt;p&gt;자바에서는 Thread가 I/O 작업, 인터럽트 또는 sleep 명령을 만날 때 블로킹 또는 대기 상태로 들어갑니다. 이 기간 동안 다른 Thread가 운영 체제의 자원을 활용하여 작업을 수행할 수 있으며, 이를 &lt;code class=&quot;highlighter-rouge&quot;&gt;Context Switching&lt;/code&gt;이라고 합니다. 이 모델은 기존의 프로세스 모델을 작은 단위로 분할하여 프로세스 내에서 공유 자원을 허용하면서 작은 작업 단위를 번갈아 가며 실행하는 것을 의미합니다.&lt;/p&gt;
+
+&lt;p&gt;다만, 요청량이 급격하기 증가하는 서버 환경에서는 갈수록 더 많은 Thread 수를 요구 하게 되어 이를 극복하기 위해서 나온 것이 경량 스레드 모델인 &lt;code class=&quot;highlighter-rouge&quot;&gt;Virutal Thread&lt;/code&gt;입니다.&lt;/p&gt;
+
+&lt;p&gt;Virtual Thread의 가장 큰 특징은 &lt;code class=&quot;highlighter-rouge&quot;&gt;컨텍스트 스위칭 비용이 저렴&lt;/code&gt; 하다는 것입니다.&lt;/p&gt;
+
+&lt;h4 id=&quot;virtual-thread&quot;&gt;Virtual Thread&lt;/h4&gt;
+&lt;div class=&quot;mermaid&quot;&gt; 
+flowchart LR;
+    A[CPU] --&amp;gt;B{Scheduler};
+    subgraph OS-Linux;
+    B --&amp;gt; C[Thread 1];
+    B --&amp;gt; E[Thread 2];
+    B --&amp;gt; F[Thread N];
+    end;
+    subgraph JNI;
+    F --&amp;gt; G[[JNI]];
+    E --&amp;gt; G;
+    C --&amp;gt; G;
+    end;
+    subgraph JVM;
+    subgraph ForkJoin Pool
+    H{Scheduler};
+    end
+    G --&amp;gt; H;
+    G --&amp;gt; H;
+    G --&amp;gt; H;
+    H --&amp;gt; J[Platform Thread 1];
+    H --&amp;gt; K[Platform Thread 2];
+    H --&amp;gt; L[Platform Thread N];
+    J --&amp;gt; M[Virtual Thread 1];
+    J --&amp;gt; N[Virtual Thread 2];
+    J --&amp;gt; O[Virtual Thread N];
+    K --&amp;gt; P[Virtual Thread 4];
+    K --&amp;gt; Q[Virtual Thread 5];
+    K --&amp;gt; R[Virtual Thread N];
+    L --&amp;gt; S[Virtual Thread 7];
+    L --&amp;gt; T[Virtual Thread 8];
+    L --&amp;gt; U[Virtual Thread N];
+    end;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;spring-32-에서-virtual-thread-사용하기&quot;&gt;Spring 3.2 에서 Virtual Thread 사용하기&lt;/h2&gt;
+&lt;p&gt;Spring 3.2 부터는 Virtual Thread를 공식적으로 지원하기 시작하였습니다.&lt;/p&gt;
+
+&lt;p&gt;사용 방법은 간단하게 properties에 아래와 같이 설정 하면 됩니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;spring.threads.virtual.enabled&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;위와 같이 설정할 경우 기본적으로 Tomcat에서 Virtual Thread를 사용하도록 설정이 변경 됩니다.&lt;/p&gt;
+
+&lt;p&gt;기타 부분은 수동으로 교체 작업을 해야 합니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;마치며&quot;&gt;마치며&lt;/h2&gt;
+
+&lt;p&gt;Virtual Threaad는 약 5년 가까이 준비되었던 JDK의 프로젝트였고, 기존 Platform Thread와 호환성을 최대한 맞춰서 개발되었습니다.&lt;/p&gt;
+
+&lt;p&gt;물론 Virtual Thread에 대한 이해도가 있어야 하지만, 간단하게 위와 같이 설정으로 Virtual Thread를 활용할 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;참고 자료에는 좋은 내용이 많으니 꼭 읽어 보시기를 추천 드립니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://techblog.woowahan.com/15398/&quot;&gt;Java의 미래, Virtual Thread&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://tech.kakao.com/2023/12/22/techmeet-virtualthread/&quot;&gt;JDK 21의 신기능 Virtual Thread 알아보기 / 제4회 Kakao Tech Meet&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.oracle.com/en/java/javase/21/core/virtual-threads.html#GUID-DC4306FC-D6C1-4BCC-AECE-48C32C1A8DAA&quot;&gt;Virtual Thread&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://mangkyu.tistory.com/317&quot;&gt;[Spring] 가상 스레드(Virtual Thread)를 지원하기 위한 스프링의 작업들과 마이그레이션 시의 주의 사항&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="spring" /><category term="jdk21" /><summary type="html">일단 고! 써보자</summary></entry><entry><title type="html">spring securit에서 로그인 된 사용자 정보 가져오는 몇가지 방법</title><link href="https://lahuman.github.io/spring_security_get_user/" rel="alternate" type="text/html" title="spring securit에서 로그인 된 사용자 정보 가져오는 몇가지 방법" /><published>2024-02-07T00:00:00+00:00</published><updated>2024-02-07T00:00:00+00:00</updated><id>https://lahuman.github.io/spring_security_get_user</id><content type="html" xml:base="https://lahuman.github.io/spring_security_get_user/">&lt;h1 id=&quot;retrieve-user-information-in-spring-security&quot;&gt;&lt;a href=&quot;https://www.baeldung.com/get-user-in-spring-security&quot;&gt;Retrieve User Information in Spring Security&lt;/a&gt;&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;전제 조건으로 &lt;code class=&quot;highlighter-rouge&quot;&gt;security&lt;/code&gt;를 이용한 인증을 모두 완료 후 인증된 정보를 가져오는 방법입니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;단순한-정보-호출-방법&quot;&gt;단순한 정보 호출 방법&lt;/h2&gt;
+
+&lt;p&gt;아래와 같이 &lt;code class=&quot;highlighter-rouge&quot;&gt;SecurityContextHolder&lt;/code&gt;를 통해서 정보를 가져올 수 있습니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;인증된-정보를-가져오는-단순한-방법&quot;&gt;인증된 정보를 가져오는 단순한 방법&lt;/h3&gt;
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;Authentication&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;authentication&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SecurityContextHolder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getContext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getAuthentication&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;currentPrincipalName&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;authentication&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;Authentication&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;authentication&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SecurityContextHolder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getContext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getAuthentication&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(!(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;authentication&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;instanceof&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;AnonymousAuthenticationToken&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;currentUserName&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;authentication&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;currentUserName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;인증된-객체를-가져오는-방법&quot;&gt;인증된 객체를 가져오는 방법&lt;/h3&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;UserDetails&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;userDetails&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;UserDetails&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;authentication&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getPrincipal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;User has authorities: &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;userDetails&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getAuthorities&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;controller에서-인증된-객체를-가져오는-방법&quot;&gt;Controller에서 인증된 객체를 가져오는 방법&lt;/h2&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@Controller&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;GetUserWithPrincipalController&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;nd&quot;&gt;@RequestMapping&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;/username&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;method&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;RequestMethod&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;GET&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;@ResponseBody&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;currentUserName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Principal&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;principal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;principal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@Controller&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;GetUserWithAuthenticationController&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;nd&quot;&gt;@RequestMapping&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;/username&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;method&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;RequestMethod&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;GET&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;@ResponseBody&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;currentUserName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Authentication&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;authentication&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;authentication&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;request-객체에서-직접-호출-하는-방법&quot;&gt;Request 객체에서 직접 호출 하는 방법&lt;/h3&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@Controller&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;GetUserWithHTTPServletRequestController&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;nd&quot;&gt;@RequestMapping&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;/username&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;method&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;RequestMethod&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;GET&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;@ResponseBody&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;currentUserNameSimple&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;HttpServletRequest&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;Principal&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;principal&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getUserPrincipal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;principal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;마지막으로-제가-가장-선호하는-annotation-기반으로-가져오는-방법&quot;&gt;마지막으로 제가 가장 선호하는 annotation 기반으로 가져오는 방법&lt;/h3&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@RestController&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;GetUserWithAuthenticationPrincipalAnnotationController&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    
+    &lt;span class=&quot;nd&quot;&gt;@GetMapping&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/user&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getUser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;@AuthenticationPrincipal&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;UserDetails&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;userDetails&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;User Details: &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;userDetails&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getUsername&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;여러 방식으로 필요할때, 현재 인증된 정보를 가져와서 사용하면 됩니다&lt;/p&gt;
+
+&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.baeldung.com/get-user-in-spring-security&quot;&gt;Retrieve User Information in Spring Security&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="spring" /><category term="security" /><summary type="html">Controller에서 annotation으로 가져올 수 도 있음!</summary></entry><entry><title type="html">[kotlin + Spring]swagger 를 설정하자!</title><link href="https://lahuman.github.io/spring_kotlin_swagger/" rel="alternate" type="text/html" title="[kotlin + Spring]swagger 를 설정하자!" /><published>2024-01-26T00:00:00+00:00</published><updated>2024-01-26T00:00:00+00:00</updated><id>https://lahuman.github.io/spring_kotlin_swagger</id><content type="html" xml:base="https://lahuman.github.io/spring_kotlin_swagger/">&lt;h1 id=&quot;springdoc-openapi-v230&quot;&gt;&lt;a href=&quot;https://springdoc.org/&quot;&gt;springdoc-openapi v2.3.0&lt;/a&gt;&lt;/h1&gt;
 
 &lt;p&gt;springBoot 3.x 부터는 &lt;a href=&quot;https://springdoc.org/&quot;&gt;springdoc-openapi v2.3.0&lt;/a&gt; 모듈을 사용해야 합니다. 
 이전 버젼은 &lt;code class=&quot;highlighter-rouge&quot;&gt;springdoc-openapi v1.7.0&lt;/code&gt;을 이용해야 합니다.&lt;/p&gt;
@@ -269,143 +469,4 @@ O모O모는 2022년 11월에 서비스를 시작하였고, 초기 매타버스 �
 
 &lt;p&gt;특히 통제할 수 없는 불평 불만은 하지 않도록 조심해야겠습니다.&lt;/p&gt;
 
-&lt;p&gt;책은 명상을 하듯이 조금씩 곱씹으면 읽기 좋습니다.&lt;/p&gt;</content><author><name></name></author><category term="독서" /><summary type="html">도서 후기</summary></entry><entry><title type="html">내가 생각하는 개발자란?</title><link href="https://lahuman.github.io/what_is_developer/" rel="alternate" type="text/html" title="내가 생각하는 개발자란?" /><published>2023-10-20T00:00:00+00:00</published><updated>2023-10-20T00:00:00+00:00</updated><id>https://lahuman.github.io/what_is_developer</id><content type="html" xml:base="https://lahuman.github.io/what_is_developer/">&lt;h1 id=&quot;문제를-해결하는-사람&quot;&gt;문제를 해결하는 사람&lt;/h1&gt;
-
-&lt;p&gt;신입 개발자 때 목표는,&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;코딩을 잘한다&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;10년쯤 지났을 때 목표는,&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;좋은 품질의 코드를 작성한다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;지금의 내 목표는,&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;가치 있는 코드&lt;/code&gt;(기술)로 문제를 해결한다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;hr /&gt;
-&lt;h1 id=&quot;나에게-가치-있는-코드란&quot;&gt;나에게 가치 있는 코드란?&lt;/h1&gt;
-
-&lt;h2 id=&quot;최소한의-코드-품질을-유지하면서-더-큰-가치를-만들-수-있는-요구-사항을-찾아-구현하고-주어진-일정을-지킨다&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;최소한의 코드 품질을 유지&lt;/code&gt;하면서 &lt;code class=&quot;highlighter-rouge&quot;&gt;더 큰 가치를 만들 수 있는 요구 사항을 찾아 구현&lt;/code&gt;하고 &lt;code class=&quot;highlighter-rouge&quot;&gt;주어진 일정을 지킨다&lt;/code&gt;&lt;/h2&gt;
-
-&lt;hr /&gt;
-&lt;h1 id=&quot;good-cheap-fast-triangle&quot;&gt;Good, Cheap, Fast Triangle&lt;/h1&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/good_cheap_fast_triangle.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;서비스의 가치&lt;/code&gt;를 높이고, &lt;code class=&quot;highlighter-rouge&quot;&gt;품질을 유지&lt;/code&gt;하면서, 시기와 상황에 따라 &lt;code class=&quot;highlighter-rouge&quot;&gt;적절한 균형점&lt;/code&gt;을 잡아는 노력 필요&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;최소한의-코드-품질을-유지&quot;&gt;최소한의 코드 품질을 유지&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;적절한 코드 품질을 지키는 것은 늘 어렵다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;하지만, 최소한의 코드 품질을 지키기 위한 노력은 필요하다.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;명확하고 간결한 코드(읽기 쉬운 코드)&lt;/li&gt;
-  &lt;li&gt;코드 스타일 가이드 준수&lt;/li&gt;
-  &lt;li&gt;단위 테스트&lt;/li&gt;
-  &lt;li&gt;모듈화(추상화)&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;hr /&gt;
-&lt;h2 id=&quot;더-큰-가치를-만들-수-있는-요구-사항을-찾아-구현&quot;&gt;더 큰 가치를 만들 수 있는 요구 사항을 찾아 구현&lt;/h2&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;협업 그리고 이해&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;고객의 피드백 수집&lt;/li&gt;
-  &lt;li&gt;지속적인 개선&lt;/li&gt;
-  &lt;li&gt;실험과 반복&lt;/li&gt;
-  &lt;li&gt;아이디어 공유 및 브레인스토밍&lt;/li&gt;
-  &lt;li&gt;동료 및 피드백 수신&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;hr /&gt;
-&lt;h1 id=&quot;주어진-일정을-지킨다&quot;&gt;주어진 일정을 지킨다&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;모든건 일정 안에서 이루어져야 한다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;우선 순위 설정&lt;/li&gt;
-  &lt;li&gt;MVP(Minimum Viable Product) 구축&lt;/li&gt;
-  &lt;li&gt;일정 관리 / 일일 계획&lt;/li&gt;
-  &lt;li&gt;시간 관리 / 일정 조정&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;또한-개발은-코드만이-아니다&quot;&gt;또한 개발은 코드만이 아니다.&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;개발자의 진정한 역할은 코드만 만드는 게 아니라, &lt;code class=&quot;highlighter-rouge&quot;&gt;문제의 본질&lt;/code&gt;을 찾고 동료들과 함께 해결하는 전반적인 일입니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;코드는 우리(개발자)가 문제를 해결하는 도구 중 하나 입니다.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;어떤 문제를 해결&lt;/code&gt;하고 &lt;code class=&quot;highlighter-rouge&quot;&gt;어떤 가치를 창출&lt;/code&gt;하며 &lt;code class=&quot;highlighter-rouge&quot;&gt;어떤 일을 할지 결정&lt;/code&gt; 해야 합니다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;늘 생각하고 있던 내용인데, 아래 내용을 읽고 얼마 제 생각을 정리 하며 작성하게 되었습니다. 위에 내용도 포함이 되어 있고 더 상세하게 잘 정리 되어 있는 내용입니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://velog.io/@teo/collaboration&quot;&gt;협업을 잘하는 개발자가 되어보자 - 프로그래머가 아니라 문제 해결사가 되자!&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="developer" /><summary type="html">중요한건 코드보다 문제 해결!</summary></entry><entry><title type="html">채팅 서비스 만들기 설계 정리</title><link href="https://lahuman.github.io/chatting_service/" rel="alternate" type="text/html" title="채팅 서비스 만들기 설계 정리" /><published>2023-10-15T00:00:00+00:00</published><updated>2023-10-15T00:00:00+00:00</updated><id>https://lahuman.github.io/chatting_service</id><content type="html" xml:base="https://lahuman.github.io/chatting_service/">&lt;h1 id=&quot;상품을-기준으로-사용자간-채팅을-할-수-있도록-설계-합니다&quot;&gt;상품을 기준으로 사용자간 채팅을 할 수 있도록 설계 합니다.&lt;/h1&gt;
-
-&lt;h2 id=&quot;설계&quot;&gt;설계&lt;/h2&gt;
-
-&lt;p&gt;상품을 확인하고, 판매자에게 채팅을 요청 했을때 아래와 같은 동작을 합니다.&lt;/p&gt;
-
-&lt;div class=&quot;mermaid&quot;&gt; 
-sequenceDiagram;
-    actor 구매자;
-    구매자-&amp;gt;&amp;gt;+서버: 상품 구매 채팅;
-    activate 서버;
-    Note right of 서버: 상품 판매 여부 및 사용자 검수;
-    actor 판매자;
-    서버-&amp;gt;&amp;gt;+판매자: 채팅 메시지 전달;
-    deactivate 서버;
-    서버-&amp;gt;&amp;gt;-구매자: 채팅 메시지 전달;
-&lt;/div&gt;
-
-&lt;p&gt;상품에 대한 검수를 아래과 같이 처리 하고 나면, 채팅을 전달합니다.&lt;/p&gt;
-
-&lt;div class=&quot;mermaid&quot;&gt; 
-graph TD;
-    A[상품 판매 채팅 검수] --&amp;gt; B{채팅방 존재};
-    B --&amp;gt;|Y| H;
-    B --&amp;gt;|N| D{상품 &amp;amp; 판매자 &amp;amp; 구매자 확인};
-    D --&amp;gt; |Y| F(채팅방 생성);
-    D --&amp;gt; |N| E[오류 메시지 전달];
-    F --&amp;gt; H(채팅 전달);
-&lt;/div&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;채팅방이 존재 하지 않고, 상품이 판매 완료인 경우 새로운 채팅방을 생성할 수 없습니다.&lt;/code&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;테이블-구조&quot;&gt;테이블 구조&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/chatting_erd.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;채팅방명은 &lt;code class=&quot;highlighter-rouge&quot;&gt;상품ID-판매자ID-구매자ID&lt;/code&gt;로 유일한 값을 가지게 됩니다.&lt;/p&gt;
-
-&lt;p&gt;또한 마지막 판매자 구매자의 마지막 읽은 채팅ID를 가지고 있습니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;샘플을-모두-적성하였으나-코드가-너무-번잡-스러워서-정리후-올릴-예정입니다&quot;&gt;샘플을 모두 적성하였으나, 코드가 너무 번잡 스러워서 정리후 올릴 예정입니다!&lt;/h2&gt;</content><author><name></name></author><category term="chatting" /><summary type="html">당근 마켓 클론 채팅 생성</summary></entry></feed>
+&lt;p&gt;책은 명상을 하듯이 조금씩 곱씹으면 읽기 좋습니다.&lt;/p&gt;</content><author><name></name></author><category term="독서" /><summary type="html">도서 후기</summary></entry></feed>
