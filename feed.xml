@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2024-02-20T02:18:32+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">JDK21 + Spring 3.2 + virtual thread</title><link href="https://lahuman.github.io/jdk21_virtual_thread/" rel="alternate" type="text/html" title="JDK21 + Spring 3.2 + virtual thread" /><published>2024-02-20T00:00:00+00:00</published><updated>2024-02-20T00:00:00+00:00</updated><id>https://lahuman.github.io/jdk21_virtual_thread</id><content type="html" xml:base="https://lahuman.github.io/jdk21_virtual_thread/">&lt;h1 id=&quot;virtual-thread를-사용해보자&quot;&gt;Virtual Thread를 사용해보자!&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2024-02-20T02:22:08+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">JDK21 + Spring 3.2 + virtual thread</title><link href="https://lahuman.github.io/jdk21_virtual_thread/" rel="alternate" type="text/html" title="JDK21 + Spring 3.2 + virtual thread" /><published>2024-02-20T00:00:00+00:00</published><updated>2024-02-20T00:00:00+00:00</updated><id>https://lahuman.github.io/jdk21_virtual_thread</id><content type="html" xml:base="https://lahuman.github.io/jdk21_virtual_thread/">&lt;h1 id=&quot;virtual-thread를-사용해보자&quot;&gt;Virtual Thread를 사용해보자!&lt;/h1&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;이번 프로젝트는 kotlin + jdk21 + spring 3.2의 환경입니다. jdk21이면 많이 이야기되는 virtual thread를 사용할지를 이야기 하기 위한 사전 조사를 했습니다.&lt;/p&gt;
@@ -68,9 +68,9 @@ flowchart LR;
     C --&amp;gt; G;
     end;
     subgraph JVM;
-    subgraph ForkJoin Pool
-    H{Scheduler};
-    end
+        subgraph ForkJoin Pool;
+        H{Scheduler};
+        end;
     G --&amp;gt; H;
     G --&amp;gt; H;
     G --&amp;gt; H;
