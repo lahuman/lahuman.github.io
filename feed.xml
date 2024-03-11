@@ -1,4 +1,71 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2024-02-27T04:36:44+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">spring security와 함께 테스트 하기!</title><link href="https://lahuman.github.io/spring_security_test/" rel="alternate" type="text/html" title="spring security와 함께 테스트 하기!" /><published>2024-02-26T00:00:00+00:00</published><updated>2024-02-26T00:00:00+00:00</updated><id>https://lahuman.github.io/spring_security_test</id><content type="html" xml:base="https://lahuman.github.io/spring_security_test/">&lt;h1 id=&quot;spring-security-for-spring-boot-integration-tests&quot;&gt;&lt;a href=&quot;https://www.baeldung.com/spring-security-integration-tests&quot;&gt;Spring Security for Spring Boot Integration Tests&lt;/a&gt;&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2024-03-11T14:09:15+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">행복한 개발자가 되기 위해서</title><link href="https://lahuman.github.io/20240311/" rel="alternate" type="text/html" title="행복한 개발자가 되기 위해서" /><published>2024-03-11T00:00:00+00:00</published><updated>2024-03-11T00:00:00+00:00</updated><id>https://lahuman.github.io/20240311</id><content type="html" xml:base="https://lahuman.github.io/20240311/">&lt;h1 id=&quot;행복한-백발의-개발자라는-제목으로-2024-03-06-어느-it-업체에서-직책자로-승진한-분들을-대상으로-한-강연-발표-자료-를-보고&quot;&gt;&lt;a href=&quot;https://www.slideshare.net/slideshows/20240306-it/266665622?fbclid=IwAR08GNtvVaIkfnpvWG6ovt3kIOPQ6YPLahDgQ09_I13bxV0zQAk9vsYZBDg&quot;&gt;“행복한 백발의 개발자”라는 제목으로 2024-03-06 어느 IT 업체에서 직책자로 승진한 분들을 대상으로 한 강연 발표 자료.&lt;/a&gt; 를 보고&lt;/h1&gt;
+
+&lt;p&gt;케이타운포유에서 근무하시는 백명석님의 자료를 보고 생각을 정리 한 내용입니다&lt;/p&gt;
+
+&lt;p&gt;위에 링크를 보면 상세한 자료를 확인할 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;나 스스로에게 묻고 답하는 내용이라 반말로 작성되어 있습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;나는-행복한가&quot;&gt;나는 행복한가?&lt;/h2&gt;
+
+&lt;p&gt;우선 나의 &lt;code class=&quot;highlighter-rouge&quot;&gt;워라벨&lt;/code&gt;은 매우 훌륭하다. 다만, 매일이 즐겁냐라고 묻는다면, 워라벨이 안좋았던 때보단 즐겁지 않다.&lt;/p&gt;
+
+&lt;p&gt;개발은 여전히 즐겁지만, 공감없이 해야하는 일들이 발목을 잡는다.&lt;/p&gt;
+
+&lt;p&gt;주변 동료에게 지식과 경험을 공유하여 선한 영향력을 얻기 위해서 노력중이지만, 생각만큼 결과가 좋지 않다.&lt;/p&gt;
+
+&lt;h2 id=&quot;나는-성장하고-있는가&quot;&gt;나는 성장하고 있는가?&lt;/h2&gt;
+
+&lt;p&gt;아직도 성장을 위해 늘 노력 중이다.
+다만, 30대의 내가 단거리 달리기처럼 뛰었다면 지금은 장거리 달리기처럼 천천히 달리고 있다.&lt;/p&gt;
+
+&lt;p&gt;어제의 나보다 0.1 이라도 발전하려고 노력하는 중이다.&lt;/p&gt;
+
+&lt;h2 id=&quot;나는-학습하고-있는가&quot;&gt;나는 학습하고 있는가?&lt;/h2&gt;
+
+&lt;p&gt;소프트웨어는 지속적을 변화한다. 나는 여전히 새로운 기술도 사용해보고 도전하는 중이다. 성장을 위해서 학습을 한다.&lt;/p&gt;
+
+&lt;p&gt;요즘은 기술 보다는 사람에 대한 학습을 한다. 조금 더 이해하고 변화시키는 방안을 고민한다.&lt;/p&gt;
+
+&lt;h2 id=&quot;나의-활동이-다른-누군가에게-동기-부여가-되는가&quot;&gt;나의 활동이 다른 누군가에게 동기 부여가 되는가?&lt;/h2&gt;
+
+&lt;p&gt;외적 동기 부여보다는 내적 동기 부여에 힘을 쏟고 있다.&lt;/p&gt;
+
+&lt;p&gt;높다면 높은 자리에 있기에, 다른 동료가 보기에 롤모델이 되도록 노력을 하고 있다&lt;/p&gt;
+
+&lt;h2 id=&quot;나는-일-잘하는-개발자-인가-개발-리더-인가&quot;&gt;나는 일 잘하는 개발자 인가? 개발 리더 인가?&lt;/h2&gt;
+
+&lt;p&gt;아직까지 내 일은 잘한다.&lt;/p&gt;
+
+&lt;p&gt;좋은 개발 리더인가는 누군가에겐 좋은, 누군가에겐 안 좋은 리더같다.&lt;/p&gt;
+
+&lt;p&gt;빠르게 피드백하고, 결과물이 잘 나오는 동료에게는 좋은 리더가 되지만,&lt;/p&gt;
+
+&lt;p&gt;피드백이 느리고, 결과물도 안나오는 동료에게는 마이크로매니징을 하는 리더가 된다.&lt;/p&gt;
+
+&lt;h2 id=&quot;나는-우리팀-에이스-인가&quot;&gt;나는 우리팀 에이스 인가?&lt;/h2&gt;
+
+&lt;p&gt;에이스까지는 아니고 오지랍이 넓다.&lt;/p&gt;
+
+&lt;p&gt;너의 일과 나의 일로 나누어서 생각하지 않고 가능하면 우리 일로 생각하고 행동한다.&lt;/p&gt;
+
+&lt;h2 id=&quot;의사-소통을-잘하는가&quot;&gt;의사 소통을 잘하는가?&lt;/h2&gt;
+
+&lt;p&gt;성격이 급해서 잘될때는 일이 아주 빠르게 진행되지만,&lt;/p&gt;
+
+&lt;p&gt;안될때는 짜증만 내는 것처럼 보여진다.&lt;/p&gt;
+
+&lt;h2 id=&quot;문서는-잘-작성-하는가&quot;&gt;문서는 잘 작성 하는가?&lt;/h2&gt;
+
+&lt;p&gt;기억에 의존하기 보다는 메모 또는 컨플런스 같이 문서를 작성하려고 노력한다.&lt;/p&gt;
+
+&lt;p&gt;다만, 내가 읽고 이해 못하는 경우도 있기에 가능하면 6하원칙에 따라 작성하려고 노력한다.&lt;/p&gt;
+
+&lt;h2 id=&quot;마지막으로-하고-싶은-말은&quot;&gt;마지막으로 하고 싶은 말은?&lt;/h2&gt;
+
+&lt;p&gt;이전만큼 빠르진 않지만 지속적으로 발전하기 위해 노력중이다.&lt;/p&gt;
+
+&lt;p&gt;내일의 내가 오늘의 나보다는 한발자국이라도 나아갔으면 좋겠다.&lt;/p&gt;</content><author><name></name></author><category term="단상" /><summary type="html">노력하고 노력하자!</summary></entry><entry><title type="html">spring security와 함께 테스트 하기!</title><link href="https://lahuman.github.io/spring_security_test/" rel="alternate" type="text/html" title="spring security와 함께 테스트 하기!" /><published>2024-02-26T00:00:00+00:00</published><updated>2024-02-26T00:00:00+00:00</updated><id>https://lahuman.github.io/spring_security_test</id><content type="html" xml:base="https://lahuman.github.io/spring_security_test/">&lt;h1 id=&quot;spring-security-for-spring-boot-integration-tests&quot;&gt;&lt;a href=&quot;https://www.baeldung.com/spring-security-integration-tests&quot;&gt;Spring Security for Spring Boot Integration Tests&lt;/a&gt;&lt;/h1&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;Security 설정이 완료 되어 있다는 전재하에 작성했습니다.&lt;/p&gt;
@@ -493,33 +560,4 @@ CONTAINER ID   IMAGE                        COMMAND               CREATED       
 
 &lt;p&gt;어릴 때는 팀장의 역할이 미비하다고 생각되었지만, 지금은 팀장이 다양한 일을 처리해야 한다는 것을 깨닫게 되었습니다. 팀장은 팀원들을 이끄는 리더로서의 역할뿐만 아니라, 프로젝트의 방향을 설정하고 조절하며 문제 발생 시 해결책을 찾는 등 다양한 역할을 수행해야 합니다.&lt;/p&gt;
 
-&lt;p&gt;마지막으로, 팀장은 팀원들을 동기부여하고 긍정적인 분위기를 조성하는 역할도 중요합니다. 팀원들이 목표를 공유하고 그에 대한 열정을 가질 수 있도록 지원하면, 프로젝트나 팀의 성공에 더 큰 기여를 할 수 있을 것입니다.&lt;/p&gt;</content><author><name></name></author><category term="propose" /><category term="단상" /><summary type="html">목표는 A인데, A로 가기 위해서 B가 필요하다고?</summary></entry><entry><title type="html">2023년도 주요 프로젝트 내용과 프로젝트의 성과</title><link href="https://lahuman.github.io/2023_project/" rel="alternate" type="text/html" title="2023년도 주요 프로젝트 내용과 프로젝트의 성과" /><published>2023-11-27T00:00:00+00:00</published><updated>2023-11-27T00:00:00+00:00</updated><id>https://lahuman.github.io/2023_project</id><content type="html" xml:base="https://lahuman.github.io/2023_project/">&lt;h1 id=&quot;2023년도-수행했던-주요-프로젝트-내용과-프로젝트의-성과&quot;&gt;2023년도 수행했던 주요 프로젝트 내용과 프로젝트의 성과&lt;/h1&gt;
-
-&lt;p&gt;입사 후 진행 한 22년 4월 부터 진행된 O모O모의 개발 총괄을 맡았습니다. 
-O모O모는 2022년 11월에 서비스를 시작하였고, 초기 매타버스 기반(유니티-외주)에서 웹 기반(내재화)의 커뮤니티로 변화를 꾀하며  &lt;code class=&quot;highlighter-rouge&quot;&gt;2023년 5월에 10만 회원을 돌파&lt;/code&gt; 후, 23년 11월 기준 약 &lt;code class=&quot;highlighter-rouge&quot;&gt;25만명의 회원이 사용하는 서비스&lt;/code&gt;로 성장했습니다.&lt;/p&gt;
-
-&lt;p&gt;회사에서 처음으로 클라우드 기반의 개발로 진행하였고, 외부에서 입사한 동료들과의 함께 하는 첫  프로젝트였습니다.&lt;/p&gt;
-
-&lt;p&gt;초기 프로젝트를 진행할 때, 이전 회사인 GSSHOP에서 진행하였던 애자일 방식의 개발을 도입하였습니다.
-저의 경우는 팀원으로만 참여하였던 애자일 방식에서 처음으로 스크럼에 마스터가 되어서 진행하였습니다.&lt;/p&gt;
-
-&lt;p&gt;진행 방식으로는 매일 아침 스크럼 미팅을 하고, 매 2주간 스프린트를 진행하였습니다. 
-스프린트가 종료 되면 회고를 하고 그라운드 룰을 함께 만들어가며 동료들과 진행하였습니다.&lt;/p&gt;
-
-&lt;p&gt;JIRA와 Confluence, Slack 기반으로 업무, 지식공유, 소통을 하였습니다. 
-다들 처음에는 어색해하였지만, 2번의 스프린트(4주)가 지나자 익숙해지며 좋은 결과를 만들어 갈 수 있었습니다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;참고 내용 : &lt;a href=&quot;https://lahuman.github.io/going_scrum/&quot;&gt;합시다, 스크럼&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;NODEJS를 처음 사용하는 동료를 위해서 코드 리뷰를 통한 성장을 지원하고, 제가 가진 지식을 기반으로 추가적인 학습 시간과 학습 내용을 공유 하는 시간을 매 스프린트 회고마다 가졌습니다.&lt;/p&gt;
-
-&lt;p&gt;Backend 개발시 유지보수를 고려해서 typescript 기반의 프레임워크인 Nestjs로 진행하고 필요한 Boilerplate code를 제공하였습니다.
-마찬가지로 관리자 페이지 역시 Reactjs + MUI로 구성을 개발 할 수 있도록 Boilerplate code를 작성하였습니다.&lt;/p&gt;
-
-&lt;p&gt;또한 프로젝트 막바지에는 클라우드 엔지니어와 함께 AWS 기반의 CI/CD를 code commit 기반으로 구성하고, 
- 개발서버에서 운영서버까지의 소스코드의 파이프라인에 대하여 함께 논의하며 구축하였습니다.&lt;/p&gt;
-
-&lt;p&gt;결론적으로 O모O모의 성과는 좋았고, 이는 저 혼자의 힘으로 해낼 수 없는 일이었습니다.
-저를 믿고 따라준 동료들과 함께여서 좋은 성과를 내었다고 2023년을 회고합니다.&lt;/p&gt;</content><author><name></name></author><category term="O모O모" /><category term="role" /><category term="scrum" /><summary type="html">2023년도 회고 &amp; 경험</summary></entry></feed>
+&lt;p&gt;마지막으로, 팀장은 팀원들을 동기부여하고 긍정적인 분위기를 조성하는 역할도 중요합니다. 팀원들이 목표를 공유하고 그에 대한 열정을 가질 수 있도록 지원하면, 프로젝트나 팀의 성공에 더 큰 기여를 할 수 있을 것입니다.&lt;/p&gt;</content><author><name></name></author><category term="propose" /><category term="단상" /><summary type="html">목표는 A인데, A로 가기 위해서 B가 필요하다고?</summary></entry></feed>
