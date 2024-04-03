@@ -1,4 +1,24 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2024-04-01T05:07:15+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">windows 11에 WSL2 기반 kotlin 개발 환경 구축 하기!</title><link href="https://lahuman.github.io/window_wsl_intellij/" rel="alternate" type="text/html" title="windows 11에 WSL2 기반 kotlin 개발 환경 구축 하기!" /><published>2024-04-01T00:00:00+00:00</published><updated>2024-04-01T00:00:00+00:00</updated><id>https://lahuman.github.io/window_wsl_intellij</id><content type="html" xml:base="https://lahuman.github.io/window_wsl_intellij/">&lt;h1 id=&quot;kotlin-개발-환경을-구축해보자&quot;&gt;kotlin 개발 환경을 구축해보자!&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2024-04-03T11:54:31+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">spring boot jar 파일 실행시 application.yml 주입 하기</title><link href="https://lahuman.github.io/springboot_application_config/" rel="alternate" type="text/html" title="spring boot jar 파일 실행시 application.yml 주입 하기" /><published>2024-04-03T00:00:00+00:00</published><updated>2024-04-03T00:00:00+00:00</updated><id>https://lahuman.github.io/springboot_application_config</id><content type="html" xml:base="https://lahuman.github.io/springboot_application_config/">&lt;h1 id=&quot;spring-boot-실행시-설정-파일-외부-주입-방법&quot;&gt;spring boot 실행시 설정 파일 외부 주입 방법&lt;/h1&gt;
+
+&lt;h2 id=&quot;실행-명령어를-이용한-주입&quot;&gt;실행 명령어를 이용한 주입&lt;/h2&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;java &lt;span class=&quot;nt&quot;&gt;-jar&lt;/span&gt; app.jar &lt;span class=&quot;nt&quot;&gt;--spring&lt;/span&gt;.config.location&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;file:///Users/home/config/jdbc.properties
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;디렉토리-기반-주입&quot;&gt;디렉토리 기반 주입&lt;/h2&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;java &lt;span class=&quot;nt&quot;&gt;-jar&lt;/span&gt; app.jar &lt;span class=&quot;nt&quot;&gt;--spring&lt;/span&gt;.config.name&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;application,jdbc &lt;span class=&quot;nt&quot;&gt;--spring&lt;/span&gt;.config.location&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;file:///Users/home/config
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;마치며&quot;&gt;마치며&lt;/h2&gt;
+
+&lt;p&gt;다른 여러가지 방법이 있지만 위의 2가지 방법으로 대부분 처리가 가능합니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.baeldung.com/spring-properties-file-outside-jar&quot;&gt;Spring Properties File Outside jar&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="springboot" /><category term="jar" /><category term="config" /><summary type="html">외부 파일 사용하기</summary></entry><entry><title type="html">windows 11에 WSL2 기반 kotlin 개발 환경 구축 하기!</title><link href="https://lahuman.github.io/window_wsl_intellij/" rel="alternate" type="text/html" title="windows 11에 WSL2 기반 kotlin 개발 환경 구축 하기!" /><published>2024-04-01T00:00:00+00:00</published><updated>2024-04-01T00:00:00+00:00</updated><id>https://lahuman.github.io/window_wsl_intellij</id><content type="html" xml:base="https://lahuman.github.io/window_wsl_intellij/">&lt;h1 id=&quot;kotlin-개발-환경을-구축해보자&quot;&gt;kotlin 개발 환경을 구축해보자!&lt;/h1&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;N100 이라는 CPU를 가진 &lt;a href=&quot;https://www.clien.net/service/board/cm_nas/18406336&quot;&gt;미니 PC&lt;/a&gt;를 구매했습니다. 
@@ -565,44 +585,4 @@ flowchart LR;
   &lt;li&gt;&lt;a href=&quot;https://aws.amazon.com/ko/blogs/korea/preview-connect-foundation-models-to-your-company-data-sources-with-agents-for-amazon-bedrock/&quot;&gt;Amazon Bedrock 지식 기반 미리보기 – 파운데이션 모델을 위한 에이전트 기반 기업 데이터 소스 연결 기능&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://aws.amazon.com/ko/blogs/tech/bedrock-claude-kendra-rag/&quot;&gt;Amazon Bedrock의 Claude와 Amazon Kendra로 향상된 RAG 사용하기&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://docs.aws.amazon.com/ko_kr/sagemaker/latest/dg/jumpstart-foundation-models-customize-rag.html&quot;&gt;검색 증강 세대(RAG)&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="generative" /><category term="ai" /><summary type="html">대표적인 예로 AWS BEDROCK 까지 알아보자</summary></entry><entry><title type="html">docker 에서 실행중인 컨테이너를 이미지로 전환 처리</title><link href="https://lahuman.github.io/docker-commit/" rel="alternate" type="text/html" title="docker 에서 실행중인 컨테이너를 이미지로 전환 처리" /><published>2023-12-30T00:00:00+00:00</published><updated>2023-12-30T00:00:00+00:00</updated><id>https://lahuman.github.io/docker-commit</id><content type="html" xml:base="https://lahuman.github.io/docker-commit/">&lt;h1 id=&quot;컨테이너의-변경-사항으로-새-이미지-만들기&quot;&gt;컨테이너의 변경 사항으로 새 이미지 만들기&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;사건의 발달은 6000번 포트로 서비스를 오픈했을때, chrome에서 접근하지 못하는 문제가 발생했습니다. 
-원인으로 &lt;a href=&quot;https://gajy.tistory.com/65?fbclid=IwAR1cvnSRDTgkYb8QXX3INHOEQ6az519k2QCN6d6LLp-8kiT-Q64DDLJgKXY&quot;&gt;6000번 포트의 비밀 (ERR_UNSAFE_PORT)&lt;/a&gt;를 보면 보안상의 이유로 막았다고 합니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;문제는 이미 설정한 컨테이너를 지우고 다시 작업하기 귀찮은 상황이었습니다. 
-그래서 찾은게 &lt;a href=&quot;https://docs.docker.com/engine/reference/commandline/commit/&quot;&gt;docker commit&lt;/a&gt;라는 명령입니다.&lt;/p&gt;
-
-&lt;p&gt;해당 명령어를 이용해서 실행중인 컨테이너를 새 이미지로 만들 수 있습니다. 
-저는 아래와 같이 사용 하였습니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 6000번 포트를 연동하고 있는 컨테이너
-$ docker ps
-CONTAINER ID   IMAGE                        COMMAND               CREATED        STATUS       PORTS                                                                                                                           NAMES
-4d4f0a0acbae   ssh_alpine                    &quot;/usr/sbin/sshd -D&quot;   8 hours ago    Up 8 hours   0.0.0.0:6000-6001-&amp;gt;6000-6001/tcp, :::6000-6001-&amp;gt;6000-6001/tcp   dqserver
-
-# 컨테이너를 이미지로 생성
-$ docker commit dqserver dqserver_image
-
-# 기존 이미지 중지 및 삭제
-$ docker stop dqserver
-$ docker rm dqserver
-
-# 포트를 변경해서 신규 이미지 생성
-$ docker run -it -d -p 6002:6002 -p 6001:6001  --name dqserver dqserver_image
-$ docker ps
-CONTAINER ID   IMAGE                        COMMAND               CREATED        STATUS       PORTS                                                                                                                           NAMES
-4d4f0a0acbae   dqserver_image                    &quot;/usr/sbin/sshd -D&quot;   8 hours ago    Up 8 hours   0.0.0.0:6001-6002-&amp;gt;6001-6002/tcp, :::6001-6002-&amp;gt;6001-6002/tcp   dqserver
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;참고로 이미지가 커밋되는 동안 커밋되는 컨테이너와 해당 프로세스는 일시 중지됩니다. 이렇게 하면 커밋을 생성하는 과정에서 데이터 손상이 발생할 가능성이 줄어듭기 때문입니다. 동작을 원하지 않는 경우 –pause 옵션을 false로 설정하세요.&lt;/p&gt;
-
-&lt;p&gt;추가적인 설명은 &lt;a href=&quot;https://docs.docker.com/engine/reference/commandline/commit/&quot;&gt;docker commit&lt;/a&gt;를 확인하세요!&lt;/p&gt;
-
-&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://docs.docker.com/engine/reference/commandline/commit/&quot;&gt;docker commit&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://gajy.tistory.com/65?fbclid=IwAR1cvnSRDTgkYb8QXX3INHOEQ6az519k2QCN6d6LLp-8kiT-Q64DDLJgKXY&quot;&gt;6000번 포트의 비밀 (ERR_UNSAFE_PORT)&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="docker" /><category term="container" /><summary type="html">외부 연결 포트를 변경하는지 등의 처리를 할때 용의</summary></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><category term="generative" /><category term="ai" /><summary type="html">대표적인 예로 AWS BEDROCK 까지 알아보자</summary></entry></feed>
