@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2024-04-03T11:54:31+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">spring boot jar 파일 실행시 application.yml 주입 하기</title><link href="https://lahuman.github.io/springboot_application_config/" rel="alternate" type="text/html" title="spring boot jar 파일 실행시 application.yml 주입 하기" /><published>2024-04-03T00:00:00+00:00</published><updated>2024-04-03T00:00:00+00:00</updated><id>https://lahuman.github.io/springboot_application_config</id><content type="html" xml:base="https://lahuman.github.io/springboot_application_config/">&lt;h1 id=&quot;spring-boot-실행시-설정-파일-외부-주입-방법&quot;&gt;spring boot 실행시 설정 파일 외부 주입 방법&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2024-04-05T01:46:53+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">비키던지, 따르던지, 이끌던지</title><link href="https://lahuman.github.io/20240404/" rel="alternate" type="text/html" title="비키던지, 따르던지, 이끌던지" /><published>2024-04-04T00:00:00+00:00</published><updated>2024-04-04T00:00:00+00:00</updated><id>https://lahuman.github.io/20240404</id><content type="html" xml:base="https://lahuman.github.io/20240404/">&lt;h1 id=&quot;비키던지-따르던지-이끌던지&quot;&gt;비키던지, 따르던지, 이끌던지&lt;/h1&gt;</content><author><name></name></author><category term="phase" /><summary type="html">수동적이기 보다 능동적으로 살아가자</summary></entry><entry><title type="html">spring boot jar 파일 실행시 application.yml 주입 하기</title><link href="https://lahuman.github.io/springboot_application_config/" rel="alternate" type="text/html" title="spring boot jar 파일 실행시 application.yml 주입 하기" /><published>2024-04-03T00:00:00+00:00</published><updated>2024-04-03T00:00:00+00:00</updated><id>https://lahuman.github.io/springboot_application_config</id><content type="html" xml:base="https://lahuman.github.io/springboot_application_config/">&lt;h1 id=&quot;spring-boot-실행시-설정-파일-외부-주입-방법&quot;&gt;spring boot 실행시 설정 파일 외부 주입 방법&lt;/h1&gt;
 
 &lt;h2 id=&quot;실행-명령어를-이용한-주입&quot;&gt;실행 명령어를 이용한 주입&lt;/h2&gt;
 
@@ -540,49 +540,4 @@ flowchart LR;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://spring.io/guides/tutorials/spring-boot-kotlin/&quot;&gt;Building web applications with Spring Boot and Kotlin&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="kotlin" /><category term="spring" /><summary type="html">그래 너로 정했다! 코프링~</summary></entry><entry><title type="html">생성형 AI(Generative AI)의 이해</title><link href="https://lahuman.github.io/generative_ai/" rel="alternate" type="text/html" title="생성형 AI(Generative AI)의 이해" /><published>2024-01-18T00:00:00+00:00</published><updated>2024-01-18T00:00:00+00:00</updated><id>https://lahuman.github.io/generative_ai</id><content type="html" xml:base="https://lahuman.github.io/generative_ai/">&lt;h1 id=&quot;생성형-aigenerative-ai란&quot;&gt;생성형 AI(Generative AI)란?&lt;/h1&gt;
-
-&lt;p&gt;인공지능(AI) 분야에서 주목받는 최신 발전 중 하나는 &lt;code class=&quot;highlighter-rouge&quot;&gt;생성형 AI(Generative AI)&lt;/code&gt;의 등장입니다. 생성형 AI는 &lt;code class=&quot;highlighter-rouge&quot;&gt;기계가 인간의 창작물과 매우 유사한 텍스트, 이미지, 심지어 음악을 생성할 수 있는 기술&lt;/code&gt;을 지칭합니다. 이 기술의 복잡성과 다양성은 업계에서 큰 관심을 받고 있는데, 이를 통해 새로운 창작물을 만들어내는 가능성이 열린 것입니다.&lt;/p&gt;
-
-&lt;p&gt;생성형 AI는 간단하면서도 강력한 원리에 기반하고 있습니다. 주어진 입력이나 컨텍스트에 따라 의미 있는 결과물을 창출할 수 있는 능력을 가지고 있습니다. 이러한 AI가 주목받는 이유 중 하나는 인간과 유사한 대화를 이어가면서 다양한 주제에 걸쳐 일관된 콘텐츠를 생성할 수 있다는 점입니다. 대표적인 예로는 &lt;code class=&quot;highlighter-rouge&quot;&gt;챗봇&lt;/code&gt; 중 &lt;code class=&quot;highlighter-rouge&quot;&gt;OpenAI의 GPT(Generative Pre-trained Transformer) 모델&lt;/code&gt;이 있습니다. 특히 GPT-3 및 그 후속 모델은 다양한 주제에 대한 이해와 일관된 텍스트 생성 능력을 입증하여 많은 주목을 받았습니다.&lt;/p&gt;
-
-&lt;p&gt;생성형 AI로 개발된 응용 프로그램은 알파고와는 달리 &lt;code class=&quot;highlighter-rouge&quot;&gt;광범위한 분야에서 유용성&lt;/code&gt;을 보여주고 있습니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;fmfoundation-model&quot;&gt;FM(Foundation Model)&lt;/h2&gt;
-
-&lt;p&gt;FM(Foundation Model)은 다양한 생성형 AI 애플리케이션의 기초를 제공합니다. 이는 광범위한 데이터 세트에 대한 사전 훈련된 모델로, 개발자와 연구원이 신속하게 구축할 수 있는 출발점을 제공합니다. FM은 특정 작업에 맞게 미세 조정하거나 다양한 애플리케이션에서 그대로 활용할 수 있는 기초 역할을 합니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;amazon-bedrock-생성형-ai로-가는-관문&quot;&gt;&lt;a href=&quot;https://aws.amazon.com/ko/bedrock/&quot;&gt;Amazon Bedrock&lt;/a&gt;: 생성형 AI로 가는 관문&lt;/h2&gt;
-
-&lt;p&gt;Amazon Bedrock은 AI21 Labs, Anthropic, Cohere, Meta, Stability AI 및 Amazon과 같은 선도적인 AI 회사들의 고성능 파운데이션 모델(FM)을 하나의 API로 제공하는 &lt;code class=&quot;highlighter-rouge&quot;&gt;완전히 관리되는 서비스&lt;/code&gt;(SaaS 형태)입니다. 생성형 AI 애플리케이션을 구축하는 데 필요한 다양한 기능 세트를 활용하여 &lt;code class=&quot;highlighter-rouge&quot;&gt;개인 정보 보호 및 보안을 유지&lt;/code&gt;하면서 개발을 간소화할 수 있습니다.&lt;/p&gt;
-
-&lt;h3 id=&quot;amazon-bedrock-security-and-privacy&quot;&gt;&lt;a href=&quot;https://aws.amazon.com/ko/bedrock/security-compliance/&quot;&gt;Amazon Bedrock Security and Privacy&lt;/a&gt;&lt;/h3&gt;
-
-&lt;h4 id=&quot;애플리케이션의-보안-유지&quot;&gt;애플리케이션의 보안 유지&lt;/h4&gt;
-
-&lt;p&gt;Amazon bedrock을 사용하면 생성형 AI 애플리케이션의 기본 모델을 사용자 정의하는 데 사용하여 데이터를 완벽하게 제어할 수 있습니다. 데이터는 전송 중 및 미사용 시 &lt;code class=&quot;highlighter-rouge&quot;&gt;암호화&lt;/code&gt;됩니다. 또한, &lt;code class=&quot;highlighter-rouge&quot;&gt;AWS 키 관리 서비스(AWS KMS)를 사용하여 암호화 키를 생성, 관리 및 제어&lt;/code&gt;할 수 있습니다. ID 기반 정책은 데이터를 더욱 효과적으로 제어하여 사용자와 역할이 어떤 리소스에서, 어떤 조건에서, 어떤 작업을 수행할 수 있는지 관리할 수 있도록 도와줍니다&lt;/p&gt;
-
-&lt;h4 id=&quot;포괄적인-데이터-보호-및-개인정보-보호로-구축&quot;&gt;포괄적인 데이터 보호 및 개인정보 보호로 구축&lt;/h4&gt;
-
-&lt;p&gt;아마존 bedrock은 데이터를 사용자가 제어할 수 있도록 도와줍니다. 기본 모델을 조정할 때는 해당 모델의 &lt;code class=&quot;highlighter-rouge&quot;&gt;비공개 사본을 기반&lt;/code&gt;으로 합니다. 즉, &lt;code class=&quot;highlighter-rouge&quot;&gt;사용자의 데이터는 모델 제공업체와 공유되지 않으며 기본 모델을 개선하는 데 사용되지 않습니다.&lt;/code&gt; AWS PrivateLink를 사용하면 VPC를 인터넷 트래픽에 노출하지 않고도 Amazon 가상 프라이빗 클라우드(VPC)에서 Amazon bedrock으로 프라이빗 연결을 설정할 수 있습니다. 마지막으로, bedrock은 ISO, SOC, CSA STAR 레벨 2를 포함한 일반적인 규정 준수 표준의 적용 범위를 벗어나지 않으며, HIPAA를 준수하고, 고객이 GDPR을 준수하면서 bedrock을 사용할 수 있습니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;검색-증강-세대rag&quot;&gt;&lt;a href=&quot;https://docs.aws.amazon.com/ko_kr/sagemaker/latest/dg/jumpstart-foundation-models-customize-rag.html&quot;&gt;검색 증강 세대(RAG)&lt;/a&gt;&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;파운데이션 모델은 오프라인에서 학습되어 새로운 데이터에 적응하지 못하고, 도메인별 작업에는 부적합합니다.&lt;/li&gt;
-  &lt;li&gt;검색 증강 세대(RAG)는 파운데이션 모델에 추가적인 데이터를 제공하여 프롬프트를 개선할 수 있습니다.&lt;/li&gt;
-  &lt;li&gt;RAG는 문서와 쿼리를 임베딩하여 관련성 검색을 수행하고, 지식 라이브러리에서 유사한 문서의 컨텍스트를 프롬프트에 삽입합니다.&lt;/li&gt;
-  &lt;li&gt;RAG 모델 아키텍처와 지식 집약적 NLP 작업에 대한 자세한 내용은 &lt;a href=&quot;https://arxiv.org/abs/2005.11401&quot;&gt;이 문서&lt;/a&gt;를 참고하세요.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://docs.aws.amazon.com/ko_kr/sagemaker/latest/dg/images/jumpstart/jumpstart-fm-rag.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://aws.amazon.com/ko/bedrock/&quot;&gt;Amazon Bedrock&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://amarpreet-s.medium.com/generative-ai-with-aws-bedrock-4e1a2770db0c&quot;&gt;Generative AI with AWS Bedrock&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://aws.amazon.com/ko/blogs/korea/knowledge-bases-now-delivers-fully-managed-rag-experience-in-amazon-bedrock/&quot;&gt;Amazon Bedrock Knowledge Bases 정식 출시 – 완전관리형 RAG 경험 제공&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://aws.amazon.com/ko/blogs/korea/preview-connect-foundation-models-to-your-company-data-sources-with-agents-for-amazon-bedrock/&quot;&gt;Amazon Bedrock 지식 기반 미리보기 – 파운데이션 모델을 위한 에이전트 기반 기업 데이터 소스 연결 기능&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://aws.amazon.com/ko/blogs/tech/bedrock-claude-kendra-rag/&quot;&gt;Amazon Bedrock의 Claude와 Amazon Kendra로 향상된 RAG 사용하기&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://docs.aws.amazon.com/ko_kr/sagemaker/latest/dg/jumpstart-foundation-models-customize-rag.html&quot;&gt;검색 증강 세대(RAG)&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="generative" /><category term="ai" /><summary type="html">대표적인 예로 AWS BEDROCK 까지 알아보자</summary></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><category term="kotlin" /><category term="spring" /><summary type="html">그래 너로 정했다! 코프링~</summary></entry></feed>
