@@ -1,4 +1,82 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2024-04-08T09:14:13+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">인피니티 게임</title><link href="https://lahuman.github.io/book_phase/" rel="alternate" type="text/html" title="인피니티 게임" /><published>2024-04-07T00:00:00+00:00</published><updated>2024-04-07T00:00:00+00:00</updated><id>https://lahuman.github.io/book_phase</id><content type="html" xml:base="https://lahuman.github.io/book_phase/">&lt;h1 id=&quot;유한-게임과-무한-게임&quot;&gt;유한 게임과 무한 게임&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2024-04-09T02:24:08+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">ubuntu의 nginx의 ssl 인증서 설치</title><link href="https://lahuman.github.io/ssl_certbot_ubuntu_nginx/" rel="alternate" type="text/html" title="ubuntu의 nginx의 ssl 인증서 설치" /><published>2024-04-09T00:00:00+00:00</published><updated>2024-04-09T00:00:00+00:00</updated><id>https://lahuman.github.io/ssl_certbot_ubuntu_nginx</id><content type="html" xml:base="https://lahuman.github.io/ssl_certbot_ubuntu_nginx/">&lt;h1 id=&quot;lets-encrypt를-사용하여-https-자동-구성&quot;&gt;Let’s Encrypt를 사용하여 HTTPS 자동 구성&lt;/h1&gt;
+
+&lt;p&gt;Certbot, Let’s Encrypt 및 ACME(자동 인증서 관리 환경) 프로토콜의 목적은 HTTPS 서버를 설정하고 사람의 개입 없이 브라우저에서 신뢰할 수 있는 인증서를 자동으로 얻을 수 있도록 하는 것입니다. 이는 웹 서버에서 인증서 관리 에이전트를 실행하여 수행됩니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;설치--설정--실행-명령어&quot;&gt;설치 &amp;amp; 설정 &amp;amp; 실행 명령어&lt;/h2&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# 설치&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;snap install &lt;span class=&quot;nt&quot;&gt;--classic&lt;/span&gt; certbot
+certbot 2.10.0 from Certbot Project &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;certbot-eff✓&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; installed
+
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;ln &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; /snap/bin/certbot /usr/bin/certbot
+
+&lt;span class=&quot;c&quot;&gt;# 설정&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;certbot &lt;span class=&quot;nt&quot;&gt;--nginx&lt;/span&gt;
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+Enter email address &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;used &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;urgent renewal and security notices&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;Enter &lt;span class=&quot;s1&quot;&gt;'c'&lt;/span&gt; to cancel&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;: lahuman@daum.net
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Please &lt;span class=&quot;nb&quot;&gt;read &lt;/span&gt;the Terms of Service at
+https://letsencrypt.org/documents/LE-SA-v1.4-April-3-2024.pdf. You must agree &lt;span class=&quot;k&quot;&gt;in
+&lt;/span&gt;order to register with the ACME server. Do you agree?
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;Y&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;es/&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;N&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;o: y
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Would you be willing, once your first certificate is successfully issued, to
+share your email address with the Electronic Frontier Foundation, a founding
+partner of the Let&lt;span class=&quot;s1&quot;&gt;'s Encrypt project and the non-profit organization that
+develops Certbot? We'&lt;/span&gt;d like to send you email about our work encrypting the web,
+EFF news, campaigns, and ways to support digital freedom.
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;Y&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;es/&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;N&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;o: y
+Account registered.
+
+Which names would you like to activate HTTPS &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;?
+We recommend selecting either all domains, or all domains &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;a VirtualHost/server block.
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+1: lahuman.zapto.org
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Select the appropriate numbers separated by commas and/or spaces, or leave input
+blank to &lt;span class=&quot;k&quot;&gt;select &lt;/span&gt;all options shown &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;Enter &lt;span class=&quot;s1&quot;&gt;'c'&lt;/span&gt; to cancel&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;:
+Requesting a certificate &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;lahuman.zapto.org
+
+Successfully received certificate.
+Certificate is saved at: /etc/letsencrypt/live/lahuman.zapto.org/fullchain.pem
+Key is saved at:         /etc/letsencrypt/live/lahuman.zapto.org/privkey.pem
+This certificate expires on 2024-07-07.
+These files will be updated when the certificate renews.
+Certbot has &lt;span class=&quot;nb&quot;&gt;set &lt;/span&gt;up a scheduled task to automatically renew this certificate &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;the background.
+
+Deploying certificate
+Successfully deployed certificate &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;lahuman.zapto.org to /etc/nginx/sites-enabled/default
+Congratulations! You have successfully enabled HTTPS on https://lahuman.zapto.org
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+If you like Certbot, please consider supporting our work by:
+ &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; Donating to ISRG / Let&lt;span class=&quot;s1&quot;&gt;'s Encrypt:   https://letsencrypt.org/donate
+ * Donating to EFF:                    https://eff.org/donate-le
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# nginx 설정 확인 및 재실행
+$ sudo nginx -t
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+
+$ sudo nginx -r reload
+
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;마치며&quot;&gt;마치며&lt;/h2&gt;
+
+&lt;p&gt;생각보다 설정이 쉬워서 이렇게만 하면 된다고 하고 놀랐네요. :)&lt;/p&gt;
+
+&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://snapcraft.io/install/certbot/ubuntu&quot;&gt;Install certbot on Ubuntu&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="ubuntu" /><category term="certbot" /><summary type="html">certbot을 이용한 인증서 설치 및 갱신</summary></entry><entry><title type="html">인피니티 게임</title><link href="https://lahuman.github.io/book_phase/" rel="alternate" type="text/html" title="인피니티 게임" /><published>2024-04-07T00:00:00+00:00</published><updated>2024-04-07T00:00:00+00:00</updated><id>https://lahuman.github.io/book_phase</id><content type="html" xml:base="https://lahuman.github.io/book_phase/">&lt;h1 id=&quot;유한-게임과-무한-게임&quot;&gt;유한 게임과 무한 게임&lt;/h1&gt;
 
 &lt;h2 id=&quot;유한-게임&quot;&gt;유한 게임&lt;/h2&gt;
 
@@ -516,12 +594,4 @@ flowchart LR;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://springdoc.org/&quot;&gt;springdoc-openapi v2.3.0&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="kotlin" /><category term="spring" /><category term="swagger" /><summary type="html">swagger 설정!</summary></entry><entry><title type="html">함께 일하고 싶은 동료, 그리고 함께 하면 피곤한 동료</title><link href="https://lahuman.github.io/20240125/" rel="alternate" type="text/html" title="함께 일하고 싶은 동료, 그리고 함께 하면 피곤한 동료" /><published>2024-01-25T00:00:00+00:00</published><updated>2024-01-25T00:00:00+00:00</updated><id>https://lahuman.github.io/20240125</id><content type="html" xml:base="https://lahuman.github.io/20240125/">&lt;h1 id=&quot;결국-사람인데&quot;&gt;결국 사람인데…&lt;/h1&gt;
-
-&lt;p&gt;함께 일울 하면 힘이 되는 사람이 있고,&lt;/p&gt;
-
-&lt;p&gt;함께 일을 하면 기운 빠지게 만드는 사람이 있습니다.&lt;/p&gt;
-
-&lt;p&gt;서로 맞지 않는다고 생각하는데 어떻게 계속 함께 일하게 되네요.&lt;/p&gt;
-
-&lt;p&gt;늘 사람이 가장 어렵고 힘드네요.&lt;/p&gt;</content><author><name></name></author><category term="phase" /><summary type="html">함께 하기 싫은 사람과 함께 해야 할 때도 있다</summary></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><category term="kotlin" /><category term="spring" /><category term="swagger" /><summary type="html">swagger 설정!</summary></entry></feed>
