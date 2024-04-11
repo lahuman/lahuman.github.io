@@ -1,4 +1,28 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2024-04-09T02:24:08+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">ubuntu의 nginx의 ssl 인증서 설치</title><link href="https://lahuman.github.io/ssl_certbot_ubuntu_nginx/" rel="alternate" type="text/html" title="ubuntu의 nginx의 ssl 인증서 설치" /><published>2024-04-09T00:00:00+00:00</published><updated>2024-04-09T00:00:00+00:00</updated><id>https://lahuman.github.io/ssl_certbot_ubuntu_nginx</id><content type="html" xml:base="https://lahuman.github.io/ssl_certbot_ubuntu_nginx/">&lt;h1 id=&quot;lets-encrypt를-사용하여-https-자동-구성&quot;&gt;Let’s Encrypt를 사용하여 HTTPS 자동 구성&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2024-04-11T00:21:38+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">리더쉽 그리고 성악설</title><link href="https://lahuman.github.io/leadership/" rel="alternate" type="text/html" title="리더쉽 그리고 성악설" /><published>2024-04-11T00:00:00+00:00</published><updated>2024-04-11T00:00:00+00:00</updated><id>https://lahuman.github.io/leadership</id><content type="html" xml:base="https://lahuman.github.io/leadership/">&lt;h1 id=&quot;리더쉽-그리고-성악설&quot;&gt;리더쉽 그리고 성악설&lt;/h1&gt;
+
+&lt;p&gt;인간은 선한가? 악한가?&lt;/p&gt;
+
+&lt;p&gt;성선설과 성악설이 있습니다.&lt;/p&gt;
+
+&lt;p&gt;니콜로 마키아벨리의 “군주론”은 16세기 초 이탈리아의 정치 상황을 반영한 작푸니다. 마키아벨리는 인간의 본성에 대한 성악설적 시각을 바탕으로, 군주가 권력을 유지하고 국가를 안정적으로 통치하기 위해 필요한 정치적 기술과 전략에 대해 논의합니다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;성악설은 인간이 본래부터 이기적이고 자신의 이익을 최우선으로 추구하는 성향을 가지고 있다는 관점입니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;군주론에서 가장 유명한 내용 중 하나는 &lt;strong&gt;“목적이 수단을 정당화한다”&lt;/strong&gt; 입니다. 마키아벨리는 군주가 권력을 유지하고 국가의 이익을 위해 때로는 비윤리적이거나 잔인한 방법을 사용해야 할 수도 있다고 주장합니다. 이러한 관점은 그의 이름을 따서 &lt;strong&gt;“마키아벨리즘”&lt;/strong&gt;이라고 불리는 정치적 실용주의로 이어졌습니다.&lt;/p&gt;
+
+&lt;p&gt;군주 또는 리더는 선해야 하는지에 대하여 아래와 같은 내용이 있습니다.&lt;/p&gt;
+
+&lt;p&gt;“군주들은 그들이 선하게 행동해야 할지, 그렇지 않을지를 고민할 필요가 없다. 그들의 행동은 오직 권력을 유지하고 국가의 안녕을 증진하는 데에 그 목적이 있어야 한다. 따라서 필요할 때는 선을 행하되, 그 상황이 요구한다면 악행도 서슴지 않아야 한다.”&lt;/p&gt;
+
+&lt;p&gt;어쩌면, 제가 좋은 리더는 선해야 한다고 생각하는것이 잘못된 생각이 아닐까 생각이 됩니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://brunch.co.kr/@shortjisik/98&quot;&gt;쉽게 이해하는 마키아벨리 군주론&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.yes24.com/Product/Goods/122786298&quot;&gt;군주론&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="leadership" /><summary type="html">마키아벨리 군주론</summary></entry><entry><title type="html">ubuntu의 nginx의 ssl 인증서 설치</title><link href="https://lahuman.github.io/ssl_certbot_ubuntu_nginx/" rel="alternate" type="text/html" title="ubuntu의 nginx의 ssl 인증서 설치" /><published>2024-04-09T00:00:00+00:00</published><updated>2024-04-09T00:00:00+00:00</updated><id>https://lahuman.github.io/ssl_certbot_ubuntu_nginx</id><content type="html" xml:base="https://lahuman.github.io/ssl_certbot_ubuntu_nginx/">&lt;h1 id=&quot;lets-encrypt를-사용하여-https-자동-구성&quot;&gt;Let’s Encrypt를 사용하여 HTTPS 자동 구성&lt;/h1&gt;
 
 &lt;p&gt;Certbot, Let’s Encrypt 및 ACME(자동 인증서 관리 환경) 프로토콜의 목적은 HTTPS 서버를 설정하고 사람의 개입 없이 브라우저에서 신뢰할 수 있는 인증서를 자동으로 얻을 수 있도록 하는 것입니다. 이는 웹 서버에서 인증서 관리 에이전트를 실행하여 수행됩니다.&lt;/p&gt;
 
@@ -539,59 +563,4 @@ flowchart LR;
 &lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.baeldung.com/get-user-in-spring-security&quot;&gt;Retrieve User Information in Spring Security&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="spring" /><category term="security" /><summary type="html">Controller에서 annotation으로 가져올 수 도 있음!</summary></entry><entry><title type="html">[kotlin + Spring]swagger 를 설정하자!</title><link href="https://lahuman.github.io/spring_kotlin_swagger/" rel="alternate" type="text/html" title="[kotlin + Spring]swagger 를 설정하자!" /><published>2024-01-26T00:00:00+00:00</published><updated>2024-01-26T00:00:00+00:00</updated><id>https://lahuman.github.io/spring_kotlin_swagger</id><content type="html" xml:base="https://lahuman.github.io/spring_kotlin_swagger/">&lt;h1 id=&quot;springdoc-openapi-v230&quot;&gt;&lt;a href=&quot;https://springdoc.org/&quot;&gt;springdoc-openapi v2.3.0&lt;/a&gt;&lt;/h1&gt;
-
-&lt;p&gt;springBoot 3.x 부터는 &lt;a href=&quot;https://springdoc.org/&quot;&gt;springdoc-openapi v2.3.0&lt;/a&gt; 모듈을 사용해야 합니다. 
-이전 버젼은 &lt;code class=&quot;highlighter-rouge&quot;&gt;springdoc-openapi v1.7.0&lt;/code&gt;을 이용해야 합니다.&lt;/p&gt;
-
-&lt;p&gt;설치는 &lt;code class=&quot;highlighter-rouge&quot;&gt;build.gradle.kts&lt;/code&gt; 에 아래 디펜던시를 추가 합니다.&lt;/p&gt;
-
-&lt;div class=&quot;language-gradle highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;implementation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;org.springdoc:springdoc-openapi-starter-webmvc-ui:2.3.0&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Swagger 설정은 다음과 같이 단순하게 class를 추가해서 설정할 수 있습니다.&lt;/p&gt;
-
-&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;io.lahuman.config&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;io.swagger.v3.oas.annotations.OpenAPIDefinition&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;io.swagger.v3.oas.annotations.info.Info&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;io.swagger.v3.oas.annotations.servers.Server&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.springframework.context.annotation.Configuration&lt;/span&gt;
-
-
-&lt;span class=&quot;n&quot;&gt;@OpenAPIDefinition&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;info&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Info&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;title&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;제목&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;description&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;설명&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;version&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;v1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;servers&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;Server&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;\${springdoc.swagger-ui.server}&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;@Configuration&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;SwaggerConfig&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;추가로 &lt;code class=&quot;highlighter-rouge&quot;&gt;/resource/application.yml&lt;/code&gt;에 몇가지 설정을 넣어서 마무리 하면 됩니다.&lt;/p&gt;
-
-&lt;div class=&quot;language-yml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-&lt;span class=&quot;na&quot;&gt;springdoc&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;default-consumes-media-type&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;application/json&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;default-produces-media-type&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;application/json&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;swagger-ui&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;tags-sorter&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;alpha&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;server&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;http://localhost:8080/&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;/swagger-ui.html&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;server&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;servlet&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;context-path&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;/&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;encoding&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-      &lt;span class=&quot;na&quot;&gt;force&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;true&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;실제 swagger 화면을 보기 위한 접속 주소는 &lt;code class=&quot;highlighter-rouge&quot;&gt;http://localhost:8080/swagger-ui.html&lt;/code&gt; 으로 접근하면 swagger 화면을 확인 할 수 있습니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://springdoc.org/&quot;&gt;springdoc-openapi v2.3.0&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="kotlin" /><category term="spring" /><category term="swagger" /><summary type="html">swagger 설정!</summary></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><category term="spring" /><category term="security" /><summary type="html">Controller에서 annotation으로 가져올 수 도 있음!</summary></entry></feed>
