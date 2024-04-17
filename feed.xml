@@ -1,4 +1,51 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2024-04-17T05:29:58+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">리더쉽 그리고 성악설</title><link href="https://lahuman.github.io/leadership/" rel="alternate" type="text/html" title="리더쉽 그리고 성악설" /><published>2024-04-11T00:00:00+00:00</published><updated>2024-04-11T00:00:00+00:00</updated><id>https://lahuman.github.io/leadership</id><content type="html" xml:base="https://lahuman.github.io/leadership/">&lt;h1 id=&quot;리더쉽-그리고-성악설&quot;&gt;리더쉽 그리고 성악설&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2024-04-17T23:24:26+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">git rebase를 알아 봅니다.</title><link href="https://lahuman.github.io/git_rebase_email_username/" rel="alternate" type="text/html" title="git rebase를 알아 봅니다." /><published>2024-04-17T00:00:00+00:00</published><updated>2024-04-17T00:00:00+00:00</updated><id>https://lahuman.github.io/git_rebase_email_username</id><content type="html" xml:base="https://lahuman.github.io/git_rebase_email_username/">&lt;h1 id=&quot;git-rebase-이해하기&quot;&gt;Git Rebase 이해하기&lt;/h1&gt;
+
+&lt;p&gt;Git rebase는 기존 커밋 히스토리를 정리하거나 수정하는 데 사용되는 Git 명령어입니다. 이 명령어를 사용하면 기능 브랜치의 변경 사항을 기반 브랜치(예: master 또는 main)의 최신 상태로 옮겨, 마치 처음부터 그 상태에서 작업한 것처럼 만들 수 있습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;rebase의-주요-활용&quot;&gt;Rebase의 주요 활용&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;프로젝트 히스토리 정리&lt;/strong&gt;: Rebase를 통해 작업 히스토리를 더 간결하고 명확하게 만듭니다.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;충돌 해결&lt;/strong&gt;: 기능 브랜치 개발 중 메인 브랜치에 발생한 다수의 변경사항을 통합하면서 충돌을 해결할 수 있습니다.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;코드 리뷰 개선&lt;/strong&gt;: 기반 브랜치의 최신 상태로 rebase를 진행하면 코드 리뷰어가 변경점을 더욱 명확하게 확인하고 이해할 수 있습니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;rebase-과정&quot;&gt;Rebase 과정&lt;/h2&gt;
+
+&lt;h3 id=&quot;최신-상태로-브랜치-업데이트&quot;&gt;최신 상태로 브랜치 업데이트&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;Rebase 시작&lt;/strong&gt;: &lt;code class=&quot;highlighter-rouge&quot;&gt;git rebase origin/master&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;충돌 발생 시 해결&lt;/strong&gt;: Git은 충돌이 발생하면 rebase를 일시 중지하고 충돌 해결을 요구합니다. 충돌 해결 후, &lt;code class=&quot;highlighter-rouge&quot;&gt;git add&lt;/code&gt;를 사용해 변경 사항을 스테이징하고 &lt;code class=&quot;highlighter-rouge&quot;&gt;git rebase --continue&lt;/code&gt;를 실행하여 rebase를 계속합니다.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Rebase 완료&lt;/strong&gt;: 충돌이 없을 경우, rebase가 완료되며 로컬 브랜치는 업데이트된 기반 브랜치의 커밋 위에 위치하게 됩니다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;예제-상황&quot;&gt;예제 상황&lt;/h2&gt;
+
+&lt;h3 id=&quot;시나리오&quot;&gt;시나리오&lt;/h3&gt;
+
+&lt;p&gt;개발자 A는 &lt;code class=&quot;highlighter-rouge&quot;&gt;feature&lt;/code&gt; 브랜치에서 작업 중입니다. 동시에 다른 개발자가 &lt;code class=&quot;highlighter-rouge&quot;&gt;master&lt;/code&gt; 브랜치에 새로운 커밋을 추가했습니다. 개발자 A는 자신의 &lt;code class=&quot;highlighter-rouge&quot;&gt;feature&lt;/code&gt; 브랜치를 &lt;code class=&quot;highlighter-rouge&quot;&gt;master&lt;/code&gt; 브랜치의 최신 상태로 업데이트하고자 합니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;단계별-명령어&quot;&gt;단계별 명령어&lt;/h3&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git checkout feature
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git fetch origin
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git rebase origin/master
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git checkout feature&lt;/code&gt;: 현재 작업 중인 브랜치를 feature로 변경합니다.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git fetch origin&lt;/code&gt;: 원격 저장소 origin에서 최신 데이터를 로컬로 가져옵니다. 이 명령은 origin/master의 최신 상태를 로컬에 반영합니다.&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git rebase origin/master&lt;/code&gt;: feature 브랜치의 커밋들을 origin/master의 최신 커밋 위로 재배치합니다.&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;충돌 발생 시: 충돌을 해결하고 git add로 스테이징 후, git rebase –continue로 rebase를 계속합니다.&lt;/li&gt;
+      &lt;li&gt;충돌 없이 진행될 경우: 충돌 없이 모든 커밋이 적용되면, feature 브랜치의 헤드는 origin/master의 최신 커밋 다음 위치에 설정됩니다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;이 명령들을 실행함으로써 feature 브랜치는 master 브랜치의 최신 상태를 반영하게 되고, 브랜치 간의 통합이 용이해집니다. 이러한 절차는 팀 내에서 브랜치 관리를 더욱 체계적으로 할 수 있게 도와줍니다.&lt;/p&gt;</content><author><name></name></author><category term="git" /><category term="rebase" /><summary type="html">보통 merge를 많이 사용했는데, 로그가 지저분해져서 싫었다면 rebase를 이용해보셔요</summary></entry><entry><title type="html">리더쉽 그리고 성악설</title><link href="https://lahuman.github.io/leadership/" rel="alternate" type="text/html" title="리더쉽 그리고 성악설" /><published>2024-04-11T00:00:00+00:00</published><updated>2024-04-11T00:00:00+00:00</updated><id>https://lahuman.github.io/leadership</id><content type="html" xml:base="https://lahuman.github.io/leadership/">&lt;h1 id=&quot;리더쉽-그리고-성악설&quot;&gt;리더쉽 그리고 성악설&lt;/h1&gt;
 
 &lt;p&gt;인간은 선한가? 악한가?&lt;/p&gt;
 
@@ -480,87 +527,4 @@ flowchart LR;
   &lt;li&gt;&lt;a href=&quot;https://tech.kakao.com/2023/12/22/techmeet-virtualthread/&quot;&gt;JDK 21의 신기능 Virtual Thread 알아보기 / 제4회 Kakao Tech Meet&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://docs.oracle.com/en/java/javase/21/core/virtual-threads.html#GUID-DC4306FC-D6C1-4BCC-AECE-48C32C1A8DAA&quot;&gt;Virtual Thread&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://mangkyu.tistory.com/317&quot;&gt;[Spring] 가상 스레드(Virtual Thread)를 지원하기 위한 스프링의 작업들과 마이그레이션 시의 주의 사항&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="spring" /><category term="jdk21" /><summary type="html">일단 고! 써보자</summary></entry><entry><title type="html">spring security에서 로그인 된 사용자 정보 가져오는 몇가지 방법</title><link href="https://lahuman.github.io/spring_security_get_user/" rel="alternate" type="text/html" title="spring security에서 로그인 된 사용자 정보 가져오는 몇가지 방법" /><published>2024-02-07T00:00:00+00:00</published><updated>2024-02-07T00:00:00+00:00</updated><id>https://lahuman.github.io/spring_security_get_user</id><content type="html" xml:base="https://lahuman.github.io/spring_security_get_user/">&lt;h1 id=&quot;retrieve-user-information-in-spring-security&quot;&gt;&lt;a href=&quot;https://www.baeldung.com/get-user-in-spring-security&quot;&gt;Retrieve User Information in Spring Security&lt;/a&gt;&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;전제 조건으로 &lt;code class=&quot;highlighter-rouge&quot;&gt;security&lt;/code&gt;를 이용한 인증을 모두 완료 후 인증된 정보를 가져오는 방법입니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;단순한-정보-호출-방법&quot;&gt;단순한 정보 호출 방법&lt;/h2&gt;
-
-&lt;p&gt;아래와 같이 &lt;code class=&quot;highlighter-rouge&quot;&gt;SecurityContextHolder&lt;/code&gt;를 통해서 정보를 가져올 수 있습니다.&lt;/p&gt;
-
-&lt;h3 id=&quot;인증된-정보를-가져오는-단순한-방법&quot;&gt;인증된 정보를 가져오는 단순한 방법&lt;/h3&gt;
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;Authentication&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;authentication&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SecurityContextHolder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getContext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getAuthentication&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;currentPrincipalName&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;authentication&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;Authentication&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;authentication&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SecurityContextHolder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getContext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getAuthentication&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(!(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;authentication&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;instanceof&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;AnonymousAuthenticationToken&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;currentUserName&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;authentication&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;currentUserName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;인증된-객체를-가져오는-방법&quot;&gt;인증된 객체를 가져오는 방법&lt;/h3&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;UserDetails&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;userDetails&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;UserDetails&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;authentication&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getPrincipal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;User has authorities: &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;userDetails&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getAuthorities&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;controller에서-인증된-객체를-가져오는-방법&quot;&gt;Controller에서 인증된 객체를 가져오는 방법&lt;/h2&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@Controller&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;GetUserWithPrincipalController&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-
-    &lt;span class=&quot;nd&quot;&gt;@RequestMapping&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;/username&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;method&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;RequestMethod&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;GET&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;nd&quot;&gt;@ResponseBody&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;currentUserName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Principal&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;principal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;principal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@Controller&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;GetUserWithAuthenticationController&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-
-    &lt;span class=&quot;nd&quot;&gt;@RequestMapping&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;/username&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;method&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;RequestMethod&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;GET&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;nd&quot;&gt;@ResponseBody&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;currentUserName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Authentication&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;authentication&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;authentication&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;request-객체에서-직접-호출-하는-방법&quot;&gt;Request 객체에서 직접 호출 하는 방법&lt;/h3&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@Controller&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;GetUserWithHTTPServletRequestController&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-
-    &lt;span class=&quot;nd&quot;&gt;@RequestMapping&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;/username&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;method&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;RequestMethod&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;GET&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;nd&quot;&gt;@ResponseBody&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;currentUserNameSimple&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;HttpServletRequest&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;Principal&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;principal&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getUserPrincipal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;principal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;마지막으로-제가-가장-선호하는-annotation-기반으로-가져오는-방법&quot;&gt;마지막으로 제가 가장 선호하는 annotation 기반으로 가져오는 방법&lt;/h3&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@RestController&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;GetUserWithAuthenticationPrincipalAnnotationController&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    
-    &lt;span class=&quot;nd&quot;&gt;@GetMapping&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/user&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getUser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;@AuthenticationPrincipal&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;UserDetails&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;userDetails&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;User Details: &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;userDetails&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getUsername&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;여러 방식으로 필요할때, 현재 인증된 정보를 가져와서 사용하면 됩니다&lt;/p&gt;
-
-&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.baeldung.com/get-user-in-spring-security&quot;&gt;Retrieve User Information in Spring Security&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="spring" /><category term="security" /><summary type="html">Controller에서 annotation으로 가져올 수 도 있음!</summary></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><category term="spring" /><category term="jdk21" /><summary type="html">일단 고! 써보자</summary></entry></feed>
