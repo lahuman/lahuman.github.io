@@ -1,4 +1,62 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2024-04-20T02:34:59+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">git rebase를 알아 봅니다.</title><link href="https://lahuman.github.io/git_rebase_email_username/" rel="alternate" type="text/html" title="git rebase를 알아 봅니다." /><published>2024-04-17T00:00:00+00:00</published><updated>2024-04-17T00:00:00+00:00</updated><id>https://lahuman.github.io/git_rebase_email_username</id><content type="html" xml:base="https://lahuman.github.io/git_rebase_email_username/">&lt;h1 id=&quot;git-rebase-이해하기&quot;&gt;Git Rebase 이해하기&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2024-04-23T23:41:05+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Gmail에서 smtp 사용 설정</title><link href="https://lahuman.github.io/gmail_smtp_setting/" rel="alternate" type="text/html" title="Gmail에서 smtp 사용 설정" /><published>2024-04-23T00:00:00+00:00</published><updated>2024-04-23T00:00:00+00:00</updated><id>https://lahuman.github.io/gmail_smtp_setting</id><content type="html" xml:base="https://lahuman.github.io/gmail_smtp_setting/">&lt;h1 id=&quot;gmail-smtp-setting&quot;&gt;Gmail Smtp Setting&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;2010년도에 SMTP 설정을 GMAIL내에서 간단하게 했었던 기억이 있습니다. 22년도에 변경 되었다는 내용이 있는데, 뭔가 복잡 복잡 하네요.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;gmail-설정-진행&quot;&gt;GMAIL 설정 진행&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;GMAIL &amp;gt; 톱니바퀴 &amp;gt; 모든 설정 보기 
+&lt;img src=&quot;/assets/img/post_img/gmail-setting-1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;설정 &amp;gt; 전달 및 POP/IMAP
+&lt;img src=&quot;/assets/img/post_img/gmail-setting-2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;app-password-추가&quot;&gt;APP PASSWORD 추가&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;이 메뉴가 검색시 &lt;code class=&quot;highlighter-rouge&quot;&gt;계정 &amp;gt; 보안 &amp;gt; 2단계 인증&lt;/code&gt;에 있다고 되어 있지만, 실제로 보이지 않고 주소 입력을 통해 접근해야 합니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;https://myaccount.google.com/security 에서 &lt;code class=&quot;highlighter-rouge&quot;&gt;2-step verification&lt;/code&gt; 밑에 app password 메뉴가 존재 하지 않습니다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;https://myaccount.google.com/apppasswords 로 직접 접근해서 추가 하면 됩니다.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/google_app_password.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;이렇게 수정하고 나면 GMAIL SMTP를 사용할 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;다음은 사용 예제 입니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/aultwarden_smtp_example.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;위 화면에서&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;username : xxx@gmail.com&lt;/li&gt;
+  &lt;li&gt;password : app password&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;이렇게 설정 하면 됩니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://support.google.com/mail/thread/4477145/no-app-passwords-under-security-signing-in-to-google-panel?hl=en&quot;&gt;No “App passwords” under “Security” -&amp;gt; “Signing in to Google” panel&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://kincoding.com/entry/Google-Gmail-SMTP-%EC%82%AC%EC%9A%A9%EC%9D%84-%EC%9C%84%ED%95%9C-%EC%84%B8%ED%8C%85&quot;&gt;Google - Gmail SMTP 사용을 위한 세팅&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="gmail" /><category term="smtp" /><summary type="html">예전엔 gmail 설정만 하면 되었는데, app password 등을 설정 해야 합니다.</summary></entry><entry><title type="html">git rebase를 알아 봅니다.</title><link href="https://lahuman.github.io/git_rebase_email_username/" rel="alternate" type="text/html" title="git rebase를 알아 봅니다." /><published>2024-04-17T00:00:00+00:00</published><updated>2024-04-17T00:00:00+00:00</updated><id>https://lahuman.github.io/git_rebase_email_username</id><content type="html" xml:base="https://lahuman.github.io/git_rebase_email_username/">&lt;h1 id=&quot;git-rebase-이해하기&quot;&gt;Git Rebase 이해하기&lt;/h1&gt;
 
 &lt;p&gt;Git rebase는 기존 커밋 히스토리를 정리하거나 수정하는 데 사용되는 Git 명령어입니다. 이 명령어를 사용하면 기능 브랜치의 변경 사항을 기반 브랜치(예: master 또는 main)의 최신 상태로 옮겨, 마치 처음부터 그 상태에서 작업한 것처럼 만들 수 있습니다.&lt;/p&gt;
 
@@ -413,118 +471,4 @@ $ sudo nginx -r reload
 &lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.baeldung.com/spring-security-integration-tests&quot;&gt;Spring Security for Spring Boot Integration Tests&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="spring" /><category term="security" /><category term="test" /><summary type="html">인증 처리 방법</summary></entry><entry><title type="html">JDK21 + Spring 3.2 + virtual thread</title><link href="https://lahuman.github.io/jdk21_virtual_thread/" rel="alternate" type="text/html" title="JDK21 + Spring 3.2 + virtual thread" /><published>2024-02-20T00:00:00+00:00</published><updated>2024-02-20T00:00:00+00:00</updated><id>https://lahuman.github.io/jdk21_virtual_thread</id><content type="html" xml:base="https://lahuman.github.io/jdk21_virtual_thread/">&lt;h1 id=&quot;virtual-thread를-사용해보자&quot;&gt;Virtual Thread를 사용해보자!&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;이번 프로젝트는 kotlin + jdk21 + spring 3.2의 환경입니다. jdk21이면 많이 이야기되는 virtual thread를 사용할지를 이야기 하기 위한 사전 조사를 했습니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;virtual-thread란&quot;&gt;Virtual Thread란?&lt;/h2&gt;
-
-&lt;p&gt;우선 Virtual Thread를 이해하기 위해서는 몇가지 알아야 하는 사항이 있습니다.&lt;/p&gt;
-
-&lt;h3 id=&quot;platform-thread&quot;&gt;Platform Thread&lt;/h3&gt;
-
-&lt;h4 id=&quot;system-call&quot;&gt;System call&lt;/h4&gt;
-&lt;div class=&quot;mermaid&quot;&gt; 
-flowchart LR;
-    A[CPU] --&amp;gt;B{Scheduler};
-    subgraph OS-Linux;
-    B --&amp;gt; C[Thread 1];
-    B --&amp;gt; E[Thread 2];
-    B --&amp;gt; F[Thread N];
-    end;
-    subgraph JNI;
-    F --&amp;gt; G[[JNI]];
-    E --&amp;gt; G;
-    C --&amp;gt; G;
-    end;
-    subgraph JVM;
-    G --&amp;gt; H[Thread 1];
-    G --&amp;gt; I[Thread 2];
-    G --&amp;gt; J[Thread N];
-    end;
-&lt;/div&gt;
-
-&lt;p&gt;Platform Thread는 OS Thread를 감싼 형태로 구현됩니다.&lt;/p&gt;
-
-&lt;h4 id=&quot;thread의-생애-주기&quot;&gt;Thread의 생애 주기&lt;/h4&gt;
-&lt;div class=&quot;mermaid&quot;&gt; 
-flowchart LR;
-    A[NEW] --&amp;gt;|start| B[RUNNABLE];
-    B --&amp;gt;|run| C[RUNNING];
-    E[NON-RUNNABLE];
-    subgraph context switch;
-    C -.-&amp;gt;|yield| B;
-    E -.-&amp;gt;|sleep end, i/o completes,  etc| B;
-    C -.-&amp;gt;|sleep, block i/o, etc| E;
-    end;
-    C --&amp;gt;|stop| D[TERMINATIED];
-&lt;/div&gt;
-
-&lt;p&gt;자바에서는 Thread가 I/O 작업, 인터럽트 또는 sleep 명령을 만날 때 블로킹 또는 대기 상태로 들어갑니다. 이 기간 동안 다른 Thread가 운영 체제의 자원을 활용하여 작업을 수행할 수 있으며, 이를 &lt;code class=&quot;highlighter-rouge&quot;&gt;Context Switching&lt;/code&gt;이라고 합니다. 이 모델은 기존의 프로세스 모델을 작은 단위로 분할하여 프로세스 내에서 공유 자원을 허용하면서 작은 작업 단위를 번갈아 가며 실행하는 것을 의미합니다.&lt;/p&gt;
-
-&lt;p&gt;다만, 요청량이 급격하기 증가하는 서버 환경에서는 갈수록 더 많은 Thread 수를 요구 하게 되어 이를 극복하기 위해서 나온 것이 경량 스레드 모델인 &lt;code class=&quot;highlighter-rouge&quot;&gt;Virutal Thread&lt;/code&gt;입니다.&lt;/p&gt;
-
-&lt;p&gt;Virtual Thread의 가장 큰 특징은 &lt;code class=&quot;highlighter-rouge&quot;&gt;컨텍스트 스위칭 비용이 저렴&lt;/code&gt; 하다는 것입니다.&lt;/p&gt;
-
-&lt;h4 id=&quot;virtual-thread&quot;&gt;Virtual Thread&lt;/h4&gt;
-&lt;div class=&quot;mermaid&quot;&gt; 
-flowchart LR;
-    A[CPU] --&amp;gt;B{Scheduler};
-    subgraph OS-Linux;
-    B --&amp;gt; C[Thread 1];
-    B --&amp;gt; E[Thread 2];
-    B --&amp;gt; F[Thread N];
-    end;
-    subgraph JNI;
-    F --&amp;gt; G[[JNI]];
-    E --&amp;gt; G;
-    C --&amp;gt; G;
-    end;
-    subgraph JVM;
-    G --&amp;gt; H{Scheduler};
-    G --&amp;gt; H;
-    G --&amp;gt; H;
-    H --&amp;gt; J[Platform Thread 1];
-    H --&amp;gt; K[Platform Thread 2];
-    H --&amp;gt; L[Platform Thread N];
-    J --&amp;gt; M[Virtual Thread 1];
-    J --&amp;gt; N[Virtual Thread 2];
-    J --&amp;gt; O[Virtual Thread N];
-    K --&amp;gt; P[Virtual Thread 4];
-    K --&amp;gt; Q[Virtual Thread 5];
-    K --&amp;gt; R[Virtual Thread N];
-    L --&amp;gt; S[Virtual Thread 7];
-    L --&amp;gt; T[Virtual Thread 8];
-    L --&amp;gt; U[Virtual Thread N];
-    end;
-&lt;/div&gt;
-
-&lt;h2 id=&quot;spring-32-에서-virtual-thread-사용하기&quot;&gt;Spring 3.2 에서 Virtual Thread 사용하기&lt;/h2&gt;
-&lt;p&gt;Spring 3.2 부터는 Virtual Thread를 공식적으로 지원하기 시작하였습니다.&lt;/p&gt;
-
-&lt;p&gt;사용 방법은 간단하게 properties에 아래와 같이 설정 하면 됩니다.&lt;/p&gt;
-
-&lt;div class=&quot;language-properties highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;py&quot;&gt;spring.threads.virtual.enabled&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;true&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;위와 같이 설정할 경우 기본적으로 Tomcat에서 Virtual Thread를 사용하도록 설정이 변경 됩니다.&lt;/p&gt;
-
-&lt;p&gt;기타 부분은 수동으로 교체 작업을 해야 합니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;마치며&quot;&gt;마치며&lt;/h2&gt;
-
-&lt;p&gt;Virtual Threaad는 약 5년 가까이 준비되었던 JDK의 프로젝트였고, 기존 Platform Thread와 호환성을 최대한 맞춰서 개발되었습니다.&lt;/p&gt;
-
-&lt;p&gt;물론 Virtual Thread에 대한 이해도가 있어야 하지만, 간단하게 위와 같이 설정으로 Virtual Thread를 활용할 수 있습니다.&lt;/p&gt;
-
-&lt;p&gt;참고 자료에는 좋은 내용이 많으니 꼭 읽어 보시기를 추천 드립니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://techblog.woowahan.com/15398/&quot;&gt;Java의 미래, Virtual Thread&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://tech.kakao.com/2023/12/22/techmeet-virtualthread/&quot;&gt;JDK 21의 신기능 Virtual Thread 알아보기 / 제4회 Kakao Tech Meet&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://docs.oracle.com/en/java/javase/21/core/virtual-threads.html#GUID-DC4306FC-D6C1-4BCC-AECE-48C32C1A8DAA&quot;&gt;Virtual Thread&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://mangkyu.tistory.com/317&quot;&gt;[Spring] 가상 스레드(Virtual Thread)를 지원하기 위한 스프링의 작업들과 마이그레이션 시의 주의 사항&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="spring" /><category term="jdk21" /><summary type="html">일단 고! 써보자</summary></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><category term="spring" /><category term="security" /><category term="test" /><summary type="html">인증 처리 방법</summary></entry></feed>
