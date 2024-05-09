@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2024-05-09T12:10:39+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">나의 IT 시계는 거꾸로 가는 중…</title><link href="https://lahuman.github.io/phase/" rel="alternate" type="text/html" title="나의 IT 시계는 거꾸로 가는 중..." /><published>2024-05-09T00:00:00+00:00</published><updated>2024-05-09T00:00:00+00:00</updated><id>https://lahuman.github.io/phase</id><content type="html" xml:base="https://lahuman.github.io/phase/">&lt;h1 id=&quot;답답하다&quot;&gt;답답하다&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2024-05-09T12:16:10+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">나의 IT 시계는 거꾸로 가는 중…</title><link href="https://lahuman.github.io/phase/" rel="alternate" type="text/html" title="나의 IT 시계는 거꾸로 가는 중..." /><published>2024-05-09T00:00:00+00:00</published><updated>2024-05-09T00:00:00+00:00</updated><id>https://lahuman.github.io/phase</id><content type="html" xml:base="https://lahuman.github.io/phase/">&lt;h1 id=&quot;답답하다&quot;&gt;답답하다&lt;/h1&gt;
 
 &lt;p&gt;회사 내부 보안 파트에서 local pc에서 톰켓(서버)를 실행하면 안된다고 안내가 왔습니다.&lt;/p&gt;
 
@@ -8,7 +8,43 @@
 
 &lt;p&gt;아니다 이건 잘못되었다고 외쳐보았자 혼자 헛소리 하는 사람이 되었네요.&lt;/p&gt;
 
-&lt;p&gt;그냥 바보로 살아야 하나 고민중입니다.&lt;/p&gt;</content><author><name></name></author><category term="단상" /><summary type="html">금융권이 왜 IT의 무덤인지 다시 알게되는 날입니다.</summary></entry><entry><title type="html">Gmail에서 smtp 사용 설정</title><link href="https://lahuman.github.io/gmail_smtp_setting/" rel="alternate" type="text/html" title="Gmail에서 smtp 사용 설정" /><published>2024-04-23T00:00:00+00:00</published><updated>2024-04-23T00:00:00+00:00</updated><id>https://lahuman.github.io/gmail_smtp_setting</id><content type="html" xml:base="https://lahuman.github.io/gmail_smtp_setting/">&lt;h1 id=&quot;gmail-smtp-setting&quot;&gt;Gmail Smtp Setting&lt;/h1&gt;
+&lt;p&gt;그냥 바보로 살아야 하나 고민중입니다.&lt;/p&gt;</content><author><name></name></author><category term="단상" /><summary type="html">금융권이 왜 IT의 무덤인지 다시 알게되는 날입니다.</summary></entry><entry><title type="html">kotlin + jdk21 몇가지 오류</title><link href="https://lahuman.github.io/kotlin_jdk21/" rel="alternate" type="text/html" title="kotlin + jdk21 몇가지 오류" /><published>2024-05-08T00:00:00+00:00</published><updated>2024-05-08T00:00:00+00:00</updated><id>https://lahuman.github.io/kotlin_jdk21</id><content type="html" xml:base="https://lahuman.github.io/kotlin_jdk21/">&lt;h1 id=&quot;최신-jdk-21을-사용하면서-만난-몇가지-오류&quot;&gt;최신 JDK 21을 사용하면서 만난 몇가지 오류&lt;/h1&gt;
+
+&lt;p&gt;jdk21과 kotlin 1.9.22 에서 immutable type인 List에 addFirst와 addLast가동작 합니다&lt;/p&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Error, as expected
+&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;addFirst&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Allowed
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;그 외에도 자잘한 버그가 있네요.&lt;/p&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;mySet&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;kotlin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;collections&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;LinkedHashSet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;()&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;mySet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;addFirst&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// OK
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mySet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;addLast&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// OK
+//mySet.add(null) // null can not be a value of a non-null type String
+&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;myMap&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;kotlin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;collections&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;LinkedHashMap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;()&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;myMap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;putFirst&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;myMap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;putLast&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//myMap[2] = null // null can not be a value of a non-null type TypeVariable(V)
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;kolin에서 jdk 21의 신규 method를 사용하는 건 확인이 필요합니다.&lt;/p&gt;
+
+&lt;p&gt;아마 코틀린 2.0.0 이상에서 해결될 버그라고 되어 있네요.&lt;/p&gt;
+
+&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://youtrack.jetbrains.com/issue/KT-64640/Prevent-mutating-SequenceCollection-methods-from-JDK-21-be-available-on-read-only-collections?fbclid=IwZXh0bgNhZW0CMTAAAR1HBDcgUpHV9G4lonTIZCGrDSfCwmfllprNpMWZ7s-SoYxotLYib96Hk0c_aem_AdCwyzm0RzsjJxSLYzcvX9oitCBb6xuKwla2Zo9gH0xF5naFbweR7W12yGpnvpWAeKBMVFUP68hy9GvCDw1edbyB&quot;&gt;Prevent mutating SequenceCollection methods from JDK 21 be available on read-only collections&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://youtrack.jetbrains.com/issue/KT-61223/JDK-21-new-addFirst-addLast-and-putFirst-putLast-methods-allow-adding-nullable-value-for-non-null-types?fbclid=IwZXh0bgNhZW0CMTAAAR2d3AXtvhkRdxnzWmXedaYhmSrr7a3q9cTdtyEcNXrzVZ2sEjHXwt9IAKo_aem_AdD5avxC0u2j8gK3szuwFSoQFHqnuNt4wlEQu2NCgfjCIuAsFazQDJ2ANqQsNdIrNVYzA8hCXihu4xxcSJnc976x&quot;&gt;JDK 21: new addFirst/addLast and putFirst/putLast methods allow adding nullable value for non-null types&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="kotlin" /><category term="jdk21" /><summary type="html">이번 프로젝트는 kotlin + jdk21 입니다.</summary></entry><entry><title type="html">Gmail에서 smtp 사용 설정</title><link href="https://lahuman.github.io/gmail_smtp_setting/" rel="alternate" type="text/html" title="Gmail에서 smtp 사용 설정" /><published>2024-04-23T00:00:00+00:00</published><updated>2024-04-23T00:00:00+00:00</updated><id>https://lahuman.github.io/gmail_smtp_setting</id><content type="html" xml:base="https://lahuman.github.io/gmail_smtp_setting/">&lt;h1 id=&quot;gmail-smtp-setting&quot;&gt;Gmail Smtp Setting&lt;/h1&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;2010년도에 SMTP 설정을 GMAIL내에서 간단하게 했었던 기억이 있습니다. 22년도에 변경 되었다는 내용이 있는데, 뭔가 복잡 복잡 하네요.&lt;/p&gt;
@@ -350,71 +386,4 @@ $ sudo nginx -r reload
 
 &lt;p&gt;N100 CPU의 성능이 싱글 기준 i5-7500과 8500 사이라고 하는데, 꽤 부드럽게 동작하고 끊김을 느끼지 못했습니다.  물론 컴파일시에 기다림이 필요하지만요.&lt;/p&gt;
 
-&lt;p&gt;가성비 미니 PC를 찾는 분이 계시다면 아주 추천해드립니다.&lt;/p&gt;</content><author><name></name></author><category term="windows" /><category term="wsl2" /><category term="kotlin" /><summary type="html">windows 환경 구축을 해보자!</summary></entry><entry><title type="html">행복한 개발자가 되기 위해서</title><link href="https://lahuman.github.io/20240311/" rel="alternate" type="text/html" title="행복한 개발자가 되기 위해서" /><published>2024-03-11T00:00:00+00:00</published><updated>2024-03-11T00:00:00+00:00</updated><id>https://lahuman.github.io/20240311</id><content type="html" xml:base="https://lahuman.github.io/20240311/">&lt;h1 id=&quot;행복한-백발의-개발자라는-제목으로-2024-03-06-어느-it-업체에서-직책자로-승진한-분들을-대상으로-한-강연-발표-자료-를-보고&quot;&gt;&lt;a href=&quot;https://www.slideshare.net/slideshows/20240306-it/266665622?fbclid=IwAR08GNtvVaIkfnpvWG6ovt3kIOPQ6YPLahDgQ09_I13bxV0zQAk9vsYZBDg&quot;&gt;“행복한 백발의 개발자”라는 제목으로 2024-03-06 어느 IT 업체에서 직책자로 승진한 분들을 대상으로 한 강연 발표 자료.&lt;/a&gt; 를 보고&lt;/h1&gt;
-
-&lt;p&gt;케이타운포유에서 근무하시는 백명석님의 자료를 보고 생각을 정리 한 내용입니다&lt;/p&gt;
-
-&lt;p&gt;위에 링크를 보면 상세한 자료를 확인할 수 있습니다.&lt;/p&gt;
-
-&lt;p&gt;나 스스로에게 묻고 답하는 내용이라 반말로 작성되어 있습니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;나는-행복한가&quot;&gt;나는 행복한가?&lt;/h2&gt;
-
-&lt;p&gt;우선 나의 &lt;code class=&quot;highlighter-rouge&quot;&gt;워라벨&lt;/code&gt;은 매우 훌륭하다. 다만, 매일이 즐겁냐라고 묻는다면, 워라벨이 안좋았던 때보단 즐겁지 않다.&lt;/p&gt;
-
-&lt;p&gt;개발은 여전히 즐겁지만, 공감없이 해야하는 일들이 발목을 잡는다.&lt;/p&gt;
-
-&lt;p&gt;주변 동료에게 지식과 경험을 공유하여 선한 영향력을 끼치기 위해서 노력중이지만, 생각만큼 결과가 좋지 않다.&lt;/p&gt;
-
-&lt;h2 id=&quot;나는-성장하고-있는가&quot;&gt;나는 성장하고 있는가?&lt;/h2&gt;
-
-&lt;p&gt;아직도 성장을 위해 늘 노력 중이다.
-다만, 30대의 내가 단거리 달리기처럼 뛰었다면 지금은 장거리 달리기처럼 천천히 달리고 있다.&lt;/p&gt;
-
-&lt;p&gt;어제의 나보다 0.1 이라도 발전하려고 노력하는 중이다.&lt;/p&gt;
-
-&lt;h2 id=&quot;나는-학습하고-있는가&quot;&gt;나는 학습하고 있는가?&lt;/h2&gt;
-
-&lt;p&gt;소프트웨어는 지속적을 변화한다. 나는 여전히 새로운 기술도 사용해보고 도전하는 중이다. 성장을 위해서 학습을 한다.&lt;/p&gt;
-
-&lt;p&gt;요즘은 기술 보다는 사람에 대한 학습을 한다. 조금 더 이해하고 변화시키는 방안을 고민한다.&lt;/p&gt;
-
-&lt;h2 id=&quot;나의-활동이-다른-누군가에게-동기-부여가-되는가&quot;&gt;나의 활동이 다른 누군가에게 동기 부여가 되는가?&lt;/h2&gt;
-
-&lt;p&gt;외적 동기 부여보다는 내적 동기 부여에 힘을 쏟고 있다.&lt;/p&gt;
-
-&lt;p&gt;높다면 높은 자리에 있기에, 다른 동료가 보기에 롤모델이 되도록 노력을 하고 있다&lt;/p&gt;
-
-&lt;h2 id=&quot;나는-일-잘하는-개발자-인가-개발-리더-인가&quot;&gt;나는 일 잘하는 개발자 인가? 개발 리더 인가?&lt;/h2&gt;
-
-&lt;p&gt;아직까지 내 일은 잘한다.&lt;/p&gt;
-
-&lt;p&gt;좋은 개발 리더인가는 누군가에겐 좋은, 누군가에겐 안 좋은 리더같다.&lt;/p&gt;
-
-&lt;p&gt;빠르게 피드백하고, 결과물이 잘 나오는 동료에게는 좋은 리더가 되지만,&lt;/p&gt;
-
-&lt;p&gt;피드백이 느리고, 결과물도 안나오는 동료에게는 마이크로매니징을 하는 리더가 된다.&lt;/p&gt;
-
-&lt;h2 id=&quot;나는-우리팀-에이스-인가&quot;&gt;나는 우리팀 에이스 인가?&lt;/h2&gt;
-
-&lt;p&gt;에이스까지는 아니고 오지랍이 넓다.&lt;/p&gt;
-
-&lt;p&gt;너의 일과 나의 일로 나누어서 생각하지 않고 가능하면 우리 일로 생각하고 행동한다.&lt;/p&gt;
-
-&lt;h2 id=&quot;의사-소통을-잘하는가&quot;&gt;의사 소통을 잘하는가?&lt;/h2&gt;
-
-&lt;p&gt;성격이 급해서 잘될때는 일이 아주 빠르게 진행되지만,&lt;/p&gt;
-
-&lt;p&gt;안될때는 짜증만 내는 것처럼 보여진다.&lt;/p&gt;
-
-&lt;h2 id=&quot;문서는-잘-작성-하는가&quot;&gt;문서는 잘 작성 하는가?&lt;/h2&gt;
-
-&lt;p&gt;기억에 의존하기 보다는 메모 또는 컨플런스 같이 문서를 작성하려고 노력한다.&lt;/p&gt;
-
-&lt;p&gt;다만, 내가 읽고 이해 못하는 경우도 있기에 가능하면 6하원칙에 따라 작성하려고 노력한다.&lt;/p&gt;
-
-&lt;h2 id=&quot;마지막으로-하고-싶은-말은&quot;&gt;마지막으로 하고 싶은 말은?&lt;/h2&gt;
-
-&lt;p&gt;이전만큼 빠르진 않지만 지속적으로 발전하기 위해 노력중이다.&lt;/p&gt;
-
-&lt;p&gt;내일의 내가 오늘의 나보다는 한발자국이라도 나아갔으면 좋겠다.&lt;/p&gt;</content><author><name></name></author><category term="단상" /><summary type="html">노력하고 노력하자!</summary></entry></feed>
+&lt;p&gt;가성비 미니 PC를 찾는 분이 계시다면 아주 추천해드립니다.&lt;/p&gt;</content><author><name></name></author><category term="windows" /><category term="wsl2" /><category term="kotlin" /><summary type="html">windows 환경 구축을 해보자!</summary></entry></feed>
