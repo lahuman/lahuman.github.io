@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2024-05-09T23:15:53+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">나의 IT 시계는 거꾸로 가는 중…</title><link href="https://lahuman.github.io/phase/" rel="alternate" type="text/html" title="나의 IT 시계는 거꾸로 가는 중..." /><published>2024-05-09T00:00:00+00:00</published><updated>2024-05-09T00:00:00+00:00</updated><id>https://lahuman.github.io/phase</id><content type="html" xml:base="https://lahuman.github.io/phase/">&lt;h1 id=&quot;이것-또한-지나가리라&quot;&gt;이것 또한 지나가리라&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2024-05-09T23:35:35+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">나의 IT 시계는 거꾸로 가는 중…</title><link href="https://lahuman.github.io/phase/" rel="alternate" type="text/html" title="나의 IT 시계는 거꾸로 가는 중..." /><published>2024-05-09T00:00:00+00:00</published><updated>2024-05-09T00:00:00+00:00</updated><id>https://lahuman.github.io/phase</id><content type="html" xml:base="https://lahuman.github.io/phase/">&lt;h1 id=&quot;이것-또한-지나가리라&quot;&gt;이것 또한 지나가리라&lt;/h1&gt;
 
 &lt;p&gt;저는 오랜 개발 경력을 가진 베테랑 개발자입니다. 다양한 프로젝트를 거치며 쌓아온 노하우와 경험은 제가 자랑스러워하는 자산입니다. 하지만 최근 금융 회사로 이직하면서 저는 새로운 도전에 직면하게 되었습니다. 바로 ‘망분리’라는 개념입니다.&lt;/p&gt;
 
@@ -14,32 +14,54 @@
 
 &lt;p&gt;그동안 쌓아온 경험과 지식을 바탕으로 이 새로운 상황에 적응할 수 있지만, 옳은 방향으로 가도록 가이드 할수 있으면 좋겠다는 생각이 듭니다.&lt;/p&gt;
 
-&lt;p&gt;개발자로서 끊임없이 배우고 성장하는 모습을 보여줄 것입니다. 그리고 변화를 두려워하지 않고 새로운 도전을 통해 더 나은 미래를 만들어 나가겠습니다.&lt;/p&gt;</content><author><name></name></author><category term="단상" /><summary type="html">금융권이 왜 IT의 무덤인지 다시 알게되는 날입니다.</summary></entry><entry><title type="html">kotlin + jdk21 몇가지 오류</title><link href="https://lahuman.github.io/kotlin_jdk21/" rel="alternate" type="text/html" title="kotlin + jdk21 몇가지 오류" /><published>2024-05-08T00:00:00+00:00</published><updated>2024-05-08T00:00:00+00:00</updated><id>https://lahuman.github.io/kotlin_jdk21</id><content type="html" xml:base="https://lahuman.github.io/kotlin_jdk21/">&lt;h1 id=&quot;최신-jdk-21을-사용하면서-만난-몇가지-오류&quot;&gt;최신 JDK 21을 사용하면서 만난 몇가지 오류&lt;/h1&gt;
+&lt;p&gt;개발자로서 끊임없이 배우고 성장하는 모습을 보여줄 것입니다. 그리고 변화를 두려워하지 않고 새로운 도전을 통해 더 나은 미래를 만들어 나가겠습니다.&lt;/p&gt;</content><author><name></name></author><category term="단상" /><summary type="html">금융권이 왜 IT의 무덤인지 다시 알게되는 날입니다.</summary></entry><entry><title type="html">최신 JDK 21과 Kotlin 1.9.22 조합에서 발견된 오류 및 주의 사항</title><link href="https://lahuman.github.io/kotlin_jdk21/" rel="alternate" type="text/html" title="최신 JDK 21과 Kotlin 1.9.22 조합에서 발견된 오류 및 주의 사항" /><published>2024-05-08T00:00:00+00:00</published><updated>2024-05-08T00:00:00+00:00</updated><id>https://lahuman.github.io/kotlin_jdk21</id><content type="html" xml:base="https://lahuman.github.io/kotlin_jdk21/">&lt;h1 id=&quot;최신-jdk-21과-kotlin-1922-조합에서-발견된-오류-및-주의-사항&quot;&gt;최신 JDK 21과 Kotlin 1.9.22 조합에서 발견된 오류 및 주의 사항&lt;/h1&gt;
 
-&lt;p&gt;jdk21과 kotlin 1.9.22 에서 immutable type인 List에 addFirst와 addLast가동작 합니다&lt;/p&gt;
+&lt;p&gt;최신 JDK 21과 Kotlin 1.9.22 조합을 사용하면서 몇 가지 오류와 주의 사항을 발견했습니다.&lt;/p&gt;
 
-&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Error, as expected
-&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;addFirst&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Allowed
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;ol&gt;
+  &lt;li&gt;불변 컬렉션에서 addFirst와 addLast 사용 가능&lt;/li&gt;
+&lt;/ol&gt;
 
-&lt;p&gt;그 외에도 자잘한 버그가 있네요.&lt;/p&gt;
+&lt;p&gt;놀랍게도, 불변 컬렉션인 List에 addFirst와 addLast 메서드를 사용할 수 있습니다. 예를 들어, 다음 코드는 오류 없이 실행됩니다.&lt;/p&gt;
 
-&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;mySet&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;kotlin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;collections&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;LinkedHashSet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;()&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;mySet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;addFirst&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// OK
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mySet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;addLast&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// OK
+&lt;pre&gt;&lt;code class=&quot;language-Kotlin&quot;&gt;fun foo(x: List&amp;lt;String&amp;gt;) {
+    x.add(&quot;&quot;) // 예상대로 오류
+    x.addFirst(&quot;&quot;) // 허용됨
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;이는 기존 Kotlin 버전과 다른 동작이며, 명확한 문서화가 이루어지지 않아 혼란을 야기할 수 있습니다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;null 허용 처리&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;null 값을 처리할 때 주의가 필요합니다. &lt;code class=&quot;highlighter-rouge&quot;&gt;null 허용되지 않은 상황&lt;/code&gt;에서 addFirst와 addLast 메서드는 null 값을 허용합니다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Kotlin&quot;&gt;val mySet = kotlin.collections.LinkedHashSet&amp;lt;String&amp;gt;()
+mySet.addFirst(null) // 허용됨
+mySet.addLast(null) // 허용됨
 //mySet.add(null) // null can not be a value of a non-null type String
-&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;myMap&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;kotlin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;collections&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;LinkedHashMap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;()&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;myMap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;putFirst&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;myMap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;putLast&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;//myMap[2] = null // null can not be a value of a non-null type TypeVariable(V)
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;kolin에서 jdk 21의 신규 method를 사용하는 건 확인이 필요합니다.&lt;/p&gt;
+val myMap = kotlin.collections.LinkedHashMap&amp;lt;Int, String&amp;gt;()
+myMap.putFirst(0, null)
+myMap.putLast(1, null)
+//myMap[2] = null // null can not be a value of a non-null type TypeVariable(V)
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;아마 코틀린 2.0.0 이상에서 해결될 버그라고 되어 있네요.&lt;/p&gt;
+&lt;p&gt;이는 jdk 21에서 신규 메소드를 kotlin 처리 과정에서 생긴 문제로 보이며, Kotlin 2.0.0 이상에서 해결될 것으로 예상됩니다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Kotlin 2.0.0 이상에서 확인 필요&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;현재 발견된 오류들은 Kotlin 1.9.22, 1.9.23 등 버전에서만 발생하는 것으로 확인되었습니다. Kotlin 2.0.0-RC 이상 버전에서는 해결될 가능성이 높으므로, 업그레이드 후 다시 확인하는 것이 좋습니다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;결론&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;JDK 21과 Kotlin 조합을 사용할 때는 위의 오류와 주의 사항을 인지하고, Kotlin 2.0.0 이상 버전으로 업그레이드를 고려하는 것이 좋습니다. 또한, Kotlin 공식 문서 및 버그 추적 시스템을 통해 최신 정보를 확인하는 것이 중요합니다.&lt;/p&gt;
 
 &lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
 
@@ -50,10 +72,10 @@
   &lt;li&gt;
     &lt;p&gt;&lt;a href=&quot;https://youtrack.jetbrains.com/issue/KT-61223/JDK-21-new-addFirst-addLast-and-putFirst-putLast-methods-allow-adding-nullable-value-for-non-null-types?fbclid=IwZXh0bgNhZW0CMTAAAR2d3AXtvhkRdxnzWmXedaYhmSrr7a3q9cTdtyEcNXrzVZ2sEjHXwt9IAKo_aem_AdD5avxC0u2j8gK3szuwFSoQFHqnuNt4wlEQu2NCgfjCIuAsFazQDJ2ANqQsNdIrNVYzA8hCXihu4xxcSJnc976x&quot;&gt;JDK 21: new addFirst/addLast and putFirst/putLast methods allow adding nullable value for non-null types&lt;/a&gt;&lt;/p&gt;
   &lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="kotlin" /><category term="jdk21" /><summary type="html">이번 프로젝트는 kotlin + jdk21 입니다.</summary></entry><entry><title type="html">Gmail에서 smtp 사용 설정</title><link href="https://lahuman.github.io/gmail_smtp_setting/" rel="alternate" type="text/html" title="Gmail에서 smtp 사용 설정" /><published>2024-04-23T00:00:00+00:00</published><updated>2024-04-23T00:00:00+00:00</updated><id>https://lahuman.github.io/gmail_smtp_setting</id><content type="html" xml:base="https://lahuman.github.io/gmail_smtp_setting/">&lt;h1 id=&quot;gmail-smtp-setting&quot;&gt;Gmail Smtp Setting&lt;/h1&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="kotlin" /><category term="jdk21" /><summary type="html">이번 프로젝트는 kotlin + jdk21 입니다.</summary></entry><entry><title type="html">Gmail SMTP 설정 가이드</title><link href="https://lahuman.github.io/gmail_smtp_setting/" rel="alternate" type="text/html" title="Gmail SMTP 설정 가이드" /><published>2024-04-23T00:00:00+00:00</published><updated>2024-04-23T00:00:00+00:00</updated><id>https://lahuman.github.io/gmail_smtp_setting</id><content type="html" xml:base="https://lahuman.github.io/gmail_smtp_setting/">&lt;h1 id=&quot;2024년-기준-gmail-smtp-설정-가이드&quot;&gt;2024년 기준, Gmail SMTP 설정 가이드&lt;/h1&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;2010년도에 SMTP 설정을 GMAIL내에서 간단하게 했었던 기억이 있습니다. 22년도에 변경 되었다는 내용이 있는데, 뭔가 복잡 복잡 하네요.&lt;/p&gt;
+  &lt;p&gt;2010년에 Gmail SMTP 설정을 간단하게 했던 기억이 있으신가요? 2022년 기준으로 설정 방식이 변경되었고, 다소 복잡해졌습니다. 이 글을 통해 2024년 기준 Gmail SMTP 설정 방법을 단계별로 알려드리겠습니다.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;h2 id=&quot;gmail-설정-진행&quot;&gt;GMAIL 설정 진행&lt;/h2&gt;
@@ -108,7 +130,7 @@
   &lt;li&gt;
     &lt;p&gt;&lt;a href=&quot;https://kincoding.com/entry/Google-Gmail-SMTP-%EC%82%AC%EC%9A%A9%EC%9D%84-%EC%9C%84%ED%95%9C-%EC%84%B8%ED%8C%85&quot;&gt;Google - Gmail SMTP 사용을 위한 세팅&lt;/a&gt;&lt;/p&gt;
   &lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="gmail" /><category term="smtp" /><summary type="html">예전엔 gmail 설정만 하면 되었는데, app password 등을 설정 해야 합니다.</summary></entry><entry><title type="html">git rebase를 알아 봅니다.</title><link href="https://lahuman.github.io/git_rebase_email_username/" rel="alternate" type="text/html" title="git rebase를 알아 봅니다." /><published>2024-04-17T00:00:00+00:00</published><updated>2024-04-17T00:00:00+00:00</updated><id>https://lahuman.github.io/git_rebase_email_username</id><content type="html" xml:base="https://lahuman.github.io/git_rebase_email_username/">&lt;h1 id=&quot;git-rebase-이해하기&quot;&gt;Git Rebase 이해하기&lt;/h1&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="gmail" /><category term="smtp" /><summary type="html">예전엔 gmail에서 설정만 하면 되었는데, app password 등을 설정 해야 합니다.</summary></entry><entry><title type="html">git rebase를 알아 봅니다.</title><link href="https://lahuman.github.io/git_rebase_email_username/" rel="alternate" type="text/html" title="git rebase를 알아 봅니다." /><published>2024-04-17T00:00:00+00:00</published><updated>2024-04-17T00:00:00+00:00</updated><id>https://lahuman.github.io/git_rebase_email_username</id><content type="html" xml:base="https://lahuman.github.io/git_rebase_email_username/">&lt;h1 id=&quot;git-rebase-이해하기&quot;&gt;Git Rebase 이해하기&lt;/h1&gt;
 
 &lt;p&gt;Git rebase는 기존 커밋 히스토리를 정리하거나 수정하는 데 사용되는 Git 명령어입니다. 이 명령어를 사용하면 기능 브랜치의 변경 사항을 기반 브랜치(예: master 또는 main)의 최신 상태로 옮겨, 마치 처음부터 그 상태에서 작업한 것처럼 만들 수 있습니다.&lt;/p&gt;
 
