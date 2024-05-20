@@ -1,4 +1,91 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2024-05-09T23:35:35+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">나의 IT 시계는 거꾸로 가는 중…</title><link href="https://lahuman.github.io/phase/" rel="alternate" type="text/html" title="나의 IT 시계는 거꾸로 가는 중..." /><published>2024-05-09T00:00:00+00:00</published><updated>2024-05-09T00:00:00+00:00</updated><id>https://lahuman.github.io/phase</id><content type="html" xml:base="https://lahuman.github.io/phase/">&lt;h1 id=&quot;이것-또한-지나가리라&quot;&gt;이것 또한 지나가리라&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2024-05-20T23:57:58+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">java ArrayList의 동작</title><link href="https://lahuman.github.io/java_arraylist/" rel="alternate" type="text/html" title="java ArrayList의 동작" /><published>2024-05-20T00:00:00+00:00</published><updated>2024-05-20T00:00:00+00:00</updated><id>https://lahuman.github.io/java_arraylist</id><content type="html" xml:base="https://lahuman.github.io/java_arraylist/">&lt;h1 id=&quot;java-arraylist의-동작&quot;&gt;java ArrayList의 동작&lt;/h1&gt;
+
+&lt;h2 id=&quot;테스트용-코드-전체&quot;&gt;테스트용 코드 전체&lt;/h2&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.lang.reflect.Field&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//    val list = MutableList&amp;lt;String?&amp;gt;(1000) { null } // 초기 크기 설정
+&lt;/span&gt;    &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;list&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mutableListOf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;()&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;list size : ${list.size} / list capacity:: ${getCapacity(list)}&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// # 1 초기 생성
+&lt;/span&gt;    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;..&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;25&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;list size : ${list.size} / list capacity:: ${getCapacity(list)}&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;출력&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// arraylist의 capacity 출력 
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getCapacity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arrayList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;*&amp;gt;?):&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Int&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arrayList&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;field&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Field&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ArrayList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;java&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getDeclaredField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;elementData&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;field&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;isAccessible&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;true&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;field&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arrayList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;*&amp;gt;).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;size&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;결과-값&quot;&gt;결과 값&lt;/h2&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;list size : 0 / list capacity:: 0 // &lt;span class=&quot;c&quot;&gt;#1&lt;/span&gt;
+list size : 1 / list capacity:: 10 // capacity 변화
+list size : 2 / list capacity:: 10
+list size : 3 / list capacity:: 10
+list size : 4 / list capacity:: 10
+list size : 5 / list capacity:: 10
+list size : 6 / list capacity:: 10
+list size : 7 / list capacity:: 10
+list size : 8 / list capacity:: 10
+list size : 9 / list capacity:: 10
+list size : 10 / list capacity:: 10
+list size : 11 / list capacity:: 15 // capacity 변화
+list size : 12 / list capacity:: 15
+list size : 13 / list capacity:: 15
+list size : 14 / list capacity:: 15
+list size : 15 / list capacity:: 15
+list size : 16 / list capacity:: 22 // capacity 변화
+list size : 17 / list capacity:: 22
+list size : 18 / list capacity:: 22
+list size : 19 / list capacity:: 22
+list size : 20 / list capacity:: 22
+list size : 21 / list capacity:: 22
+list size : 22 / list capacity:: 22
+list size : 23 / list capacity:: 33 // capacity 변화
+list size : 24 / list capacity:: 33
+list size : 25 / list capacity:: 33
+list size : 26 / list capacity:: 33
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;설명&quot;&gt;설명&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html&quot;&gt;ArrayList&lt;/a&gt;는 List 인터페이스를 구현한 동적 배열입니다. 내부적으로는 배열을 사용하여 요소를 저장하며, 필요에 따라 크기를 조절할 수 있습니다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;최초에 리스트를 생성하면, 크기와 용량 모두 0입니다.&lt;/li&gt;
+  &lt;li&gt;요소를 추가할 때마다 용량이 증가합니다. 용량이 모두 차면 새로운 배열을 생성하고 기존 데이터를 복사합니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;동작-예시&quot;&gt;동작 예시&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;최초 list를 생성하고, size와 capacity를 확인하면 0 / 0 으로 할당 되지 않은 것을 알수 있습니다.&lt;/li&gt;
+  &lt;li&gt;list에 처음 데이터를 add 할 경우, size / capacity 는 1 / 10 이 됩니다. 
+&lt;img src=&quot;/assets/img/post_img/java-arraylist-add-1.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
+  &lt;li&gt;list에 2번째 데이터를 add 하면 아래와 같습니다. 
+&lt;img src=&quot;/assets/img/post_img/java-arraylist-add-2.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
+  &lt;li&gt;list에 10번째 데이터를 add 하면 아래와 같습니다.
+&lt;img src=&quot;/assets/img/post_img/java-arraylist-add-10.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
+  &lt;li&gt;list에 11번째 데이터를 add 하면 새로운 배열을 생성하고, 기존 데이터를 아래와 같이 복사 합니다. 
+&lt;img src=&quot;/assets/img/post_img/java-arraylist-add-11.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.baeldung.com/java-list-capacity-array-size&quot;&gt;The Capacity of an ArrayList vs the Size of an Array in Java&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://duooo-story.tistory.com/69&quot;&gt;Ehcache에서 만난 warning ‘The JVM is preventing Ehcache from accessing the subgraph beneath ~ cache sizes may be underestimated as a result’&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html&quot;&gt;ArrayList&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://junghyungil.tistory.com/96&quot;&gt;[Java] ArrayList는 어떻게 동적으로 사이즈가 늘어나는가? add() flow(동작 방식)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="arraylist" /><category term="java" /><summary type="html">ArrayList의 생성과 확장 방식</summary></entry><entry><title type="html">나의 IT 시계는 거꾸로 가는 중…</title><link href="https://lahuman.github.io/phase/" rel="alternate" type="text/html" title="나의 IT 시계는 거꾸로 가는 중..." /><published>2024-05-09T00:00:00+00:00</published><updated>2024-05-09T00:00:00+00:00</updated><id>https://lahuman.github.io/phase</id><content type="html" xml:base="https://lahuman.github.io/phase/">&lt;h1 id=&quot;이것-또한-지나가리라&quot;&gt;이것 또한 지나가리라&lt;/h1&gt;
 
 &lt;p&gt;저는 오랜 개발 경력을 가진 베테랑 개발자입니다. 다양한 프로젝트를 거치며 쌓아온 노하우와 경험은 제가 자랑스러워하는 자산입니다. 하지만 최근 금융 회사로 이직하면서 저는 새로운 도전에 직면하게 되었습니다. 바로 ‘망분리’라는 개념입니다.&lt;/p&gt;
 
@@ -330,88 +417,4 @@ $ sudo nginx -r reload
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.baeldung.com/spring-properties-file-outside-jar&quot;&gt;Spring Properties File Outside jar&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="springboot" /><category term="jar" /><category term="config" /><summary type="html">외부 파일 사용하기</summary></entry><entry><title type="html">windows 11에 WSL2 기반 kotlin 개발 환경 구축 하기!</title><link href="https://lahuman.github.io/window_wsl_intellij/" rel="alternate" type="text/html" title="windows 11에 WSL2 기반 kotlin 개발 환경 구축 하기!" /><published>2024-04-01T00:00:00+00:00</published><updated>2024-04-01T00:00:00+00:00</updated><id>https://lahuman.github.io/window_wsl_intellij</id><content type="html" xml:base="https://lahuman.github.io/window_wsl_intellij/">&lt;h1 id=&quot;kotlin-개발-환경을-구축해보자&quot;&gt;kotlin 개발 환경을 구축해보자!&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;N100 이라는 CPU를 가진 &lt;a href=&quot;https://www.clien.net/service/board/cm_nas/18406336&quot;&gt;미니 PC&lt;/a&gt;를 구매했습니다. 
-가성비 좋고, 효율이 좋다고 해서 여기에 개발 환경까지 구축해보았습니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;제가 구매한 제품은 &lt;a href=&quot;https://dpg.danawa.com/bbs/view?boardSeq=28&amp;amp;listSeq=5397452&quot;&gt;CHATREEY T8 PLUS [INTEL N100 CPU]&lt;/a&gt; 으로 512 SSD에 16GB 메모리를 가진 제품으로 선택하였습니다.&lt;/p&gt;
-
-&lt;p&gt;이 제품은 메모리가 온보드라 구매 후 변경이 불가능하니 참고 하여주세요.
-추가로 초기 메모리 클럭이 3200 으로 잡혀 있지만, 4800 을 지원하는 ddr5 메모리가 탑재되어 있어 bios에서 수정해줘야 합니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;wsl2-설치&quot;&gt;WSL2 설치&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://lahuman.github.io/wsl2_vagrant/&quot;&gt;WSL2에서 VAGRANT로 Windows VirutalBox에 ubuntu VM 실행
-&lt;/a&gt; 를 참고해서 설치 합니다.&lt;/p&gt;
-
-&lt;p&gt;또는 간단하게 윈도우 마켓 플레이스에서 ubuntu 22.x 를 설치하면 됩니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;java-21-설치&quot;&gt;java 21 설치&lt;/h2&gt;
-
-&lt;p&gt;다음 명령어로 jdk를 설치 할 수 있습니다.&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt update
-
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;apt install openjdk-21-jdk
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;intllij-with-wsl&quot;&gt;intllij with WSL&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.jetbrains.com/help/idea/how-to-use-wsl-development-environment-in-product.html#create_project_for_wsl&quot;&gt;WSL&lt;/a&gt; 을 따라서 프로젝트 설정을 하면 됩니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;windows-11-보안-설정&quot;&gt;WINDOWS 11 보안 설정&lt;/h2&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;intellij를 통해서 gradle/maven repository로 접속하여 관련 library를 받아오지 못하거나, indexing이 하루 종일 걸리는 경우가 있습니다. 이를 해결하기 위해서 다음의 보안 설정을 해야 합니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&quot;설정---개인정보-및-보안-탭---windows-보안-열기&quot;&gt;설정 - ‘개인정보 및 보안’ 탭 - ‘Windows 보안 열기’&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/setting-security1.png&quot; alt=&quot;&quot; /&gt;
-&lt;img src=&quot;/assets/img/post_img/setting-security2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;바이러스-및-위협-방지-탭---바이러스-및-위협-장지-설정-영역에-설정관리&quot;&gt;‘바이러스 및 위협 방지’ 탭 - ‘바이러스 및 위협 장지 설정’ 영역에 ‘설정관리’&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/setting-security3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;제외-영역에-제외-추가-또는-제거&quot;&gt;‘제외’ 영역에 ‘제외 추가 또는 제거’&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/setting-security4.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;제외-사항-추가-또는-제거---프로세스&quot;&gt;‘제외 사항 추가 또는 제거’ - ‘프로세스’&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/setting-security5.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;상기 경로에 아래 프로세스 2개를 입력하여 제외를 추가합니다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;fsnotifier-wsl&lt;/li&gt;
-  &lt;li&gt;idea64.exe&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;위와 같이 설정을 하면 intellij에서 빠르게 실행이 가능합니다.&lt;/p&gt;
-
-&lt;h4 id=&quot;intellij에-hello-springboot-kotlin-프로젝트-화면&quot;&gt;intellij에 hello springboot kotlin 프로젝트 화면&lt;/h4&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/intellij_wsl.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;podman-설치&quot;&gt;podman 설치&lt;/h2&gt;
-
-&lt;p&gt;간단하게 로컬 개발 환경에서는 docker 보다는 podman을 사용하고 있습니다.&lt;/p&gt;
-
-&lt;p&gt;설치 명령어는 아래와 같습니다.&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# Ubuntu 20.10 and newer&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get update
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt; install podman
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;이후 root 권한으로 실행 하면 docker 와 동일하게 사용 할 수 있습니다.&lt;/p&gt;
-
-&lt;h4 id=&quot;podman으로-nginx-실행-화면&quot;&gt;podman으로 NGINX 실행 화면&lt;/h4&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/podman_wsl.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;마치며&quot;&gt;마치며&lt;/h2&gt;
-
-&lt;p&gt;N100 CPU의 성능이 싱글 기준 i5-7500과 8500 사이라고 하는데, 꽤 부드럽게 동작하고 끊김을 느끼지 못했습니다.  물론 컴파일시에 기다림이 필요하지만요.&lt;/p&gt;
-
-&lt;p&gt;가성비 미니 PC를 찾는 분이 계시다면 아주 추천해드립니다.&lt;/p&gt;</content><author><name></name></author><category term="windows" /><category term="wsl2" /><category term="kotlin" /><summary type="html">windows 환경 구축을 해보자!</summary></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><category term="springboot" /><category term="jar" /><category term="config" /><summary type="html">외부 파일 사용하기</summary></entry></feed>
