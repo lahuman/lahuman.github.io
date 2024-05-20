@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2024-05-20T23:57:58+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">java ArrayList의 동작</title><link href="https://lahuman.github.io/java_arraylist/" rel="alternate" type="text/html" title="java ArrayList의 동작" /><published>2024-05-20T00:00:00+00:00</published><updated>2024-05-20T00:00:00+00:00</updated><id>https://lahuman.github.io/java_arraylist</id><content type="html" xml:base="https://lahuman.github.io/java_arraylist/">&lt;h1 id=&quot;java-arraylist의-동작&quot;&gt;java ArrayList의 동작&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2024-05-20T23:58:36+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">java ArrayList의 동작</title><link href="https://lahuman.github.io/java_arraylist/" rel="alternate" type="text/html" title="java ArrayList의 동작" /><published>2024-05-20T00:00:00+00:00</published><updated>2024-05-20T00:00:00+00:00</updated><id>https://lahuman.github.io/java_arraylist</id><content type="html" xml:base="https://lahuman.github.io/java_arraylist/">&lt;h1 id=&quot;java-arraylist의-동작&quot;&gt;java ArrayList의 동작&lt;/h1&gt;
 
 &lt;h2 id=&quot;테스트용-코드-전체&quot;&gt;테스트용 코드 전체&lt;/h2&gt;
 
@@ -68,14 +68,14 @@ list size : 26 / list capacity:: 33
 &lt;h3 id=&quot;동작-예시&quot;&gt;동작 예시&lt;/h3&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;최초 list를 생성하고, size와 capacity를 확인하면 0 / 0 으로 할당 되지 않은 것을 알수 있습니다.&lt;/li&gt;
-  &lt;li&gt;list에 처음 데이터를 add 할 경우, size / capacity 는 1 / 10 이 됩니다. 
+  &lt;li&gt;최초 list를 생성하고, size와 capacity를 확인하면 0 / 0&lt;/li&gt;
+  &lt;li&gt;list에 처음 데이터를 add 할 경우, size / capacity 는 1 / 10 
 &lt;img src=&quot;/assets/img/post_img/java-arraylist-add-1.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
-  &lt;li&gt;list에 2번째 데이터를 add 하면 아래와 같습니다. 
+  &lt;li&gt;list에 2번째 데이터를 add 
 &lt;img src=&quot;/assets/img/post_img/java-arraylist-add-2.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
-  &lt;li&gt;list에 10번째 데이터를 add 하면 아래와 같습니다.
+  &lt;li&gt;list에 10번째 데이터를 add
 &lt;img src=&quot;/assets/img/post_img/java-arraylist-add-10.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
-  &lt;li&gt;list에 11번째 데이터를 add 하면 새로운 배열을 생성하고, 기존 데이터를 아래와 같이 복사 합니다. 
+  &lt;li&gt;list에 11번째 데이터를 add 하면 새로운 배열을 생성하고, 기존 데이터를 아래와 같이 복사 
 &lt;img src=&quot;/assets/img/post_img/java-arraylist-add-11.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
