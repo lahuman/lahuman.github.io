@@ -1,4 +1,23 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2024-05-21T00:54:00+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">java ArrayList의 동작</title><link href="https://lahuman.github.io/java_arraylist/" rel="alternate" type="text/html" title="java ArrayList의 동작" /><published>2024-05-20T00:00:00+00:00</published><updated>2024-05-20T00:00:00+00:00</updated><id>https://lahuman.github.io/java_arraylist</id><content type="html" xml:base="https://lahuman.github.io/java_arraylist/">&lt;h1 id=&quot;java-arraylist의-동작&quot;&gt;java ArrayList의 동작&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2024-05-21T02:26:34+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">spring-boot with logback</title><link href="https://lahuman.github.io/logback-spring/" rel="alternate" type="text/html" title="spring-boot with logback" /><published>2024-05-21T00:00:00+00:00</published><updated>2024-05-21T00:00:00+00:00</updated><id>https://lahuman.github.io/logback-spring</id><content type="html" xml:base="https://lahuman.github.io/logback-spring/">&lt;h1 id=&quot;spring-boot-에서-초기화-오류시-로그-표기-방법&quot;&gt;spring-boot 에서 초기화 오류시 로그 표기 방법&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;현상 : spring-boot 초기화 중 오류 발생시 log가 명확하게 표시 되지 않고 종료 오류 발생&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;원인 : logback을 사용하고 있고, 설정 파일명을 &lt;code class=&quot;highlighter-rouge&quot;&gt;logback.xml&lt;/code&gt;로 사용중&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;해결 방안 : &lt;code class=&quot;highlighter-rouge&quot;&gt;logback.xml&lt;/code&gt; 을 &lt;code class=&quot;highlighter-rouge&quot;&gt;logback-spring.xml&lt;/code&gt; 으로 변경&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://docs.spring.io/spring-boot/docs/2.1.13.RELEASE/reference/html/boot-features-logging.html#boot-features-logback-extensions&quot;&gt;26.7 Logback Extensions&lt;/a&gt; 를 확인하면, &lt;code class=&quot;highlighter-rouge&quot;&gt;logback.xml&lt;/code&gt;을 사용하면 너무 빠르게 로딩 되어서 spring 오류가 출력 안되는 경우가 발생 할 수 있다고 합니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.spring.io/spring-boot/docs/2.1.13.RELEASE/reference/html/howto-logging.html&quot;&gt;83. Logging&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="springboot" /><category term="logback" /><summary type="html">spring 초기화 오류가 표기 처리</summary></entry><entry><title type="html">java ArrayList의 동작</title><link href="https://lahuman.github.io/java_arraylist/" rel="alternate" type="text/html" title="java ArrayList의 동작" /><published>2024-05-20T00:00:00+00:00</published><updated>2024-05-20T00:00:00+00:00</updated><id>https://lahuman.github.io/java_arraylist</id><content type="html" xml:base="https://lahuman.github.io/java_arraylist/">&lt;h1 id=&quot;java-arraylist의-동작&quot;&gt;java ArrayList의 동작&lt;/h1&gt;
 
 &lt;h2 id=&quot;테스트용-코드-전체&quot;&gt;테스트용 코드 전체&lt;/h2&gt;
 
@@ -397,24 +416,4 @@ $ sudo nginx -r reload
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.yes24.com/Product/Goods/110710700&quot;&gt;인피니티 게임 - 사이먼 시넥&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="book" /><category term="phase" /><summary type="html">세상에 없던 판도를 만든 사람들의 5가지 무한 원칙</summary></entry><entry><title type="html">비키던지, 따르던지, 이끌던지</title><link href="https://lahuman.github.io/20240404/" rel="alternate" type="text/html" title="비키던지, 따르던지, 이끌던지" /><published>2024-04-04T00:00:00+00:00</published><updated>2024-04-04T00:00:00+00:00</updated><id>https://lahuman.github.io/20240404</id><content type="html" xml:base="https://lahuman.github.io/20240404/">&lt;h1 id=&quot;비키던지-따르던지-이끌던지&quot;&gt;비키던지, 따르던지, 이끌던지&lt;/h1&gt;</content><author><name></name></author><category term="phase" /><summary type="html">수동적이기 보다 능동적으로 살아가자</summary></entry><entry><title type="html">spring boot jar 파일 실행시 application.yml 주입 하기</title><link href="https://lahuman.github.io/springboot_application_config/" rel="alternate" type="text/html" title="spring boot jar 파일 실행시 application.yml 주입 하기" /><published>2024-04-03T00:00:00+00:00</published><updated>2024-04-03T00:00:00+00:00</updated><id>https://lahuman.github.io/springboot_application_config</id><content type="html" xml:base="https://lahuman.github.io/springboot_application_config/">&lt;h1 id=&quot;spring-boot-실행시-설정-파일-외부-주입-방법&quot;&gt;spring boot 실행시 설정 파일 외부 주입 방법&lt;/h1&gt;
-
-&lt;h2 id=&quot;실행-명령어를-이용한-주입&quot;&gt;실행 명령어를 이용한 주입&lt;/h2&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;java &lt;span class=&quot;nt&quot;&gt;-jar&lt;/span&gt; app.jar &lt;span class=&quot;nt&quot;&gt;--spring&lt;/span&gt;.config.location&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;file:///Users/home/config/jdbc.properties
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;디렉토리-기반-주입&quot;&gt;디렉토리 기반 주입&lt;/h2&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;java &lt;span class=&quot;nt&quot;&gt;-jar&lt;/span&gt; app.jar &lt;span class=&quot;nt&quot;&gt;--spring&lt;/span&gt;.config.name&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;application,jdbc &lt;span class=&quot;nt&quot;&gt;--spring&lt;/span&gt;.config.location&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;file:///Users/home/config
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;마치며&quot;&gt;마치며&lt;/h2&gt;
-
-&lt;p&gt;다른 여러가지 방법이 있지만 위의 2가지 방법으로 대부분 처리가 가능합니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.baeldung.com/spring-properties-file-outside-jar&quot;&gt;Spring Properties File Outside jar&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="springboot" /><category term="jar" /><category term="config" /><summary type="html">외부 파일 사용하기</summary></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><category term="book" /><category term="phase" /><summary type="html">세상에 없던 판도를 만든 사람들의 5가지 무한 원칙</summary></entry><entry><title type="html">비키던지, 따르던지, 이끌던지</title><link href="https://lahuman.github.io/20240404/" rel="alternate" type="text/html" title="비키던지, 따르던지, 이끌던지" /><published>2024-04-04T00:00:00+00:00</published><updated>2024-04-04T00:00:00+00:00</updated><id>https://lahuman.github.io/20240404</id><content type="html" xml:base="https://lahuman.github.io/20240404/">&lt;h1 id=&quot;비키던지-따르던지-이끌던지&quot;&gt;비키던지, 따르던지, 이끌던지&lt;/h1&gt;</content><author><name></name></author><category term="phase" /><summary type="html">수동적이기 보다 능동적으로 살아가자</summary></entry></feed>
