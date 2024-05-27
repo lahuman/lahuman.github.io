@@ -1,0 +1,99 @@
+<!DOCTYPE html> <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]--> <!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8"><![endif]--> <!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9"><![endif]--> <!--[if gt IE 8]><!--> <html class="no-js"><!--<![endif]--> <head> <meta charset="UTF-8"> <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"> <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1"> <title>spring jpa 사용시 페이징 처리 &#8211; lahuman</title> <meta name="description" content="열심히 사는 아저씨"> <meta name="keywords" content="spring, pageable, jpa"> <!-- Twitter Cards --> <meta name="twitter:card" content="summary"> <meta name="twitter:image" content="https://lahuman.github.io/assets/img/logo.png"> <meta name="twitter:title" content="spring jpa 사용시 페이징 처리"> <meta name="twitter:description" content="아주 쉽네요!"> <!-- Open Graph --> <meta property="og:locale" content="ko_KR"> <meta property="og:type" content="article"> <meta property="og:title" content="spring jpa 사용시 페이징 처리"> <meta property="og:description" content="아주 쉽네요!"> <meta property="og:url" content="https://lahuman.github.io/spring_data_pageable/"> <meta property="og:site_name" content="lahuman"> <meta property="og:image" content="https://lahuman.github.io/assets/img/logo.png"> <link rel="canonical" href="https://lahuman.github.io/spring_data_pageable/"> <link href="https://lahuman.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="lahuman Feed"> <!-- Handheld --> <meta name="HandheldFriendly" content="True"> <meta name="MobileOptimized" content="320"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- CSS --> <link rel="stylesheet" href="https://lahuman.github.io/assets/css/main.css"> <!-- JS --> <script src="https://lahuman.github.io/assets/js/modernizr-3.3.1.custom.min.js"></script> <!-- Favicons --> <link rel="apple-touch-icon" href="https://lahuman.github.io/assets/img/favicons/apple-icon-precomposed.png"> <link rel="apple-touch-icon" sizes="72x72" href="https://lahuman.github.io/assets/img/favicons/apple-icon-72x72.png"> <link rel="apple-touch-icon" sizes="114x114" href="https://lahuman.github.io/assets/img/favicons/apple-icon-114x114.png"> <link rel="apple-touch-icon" sizes="144x144" href="https://lahuman.github.io/assets/img/favicons/apple-icon-144x144.png"> <link rel="shortcut icon" type="image/png" href="https://lahuman.github.io/favicon.png" /> <link rel="shortcut icon" href="https://lahuman.github.io/favicon.ico" /> <!-- mermaid --> <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script> <script>mermaid.initialize({startOnLoad:true});</script> <!-- Background Image --> <style type="text/css">body {background-image:url(https://lahuman.github.io/assets/img/placeholder-big.jpg); background-repeat: no-repeat; background-size: cover; }</style> <!-- Post Feature Image --> </head> <body> <nav id="dl-menu" class="dl-menuwrapper" role="navigation"> <button class="dl-trigger">Open Menu</button> <ul class="dl-menu"> <li><a href="https://lahuman.github.io/">Home</a></li> <li> <a href="#">About</a> <ul class="dl-submenu"> <li> <img src="https://lahuman.github.io/assets/img/logo.png" alt="lahuman photo" class="author-photo"> <h4>lahuman</h4> <p>열심히 사는 아저씨</p> </li> <li><a href="https://lahuman.github.io/about/"><span class="btn btn-inverse">Learn More</span></a></li> <li> <a href="http://facebook.com/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-facebook-square"></i> Facebook</a> </li> <li> <a href="http://linkedin.com/in/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-linkedin-square"></i> LinkedIn</a> </li> <li> <a href="http://github.com/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-github"></i> Github</a> </li> </ul>
+<!-- /.dl-submenu --> </li> <li> <a href="#">Posts</a> <ul class="dl-submenu"> <li><a href="https://lahuman.github.io/posts/">All Posts</a></li> <li><a href="https://lahuman.github.io/tags/">All Tags</a></li> </ul> </li> <li><a href="https://lahuman.github.io/projects/">Projects</a></li> </ul>
+<!-- /.dl-menu --> </nav><!-- /.dl-menuwrapper --> <!-- Header --> <header class="header" role="banner"> <div class="wrapper animated fadeIn"> <div class="content"> <div class="post-title "> <h1>spring jpa 사용시 페이징 처리</h1> <h4>27 May 2024</h4> <p class="reading-time"> <i class="fa fa-clock-o"></i> Reading time ~2 minutes </p>
+<!-- /.entry-reading-time --> <a class="btn zoombtn" href="https://lahuman.github.io/posts/"> <i class="fa fa-chevron-left"></i> </a> </div> <h1 id="spring-jpa-사용시-페이징-처리">spring jpa 사용시 페이징 처리</h1> <p>게시글 목록 기능에서 페이징 처리는 단순하지만 많이 사용되는 기능입니다.</p> <h2 id="주요-항목">주요 항목</h2> <ul> <li>요청 값 : 조회 하려는 <code class="highlighter-rouge">페이지 위치</code>, 페이지에서 필요로 하는 <code class="highlighter-rouge">게시글 수</code>, 추가로 <code class="highlighter-rouge">검색 조건</code>
+</li> <li>응답 값 : <code class="highlighter-rouge">게시글 목록</code>, 페이지 네비게이션을 위한 총 <code class="highlighter-rouge">게시글 수</code>
+</li> </ul> <h2 id="구현-방법">구현 방법</h2> <p>이를 일일이 구현 하기 보다 jpa에서 지원하는 <a href="https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/domain/Pageable.html">Pageable</a> 와 <a href="https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/domain/Page.html">Page</a> 라이브러리를 사용하면 간단한게 처리 됩니다.</p> <h2 id="예제-코드">예제 코드</h2> <div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Controller
+</span><span class="k">import</span> <span class="nn">org.springframework.data.domain.Page</span>
+<span class="k">import</span> <span class="nn">org.springframework.data.domain.Pageable</span>
+<span class="k">import</span> <span class="nn">org.springframework.web.bind.annotation.GetMapping</span>
+<span class="k">import</span> <span class="nn">org.springframework.web.bind.annotation.RequestParam</span>
+<span class="k">import</span> <span class="nn">org.springframework.web.bind.annotation.RestController</span>
+
+<span class="n">@RestController</span>
+<span class="kd">class</span> <span class="nc">Controller</span><span class="p">(</span><span class="k">private</span> <span class="kd">val</span> <span class="py">service</span><span class="p">:</span> <span class="n">ContentsService</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">@GetMapping</span><span class="p">(</span><span class="s">"/list"</span><span class="p">)</span>
+    <span class="k">fun</span> <span class="nf">getList</span><span class="p">(</span>
+        <span class="n">@PageableDefault</span><span class="p">(</span><span class="n">page</span> <span class="p">=</span> <span class="m">0</span><span class="p">,</span> <span class="n">size</span> <span class="p">=</span> <span class="m">10</span><span class="p">)</span> <span class="n">pageable</span><span class="p">:</span> <span class="n">Pageable</span>
+    <span class="p">):</span> <span class="n">Page</span><span class="p">&lt;</span><span class="n">TipContents</span><span class="p">&gt;</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">contentsService</span><span class="p">.</span><span class="n">getList</span><span class="p">(</span><span class="n">pageable</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Service
+</span><span class="k">import</span> <span class="nn">org.springframework.data.domain.Page</span>
+<span class="k">import</span> <span class="nn">org.springframework.data.domain.Pageable</span>
+<span class="k">import</span> <span class="nn">org.springframework.stereotype.Service</span>
+
+<span class="n">@Service</span>
+<span class="kd">class</span> <span class="nc">ContentsService</span><span class="p">(</span><span class="k">private</span> <span class="kd">val</span> <span class="py">repository</span><span class="p">:</span> <span class="n">ContentsRepository</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">fun</span> <span class="nf">getTipContents</span><span class="p">(</span><span class="n">pageable</span><span class="p">:</span> <span class="n">Pageable</span><span class="p">):</span> <span class="n">Page</span><span class="p">&lt;</span><span class="n">Contents</span><span class="p">&gt;</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">repository</span><span class="p">.</span><span class="n">findAll</span><span class="p">(</span><span class="n">pageable</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Repository
+</span><span class="k">import</span> <span class="nn">org.springframework.data.domain.Page</span>
+<span class="k">import</span> <span class="nn">org.springframework.data.domain.Pageable</span>
+<span class="k">import</span> <span class="nn">org.springframework.data.jpa.repository.JpaRepository</span>
+<span class="k">import</span> <span class="nn">org.springframework.data.jpa.repository.Query</span>
+<span class="k">import</span> <span class="nn">org.springframework.data.repository.query.Param</span>
+
+<span class="kd">interface</span> <span class="nc">TipContentsRepository</span> <span class="p">:</span> <span class="n">JpaRepository</span><span class="p">&lt;</span><span class="n">Contents</span><span class="p">,</span> <span class="n">Long</span><span class="p">&gt;</span> <span class="p">{</span>
+    <span class="k">fun</span> <span class="nf">findAll</span><span class="p">(</span>
+        <span class="n">pageable</span><span class="p">:</span> <span class="n">Pageable</span>
+    <span class="p">):</span> <span class="n">Page</span><span class="p">&lt;</span><span class="n">Contents</span><span class="p">&gt;</span>
+<span class="p">}</span>
+
+</code></pre></div></div> <h2 id="query-사용-예제-추가">
+<a href="https://github.com/Query" class="user-mention">@Query</a> 사용 예제 추가</h2> <p>필요시 사용자 정의 SQL을 사용할 경우 다음과 같이 <code class="highlighter-rouge">@Query</code>를 활용하여도 동일하게 페이징 처리가 됩니다.</p> <div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Repository
+</span><span class="k">import</span> <span class="nn">org.springframework.data.domain.Page</span>
+<span class="k">import</span> <span class="nn">org.springframework.data.domain.Pageable</span>
+<span class="k">import</span> <span class="nn">org.springframework.data.jpa.repository.JpaRepository</span>
+<span class="k">import</span> <span class="nn">org.springframework.data.jpa.repository.Query</span>
+<span class="k">import</span> <span class="nn">org.springframework.data.repository.query.Param</span>
+
+<span class="kd">interface</span> <span class="nc">TipContentsRepository</span> <span class="p">:</span> <span class="n">JpaRepository</span><span class="p">&lt;</span><span class="n">Contents</span><span class="p">,</span> <span class="n">Long</span><span class="p">&gt;</span> <span class="p">{</span>
+    <span class="n">@Query</span><span class="p">(</span>
+        <span class="s">"""
+        SELECT 
+            C.ID,
+            C.TIP_TITLE,
+            C.IMG_FILE_PATH ,
+            C.PET_DCD,
+            C.OPN_DT ,
+            C.REG_DTM ,
+            C.MOD_DTM
+            '' as TIP_TXT // entity의 필수 값은 무조건 있어야 오류가 발생하지 않습니다. 
+        FROM CONTENTS C
+           WHERE (C.PET_DCD != :notPetDcd OR C.PET_DCD = 'ALL') 
+           AND  C.id IN (
+	           SELECT t.CONTENTS_M_ID 
+	           FROM CATEGORY t
+	           WHERE t.CTGY_CCD IN (:ctgyCcds)
+           ) 
+           AND OPN_DT &lt;= TO_CHAR(sysdate, 'YYYYMMDD')
+        ORDER BY OPN_DT DESC
+    """</span><span class="p">,</span>
+    <span class="n">countQuery</span> <span class="p">=</span> <span class="s">"""
+        SELECT 
+            COUNT(C.ID)
+        FROM CONTENTS TCM
+           WHERE (C.PET_DCD != :notPetDcd OR C.PET_DCD = 'ALL') 
+           AND  TCM.id IN (
+	           SELECT tcd.CONTENTS_M_ID 
+	           FROM CATEGORY t
+	           WHERE t.CTGY_CCD IN (:ctgyCcds)
+           ) 
+           AND OPN_DT &lt;= TO_CHAR(sysdate, 'YYYYMMDD')
+    """</span><span class="p">,</span>
+    <span class="n">nativeQuery</span> <span class="p">=</span> <span class="k">true</span>
+    <span class="p">)</span>
+    <span class="k">fun</span> <span class="nf">findByPetDcdAndCtgyCcds</span><span class="p">(</span>
+        <span class="n">@Param</span><span class="p">(</span><span class="s">"notPetDcd"</span><span class="p">)</span> <span class="n">notPetDcd</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span>
+        <span class="n">@Param</span><span class="p">(</span><span class="s">"ctgyCcds"</span><span class="p">)</span> <span class="n">ctgyCcds</span><span class="p">:</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;,</span>
+        <span class="n">pageable</span><span class="p">:</span> <span class="n">Pageable</span>
+    <span class="p">):</span> <span class="n">Page</span><span class="p">&lt;</span><span class="n">TipContentsM</span><span class="p">&gt;</span>
+<span class="p">}</span>
+</code></pre></div></div> <h2 id="참고-자료">참고 자료</h2> <ul> <li><a href="https://wonit.tistory.com/483">[배워보자 Spring Data JPA] JPA 에서 Pageable 을 이용한 페이징과 정렬</a></li> </ul> <div class="entry-meta"> <br> <hr> <span class="entry-tags"><a href="https://lahuman.github.io/tags/#spring" title="Pages tagged spring" class="tag"><span class="term">spring</span></a><a href="https://lahuman.github.io/tags/#pageable" title="Pages tagged pageable" class="tag"><span class="term">pageable</span></a><a href="https://lahuman.github.io/tags/#jpa" title="Pages tagged jpa" class="tag"><span class="term">jpa</span></a></span> <span class="social-share"> <a href="https://www.facebook.com/sharer/sharer.php?u=https://lahuman.github.io/spring_data_pageable/" title="Share on Facebook" class="tag"> <span class="term"><i class="fa fa-facebook-square"></i> Share</span> </a> <a href="https://twitter.com/intent/tweet?text=https://lahuman.github.io/spring_data_pageable/" title="Share on Twitter" class="tag"> <span class="term"><i class="fa fa-twitter-square"></i> Tweet</span> </a> <a href="https://plus.google.com/share?url=https://lahuman.github.io/spring_data_pageable/" title="Share on Google+" class="tag"> <span class="term"><i class="fa fa-google-plus-square"></i> +1</span> </a> </span> <div style="clear:both"></div> </div> <ins class="kakao_ad_area" style="display:none;" data-ad-unit="DAN-ubp67fs9s850" data-ad-width="320" data-ad-height="100"></ins> <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script> </div> </div> <section id="disqus_thread" class="animated fadeInUp"></section><!-- /#disqus_thread --> </header> <!-- JS --> <script src="https://lahuman.github.io/assets/js/jquery-1.12.0.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.dlmenu.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.goup.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.magnific-popup.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.fitvid.min.js"></script> <script src="https://lahuman.github.io/assets/js/scripts.js"></script> <!-- Global site tag (gtag.js) - Google Analytics --> <script async src="https://www.googletagmanager.com/gtag/js?id=UA-74095083-1"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-74095083-1'); </script> <script type="text/javascript"> var disqus_shortname = 'daniels-blog'; (function() { var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true; dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js'; (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq); })(); (function () { var s = document.createElement('script'); s.async = true; s.type = 'text/javascript'; s.src = '//' + disqus_shortname + '.disqus.com/count.js'; (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s); }()); </script> <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript> <!-- MathJax --> <script async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> </body> </html>
