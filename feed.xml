@@ -1,4 +1,71 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2024-05-28T08:39:18+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">재귀와 꼬리 재귀</title><link href="https://lahuman.github.io/recursion/" rel="alternate" type="text/html" title="재귀와 꼬리 재귀" /><published>2024-05-28T00:00:00+00:00</published><updated>2024-05-28T00:00:00+00:00</updated><id>https://lahuman.github.io/recursion</id><content type="html" xml:base="https://lahuman.github.io/recursion/">&lt;h1 id=&quot;재귀-와-꼬리-재귀&quot;&gt;재귀 와 꼬리 재귀&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2024-05-30T10:02:44+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Python 3.12 설치시 Openssl 모듈 버전 확인이 필요 합니다.</title><link href="https://lahuman.github.io/python-3.12_openssl-1.1.1/" rel="alternate" type="text/html" title="Python 3.12 설치시 Openssl 모듈 버전 확인이 필요 합니다." /><published>2024-05-30T00:00:00+00:00</published><updated>2024-05-30T00:00:00+00:00</updated><id>https://lahuman.github.io/python-3.12_openssl-1.1.1</id><content type="html" xml:base="https://lahuman.github.io/python-3.12_openssl-1.1.1/">&lt;h1 id=&quot;python-312-설치-시-openssl-모듈-버전-확인이-필요합니다&quot;&gt;Python 3.12 설치 시 OpenSSL 모듈 버전 확인이 필요합니다&lt;/h1&gt;
+
+&lt;p&gt;Python 3.12을 설치할 때 발생할 수 있는 오류 중 하나는 SSL 인증서와 관련된 문제입니다. 
+특히, pip 설치 시 다음과 같은 오류를 만날 수 있습니다:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Could not fetch URL https://pypi.org/simple/pip/: There was a problem confirming the ssl certificate: HTTPSConnectionPool&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;host&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'pypi.org'&lt;/span&gt;, &lt;span class=&quot;nv&quot;&gt;port&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;443&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;: Max retries exceeded with url: /simple/pip/ &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;Caused by SSLError&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Can't connect to HTTPS URL because the SSL module is not available.&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt; - skipping
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이 오류는 Python 설치 시 SSL 모듈이 제대로 구성되지 않았기 때문에 발생합니다. Python 3.12 설치 후 SSL 모듈이 제대로 작동하는지 확인하는 것이 중요합니다.&lt;/p&gt;
+
+&lt;p&gt;다음은 AWSLinux 기반의 Docker Container 설치시 명령어입니다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Dockerfile&quot;&gt;from amazonlinux # 1
+
+RUN  yum update --security --bugfix -y # 2
+
+RUN yum groupinstall &quot;Development Tools&quot; -y # 3
+RUN yum install openssl11 openssl11-devel  libffi-devel bzip2-devel wget -y # 3 + opnessl 1.1.1 설치
+# 4
+WORKDIR /usr/src
+RUN wget https://www.python.org/ftp/python/3.12.2/Python-3.12.2.tgz 
+RUN  tar xzf Python-3.12.2.tgz 
+
+# 5 
+WORKDIR /usr/src/Python-3.12.2
+RUN ./configure --enable-optimizations
+RUN make -j 8
+RUN make altinstall
+
+RUN python3.12 --version # 6
+
+# 7
+RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+RUN python3.12 get-pip.py  --trusted-host=files.pythonhosted.org --trusted-host=pypi.org
+RUN pip3.12 --version
+
+# 8 
+RUN ln -s /usr/local/bin/python3.12 /usr/bin/python3 &amp;amp; \
+    ln -s /usr/local/bin/pip3 /usr/bin/pip3
+
+# 9
+# datetime zone setting
+RUN date
+RUN mv /etc/localtime /etc/localtime_org
+RUN ln -s /usr/share/zoneinfo/Asia/Seoul /etc/localtime
+RUN date
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;dockerfile은-다음-작업을-수행합니다&quot;&gt;Dockerfile은 다음 작업을 수행합니다&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Amazon Linux 이미지를 사용하여 Docker 컨테이너를 생성합니다.&lt;/li&gt;
+  &lt;li&gt;보안 및 버그 수정 업데이트를 수행합니다.&lt;/li&gt;
+  &lt;li&gt;개발 도구 및 필요한 라이브러리를 설치합니다.&lt;/li&gt;
+  &lt;li&gt;Python 3.12 소스 코드를 다운로드하고 압축을 해제합니다.&lt;/li&gt;
+  &lt;li&gt;Python 3.12를 OpenSSL 지원과 함께 구성하고 컴파일합니다.&lt;/li&gt;
+  &lt;li&gt;Python 및 Pip의 버전을 확인하여 설치가 올바르게 되었는지 검증합니다.&lt;/li&gt;
+  &lt;li&gt;pip를 설치 하고 올바르게 설치 되었는지 검증합니다.&lt;/li&gt;
+  &lt;li&gt;Python과 Pip에 대한 심볼릭 링크를 생성하여 /usr/bin 디렉토리에서 사용할 수 있도록 설정합니다.&lt;/li&gt;
+  &lt;li&gt;시간대를 설정하여 시스템 시간대를 Asia/Seoul로 변경합니다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;이 Dockerfile을 사용하면 Python 3.12와 Pip을 포함한 개발 환경을 AWS Linux 기반의 Docker 컨테이너에서 설정할 수 있습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
+
+&lt;p&gt;Python 3.12의 SSL 모듈에 대한 더 자세한 내용은 &lt;a href=&quot;https://docs.python.org/ko/3.12/library/ssl.html&quot;&gt;공식 문서&lt;/a&gt;를 참고하세요. 이 문서에는 SSL 모듈의 다양한 기능과 설정 방법이 자세히 설명되어 있습니다.&lt;/p&gt;</content><author><name></name></author><category term="python" /><category term="install" /><summary type="html">pip 로 모듈 설치 등에서 SSL 오류 발생</summary></entry><entry><title type="html">재귀와 꼬리 재귀</title><link href="https://lahuman.github.io/recursion/" rel="alternate" type="text/html" title="재귀와 꼬리 재귀" /><published>2024-05-28T00:00:00+00:00</published><updated>2024-05-28T00:00:00+00:00</updated><id>https://lahuman.github.io/recursion</id><content type="html" xml:base="https://lahuman.github.io/recursion/">&lt;h1 id=&quot;재귀-와-꼬리-재귀&quot;&gt;재귀 와 꼬리 재귀&lt;/h1&gt;
 
 &lt;h2 id=&quot;재귀recursion&quot;&gt;재귀(Recursion)&lt;/h2&gt;
 &lt;p&gt;재귀(Recursion)는 함수가 자기 자신을 호출하는 프로그래밍 기법입니다. 이는 함수가 자신을 호출할 때마다 새로운 인스턴스가 생성되어 실행됩니다. 재귀를 사용하면 문제를 더 작은 부분 문제로 나누어 해결할 수 있습니다. 일반적으로 재귀 함수는 기본 사례(base case)에 도달할 때까지 자기 자신을 호출하며, 이를 통해 문제를 해결합니다.&lt;/p&gt;
@@ -650,28 +717,4 @@ myMap.putLast(1, null)
   &lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;이 명령들을 실행함으로써 feature 브랜치는 master 브랜치의 최신 상태를 반영하게 되고, 브랜치 간의 통합이 용이해집니다. 이러한 절차는 팀 내에서 브랜치 관리를 더욱 체계적으로 할 수 있게 도와줍니다.&lt;/p&gt;</content><author><name></name></author><category term="git" /><category term="rebase" /><summary type="html">보통 merge를 많이 사용했는데, 로그가 지저분해져서 싫었다면 rebase를 이용해보셔요</summary></entry><entry><title type="html">리더쉽 그리고 성악설</title><link href="https://lahuman.github.io/leadership/" rel="alternate" type="text/html" title="리더쉽 그리고 성악설" /><published>2024-04-11T00:00:00+00:00</published><updated>2024-04-11T00:00:00+00:00</updated><id>https://lahuman.github.io/leadership</id><content type="html" xml:base="https://lahuman.github.io/leadership/">&lt;h1 id=&quot;리더쉽-그리고-성악설&quot;&gt;리더쉽 그리고 성악설&lt;/h1&gt;
-
-&lt;p&gt;인간은 선한가? 악한가?&lt;/p&gt;
-
-&lt;p&gt;성선설과 성악설이 있습니다.&lt;/p&gt;
-
-&lt;p&gt;니콜로 마키아벨리의 “군주론”은 16세기 초 이탈리아의 정치 상황을 반영한 작품이다. 마키아벨리는 인간의 본성에 대한 성악설적 시각을 바탕으로, 군주가 권력을 유지하고 국가를 안정적으로 통치하기 위해 필요한 정치적 기술과 전략에 대해 논의합니다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;성악설은 인간이 본래부터 이기적이고 자신의 이익을 최우선으로 추구하는 성향을 가지고 있다는 관점입니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;군주론에서 가장 유명한 내용 중 하나는 &lt;strong&gt;“목적이 수단을 정당화한다”&lt;/strong&gt; 입니다. 마키아벨리는 군주가 권력을 유지하고 국가의 이익을 위해 때로는 비윤리적이거나 잔인한 방법을 사용해야 할 수도 있다고 주장합니다. 이러한 관점은 그의 이름을 따서 &lt;strong&gt;“마키아벨리즘”&lt;/strong&gt;이라고 불리는 정치적 실용주의로 이어졌습니다.&lt;/p&gt;
-
-&lt;p&gt;군주 또는 리더는 선해야 하는지에 대하여 아래와 같은 내용이 있습니다.&lt;/p&gt;
-
-&lt;p&gt;“군주들은 그들이 선하게 행동해야 할지, 그렇지 않을지를 고민할 필요가 없다. 그들의 행동은 오직 권력을 유지하고 국가의 안녕을 증진하는 데에 그 목적이 있어야 한다. 따라서 필요할 때는 선을 행하되, 그 상황이 요구한다면 악행도 서슴지 않아야 한다.”&lt;/p&gt;
-
-&lt;p&gt;어쩌면, 제가 좋은 리더는 선해야 한다고 생각하는것이 잘못된 생각이 아닐까 생각이 됩니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://brunch.co.kr/@shortjisik/98&quot;&gt;쉽게 이해하는 마키아벨리 군주론&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.yes24.com/Product/Goods/122786298&quot;&gt;군주론&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="leadership" /><summary type="html">마키아벨리 군주론</summary></entry></feed>
+&lt;p&gt;이 명령들을 실행함으로써 feature 브랜치는 master 브랜치의 최신 상태를 반영하게 되고, 브랜치 간의 통합이 용이해집니다. 이러한 절차는 팀 내에서 브랜치 관리를 더욱 체계적으로 할 수 있게 도와줍니다.&lt;/p&gt;</content><author><name></name></author><category term="git" /><category term="rebase" /><summary type="html">보통 merge를 많이 사용했는데, 로그가 지저분해져서 싫었다면 rebase를 이용해보셔요</summary></entry></feed>
