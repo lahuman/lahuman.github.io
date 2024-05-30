@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2024-05-30T10:02:44+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Python 3.12 설치시 Openssl 모듈 버전 확인이 필요 합니다.</title><link href="https://lahuman.github.io/python-3.12_openssl-1.1.1/" rel="alternate" type="text/html" title="Python 3.12 설치시 Openssl 모듈 버전 확인이 필요 합니다." /><published>2024-05-30T00:00:00+00:00</published><updated>2024-05-30T00:00:00+00:00</updated><id>https://lahuman.github.io/python-3.12_openssl-1.1.1</id><content type="html" xml:base="https://lahuman.github.io/python-3.12_openssl-1.1.1/">&lt;h1 id=&quot;python-312-설치-시-openssl-모듈-버전-확인이-필요합니다&quot;&gt;Python 3.12 설치 시 OpenSSL 모듈 버전 확인이 필요합니다&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2024-05-30T23:12:04+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Python 3.12 설치시 Openssl 모듈 버전 확인이 필요 합니다.</title><link href="https://lahuman.github.io/python-3.12_openssl-1.1.1/" rel="alternate" type="text/html" title="Python 3.12 설치시 Openssl 모듈 버전 확인이 필요 합니다." /><published>2024-05-30T00:00:00+00:00</published><updated>2024-05-30T00:00:00+00:00</updated><id>https://lahuman.github.io/python-3.12_openssl-1.1.1</id><content type="html" xml:base="https://lahuman.github.io/python-3.12_openssl-1.1.1/">&lt;h1 id=&quot;python-312-설치-시-openssl-모듈-버전-확인이-필요합니다&quot;&gt;Python 3.12 설치 시 OpenSSL 모듈 버전 확인이 필요합니다&lt;/h1&gt;
 
 &lt;p&gt;Python 3.12을 설치할 때 발생할 수 있는 오류 중 하나는 SSL 인증서와 관련된 문제입니다. 
 특히, pip 설치 시 다음과 같은 오류를 만날 수 있습니다:&lt;/p&gt;
@@ -10,42 +10,42 @@
 
 &lt;p&gt;다음은 AWSLinux 기반의 Docker Container 설치시 명령어입니다.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-Dockerfile&quot;&gt;from amazonlinux # 1
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;from amazonlinux &lt;span class=&quot;c&quot;&gt;# 1&lt;/span&gt;
 
-RUN  yum update --security --bugfix -y # 2
+RUN  yum update &lt;span class=&quot;nt&quot;&gt;--security&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--bugfix&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# 2&lt;/span&gt;
 
-RUN yum groupinstall &quot;Development Tools&quot; -y # 3
-RUN yum install openssl11 openssl11-devel  libffi-devel bzip2-devel wget -y # 3 + opnessl 1.1.1 설치
-# 4
+RUN yum groupinstall &lt;span class=&quot;s2&quot;&gt;&quot;Development Tools&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# 3&lt;/span&gt;
+RUN yum install openssl11 openssl11-devel  libffi-devel bzip2-devel wget &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# 3 + opnessl 1.1.1 설치&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# 4&lt;/span&gt;
 WORKDIR /usr/src
 RUN wget https://www.python.org/ftp/python/3.12.2/Python-3.12.2.tgz 
-RUN  tar xzf Python-3.12.2.tgz 
+RUN  &lt;span class=&quot;nb&quot;&gt;tar &lt;/span&gt;xzf Python-3.12.2.tgz 
 
-# 5 
+&lt;span class=&quot;c&quot;&gt;# 5 &lt;/span&gt;
 WORKDIR /usr/src/Python-3.12.2
-RUN ./configure --enable-optimizations
-RUN make -j 8
+RUN ./configure &lt;span class=&quot;nt&quot;&gt;--enable-optimizations&lt;/span&gt;
+RUN make &lt;span class=&quot;nt&quot;&gt;-j&lt;/span&gt; 8
 RUN make altinstall
 
-RUN python3.12 --version # 6
+RUN python3.12 &lt;span class=&quot;nt&quot;&gt;--version&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# 6&lt;/span&gt;
 
-# 7
-RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-RUN python3.12 get-pip.py  --trusted-host=files.pythonhosted.org --trusted-host=pypi.org
-RUN pip3.12 --version
+&lt;span class=&quot;c&quot;&gt;# 7&lt;/span&gt;
+RUN curl https://bootstrap.pypa.io/get-pip.py &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; get-pip.py
+RUN python3.12 get-pip.py  &lt;span class=&quot;nt&quot;&gt;--trusted-host&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;files.pythonhosted.org &lt;span class=&quot;nt&quot;&gt;--trusted-host&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;pypi.org
+RUN pip3.12 &lt;span class=&quot;nt&quot;&gt;--version&lt;/span&gt;
 
-# 8 
-RUN ln -s /usr/local/bin/python3.12 /usr/bin/python3 &amp;amp; \
-    ln -s /usr/local/bin/pip3 /usr/bin/pip3
+&lt;span class=&quot;c&quot;&gt;# 8 &lt;/span&gt;
+RUN ln &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; /usr/local/bin/python3.12 /usr/bin/python3 &amp;amp; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+    ln &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; /usr/local/bin/pip3 /usr/bin/pip3
 
-# 9
-# datetime zone setting
+&lt;span class=&quot;c&quot;&gt;# 9&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# datetime zone setting&lt;/span&gt;
 RUN date
 RUN mv /etc/localtime /etc/localtime_org
-RUN ln -s /usr/share/zoneinfo/Asia/Seoul /etc/localtime
+RUN ln &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; /usr/share/zoneinfo/Asia/Seoul /etc/localtime
 RUN date
 
-&lt;/code&gt;&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;dockerfile은-다음-작업을-수행합니다&quot;&gt;Dockerfile은 다음 작업을 수행합니다&lt;/h2&gt;
 
