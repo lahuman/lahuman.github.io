@@ -1,4 +1,51 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2024-06-12T08:22:05+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">JPA 에서 FLUSH 처리시 실행 순서</title><link href="https://lahuman.github.io/jpa_flush_order/" rel="alternate" type="text/html" title="JPA 에서 FLUSH 처리시 실행 순서" /><published>2024-06-12T00:00:00+00:00</published><updated>2024-06-12T00:00:00+00:00</updated><id>https://lahuman.github.io/jpa_flush_order</id><content type="html" xml:base="https://lahuman.github.io/jpa_flush_order/">&lt;h1 id=&quot;hibernate는-연관된-엔터티-상태-작업의-순서대로-sql-문을-실행하지-않습니다&quot;&gt;Hibernate는 연관된 엔터티 상태 작업의 순서대로 SQL 문을 실행하지 않습니다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2024-06-25T07:32:40+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">iOS 면접 질의응답</title><link href="https://lahuman.github.io/ios_interview_qa/" rel="alternate" type="text/html" title="iOS 면접 질의응답 " /><published>2024-06-25T00:00:00+00:00</published><updated>2024-06-25T00:00:00+00:00</updated><id>https://lahuman.github.io/ios_interview_qa</id><content type="html" xml:base="https://lahuman.github.io/ios_interview_qa/">&lt;h1 id=&quot;ios-면접-질의응답&quot;&gt;iOS 면접 질의응답&lt;/h1&gt;
+
+&lt;h2 id=&quot;1-swift와-objective-c의-차이점은-무엇인가요&quot;&gt;1. Swift와 Objective-C의 차이점은 무엇인가요?&lt;/h2&gt;
+
+&lt;p&gt;Swift는 Objective-C에 비해 타입 안전성이 뛰어나며, 가독성이 높은 문법을 제공합니다. Swift는 메모리 관리를 자동화하는 ARC(Automatic Reference Counting)를 지원하고, 런타임 오류를 줄이는 안전한 프로그래밍 패턴을 채택하고 있습니다. 반면, Objective-C는 C언어를 기반으로 하여 C 라이브러리와의 호환성이 뛰어나지만, 코드가 복잡할 수 있습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;2-ios-앱-개발에서-사용되는-주요-프레임워크는-무엇인가요&quot;&gt;2. iOS 앱 개발에서 사용되는 주요 프레임워크는 무엇인가요?&lt;/h2&gt;
+
+&lt;p&gt;iOS 개발에는 여러 프레임워크가 사용되며, 가장 중요한 것은 UIKit(사용자 인터페이스), Foundation(기본 데이터 관리 및 네트워킹), Core Data(지속적 데이터 저장 및 관리)입니다. 이 프레임워크들은 앱의 다양한 측면을 지원하여 개발 과정을 효율적으로 만듭니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;3-mvc-mvvm-viper와-같은-아키텍처-패턴을-설명해주세요&quot;&gt;3. MVC, MVVM, VIPER와 같은 아키텍처 패턴을 설명해주세요.&lt;/h2&gt;
+
+&lt;p&gt;MVC (Model-View-Controller): 가장 기본적인 아키텍처 패턴으로, 애플리케이션을 모델, 뷰, 컨트롤러 세 부분으로 나누어 관리합니다.
+MVVM (Model-View-ViewModel): 뷰와 모델 사이의 의존성을 줄이기 위해 뷰모델을 사용합니다. 이는 데이터 바인딩을 통해 뷰의 코드를 간소화할 수 있게 해 줍니다.
+VIPER (View-Interactor-Presenter-Entity-Router): 각 부분이 하나의 책임만을 가지도록 설계된 아키텍처로, 큰 프로젝트에서 효율적인 유지보수를 가능하게 합니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;4-auto-layout을-사용하는-이유와-주요-기능에-대해-설명해주세요&quot;&gt;4. Auto Layout을 사용하는 이유와 주요 기능에 대해 설명해주세요.&lt;/h2&gt;
+
+&lt;p&gt;Auto Layout은 다양한 화면 크기와 방향에서 일관된 레이아웃을 유지할 수 있도록 도와줍니다. 이는 제약 조건을 기반으로 요소들이 화면 내에서 어떻게 배치되고 크기가 조정되는지를 정의하여, 동적으로 화면을 구성할 수 있게 합니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;5-core-data의-주요-개념과-사용법을-설명해주세요&quot;&gt;5. Core Data의 주요 개념과 사용법을 설명해주세요.&lt;/h2&gt;
+
+&lt;p&gt;Core Data는 객체 그래프 관리와 영구 저장소로의 객체 데이터의 지속성을 관리하는 프레임워크입니다. 데이터 모델러를 통해 데이터 구조를 시각적으로 구성할 수 있으며, SQLite, XML, Binary 등 다양한 저장 형식을 지원합니다. 관계, 가져오기, 저장 과정의 최적화를 통해 효율적인 데이터 관리가 가능합니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;6-메모리-관리-방법에-대해-설명하고-arc가-어떻게-작동하는지-설명해주세요&quot;&gt;6. 메모리 관리 방법에 대해 설명하고, ARC가 어떻게 작동하는지 설명해주세요.&lt;/h2&gt;
+
+&lt;p&gt;iOS에서는 ARC를 사용하여 메모리 관리를 자동화합니다. ARC는 객체에 대한 참조 횟수를 추적하여, 참조 횟수가 0이 되면 해당 객체를 메모리에서 해제합니다. 개발자는 강한 참조(strong reference)와 약한 참조(weak reference)를 적절히 사용하여 순환 참조를 방지해야 하며, 이를 통해 메모리 누수를 예방할 수 있습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;7-app-store에-앱을-배포하는-과정을-단계별로-설명해주세요&quot;&gt;7. App Store에 앱을 배포하는 과정을 단계별로 설명해주세요.&lt;/h2&gt;
+
+&lt;p&gt;앱을 App Store에 배포하는 과정은 다음과 같습니다:&lt;/p&gt;
+
+&lt;p&gt;앱 개발 및 로컬 테스트: 개발자는 앱을 개발하고 로컬 환경에서 충분히 테스트합니다.
+빌드 및 업로드: 앱을 Xcode를 통해 빌드하고, 모든 앱 정보와 함께 iTunes Connect (현재는 App Store Connect)에 업로드합니다.
+리뷰 프로세스: 업로드된 앱은 Apple의 리뷰 프로세스를 거칩니다. 이 과정에서 앱의 적합성이 평가됩니다.
+승인 및 릴리스 관리: 승인이 완료되면, 개발자는 앱의 릴리스를 관리할 수 있으며, 사용자는 App Store에서 앱을 다운로드할 수 있습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;8-최신-ios-업데이트에서-추가된-기능-중-하나를-선택하고-그-기능이-앱-개발에-어떻게-활용될-수-있는지-설명해주세요&quot;&gt;8. 최신 iOS 업데이트에서 추가된 기능 중 하나를 선택하고, 그 기능이 앱 개발에 어떻게 활용될 수 있는지 설명해주세요.&lt;/h2&gt;
+
+&lt;p&gt;iOS 15에서 추가된 SharePlay 기능은 멀티미디어 공유를 가능하게 하여 앱 개발자들이 새로운 형태의 상호 작용을 앱에 통합할 수 있도록 합니다. 개발자는 SharePlay API를 사용하여 사용자들이 비디오를 시청하거나 음악을 듣는 동안 서로 상호 작용할 수 있는 기능을 개발할 수 있습니다. 이를 통해 사용자 경험을 향상시키고 앱의 매력을 증가시킬 수 있습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;9-비동기-프로그래밍과-gcd-operationqueue의-사용-예를-설명해주세요&quot;&gt;9. 비동기 프로그래밍과 GCD, OperationQueue의 사용 예를 설명해주세요.&lt;/h2&gt;
+
+&lt;p&gt;비동기 프로그래밍은 UI가 응답을 멈추지 않게 하면서 백그라운드에서 데이터 로딩, 이미지 다운로드, 데이터 처리와 같은 작업을 수행합니다. GCD(Grand Central Dispatch)는 작업을 다양한 큐에 넣어 비동기적으로 실행할 수 있게 해 주며, 멀티코어 하드웨어의 잠재력을 최대한 활용할 수 있습니다. 예를 들어, 이미지를 다운로드하고 처리하는 작업을 백그라운드 스레드에서 실행한 다음, 메인 스레드에서 UI를 업데이트하는 것입니다. OperationQueue는 GCD보다 더 고수준의 API를 제공하며, 작업 간의 종속성을 설정하고 실행을 취소하거나 일시 중지할 수 있는 기능을 제공합니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;10-copy-on-write를-설명해주세요&quot;&gt;10. “Copy on Write”를 설명해주세요.&lt;/h2&gt;
+
+&lt;p&gt;Swift의 “Copy on Write” (CoW) 메커니즘은 특히 값 타입(Value Types)에서 메모리 사용을 최적화하는 데 유용합니다. Swift에서는 구조체(struct), 열거형(enum), 그리고 기본 데이터 타입들(int, string, array 등)을 값 타입으로 처리합니다. 값 타입은 데이터를 전달할 때 원본의 복사본을 만들어 전달합니다. 그러나 이 과정이 항상 즉각적으로 발생하는 것은 아니며, Copy on Write 메커니즘이 이를 최적화합니다.&lt;/p&gt;</content><author><name></name></author><category term="ios" /><category term="interview" /><summary type="html">chat-gpt가 추천하는 면접 질문 모음</summary></entry><entry><title type="html">JPA 에서 FLUSH 처리시 실행 순서</title><link href="https://lahuman.github.io/jpa_flush_order/" rel="alternate" type="text/html" title="JPA 에서 FLUSH 처리시 실행 순서" /><published>2024-06-12T00:00:00+00:00</published><updated>2024-06-12T00:00:00+00:00</updated><id>https://lahuman.github.io/jpa_flush_order</id><content type="html" xml:base="https://lahuman.github.io/jpa_flush_order/">&lt;h1 id=&quot;hibernate는-연관된-엔터티-상태-작업의-순서대로-sql-문을-실행하지-않습니다&quot;&gt;Hibernate는 연관된 엔터티 상태 작업의 순서대로 SQL 문을 실행하지 않습니다.&lt;/h1&gt;
 
 &lt;p&gt;다음과 같은 코드가 있다고 예상할 경우&lt;/p&gt;
 
@@ -672,62 +719,4 @@ myMap.putLast(1, null)
   &lt;li&gt;
     &lt;p&gt;&lt;a href=&quot;https://youtrack.jetbrains.com/issue/KT-61223/JDK-21-new-addFirst-addLast-and-putFirst-putLast-methods-allow-adding-nullable-value-for-non-null-types?fbclid=IwZXh0bgNhZW0CMTAAAR2d3AXtvhkRdxnzWmXedaYhmSrr7a3q9cTdtyEcNXrzVZ2sEjHXwt9IAKo_aem_AdD5avxC0u2j8gK3szuwFSoQFHqnuNt4wlEQu2NCgfjCIuAsFazQDJ2ANqQsNdIrNVYzA8hCXihu4xxcSJnc976x&quot;&gt;JDK 21: new addFirst/addLast and putFirst/putLast methods allow adding nullable value for non-null types&lt;/a&gt;&lt;/p&gt;
   &lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="kotlin" /><category term="jdk21" /><summary type="html">이번 프로젝트는 kotlin + jdk21 입니다.</summary></entry><entry><title type="html">Gmail SMTP 설정 가이드</title><link href="https://lahuman.github.io/gmail_smtp_setting/" rel="alternate" type="text/html" title="Gmail SMTP 설정 가이드" /><published>2024-04-23T00:00:00+00:00</published><updated>2024-04-23T00:00:00+00:00</updated><id>https://lahuman.github.io/gmail_smtp_setting</id><content type="html" xml:base="https://lahuman.github.io/gmail_smtp_setting/">&lt;h1 id=&quot;2024년-기준-gmail-smtp-설정-가이드&quot;&gt;2024년 기준, Gmail SMTP 설정 가이드&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;2010년에 Gmail SMTP 설정을 간단하게 했던 기억이 있으신가요? 2022년 기준으로 설정 방식이 변경되었고, 다소 복잡해졌습니다. 이 글을 통해 2024년 기준 Gmail SMTP 설정 방법을 단계별로 알려드리겠습니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;gmail-설정-진행&quot;&gt;GMAIL 설정 진행&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;GMAIL &amp;gt; 톱니바퀴 &amp;gt; 모든 설정 보기 
-&lt;img src=&quot;/assets/img/post_img/gmail-setting-1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;설정 &amp;gt; 전달 및 POP/IMAP
-&lt;img src=&quot;/assets/img/post_img/gmail-setting-2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;app-password-추가&quot;&gt;APP PASSWORD 추가&lt;/h2&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;이 메뉴가 검색시 &lt;code class=&quot;highlighter-rouge&quot;&gt;계정 &amp;gt; 보안 &amp;gt; 2단계 인증&lt;/code&gt;에 있다고 되어 있지만, 실제로 보이지 않고 주소 입력을 통해 접근해야 합니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;https://myaccount.google.com/security 에서 &lt;code class=&quot;highlighter-rouge&quot;&gt;2-step verification&lt;/code&gt; 밑에 app password 메뉴가 존재 하지 않습니다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;https://myaccount.google.com/apppasswords 로 직접 접근해서 추가 하면 됩니다.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/google_app_password.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;이렇게 수정하고 나면 GMAIL SMTP를 사용할 수 있습니다.&lt;/p&gt;
-
-&lt;p&gt;다음은 사용 예제 입니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/aultwarden_smtp_example.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;위 화면에서&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;username : xxx@gmail.com&lt;/li&gt;
-  &lt;li&gt;password : app password&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;이렇게 설정 하면 됩니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://support.google.com/mail/thread/4477145/no-app-passwords-under-security-signing-in-to-google-panel?hl=en&quot;&gt;No “App passwords” under “Security” -&amp;gt; “Signing in to Google” panel&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://kincoding.com/entry/Google-Gmail-SMTP-%EC%82%AC%EC%9A%A9%EC%9D%84-%EC%9C%84%ED%95%9C-%EC%84%B8%ED%8C%85&quot;&gt;Google - Gmail SMTP 사용을 위한 세팅&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="gmail" /><category term="smtp" /><summary type="html">예전엔 gmail에서 설정만 하면 되었는데, app password 등을 설정 해야 합니다.</summary></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><category term="kotlin" /><category term="jdk21" /><summary type="html">이번 프로젝트는 kotlin + jdk21 입니다.</summary></entry></feed>
