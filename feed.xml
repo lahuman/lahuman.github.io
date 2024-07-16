@@ -1,4 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2024-06-25T07:32:40+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">iOS 면접 질의응답</title><link href="https://lahuman.github.io/ios_interview_qa/" rel="alternate" type="text/html" title="iOS 면접 질의응답 " /><published>2024-06-25T00:00:00+00:00</published><updated>2024-06-25T00:00:00+00:00</updated><id>https://lahuman.github.io/ios_interview_qa</id><content type="html" xml:base="https://lahuman.github.io/ios_interview_qa/">&lt;h1 id=&quot;ios-면접-질의응답&quot;&gt;iOS 면접 질의응답&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2024-07-16T07:41:23+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">typeorm 사용시 소수점 조회</title><link href="https://lahuman.github.io/typeorm_number_entity_decimal/" rel="alternate" type="text/html" title="typeorm 사용시 소수점 조회" /><published>2024-07-14T00:00:00+00:00</published><updated>2024-07-14T00:00:00+00:00</updated><id>https://lahuman.github.io/typeorm_number_entity_decimal</id><content type="html" xml:base="https://lahuman.github.io/typeorm_number_entity_decimal/">&lt;h1 id=&quot;typeorm에서-엔티티의-number-타입-필드에서-소수점을-정확하게-처리하는-것은-데이터의-정밀도와-품질을-보장하는-데-매우-중요합니다&quot;&gt;TypeORM에서 엔티티의 number 타입 필드에서 소수점을 정확하게 처리하는 것은 데이터의 정밀도와 품질을 보장하는 데 매우 중요합니다.&lt;/h1&gt;
+
+&lt;p&gt;이 글에서는 TypeORM을 사용하여 소수점을 포함하는 number 타입을 정의하고 관리하는 방법에 대해 설명합니다. 또한, 샘플 엔티티 코드를 통해 구현 방법을 보여 드리겠습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;샘플-엔티티-코드&quot;&gt;샘플 엔티티 코드&lt;/h2&gt;
+
+&lt;p&gt;아래의 샘플 코드는 Product라는 엔티티에서 가격(price)을 number 타입으로 처리하는 예를 보여줍니다. 이때, double 또는 decimal 타입을 사용하여 소수점을 정확하게 관리할 수 있습니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-typescript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;err&quot;&gt;코드&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;복사&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Entity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;PrimaryGeneratedColumn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Column&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'typeorm'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;Entity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Product&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;PrimaryGeneratedColumn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;Column&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'decimal'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;precision&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;scale&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;price&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;@Column({ type: 'decimal', precision: 10, scale: 2 })&lt;/code&gt;: 이 구문은 price 필드가 최대 10자리 숫자를 가질 수 있으며, 그 중 소수점 이하 두 자리까지 저장할 수 있음을 나타냅니다. decimal 타입은 소수점을 포함한 전체 길이와 소수점 이하의 길이를 정밀하게 정의할 수 있어 금융 계산 등 정확도가 요구되는 상황에서 유용합니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;소수점-처리의-중요성&quot;&gt;소수점 처리의 중요성&lt;/h2&gt;
+&lt;p&gt;소수점 처리는 특히 금액이나 계산의 정밀도가 중요한 분야에서 필수적입니다. 예를 들어, 금융 서비스나 과학적 계산에서는 소수점 이하의 작은 오차도 큰 문제를 일으킬 수 있습니다. 따라서 decimal 타입을 사용하여 데이터의 정확성을 보장하는 것이 좋습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;결론&quot;&gt;결론&lt;/h2&gt;
+&lt;p&gt;TypeORM에서 decimal 타입을 사용하는 것은 소수점을 포함한 데이터를 정확하게 처리하고자 할 때 매우 유용합니다. 이는 데이터의 정확성과 일관성을 유지하며, 실수로 인한 오류를 최소화하는 데 도움이 됩니다.&lt;/p&gt;</content><author><name></name></author><category term="typeorm" /><category term="decimal" /><summary type="html">처리를 잘못하면 상수만 표기 됩니다.</summary></entry><entry><title type="html">iOS 면접 질의응답</title><link href="https://lahuman.github.io/ios_interview_qa/" rel="alternate" type="text/html" title="iOS 면접 질의응답 " /><published>2024-06-25T00:00:00+00:00</published><updated>2024-06-25T00:00:00+00:00</updated><id>https://lahuman.github.io/ios_interview_qa</id><content type="html" xml:base="https://lahuman.github.io/ios_interview_qa/">&lt;h1 id=&quot;ios-면접-질의응답&quot;&gt;iOS 면접 질의응답&lt;/h1&gt;
 
 &lt;h2 id=&quot;1-swift와-objective-c의-차이점은-무엇인가요&quot;&gt;1. Swift와 Objective-C의 차이점은 무엇인가요?&lt;/h2&gt;
 
@@ -661,62 +688,4 @@ list size : 26 / list capacity:: 33
 
 &lt;p&gt;그동안 쌓아온 경험과 지식을 바탕으로 이 새로운 상황에 적응할 수 있지만, 옳은 방향으로 가도록 가이드 할수 있으면 좋겠다는 생각이 듭니다.&lt;/p&gt;
 
-&lt;p&gt;개발자로서 끊임없이 배우고 성장하는 모습을 보여줄 것입니다. 그리고 변화를 두려워하지 않고 새로운 도전을 통해 더 나은 미래를 만들어 나가겠습니다.&lt;/p&gt;</content><author><name></name></author><category term="단상" /><summary type="html">금융권이 왜 IT의 무덤인지 다시 알게되는 날입니다.</summary></entry><entry><title type="html">최신 JDK 21과 Kotlin 1.9.22 조합에서 발견된 오류 및 주의 사항</title><link href="https://lahuman.github.io/kotlin_jdk21/" rel="alternate" type="text/html" title="최신 JDK 21과 Kotlin 1.9.22 조합에서 발견된 오류 및 주의 사항" /><published>2024-05-08T00:00:00+00:00</published><updated>2024-05-08T00:00:00+00:00</updated><id>https://lahuman.github.io/kotlin_jdk21</id><content type="html" xml:base="https://lahuman.github.io/kotlin_jdk21/">&lt;h1 id=&quot;최신-jdk-21과-kotlin-1922-조합에서-발견된-오류-및-주의-사항&quot;&gt;최신 JDK 21과 Kotlin 1.9.22 조합에서 발견된 오류 및 주의 사항&lt;/h1&gt;
-
-&lt;p&gt;최신 JDK 21과 Kotlin 1.9.22 조합을 사용하면서 몇 가지 오류와 주의 사항을 발견했습니다.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;불변 컬렉션에서 addFirst와 addLast 사용 가능&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;놀랍게도, 불변 컬렉션인 List에 addFirst와 addLast 메서드를 사용할 수 있습니다. 예를 들어, 다음 코드는 오류 없이 실행됩니다.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-Kotlin&quot;&gt;fun foo(x: List&amp;lt;String&amp;gt;) {
-    x.add(&quot;&quot;) // 예상대로 오류
-    x.addFirst(&quot;&quot;) // 허용됨
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;이는 기존 Kotlin 버전과 다른 동작이며, 명확한 문서화가 이루어지지 않아 혼란을 야기할 수 있습니다.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;null 허용 처리&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;null 값을 처리할 때 주의가 필요합니다. &lt;code class=&quot;highlighter-rouge&quot;&gt;null 허용되지 않은 상황&lt;/code&gt;에서 addFirst와 addLast 메서드는 null 값을 허용합니다.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-Kotlin&quot;&gt;val mySet = kotlin.collections.LinkedHashSet&amp;lt;String&amp;gt;()
-mySet.addFirst(null) // 허용됨
-mySet.addLast(null) // 허용됨
-//mySet.add(null) // null can not be a value of a non-null type String
-
-val myMap = kotlin.collections.LinkedHashMap&amp;lt;Int, String&amp;gt;()
-myMap.putFirst(0, null)
-myMap.putLast(1, null)
-//myMap[2] = null // null can not be a value of a non-null type TypeVariable(V)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;이는 jdk 21에서 신규 메소드를 kotlin 처리 과정에서 생긴 문제로 보이며, Kotlin 2.0.0 이상에서 해결될 것으로 예상됩니다.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Kotlin 2.0.0 이상에서 확인 필요&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;현재 발견된 오류들은 Kotlin 1.9.22, 1.9.23 등 버전에서만 발생하는 것으로 확인되었습니다. Kotlin 2.0.0-RC 이상 버전에서는 해결될 가능성이 높으므로, 업그레이드 후 다시 확인하는 것이 좋습니다.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;결론&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;JDK 21과 Kotlin 조합을 사용할 때는 위의 오류와 주의 사항을 인지하고, Kotlin 2.0.0 이상 버전으로 업그레이드를 고려하는 것이 좋습니다. 또한, Kotlin 공식 문서 및 버그 추적 시스템을 통해 최신 정보를 확인하는 것이 중요합니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://youtrack.jetbrains.com/issue/KT-64640/Prevent-mutating-SequenceCollection-methods-from-JDK-21-be-available-on-read-only-collections?fbclid=IwZXh0bgNhZW0CMTAAAR1HBDcgUpHV9G4lonTIZCGrDSfCwmfllprNpMWZ7s-SoYxotLYib96Hk0c_aem_AdCwyzm0RzsjJxSLYzcvX9oitCBb6xuKwla2Zo9gH0xF5naFbweR7W12yGpnvpWAeKBMVFUP68hy9GvCDw1edbyB&quot;&gt;Prevent mutating SequenceCollection methods from JDK 21 be available on read-only collections&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://youtrack.jetbrains.com/issue/KT-61223/JDK-21-new-addFirst-addLast-and-putFirst-putLast-methods-allow-adding-nullable-value-for-non-null-types?fbclid=IwZXh0bgNhZW0CMTAAAR2d3AXtvhkRdxnzWmXedaYhmSrr7a3q9cTdtyEcNXrzVZ2sEjHXwt9IAKo_aem_AdD5avxC0u2j8gK3szuwFSoQFHqnuNt4wlEQu2NCgfjCIuAsFazQDJ2ANqQsNdIrNVYzA8hCXihu4xxcSJnc976x&quot;&gt;JDK 21: new addFirst/addLast and putFirst/putLast methods allow adding nullable value for non-null types&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="kotlin" /><category term="jdk21" /><summary type="html">이번 프로젝트는 kotlin + jdk21 입니다.</summary></entry></feed>
+&lt;p&gt;개발자로서 끊임없이 배우고 성장하는 모습을 보여줄 것입니다. 그리고 변화를 두려워하지 않고 새로운 도전을 통해 더 나은 미래를 만들어 나가겠습니다.&lt;/p&gt;</content><author><name></name></author><category term="단상" /><summary type="html">금융권이 왜 IT의 무덤인지 다시 알게되는 날입니다.</summary></entry></feed>
