@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2024-08-10T07:50:13+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">버크만 검사 후기</title><link href="https://lahuman.github.io/20240810/" rel="alternate" type="text/html" title="버크만 검사 후기" /><published>2024-08-10T00:00:00+00:00</published><updated>2024-08-10T00:00:00+00:00</updated><id>https://lahuman.github.io/20240810</id><content type="html" xml:base="https://lahuman.github.io/20240810/">&lt;h1 id=&quot;회사에서-팀-단위로-버크만-검사를-하고-결과를-공유하는-시간을-가졌습니다&quot;&gt;회사에서 팀 단위로 버크만 검사를 하고, 결과를 공유하는 시간을 가졌습니다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2024-08-10T09:10:45+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">버크만 검사 후기</title><link href="https://lahuman.github.io/20240810/" rel="alternate" type="text/html" title="버크만 검사 후기" /><published>2024-08-10T00:00:00+00:00</published><updated>2024-08-10T00:00:00+00:00</updated><id>https://lahuman.github.io/20240810</id><content type="html" xml:base="https://lahuman.github.io/20240810/">&lt;h1 id=&quot;회사에서-팀-단위로-버크만-검사를-하고-결과를-공유하는-시간을-가졌습니다&quot;&gt;회사에서 팀 단위로 버크만 검사를 하고, 결과를 공유하는 시간을 가졌습니다.&lt;/h1&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;버크만 검사는 사람들이 어떻게 행동하고 생각하는지, 그리고 어떤 환경에서 가장 잘 일할 수 있는지를 알아보는 심리 검사예요. 이 검사는 우리가 어떤 일에 관심이 있는지, 어떤 상황에서 스트레스를 받는지, 그리고 다른 사람들과 어떻게 잘 협력할 수 있는지를 알려줍니다.&lt;/p&gt;
@@ -10,7 +10,21 @@
 
 &lt;h2 id=&quot;검사-결과&quot;&gt;검사 결과&lt;/h2&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/birkman_method.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;</content><author><name></name></author><category term="birkman" /><summary type="html">동료들과 함께 서로의 생각을 나누는 시간이 되었습니다.</summary></entry><entry><title type="html">typeorm 사용시 소수점 조회</title><link href="https://lahuman.github.io/typeorm_number_entity_decimal/" rel="alternate" type="text/html" title="typeorm 사용시 소수점 조회" /><published>2024-07-14T00:00:00+00:00</published><updated>2024-07-14T00:00:00+00:00</updated><id>https://lahuman.github.io/typeorm_number_entity_decimal</id><content type="html" xml:base="https://lahuman.github.io/typeorm_number_entity_decimal/">&lt;h1 id=&quot;typeorm에서-엔티티의-number-타입-필드에서-소수점-표현&quot;&gt;TypeORM에서 엔티티의 number 타입 필드에서 소수점 표현&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/birkman_method.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;</content><author><name></name></author><category term="birkman" /><summary type="html">동료들과 함께 서로의 생각을 나누는 시간이 되었습니다.</summary></entry><entry><title type="html">3년차 회고</title><link href="https://lahuman.github.io/review_last_year/" rel="alternate" type="text/html" title="3년차 회고" /><published>2024-08-08T00:00:00+00:00</published><updated>2024-08-08T00:00:00+00:00</updated><id>https://lahuman.github.io/review_last_year</id><content type="html" xml:base="https://lahuman.github.io/review_last_year/">&lt;h1 id=&quot;3년차-회고&quot;&gt;3년차 회고&lt;/h1&gt;
+
+&lt;p&gt;근래 들은 말은 &lt;code class=&quot;highlighter-rouge&quot;&gt;이젠 적응 했다.&lt;/code&gt; 입니다.&lt;/p&gt;
+
+&lt;p&gt;변화를 이끌고, 새로운 도전을 해보기 위해서 당당(?) 하게 입사하였지만,&lt;/p&gt;
+
+&lt;p&gt;금융권의 무적권법(?)에 멍멍 털리고 적응하고 있습니다.&lt;/p&gt;
+
+&lt;p&gt;이번에 면담에서 많이 적응 한거 같다는 이야기와 적응하지 않았으면 한다는 주문을 받았습니다.&lt;/p&gt;
+
+&lt;p&gt;계속 부딪쳐서 변화를 이끌어 주기를 바라는 내용이었는데,&lt;/p&gt;
+
+&lt;p&gt;살짝 지치네요. 변화를 이끌 연료가 다한 느낌입니다.&lt;/p&gt;
+
+&lt;p&gt;올해는 잘 마무리 해야겠습니다.&lt;/p&gt;</content><author><name></name></author><category term="회고" /><summary type="html">2021년 말에 입사해서, 2024년도 8월이 되었습니다.</summary></entry><entry><title type="html">typeorm 사용시 소수점 조회</title><link href="https://lahuman.github.io/typeorm_number_entity_decimal/" rel="alternate" type="text/html" title="typeorm 사용시 소수점 조회" /><published>2024-07-14T00:00:00+00:00</published><updated>2024-07-14T00:00:00+00:00</updated><id>https://lahuman.github.io/typeorm_number_entity_decimal</id><content type="html" xml:base="https://lahuman.github.io/typeorm_number_entity_decimal/">&lt;h1 id=&quot;typeorm에서-엔티티의-number-타입-필드에서-소수점-표현&quot;&gt;TypeORM에서 엔티티의 number 타입 필드에서 소수점 표현&lt;/h1&gt;
 
 &lt;p&gt;이 글에서는 TypeORM을 사용하여 소수점을 포함하는 number 타입을 정의하고 관리하는 방법에 대해 설명합니다. 또한, 샘플 엔티티 코드를 통해 구현 방법을 보여 드리겠습니다.&lt;/p&gt;
 
@@ -596,91 +610,4 @@ RUN date
 &lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://docs.spring.io/spring-boot/docs/2.1.13.RELEASE/reference/html/howto-logging.html&quot;&gt;83. Logging&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="springboot" /><category term="logback" /><summary type="html">spring 초기화 오류가 표기 처리</summary></entry><entry><title type="html">java ArrayList의 동작</title><link href="https://lahuman.github.io/java_arraylist/" rel="alternate" type="text/html" title="java ArrayList의 동작" /><published>2024-05-20T00:00:00+00:00</published><updated>2024-05-20T00:00:00+00:00</updated><id>https://lahuman.github.io/java_arraylist</id><content type="html" xml:base="https://lahuman.github.io/java_arraylist/">&lt;h1 id=&quot;java-arraylist의-동작&quot;&gt;java ArrayList의 동작&lt;/h1&gt;
-
-&lt;h2 id=&quot;테스트용-코드-전체&quot;&gt;테스트용 코드 전체&lt;/h2&gt;
-
-&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.lang.reflect.Field&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;//    val list = MutableList&amp;lt;String?&amp;gt;(1000) { null } // 초기 크기 설정
-&lt;/span&gt;    &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;list&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mutableListOf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;()&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;list size : ${list.size} / list capacity:: ${getCapacity(list)}&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// # 1 초기 생성
-&lt;/span&gt;    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;..&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;25&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;list size : ${list.size} / list capacity:: ${getCapacity(list)}&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// # 2 출력
-&lt;/span&gt;    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;// arraylist의 capacity 출력 
-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getCapacity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arrayList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;*&amp;gt;?):&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Int&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arrayList&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;field&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Field&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ArrayList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;java&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getDeclaredField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;elementData&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;field&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;isAccessible&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;true&lt;/span&gt;
-
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;field&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arrayList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;*&amp;gt;).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;size&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;결과-값&quot;&gt;결과 값&lt;/h2&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;list size : 0 / list capacity:: 0 // &lt;span class=&quot;c&quot;&gt;#1&lt;/span&gt;
-list size : 1 / list capacity:: 10 // capacity 변화
-list size : 2 / list capacity:: 10
-list size : 3 / list capacity:: 10
-list size : 4 / list capacity:: 10
-list size : 5 / list capacity:: 10
-list size : 6 / list capacity:: 10
-list size : 7 / list capacity:: 10
-list size : 8 / list capacity:: 10
-list size : 9 / list capacity:: 10
-list size : 10 / list capacity:: 10
-list size : 11 / list capacity:: 15 // capacity 변화
-list size : 12 / list capacity:: 15
-list size : 13 / list capacity:: 15
-list size : 14 / list capacity:: 15
-list size : 15 / list capacity:: 15
-list size : 16 / list capacity:: 22 // capacity 변화
-list size : 17 / list capacity:: 22
-list size : 18 / list capacity:: 22
-list size : 19 / list capacity:: 22
-list size : 20 / list capacity:: 22
-list size : 21 / list capacity:: 22
-list size : 22 / list capacity:: 22
-list size : 23 / list capacity:: 33 // capacity 변화
-list size : 24 / list capacity:: 33
-list size : 25 / list capacity:: 33
-list size : 26 / list capacity:: 33
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;설명&quot;&gt;설명&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html&quot;&gt;ArrayList&lt;/a&gt;는 List 인터페이스를 구현한 동적 배열입니다. 내부적으로는 배열을 사용하여 요소를 저장하며, 필요에 따라 크기를 조절할 수 있습니다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;최초에 리스트를 생성하면, 크기와 용량 모두 0입니다.&lt;/li&gt;
-  &lt;li&gt;요소를 추가할 때마다 용량이 증가합니다. 용량이 모두 차면 새로운 배열을 생성하고 기존 데이터를 복사합니다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;동작-예시&quot;&gt;동작 예시&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;최초 list를 생성하고, size와 capacity를 확인하면 0 / 0&lt;/li&gt;
-  &lt;li&gt;list에 처음 데이터를 add 할 경우, size / capacity 는 1 / 10 
-&lt;img src=&quot;/assets/img/post_img/java-arraylist-add-1.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
-  &lt;li&gt;list에 2번째 데이터를 add 
-&lt;img src=&quot;/assets/img/post_img/java-arraylist-add-2.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
-  &lt;li&gt;list에 10번째 데이터를 add
-&lt;img src=&quot;/assets/img/post_img/java-arraylist-add-10.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
-  &lt;li&gt;list에 11번째 데이터를 add 하면 새로운 배열을 생성하고, 기존 데이터를 아래와 같이 복사 
-&lt;img src=&quot;/assets/img/post_img/java-arraylist-add-11.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.baeldung.com/java-list-capacity-array-size&quot;&gt;The Capacity of an ArrayList vs the Size of an Array in Java&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://duooo-story.tistory.com/69&quot;&gt;Ehcache에서 만난 warning ‘The JVM is preventing Ehcache from accessing the subgraph beneath ~ cache sizes may be underestimated as a result’&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html&quot;&gt;ArrayList&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://junghyungil.tistory.com/96&quot;&gt;[Java] ArrayList는 어떻게 동적으로 사이즈가 늘어나는가? add() flow(동작 방식)&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="arraylist" /><category term="java" /><summary type="html">ArrayList의 생성과 확장 방식</summary></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><category term="springboot" /><category term="logback" /><summary type="html">spring 초기화 오류가 표기 처리</summary></entry></feed>
