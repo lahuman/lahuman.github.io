@@ -1,4 +1,16 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2024-08-08T08:13:09+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">typeorm 사용시 소수점 조회</title><link href="https://lahuman.github.io/typeorm_number_entity_decimal/" rel="alternate" type="text/html" title="typeorm 사용시 소수점 조회" /><published>2024-07-14T00:00:00+00:00</published><updated>2024-07-14T00:00:00+00:00</updated><id>https://lahuman.github.io/typeorm_number_entity_decimal</id><content type="html" xml:base="https://lahuman.github.io/typeorm_number_entity_decimal/">&lt;h1 id=&quot;typeorm에서-엔티티의-number-타입-필드에서-소수점-표현&quot;&gt;TypeORM에서 엔티티의 number 타입 필드에서 소수점 표현&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2024-08-10T07:50:13+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">버크만 검사 후기</title><link href="https://lahuman.github.io/20240810/" rel="alternate" type="text/html" title="버크만 검사 후기" /><published>2024-08-10T00:00:00+00:00</published><updated>2024-08-10T00:00:00+00:00</updated><id>https://lahuman.github.io/20240810</id><content type="html" xml:base="https://lahuman.github.io/20240810/">&lt;h1 id=&quot;회사에서-팀-단위로-버크만-검사를-하고-결과를-공유하는-시간을-가졌습니다&quot;&gt;회사에서 팀 단위로 버크만 검사를 하고, 결과를 공유하는 시간을 가졌습니다.&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;버크만 검사는 사람들이 어떻게 행동하고 생각하는지, 그리고 어떤 환경에서 가장 잘 일할 수 있는지를 알아보는 심리 검사예요. 이 검사는 우리가 어떤 일에 관심이 있는지, 어떤 상황에서 스트레스를 받는지, 그리고 다른 사람들과 어떻게 잘 협력할 수 있는지를 알려줍니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;버크만 검사를 팀 단위로 하고 느낀 점은, 적어도 동료의 행동을 조금은 이해할 수 있게되었다는 점입니다.&lt;/p&gt;
+
+&lt;p&gt;추가로 조금은 더 가까워진 느낌이 드는 시간이었습니다. :)&lt;/p&gt;
+
+&lt;h2 id=&quot;검사-결과&quot;&gt;검사 결과&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/birkman_method.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;</content><author><name></name></author><category term="birkman" /><summary type="html">동료들과 함께 서로의 생각을 나누는 시간이 되었습니다.</summary></entry><entry><title type="html">typeorm 사용시 소수점 조회</title><link href="https://lahuman.github.io/typeorm_number_entity_decimal/" rel="alternate" type="text/html" title="typeorm 사용시 소수점 조회" /><published>2024-07-14T00:00:00+00:00</published><updated>2024-07-14T00:00:00+00:00</updated><id>https://lahuman.github.io/typeorm_number_entity_decimal</id><content type="html" xml:base="https://lahuman.github.io/typeorm_number_entity_decimal/">&lt;h1 id=&quot;typeorm에서-엔티티의-number-타입-필드에서-소수점-표현&quot;&gt;TypeORM에서 엔티티의 number 타입 필드에서 소수점 표현&lt;/h1&gt;
 
 &lt;p&gt;이 글에서는 TypeORM을 사용하여 소수점을 포함하는 number 타입을 정의하고 관리하는 방법에 대해 설명합니다. 또한, 샘플 엔티티 코드를 통해 구현 방법을 보여 드리겠습니다.&lt;/p&gt;
 
@@ -671,20 +683,4 @@ list size : 26 / list capacity:: 33
   &lt;li&gt;&lt;a href=&quot;https://duooo-story.tistory.com/69&quot;&gt;Ehcache에서 만난 warning ‘The JVM is preventing Ehcache from accessing the subgraph beneath ~ cache sizes may be underestimated as a result’&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html&quot;&gt;ArrayList&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://junghyungil.tistory.com/96&quot;&gt;[Java] ArrayList는 어떻게 동적으로 사이즈가 늘어나는가? add() flow(동작 방식)&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="arraylist" /><category term="java" /><summary type="html">ArrayList의 생성과 확장 방식</summary></entry><entry><title type="html">나의 IT 시계는 거꾸로 가는 중…</title><link href="https://lahuman.github.io/phase/" rel="alternate" type="text/html" title="나의 IT 시계는 거꾸로 가는 중..." /><published>2024-05-09T00:00:00+00:00</published><updated>2024-05-09T00:00:00+00:00</updated><id>https://lahuman.github.io/phase</id><content type="html" xml:base="https://lahuman.github.io/phase/">&lt;h1 id=&quot;이것-또한-지나가리라&quot;&gt;이것 또한 지나가리라&lt;/h1&gt;
-
-&lt;p&gt;저는 오랜 개발 경력을 가진 베테랑 개발자입니다. 다양한 프로젝트를 거치며 쌓아온 노하우와 경험은 제가 자랑스러워하는 자산입니다. 하지만 최근 금융 회사로 이직하면서 저는 새로운 도전에 직면하게 되었습니다. 바로 ‘망분리’라는 개념입니다.&lt;/p&gt;
-
-&lt;p&gt;회사 내부 보안 정책에 따라, 저는 이제부터 톰켓 서버를 로컬 PC에서 실행할 수 없게 되었습니다. 개발 환경을 망분리 환경으로 변경해야 한다는 지침에 처음에는 좌절감과 분노를 느꼈습니다.&lt;/p&gt;
-
-&lt;p&gt;20년 동안 익숙했던 개발 방식을 바꿔야 하는 부담감은 물론, 다른 개발자들과 공유되는 서버에서 작업해야 한다는 불편함도 있었습니다.&lt;/p&gt;
-
-&lt;p&gt;혼자 사용하는 서버가 아니기에 개발 속도가 느려질 것이라고 우려했습니다. 또한, 다른 개발자들의 작업에 영향을 미칠 수 있다는 불안감도 느꼈습니다.&lt;/p&gt;
-
-&lt;p&gt;“이건 잘못된 정책이다!”라고 외쳐보고 싶었지만, 주변의 반응을 보니 저와 다르다는 생각이 들었습니다.&lt;/p&gt;
-
-&lt;p&gt;망분리에 대한 충분한 지식이 없었고, 회사의 보안 정책에 대한 이해도 부족했습니다.&lt;/p&gt;
-
-&lt;p&gt;그동안 쌓아온 경험과 지식을 바탕으로 이 새로운 상황에 적응할 수 있지만, 옳은 방향으로 가도록 가이드 할수 있으면 좋겠다는 생각이 듭니다.&lt;/p&gt;
-
-&lt;p&gt;개발자로서 끊임없이 배우고 성장하는 모습을 보여줄 것입니다. 그리고 변화를 두려워하지 않고 새로운 도전을 통해 더 나은 미래를 만들어 나가겠습니다.&lt;/p&gt;</content><author><name></name></author><category term="단상" /><summary type="html">금융권이 왜 IT의 무덤인지 다시 알게되는 날입니다.</summary></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><category term="arraylist" /><category term="java" /><summary type="html">ArrayList의 생성과 확장 방식</summary></entry></feed>
