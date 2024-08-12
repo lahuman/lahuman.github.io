@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2024-08-12T07:57:15+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">버크만 검사 후기</title><link href="https://lahuman.github.io/20240810/" rel="alternate" type="text/html" title="버크만 검사 후기" /><published>2024-08-10T00:00:00+00:00</published><updated>2024-08-10T00:00:00+00:00</updated><id>https://lahuman.github.io/20240810</id><content type="html" xml:base="https://lahuman.github.io/20240810/">&lt;h1 id=&quot;회사에서-팀-단위로-버크만-검사를-하고-결과를-공유하는-시간을-가졌습니다&quot;&gt;회사에서 팀 단위로 버크만 검사를 하고, 결과를 공유하는 시간을 가졌습니다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2024-08-12T23:28:10+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">버크만 검사 후기</title><link href="https://lahuman.github.io/20240810/" rel="alternate" type="text/html" title="버크만 검사 후기" /><published>2024-08-10T00:00:00+00:00</published><updated>2024-08-10T00:00:00+00:00</updated><id>https://lahuman.github.io/20240810</id><content type="html" xml:base="https://lahuman.github.io/20240810/">&lt;h1 id=&quot;회사에서-팀-단위로-버크만-검사를-하고-결과를-공유하는-시간을-가졌습니다&quot;&gt;회사에서 팀 단위로 버크만 검사를 하고, 결과를 공유하는 시간을 가졌습니다.&lt;/h1&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;버크만 검사는 사람들이 어떻게 행동하고 생각하는지, 그리고 어떤 환경에서 가장 잘 일할 수 있는지를 알아보는 심리 검사예요. 이 검사는 우리가 어떤 일에 관심이 있는지, 어떤 상황에서 스트레스를 받는지, 그리고 다른 사람들과 어떻게 잘 협력할 수 있는지를 알려줍니다.&lt;/p&gt;
@@ -10,7 +10,7 @@
 
 &lt;h2 id=&quot;검사-결과&quot;&gt;검사 결과&lt;/h2&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/birkman_method.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;</content><author><name></name></author><category term="birkman" /><summary type="html">동료들과 함께 서로의 생각을 나누는 시간이 되었습니다.</summary></entry><entry><title type="html">Springboot3 에서 Virtual Thread 사용시 오류</title><link href="https://lahuman.github.io/sprinboot3_close_wait/" rel="alternate" type="text/html" title="Springboot3 에서 Virtual Thread 사용시 오류" /><published>2024-08-10T00:00:00+00:00</published><updated>2024-08-10T00:00:00+00:00</updated><id>https://lahuman.github.io/sprinboot3_close_wait</id><content type="html" xml:base="https://lahuman.github.io/sprinboot3_close_wait/">&lt;h1 id=&quot;서버에서-응답이-오지-않습니다&quot;&gt;서버에서 응답이 오지 않습니다.&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/birkman_method.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;</content><author><name></name></author><category term="birkman" /><summary type="html">동료들과 함께 서로의 생각을 나누는 시간이 되었습니다.</summary></entry><entry><title type="html">Spring boot 3 에서 Virtual Thread 사용시 오류</title><link href="https://lahuman.github.io/sprinboot3_close_wait/" rel="alternate" type="text/html" title="Spring boot 3 에서 Virtual Thread 사용시 오류" /><published>2024-08-10T00:00:00+00:00</published><updated>2024-08-10T00:00:00+00:00</updated><id>https://lahuman.github.io/sprinboot3_close_wait</id><content type="html" xml:base="https://lahuman.github.io/sprinboot3_close_wait/">&lt;h1 id=&quot;서버에서-응답이-오지-않습니다&quot;&gt;서버에서 응답이 오지 않습니다.&lt;/h1&gt;
 
 &lt;p&gt;잘 돌아가던 spring boot 3 안의 톰켓에서 갑자기 응답이 없어졌습니다.&lt;/p&gt;
 
@@ -24,7 +24,9 @@
 
 &lt;p&gt;위의 옵션이었습니다.&lt;/p&gt;
 
-&lt;p&gt;내부 구성은 다음과 같이 조금 복잡한 구성을 갖습니다.&lt;/p&gt;
+&lt;h2 id=&quot;구성-환경-상세&quot;&gt;구성 환경 상세&lt;/h2&gt;
+
+&lt;p&gt;인프라 내부 구성은 AWS EKS 기반의 조금 복잡한 구성을 갖습니다.&lt;/p&gt;
 
 &lt;div class=&quot;mermaid&quot;&gt; 
 sequenceDiagram;
@@ -32,11 +34,19 @@ sequenceDiagram;
     ALB-&amp;gt;&amp;gt;+WAS: 요청;
     WAS--&amp;gt;&amp;gt;-ALB: 응답;
     ALB--&amp;gt;&amp;gt;-NLB: 응답;
+    box EKS;
+        participant ALB;
+        participant WAS;
+    end;
 &lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;kotlin 1.9.23&lt;/code&gt;를 기반으로 &lt;code class=&quot;highlighter-rouge&quot;&gt;spring boot 3.2.2&lt;/code&gt;과 함께 사용하고 있으며, 로컬에서는 재현되지 않습니다.&lt;/p&gt;
 
 &lt;p&gt;로컬이나 개발 환경에서는 문제가 없었지만, 이상하게 특정 환경에서 connection이 끊기지 않고, &lt;code class=&quot;highlighter-rouge&quot;&gt;CLOSE_WAIT&lt;/code&gt;로 남아 서버로 요청의 응답이 오지 않았습니다.&lt;/p&gt;
 
-&lt;p&gt;실제 뭔가 좋아진 것보다 오류를 먼저 만나서 당황스러운 하루네요. :(&lt;/p&gt;</content><author><name></name></author><category term="springboot3" /><category term="virtualthread" /><category term="close_wait" /><summary type="html">CLOSE_WAIT가 Thread pool을 가득 채워서 생성됩니다.</summary></entry><entry><title type="html">3년차 회고</title><link href="https://lahuman.github.io/review_last_year/" rel="alternate" type="text/html" title="3년차 회고" /><published>2024-08-08T00:00:00+00:00</published><updated>2024-08-08T00:00:00+00:00</updated><id>https://lahuman.github.io/review_last_year</id><content type="html" xml:base="https://lahuman.github.io/review_last_year/">&lt;h1 id=&quot;3년차-회고&quot;&gt;3년차 회고&lt;/h1&gt;
+&lt;p&gt;내부 구성 때문에 발생한 건지 virtual thread 와 어느 부분의 충돌인지는 찾지 못했지만 해당 옵션을 제거하고 문제가 재발하지 않았습니다.&lt;/p&gt;
+
+&lt;p&gt;신기술을 사용할때는 꼭 많이 테스트 해봐야겠습니다.&lt;/p&gt;</content><author><name></name></author><category term="springboot3" /><category term="virtualthread" /><category term="close_wait" /><summary type="html">CLOSE_WAIT가 Thread pool을 가득 채워서 생성됩니다.</summary></entry><entry><title type="html">3년차 회고</title><link href="https://lahuman.github.io/review_last_year/" rel="alternate" type="text/html" title="3년차 회고" /><published>2024-08-08T00:00:00+00:00</published><updated>2024-08-08T00:00:00+00:00</updated><id>https://lahuman.github.io/review_last_year</id><content type="html" xml:base="https://lahuman.github.io/review_last_year/">&lt;h1 id=&quot;3년차-회고&quot;&gt;3년차 회고&lt;/h1&gt;
 
 &lt;p&gt;근래 들은 말은 &lt;code class=&quot;highlighter-rouge&quot;&gt;이젠 적응 했다.&lt;/code&gt; 입니다.&lt;/p&gt;
 
