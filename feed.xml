@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2024-08-27T07:02:26+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Spring boot 3 몇가지 경고 오류 제거 처리</title><link href="https://lahuman.github.io/sprinboot3_wrong_loggings/" rel="alternate" type="text/html" title="Spring boot 3 몇가지 경고 오류 제거 처리 " /><published>2024-08-26T00:00:00+00:00</published><updated>2024-08-26T00:00:00+00:00</updated><id>https://lahuman.github.io/sprinboot3_wrong_loggings</id><content type="html" xml:base="https://lahuman.github.io/sprinboot3_wrong_loggings/">&lt;h1 id=&quot;1-redis-에서-repository-scan&quot;&gt;1. redis 에서 repository scan&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2024-08-27T11:58:54+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Spring boot 3 몇가지 경고 오류 제거 처리</title><link href="https://lahuman.github.io/sprinboot3_wrong_loggings/" rel="alternate" type="text/html" title="Spring boot 3 몇가지 경고 오류 제거 처리 " /><published>2024-08-26T00:00:00+00:00</published><updated>2024-08-26T00:00:00+00:00</updated><id>https://lahuman.github.io/sprinboot3_wrong_loggings</id><content type="html" xml:base="https://lahuman.github.io/sprinboot3_wrong_loggings/">&lt;h1 id=&quot;1-redis-에서-repository-scan&quot;&gt;1. redis 에서 repository scan&lt;/h1&gt;
 
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;2024-08-27T10:38:09.702+09:00  INFO &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;_] 46726 &lt;span class=&quot;nt&quot;&gt;---&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;           main] .RepositoryConfigurationExtensionSupport &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;320&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; : Spring Data Redis - Could not safely identify store assignment &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;repository candidate interface io.github.lahuman.domain.tip.ContentRepository&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;preferred&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;, or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -12,8 +12,8 @@
 &lt;div class=&quot;language-yml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;na&quot;&gt;spring&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
   &lt;span class=&quot;na&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
     &lt;span class=&quot;na&quot;&gt;redis&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-&lt;span class=&quot;err&quot;&gt;		&lt;/span&gt;  &lt;span class=&quot;na&quot;&gt;repositories&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-&lt;span class=&quot;err&quot;&gt;		&lt;/span&gt;    &lt;span class=&quot;na&quot;&gt;enabled&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;false&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;repositories&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;enabled&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;false&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;위와 같이 설정시 redis Repository는 사용하지 않고 jpa Repository만 사용합니다.&lt;/p&gt;
@@ -47,20 +47,20 @@
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;2024-08-27T10:38:16.094+09:00  WARN &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;_] 46726 &lt;span class=&quot;nt&quot;&gt;---&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;           main] o.s.c.annotation.AnnotationTypeMapping   &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;321&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; : Support &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;convention-based annotation attribute overrides is deprecated and will be removed &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;Spring Framework 6.2. Please annotate the following attributes &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; @io.lahuman.common.annotation.LoginUser with appropriate @AliasFor declarations: &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;name]
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-kt&quot;&gt;package io.lahuman.common.annotation
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;io&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;lahuman&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;common&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;annotation&lt;/span&gt;
 
-import io.swagger.v3.oas.annotations.Parameter
-import org.springframework.core.annotation.AliasFor
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;io.swagger.v3.oas.annotations.Parameter&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.springframework.core.annotation.AliasFor&lt;/span&gt;
 
-@Target(AnnotationTarget.VALUE_PARAMETER)
-@Retention(AnnotationRetention.RUNTIME)
-@MustBeDocumented
-@Parameter(hidden = true)
-annotation class LoginUser(
-    @get:AliasFor(annotation = Parameter::class)
-    val name: String = &quot;userId&quot;
-)
-&lt;/code&gt;&lt;/pre&gt;
+&lt;span class=&quot;nd&quot;&gt;@Target&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;AnnotationTarget&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;VALUE_PARAMETER&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@Retention&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;AnnotationRetention&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;RUNTIME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@MustBeDocumented&lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@Parameter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;hidden&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;annotation&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;LoginUser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;@get&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;AliasFor&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;annotation&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;Parameter:&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;nc&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;name:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;userId&quot;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;위와 같이 &lt;code class=&quot;highlighter-rouge&quot;&gt;@get:AliasFor(annotation = Parameter::class)&lt;/code&gt;을 선언하여 주면 간단하게 처리 됩니다.&lt;/p&gt;
 
