@@ -1,4 +1,75 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2024-08-12T23:28:10+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">버크만 검사 후기</title><link href="https://lahuman.github.io/20240810/" rel="alternate" type="text/html" title="버크만 검사 후기" /><published>2024-08-10T00:00:00+00:00</published><updated>2024-08-10T00:00:00+00:00</updated><id>https://lahuman.github.io/20240810</id><content type="html" xml:base="https://lahuman.github.io/20240810/">&lt;h1 id=&quot;회사에서-팀-단위로-버크만-검사를-하고-결과를-공유하는-시간을-가졌습니다&quot;&gt;회사에서 팀 단위로 버크만 검사를 하고, 결과를 공유하는 시간을 가졌습니다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2024-08-27T07:02:26+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Spring boot 3 몇가지 경고 오류 제거 처리</title><link href="https://lahuman.github.io/sprinboot3_wrong_loggings/" rel="alternate" type="text/html" title="Spring boot 3 몇가지 경고 오류 제거 처리 " /><published>2024-08-26T00:00:00+00:00</published><updated>2024-08-26T00:00:00+00:00</updated><id>https://lahuman.github.io/sprinboot3_wrong_loggings</id><content type="html" xml:base="https://lahuman.github.io/sprinboot3_wrong_loggings/">&lt;h1 id=&quot;1-redis-에서-repository-scan&quot;&gt;1. redis 에서 repository scan&lt;/h1&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;2024-08-27T10:38:09.702+09:00  INFO &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;_] 46726 &lt;span class=&quot;nt&quot;&gt;---&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;           main] .RepositoryConfigurationExtensionSupport &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;320&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; : Spring Data Redis - Could not safely identify store assignment &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;repository candidate interface io.github.lahuman.domain.tip.ContentRepository&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;preferred&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;, or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Spring Data Redis에서 리포지토리 후보 인터페이스에 대한 저장소 할당을 안전하게 식별할 수 없음, 만약 reposiory로 사용하려면, &lt;code class=&quot;highlighter-rouge&quot;&gt;@RedisHash&lt;/code&gt;를 사용하라고 가이드 하는 내용입니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;제 경우는 &lt;code class=&quot;highlighter-rouge&quot;&gt;RedisTemplate&lt;/code&gt;를 사용하고, repository scan이 필요 없는 상태라 &lt;code class=&quot;highlighter-rouge&quot;&gt;application.yml&lt;/code&gt;에 다음과 같이 설정했습니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-yml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;na&quot;&gt;spring&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;redis&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+&lt;span class=&quot;err&quot;&gt;		&lt;/span&gt;  &lt;span class=&quot;na&quot;&gt;repositories&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+&lt;span class=&quot;err&quot;&gt;		&lt;/span&gt;    &lt;span class=&quot;na&quot;&gt;enabled&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;false&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;위와 같이 설정시 redis Repository는 사용하지 않고 jpa Repository만 사용합니다.&lt;/p&gt;
+
+&lt;h1 id=&quot;2-jap-open-in-view-설정-경고&quot;&gt;2. jap open-in-view 설정 경고&lt;/h1&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;2024-08-27T10:38:15.984+09:00  WARN &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;_] 46726 &lt;span class=&quot;nt&quot;&gt;---&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;           main] JpaBaseConfiguration&lt;span class=&quot;nv&quot;&gt;$JpaWebConfiguration&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;232&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;spring.jpa.open-in-view는 기본적으로 활성화되어 있습니다. 따라서 뷰 렌더링 중에 데이터베이스 쿼리가 수행될 수 있습니다. 이 경고를 비활성화하려면 spring.jpa.open-in-view를 명시적으로 구성하세요.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;spring.jpa.open-in-view&lt;/code&gt; 설정은 JPA에서 영속성 컨텍스트가 데이터베이스 커넥션을 언제 반납할지를 결정합니다.&lt;/p&gt;
+
+&lt;p&gt;기본적으로 이 설정이 활성화되어 있어, 서비스 계층에서 @Transactional이 붙은 메소드가 종료된 후에도 영속성 컨텍스트가 데이터베이스 커넥션을 유지하며, 클라이언트에게 응답을 보낸 후에야 커넥션을 반납합니다.&lt;/p&gt;
+
+&lt;p&gt;이를 비활성화하면 커넥션 해제가 즉시 이루어지지만, lazy loading 사용 시 트랜잭션 외부에서 EntityManager가 닫혀 &lt;code class=&quot;highlighter-rouge&quot;&gt;no Session&lt;/code&gt; 예외가 발생할 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;특히, GraphQL을 활용하여 클라이언트의 요청에 따라 동적으로 응답 데이터를 구성하는 경우, lazy loading이 빈번히 사용되므로 이 설정의 비활성화는 문제가 될 수 있습니다. 이로 인해 open-in-view 설정은 성능 최적화와 안정성 사이에서 여전히 해결이 필요한 과제로 남아있습니다.&lt;/p&gt;
+
+&lt;p&gt;저의 경우 대부분의 response를 DTO로 변환하기 때문에 해당 옵션을 false로 전환하였습니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-yml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;na&quot;&gt;spring&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;jpa&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;open-in-view&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;false&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;3-aliasfor-사용-권장&quot;&gt;3. @AliasFor 사용 권장&lt;/h1&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;2024-08-27T10:38:16.094+09:00  WARN &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;_] 46726 &lt;span class=&quot;nt&quot;&gt;---&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;           main] o.s.c.annotation.AnnotationTypeMapping   &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;321&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; : Support &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;convention-based annotation attribute overrides is deprecated and will be removed &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;Spring Framework 6.2. Please annotate the following attributes &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; @io.lahuman.common.annotation.LoginUser with appropriate @AliasFor declarations: &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;name]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-kt&quot;&gt;package io.lahuman.common.annotation
+
+import io.swagger.v3.oas.annotations.Parameter
+import org.springframework.core.annotation.AliasFor
+
+@Target(AnnotationTarget.VALUE_PARAMETER)
+@Retention(AnnotationRetention.RUNTIME)
+@MustBeDocumented
+@Parameter(hidden = true)
+annotation class LoginUser(
+    @get:AliasFor(annotation = Parameter::class)
+    val name: String = &quot;userId&quot;
+)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;위와 같이 &lt;code class=&quot;highlighter-rouge&quot;&gt;@get:AliasFor(annotation = Parameter::class)&lt;/code&gt;을 선언하여 주면 간단하게 처리 됩니다.&lt;/p&gt;
+
+&lt;h1 id=&quot;참고자료&quot;&gt;참고자료&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://velog.io/@daoh98/SpringJPA-Redis-Repository-scan-%EB%AC%B8%EC%A0%9C&quot;&gt;[Spring]JPA Redis Repository scan 문제&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://livelyoneweek.tistory.com/57&quot;&gt;spring.jpa.open-in-view 란?&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="springboot3" /><category term="redis" /><category term="scan" /><summary type="html">거슬리는 경고 오류를 제거해봅니다.</summary></entry><entry><title type="html">버크만 검사 후기</title><link href="https://lahuman.github.io/20240810/" rel="alternate" type="text/html" title="버크만 검사 후기" /><published>2024-08-10T00:00:00+00:00</published><updated>2024-08-10T00:00:00+00:00</updated><id>https://lahuman.github.io/20240810</id><content type="html" xml:base="https://lahuman.github.io/20240810/">&lt;h1 id=&quot;회사에서-팀-단위로-버크만-검사를-하고-결과를-공유하는-시간을-가졌습니다&quot;&gt;회사에서 팀 단위로 버크만 검사를 하고, 결과를 공유하는 시간을 가졌습니다.&lt;/h1&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;버크만 검사는 사람들이 어떻게 행동하고 생각하는지, 그리고 어떤 환경에서 가장 잘 일할 수 있는지를 알아보는 심리 검사예요. 이 검사는 우리가 어떤 일에 관심이 있는지, 어떤 상황에서 스트레스를 받는지, 그리고 다른 사람들과 어떻게 잘 협력할 수 있는지를 알려줍니다.&lt;/p&gt;
@@ -11,6 +82,16 @@
 &lt;h2 id=&quot;검사-결과&quot;&gt;검사 결과&lt;/h2&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/img/post_img/birkman_method.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;</content><author><name></name></author><category term="birkman" /><summary type="html">동료들과 함께 서로의 생각을 나누는 시간이 되었습니다.</summary></entry><entry><title type="html">Spring boot 3 에서 Virtual Thread 사용시 오류</title><link href="https://lahuman.github.io/sprinboot3_close_wait/" rel="alternate" type="text/html" title="Spring boot 3 에서 Virtual Thread 사용시 오류" /><published>2024-08-10T00:00:00+00:00</published><updated>2024-08-10T00:00:00+00:00</updated><id>https://lahuman.github.io/sprinboot3_close_wait</id><content type="html" xml:base="https://lahuman.github.io/sprinboot3_close_wait/">&lt;h1 id=&quot;서버에서-응답이-오지-않습니다&quot;&gt;서버에서 응답이 오지 않습니다.&lt;/h1&gt;
+
+&lt;h2 id=&quot;240826-추가-내용-동일한-오류가-netflix-에서도-발생했었네요-좀-더-상세하게-원인-분석이-되어-있습니다&quot;&gt;[24.08.26 추가 내용] &lt;a href=&quot;https://netflixtechblog.com/java-21-virtual-threads-dude-wheres-my-lock-3052540e231d&quot;&gt;동일한 오류가 Netflix&lt;/a&gt; 에서도 발생했었네요. 좀 더 상세하게 원인 분석이 되어 있습니다.&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Netflix 엔지니어는 SpringBoot 3 및 임베디드 Tomcat이 있는 Java 21에서 실행되는 서비스에서 간헐적인 시간 초과 및 응답하지 않는 인스턴스를 관찰했습니다. JVM 인스턴스가 활성 상태를 유지했음에도 불구하고 트래픽을 제공하는 것을 중단했으며, 이는 상태에 갇힌 소켓이 상당히 증가한 것이 특징이었습니다. &lt;strong&gt;이 상태는 원격 측의 TCP 연결을 닫았지만 로컬 측이 아직 끝을 닫지 않아 소켓이 대기 상태로 발생합니다.&lt;/strong&gt; 이에 대한 자세한 내용은 &lt;a href=&quot;https://datatracker.ietf.org/doc/html/rfc793#section-3.2&quot;&gt;RFC 793&lt;/a&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;closeWait&lt;/code&gt; 의 용어 섹션 에서 확인할 수 있습니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;현재는 해결 방법이 없고, JDK 23이상 업데이트를 기다려야 합니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;나의-경험&quot;&gt;나의 경험&lt;/h2&gt;
 
 &lt;p&gt;잘 돌아가던 spring boot 3 안의 톰켓에서 갑자기 응답이 없어졌습니다.&lt;/p&gt;
 
@@ -46,7 +127,12 @@ sequenceDiagram;
 
 &lt;p&gt;내부 구성 때문에 발생한 건지 virtual thread 와 어느 부분의 충돌인지는 찾지 못했지만 해당 옵션을 제거하고 문제가 재발하지 않았습니다.&lt;/p&gt;
 
-&lt;p&gt;신기술을 사용할때는 꼭 많이 테스트 해봐야겠습니다.&lt;/p&gt;</content><author><name></name></author><category term="springboot3" /><category term="virtualthread" /><category term="close_wait" /><summary type="html">CLOSE_WAIT가 Thread pool을 가득 채워서 생성됩니다.</summary></entry><entry><title type="html">3년차 회고</title><link href="https://lahuman.github.io/review_last_year/" rel="alternate" type="text/html" title="3년차 회고" /><published>2024-08-08T00:00:00+00:00</published><updated>2024-08-08T00:00:00+00:00</updated><id>https://lahuman.github.io/review_last_year</id><content type="html" xml:base="https://lahuman.github.io/review_last_year/">&lt;h1 id=&quot;3년차-회고&quot;&gt;3년차 회고&lt;/h1&gt;
+&lt;p&gt;신기술을 사용할때는 꼭 많이 테스트 해봐야겠습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://netflixtechblog.com/java-21-virtual-threads-dude-wheres-my-lock-3052540e231d&quot;&gt;Java 21 Virtual Threads - Dude, Where’s My Lock?&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="springboot3" /><category term="virtualthread" /><category term="close_wait" /><summary type="html">CLOSE_WAIT가 Thread pool을 가득 채워서 생성됩니다.</summary></entry><entry><title type="html">3년차 회고</title><link href="https://lahuman.github.io/review_last_year/" rel="alternate" type="text/html" title="3년차 회고" /><published>2024-08-08T00:00:00+00:00</published><updated>2024-08-08T00:00:00+00:00</updated><id>https://lahuman.github.io/review_last_year</id><content type="html" xml:base="https://lahuman.github.io/review_last_year/">&lt;h1 id=&quot;3년차-회고&quot;&gt;3년차 회고&lt;/h1&gt;
 
 &lt;p&gt;근래 들은 말은 &lt;code class=&quot;highlighter-rouge&quot;&gt;이젠 적응 했다.&lt;/code&gt; 입니다.&lt;/p&gt;
 
@@ -509,122 +595,4 @@ RUN date
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://m.yes24.com/Goods/Detail/89564200&quot;&gt;코틀린을 다루는 기술&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="kotlin" /><category term="invoke" /><summary type="html">올! 이런 방법도 있군요. 천젠대 ㅋ</summary></entry><entry><title type="html">spring jpa 사용시 페이징 처리</title><link href="https://lahuman.github.io/spring_data_pageable/" rel="alternate" type="text/html" title="spring jpa 사용시 페이징 처리" /><published>2024-05-27T00:00:00+00:00</published><updated>2024-05-27T00:00:00+00:00</updated><id>https://lahuman.github.io/spring_data_pageable</id><content type="html" xml:base="https://lahuman.github.io/spring_data_pageable/">&lt;h1 id=&quot;spring-jpa-사용시-페이징-처리&quot;&gt;spring jpa 사용시 페이징 처리&lt;/h1&gt;
-
-&lt;p&gt;게시글 목록 기능에서 페이징 처리는 단순하지만 많이 사용되는 기능입니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;주요-항목&quot;&gt;주요 항목&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;요청 값 : 조회 하려는 &lt;code class=&quot;highlighter-rouge&quot;&gt;페이지 위치&lt;/code&gt;, 페이지에서 필요로 하는 &lt;code class=&quot;highlighter-rouge&quot;&gt;게시글 수&lt;/code&gt;, 추가로 &lt;code class=&quot;highlighter-rouge&quot;&gt;검색 조건&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;응답 값 : &lt;code class=&quot;highlighter-rouge&quot;&gt;게시글 목록&lt;/code&gt;, 페이지 네비게이션을 위한 총 &lt;code class=&quot;highlighter-rouge&quot;&gt;게시글 수&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;구현-방법&quot;&gt;구현 방법&lt;/h2&gt;
-
-&lt;p&gt;이를 일일이 구현 하기 보다 jpa에서 지원하는 &lt;a href=&quot;https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/domain/Pageable.html&quot;&gt;Pageable&lt;/a&gt; 와 &lt;a href=&quot;https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/domain/Page.html&quot;&gt;Page&lt;/a&gt; 라이브러리를 사용하면 간단한게 처리 됩니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;예제-코드&quot;&gt;예제 코드&lt;/h2&gt;
-
-&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// Controller
-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.springframework.data.domain.Page&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.springframework.data.domain.Pageable&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.springframework.web.bind.annotation.GetMapping&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.springframework.web.bind.annotation.RequestParam&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.springframework.web.bind.annotation.RestController&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;@RestController&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Controller&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;service&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ContentsService&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;@GetMapping&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/list&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;@PageableDefault&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;page&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;size&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pageable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Pageable&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;):&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Page&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TipContents&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;contentsService&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pageable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;// Service
-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.springframework.data.domain.Page&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.springframework.data.domain.Pageable&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.springframework.stereotype.Service&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;@Service&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ContentsService&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;repository&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ContentsRepository&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getTipContents&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pageable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Pageable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Page&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Contents&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;repository&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;findAll&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pageable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;// Repository
-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.springframework.data.domain.Page&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.springframework.data.domain.Pageable&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.springframework.data.jpa.repository.JpaRepository&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.springframework.data.jpa.repository.Query&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.springframework.data.repository.query.Param&lt;/span&gt;
-
-&lt;span class=&quot;kd&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;TipContentsRepository&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;JpaRepository&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Contents&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Long&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;findAll&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;pageable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Pageable&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;):&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Page&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Contents&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;query-사용-예제-추가&quot;&gt;@Query 사용 예제 추가&lt;/h2&gt;
-
-&lt;p&gt;필요시 사용자 정의 SQL을 사용할 경우 다음과 같이 &lt;code class=&quot;highlighter-rouge&quot;&gt;@Query&lt;/code&gt;를 활용하여도 동일하게 페이징 처리가 됩니다.&lt;/p&gt;
-
-&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// Repository
-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.springframework.data.domain.Page&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.springframework.data.domain.Pageable&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.springframework.data.jpa.repository.JpaRepository&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.springframework.data.jpa.repository.Query&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.springframework.data.repository.query.Param&lt;/span&gt;
-
-&lt;span class=&quot;kd&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;TipContentsRepository&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;JpaRepository&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Contents&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Long&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;@Query&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-        &lt;span class=&quot;s&quot;&gt;&quot;&quot;&quot;
-        SELECT 
-            C.ID,
-            C.TIP_TITLE,
-            C.IMG_FILE_PATH ,
-            C.PET_DCD,
-            C.OPN_DT ,
-            C.REG_DTM ,
-            C.MOD_DTM
-            '' as TIP_TXT // entity의 필수 값은 무조건 있어야 오류가 발생하지 않습니다. 
-        FROM CONTENTS C
-           WHERE (C.PET_DCD != :notPetDcd OR C.PET_DCD = 'ALL') 
-           AND  C.id IN (
-	           SELECT t.CONTENTS_M_ID 
-	           FROM CATEGORY t
-	           WHERE t.CTGY_CCD IN (:ctgyCcds)
-           ) 
-           AND OPN_DT &amp;lt;= TO_CHAR(sysdate, 'YYYYMMDD')
-        ORDER BY OPN_DT DESC
-    &quot;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;countQuery&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&quot;&quot;
-        SELECT 
-            COUNT(C.ID)
-        FROM CONTENTS TCM
-           WHERE (C.PET_DCD != :notPetDcd OR C.PET_DCD = 'ALL') 
-           AND  TCM.id IN (
-	           SELECT tcd.CONTENTS_M_ID 
-	           FROM CATEGORY t
-	           WHERE t.CTGY_CCD IN (:ctgyCcds)
-           ) 
-           AND OPN_DT &amp;lt;= TO_CHAR(sysdate, 'YYYYMMDD')
-    &quot;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;nativeQuery&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;true&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;findByPetDcdAndCtgyCcds&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;@Param&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;notPetDcd&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;notPetDcd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;@Param&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;ctgyCcds&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ctgyCcds&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;,&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;pageable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Pageable&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;):&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Page&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TipContentsM&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://wonit.tistory.com/483&quot;&gt;[배워보자 Spring Data JPA] JPA 에서 Pageable 을 이용한 페이징과 정렬&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="spring" /><category term="pageable" /><category term="jpa" /><summary type="html">아주 쉽네요!</summary></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><category term="kotlin" /><category term="invoke" /><summary type="html">올! 이런 방법도 있군요. 천젠대 ㅋ</summary></entry></feed>
