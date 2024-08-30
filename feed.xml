@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2024-08-30T06:14:31+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Spring framework Cache</title><link href="https://lahuman.github.io/redis_cache_with_ttl/" rel="alternate" type="text/html" title="Spring framework Cache" /><published>2024-08-29T00:00:00+00:00</published><updated>2024-08-29T00:00:00+00:00</updated><id>https://lahuman.github.io/redis_cache_with_ttl</id><content type="html" xml:base="https://lahuman.github.io/redis_cache_with_ttl/">&lt;h1 id=&quot;redis와-spring-aop를-이용한-캐시-관리-rediscacheable로-ttl-설정하기&quot;&gt;Redis와 Spring AOP를 이용한 캐시 관리: RedisCacheable로 TTL 설정하기&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2024-08-30T06:16:24+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Spring framework Cache</title><link href="https://lahuman.github.io/redis_cache_with_ttl/" rel="alternate" type="text/html" title="Spring framework Cache" /><published>2024-08-29T00:00:00+00:00</published><updated>2024-08-29T00:00:00+00:00</updated><id>https://lahuman.github.io/redis_cache_with_ttl</id><content type="html" xml:base="https://lahuman.github.io/redis_cache_with_ttl/">&lt;h1 id=&quot;redis와-spring-aop를-이용한-캐시-관리-rediscacheable로-ttl-설정하기&quot;&gt;Redis와 Spring AOP를 이용한 캐시 관리: RedisCacheable로 TTL 설정하기&lt;/h1&gt;
 
 &lt;p&gt;애플리케이션 성능을 최적화하기 위해서는 캐시를 활용하는 것이 매우 중요합니다. 특히, Redis는 고속의 인메모리 데이터 저장소로써 Spring과 결합해 캐시를 관리하는 데 아주 유용합니다. 이번 포스팅에서는 @RedisCacheable이라는 커스텀 어노테이션을 사용하여 TTL(Time to Live)로 Redis 캐시의 생명주기를 관리하는 방법을 소개하려 합니다.&lt;/p&gt;
 
@@ -194,8 +194,6 @@
 &lt;h2 id=&quot;마치며&quot;&gt;마치며&lt;/h2&gt;
 
 &lt;p&gt;이번 포스팅에서는 @RedisCacheable 어노테이션과 AOP를 활용해 Redis 캐싱을 어떻게 구현하고 TTL로 캐시의 생명주기를 관리하는지를 살펴보았습니다. 이를 통해 데이터 조회 성능을 크게 향상시킬 수 있으며, 특히 빈번한 데이터 변경이 없는 경우 유용하게 사용할 수 있습니다. Redis와 Spring의 조합을 통해 성능 최적화에 한 발 더 나아가 보세요!&lt;/p&gt;
-
-&lt;p&gt;이 포스팅이 여러분의 프로젝트에 도움이 되었길 바랍니다. 궁금한 점이나 더 알고 싶은 내용이 있다면 댓글로 남겨주세요. Happy Coding! 🎉&lt;/p&gt;
 
 &lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
 &lt;ul&gt;
