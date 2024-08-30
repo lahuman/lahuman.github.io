@@ -63,16 +63,15 @@
     <span class="nd">@Around</span><span class="o">(</span><span class="s">"@annotation(redisCacheEvict)"</span><span class="o">)</span>
     <span class="n">fun</span> <span class="nf">cacheEvictProcess</span><span class="o">(</span><span class="nl">joinPoint:</span> <span class="n">ProceedingJoinPoint</span><span class="o">,</span> <span class="nl">redisCacheEvict:</span> <span class="n">RedisCacheEvict</span><span class="o">):</span> <span class="n">Any</span><span class="o">?</span> <span class="o">{</span>
         <span class="n">val</span> <span class="n">methodReturnValue</span> <span class="o">=</span> <span class="n">joinPoint</span><span class="o">.</span><span class="na">proceed</span><span class="o">()</span>
-
+        <span class="n">val</span> <span class="n">cacheKey</span> <span class="o">=</span>
+                    <span class="n">generateKey</span><span class="o">(</span><span class="n">cacheName</span><span class="o">,</span> <span class="n">joinPoint</span><span class="o">,</span> <span class="n">redisCacheEvict</span><span class="o">.</span><span class="na">hasClassAndMethodNamePrefix</span><span class="o">,</span> <span class="n">redisCacheEvict</span><span class="o">.</span><span class="na">key</span><span class="o">)</span>
         <span class="n">redisCacheEvict</span><span class="o">.</span><span class="na">name</span><span class="o">.</span><span class="na">forEach</span> <span class="o">{</span> <span class="n">cacheName</span> <span class="o">-&gt;</span>
             <span class="k">if</span> <span class="o">(</span><span class="n">redisCacheEvict</span><span class="o">.</span><span class="na">clearAll</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">val</span> <span class="n">keys</span> <span class="o">=</span> <span class="n">redisTemplate</span><span class="o">.</span><span class="na">keys</span><span class="o">(</span><span class="s">"$cacheName*"</span><span class="o">)</span>
+                <span class="n">val</span> <span class="n">keys</span> <span class="o">=</span> <span class="n">redisTemplate</span><span class="o">.</span><span class="na">keys</span><span class="o">(</span><span class="s">"$cacheKey*"</span><span class="o">)</span>
                 <span class="k">if</span> <span class="o">(</span><span class="n">keys</span><span class="o">.</span><span class="na">isNotEmpty</span><span class="o">())</span> <span class="o">{</span>
                     <span class="n">redisTemplate</span><span class="o">.</span><span class="na">delete</span><span class="o">(</span><span class="n">keys</span><span class="o">)</span>
                 <span class="o">}</span>
             <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-                <span class="n">val</span> <span class="n">cacheKey</span> <span class="o">=</span>
-                    <span class="n">generateKey</span><span class="o">(</span><span class="n">cacheName</span><span class="o">,</span> <span class="n">joinPoint</span><span class="o">,</span> <span class="n">redisCacheEvict</span><span class="o">.</span><span class="na">hasClassAndMethodNamePrefix</span><span class="o">,</span> <span class="n">redisCacheEvict</span><span class="o">.</span><span class="na">key</span><span class="o">)</span>
                 <span class="n">redisTemplate</span><span class="o">.</span><span class="na">delete</span><span class="o">(</span><span class="n">cacheKey</span><span class="o">)</span>
             <span class="o">}</span>
         <span class="o">}</span>
@@ -116,9 +115,9 @@
         <span class="k">return</span> <span class="nf">if</span> <span class="o">(</span><span class="n">hasClassAndMethodNamePrefix</span><span class="o">)</span> <span class="o">{</span>
             <span class="n">val</span> <span class="n">target</span> <span class="o">=</span> <span class="n">joinPoint</span><span class="o">.</span><span class="na">target</span><span class="o">::</span><span class="kd">class</span><span class="err">.</span><span class="nc">simpleName</span>
             <span class="n">val</span> <span class="n">method</span> <span class="o">=</span> <span class="o">(</span><span class="n">joinPoint</span><span class="o">.</span><span class="na">signature</span> <span class="n">as</span> <span class="n">MethodSignature</span><span class="o">).</span><span class="na">method</span><span class="o">.</span><span class="na">name</span>
-            <span class="s">"$cacheName::$target.$method($generatedKey)"</span>
+            <span class="s">"$cacheName::$target.$method::$generatedKey"</span>
         <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-            <span class="s">"$cacheName::($generatedKey)"</span>
+            <span class="s">"$cacheName::$generatedKey"</span>
         <span class="o">}</span>
     <span class="o">}</span>
 
