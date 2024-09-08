@@ -1,4 +1,17 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2024-09-02T00:10:50+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Redis 기반 Spring framework Cache 고도화</title><link href="https://lahuman.github.io/redis_cache_with_ttl/" rel="alternate" type="text/html" title="Redis 기반 Spring framework Cache 고도화" /><published>2024-08-29T00:00:00+00:00</published><updated>2024-08-29T00:00:00+00:00</updated><id>https://lahuman.github.io/redis_cache_with_ttl</id><content type="html" xml:base="https://lahuman.github.io/redis_cache_with_ttl/">&lt;h1 id=&quot;redis와-spring-aop를-이용한-캐시-관리-rediscacheable로-ttl-설정하기&quot;&gt;Redis와 Spring AOP를 이용한 캐시 관리: RedisCacheable로 TTL 설정하기&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2024-09-08T11:59:05+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">error: RPC failed; HTTP 400 curl 22 The requested URL returned error: 400</title><link href="https://lahuman.github.io/git_400_error/" rel="alternate" type="text/html" title="error: RPC failed; HTTP 400 curl 22 The requested URL returned error: 400" /><published>2024-09-08T00:00:00+00:00</published><updated>2024-09-08T00:00:00+00:00</updated><id>https://lahuman.github.io/git_400_error</id><content type="html" xml:base="https://lahuman.github.io/git_400_error/">&lt;h1 id=&quot;error-rpc-failed-http-400-curl-22-the-requested-url-returned-error-400&quot;&gt;error: RPC failed; HTTP 400 curl 22 The requested URL returned error: 400&lt;/h1&gt;
+
+&lt;p&gt;git push 시 400 오류가 발생할 경우,&lt;/p&gt;
+
+&lt;p&gt;다음 명령어로 간단하게 처리 가능합니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git config &lt;span class=&quot;nt&quot;&gt;--global&lt;/span&gt; http.postBuffer 157286400
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/59282476/error-rpc-failed-curl-92-http-2-stream-0-was-not-closed-cleanly-protocol-erro&quot;&gt;https://stackoverflow.com/questions/59282476/error-rpc-failed-curl-92-http-2-stream-0-was-not-closed-cleanly-protocol-erro&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="git" /><category term="error" /><summary type="html">git 에서 400 오류 발생시</summary></entry><entry><title type="html">Redis 기반 Spring framework Cache 고도화</title><link href="https://lahuman.github.io/redis_cache_with_ttl/" rel="alternate" type="text/html" title="Redis 기반 Spring framework Cache 고도화" /><published>2024-08-29T00:00:00+00:00</published><updated>2024-08-29T00:00:00+00:00</updated><id>https://lahuman.github.io/redis_cache_with_ttl</id><content type="html" xml:base="https://lahuman.github.io/redis_cache_with_ttl/">&lt;h1 id=&quot;redis와-spring-aop를-이용한-캐시-관리-rediscacheable로-ttl-설정하기&quot;&gt;Redis와 Spring AOP를 이용한 캐시 관리: RedisCacheable로 TTL 설정하기&lt;/h1&gt;
 
 &lt;p&gt;애플리케이션 성능을 최적화하기 위해서는 캐시를 활용하는 것이 매우 중요합니다. 특히, Redis는 고속의 인메모리 데이터 저장소로써 Spring과 결합해 캐시를 관리하는 데 아주 유용합니다. 이번 포스팅에서는 @RedisCacheable이라는 커스텀 어노테이션을 사용하여 TTL(Time to Live)로 Redis 캐시의 생명주기를 관리하는 방법을 소개하려 합니다.&lt;/p&gt;
 
@@ -502,71 +515,4 @@ VIPER (View-Interactor-Presenter-Entity-Router): 각 부분이 하나의 책임�
 &lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://docs.jboss.org/hibernate/orm/6.1/userguide/html_single/Hibernate_User_Guide.html#flushing-order&quot;&gt;6.5. Flush operation order&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="jpa" /><category term="flush" /><summary type="html">함수가 종료되고 영속성 데이터가 flush 될때, 순서가 있습니다.</summary></entry><entry><title type="html">Python 3.12 설치시 Openssl 모듈 버전 확인이 필요 합니다.</title><link href="https://lahuman.github.io/python-3.12_openssl-1.1.1/" rel="alternate" type="text/html" title="Python 3.12 설치시 Openssl 모듈 버전 확인이 필요 합니다." /><published>2024-05-30T00:00:00+00:00</published><updated>2024-05-30T00:00:00+00:00</updated><id>https://lahuman.github.io/python-3.12_openssl-1.1.1</id><content type="html" xml:base="https://lahuman.github.io/python-3.12_openssl-1.1.1/">&lt;h1 id=&quot;python-312-설치-시-openssl-모듈-버전-확인이-필요합니다&quot;&gt;Python 3.12 설치 시 OpenSSL 모듈 버전 확인이 필요합니다&lt;/h1&gt;
-
-&lt;p&gt;Python 3.12을 설치할 때 발생할 수 있는 오류 중 하나는 SSL 인증서와 관련된 문제입니다. 
-특히, pip 설치 시 다음과 같은 오류를 만날 수 있습니다:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Could not fetch URL https://pypi.org/simple/pip/: There was a problem confirming the ssl certificate: HTTPSConnectionPool&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;host&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'pypi.org'&lt;/span&gt;, &lt;span class=&quot;nv&quot;&gt;port&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;443&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;: Max retries exceeded with url: /simple/pip/ &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;Caused by SSLError&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Can't connect to HTTPS URL because the SSL module is not available.&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt; - skipping
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;이 오류는 Python 설치 시 SSL 모듈이 제대로 구성되지 않았기 때문에 발생합니다. Python 3.12 설치 후 SSL 모듈이 제대로 작동하는지 확인하는 것이 중요합니다.&lt;/p&gt;
-
-&lt;p&gt;다음은 AWSLinux 기반의 Docker Container 설치시 명령어입니다.&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;from amazonlinux &lt;span class=&quot;c&quot;&gt;# 1&lt;/span&gt;
-
-RUN  yum update &lt;span class=&quot;nt&quot;&gt;--security&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--bugfix&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# 2&lt;/span&gt;
-
-RUN yum groupinstall &lt;span class=&quot;s2&quot;&gt;&quot;Development Tools&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# 3&lt;/span&gt;
-RUN yum install openssl11 openssl11-devel  libffi-devel bzip2-devel wget &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# 3 + opnessl 1.1.1 설치&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# 4&lt;/span&gt;
-WORKDIR /usr/src
-RUN wget https://www.python.org/ftp/python/3.12.2/Python-3.12.2.tgz 
-RUN  &lt;span class=&quot;nb&quot;&gt;tar &lt;/span&gt;xzf Python-3.12.2.tgz 
-
-&lt;span class=&quot;c&quot;&gt;# 5 &lt;/span&gt;
-WORKDIR /usr/src/Python-3.12.2
-RUN ./configure &lt;span class=&quot;nt&quot;&gt;--enable-optimizations&lt;/span&gt;
-RUN make &lt;span class=&quot;nt&quot;&gt;-j&lt;/span&gt; 8
-RUN make altinstall
-
-RUN python3.12 &lt;span class=&quot;nt&quot;&gt;--version&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# 6&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;# 7&lt;/span&gt;
-RUN curl https://bootstrap.pypa.io/get-pip.py &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; get-pip.py
-RUN python3.12 get-pip.py  &lt;span class=&quot;nt&quot;&gt;--trusted-host&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;files.pythonhosted.org &lt;span class=&quot;nt&quot;&gt;--trusted-host&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;pypi.org
-RUN pip3.12 &lt;span class=&quot;nt&quot;&gt;--version&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;# 8 &lt;/span&gt;
-RUN ln &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; /usr/local/bin/python3.12 /usr/bin/python3 &amp;amp; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-    ln &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; /usr/local/bin/pip3 /usr/bin/pip3
-
-&lt;span class=&quot;c&quot;&gt;# 9&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# datetime zone setting&lt;/span&gt;
-RUN date
-RUN mv /etc/localtime /etc/localtime_org
-RUN ln &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; /usr/share/zoneinfo/Asia/Seoul /etc/localtime
-RUN date
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;dockerfile은-다음-작업을-수행합니다&quot;&gt;Dockerfile은 다음 작업을 수행합니다&lt;/h2&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Amazon Linux 이미지를 사용하여 Docker 컨테이너를 생성합니다.&lt;/li&gt;
-  &lt;li&gt;보안 및 버그 수정 업데이트를 수행합니다.&lt;/li&gt;
-  &lt;li&gt;개발 도구 및 필요한 라이브러리를 설치합니다.&lt;/li&gt;
-  &lt;li&gt;Python 3.12 소스 코드를 다운로드하고 압축을 해제합니다.&lt;/li&gt;
-  &lt;li&gt;Python 3.12를 OpenSSL 지원과 함께 구성하고 컴파일합니다.&lt;/li&gt;
-  &lt;li&gt;Python 및 Pip의 버전을 확인하여 설치가 올바르게 되었는지 검증합니다.&lt;/li&gt;
-  &lt;li&gt;pip를 설치 하고 올바르게 설치 되었는지 검증합니다.&lt;/li&gt;
-  &lt;li&gt;Python과 Pip에 대한 심볼릭 링크를 생성하여 /usr/bin 디렉토리에서 사용할 수 있도록 설정합니다.&lt;/li&gt;
-  &lt;li&gt;시간대를 설정하여 시스템 시간대를 Asia/Seoul로 변경합니다.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;이 Dockerfile을 사용하면 Python 3.12와 Pip을 포함한 개발 환경을 AWS Linux 기반의 Docker 컨테이너에서 설정할 수 있습니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
-
-&lt;p&gt;Python 3.12의 SSL 모듈에 대한 더 자세한 내용은 &lt;a href=&quot;https://docs.python.org/ko/3.12/library/ssl.html&quot;&gt;공식 문서&lt;/a&gt;를 참고하세요. 이 문서에는 SSL 모듈의 다양한 기능과 설정 방법이 자세히 설명되어 있습니다.&lt;/p&gt;</content><author><name></name></author><category term="python" /><category term="install" /><summary type="html">pip 로 모듈 설치 등에서 SSL 오류 발생</summary></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><category term="jpa" /><category term="flush" /><summary type="html">함수가 종료되고 영속성 데이터가 flush 될때, 순서가 있습니다.</summary></entry></feed>
