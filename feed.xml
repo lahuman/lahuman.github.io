@@ -1,4 +1,129 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2024-09-26T04:16:11+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Spring Session에서 특정 API에 대해 세션 생성 방지하기</title><link href="https://lahuman.github.io/redis_session_ignore_path/" rel="alternate" type="text/html" title="Spring Session에서 특정 API에 대해 세션 생성 방지하기" /><published>2024-09-26T00:00:00+00:00</published><updated>2024-09-26T00:00:00+00:00</updated><id>https://lahuman.github.io/redis_session_ignore_path</id><content type="html" xml:base="https://lahuman.github.io/redis_session_ignore_path/">&lt;h1 id=&quot;spring-session에서-특정-api에-대해-세션-생성-방지하기&quot;&gt;Spring Session에서 특정 API에 대해 세션 생성 방지하기&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2024-09-27T06:00:00+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">AWS Lambda에서 oracle 에 접근하기 위한 python layer 만들기!</title><link href="https://lahuman.github.io/aws_lambda_oracledb_layer/" rel="alternate" type="text/html" title="AWS Lambda에서 oracle 에 접근하기 위한 python layer 만들기!" /><published>2024-09-27T00:00:00+00:00</published><updated>2024-09-27T00:00:00+00:00</updated><id>https://lahuman.github.io/aws_lambda_oracledb_layer</id><content type="html" xml:base="https://lahuman.github.io/aws_lambda_oracledb_layer/">&lt;h1 id=&quot;aws-lambda에서-oracle에-접근하기-위한-python-layer-만들기&quot;&gt;AWS Lambda에서 Oracle에 접근하기 위한 Python Layer 만들기&lt;/h1&gt;
+
+&lt;p&gt;AWS Lambda 함수에서 Oracle 데이터베이스에 접근하려면 oracledb 모듈을 사용해야 합니다. 하지만 이 모듈을 Lambda에서 사용하기 위해서는 Layer를 만들어야 합니다. 이번 포스팅에서는 AWS Lambda에서 Oracle에 접근하기 위한 Python Layer를 만드는 방법과 발생할 수 있는 오류 및 해결 방법을 소개합니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;문제-상황&quot;&gt;문제 상황&lt;/h2&gt;
+&lt;p&gt;AWS Lambda 함수에서 oracledb 모듈을 사용하기 위해 Layer를 생성하고 함수를 실행했을 때, 다음과 같은 오류가 발생했습니다.&lt;/p&gt;
+
+&lt;h1 id=&quot;aws-lambda에서-oracle에-접근하기-위한-python-layer-만들기-1&quot;&gt;AWS Lambda에서 Oracle에 접근하기 위한 Python Layer 만들기&lt;/h1&gt;
+
+&lt;p&gt;AWS Lambda 함수에서 Oracle 데이터베이스에 접근하려면 &lt;code class=&quot;highlighter-rouge&quot;&gt;oracledb&lt;/code&gt; 모듈을 사용해야 합니다. 하지만 이 모듈을 Lambda에서 사용하기 위해서는 Layer를 만들어야 합니다. 이번 포스팅에서는 AWS Lambda에서 Oracle에 접근하기 위한 Python Layer를 만드는 방법과 발생할 수 있는 오류 및 해결 방법을 소개합니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;문제-상황-1&quot;&gt;문제 상황&lt;/h2&gt;
+
+&lt;p&gt;AWS Lambda 함수에서 &lt;code class=&quot;highlighter-rouge&quot;&gt;oracledb&lt;/code&gt; 모듈을 사용하기 위해 Layer를 생성하고 함수를 실행했을 때, 다음과 같은 오류가 발생했습니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;ERROR] Runtime.ImportModuleError: Unable to import module &lt;span class=&quot;s1&quot;&gt;'lambda_function'&lt;/span&gt;: cannot import name &lt;span class=&quot;s1&quot;&gt;'base_impl'&lt;/span&gt; from partially initialized module &lt;span class=&quot;s1&quot;&gt;'oracledb'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;most likely due to a circular import&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;/opt/python/lib/python3.11/site-packages/oracledb/__init__.py&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+Traceback &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;most recent call last&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;:INIT_REPORT Init Duration: 93.00 ms	Phase: init	Status: error	Error Type: Runtime.Unknown
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;ERROR] Runtime.ImportModuleError: Unable to import module &lt;span class=&quot;s1&quot;&gt;'lambda_function'&lt;/span&gt;: cannot import name &lt;span class=&quot;s1&quot;&gt;'base_impl'&lt;/span&gt; from partially initialized module &lt;span class=&quot;s1&quot;&gt;'oracledb'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;most likely due to a circular import&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;/opt/python/lib/python3.11/site-packages/oracledb/__init__.py&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+Traceback &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;most recent call last&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;:INIT_REPORT Init Duration: 1363.42 ms	Phase: invoke	Status: error	Error Type: Runtime.Unknown
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이 오류의 원인을 분석하고 해결하는 과정을 자세히 설명하겠습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;layer-생성-방법&quot;&gt;Layer 생성 방법&lt;/h2&gt;
+
+&lt;p&gt;AWS Lambda에서 Python 함수용 Layer를 생성하기 위해 AWS 공식 문서인 &lt;a href=&quot;https://docs.aws.amazon.com/ko_kr/lambda/latest/dg/python-layers.html&quot;&gt;Python Lambda 함수를 위한 계층 작업&lt;/a&gt;을 참고하여 다음과 같이 Layer를 생성했습니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;1-가상-환경-생성-및-패키지-설치&quot;&gt;1. 가상 환경 생성 및 패키지 설치&lt;/h3&gt;
+
+&lt;p&gt;먼저, Python 3.11 버전의 가상 환경을 생성하고 필요한 패키지를 설치합니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;requirements.txt&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;oracledb
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;1-install.sh&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python3.11 &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt; venv create_layer
+&lt;span class=&quot;nb&quot;&gt;source &lt;/span&gt;create_layer/bin/activate
+pip install &lt;span class=&quot;nt&quot;&gt;-r&lt;/span&gt; requirements.txt &lt;span class=&quot;nt&quot;&gt;--platform&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;manylinux2014_x86_64 &lt;span class=&quot;nt&quot;&gt;--only-binary&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;:all: &lt;span class=&quot;nt&quot;&gt;--target&lt;/span&gt; ./create_layer/lib/python3.11/site-packages
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;2-layer-패키징&quot;&gt;2. Layer 패키징&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;2-package.sh&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mkdir python
+cp &lt;span class=&quot;nt&quot;&gt;-r&lt;/span&gt; create_layer/lib python/
+zip &lt;span class=&quot;nt&quot;&gt;-r&lt;/span&gt; layer_content.zip python
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;lambda-함수-코드&quot;&gt;Lambda 함수 코드&lt;/h2&gt;
+
+&lt;p&gt;Lambda 함수에서는 &lt;code class=&quot;highlighter-rouge&quot;&gt;oracledb&lt;/code&gt; 모듈을 임포트하여 사용합니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;lambda_function.py&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;lambda_handler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;try&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;oracledb&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Successfully imported oracledb&quot;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;except&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Exception&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;오류-발생&quot;&gt;오류 발생&lt;/h2&gt;
+
+&lt;p&gt;위와 같이 Layer를 생성하고 Lambda 함수를 실행했을 때, 앞서 언급한 오류가 발생했습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;원인-분석&quot;&gt;원인 분석&lt;/h2&gt;
+
+&lt;p&gt;오류 메시지를 보면 &lt;code class=&quot;highlighter-rouge&quot;&gt;oracledb&lt;/code&gt; 모듈에서 &lt;code class=&quot;highlighter-rouge&quot;&gt;base_impl&lt;/code&gt;을 임포트할 수 없다는 내용과 순환 임포트(circular import)가 원인일 수 있다는 힌트를 제공합니다.&lt;/p&gt;
+
+&lt;p&gt;Layer를 생성할 때 가상 환경을 생성하면서 기본적으로 설치되는 &lt;code class=&quot;highlighter-rouge&quot;&gt;pip&lt;/code&gt; 등의 모듈이 함께 포함되어 &lt;code class=&quot;highlighter-rouge&quot;&gt;oracledb&lt;/code&gt; 모듈과 충돌이 발생한 것입니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;해결-방법&quot;&gt;해결 방법&lt;/h2&gt;
+
+&lt;p&gt;가상 환경에서 기본적으로 생성되는 불필요한 모듈들을 제외하고, 필요한 패키지만 Layer에 포함하도록 스크립트를 수정했습니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;수정된-layer-생성-스크립트&quot;&gt;수정된 Layer 생성 스크립트&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;1-install.sh&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python3.11 &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt; venv create_layer
+&lt;span class=&quot;nb&quot;&gt;source &lt;/span&gt;create_layer/bin/activate
+pip install &lt;span class=&quot;nt&quot;&gt;-r&lt;/span&gt; requirements.txt &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;--platform&lt;/span&gt; manylinux2014_x86_64 &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;--target&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;./src &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;--implementation&lt;/span&gt; cp &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;--python-version&lt;/span&gt; 3.11 &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;--only-binary&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;:all: 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;--target=./src&lt;/code&gt; 옵션을 사용하여 필요한 패키지만 &lt;code class=&quot;highlighter-rouge&quot;&gt;src&lt;/code&gt; 디렉토리에 설치합니다.&lt;/li&gt;
+  &lt;li&gt;가상 환경의 기본 모듈들과 분리하여 충돌을 방지합니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;2-package.sh&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mkdir -p python/lib/python3.11/site-packages
+cp -r src/ python/lib/python3.11/site-packages/
+zip -r layer_content.zip python
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;src&lt;/code&gt; 디렉토리에 설치된 패키지들을 Layer의 &lt;code class=&quot;highlighter-rouge&quot;&gt;site-packages&lt;/code&gt; 디렉토리로 복사합니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;결과-확인&quot;&gt;결과 확인&lt;/h2&gt;
+
+&lt;p&gt;수정된 Layer를 적용하여 Lambda 함수를 실행하면 &lt;code class=&quot;highlighter-rouge&quot;&gt;oracledb&lt;/code&gt; 모듈이 성공적으로 임포트됩니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&quot;Successfully imported oracledb&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;결론&quot;&gt;결론&lt;/h2&gt;
+
+&lt;p&gt;AWS Lambda에서 Oracle에 접근하기 위한 Python Layer를 생성할 때, 가상 환경의 기본 모듈들과의 충돌로 인해 발생하는 오류를 해결하기 위해 필요한 패키지만 Layer에 포함시켰습니다. 이를 통해 &lt;code class=&quot;highlighter-rouge&quot;&gt;oracledb&lt;/code&gt; 모듈을 성공적으로 임포트하고 Oracle 데이터베이스에 접근할 수 있었습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.aws.amazon.com/ko_kr/lambda/latest/dg/python-layers.html&quot;&gt;Python Lambda 함수를 위한 계층 작업&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="python" /><category term="aws" /><category term="layer" /><summary type="html">python layer 만들기 삽질기</summary></entry><entry><title type="html">Spring Session에서 특정 API에 대해 세션 생성 방지하기</title><link href="https://lahuman.github.io/redis_session_ignore_path/" rel="alternate" type="text/html" title="Spring Session에서 특정 API에 대해 세션 생성 방지하기" /><published>2024-09-26T00:00:00+00:00</published><updated>2024-09-26T00:00:00+00:00</updated><id>https://lahuman.github.io/redis_session_ignore_path</id><content type="html" xml:base="https://lahuman.github.io/redis_session_ignore_path/">&lt;h1 id=&quot;spring-session에서-특정-api에-대해-세션-생성-방지하기&quot;&gt;Spring Session에서 특정 API에 대해 세션 생성 방지하기&lt;/h1&gt;
 
 &lt;p&gt;Spring 애플리케이션에서 &lt;code class=&quot;highlighter-rouge&quot;&gt;/health&lt;/code&gt; 같은 특정 API 호출 시 불필요한 세션이 생성되지 않도록 하기 위한 방법을 정리합니다. 주로 &lt;code class=&quot;highlighter-rouge&quot;&gt;SessionRepositoryFilter&lt;/code&gt; 커스터마이징과 필터 추가를 통해 이를 해결할 수 있습니다.&lt;/p&gt;
 
@@ -513,51 +638,4 @@ sequenceDiagram;
 &lt;p&gt;소수점 처리는 특히 금액이나 계산의 정밀도가 중요한 분야에서 필수적입니다. 예를 들어, 금융 서비스나 과학적 계산에서는 소수점 이하의 작은 오차도 큰 문제를 일으킬 수 있습니다. 따라서 decimal 타입을 사용하여 데이터의 정확성을 보장하는 것이 좋습니다.&lt;/p&gt;
 
 &lt;h2 id=&quot;결론&quot;&gt;결론&lt;/h2&gt;
-&lt;p&gt;TypeORM에서 decimal 타입을 사용하는 것은 소수점을 포함한 데이터를 정확하게 처리하고자 할 때 매우 유용합니다. 이는 데이터의 정확성과 일관성을 유지하며, 실수로 인한 오류를 최소화하는 데 도움이 됩니다.&lt;/p&gt;</content><author><name></name></author><category term="typeorm" /><category term="decimal" /><summary type="html">처리를 잘못하면 상수만 표기 됩니다.</summary></entry><entry><title type="html">iOS 면접 질의응답</title><link href="https://lahuman.github.io/ios_interview_qa/" rel="alternate" type="text/html" title="iOS 면접 질의응답 " /><published>2024-06-25T00:00:00+00:00</published><updated>2024-06-25T00:00:00+00:00</updated><id>https://lahuman.github.io/ios_interview_qa</id><content type="html" xml:base="https://lahuman.github.io/ios_interview_qa/">&lt;h1 id=&quot;ios-면접-질의응답&quot;&gt;iOS 면접 질의응답&lt;/h1&gt;
-
-&lt;h2 id=&quot;1-swift와-objective-c의-차이점은-무엇인가요&quot;&gt;1. Swift와 Objective-C의 차이점은 무엇인가요?&lt;/h2&gt;
-
-&lt;p&gt;Swift는 Objective-C에 비해 타입 안전성이 뛰어나며, 가독성이 높은 문법을 제공합니다. Swift는 메모리 관리를 자동화하는 ARC(Automatic Reference Counting)를 지원하고, 런타임 오류를 줄이는 안전한 프로그래밍 패턴을 채택하고 있습니다. 반면, Objective-C는 C언어를 기반으로 하여 C 라이브러리와의 호환성이 뛰어나지만, 코드가 복잡할 수 있습니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;2-ios-앱-개발에서-사용되는-주요-프레임워크는-무엇인가요&quot;&gt;2. iOS 앱 개발에서 사용되는 주요 프레임워크는 무엇인가요?&lt;/h2&gt;
-
-&lt;p&gt;iOS 개발에는 여러 프레임워크가 사용되며, 가장 중요한 것은 UIKit(사용자 인터페이스), Foundation(기본 데이터 관리 및 네트워킹), Core Data(지속적 데이터 저장 및 관리)입니다. 이 프레임워크들은 앱의 다양한 측면을 지원하여 개발 과정을 효율적으로 만듭니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;3-mvc-mvvm-viper와-같은-아키텍처-패턴을-설명해주세요&quot;&gt;3. MVC, MVVM, VIPER와 같은 아키텍처 패턴을 설명해주세요.&lt;/h2&gt;
-
-&lt;p&gt;MVC (Model-View-Controller): 가장 기본적인 아키텍처 패턴으로, 애플리케이션을 모델, 뷰, 컨트롤러 세 부분으로 나누어 관리합니다.
-MVVM (Model-View-ViewModel): 뷰와 모델 사이의 의존성을 줄이기 위해 뷰모델을 사용합니다. 이는 데이터 바인딩을 통해 뷰의 코드를 간소화할 수 있게 해 줍니다.
-VIPER (View-Interactor-Presenter-Entity-Router): 각 부분이 하나의 책임만을 가지도록 설계된 아키텍처로, 큰 프로젝트에서 효율적인 유지보수를 가능하게 합니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;4-auto-layout을-사용하는-이유와-주요-기능에-대해-설명해주세요&quot;&gt;4. Auto Layout을 사용하는 이유와 주요 기능에 대해 설명해주세요.&lt;/h2&gt;
-
-&lt;p&gt;Auto Layout은 다양한 화면 크기와 방향에서 일관된 레이아웃을 유지할 수 있도록 도와줍니다. 이는 제약 조건을 기반으로 요소들이 화면 내에서 어떻게 배치되고 크기가 조정되는지를 정의하여, 동적으로 화면을 구성할 수 있게 합니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;5-core-data의-주요-개념과-사용법을-설명해주세요&quot;&gt;5. Core Data의 주요 개념과 사용법을 설명해주세요.&lt;/h2&gt;
-
-&lt;p&gt;Core Data는 객체 그래프 관리와 영구 저장소로의 객체 데이터의 지속성을 관리하는 프레임워크입니다. 데이터 모델러를 통해 데이터 구조를 시각적으로 구성할 수 있으며, SQLite, XML, Binary 등 다양한 저장 형식을 지원합니다. 관계, 가져오기, 저장 과정의 최적화를 통해 효율적인 데이터 관리가 가능합니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;6-메모리-관리-방법에-대해-설명하고-arc가-어떻게-작동하는지-설명해주세요&quot;&gt;6. 메모리 관리 방법에 대해 설명하고, ARC가 어떻게 작동하는지 설명해주세요.&lt;/h2&gt;
-
-&lt;p&gt;iOS에서는 ARC를 사용하여 메모리 관리를 자동화합니다. ARC는 객체에 대한 참조 횟수를 추적하여, 참조 횟수가 0이 되면 해당 객체를 메모리에서 해제합니다. 개발자는 강한 참조(strong reference)와 약한 참조(weak reference)를 적절히 사용하여 순환 참조를 방지해야 하며, 이를 통해 메모리 누수를 예방할 수 있습니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;7-app-store에-앱을-배포하는-과정을-단계별로-설명해주세요&quot;&gt;7. App Store에 앱을 배포하는 과정을 단계별로 설명해주세요.&lt;/h2&gt;
-
-&lt;p&gt;앱을 App Store에 배포하는 과정은 다음과 같습니다:&lt;/p&gt;
-
-&lt;p&gt;앱 개발 및 로컬 테스트: 개발자는 앱을 개발하고 로컬 환경에서 충분히 테스트합니다.
-빌드 및 업로드: 앱을 Xcode를 통해 빌드하고, 모든 앱 정보와 함께 iTunes Connect (현재는 App Store Connect)에 업로드합니다.
-리뷰 프로세스: 업로드된 앱은 Apple의 리뷰 프로세스를 거칩니다. 이 과정에서 앱의 적합성이 평가됩니다.
-승인 및 릴리스 관리: 승인이 완료되면, 개발자는 앱의 릴리스를 관리할 수 있으며, 사용자는 App Store에서 앱을 다운로드할 수 있습니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;8-최신-ios-업데이트에서-추가된-기능-중-하나를-선택하고-그-기능이-앱-개발에-어떻게-활용될-수-있는지-설명해주세요&quot;&gt;8. 최신 iOS 업데이트에서 추가된 기능 중 하나를 선택하고, 그 기능이 앱 개발에 어떻게 활용될 수 있는지 설명해주세요.&lt;/h2&gt;
-
-&lt;p&gt;iOS 15에서 추가된 SharePlay 기능은 멀티미디어 공유를 가능하게 하여 앱 개발자들이 새로운 형태의 상호 작용을 앱에 통합할 수 있도록 합니다. 개발자는 SharePlay API를 사용하여 사용자들이 비디오를 시청하거나 음악을 듣는 동안 서로 상호 작용할 수 있는 기능을 개발할 수 있습니다. 이를 통해 사용자 경험을 향상시키고 앱의 매력을 증가시킬 수 있습니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;9-비동기-프로그래밍과-gcd-operationqueue의-사용-예를-설명해주세요&quot;&gt;9. 비동기 프로그래밍과 GCD, OperationQueue의 사용 예를 설명해주세요.&lt;/h2&gt;
-
-&lt;p&gt;비동기 프로그래밍은 UI가 응답을 멈추지 않게 하면서 백그라운드에서 데이터 로딩, 이미지 다운로드, 데이터 처리와 같은 작업을 수행합니다. GCD(Grand Central Dispatch)는 작업을 다양한 큐에 넣어 비동기적으로 실행할 수 있게 해 주며, 멀티코어 하드웨어의 잠재력을 최대한 활용할 수 있습니다. 예를 들어, 이미지를 다운로드하고 처리하는 작업을 백그라운드 스레드에서 실행한 다음, 메인 스레드에서 UI를 업데이트하는 것입니다. OperationQueue는 GCD보다 더 고수준의 API를 제공하며, 작업 간의 종속성을 설정하고 실행을 취소하거나 일시 중지할 수 있는 기능을 제공합니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;10-copy-on-write를-설명해주세요&quot;&gt;10. “Copy on Write”를 설명해주세요.&lt;/h2&gt;
-
-&lt;p&gt;Swift의 “Copy on Write” (CoW) 메커니즘은 특히 값 타입(Value Types)에서 메모리 사용을 최적화하는 데 유용합니다. Swift에서는 구조체(struct), 열거형(enum), 그리고 기본 데이터 타입들(int, string, array 등)을 값 타입으로 처리합니다. 값 타입은 데이터를 전달할 때 원본의 복사본을 만들어 전달합니다. 그러나 이 과정이 항상 즉각적으로 발생하는 것은 아니며, Copy on Write 메커니즘이 이를 최적화합니다.&lt;/p&gt;</content><author><name></name></author><category term="ios" /><category term="interview" /><summary type="html">chat-gpt가 추천하는 면접 질문 모음</summary></entry></feed>
+&lt;p&gt;TypeORM에서 decimal 타입을 사용하는 것은 소수점을 포함한 데이터를 정확하게 처리하고자 할 때 매우 유용합니다. 이는 데이터의 정확성과 일관성을 유지하며, 실수로 인한 오류를 최소화하는 데 도움이 됩니다.&lt;/p&gt;</content><author><name></name></author><category term="typeorm" /><category term="decimal" /><summary type="html">처리를 잘못하면 상수만 표기 됩니다.</summary></entry></feed>
