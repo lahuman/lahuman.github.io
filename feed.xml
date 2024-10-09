@@ -1,15 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2024-09-27T06:00:00+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">AWS Lambda에서 oracle 에 접근하기 위한 python layer 만들기!</title><link href="https://lahuman.github.io/aws_lambda_oracledb_layer/" rel="alternate" type="text/html" title="AWS Lambda에서 oracle 에 접근하기 위한 python layer 만들기!" /><published>2024-09-27T00:00:00+00:00</published><updated>2024-09-27T00:00:00+00:00</updated><id>https://lahuman.github.io/aws_lambda_oracledb_layer</id><content type="html" xml:base="https://lahuman.github.io/aws_lambda_oracledb_layer/">&lt;h1 id=&quot;aws-lambda에서-oracle에-접근하기-위한-python-layer-만들기&quot;&gt;AWS Lambda에서 Oracle에 접근하기 위한 Python Layer 만들기&lt;/h1&gt;
-
-&lt;p&gt;AWS Lambda 함수에서 Oracle 데이터베이스에 접근하려면 oracledb 모듈을 사용해야 합니다. 하지만 이 모듈을 Lambda에서 사용하기 위해서는 Layer를 만들어야 합니다. 이번 포스팅에서는 AWS Lambda에서 Oracle에 접근하기 위한 Python Layer를 만드는 방법과 발생할 수 있는 오류 및 해결 방법을 소개합니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;문제-상황&quot;&gt;문제 상황&lt;/h2&gt;
-&lt;p&gt;AWS Lambda 함수에서 oracledb 모듈을 사용하기 위해 Layer를 생성하고 함수를 실행했을 때, 다음과 같은 오류가 발생했습니다.&lt;/p&gt;
-
-&lt;h1 id=&quot;aws-lambda에서-oracle에-접근하기-위한-python-layer-만들기-1&quot;&gt;AWS Lambda에서 Oracle에 접근하기 위한 Python Layer 만들기&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2024-10-09T23:49:50+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">AWS Lambda에서 oracle 에 접근하기 위한 python layer 만들기!</title><link href="https://lahuman.github.io/aws_lambda_oracledb_layer/" rel="alternate" type="text/html" title="AWS Lambda에서 oracle 에 접근하기 위한 python layer 만들기!" /><published>2024-09-27T00:00:00+00:00</published><updated>2024-09-27T00:00:00+00:00</updated><id>https://lahuman.github.io/aws_lambda_oracledb_layer</id><content type="html" xml:base="https://lahuman.github.io/aws_lambda_oracledb_layer/">&lt;h1 id=&quot;aws-lambda에서-oracle에-접근하기-위한-python-layer-만들기&quot;&gt;AWS Lambda에서 Oracle에 접근하기 위한 Python Layer 만들기&lt;/h1&gt;
 
 &lt;p&gt;AWS Lambda 함수에서 Oracle 데이터베이스에 접근하려면 &lt;code class=&quot;highlighter-rouge&quot;&gt;oracledb&lt;/code&gt; 모듈을 사용해야 합니다. 하지만 이 모듈을 Lambda에서 사용하기 위해서는 Layer를 만들어야 합니다. 이번 포스팅에서는 AWS Lambda에서 Oracle에 접근하기 위한 Python Layer를 만드는 방법과 발생할 수 있는 오류 및 해결 방법을 소개합니다.&lt;/p&gt;
 
-&lt;h2 id=&quot;문제-상황-1&quot;&gt;문제 상황&lt;/h2&gt;
+&lt;h2 id=&quot;문제-상황&quot;&gt;문제 상황&lt;/h2&gt;
 
 &lt;p&gt;AWS Lambda 함수에서 &lt;code class=&quot;highlighter-rouge&quot;&gt;oracledb&lt;/code&gt; 모듈을 사용하기 위해 Layer를 생성하고 함수를 실행했을 때, 다음과 같은 오류가 발생했습니다.&lt;/p&gt;
 
