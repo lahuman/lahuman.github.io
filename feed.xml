@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2024-10-09T23:49:50+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">AWS Lambda에서 oracle 에 접근하기 위한 python layer 만들기!</title><link href="https://lahuman.github.io/aws_lambda_oracledb_layer/" rel="alternate" type="text/html" title="AWS Lambda에서 oracle 에 접근하기 위한 python layer 만들기!" /><published>2024-09-27T00:00:00+00:00</published><updated>2024-09-27T00:00:00+00:00</updated><id>https://lahuman.github.io/aws_lambda_oracledb_layer</id><content type="html" xml:base="https://lahuman.github.io/aws_lambda_oracledb_layer/">&lt;h1 id=&quot;aws-lambda에서-oracle에-접근하기-위한-python-layer-만들기&quot;&gt;AWS Lambda에서 Oracle에 접근하기 위한 Python Layer 만들기&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2024-10-09T23:52:16+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">AWS Lambda에서 oracle 에 접근하기 위한 python layer 만들기!</title><link href="https://lahuman.github.io/aws_lambda_oracledb_layer/" rel="alternate" type="text/html" title="AWS Lambda에서 oracle 에 접근하기 위한 python layer 만들기!" /><published>2024-09-27T00:00:00+00:00</published><updated>2024-09-27T00:00:00+00:00</updated><id>https://lahuman.github.io/aws_lambda_oracledb_layer</id><content type="html" xml:base="https://lahuman.github.io/aws_lambda_oracledb_layer/">&lt;h1 id=&quot;aws-lambda에서-oracle에-접근하기-위한-python-layer-만들기&quot;&gt;AWS Lambda에서 Oracle에 접근하기 위한 Python Layer 만들기&lt;/h1&gt;
 
 &lt;p&gt;AWS Lambda 함수에서 Oracle 데이터베이스에 접근하려면 &lt;code class=&quot;highlighter-rouge&quot;&gt;oracledb&lt;/code&gt; 모듈을 사용해야 합니다. 하지만 이 모듈을 Lambda에서 사용하기 위해서는 Layer를 만들어야 합니다. 이번 포스팅에서는 AWS Lambda에서 Oracle에 접근하기 위한 Python Layer를 만드는 방법과 발생할 수 있는 오류 및 해결 방법을 소개합니다.&lt;/p&gt;
 
@@ -12,7 +12,9 @@ Traceback &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;most recent call last&lt
 Traceback &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;most recent call last&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;:INIT_REPORT Init Duration: 1363.42 ms	Phase: invoke	Status: error	Error Type: Runtime.Unknown
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;이 오류의 원인을 분석하고 해결하는 과정을 자세히 설명하겠습니다.&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;오류의 원인은 레이어에 가상 환경을 구성하는 pip 와 같은 모듈이 섞여 발생하는 문제였습니다.&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;h2 id=&quot;layer-생성-방법&quot;&gt;Layer 생성 방법&lt;/h2&gt;
 
