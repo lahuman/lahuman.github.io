@@ -1,4 +1,41 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2024-10-09T23:52:16+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">AWS Lambda에서 oracle 에 접근하기 위한 python layer 만들기!</title><link href="https://lahuman.github.io/aws_lambda_oracledb_layer/" rel="alternate" type="text/html" title="AWS Lambda에서 oracle 에 접근하기 위한 python layer 만들기!" /><published>2024-09-27T00:00:00+00:00</published><updated>2024-09-27T00:00:00+00:00</updated><id>https://lahuman.github.io/aws_lambda_oracledb_layer</id><content type="html" xml:base="https://lahuman.github.io/aws_lambda_oracledb_layer/">&lt;h1 id=&quot;aws-lambda에서-oracle에-접근하기-위한-python-layer-만들기&quot;&gt;AWS Lambda에서 Oracle에 접근하기 위한 Python Layer 만들기&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2024-11-11T12:16:33+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">오모오모 서비스 종료</title><link href="https://lahuman.github.io/EOS_OMOOMO/" rel="alternate" type="text/html" title="오모오모 서비스 종료" /><published>2024-11-11T00:00:00+00:00</published><updated>2024-11-11T00:00:00+00:00</updated><id>https://lahuman.github.io/EOS_OMOOMO</id><content type="html" xml:base="https://lahuman.github.io/EOS_OMOOMO/">&lt;h1 id=&quot;20241031-오모오모-서비스-종료&quot;&gt;2024.10.31 오모오모 서비스 종료&lt;/h1&gt;
+
+&lt;h2 id=&quot;이력&quot;&gt;이력&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;서비스 기간 : 2022.11.28 ~ 2024.10.31&lt;/li&gt;
+  &lt;li&gt;오모오모 하우스 운영(팝업스토어) : 2023.11.24 ~ 2023.12.02&lt;/li&gt;
+  &lt;li&gt;이벤트 : 크리스마스, 새해, 추석, 사진 공모전, 네이밍 공모전 등 20여 차례 진행&lt;/li&gt;
+  &lt;li&gt;구글 플레이 스토어 1위 : 2022.12.17&lt;/li&gt;
+  &lt;li&gt;최종 누적 회원 수 : 20만명(2024.10.31)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;회고&quot;&gt;회고&lt;/h2&gt;
+
+&lt;p&gt;오픈 당시에는 삼성화재에서 이런 서비스를 만들었다고 많은 관심을 받았지만, 컨텐츠 부족으로 인기가 쉽게 시들해졌습니다.&lt;/p&gt;
+
+&lt;p&gt;23년 5월 부족한 컨텐츠를 채우기 위해 웹 기반의 게시판과 상품 판매 그리고 메타 버스 기반의 펫 상품 판매 샵 추가  및 게임 추가하는 등의 대대적인 업데이트를 단행 했습니다.&lt;/p&gt;
+
+&lt;p&gt;오모오모를 사용하는 주요 고객인 10대가 할 수 있는 컨텐츠 보다, 보험 연계 그리고 펫 상품 판매에 집중한 기획 결과는 많이 아쉬운 성적표와 함께 사용자가 점점 줄어들게 되었고,&lt;/p&gt;
+
+&lt;p&gt;결국 오모오모 서비스 종료와 함께 &lt;a href=&quot;https://www.seoulfn.com/news/articleView.html?idxno=535764&quot;&gt;삼성화재, 펫 건강관리 서비스 리뉴얼 선봬&lt;/a&gt; 게 되었습니다.&lt;/p&gt;
+
+&lt;p&gt;24년은 착한 펫 서비스 리뉴얼을 하면서 보냈습니다. 
+오모오모를 떠나 보내는 마음은 아쉽고 안타깝웠습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;스냅샷&quot;&gt;스냅샷&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/omoomo_end.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;20241031-마지막-모습&quot;&gt;2024.10.31 마지막 모습&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/omoomo_1.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/omoomo_2.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/omoomo_3.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/omoomo_4.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;</content><author><name></name></author><category term="omoomo" /><category term="EOS" /><summary type="html">2년 6개월간의 서비스 실패기</summary></entry><entry><title type="html">AWS Lambda에서 oracle 에 접근하기 위한 python layer 만들기!</title><link href="https://lahuman.github.io/aws_lambda_oracledb_layer/" rel="alternate" type="text/html" title="AWS Lambda에서 oracle 에 접근하기 위한 python layer 만들기!" /><published>2024-09-27T00:00:00+00:00</published><updated>2024-09-27T00:00:00+00:00</updated><id>https://lahuman.github.io/aws_lambda_oracledb_layer</id><content type="html" xml:base="https://lahuman.github.io/aws_lambda_oracledb_layer/">&lt;h1 id=&quot;aws-lambda에서-oracle에-접근하기-위한-python-layer-만들기&quot;&gt;AWS Lambda에서 Oracle에 접근하기 위한 Python Layer 만들기&lt;/h1&gt;
 
 &lt;p&gt;AWS Lambda 함수에서 Oracle 데이터베이스에 접근하려면 &lt;code class=&quot;highlighter-rouge&quot;&gt;oracledb&lt;/code&gt; 모듈을 사용해야 합니다. 하지만 이 모듈을 Lambda에서 사용하기 위해서는 Layer를 만들어야 합니다. 이번 포스팅에서는 AWS Lambda에서 Oracle에 접근하기 위한 Python Layer를 만드는 방법과 발생할 수 있는 오류 및 해결 방법을 소개합니다.&lt;/p&gt;
 
@@ -607,30 +644,4 @@ sequenceDiagram;
 
 &lt;p&gt;살짝 지치네요. 변화를 이끌 연료가 다한 느낌입니다.&lt;/p&gt;
 
-&lt;p&gt;올해는 잘 마무리 해야겠습니다.&lt;/p&gt;</content><author><name></name></author><category term="회고" /><summary type="html">2021년 말에 입사해서, 2024년도 8월이 되었습니다.</summary></entry><entry><title type="html">typeorm 사용시 소수점 조회</title><link href="https://lahuman.github.io/typeorm_number_entity_decimal/" rel="alternate" type="text/html" title="typeorm 사용시 소수점 조회" /><published>2024-07-14T00:00:00+00:00</published><updated>2024-07-14T00:00:00+00:00</updated><id>https://lahuman.github.io/typeorm_number_entity_decimal</id><content type="html" xml:base="https://lahuman.github.io/typeorm_number_entity_decimal/">&lt;h1 id=&quot;typeorm에서-엔티티의-number-타입-필드에서-소수점-표현&quot;&gt;TypeORM에서 엔티티의 number 타입 필드에서 소수점 표현&lt;/h1&gt;
-
-&lt;p&gt;이 글에서는 TypeORM을 사용하여 소수점을 포함하는 number 타입을 정의하고 관리하는 방법에 대해 설명합니다. 또한, 샘플 엔티티 코드를 통해 구현 방법을 보여 드리겠습니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;샘플-엔티티-코드&quot;&gt;샘플 엔티티 코드&lt;/h2&gt;
-
-&lt;p&gt;아래의 샘플 코드는 Product라는 엔티티에서 가격(price)을 number 타입으로 처리하는 예를 보여줍니다. 이때, double 또는 decimal 타입을 사용하여 소수점을 정확하게 관리할 수 있습니다.&lt;/p&gt;
-
-&lt;div class=&quot;language-typescript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Entity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;PrimaryGeneratedColumn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Column&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'typeorm'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;Entity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Product&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;PrimaryGeneratedColumn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-    &lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;Column&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'decimal'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;precision&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;scale&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;price&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;@Column({ type: 'decimal', precision: 10, scale: 2 })&lt;/code&gt;: 이 구문은 price 필드가 최대 10자리 숫자를 가질 수 있으며, 그 중 소수점 이하 두 자리까지 저장할 수 있음을 나타냅니다. decimal 타입은 소수점을 포함한 전체 길이와 소수점 이하의 길이를 정밀하게 정의할 수 있어 금융 계산 등 정확도가 요구되는 상황에서 유용합니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;소수점-처리의-중요성&quot;&gt;소수점 처리의 중요성&lt;/h2&gt;
-&lt;p&gt;소수점 처리는 특히 금액이나 계산의 정밀도가 중요한 분야에서 필수적입니다. 예를 들어, 금융 서비스나 과학적 계산에서는 소수점 이하의 작은 오차도 큰 문제를 일으킬 수 있습니다. 따라서 decimal 타입을 사용하여 데이터의 정확성을 보장하는 것이 좋습니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;결론&quot;&gt;결론&lt;/h2&gt;
-&lt;p&gt;TypeORM에서 decimal 타입을 사용하는 것은 소수점을 포함한 데이터를 정확하게 처리하고자 할 때 매우 유용합니다. 이는 데이터의 정확성과 일관성을 유지하며, 실수로 인한 오류를 최소화하는 데 도움이 됩니다.&lt;/p&gt;</content><author><name></name></author><category term="typeorm" /><category term="decimal" /><summary type="html">처리를 잘못하면 상수만 표기 됩니다.</summary></entry></feed>
+&lt;p&gt;올해는 잘 마무리 해야겠습니다.&lt;/p&gt;</content><author><name></name></author><category term="회고" /><summary type="html">2021년 말에 입사해서, 2024년도 8월이 되었습니다.</summary></entry></feed>
