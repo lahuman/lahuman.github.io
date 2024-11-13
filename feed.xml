@@ -1,4 +1,205 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2024-11-11T12:16:33+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">오모오모 서비스 종료</title><link href="https://lahuman.github.io/EOS_OMOOMO/" rel="alternate" type="text/html" title="오모오모 서비스 종료" /><published>2024-11-11T00:00:00+00:00</published><updated>2024-11-11T00:00:00+00:00</updated><id>https://lahuman.github.io/EOS_OMOOMO</id><content type="html" xml:base="https://lahuman.github.io/EOS_OMOOMO/">&lt;h1 id=&quot;20241031-오모오모-서비스-종료&quot;&gt;2024.10.31 오모오모 서비스 종료&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2024-11-13T01:30:48+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Care Mate PoC 개발</title><link href="https://lahuman.github.io/care_mate/" rel="alternate" type="text/html" title="Care Mate PoC 개발" /><published>2024-11-13T00:00:00+00:00</published><updated>2024-11-13T00:00:00+00:00</updated><id>https://lahuman.github.io/care_mate</id><content type="html" xml:base="https://lahuman.github.io/care_mate/">&lt;h1 id=&quot;주변-돌발-교통-상황-정보-제공-poc&quot;&gt;주변 돌발 교통 상황 정보 제공 PoC&lt;/h1&gt;
+
+&lt;p&gt;회사에서 진행하는 러닝크루(학습 크루) 에서 동료를 모아 &lt;a href=&quot;https://www.mycaremate.co.kr/&quot;&gt;Care Mate&lt;/a&gt;라는 프로젝트를 진행했습니다.&lt;/p&gt;
+
+&lt;p&gt;프로젝트의 초기 PoC 단계를 빠르게 구현해보았습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/lahuman/traffic-alert&quot;&gt;프로젝트 바로 가기&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://t-a.duckdns.org/&quot;&gt;데모사이트 바로 가기&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;개요&quot;&gt;개요&lt;/h2&gt;
+
+&lt;p&gt;이 프로젝트는 사용자가 지정한 위치 근처의 교통 사고에 대한 알림을 제공하기 위해 설계되었습니다. 시스템은 외부 소스로부터 교통 사고 데이터를 가져와 이를 처리하고, 지리 공간 데이터를 지원하는 PostGIS 확장 기능을 사용하는 PostgreSQL 데이터베이스에 저장합니다. 서버는 이 데이터를 API를 통해 제공하며, 사용자는 근처의 사고를 조회할 수 있습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;주요-기능&quot;&gt;주요 기능&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;실시간 교통 사고 데이터&lt;/strong&gt;: 시스템은 외부 소스로부터 5분마다 교통 사고 데이터를 가져옵니다.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;지리 공간 데이터 처리&lt;/strong&gt;: PostGIS 확장 기능을 사용하는 PostgreSQL을 활용하여 지리 공간 데이터를 저장하고, 근접 기반 검색을 효율적으로 수행할 수 있습니다.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;보안된 API 접근&lt;/strong&gt;: API는 헤더에 &lt;code class=&quot;highlighter-rouge&quot;&gt;authkey&lt;/code&gt;를 요구하며, 이를 통해 인증된 사용자만 교통 데이터를 조회할 수 있습니다.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;도커 기반 설정&lt;/strong&gt;: PostgreSQL과 PostGIS는 Docker를 이용해 컨테이너화되어 있어 배포와 관리가 용이합니다.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;PM2 프로세스 관리&lt;/strong&gt;: 서버와 스케줄링 작업은 PM2로 관리되어 신뢰성 있는 작동과 모니터링이 가능합니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;시스템-구조&quot;&gt;시스템 구조&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Docker&lt;/strong&gt;: PostgreSQL과 PostGIS는 Docker 컨테이너에서 실행되어 일관된 격리 환경을 유지합니다.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Node.js&lt;/strong&gt;: 애플리케이션 백엔드는 Node.js와 Express로 구축되었습니다.
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;index.js&lt;/strong&gt;: 근접 기반의 교통 사고 데이터를 제공하는 API 요청을 처리합니다.&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;schedule.js&lt;/strong&gt;: 5분마다 교통 데이터를 가져와 데이터베이스를 갱신합니다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;PM2&lt;/strong&gt;: Node.js 프로세스를 관리하여 서버(&lt;code class=&quot;highlighter-rouge&quot;&gt;index.js&lt;/code&gt;)와 스케줄러(&lt;code class=&quot;highlighter-rouge&quot;&gt;schedule.js&lt;/code&gt;)가 항상 실행되도록 하고, 장애 발생 시 자동으로 재시작합니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;사전-준비-사항&quot;&gt;사전 준비 사항&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Docker&lt;/li&gt;
+  &lt;li&gt;Node.js&lt;/li&gt;
+  &lt;li&gt;PM2&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;설정-및-설치&quot;&gt;설정 및 설치&lt;/h2&gt;
+
+&lt;h3 id=&quot;1-저장소-클론&quot;&gt;1. 저장소 클론&lt;/h3&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clone https://github.com/lahuman/traffic-alert.git
+&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;traffic-alert
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;2-환경-변수-설정&quot;&gt;2. 환경 변수 설정&lt;/h3&gt;
+
+&lt;p&gt;프로젝트 루트 디렉토리에 &lt;code class=&quot;highlighter-rouge&quot;&gt;_env&lt;/code&gt;를 &lt;code class=&quot;highlighter-rouge&quot;&gt;.env&lt;/code&gt; 파일로 변경하고 다음 변수를 추가합니다:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;DB_HOST&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;your_postgres_host
+&lt;span class=&quot;nv&quot;&gt;DB_PORT&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;your_postgres_port
+&lt;span class=&quot;nv&quot;&gt;DB_DB&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;your_database_name
+&lt;span class=&quot;nv&quot;&gt;DB_USER&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;your_database_user
+&lt;span class=&quot;nv&quot;&gt;DB_PW&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;your_database_password
+&lt;span class=&quot;nv&quot;&gt;TRAFFIC_TOKEN&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;your_traffic_api_token
+&lt;span class=&quot;nv&quot;&gt;WALK_TOKEN&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;your_walk_api_token
+&lt;span class=&quot;nv&quot;&gt;AUTH_KEY&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;your_api_token
+&lt;span class=&quot;c&quot;&gt;# 반경 M 조회 기준&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;WALK_RADIUS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;50
+&lt;span class=&quot;nv&quot;&gt;TRAFFIC_RADIUS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;500
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;3-docker를-이용한-postgresql과-postgis-시작&quot;&gt;3. Docker를 이용한 PostgreSQL과 PostGIS 시작&lt;/h3&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker run &lt;span class=&quot;nt&quot;&gt;--name&lt;/span&gt; some-postgis &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; 5432:5432 &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;POSTGRES_PASSWORD&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;mysecretpassword &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; postgis/postgis
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이 명령어는 PostgreSQL과 PostGIS 컨테이너를 시작합니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;4-nodejs-의존성-설치&quot;&gt;4. Node.js 의존성 설치&lt;/h3&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm install
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;5-데이터베이스-초기화&quot;&gt;5. 데이터베이스 초기화&lt;/h3&gt;
+
+&lt;p&gt;PostgreSQL 컨테이너에 접속하여 PostGIS 확장을 초기화합니다&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;/data/initial.sql&lt;/code&gt; 의 SQL을 실행해서 초기 테이블 구성 및 데이터를 적재합니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;6-애플리케이션-시작&quot;&gt;6. 애플리케이션 시작&lt;/h3&gt;
+
+&lt;p&gt;PM2를 사용하여 서버와 스케줄러를 시작합니다:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pm2 start &lt;span class=&quot;s2&quot;&gt;&quot;npm run start&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--name&lt;/span&gt; traffic-server
+pm2 start &lt;span class=&quot;s2&quot;&gt;&quot;npm run t-schedule&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--name&lt;/span&gt; traffic-scheduler &lt;span class=&quot;nt&quot;&gt;--cron&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;*/5 * * * *&quot;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# 1회만 실행&lt;/span&gt;
+npm run w-schedule
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이 명령은 다음을 시작합니다:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;index.js&lt;/code&gt;: API 요청을 처리하는 서버.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;schedule.js&lt;/code&gt;: 5분마다 교통 데이터를 가져와 갱신하는 스크립트.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;7-애플리케이션-모니터링-및-관리&quot;&gt;7. 애플리케이션 모니터링 및 관리&lt;/h3&gt;
+
+&lt;p&gt;PM2를 사용하여 프로세스를 모니터링하고 관리할 수 있습니다:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pm2 list
+pm2 logs
+pm2 restart traffic-server
+pm2 restart traffic-scheduler
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;사용법&quot;&gt;사용법&lt;/h2&gt;
+
+&lt;h3 id=&quot;api-엔드포인트&quot;&gt;API 엔드포인트&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;GET /traffic-alert?lat={latitude}&amp;amp;lon={longitude}&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;이 엔드포인트는 지정된 위도와 경도 근처의 교통 사고를 반환합니다.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;도로-돌발-상황&quot;&gt;도로 돌발 상황&lt;/h3&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl &lt;span class=&quot;nt&quot;&gt;-X&lt;/span&gt; GET &lt;span class=&quot;s2&quot;&gt;&quot;http://localhost:3000/traffic-alert?lat=37.4959854&amp;amp;lon=126.8879636&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-H&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;authkey: AUTH_KEY&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;응답-예제&quot;&gt;응답 예제&lt;/h4&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;id&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;incident_123&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;address&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Guro-gu, Seoul&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;title&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Traffic accident on the main road&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;type_cd&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;accident&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;sub_cd&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;collision&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;latitude&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;37.4959854&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;longitude&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;126.8879636&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;start_dtm&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2023-09-01 10:00&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;end_dtm&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2023-09-01 12:00&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;update_dtm&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2023-09-01 10:05&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;보행자-사고-다발-지역&quot;&gt;보행자 사고 다발 지역&lt;/h3&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl &lt;span class=&quot;nt&quot;&gt;-X&lt;/span&gt; GET &lt;span class=&quot;s2&quot;&gt;&quot;http://localhost:3000/traffic-alert?lat=37.4959854&amp;amp;lon=126.8879636&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-H&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;authkey: AUTH_KEY&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;응답-예제-1&quot;&gt;응답 예제&lt;/h4&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;distance&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;id&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;6779261&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;address&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;서울특별시 강남구 청담동(강남구청역사거리 부근)&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;year&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2021&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;occxrrnc_cnt&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;latitude&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;37.517132005639&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;longitude&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;127.040862919289&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;reg_dtm&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2024-09-02T21:11:22.537Z&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;지도로-확인하는-특별-교통-정보&quot;&gt;지도로 확인하는 특별 교통 정보&lt;/h3&gt;
+
+&lt;p&gt;API 서버 실행 후, &lt;code class=&quot;highlighter-rouge&quot;&gt;http://localhost:3000/map&lt;/code&gt; 으로 접근하면 아래와 같은 지도를 확인 할 수 있습니다&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/screenshot.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;지도 중심에서 5KM 반경으로 특별 교통 정보를 표기 합니다. 반경은 원으로 표기 하여 알 수 있게 합니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;데모-사이트-접근&quot;&gt;데모 사이트 접근&lt;/h2&gt;
+
+&lt;p&gt;https://t-a.duckdns.org/&lt;/p&gt;
+
+&lt;h2 id=&quot;기여하기&quot;&gt;기여하기&lt;/h2&gt;
+
+&lt;p&gt;이 프로젝트에 기여하고 싶다면, 저장소를 포크한 후 풀 리퀘스트를 제출해주세요. 모든 기여를 환영합니다!&lt;/p&gt;
+
+&lt;h2 id=&quot;라이선스&quot;&gt;라이선스&lt;/h2&gt;
+
+&lt;p&gt;이 프로젝트는 MIT 라이선스로 라이선스가 부여되어 있습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.utic.go.kr/map/map.do?menu=incident&amp;amp;x=127.028&amp;amp;y=37.263&quot;&gt;도시교통정보센터-돌발정보&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://opendata.koroad.or.kr/api/selectPedstriansDataSet.do&quot;&gt;보행자 사고다발지역 API&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://registry.hub.docker.com/r/postgis/postgis/&quot;&gt;docker-postgis&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/mratanusarkar/NodeJS-ProgressBar&quot;&gt;NodeJS-ProgressBar&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.openstreetmap.org/&quot;&gt;openstreetmap&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://project-osrm.org/&quot;&gt;OSRM&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.data.go.kr/data/15111389/fileData.do?recommendDataYn=Y&quot;&gt;한국문화정보원_전국 반려동물 동반 가능 문화시설 위치 데이터&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="caremate" /><category term="poc" /><summary type="html">돌발 교통 상황, CCTV, 반려견 동반 위치 정보</summary></entry><entry><title type="html">오모오모 서비스 종료</title><link href="https://lahuman.github.io/EOS_OMOOMO/" rel="alternate" type="text/html" title="오모오모 서비스 종료" /><published>2024-11-11T00:00:00+00:00</published><updated>2024-11-11T00:00:00+00:00</updated><id>https://lahuman.github.io/EOS_OMOOMO</id><content type="html" xml:base="https://lahuman.github.io/EOS_OMOOMO/">&lt;h1 id=&quot;20241031-오모오모-서비스-종료&quot;&gt;2024.10.31 오모오모 서비스 종료&lt;/h1&gt;
 
 &lt;h2 id=&quot;이력&quot;&gt;이력&lt;/h2&gt;
 
@@ -630,18 +831,4 @@ sequenceDiagram;
 &lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://netflixtechblog.com/java-21-virtual-threads-dude-wheres-my-lock-3052540e231d&quot;&gt;Java 21 Virtual Threads - Dude, Where’s My Lock?&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="springboot3" /><category term="virtualthread" /><category term="close_wait" /><summary type="html">CLOSE_WAIT가 Thread pool을 가득 채워서 생성됩니다.</summary></entry><entry><title type="html">3년차 회고</title><link href="https://lahuman.github.io/review_last_year/" rel="alternate" type="text/html" title="3년차 회고" /><published>2024-08-08T00:00:00+00:00</published><updated>2024-08-08T00:00:00+00:00</updated><id>https://lahuman.github.io/review_last_year</id><content type="html" xml:base="https://lahuman.github.io/review_last_year/">&lt;h1 id=&quot;3년차-회고&quot;&gt;3년차 회고&lt;/h1&gt;
-
-&lt;p&gt;근래 들은 말은 &lt;code class=&quot;highlighter-rouge&quot;&gt;이젠 적응 했다.&lt;/code&gt; 입니다.&lt;/p&gt;
-
-&lt;p&gt;변화를 이끌고, 새로운 도전을 해보기 위해서 당당(?) 하게 입사하였지만,&lt;/p&gt;
-
-&lt;p&gt;금융권의 무적권법(?)에 멍멍 털리고 적응하고 있습니다.&lt;/p&gt;
-
-&lt;p&gt;이번에 면담에서 많이 적응 한거 같다는 이야기와 적응하지 않았으면 한다는 주문을 받았습니다.&lt;/p&gt;
-
-&lt;p&gt;계속 부딪쳐서 변화를 이끌어 주기를 바라는 내용이었는데,&lt;/p&gt;
-
-&lt;p&gt;살짝 지치네요. 변화를 이끌 연료가 다한 느낌입니다.&lt;/p&gt;
-
-&lt;p&gt;올해는 잘 마무리 해야겠습니다.&lt;/p&gt;</content><author><name></name></author><category term="회고" /><summary type="html">2021년 말에 입사해서, 2024년도 8월이 되었습니다.</summary></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><category term="springboot3" /><category term="virtualthread" /><category term="close_wait" /><summary type="html">CLOSE_WAIT가 Thread pool을 가득 채워서 생성됩니다.</summary></entry></feed>
