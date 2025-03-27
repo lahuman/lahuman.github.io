@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2025-03-27T03:33:32+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">AWS NLB 에서 Preserved Client IP Address 사용시 Nginx 연계 오류</title><link href="https://lahuman.github.io/aws_nlb_nginx_/" rel="alternate" type="text/html" title="AWS NLB 에서 Preserved Client IP Address 사용시 Nginx 연계 오류" /><published>2025-03-26T00:00:00+00:00</published><updated>2025-03-26T00:00:00+00:00</updated><id>https://lahuman.github.io/aws_nlb_nginx_</id><content type="html" xml:base="https://lahuman.github.io/aws_nlb_nginx_/">&lt;h1 id=&quot;aws-nlb-preserve-client-ip와-nginx-연동-삽질기-feat-proxy-protocol&quot;&gt;AWS NLB Preserve Client IP와 Nginx 연동 삽질기 (feat. Proxy Protocol)&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2025-03-27T04:30:39+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">AWS NLB 에서 Preserved Client IP Address 사용시 Nginx 연계 오류</title><link href="https://lahuman.github.io/aws_nlb_nginx_/" rel="alternate" type="text/html" title="AWS NLB 에서 Preserved Client IP Address 사용시 Nginx 연계 오류" /><published>2025-03-26T00:00:00+00:00</published><updated>2025-03-26T00:00:00+00:00</updated><id>https://lahuman.github.io/aws_nlb_nginx_</id><content type="html" xml:base="https://lahuman.github.io/aws_nlb_nginx_/">&lt;h1 id=&quot;aws-nlb-preserve-client-ip와-nginx-연동-삽질기-feat-proxy-protocol&quot;&gt;AWS NLB Preserve Client IP와 Nginx 연동 삽질기 (feat. Proxy Protocol)&lt;/h1&gt;
 
 &lt;p&gt;오늘은 AWS 환경에서 애플리케이션을 운영하며 흔히 만날 수 있는 로드밸런서, 그중에서도 Network Load Balancer(NLB)와 Nginx를 함께 사용할 때 겪었던 &lt;code class=&quot;highlighter-rouge&quot;&gt;Preserve Client IP&lt;/code&gt; 옵션 관련 삽질기를 공유해볼까 합니다. 저와 비슷한 문제로 골머리를 앓았던 분들께 조금이나마 도움이 되기를 바랍니다.&lt;/p&gt;
 
@@ -126,17 +126,48 @@
 &lt;ul&gt;
   &lt;li&gt;&lt;strong&gt;AWS Network Load Balancer - 대상 그룹:&lt;/strong&gt;
     &lt;ul&gt;
-      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Preserve client IP addresses&lt;/code&gt; 설명: &lt;a href=&quot;https://docs.aws.amazon.com/ko_kr/elasticloadbalancing/latest/network/load-balancer-target-groups.html#preserve-client-ip&quot;&gt;https://docs.aws.amazon.com/ko_kr/elasticloadbalancing/latest/network/load-balancer-target-groups.html#preserve-client-ip&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Proxy Protocol&lt;/code&gt; 설명: &lt;a href=&quot;https://docs.aws.amazon.com/ko_kr/elasticloadbalancing/latest/network/load-balancer-target-groups.html#proxy-protocol&quot;&gt;https://docs.aws.amazon.com/ko_kr/elasticloadbalancing/latest/network/load-balancer-target-groups.html#proxy-protocol&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;‘Preserve client IP addresses’ 설명: &lt;a href=&quot;https://docs.aws.amazon.com/ko_kr/elasticloadbalancing/latest/network/load-balancer-target-groups.html#preserve-client-ip&quot;&gt;https://docs.aws.amazon.com/ko_kr/elasticloadbalancing/latest/network/load-balancer-target-groups.html#preserve-client-ip&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;‘Proxy Protocol’ 설명: &lt;a href=&quot;https://docs.aws.amazon.com/ko_kr/elasticloadbalancing/latest/network/load-balancer-target-groups.html#proxy-protocol&quot;&gt;https://docs.aws.amazon.com/ko_kr/elasticloadbalancing/latest/network/load-balancer-target-groups.html#proxy-protocol&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Nginx Documentation:&lt;/strong&gt;
     &lt;ul&gt;
-      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ngx_http_realip_module&lt;/code&gt; (&lt;code class=&quot;highlighter-rouge&quot;&gt;set_real_ip_from&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;real_ip_header&lt;/code&gt;): &lt;a href=&quot;http://nginx.org/en/docs/http/ngx_http_realip_module.html&quot;&gt;http://nginx.org/en/docs/http/ngx_http_realip_module.html&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;listen&lt;/code&gt; 지시어 (&lt;code class=&quot;highlighter-rouge&quot;&gt;proxy_protocol&lt;/code&gt; 파라미터): &lt;a href=&quot;http://nginx.org/en/docs/http/ngx_http_core_module.html#listen&quot;&gt;http://nginx.org/en/docs/http/ngx_http_core_module.html#listen&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;‘ngx_http_realip_module’ (‘set_real_ip_from’, ‘real_ip_header’): &lt;a href=&quot;http://nginx.org/en/docs/http/ngx_http_realip_module.html&quot;&gt;http://nginx.org/en/docs/http/ngx_http_realip_module.html&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;‘listen’ 지시어 (‘proxy_protocol’ 파라미터): &lt;a href=&quot;http://nginx.org/en/docs/http/ngx_http_core_module.html#listen&quot;&gt;http://nginx.org/en/docs/http/ngx_http_core_module.html#listen&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="aws" /><category term="nlb" /><category term="nginx" /><summary type="html">Proxy Protocol 설정으로 client ip 가져오기</summary></entry><entry><title type="html">김프봇 제작하기</title><link href="https://lahuman.github.io/kimpbot/" rel="alternate" type="text/html" title="김프봇 제작하기" /><published>2025-01-30T00:00:00+00:00</published><updated>2025-01-30T00:00:00+00:00</updated><id>https://lahuman.github.io/kimpbot</id><content type="html" xml:base="https://lahuman.github.io/kimpbot/">&lt;h1 id=&quot;김치-프리미엄-알리미-봇--웹-서비스&quot;&gt;김치 프리미엄 알리미 봇 &amp;amp; 웹 서비스&lt;/h1&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="aws" /><category term="nlb" /><category term="nginx" /><summary type="html">Proxy Protocol 설정으로 client ip 가져오기</summary></entry><entry><title type="html">로또 번호 추천 시스템 개발</title><link href="https://lahuman.github.io/lotto_app/" rel="alternate" type="text/html" title="로또 번호 추천 시스템 개발" /><published>2025-03-10T00:00:00+00:00</published><updated>2025-03-10T00:00:00+00:00</updated><id>https://lahuman.github.io/lotto_app</id><content type="html" xml:base="https://lahuman.github.io/lotto_app/">&lt;h1 id=&quot;로또-예측-웹사이트-소개-sveltekit-firebase-그리고-gemini&quot;&gt;로또 예측 웹사이트 소개: SvelteKit, Firebase, 그리고 Gemini&lt;/h1&gt;
+
+&lt;p&gt;로또 예측 웹사이트를 만들어 보았습니다. 개인 플젝으로 진행하는거라 sveltkit을 활용해서 빠르고 쉽게 구축해보았습니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;주요-특징&quot;&gt;주요 특징&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;특징&lt;/th&gt;
+      &lt;th&gt;설명&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;프론트엔드 및 백엔드&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;SvelteKit&lt;/strong&gt;을 사용하여 빠르고 현대적인 사용자 인터페이스와 안정적인 서버 측 기능을 제공합니다.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;로그인 및 데이터베이스&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Firebase&lt;/strong&gt;를 통해 간편한 사용자 인증과 실시간 데이터 관리를 구현했습니다.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;로또 번호 예측&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Google의 Gemini&lt;/strong&gt; 모델을 활용하여 로또 번호를 예측하는 기능을 제공합니다. 최첨단 AI 기술을 통해 사용자는 예측 번호에 대한 새로운 관점을 얻을 수 있습니다.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;https://lotto.freeddns.org/&quot;&gt;웹사이트 주소: https://lotto.freeddns.org/&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;재미로 한번씩 사용해보셔요!&lt;/p&gt;</content><author><name></name></author><category term="lotto" /><category term="svelt" /><category term="web" /><summary type="html">로또 번호를 추천 합니다.</summary></entry><entry><title type="html">김프봇 제작하기</title><link href="https://lahuman.github.io/kimpbot/" rel="alternate" type="text/html" title="김프봇 제작하기" /><published>2025-01-30T00:00:00+00:00</published><updated>2025-01-30T00:00:00+00:00</updated><id>https://lahuman.github.io/kimpbot</id><content type="html" xml:base="https://lahuman.github.io/kimpbot/">&lt;h1 id=&quot;김치-프리미엄-알리미-봇--웹-서비스&quot;&gt;김치 프리미엄 알리미 봇 &amp;amp; 웹 서비스&lt;/h1&gt;
 
 &lt;h1 id=&quot;바로가기&quot;&gt;&lt;a href=&quot;https://kimpbot.duckdns.org/&quot;&gt;바로가기&lt;/a&gt;&lt;/h1&gt;
 
@@ -970,24 +1001,4 @@ zip -r layer_content.zip python
   &lt;li&gt;&lt;a href=&quot;https://docs.spring.io/spring-data/redis/reference/redis/redis-cache.html&quot;&gt;Redis Cache&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://github.com/spring-projects/spring-framework/blob/main/spring-context/src/main/java/org/springframework/cache/interceptor/SimpleKey.java&quot;&gt;spring-framework/spring-context/src/main/java/org/springframework/cache/interceptor/SimpleKey.java&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://jgrammer.tistory.com/entry/Spring-Boot-%EB%A7%8C%EB%A3%8C%EC%8B%9C%EA%B0%84-%EC%84%A4%EC%A0%95%EC%9D%84-%EC%9C%84%ED%95%9C-Redis-Cache-AOP-%EC%9E%91%EC%84%B1&quot;&gt;Spring Boot 캐시 만료시간 설정을 위한 Redis Cache AOP 작성&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="spring" /><category term="cache" /><category term="redis" /><summary type="html">Spring Cache에서 ttl 설정이 어려워 개발했습니다.</summary></entry><entry><title type="html">npm install 시 개발 라이브러리 제외 처리</title><link href="https://lahuman.github.io/npm_instal_without_devDependencies/" rel="alternate" type="text/html" title="npm install 시 개발 라이브러리 제외 처리 " /><published>2024-08-28T00:00:00+00:00</published><updated>2024-08-28T00:00:00+00:00</updated><id>https://lahuman.github.io/npm_instal_without_devDependencies</id><content type="html" xml:base="https://lahuman.github.io/npm_instal_without_devDependencies/">&lt;h1 id=&quot;운영에서-npm-install-시-devdependencies-제외-처리&quot;&gt;운영에서 npm install 시 devDependencies 제외 처리&lt;/h1&gt;
-
-&lt;p&gt;프로덕션 환경에서 애플리케이션을 배포할 때, 불필요한 패키지를 설치하지 않기 위해 npm i –production을 사용합니다. 이는 애플리케이션의 크기를 줄이고, 배포 시간을 단축시키며, 보안상 불필요한 패키지가 포함되지 않도록 하기 위해 유용합니다.&lt;/p&gt;
-
-&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;dependencies&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;express&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;^4.17.1&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;devDependencies&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;nodemon&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;^2.0.7&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;npm i&lt;/code&gt;: express와 nodemon 둘 다 설치됩니다.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;npm i --production&lt;/code&gt;: express만 설치됩니다. nodemon은 개발 의존성이기 때문에 설치되지 않습니다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;프로덕션 환경에서는 불필요한 코드와 리소스를 줄이고, 보안성을 높이며, 배포 및 실행 속도를 최적화하기 위해 개발 의존성을 설치하지 않습니다.
-이는 전체적인 시스템 성능을 개선하고, 유지 관리의 부담을 줄이는 데 중요한 역할을 합니다&lt;/p&gt;</content><author><name></name></author><category term="npm" /><category term="dependencies" /><summary type="html">불필요한 라이브러리를 설치 하지 않아요!</summary></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><category term="spring" /><category term="cache" /><category term="redis" /><summary type="html">Spring Cache에서 ttl 설정이 어려워 개발했습니다.</summary></entry></feed>
