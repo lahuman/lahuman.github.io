@@ -1,4 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2025-04-13T12:33:12+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">단상</title><link href="https://lahuman.github.io/20250413/" rel="alternate" type="text/html" title="단상" /><published>2025-04-13T00:00:00+00:00</published><updated>2025-04-13T00:00:00+00:00</updated><id>https://lahuman.github.io/20250413</id><content type="html" xml:base="https://lahuman.github.io/20250413/">&lt;h1 id=&quot;시간이-지나-어른이-되면-쉬워질-줄-알았다&quot;&gt;시간이 지나, 어른이 되면 쉬워질 줄 알았다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2025-04-28T05:59:59+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">AWS RDS mysql에 root 권한 처리</title><link href="https://lahuman.github.io/aws_rds_root_role_user/" rel="alternate" type="text/html" title="AWS RDS mysql에 root 권한 처리" /><published>2025-04-28T00:00:00+00:00</published><updated>2025-04-28T00:00:00+00:00</updated><id>https://lahuman.github.io/aws_rds_root_role_user</id><content type="html" xml:base="https://lahuman.github.io/aws_rds_root_role_user/">&lt;h1 id=&quot;mysql을-실행하는-amazon-rds-db-인스턴스에-대해-다른-관리자-사용자를-생성하려면-어떻게-해야-합니까&quot;&gt;MySQL을 실행하는 Amazon RDS DB 인스턴스에 대해 다른 관리자 사용자를 생성하려면 어떻게 해야 합니까?&lt;/h1&gt;
+
+&lt;p&gt;기존에 사용하던 명령어를 이용해서 권한을 줄 경우&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;GRANT ALL PRIVILEGES ON `new_master_user`.* TO 'mysql'@'%' WITH GRANT OPTION;
+Error Code: 1044. Access denied for user 'root'@'%' to database 'mysql' 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;root&lt;/code&gt; 임에도 오류가 발생합니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://repost.aws/ko/knowledge-center/duplicate-master-user-mysql&quot;&gt;MySQL을 실행하는 Amazon RDS DB 인스턴스에 대해 다른 관리자 사용자를 생성하려면 어떻게 해야 합니까?&lt;/a&gt;를 참고해서 확인하면 아래와 같이 명령어를 이용하면 root와 동일한 권한을 가진 계정 생성이 가능합니다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;-- CREATE USER
+Create a user: CREATE USER 'new_master_user'@'%' IDENTIFIED BY 'password';
+
+-- GRANT EVERY ROLES
+GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'new_master_user'@'%' WITH GRANT OPTION;
+
+-- 권한 적용
+FLUSH PRIVILEGES;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;AI도 잘 모르던 부분이네요 ㅎ&lt;/p&gt;
+
+&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://repost.aws/ko/knowledge-center/duplicate-master-user-mysql&quot;&gt;MySQL을 실행하는 Amazon RDS DB 인스턴스에 대해 다른 관리자 사용자를 생성하려면 어떻게 해야 합니까?&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="aws" /><category term="mysql" /><category term="root" /><summary type="html">그냥 mysql 디비 권한을 주면 안되고, 일일이 찍어줘야 함</summary></entry><entry><title type="html">단상</title><link href="https://lahuman.github.io/20250413/" rel="alternate" type="text/html" title="단상" /><published>2025-04-13T00:00:00+00:00</published><updated>2025-04-13T00:00:00+00:00</updated><id>https://lahuman.github.io/20250413</id><content type="html" xml:base="https://lahuman.github.io/20250413/">&lt;h1 id=&quot;시간이-지나-어른이-되면-쉬워질-줄-알았다&quot;&gt;시간이 지나, 어른이 되면 쉬워질 줄 알았다.&lt;/h1&gt;
 
 &lt;p&gt;쉽게 얻은게 없다. 항상 어렵게 힘들게 얻어왔다.&lt;/p&gt;
 
@@ -793,21 +820,4 @@ zip -r layer_content.zip python
 
 &lt;h2 id=&quot;5-결론&quot;&gt;5. 결론&lt;/h2&gt;
 
-&lt;p&gt;Spring 애플리케이션에서 &lt;code class=&quot;highlighter-rouge&quot;&gt;/health&lt;/code&gt;와 같은 경로에 대한 세션 생성을 방지하기 위해서는 필터를 적절히 구성하고, 필요에 따라 Spring Security 설정을 통해 세션 생성을 제어할 수 있습니다. 이 방법을 통해 불필요한 세션 생성을 막아 애플리케이션의 성능을 향상시킬 수 있습니다.&lt;/p&gt;</content><author><name></name></author><category term="session" /><category term="redis" /><category term="spring" /><summary type="html">request.session 사용을 주의 하세요!</summary></entry><entry><title type="html">git push 시 HTTP 400 오류 발생 시 해결 방법</title><link href="https://lahuman.github.io/git_400_error/" rel="alternate" type="text/html" title="git push 시 HTTP 400 오류 발생 시 해결 방법" /><published>2024-09-08T00:00:00+00:00</published><updated>2024-09-08T00:00:00+00:00</updated><id>https://lahuman.github.io/git_400_error</id><content type="html" xml:base="https://lahuman.github.io/git_400_error/">&lt;h1 id=&quot;git-push-시-http-400-오류-발생-시-해결-방법&quot;&gt;git push 시 HTTP 400 오류 발생 시 해결 방법&lt;/h1&gt;
-
-&lt;p&gt;git push 명령을 실행하는 도중 HTTP 400 오류가 발생할 수 있습니다. 이 문제는 종종 대용량 파일을 업로드할 때 발생하는데, Git의 기본 HTTP 포스트 버퍼 크기가 충분하지 않기 때문입니다. 이 문제를 간단히 해결하는 방법을 소개하겠습니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;문제-해결-방법&quot;&gt;문제 해결 방법&lt;/h2&gt;
-&lt;p&gt;이 오류를 해결하기 위해서는 Git의 HTTP 포스트 버퍼 크기를 조정할 필요가 있습니다. 기본적으로 설정된 버퍼 크기는 큰 파일을 처리하기에 부족할 수 있기 때문에, 이를 늘려주는 것이 필요합니다.&lt;/p&gt;
-
-&lt;p&gt;다음 명령어를 사용하여 포스트 버퍼 크기를 150MB로 증가시킬 수 있습니다&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git config &lt;span class=&quot;nt&quot;&gt;--global&lt;/span&gt; http.postBuffer 157286400
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;위 명령어는 HTTP 포스트 버퍼 크기를 150MB (157,286,400 바이트)로 설정합니다. 이를 통해 대용량 파일도 문제없이 처리할 수 있게 됩니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/59282476/error-rpc-failed-curl-92-http-2-stream-0-was-not-closed-cleanly-protocol-erro&quot;&gt;error: RPC failed; curl 92 HTTP/2 stream 0 was not closed cleanly: PROTOCOL_ERROR (err 1)&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="git" /><category term="error" /><summary type="html">error: RPC failed; HTTP 400 curl 22 The requested URL returned error: 400</summary></entry></feed>
+&lt;p&gt;Spring 애플리케이션에서 &lt;code class=&quot;highlighter-rouge&quot;&gt;/health&lt;/code&gt;와 같은 경로에 대한 세션 생성을 방지하기 위해서는 필터를 적절히 구성하고, 필요에 따라 Spring Security 설정을 통해 세션 생성을 제어할 수 있습니다. 이 방법을 통해 불필요한 세션 생성을 막아 애플리케이션의 성능을 향상시킬 수 있습니다.&lt;/p&gt;</content><author><name></name></author><category term="session" /><category term="redis" /><category term="spring" /><summary type="html">request.session 사용을 주의 하세요!</summary></entry></feed>
