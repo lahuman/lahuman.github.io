@@ -1,4 +1,127 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2025-04-28T05:59:59+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">AWS RDS mysql에 root 권한 처리</title><link href="https://lahuman.github.io/aws_rds_root_role_user/" rel="alternate" type="text/html" title="AWS RDS mysql에 root 권한 처리" /><published>2025-04-28T00:00:00+00:00</published><updated>2025-04-28T00:00:00+00:00</updated><id>https://lahuman.github.io/aws_rds_root_role_user</id><content type="html" xml:base="https://lahuman.github.io/aws_rds_root_role_user/">&lt;h1 id=&quot;mysql을-실행하는-amazon-rds-db-인스턴스에-대해-다른-관리자-사용자를-생성하려면-어떻게-해야-합니까&quot;&gt;MySQL을 실행하는 Amazon RDS DB 인스턴스에 대해 다른 관리자 사용자를 생성하려면 어떻게 해야 합니까?&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2025-05-21T00:52:29+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Chrome Extentions 개발기</title><link href="https://lahuman.github.io/chrome-extentions/" rel="alternate" type="text/html" title="Chrome Extentions 개발기" /><published>2025-05-21T00:00:00+00:00</published><updated>2025-05-21T00:00:00+00:00</updated><id>https://lahuman.github.io/chrome-extentions</id><content type="html" xml:base="https://lahuman.github.io/chrome-extentions/">&lt;h1 id=&quot;간단-토글-크롬-확장-프로그램&quot;&gt;&lt;a href=&quot;https://github.com/lahuman/chrome-extensions-example&quot;&gt;간단 토글 크롬 확장 프로그램&lt;/a&gt;&lt;/h1&gt;
+
+&lt;h2 id=&quot;설치-및-시연-영상&quot;&gt;설치 및 시연 영상&lt;/h2&gt;
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/NT-xJ17T7y0&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;이 확장 프로그램은 특정 웹사이트(&lt;code class=&quot;highlighter-rouge&quot;&gt;https://lahuman.github.io/&lt;/code&gt;)에서만 활성화되며, 사용자가 상태를 켜고 끌 수 있는 간단한 기능을 제공합니다. 확장 프로그램이 켜져 있을 때는 해당 웹사이트에서 10초마다 특정 버튼을 클릭하고, 현재 페이지에 상태 표시와 카운트다운을 보여줍니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;소스코드-바로가기&quot;&gt;&lt;a href=&quot;https://github.com/lahuman/chrome-extensions-example&quot;&gt;소스코드 바로가기&lt;/a&gt;&lt;/h2&gt;
+
+&lt;h2 id=&quot;기능&quot;&gt;기능&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;상태 토글:&lt;/strong&gt; 확장 프로그램 아이콘 클릭 시 나타나는 팝업에서 상태를 ‘켜짐’ 또는 ‘꺼짐’으로 변경할 수 있습니다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;특정 사이트에서만 활성화:&lt;/strong&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;https://lahuman.github.io/&lt;/code&gt; 도메인 및 하위 경로에서만 확장 프로그램이 기능합니다. 다른 사이트에서는 기능이 비활성화됩니다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;아이콘 변화:&lt;/strong&gt; 허용된 사이트와 그 외 사이트에서 확장 프로그램 아이콘이 다르게 표시됩니다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;팝업에 현재 URL 표시:&lt;/strong&gt; 허용된 사이트에서 확장 프로그램이 켜져 있을 때, 팝업에 현재 페이지의 전체 주소를 표시합니다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;자동 버튼 클릭 (허용된 사이트, 켜짐 상태 시):&lt;/strong&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;https://lahuman.github.io/&lt;/code&gt; 사이트에서 확장 프로그램이 ‘켜짐’ 상태일 때, 10초마다 미리 정의된 특정 버튼을 자동으로 클릭합니다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;페이지 내 상태 표시 및 카운트다운:&lt;/strong&gt; 확장 프로그램이 ‘켜짐’ 상태일 때, 현재 보고 있는 웹 페이지의 우측 하단에 상태 표시(“확장 프로그램 켜짐 (X초)”)와 다음 클릭까지 남은 카운트다운을 보여줍니다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;카운트다운 초기화:&lt;/strong&gt; 자동 클릭이 발생하거나, 수동으로 특정 버튼이 클릭될 때 카운트다운이 10초부터 다시 시작됩니다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;상태 유지:&lt;/strong&gt; 확장 프로그램의 켜짐/꺼짐 상태는 브라우저를 닫았다 열어도 유지됩니다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;사이트 이탈 시 자동 꺼짐:&lt;/strong&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;https://lahuman.github.io/&lt;/code&gt; 사이트를 벗어나 다른 페이지로 이동하거나 탭을 닫으면 해당 탭의 확장 프로그램 상태가 자동으로 ‘꺼짐’으로 변경되고 자동 클릭 및 카운트다운이 중지됩니다.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;설치-방법-개발자-모드&quot;&gt;설치 방법 (개발자 모드)&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;이 프로젝트의 모든 파일 (&lt;code class=&quot;highlighter-rouge&quot;&gt;manifest.json&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;popup.html&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;popup.css&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;popup.js&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;content.js&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;background.js&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;constants.js&lt;/code&gt; 및 &lt;code class=&quot;highlighter-rouge&quot;&gt;icons&lt;/code&gt; 폴더 내 이미지 파일)을 하나의 폴더에 다운로드합니다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;크롬 브라우저를 엽니다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;주소창에 &lt;code class=&quot;highlighter-rouge&quot;&gt;chrome://extensions&lt;/code&gt;를 입력하고 이동합니다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;페이지 우측 상단의 &lt;strong&gt;‘개발자 모드’&lt;/strong&gt; 토글 스위치를 M니다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;좌측 상단에 나타나는 &lt;strong&gt;‘압축 해제된 확장 프로그램을 로드합니다.’&lt;/strong&gt; 버튼을 클릭합니다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;파일 탐색기에서 1단계에서 다운로드한 폴더를 선택합니다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;확장 프로그램이 성공적으로 로드되면 목록에 나타납니다.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;사용-방법&quot;&gt;사용 방법&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;https://lahuman.github.io/&lt;/code&gt; 사이트로 이동합니다. 확장 프로그램 아이콘이 활성화된 아이콘으로 변경될 것입니다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;확장 프로그램 아이콘을 클릭하여 팝업을 엽니다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;팝업에서 ‘상태 변경’ 버튼을 클릭하여 확장 프로그램 상태를 ‘켜짐’으로 변경합니다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;상태가 ‘켜짐’으로 바뀌면 웹 페이지 우측 하단에 상태 표시와 카운트다운이 나타나고, 10초마다 특정 버튼이 자동으로 클릭됩니다. 팝업에도 현재 페이지 주소가 표시됩니다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;상태를 ‘꺼짐’으로 변경하거나 다른 사이트로 이동하면 자동 클릭과 페이지 내 표시가 중지됩니다.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;파일-구조&quot;&gt;파일 구조&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/ (확장 프로그램 루트 폴더)
+├── manifest.json
+├── popup.html
+├── popup.css
+├── popup.js
+├── content.js
+├── background.js
+├── constants.js
+└── icons/
+    ├── icon16.png
+    ├── icon48.png
+    ├── icon128.png
+    ├── icon16-inactive.png
+    └── icon48-inactive.png
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;설정&quot;&gt;설정&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;constants.js&lt;/code&gt;: 확장 프로그램이 활성화될 웹사이트 주소(&lt;code class=&quot;highlighter-rouge&quot;&gt;ALLOWED_URL&lt;/code&gt;)를 설정할 수 있습니다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;content.js&lt;/code&gt;: 자동 클릭할 버튼의 CSS 선택자(&lt;code class=&quot;highlighter-rouge&quot;&gt;BUTTON_SELECTOR&lt;/code&gt;)를 수정해야 합니다.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;라이선스&quot;&gt;라이선스&lt;/h2&gt;
+
+&lt;p&gt;이 프로젝트는 별도의 라이선스 명시가 없는 경우 표준 MIT 라이선스를 따릅니다. (필요시 라이선스 정보를 추가하세요.)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;참고:&lt;/strong&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;content.js&lt;/code&gt; 파일의 &lt;code class=&quot;highlighter-rouge&quot;&gt;BUTTON_SELECTOR&lt;/code&gt; 상수는 &lt;code class=&quot;highlighter-rouge&quot;&gt;https://lahuman.github.io/&lt;/code&gt; 사이트 내에서 실제로 클릭하려는 버튼의 정확한 CSS 선택자로 &lt;strong&gt;반드시 수정&lt;/strong&gt;해야 합니다.&lt;/p&gt;</content><author><name></name></author><category term="chrome" /><category term="extentions" /><summary type="html">자바스크립트 기반으로 이렇게 간단하게 만들 수 있었네요!</summary></entry><entry><title type="html">AWS RDS mysql에 root 권한 처리</title><link href="https://lahuman.github.io/aws_rds_root_role_user/" rel="alternate" type="text/html" title="AWS RDS mysql에 root 권한 처리" /><published>2025-04-28T00:00:00+00:00</published><updated>2025-04-28T00:00:00+00:00</updated><id>https://lahuman.github.io/aws_rds_root_role_user</id><content type="html" xml:base="https://lahuman.github.io/aws_rds_root_role_user/">&lt;h1 id=&quot;mysql을-실행하는-amazon-rds-db-인스턴스에-대해-다른-관리자-사용자를-생성하려면-어떻게-해야-합니까&quot;&gt;MySQL을 실행하는 Amazon RDS DB 인스턴스에 대해 다른 관리자 사용자를 생성하려면 어떻게 해야 합니까?&lt;/h1&gt;
 
 &lt;p&gt;기존에 사용하던 명령어를 이용해서 권한을 줄 경우&lt;/p&gt;
 
@@ -719,105 +842,4 @@ zip -r layer_content.zip python
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://docs.aws.amazon.com/ko_kr/lambda/latest/dg/python-layers.html&quot;&gt;Python Lambda 함수를 위한 계층 작업&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="python" /><category term="aws" /><category term="layer" /><summary type="html">python layer 만들기 삽질기</summary></entry><entry><title type="html">Spring Session에서 특정 API에 대해 세션 생성 방지하기</title><link href="https://lahuman.github.io/redis_session_ignore_path/" rel="alternate" type="text/html" title="Spring Session에서 특정 API에 대해 세션 생성 방지하기" /><published>2024-09-26T00:00:00+00:00</published><updated>2024-09-26T00:00:00+00:00</updated><id>https://lahuman.github.io/redis_session_ignore_path</id><content type="html" xml:base="https://lahuman.github.io/redis_session_ignore_path/">&lt;h1 id=&quot;spring-session에서-특정-api에-대해-세션-생성-방지하기&quot;&gt;Spring Session에서 특정 API에 대해 세션 생성 방지하기&lt;/h1&gt;
-
-&lt;p&gt;Spring 애플리케이션에서 &lt;code class=&quot;highlighter-rouge&quot;&gt;/health&lt;/code&gt; 같은 특정 API 호출 시 불필요한 세션이 생성되지 않도록 하기 위한 방법을 정리합니다. 주로 &lt;code class=&quot;highlighter-rouge&quot;&gt;SessionRepositoryFilter&lt;/code&gt; 커스터마이징과 필터 추가를 통해 이를 해결할 수 있습니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;1-문제-상황&quot;&gt;1. 문제 상황&lt;/h2&gt;
-
-&lt;p&gt;기본적으로 Spring은 요청이 들어올 때 세션을 자동으로 생성합니다. 그러나 &lt;code class=&quot;highlighter-rouge&quot;&gt;/health&lt;/code&gt;와 같은 단순 API에 대해 세션 생성이 불필요할 수 있습니다. 특정 URL에 대해 세션 생성을 방지하고 싶다면, 이를 명시적으로 처리해야 합니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;2-커스텀-sessionrepositoryfilter-생성&quot;&gt;2. 커스텀 &lt;code class=&quot;highlighter-rouge&quot;&gt;SessionRepositoryFilter&lt;/code&gt; 생성&lt;/h2&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;SessionRepositoryFilter&lt;/code&gt;를 확장하여, 특정 URL에 대해 세션이 생성되지 않도록 하는 필터를 작성할 수 있습니다.&lt;/p&gt;
-
-&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.springframework.session.Session&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.springframework.session.SessionRepository&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.springframework.session.web.http.SessionRepositoryFilter&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;javax.servlet.FilterChain&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;javax.servlet.ServletException&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;javax.servlet.ServletRequest&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;javax.servlet.ServletResponse&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;javax.servlet.http.HttpServletRequest&lt;/span&gt;
-
-&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CustomSessionRepositoryFilter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;S&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Session&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;(&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;sessionRepository&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SessionRepository&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;S&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;,&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;excludedUrls&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;listOf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/health&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;/actuator&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SessionRepositoryFilter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;S&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sessionRepository&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-
-    &lt;span class=&quot;n&quot;&gt;@Throws&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ServletException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;doFilterInternal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ServletRequest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ServletResponse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;chain&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;FilterChain&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;httpRequest&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HttpServletRequest&lt;/span&gt;
-        &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;path&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;httpRequest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;requestURI&lt;/span&gt;
-
-        &lt;span class=&quot;c1&quot;&gt;// 제외할 URL에 대해 세션 생성하지 않음
-&lt;/span&gt;        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;excludedUrls&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;any&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;startsWith&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;it&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;chain&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;doFilter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;k&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;doFilterInternal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;chain&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;위의 코드는 &lt;code class=&quot;highlighter-rouge&quot;&gt;/health&lt;/code&gt;나 &lt;code class=&quot;highlighter-rouge&quot;&gt;/actuator&lt;/code&gt; 경로로 들어오는 요청에 대해 세션을 생성하지 않도록 설정합니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;3-필터를-spring-bean으로-등록&quot;&gt;3. 필터를 Spring Bean으로 등록&lt;/h2&gt;
-
-&lt;p&gt;필터를 빈으로 등록하여 특정 URL에 대한 요청에만 적용되도록 합니다.&lt;/p&gt;
-
-&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.springframework.boot.web.servlet.FilterRegistrationBean&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.springframework.context.annotation.Bean&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.springframework.context.annotation.Configuration&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.springframework.core.Ordered&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.springframework.session.Session&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.springframework.session.SessionRepository&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.springframework.session.web.http.SessionRepositoryFilter&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;@Configuration&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;SessionFilterConfig&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-
-    &lt;span class=&quot;n&quot;&gt;@Bean&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;sessionFilter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sessionRepository&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SessionRepository&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;*&amp;gt;):&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;FilterRegistrationBean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SessionRepositoryFilter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;*&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;filter&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CustomSessionRepositoryFilter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sessionRepository&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;registration&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;FilterRegistrationBean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SessionRepositoryFilter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;*&amp;gt;&amp;gt;()&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;registration&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;filter&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;filter&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;registration&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;order&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Ordered&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;HIGHEST_PRECEDENCE&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;registration&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;addUrlPatterns&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/*&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;registration&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;4-세션-생성-여부-확인&quot;&gt;4. 세션 생성 여부 확인&lt;/h2&gt;
-
-&lt;h3 id=&quot;일반적으로-사용하는-requestsession-을-사용할-경우-getsession이-호출되어-세션이-없을-경우-새로-생성하게-됩니다&quot;&gt;일반적으로 사용하는 request.session 을 사용할 경우 getSession()이 호출되어 세션이 없을 경우 새로 생성하게 됩니다.&lt;/h3&gt;
-
-&lt;p&gt;세션이 실제로 생성되었는지 여부를 확인하려면, &lt;code class=&quot;highlighter-rouge&quot;&gt;HttpServletRequest.getSession(false)&lt;/code&gt;를 사용하여 세션이 존재하는지 확인할 수 있습니다.&lt;/p&gt;
-
-&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.springframework.web.bind.annotation.GetMapping&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.springframework.web.bind.annotation.RequestMapping&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.springframework.web.bind.annotation.RestController&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;javax.servlet.http.HttpServletRequest&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;@RestController&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;@RequestMapping&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/session-test&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;SessionController&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-
-    &lt;span class=&quot;n&quot;&gt;@GetMapping&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/check&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;checkSession&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HttpServletRequest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;session&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getSession&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// 세션이 없으면 새로 생성하지 않음
-&lt;/span&gt;        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;session&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;s&quot;&gt;&quot;Session not created&quot;&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;s&quot;&gt;&quot;Session exists: ${session.id}&quot;&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;이 코드는 &lt;code class=&quot;highlighter-rouge&quot;&gt;/session-test/check&lt;/code&gt;로 요청 시, 세션이 이미 존재하는지 여부를 확인해줍니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;5-결론&quot;&gt;5. 결론&lt;/h2&gt;
-
-&lt;p&gt;Spring 애플리케이션에서 &lt;code class=&quot;highlighter-rouge&quot;&gt;/health&lt;/code&gt;와 같은 경로에 대한 세션 생성을 방지하기 위해서는 필터를 적절히 구성하고, 필요에 따라 Spring Security 설정을 통해 세션 생성을 제어할 수 있습니다. 이 방법을 통해 불필요한 세션 생성을 막아 애플리케이션의 성능을 향상시킬 수 있습니다.&lt;/p&gt;</content><author><name></name></author><category term="session" /><category term="redis" /><category term="spring" /><summary type="html">request.session 사용을 주의 하세요!</summary></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><category term="python" /><category term="aws" /><category term="layer" /><summary type="html">python layer 만들기 삽질기</summary></entry></feed>
