@@ -1,4 +1,181 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2025-05-21T00:52:29+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Chrome Extentions 개발기</title><link href="https://lahuman.github.io/chrome-extentions/" rel="alternate" type="text/html" title="Chrome Extentions 개발기" /><published>2025-05-21T00:00:00+00:00</published><updated>2025-05-21T00:00:00+00:00</updated><id>https://lahuman.github.io/chrome-extentions</id><content type="html" xml:base="https://lahuman.github.io/chrome-extentions/">&lt;h1 id=&quot;간단-토글-크롬-확장-프로그램&quot;&gt;&lt;a href=&quot;https://github.com/lahuman/chrome-extensions-example&quot;&gt;간단 토글 크롬 확장 프로그램&lt;/a&gt;&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2025-06-11T09:02:39+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">InkPad :: 웹 기반 그림판판</title><link href="https://lahuman.github.io/inkPad/" rel="alternate" type="text/html" title="InkPad :: 웹 기반 그림판판" /><published>2025-06-11T00:00:00+00:00</published><updated>2025-06-11T00:00:00+00:00</updated><id>https://lahuman.github.io/inkPad</id><content type="html" xml:base="https://lahuman.github.io/inkPad/">&lt;h1 id=&quot;모바일-그림판-및-갤러리-웹-애플리케이션&quot;&gt;모바일 그림판 및 갤러리 웹 애플리케이션&lt;/h1&gt;
+
+&lt;h2 id=&quot;바로가기&quot;&gt;&lt;a href=&quot;https://inkpad.giize.com&quot;&gt;바로가기&lt;/a&gt;&lt;/h2&gt;
+
+&lt;h2 id=&quot;1-프로젝트-개요&quot;&gt;1. 프로젝트 개요&lt;/h2&gt;
+
+&lt;p&gt;본 프로젝트는 웹 기반의 그림판 애플리케이션으로, 사용자가 그림을 그리고 이를 서버에 저장, 수정, 삭제할 수 있는 기능을 제공합니다. 
+또한, 저장된 그림들을 갤러리 형태로 목록을 보고, 특정 그림을 선택하여 크게 볼 수 있는 기능을 포함합니다. 
+모바일 친화적인 반응형 디자인과 함께 현대적인 UI/UX를 지향합니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;2-주요-기능&quot;&gt;2. 주요 기능&lt;/h2&gt;
+
+&lt;h3 id=&quot;21-그림판&quot;&gt;2.1. 그림판&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;드로잉 도구&lt;/strong&gt;: 펜, 지우개 기본 도구 제공.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;도구 옵션&lt;/strong&gt;: 선 색상 변경 (컬러 피커), 선 굵기 조절 (슬라이더).&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;캔버스 액션&lt;/strong&gt;: 실행 취소 (Undo), 다시 실행 (Redo), 캔버스 전체 지우기.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;고해상도 지원&lt;/strong&gt;: 내부 캔버스 해상도 1000x1000 픽셀로 설정하여 그림 품질 향상.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;서버 연동&lt;/strong&gt;:
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;새 그림 저장&lt;/strong&gt;: 그림 제목 입력 후 이미지(PNG)와 압축된 그림 데이터(gzipped JSON)를 서버에 &lt;code class=&quot;highlighter-rouge&quot;&gt;POST&lt;/code&gt; 요청으로 저장. 성공 시 &lt;code class=&quot;highlighter-rouge&quot;&gt;mainUuid&lt;/code&gt;를 클립보드에 복사하고 메시지로 ID 안내.&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;기존 그림 수정&lt;/strong&gt;: 로드된 그림 수정 후 &lt;code class=&quot;highlighter-rouge&quot;&gt;PUT&lt;/code&gt; 요청으로 서버에 업데이트.&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;그림 삭제&lt;/strong&gt;: &lt;code class=&quot;highlighter-rouge&quot;&gt;DELETE&lt;/code&gt; 요청으로 서버에서 현재 그림 삭제 후 갤러리 페이지로 이동.&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;ID로 불러오기&lt;/strong&gt;: &lt;code class=&quot;highlighter-rouge&quot;&gt;mainUuid&lt;/code&gt;를 직접 입력하여 특정 그림을 서버에서 불러와 편집.&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;URL 연동&lt;/strong&gt;: URL 파라미터 (&lt;code class=&quot;highlighter-rouge&quot;&gt;?mainUuid=...&lt;/code&gt;)를 통해 특정 그림을 로드하여 편집 가능. 저장/로드 시 URL 업데이트.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;로컬 파일 기능&lt;/strong&gt;:
+    &lt;ul&gt;
+      &lt;li&gt;현재 그림을 로컬 PNG 이미지 파일로 저장.&lt;/li&gt;
+      &lt;li&gt;로컬의 &lt;code class=&quot;highlighter-rouge&quot;&gt;.json&lt;/code&gt; 또는 &lt;code class=&quot;highlighter-rouge&quot;&gt;.drawing.gz&lt;/code&gt; 파일을 불러와 그림판에 로드 (서버 연동 해제).&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;사용자 경험&lt;/strong&gt;:
+    &lt;ul&gt;
+      &lt;li&gt;터치 인터페이스 지원 및 모바일 반응형 디자인.&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;user-scalable=no&lt;/code&gt; 및 &lt;code class=&quot;highlighter-rouge&quot;&gt;overscroll-behavior: none&lt;/code&gt; 등으로 모바일 드로잉 경험 최적화.&lt;/li&gt;
+      &lt;li&gt;키보드 단축키 지원 (Ctrl+Z, Ctrl+Y, Ctrl+S).&lt;/li&gt;
+      &lt;li&gt;상태 메시지 시스템 (성공, 오류, 정보 알림).&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;localStorage&lt;/code&gt;를 사용하여 사용자가 관리하는 그림 정보 (ID, 이름 등) 일부 저장.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;22-갤러리&quot;&gt;2.2. 갤러리&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;그림 목록 표시&lt;/strong&gt;: 저장된 그림들을 카드 형태로 표시 (이미지, 제목, 생성 날짜).&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;무한 스크롤&lt;/strong&gt;: 스크롤 시 다음 그림 목록을 10~12개씩 동적으로 로드.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;초기 화면 채우기&lt;/strong&gt;: PC 화면에서는 처음 로드 시 화면 높이를 채울 만큼의 그림을 미리 로드.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;그림 보기 연동&lt;/strong&gt;: 각 그림 카드를 클릭하면 &lt;code class=&quot;highlighter-rouge&quot;&gt;view.html&lt;/code&gt;로 이동하여 해당 그림의 상세 정보(이미지 URL, 제목, 날짜)를 전달.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;ID로 그림 열기&lt;/strong&gt;: 헤더의 “ID로 불러오기” 버튼을 통해 &lt;code class=&quot;highlighter-rouge&quot;&gt;mainUuid&lt;/code&gt;를 입력받아 &lt;code class=&quot;highlighter-rouge&quot;&gt;draw.html&lt;/code&gt;에서 해당 그림을 바로 열 수 있도록 링크.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;새 그림 작성 링크&lt;/strong&gt;: “새 그림” 버튼을 통해 &lt;code class=&quot;highlighter-rouge&quot;&gt;draw.html&lt;/code&gt;로 이동.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;23-그림-상세-보기&quot;&gt;2.3. 그림 상세 보기&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;갤러리에서 선택한 그림을 큰 이미지로 표시.&lt;/li&gt;
+  &lt;li&gt;그림 제목 및 생성 날짜 정보 제공.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;URL 공유&lt;/strong&gt;: “공유하기” 버튼 클릭 시 현재 페이지의 URL(이미지 경로에 &lt;code class=&quot;highlighter-rouge&quot;&gt;publicId&lt;/code&gt; 사용, &lt;code class=&quot;highlighter-rouge&quot;&gt;mainUuid&lt;/code&gt; 미노출)을 클립보드에 복사.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;constants.js&lt;/code&gt;를 사용하여 이미지 기본 경로 관리.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;24-서버&quot;&gt;2.4. 서버&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;API 제공&lt;/strong&gt;:
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;POST /api/drawings&lt;/code&gt;: 새 그림 저장 (이미지 + 압축된 JSON 데이터). &lt;code class=&quot;highlighter-rouge&quot;&gt;mainUuid&lt;/code&gt; 및 &lt;code class=&quot;highlighter-rouge&quot;&gt;publicId&lt;/code&gt; 생성.&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;GET /api/drawings&lt;/code&gt;: 그림 목록 조회 (페이지네이션 지원: &lt;code class=&quot;highlighter-rouge&quot;&gt;page&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;limit&lt;/code&gt; 파라미터). 각 항목에 &lt;code class=&quot;highlighter-rouge&quot;&gt;publicId&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;yearMonth&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;displayName&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;imageUrl&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;createdAt&lt;/code&gt; 포함.&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;GET /api/drawings/:mainUuid/json&lt;/code&gt;: 특정 그림의 JSON 데이터 조회.&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;PUT /api/drawings/:mainUuid&lt;/code&gt;: 기존 그림 업데이트.&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;DELETE /api/drawings/:mainUuid&lt;/code&gt;: 특정 그림 삭제.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;데이터 저장&lt;/strong&gt;:
+    &lt;ul&gt;
+      &lt;li&gt;드로잉 데이터(메타데이터)는 &lt;code class=&quot;highlighter-rouge&quot;&gt;uploads/db.json&lt;/code&gt; 파일에 LowDB를 사용하여 관리.&lt;/li&gt;
+      &lt;li&gt;실제 파일 저장 구조:
+        &lt;ul&gt;
+          &lt;li&gt;이미지: &lt;code class=&quot;highlighter-rouge&quot;&gt;uploads/images/YYYY.MM/publicId.png&lt;/code&gt;&lt;/li&gt;
+          &lt;li&gt;그림 데이터: &lt;code class=&quot;highlighter-rouge&quot;&gt;uploads/json/YYYY.MM/mainUuid.drawing.gz&lt;/code&gt; (또는 &lt;code class=&quot;highlighter-rouge&quot;&gt;.json&lt;/code&gt;)&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;정적 파일 서비스&lt;/strong&gt;: 업로드된 이미지 및 &lt;code class=&quot;highlighter-rouge&quot;&gt;public&lt;/code&gt; 폴더 내 정적 에셋(HTML, JS, CSS) 제공.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;3-기술-스택&quot;&gt;3. 기술 스택&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;프론트엔드&lt;/strong&gt;:
+    &lt;ul&gt;
+      &lt;li&gt;HTML5, CSS3, JavaScript (ES6+)&lt;/li&gt;
+      &lt;li&gt;Tailwind CSS (CDN 및 &lt;code class=&quot;highlighter-rouge&quot;&gt;custom-styles.css&lt;/code&gt; 사용)&lt;/li&gt;
+      &lt;li&gt;Pako.js (데이터 압축/해제)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;백엔드&lt;/strong&gt;:
+    &lt;ul&gt;
+      &lt;li&gt;Node.js&lt;/li&gt;
+      &lt;li&gt;Express.js&lt;/li&gt;
+      &lt;li&gt;LowDB (JSON 파일 기반 데이터베이스)&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;fs-extra&lt;/code&gt; (파일 시스템 작업)&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;uuid&lt;/code&gt; (고유 ID 생성)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;폰트&lt;/strong&gt;: Google Fonts (Inter)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;4-프로젝트-파일-구조-주요-파일&quot;&gt;4. 프로젝트 파일 구조 (주요 파일)&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;├── server.js               # 메인 서버 파일
+├── package.json
+├── package-lock.json
+├── public/                 # 클라이언트 사이드 정적 파일
+│   ├── js/          # 메인 페이지
+│   │   ├── draw.js             # 그림판 페이지 스크립트
+│   │   ├── list.js             # 갤러리 페이지 스크립트
+│   │   ├── view.js             # 그림 상세 보기 스크립트
+│   │   └── constants.js        # 공통 상수 (예: 이미지 경로)
+|   ├── css/         # 메인 페이지
+│   │    └── custom-styles.css   # 추가 사용자 정의 CSS
+│   ├── draw.html           # 그림판 페이지
+│   ├── list.html           # 갤러리 목록 페이지
+│   └── view.html           # 그림 상세 보기 페이지
+├── uploads/                # 서버 업로드 파일 및 데이터베이스
+│    ├── images/             # 이미지 저장 디렉토리
+│         └── YYYY.MM/        # 연도.월별 하위 디렉토리
+│               └── publicId.png
+│    ├── json/               # 그림 데이터(JSON) 저장 디렉토리
+│    └── YYYY.MM/        # 연도.월별 하위 디렉토리
+│         └── mainUuid.drawing.gz
+└── db.json             # LowDB 데이터베이스 파일 (드로잉 메타데이터)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;5-설정-및-실행-방법&quot;&gt;5. 설정 및 실행 방법&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;프로젝트 클론 및 의존성 설치&lt;/strong&gt;:
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clone &amp;lt;repository-url&amp;gt;
+&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; &amp;lt;project-directory&amp;gt;
+npm install
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;서버 실행&lt;/strong&gt;:
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;node server.js
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;서버는 기본적으로 &lt;code class=&quot;highlighter-rouge&quot;&gt;http://localhost:3000&lt;/code&gt; 에서 실행됩니다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;애플리케이션 접속&lt;/strong&gt;:
+    &lt;ul&gt;
+      &lt;li&gt;그림판: &lt;code class=&quot;highlighter-rouge&quot;&gt;http://localhost:3000/draw.html&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;갤러리: &lt;code class=&quot;highlighter-rouge&quot;&gt;http://localhost:3000/gallery&lt;/code&gt; (또는 &lt;code class=&quot;highlighter-rouge&quot;&gt;list.html&lt;/code&gt; 직접 접근)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;6-주요-api-엔드포인트&quot;&gt;6. 주요 API 엔드포인트&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;POST /api/drawings&lt;/code&gt;: 새 그림 저장.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;GET /api/drawings&lt;/code&gt;: 그림 목록 조회 (페이지네이션: &lt;code class=&quot;highlighter-rouge&quot;&gt;?page=1&amp;amp;limit=10&lt;/code&gt;).&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;GET /api/drawings/:mainUuid/json&lt;/code&gt;: 특정 그림 데이터(JSON) 조회.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;PUT /api/drawings/:mainUuid&lt;/code&gt;: 기존 그림 업데이트.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;DELETE /api/drawings/:mainUuid&lt;/code&gt;: 특정 그림 삭제.&lt;/li&gt;
+  &lt;li&gt;정적 이미지 제공: &lt;code class=&quot;highlighter-rouge&quot;&gt;/uploads/images/YYYY.MM/publicId.png&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;7-향후-개선-사항-선택적&quot;&gt;7. 향후 개선 사항 (선택적)&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;그림판 기능 확장 (다양한 브러시, 도형, 텍스트 입력 등).&lt;/li&gt;
+  &lt;li&gt;서버 사이드 이미지 리사이징 및 썸네일 생성.&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="inkpad" /><category term="drawing" /><summary type="html">개발은 AI가 하고 기획만 했습니다.</summary></entry><entry><title type="html">Chrome Extentions 개발기</title><link href="https://lahuman.github.io/chrome-extentions/" rel="alternate" type="text/html" title="Chrome Extentions 개발기" /><published>2025-05-21T00:00:00+00:00</published><updated>2025-05-21T00:00:00+00:00</updated><id>https://lahuman.github.io/chrome-extentions</id><content type="html" xml:base="https://lahuman.github.io/chrome-extentions/">&lt;h1 id=&quot;간단-토글-크롬-확장-프로그램&quot;&gt;&lt;a href=&quot;https://github.com/lahuman/chrome-extensions-example&quot;&gt;간단 토글 크롬 확장 프로그램&lt;/a&gt;&lt;/h1&gt;
 
 &lt;h2 id=&quot;설치-및-시연-영상&quot;&gt;설치 및 시연 영상&lt;/h2&gt;
 
@@ -722,124 +899,4 @@ pm2 restart traffic-scheduler
 
 &lt;p&gt;&lt;img src=&quot;/assets/img/post_img/omoomo_3.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/omoomo_4.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;</content><author><name></name></author><category term="omoomo" /><category term="EOS" /><summary type="html">2년 6개월간의 서비스 실패기</summary></entry><entry><title type="html">AWS Lambda에서 oracle 에 접근하기 위한 python layer 만들기!</title><link href="https://lahuman.github.io/aws_lambda_oracledb_layer/" rel="alternate" type="text/html" title="AWS Lambda에서 oracle 에 접근하기 위한 python layer 만들기!" /><published>2024-09-27T00:00:00+00:00</published><updated>2024-09-27T00:00:00+00:00</updated><id>https://lahuman.github.io/aws_lambda_oracledb_layer</id><content type="html" xml:base="https://lahuman.github.io/aws_lambda_oracledb_layer/">&lt;h1 id=&quot;aws-lambda에서-oracle에-접근하기-위한-python-layer-만들기&quot;&gt;AWS Lambda에서 Oracle에 접근하기 위한 Python Layer 만들기&lt;/h1&gt;
-
-&lt;p&gt;AWS Lambda 함수에서 Oracle 데이터베이스에 접근하려면 &lt;code class=&quot;highlighter-rouge&quot;&gt;oracledb&lt;/code&gt; 모듈을 사용해야 합니다. 하지만 이 모듈을 Lambda에서 사용하기 위해서는 Layer를 만들어야 합니다. 이번 포스팅에서는 AWS Lambda에서 Oracle에 접근하기 위한 Python Layer를 만드는 방법과 발생할 수 있는 오류 및 해결 방법을 소개합니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;문제-상황&quot;&gt;문제 상황&lt;/h2&gt;
-
-&lt;p&gt;AWS Lambda 함수에서 &lt;code class=&quot;highlighter-rouge&quot;&gt;oracledb&lt;/code&gt; 모듈을 사용하기 위해 Layer를 생성하고 함수를 실행했을 때, 다음과 같은 오류가 발생했습니다.&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;ERROR] Runtime.ImportModuleError: Unable to import module &lt;span class=&quot;s1&quot;&gt;'lambda_function'&lt;/span&gt;: cannot import name &lt;span class=&quot;s1&quot;&gt;'base_impl'&lt;/span&gt; from partially initialized module &lt;span class=&quot;s1&quot;&gt;'oracledb'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;most likely due to a circular import&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;/opt/python/lib/python3.11/site-packages/oracledb/__init__.py&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-Traceback &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;most recent call last&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;:INIT_REPORT Init Duration: 93.00 ms	Phase: init	Status: error	Error Type: Runtime.Unknown
-&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;ERROR] Runtime.ImportModuleError: Unable to import module &lt;span class=&quot;s1&quot;&gt;'lambda_function'&lt;/span&gt;: cannot import name &lt;span class=&quot;s1&quot;&gt;'base_impl'&lt;/span&gt; from partially initialized module &lt;span class=&quot;s1&quot;&gt;'oracledb'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;most likely due to a circular import&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;/opt/python/lib/python3.11/site-packages/oracledb/__init__.py&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-Traceback &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;most recent call last&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;:INIT_REPORT Init Duration: 1363.42 ms	Phase: invoke	Status: error	Error Type: Runtime.Unknown
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;오류의 원인은 레이어에 가상 환경을 구성하는 pip 와 같은 모듈이 섞여 발생하는 문제였습니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;layer-생성-방법&quot;&gt;Layer 생성 방법&lt;/h2&gt;
-
-&lt;p&gt;AWS Lambda에서 Python 함수용 Layer를 생성하기 위해 AWS 공식 문서인 &lt;a href=&quot;https://docs.aws.amazon.com/ko_kr/lambda/latest/dg/python-layers.html&quot;&gt;Python Lambda 함수를 위한 계층 작업&lt;/a&gt;을 참고하여 다음과 같이 Layer를 생성했습니다.&lt;/p&gt;
-
-&lt;h3 id=&quot;1-가상-환경-생성-및-패키지-설치&quot;&gt;1. 가상 환경 생성 및 패키지 설치&lt;/h3&gt;
-
-&lt;p&gt;먼저, Python 3.11 버전의 가상 환경을 생성하고 필요한 패키지를 설치합니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;requirements.txt&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;oracledb
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;1-install.sh&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python3.11 &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt; venv create_layer
-&lt;span class=&quot;nb&quot;&gt;source &lt;/span&gt;create_layer/bin/activate
-pip install &lt;span class=&quot;nt&quot;&gt;-r&lt;/span&gt; requirements.txt &lt;span class=&quot;nt&quot;&gt;--platform&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;manylinux2014_x86_64 &lt;span class=&quot;nt&quot;&gt;--only-binary&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;:all: &lt;span class=&quot;nt&quot;&gt;--target&lt;/span&gt; ./create_layer/lib/python3.11/site-packages
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;2-layer-패키징&quot;&gt;2. Layer 패키징&lt;/h3&gt;
-
-&lt;p&gt;&lt;strong&gt;2-package.sh&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mkdir python
-cp &lt;span class=&quot;nt&quot;&gt;-r&lt;/span&gt; create_layer/lib python/
-zip &lt;span class=&quot;nt&quot;&gt;-r&lt;/span&gt; layer_content.zip python
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;lambda-함수-코드&quot;&gt;Lambda 함수 코드&lt;/h2&gt;
-
-&lt;p&gt;Lambda 함수에서는 &lt;code class=&quot;highlighter-rouge&quot;&gt;oracledb&lt;/code&gt; 모듈을 임포트하여 사용합니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;lambda_function.py&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;lambda_handler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;try&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;oracledb&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Successfully imported oracledb&quot;&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;except&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Exception&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;오류-발생&quot;&gt;오류 발생&lt;/h2&gt;
-
-&lt;p&gt;위와 같이 Layer를 생성하고 Lambda 함수를 실행했을 때, 앞서 언급한 오류가 발생했습니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;원인-분석&quot;&gt;원인 분석&lt;/h2&gt;
-
-&lt;p&gt;오류 메시지를 보면 &lt;code class=&quot;highlighter-rouge&quot;&gt;oracledb&lt;/code&gt; 모듈에서 &lt;code class=&quot;highlighter-rouge&quot;&gt;base_impl&lt;/code&gt;을 임포트할 수 없다는 내용과 순환 임포트(circular import)가 원인일 수 있다는 힌트를 제공합니다.&lt;/p&gt;
-
-&lt;p&gt;Layer를 생성할 때 가상 환경을 생성하면서 기본적으로 설치되는 &lt;code class=&quot;highlighter-rouge&quot;&gt;pip&lt;/code&gt; 등의 모듈이 함께 포함되어 &lt;code class=&quot;highlighter-rouge&quot;&gt;oracledb&lt;/code&gt; 모듈과 충돌이 발생한 것입니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;해결-방법&quot;&gt;해결 방법&lt;/h2&gt;
-
-&lt;p&gt;가상 환경에서 기본적으로 생성되는 불필요한 모듈들을 제외하고, 필요한 패키지만 Layer에 포함하도록 스크립트를 수정했습니다.&lt;/p&gt;
-
-&lt;h3 id=&quot;수정된-layer-생성-스크립트&quot;&gt;수정된 Layer 생성 스크립트&lt;/h3&gt;
-
-&lt;p&gt;&lt;strong&gt;1-install.sh&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python3.11 &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt; venv create_layer
-&lt;span class=&quot;nb&quot;&gt;source &lt;/span&gt;create_layer/bin/activate
-pip install &lt;span class=&quot;nt&quot;&gt;-r&lt;/span&gt; requirements.txt &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;--platform&lt;/span&gt; manylinux2014_x86_64 &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;--target&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;./src &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;--implementation&lt;/span&gt; cp &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;--python-version&lt;/span&gt; 3.11 &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;--only-binary&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;:all: 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;--target=./src&lt;/code&gt; 옵션을 사용하여 필요한 패키지만 &lt;code class=&quot;highlighter-rouge&quot;&gt;src&lt;/code&gt; 디렉토리에 설치합니다.&lt;/li&gt;
-  &lt;li&gt;가상 환경의 기본 모듈들과 분리하여 충돌을 방지합니다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;2-package.sh&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mkdir -p python/lib/python3.11/site-packages
-cp -r src/ python/lib/python3.11/site-packages/
-zip -r layer_content.zip python
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;src&lt;/code&gt; 디렉토리에 설치된 패키지들을 Layer의 &lt;code class=&quot;highlighter-rouge&quot;&gt;site-packages&lt;/code&gt; 디렉토리로 복사합니다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;결과-확인&quot;&gt;결과 확인&lt;/h2&gt;
-
-&lt;p&gt;수정된 Layer를 적용하여 Lambda 함수를 실행하면 &lt;code class=&quot;highlighter-rouge&quot;&gt;oracledb&lt;/code&gt; 모듈이 성공적으로 임포트됩니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&quot;Successfully imported oracledb&quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;결론&quot;&gt;결론&lt;/h2&gt;
-
-&lt;p&gt;AWS Lambda에서 Oracle에 접근하기 위한 Python Layer를 생성할 때, 가상 환경의 기본 모듈들과의 충돌로 인해 발생하는 오류를 해결하기 위해 필요한 패키지만 Layer에 포함시켰습니다. 이를 통해 &lt;code class=&quot;highlighter-rouge&quot;&gt;oracledb&lt;/code&gt; 모듈을 성공적으로 임포트하고 Oracle 데이터베이스에 접근할 수 있었습니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://docs.aws.amazon.com/ko_kr/lambda/latest/dg/python-layers.html&quot;&gt;Python Lambda 함수를 위한 계층 작업&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="python" /><category term="aws" /><category term="layer" /><summary type="html">python layer 만들기 삽질기</summary></entry></feed>
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/omoomo_4.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;</content><author><name></name></author><category term="omoomo" /><category term="EOS" /><summary type="html">2년 6개월간의 서비스 실패기</summary></entry></feed>
