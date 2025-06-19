@@ -1,4 +1,25 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2025-06-18T23:30:43+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">InkPad :: 웹 기반 그림판판</title><link href="https://lahuman.github.io/inkPad/" rel="alternate" type="text/html" title="InkPad :: 웹 기반 그림판판" /><published>2025-06-11T00:00:00+00:00</published><updated>2025-06-11T00:00:00+00:00</updated><id>https://lahuman.github.io/inkPad</id><content type="html" xml:base="https://lahuman.github.io/inkPad/">&lt;h1 id=&quot;모바일-그림판-및-갤러리-웹-애플리케이션&quot;&gt;모바일 그림판 및 갤러리 웹 애플리케이션&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2025-06-19T11:01:14+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">요즘은 inkPad를 사용해서 손글씨 작성중입니다.</title><link href="https://lahuman.github.io/20250619/" rel="alternate" type="text/html" title="요즘은 inkPad를 사용해서 손글씨 작성중입니다." /><published>2025-06-19T00:00:00+00:00</published><updated>2025-06-19T00:00:00+00:00</updated><id>https://lahuman.github.io/20250619</id><content type="html" xml:base="https://lahuman.github.io/20250619/">&lt;h1 id=&quot;개인-프로젝트로-진행한-inkpad를-계속-고도화-하고-있습니다&quot;&gt;개인 프로젝트로 진행한 InkPad를 계속 고도화 하고 있습니다.&lt;/h1&gt;
+
+&lt;figure&gt;
+	&lt;a href=&quot;https://inkpad.giize.com/view.html?publicId=ef7dd407-a536-42c5-84b9-9c187bed59b7&amp;amp;yearMonth=2025.06&amp;amp;displayName=%EC%9E%90%EB%91%90&amp;amp;createdAt=2025-06-18T11%3A00%3A36.794Z&quot;&gt;&lt;img src=&quot;https://inkpad.giize.com/uploads/images/2025.06/ef7dd407-a536-42c5-84b9-9c187bed59b7.png&quot; /&gt;&lt;/a&gt;
+	&lt;figcaption&gt;누군가의 그림&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;첨음 손쉽게 빠르게 한장 그리는 온라인 그림판 이라는 아이디어를 가진건 몇 년이 전이였습니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;구현을 위해서 몇번의 시도를 했었지만, 당시 능력 부족으로 꾸준하게 진행이 되지 않았습니다.&lt;/p&gt;
+
+&lt;p&gt;최근에 AI와 간략한 아이디어 회의를 진행하면서 함께 만들어 보았습니다.&lt;/p&gt;
+
+&lt;p&gt;내가 부족한 기획력, 디자인, 그리고 코드까지 완벽하지는 않아도 꾸준하게 지원해주는 무언가가 있다는건 큰힘이 된다고 다시 한번 느꼈네요.&lt;/p&gt;
+
+&lt;p&gt;몇년 안에 개발자라는 직군에 큰 변화가 올거라고 생각됩니다.&lt;/p&gt;
+
+&lt;p&gt;빠르게 변화하는 세상에 발맞춰서 나아갈 수 있도록 노력해야겠습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;inkpad-바로-가기&quot;&gt;&lt;a href=&quot;https://inkpad.giize.com/index.html&quot;&gt;InkPad 바로 가기&lt;/a&gt;&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><category term="inkpad" /><summary type="html">어제도 늦은 밤까지 개발하느라 잠을 못...</summary></entry><entry><title type="html">InkPad :: 웹 기반 그림판</title><link href="https://lahuman.github.io/inkPad/" rel="alternate" type="text/html" title="InkPad :: 웹 기반 그림판" /><published>2025-06-11T00:00:00+00:00</published><updated>2025-06-11T00:00:00+00:00</updated><id>https://lahuman.github.io/inkPad</id><content type="html" xml:base="https://lahuman.github.io/inkPad/">&lt;h1 id=&quot;모바일-그림판-및-갤러리-웹-애플리케이션&quot;&gt;모바일 그림판 및 갤러리 웹 애플리케이션&lt;/h1&gt;
 
 &lt;h2 id=&quot;바로가기&quot;&gt;&lt;a href=&quot;https://inkpad.giize.com&quot;&gt;바로가기&lt;/a&gt;&lt;/h2&gt;
 
@@ -862,41 +883,4 @@ pm2 restart traffic-scheduler
   &lt;li&gt;&lt;a href=&quot;https://www.openstreetmap.org/&quot;&gt;openstreetmap&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://project-osrm.org/&quot;&gt;OSRM&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.data.go.kr/data/15111389/fileData.do?recommendDataYn=Y&quot;&gt;한국문화정보원_전국 반려동물 동반 가능 문화시설 위치 데이터&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="caremate" /><category term="poc" /><summary type="html">돌발 교통 상황, CCTV, 반려견 동반 위치 정보</summary></entry><entry><title type="html">오모오모 서비스 종료</title><link href="https://lahuman.github.io/EOS_OMOOMO/" rel="alternate" type="text/html" title="오모오모 서비스 종료" /><published>2024-11-11T00:00:00+00:00</published><updated>2024-11-11T00:00:00+00:00</updated><id>https://lahuman.github.io/EOS_OMOOMO</id><content type="html" xml:base="https://lahuman.github.io/EOS_OMOOMO/">&lt;h1 id=&quot;20241031-오모오모-서비스-종료&quot;&gt;2024.10.31 오모오모 서비스 종료&lt;/h1&gt;
-
-&lt;h2 id=&quot;이력&quot;&gt;이력&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;서비스 기간 : 2022.11.28 ~ 2024.10.31&lt;/li&gt;
-  &lt;li&gt;오모오모 하우스 운영(팝업스토어) : 2023.11.24 ~ 2023.12.02&lt;/li&gt;
-  &lt;li&gt;이벤트 : 크리스마스, 새해, 추석, 사진 공모전, 네이밍 공모전 등 20여 차례 진행&lt;/li&gt;
-  &lt;li&gt;구글 플레이 스토어 1위 : 2022.12.17&lt;/li&gt;
-  &lt;li&gt;최종 누적 회원 수 : 20만명(2024.10.31)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;회고&quot;&gt;회고&lt;/h2&gt;
-
-&lt;p&gt;오픈 당시에는 삼성화재에서 이런 서비스를 만들었다고 많은 관심을 받았지만, 컨텐츠 부족으로 인기가 쉽게 시들해졌습니다.&lt;/p&gt;
-
-&lt;p&gt;23년 5월 부족한 컨텐츠를 채우기 위해 웹 기반의 게시판과 상품 판매 그리고 메타 버스 기반의 펫 상품 판매 샵 추가  및 게임 추가하는 등의 대대적인 업데이트를 단행 했습니다.&lt;/p&gt;
-
-&lt;p&gt;오모오모를 사용하는 주요 고객인 10대가 할 수 있는 컨텐츠 보다, 보험 연계 그리고 펫 상품 판매에 집중한 기획 결과는 많이 아쉬운 성적표와 함께 사용자가 점점 줄어들게 되었고,&lt;/p&gt;
-
-&lt;p&gt;결국 오모오모 서비스 종료와 함께 &lt;a href=&quot;https://www.seoulfn.com/news/articleView.html?idxno=535764&quot;&gt;삼성화재, 펫 건강관리 서비스 리뉴얼 선봬&lt;/a&gt; 게 되었습니다.&lt;/p&gt;
-
-&lt;p&gt;24년은 착한 펫 서비스 리뉴얼을 하면서 보냈습니다. 
-오모오모를 떠나 보내는 마음은 아쉽고 안타깝웠습니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;스냅샷&quot;&gt;스냅샷&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/omoomo_end.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;20241031-마지막-모습&quot;&gt;2024.10.31 마지막 모습&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/omoomo_1.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/omoomo_2.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/omoomo_3.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/omoomo_4.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;</content><author><name></name></author><category term="omoomo" /><category term="EOS" /><summary type="html">2년 6개월간의 서비스 실패기</summary></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><category term="caremate" /><category term="poc" /><summary type="html">돌발 교통 상황, CCTV, 반려견 동반 위치 정보</summary></entry></feed>
