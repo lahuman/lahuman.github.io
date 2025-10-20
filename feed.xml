@@ -1,4 +1,168 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2025-09-30T10:43:35+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">SlideFlow :: 이미지를 영샹으로</title><link href="https://lahuman.github.io/slide/" rel="alternate" type="text/html" title="SlideFlow :: 이미지를 영샹으로" /><published>2025-09-30T00:00:00+00:00</published><updated>2025-09-30T00:00:00+00:00</updated><id>https://lahuman.github.io/slide</id><content type="html" xml:base="https://lahuman.github.io/slide/">&lt;h1 id=&quot;-slideflow&quot;&gt;✨ SlideFlow&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2025-10-20T13:37:13+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Docker에서 curl은 되는데 Node.js fetch만 실패할 때 (feat. undici)</title><link href="https://lahuman.github.io/fetch-undici-docker-error/" rel="alternate" type="text/html" title="Docker에서 curl은 되는데 Node.js fetch만 실패할 때 (feat. undici)" /><published>2025-10-20T00:00:00+00:00</published><updated>2025-10-20T00:00:00+00:00</updated><id>https://lahuman.github.io/fetch-undici-docker-error</id><content type="html" xml:base="https://lahuman.github.io/fetch-undici-docker-error/">&lt;p&gt;개발을 하다 보면 Docker 컨테이너 내부에서 호스트 머신(PC)의 API를 호출해야 하는 경우가 종종 있습니다.&lt;/p&gt;
+
+&lt;p&gt;일반적으로 Docker for Mac/Windows에서는 &lt;code class=&quot;highlighter-rouge&quot;&gt;host.docker.internal&lt;/code&gt;을 사용하지만, Linux 환경에서는 Docker 브리지의 기본 게이트웨이 주소인 &lt;code class=&quot;highlighter-rouge&quot;&gt;172.17.0.1&lt;/code&gt;을 사용하는 경우가 많습니다.&lt;/p&gt;
+
+&lt;p&gt;그런데 이 주소로 API를 호출하는 과정에서 매우 이상한 문제를 겪게 되어 트러블슈팅 과정을 공유해보고자 합니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;증상-curl은-되는데-fetch는-실패&quot;&gt;증상: curl은 되는데 fetch는 실패&lt;/h2&gt;
+
+&lt;p&gt;먼저, 컨테이너 내부에서 호스트(&lt;code class=&quot;highlighter-rouge&quot;&gt;172.17.0.1&lt;/code&gt;)로 네트워크 연결이 되는지 확인하기 위해 &lt;code class=&quot;highlighter-rouge&quot;&gt;curl&lt;/code&gt; 명령어를 사용했습니다.&lt;/p&gt;
+
+&lt;p&gt;”&quot;”bash
+eb7b0d89f82b:/app# curl http://172.17.0.1:6000/webhook/…. -v&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Trying 172.17.0.1:6000…&lt;/li&gt;
+  &lt;li&gt;Connected to 172.17.0.1 (172.17.0.1) port 6000
+…
+&amp;lt; HTTP/1.1 401 Unauthorized
+&amp;lt; WWW-Authenticate: Basic realm=”Webhook”
+…
+Authorization is required!
+“””&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;401 Unauthorized&lt;/code&gt; 응답이 왔습니다. 이는 서버가 인증을 요구한다는 뜻으로, &lt;strong&gt;네트워크 연결 자체는 성공&lt;/strong&gt;했다는 의미입니다.&lt;/p&gt;
+
+&lt;p&gt;그런데 동일한 주소를 Node.js의 &lt;code class=&quot;highlighter-rouge&quot;&gt;fetch&lt;/code&gt; API를 사용하여 호출하면 다른 결과가 나옵니다.&lt;/p&gt;
+
+&lt;p&gt;”&quot;”javascript
+// test.js
+// (인증 로직은 편의상 생략)
+const url = ‘http://172.17.0.1:6000/webhook/….’;&lt;/p&gt;
+
+&lt;p&gt;try {
+  const response = await fetch(url, { method: ‘GET’ });
+  console.log(await response.text());
+} catch (error) {
+  console.error(‘Error calling webhook:’, error.message);
+}
+“””&lt;/p&gt;
+
+&lt;p&gt;”&quot;”bash
+eb7b0d89f82b:/app# node test.js&lt;/p&gt;
+
+&lt;p&gt;Error calling webhook: fetch failed
+“””&lt;/p&gt;
+
+&lt;p&gt;분명 &lt;code class=&quot;highlighter-rouge&quot;&gt;curl&lt;/code&gt;로는 연결이 되는데, 왜 Node.js의 &lt;code class=&quot;highlighter-rouge&quot;&gt;fetch&lt;/code&gt;만 &lt;code class=&quot;highlighter-rouge&quot;&gt;fetch failed&lt;/code&gt;라는 네트워크 연결 실패 오류를 반환하는 것일까요?&lt;/p&gt;
+
+&lt;h2 id=&quot;원인-curl과-fetch는-다르다&quot;&gt;원인: curl과 fetch는 다르다&lt;/h2&gt;
+
+&lt;p&gt;이 문제의 핵심은 &lt;strong&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;curl&lt;/code&gt;과 Node.js의 &lt;code class=&quot;highlighter-rouge&quot;&gt;fetch&lt;/code&gt;가 동일하게 작동하지 않는다&lt;/strong&gt;는 점입니다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;curl&lt;/code&gt;&lt;/strong&gt;: C언어로 작성된, 매우 표준적이고 검증된 저수준(low-level) HTTP 클라이언트입니다.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Node.js &lt;code class=&quot;highlighter-rouge&quot;&gt;fetch&lt;/code&gt;&lt;/strong&gt;: Node.js 18 버전부터 내장된 &lt;code class=&quot;highlighter-rouge&quot;&gt;fetch&lt;/code&gt; API는 &lt;strong&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;undici&lt;/code&gt;&lt;/strong&gt;라는 이름의 별도 HTTP 클라이언트 라이브러리를 기반으로 합니다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;즉, &lt;code class=&quot;highlighter-rouge&quot;&gt;curl&lt;/code&gt;이 성공했다는 것은 “네트워크 경로, IP, 포트, 방화벽”은 모두 정상이란 뜻입니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;fetch failed&lt;/code&gt;가 발생한 이유는, Node.js의 &lt;code class=&quot;highlighter-rouge&quot;&gt;undici&lt;/code&gt; 구현체가 특정 Docker 네트워크 환경(이 경우 &lt;code class=&quot;highlighter-rouge&quot;&gt;172.17.0.1&lt;/code&gt; 게이트웨이)과 통신하는 과정에서 호환성 문제를 일으켰기 때문입니다. (주로 IPv6/IPv4 처리 방식 차이나 커넥션 풀링 방식의 차이로 인해 발생하곤 합니다)&lt;/p&gt;
+
+&lt;h3 id=&quot;axios는-어떨까요&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;axios&lt;/code&gt;는 어떨까요?&lt;/h3&gt;
+
+&lt;p&gt;흥미롭게도, 이 상황에서 &lt;code class=&quot;highlighter-rouge&quot;&gt;axios&lt;/code&gt; 라이브러리를 사용하면 대부분 성공합니다.&lt;/p&gt;
+
+&lt;p&gt;”&quot;”javascript
+import axios from ‘axios’;
+// const response = await axios.get(url, { auth: { … } });
+“””&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;axios&lt;/code&gt;가 성공하는 이유는 &lt;code class=&quot;highlighter-rouge&quot;&gt;undici&lt;/code&gt;와 다르게, Node.js의 &lt;strong&gt;내장 &lt;code class=&quot;highlighter-rouge&quot;&gt;http&lt;/code&gt; 모듈&lt;/strong&gt;을 기반으로 작동하기 때문입니다. 이 &lt;code class=&quot;highlighter-rouge&quot;&gt;http&lt;/code&gt; 모듈은 &lt;code class=&quot;highlighter-rouge&quot;&gt;curl&lt;/code&gt;과 유사하게 더 고전적이고 단순한 방식으로 통신하므로 호환성 문제를 피할 수 있었던 것입니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;해결-undici를-우회하기&quot;&gt;해결: &lt;code class=&quot;highlighter-rouge&quot;&gt;undici&lt;/code&gt;를 우회하기&lt;/h2&gt;
+
+&lt;p&gt;원인을 알았으니 해결 방법은 명확합니다. &lt;code class=&quot;highlighter-rouge&quot;&gt;undici&lt;/code&gt; 기반의 &lt;code class=&quot;highlighter-rouge&quot;&gt;fetch&lt;/code&gt; 대신, &lt;code class=&quot;highlighter-rouge&quot;&gt;http&lt;/code&gt; 모듈 기반의 클라이언트를 사용하면 됩니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;방법-1-axios-라이브러리-사용-권장&quot;&gt;방법 1. &lt;code class=&quot;highlighter-rouge&quot;&gt;axios&lt;/code&gt; 라이브러리 사용 (권장)&lt;/h3&gt;
+
+&lt;p&gt;가장 간단하고 현대적인 방법입니다. &lt;code class=&quot;highlighter-rouge&quot;&gt;npm&lt;/code&gt;이나 &lt;code class=&quot;highlighter-rouge&quot;&gt;yarn&lt;/code&gt;으로 &lt;code class=&quot;highlighter-rouge&quot;&gt;axios&lt;/code&gt;를 설치하고 코드를 수정합니다.&lt;/p&gt;
+
+&lt;p&gt;”&quot;”bash&lt;/p&gt;
+&lt;h1 id=&quot;esm-환경에서-require-오류가-났던-것을-기억합니다&quot;&gt;ESM 환경에서 require 오류가 났던 것을 기억합니다.&lt;/h1&gt;
+&lt;p&gt;npm install axios
+“””&lt;/p&gt;
+
+&lt;p&gt;”&quot;”javascript
+// test.js
+import axios from ‘axios’; // require 대신 import 사용&lt;/p&gt;
+
+&lt;p&gt;const url = ‘http://172.17.0.1:6000/webhook/….’;&lt;/p&gt;
+
+&lt;p&gt;// 401 오류를 해결하기 위해 인증 정보 추가
+const auth = {
+  username: ‘YOUR_USERNAME’,
+  password: ‘YOUR_PASSWORD’
+};&lt;/p&gt;
+
+&lt;p&gt;try {
+  // axios는 auth 객체를 Basic 인증 헤더로 자동 변환해 줍니다.
+  const response = await axios.get(url, { auth: auth });&lt;/p&gt;
+
+&lt;p&gt;console.log(‘Webhook GET call successful!’);
+  console.log(‘Status Code:’, response.status);
+  console.log(‘Server response:’, response.data);&lt;/p&gt;
+
+&lt;p&gt;} catch (error) {
+  // … (Axios 오류 처리) …
+  console.error(‘Error calling webhook:’, error.message);
+}
+“””&lt;/p&gt;
+
+&lt;h3 id=&quot;방법-2-nodejs-내장-http-모듈-사용&quot;&gt;방법 2. Node.js 내장 &lt;code class=&quot;highlighter-rouge&quot;&gt;http&lt;/code&gt; 모듈 사용&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;axios&lt;/code&gt; 같은 외부 라이브러리를 설치하기 어려운 환경이라면, Node.js에 100% 내장된 &lt;code class=&quot;highlighter-rouge&quot;&gt;http&lt;/code&gt; 모듈을 직접 사용할 수 있습니다. &lt;code class=&quot;highlighter-rouge&quot;&gt;curl&lt;/code&gt;과 거의 동일하게 작동합니다.&lt;/p&gt;
+
+&lt;p&gt;”&quot;”javascript
+// test.js (Node.js 내장 http 모듈 사용)
+import http from ‘http’; // ESM 방식
+import { URL } from ‘url’; // URL 파싱을 위해 추가&lt;/p&gt;
+
+&lt;p&gt;const urlString = ‘http://172.17.0.1:6000/webhook/….’;&lt;/p&gt;
+
+&lt;p&gt;// 인증 정보
+const credentials = ‘YOUR_USERNAME:YOUR_PASSWORD’;
+const encodedCredentials = Buffer.from(credentials).toString(‘base64’);&lt;/p&gt;
+
+&lt;p&gt;const { hostname, port, pathname } = new URL(urlString);&lt;/p&gt;
+
+&lt;p&gt;const options = {
+  hostname: hostname,
+  port: port,
+  path: pathname,
+  method: ‘GET’,
+  headers: {
+    ‘Authorization’: &lt;code class=&quot;highlighter-rouge&quot;&gt;Basic ${encodedCredentials}&lt;/code&gt;
+  }
+};&lt;/p&gt;
+
+&lt;p&gt;const req = http.request(options, (res) =&amp;gt; {
+  console.log(&lt;code class=&quot;highlighter-rouge&quot;&gt;Status Code: ${res.statusCode}&lt;/code&gt;);
+  let data = ‘’;
+  res.on(‘data’, (chunk) =&amp;gt; { data += chunk; });
+  res.on(‘end’, () =&amp;gt; {
+    console.log(‘Server response:’, data);
+  });
+});&lt;/p&gt;
+
+&lt;p&gt;req.on(‘error’, (error) =&amp;gt; {
+  // 이 오류는 ‘fetch failed’와 동일한 네트워크 오류입니다.
+  console.error(‘Error calling webhook:’, error.message);
+});&lt;/p&gt;
+
+&lt;p&gt;req.end();
+“””&lt;/p&gt;
+
+&lt;h2 id=&quot;마무리&quot;&gt;마무리&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;fetch failed&lt;/code&gt;라는 단순한 오류 메시지를 만났을 때, 무조건 네트워크 방화벽이나 IP 주소 문제라고 단정 짓기 쉽습니다.&lt;/p&gt;
+
+&lt;p&gt;하지만 &lt;code class=&quot;highlighter-rouge&quot;&gt;curl&lt;/code&gt;과 같은 기본 도구로 교차 검증을 해보니, 문제는 네트워크가 아니라 &lt;strong&gt;Node.js의 &lt;code class=&quot;highlighter-rouge&quot;&gt;fetch&lt;/code&gt; 구현체인 &lt;code class=&quot;highlighter-rouge&quot;&gt;undici&lt;/code&gt;&lt;/strong&gt;와 특정 Docker 네트워크 환경 간의 호환성 문제임을 알 수 있었습니다.&lt;/p&gt;
+
+&lt;p&gt;비슷한 문제를 겪으신다면, &lt;code class=&quot;highlighter-rouge&quot;&gt;fetch&lt;/code&gt; 대신 &lt;code class=&quot;highlighter-rouge&quot;&gt;axios&lt;/code&gt;나 &lt;code class=&quot;highlighter-rouge&quot;&gt;http&lt;/code&gt; 기본 모듈을 사용해 보시는 것을 추천해 드립니다.&lt;/p&gt;
+
+&lt;p&gt;읽어주셔서 감사합니다.&lt;/p&gt;</content><author><name></name></author><category term="fetch" /><category term="curl" /><category term="undici" /><category term="network" /><summary type="html">http 또는 Axios 를 이용하면 간단하게 해결</summary></entry><entry><title type="html">SlideFlow :: 이미지를 영샹으로</title><link href="https://lahuman.github.io/slide/" rel="alternate" type="text/html" title="SlideFlow :: 이미지를 영샹으로" /><published>2025-09-30T00:00:00+00:00</published><updated>2025-09-30T00:00:00+00:00</updated><id>https://lahuman.github.io/slide</id><content type="html" xml:base="https://lahuman.github.io/slide/">&lt;h1 id=&quot;-slideflow&quot;&gt;✨ SlideFlow&lt;/h1&gt;
 
 &lt;h2 id=&quot;바로가기&quot;&gt;&lt;a href=&quot;https://lahuman.github.io/slideshow-editor/dist/&quot;&gt;바로가기&lt;/a&gt;&lt;/h2&gt;
 
@@ -730,28 +894,4 @@ FLUSH PRIVILEGES;
   &lt;li&gt;다양한 코인 가격 지원&lt;/li&gt;
   &lt;li&gt;웹 서비스 디자인 개선&lt;/li&gt;
   &lt;li&gt;테스트 코드 확장&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="usdt" /><category term="usd" /><category term="kimp" /><summary type="html">핫한 코인, 김프봇 제작기</summary></entry><entry><title type="html">2024년 회고</title><link href="https://lahuman.github.io/20241220/" rel="alternate" type="text/html" title="2024년 회고" /><published>2024-12-20T00:00:00+00:00</published><updated>2024-12-20T00:00:00+00:00</updated><id>https://lahuman.github.io/20241220</id><content type="html" xml:base="https://lahuman.github.io/20241220/">&lt;h1 id=&quot;2024년을-되돌아-보며&quot;&gt;2024년을 되돌아 보며,&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;“성공이란 열정을 잃지 않고 실패를 거듭할 수 있는 능력이다.” - 윈스턴 처칠&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;다사-다난한-한해&quot;&gt;다사 다난한 한해&lt;/h2&gt;
-
-&lt;p&gt;회사 생활에 많은(?) 변화가 있었습니다.&lt;/p&gt;
-
-&lt;p&gt;일을 하며 답답함을 넘어서 좌절을 하게 되는 상황이 많이 발생하네요.&lt;/p&gt;
-
-&lt;p&gt;그래도 나아가야 한다고 생각하고 열심히 나아가고 있습니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;강남-생활-끝-당산-생활-시작&quot;&gt;강남 생활 끝, 당산 생활 시작&lt;/h2&gt;
-
-&lt;p&gt;거의 3년간 출퇴근 하던 강남에서 당산으로 근무지가 변경되었습니다.&lt;/p&gt;
-
-&lt;p&gt;좋은건 출/퇴근 시간이 총 40분이 줄어들었네요.&lt;/p&gt;
-
-&lt;h2 id=&quot;마지막으로&quot;&gt;마지막으로&lt;/h2&gt;
-
-&lt;p&gt;25년은 뭔가 많은 시도를 해봐야겠습니다.&lt;/p&gt;
-
-&lt;p&gt;24년은 뭔가 아쉽네요. :(&lt;/p&gt;</content><author><name></name></author><category term="2024" /><category term="review" /><summary type="html">2보 전진을 위한 1보 후퇴를 했는데, 계속 후퇴 중?</summary></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><category term="usdt" /><category term="usd" /><category term="kimp" /><summary type="html">핫한 코인, 김프봇 제작기</summary></entry></feed>
