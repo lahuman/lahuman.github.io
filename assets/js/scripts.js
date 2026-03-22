@@ -5,7 +5,16 @@ $(function() {
   });
 });
 // Need this to show animation when go back in browser
-window.onunload = function() {};
+$(window).on('pageshow', function(event) {
+    if (event.originalEvent.persisted || (window.performance && window.performance.navigation.type === 2)) {
+        if ($(".container").hasClass('fadeOut')) {
+            $(".container").removeClass("fadeOut").addClass("fadeIn");
+        }
+        if ($(".wrapper").hasClass('fadeOut')) {
+            $(".wrapper").removeClass("fadeOut").addClass("fadeIn");
+        }
+    }
+});
 
 // Add lightbox class to all image links
 $("a[href$='.jpg'],a[href$='.jpeg'],a[href$='.JPG'],a[href$='.png'],a[href$='.gif']").addClass("image-popup");
