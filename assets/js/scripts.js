@@ -13,6 +13,17 @@ $(window).on('pageshow', function(event) {
         if ($(".wrapper").hasClass('fadeOut')) {
             $(".wrapper").removeClass("fadeOut").addClass("fadeIn");
         }
+        
+        // Manual scroll restoration if needed
+        var scrollPos = sessionStorage.getItem('scrollPos');
+        if (scrollPos) {
+            $(window).scrollTop(scrollPos);
+            sessionStorage.removeItem('scrollPos');
+        }
+
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'auto';
+        }
     }
 });
 
@@ -34,6 +45,9 @@ $(document).ready(function() {
         $(".wrapper").removeClass("fadeOut").addClass("fadeIn");
     }
     $(".zoombtn").click(function() {
+        // Save scroll position before fading out
+        sessionStorage.setItem('scrollPos', $(window).scrollTop());
+        
         $(".container").removeClass("fadeIn").addClass("fadeOut");
         $(".wrapper").removeClass("fadeIn").addClass("fadeOut");
     });
