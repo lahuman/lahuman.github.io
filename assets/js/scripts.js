@@ -15,10 +15,11 @@ $(window).on('pageshow', function(event) {
         }
         
         // Manual scroll restoration if needed
-        var scrollPos = sessionStorage.getItem('scrollPos');
+        var scrollPos = sessionStorage.getItem('lastScrollPos');
         if (scrollPos) {
             $(window).scrollTop(scrollPos);
-            sessionStorage.removeItem('scrollPos');
+            // Optionally clear it, but keeping it for multiple back navigations
+            // sessionStorage.removeItem('lastScrollPos');
         }
 
         if ('scrollRestoration' in history) {
@@ -44,9 +45,17 @@ $(document).ready(function() {
     if ($(".wrapper").hasClass('fadeOut')) {
         $(".wrapper").removeClass("fadeOut").addClass("fadeIn");
     }
-    $(".zoombtn").click(function() {
+    $(".zoombtn").click(function(e) {
+        // If it's a back button (has chevron-left icon), use browser back
+        if ($(this).find(".fa-chevron-left").length > 0 || $(this).hasClass("back-btn")) {
+            e.preventDefault();
+            sessionStorage.setItem('scrollPos', sessionStorage.getItem('lastScrollPos')); 
+            window.history.back();
+            return;
+        }
+
         // Save scroll position before fading out
-        sessionStorage.setItem('scrollPos', $(window).scrollTop());
+        sessionStorage.setItem('lastScrollPos', $(window).scrollTop());
         
         $(".container").removeClass("fadeIn").addClass("fadeOut");
         $(".wrapper").removeClass("fadeIn").addClass("fadeOut");
