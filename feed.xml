@@ -1,4 +1,87 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2026-03-22T06:54:33+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">말도 안되는 코드를 만났다.</title><link href="https://lahuman.github.io/java_ClassCastException/" rel="alternate" type="text/html" title="말도 안되는 코드를 만났다." /><published>2026-01-21T00:00:00+00:00</published><updated>2026-01-21T00:00:00+00:00</updated><id>https://lahuman.github.io/java_ClassCastException</id><content type="html" xml:base="https://lahuman.github.io/java_ClassCastException/">&lt;h1 id=&quot;java-제네릭의-거짓말-그리고-hashmapvalues의-진짜-정체&quot;&gt;[Java] 제네릭의 거짓말, 그리고 HashMap.values()의 진짜 정체&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2026-04-06T09:51:18+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">GitBackup 소개 - Windows에서 중요한 폴더를 더 쉽게 백업하는 방법</title><link href="https://lahuman.github.io/gitbackup/" rel="alternate" type="text/html" title="GitBackup 소개 - Windows에서 중요한 폴더를 더 쉽게 백업하는 방법" /><published>2026-04-06T00:00:00+00:00</published><updated>2026-04-06T00:00:00+00:00</updated><id>https://lahuman.github.io/gitbackup</id><content type="html" xml:base="https://lahuman.github.io/gitbackup/">&lt;h1 id=&quot;gitbackup-소개&quot;&gt;GitBackup 소개&lt;/h1&gt;
+&lt;p&gt;Windows에서 중요한 폴더를 더 쉽게 백업하는 방법&lt;/p&gt;
+
+&lt;p&gt;파일 백업은 중요하다는 걸 모두 알고 있지만, 실제로는 자주 미루게 됩니다.&lt;br /&gt;
+문서, 작업 파일, 개인 프로젝트, 공부 자료처럼 잃어버리면 곤란한 파일일수록 따로 챙겨야 하지만, 매번 수동으로 복사하거나 복잡한 도구를 사용하는 것은 부담스럽습니다.&lt;/p&gt;
+
+&lt;p&gt;이런 불편함을 줄이기 위해 만든 도구가 바로 &lt;strong&gt;GitBackup&lt;/strong&gt;입니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;gitbackup이란&quot;&gt;GitBackup이란?&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;GitBackup&lt;/strong&gt;은 Windows 환경에서 중요한 폴더를 더 쉽게 백업할 수 있도록 만든 프로그램입니다.&lt;br /&gt;
+복잡한 Git 명령을 직접 입력하지 않아도, GitHub 계정을 활용해 폴더 단위로 백업을 진행할 수 있도록 구성했습니다.&lt;/p&gt;
+
+&lt;p&gt;특히 다음과 같은 분들에게 잘 맞습니다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;중요한 문서 폴더를 정리하고 싶은 분&lt;/li&gt;
+  &lt;li&gt;개인 프로젝트 파일을 안전하게 보관하고 싶은 분&lt;/li&gt;
+  &lt;li&gt;사이드 프로젝트 결과물을 주기적으로 백업하고 싶은 분&lt;/li&gt;
+  &lt;li&gt;Git 명령에 익숙하지 않지만 GitHub를 활용하고 싶은 분&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;주요-기능&quot;&gt;주요 기능&lt;/h2&gt;
+
+&lt;p&gt;GitBackup은 사용성을 단순하게 가져가는 데 집중했습니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;1-github-로그인-지원&quot;&gt;1. GitHub 로그인 지원&lt;/h3&gt;
+&lt;p&gt;GitHub 계정으로 로그인해 백업 저장소와 연결할 수 있습니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;2-폴더-변경-사항-감지&quot;&gt;2. 폴더 변경 사항 감지&lt;/h3&gt;
+&lt;p&gt;백업 대상으로 지정한 폴더의 변경 사항을 감지하여 보다 편하게 관리할 수 있습니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;3-기존-백업-다시-가져오기&quot;&gt;3. 기존 백업 다시 가져오기&lt;/h3&gt;
+&lt;p&gt;이미 백업된 내용을 다시 가져와 이어서 사용할 수 있습니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;4-windows-10--11-지원&quot;&gt;4. Windows 10 / 11 지원&lt;/h3&gt;
+&lt;p&gt;일반적인 Windows 환경에서 쉽게 설치하고 사용할 수 있도록 구성했습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;왜-만들었을까&quot;&gt;왜 만들었을까?&lt;/h2&gt;
+
+&lt;p&gt;백업 도구는 많지만, 일반 사용자가 바로 쓰기에는 어렵거나 설정이 복잡한 경우가 많았습니다.&lt;br /&gt;
+특히 “중요한 파일은 챙기고 싶지만, 복잡한 건 싫다”는 상황에서 부담 없이 시작할 수 있는 흐름이 필요하다고 생각했습니다.&lt;/p&gt;
+
+&lt;p&gt;GitBackup은 바로 그 지점을 목표로 만들었습니다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;너무 많은 기능보다&lt;/li&gt;
+  &lt;li&gt;바로 사용할 수 있는 흐름에 집중하고&lt;/li&gt;
+  &lt;li&gt;필요한 핵심 기능만 담는 것&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;이 방향으로 계속 개선해 나가고 있습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;이런-상황에서-유용합니다&quot;&gt;이런 상황에서 유용합니다&lt;/h2&gt;
+
+&lt;p&gt;GitBackup은 아래와 같은 상황에서 특히 유용합니다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;작업 중인 문서 폴더를 정리하고 싶을 때&lt;/li&gt;
+  &lt;li&gt;사이드 프로젝트 파일을 안전하게 백업하고 싶을 때&lt;/li&gt;
+  &lt;li&gt;수동 복사 대신 조금 더 체계적으로 관리하고 싶을 때&lt;/li&gt;
+  &lt;li&gt;GitHub를 저장 공간처럼 활용하고 싶을 때&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;사용해보기&quot;&gt;사용해보기&lt;/h2&gt;
+
+&lt;p&gt;GitBackup이 궁금하다면 아래 페이지에서 확인할 수 있습니다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;소개 페이지: &lt;a href=&quot;https://lahuman.github.io/git-backup/index.html&quot;&gt;GitBackup 바로가기&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;직접 사용해보고, 부족한 점이나 개선 아이디어가 있다면 피드백도 환영합니다.&lt;br /&gt;
+작고 단순하지만 실제로 도움이 되는 도구가 되도록 계속 다듬어 나가겠습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;마무리&quot;&gt;마무리&lt;/h2&gt;
+
+&lt;p&gt;백업은 늘 중요하지만 자주 미뤄지는 작업입니다.&lt;br /&gt;
+그래서 더더욱 &lt;strong&gt;쉽게 시작할 수 있어야 한다&lt;/strong&gt;고 생각합니다.&lt;/p&gt;
+
+&lt;p&gt;GitBackup은 복잡한 절차 대신,&lt;br /&gt;
+&lt;strong&gt;Windows에서 중요한 폴더를 더 쉽게 백업하는 경험&lt;/strong&gt;을 제공하는 것을 목표로 하고 있습니다.&lt;/p&gt;
+
+&lt;p&gt;필요하셨던 분들에게 작게나마 도움이 되길 바랍니다.&lt;/p&gt;</content><author><name></name></author><category term="git" /><category term="backup" /><category term="windows" /><summary type="html">GitHub를 활용해 Windows 폴더를 쉽고 간단하게 백업할 수 있는 GitBackup을 소개합니다.</summary></entry><entry><title type="html">말도 안되는 코드를 만났다.</title><link href="https://lahuman.github.io/java_ClassCastException/" rel="alternate" type="text/html" title="말도 안되는 코드를 만났다." /><published>2026-01-21T00:00:00+00:00</published><updated>2026-01-21T00:00:00+00:00</updated><id>https://lahuman.github.io/java_ClassCastException</id><content type="html" xml:base="https://lahuman.github.io/java_ClassCastException/">&lt;h1 id=&quot;java-제네릭의-거짓말-그리고-hashmapvalues의-진짜-정체&quot;&gt;[Java] 제네릭의 거짓말, 그리고 HashMap.values()의 진짜 정체&lt;/h1&gt;
 
 &lt;p&gt;안녕하세요. 오늘은 개발하다 보면 한 번쯤 마주치게 되는 Java 제네릭(Generics)의 허점과, 우리가 무심코 사용하는 &lt;code class=&quot;highlighter-rouge&quot;&gt;HashMap&lt;/code&gt;의 내부 동작에 대해 깊게 파보려고 합니다.&lt;/p&gt;
 
@@ -898,35 +981,4 @@ FLUSH PRIVILEGES;
       &lt;li&gt;‘listen’ 지시어 (‘proxy_protocol’ 파라미터): &lt;a href=&quot;http://nginx.org/en/docs/http/ngx_http_core_module.html#listen&quot;&gt;http://nginx.org/en/docs/http/ngx_http_core_module.html#listen&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="aws" /><category term="nlb" /><category term="nginx" /><summary type="html">Proxy Protocol 설정으로 client ip 가져오기</summary></entry><entry><title type="html">로또 번호 추천 시스템 개발</title><link href="https://lahuman.github.io/lotto_app/" rel="alternate" type="text/html" title="로또 번호 추천 시스템 개발" /><published>2025-03-10T00:00:00+00:00</published><updated>2025-03-10T00:00:00+00:00</updated><id>https://lahuman.github.io/lotto_app</id><content type="html" xml:base="https://lahuman.github.io/lotto_app/">&lt;h1 id=&quot;로또-예측-웹사이트-소개-sveltekit-firebase-그리고-gemini&quot;&gt;로또 예측 웹사이트 소개: SvelteKit, Firebase, 그리고 Gemini&lt;/h1&gt;
-
-&lt;p&gt;로또 예측 웹사이트를 만들어 보았습니다. 개인 플젝으로 진행하는거라 sveltekit을 활용해서 빠르고 쉽게 구축해보았습니다.&lt;/p&gt;
-
-&lt;h3 id=&quot;주요-특징&quot;&gt;주요 특징&lt;/h3&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;특징&lt;/th&gt;
-      &lt;th&gt;설명&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;프론트엔드 및 백엔드&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;SvelteKit&lt;/strong&gt;을 사용하여 빠르고 현대적인 사용자 인터페이스와 안정적인 서버 측 기능을 제공합니다.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;로그인 및 데이터베이스&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;Firebase&lt;/strong&gt;를 통해 간편한 사용자 인증과 실시간 데이터 관리를 구현했습니다.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;로또 번호 예측&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;Google의 Gemini&lt;/strong&gt; 모델을 활용하여 로또 번호를 예측하는 기능을 제공합니다. 최첨단 AI 기술을 통해 사용자는 예측 번호에 대한 새로운 관점을 얻을 수 있습니다.&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;https://lotto.freeddns.org/&quot;&gt;웹사이트 주소: https://lotto.freeddns.org/&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;재미로 한번씩 사용해보셔요!&lt;/p&gt;</content><author><name></name></author><category term="lotto" /><category term="svelte" /><category term="web" /><summary type="html">로또 번호를 추천 합니다.</summary></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><category term="aws" /><category term="nlb" /><category term="nginx" /><summary type="html">Proxy Protocol 설정으로 client ip 가져오기</summary></entry></feed>
