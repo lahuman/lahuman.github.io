@@ -1,4 +1,113 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2026-04-13T23:58:45+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">GitBackup 소개 - Windows에서 중요한 폴더를 더 쉽게 백업하는 방법</title><link href="https://lahuman.github.io/gitbackup/" rel="alternate" type="text/html" title="GitBackup 소개 - Windows에서 중요한 폴더를 더 쉽게 백업하는 방법" /><published>2026-04-06T00:00:00+00:00</published><updated>2026-04-06T00:00:00+00:00</updated><id>https://lahuman.github.io/gitbackup</id><content type="html" xml:base="https://lahuman.github.io/gitbackup/">&lt;h1 id=&quot;gitbackup-소개&quot;&gt;GitBackup 소개&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2026-04-15T06:58:19+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">PPT 텍스트-이미지 자동 변환기 v1.1</title><link href="https://lahuman.github.io/ppt-text2image/" rel="alternate" type="text/html" title="PPT 텍스트-이미지 자동 변환기 v1.1" /><published>2026-04-14T00:00:00+00:00</published><updated>2026-04-14T00:00:00+00:00</updated><id>https://lahuman.github.io/ppt-text2image</id><content type="html" xml:base="https://lahuman.github.io/ppt-text2image/">&lt;h1 id=&quot;ppt-텍스트-이미지-자동-변환기-v11&quot;&gt;PPT 텍스트-이미지 자동 변환기 v1.1&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;배포용 PowerPoint에서 폰트 깨짐과 줄바꿈 오류를 줄이기 위해, 슬라이드 안의 텍스트를 이미지로 변환해 레이아웃을 더 안정적으로 유지하는 Windows용 데스크톱 도구입니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;프로젝트-소개&quot;&gt;프로젝트 소개&lt;/h2&gt;
+
+&lt;p&gt;PPT를 다른 PC에서 열었을 때 가장 자주 생기는 문제는 폰트가 바뀌거나 줄바꿈이 달라지면서 전체 레이아웃이 무너지는 것입니다.&lt;br /&gt;
+이 프로젝트는 바로 그 문제를 줄이기 위해 만들었습니다.&lt;/p&gt;
+
+&lt;p&gt;이 도구는 실제 Microsoft PowerPoint 엔진을 사용해 슬라이드 안의 텍스트를 이미지로 변환한 뒤, 원래 위치에 다시 배치합니다.&lt;br /&gt;
+덕분에 발표용, 고객사 전달용, 배포용 PPT를 더 안정적으로 준비할 수 있습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;어떤-문제를-해결하나요&quot;&gt;어떤 문제를 해결하나요?&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;상대방 PC에 같은 글꼴이 없어도 화면 차이를 줄일 수 있습니다.&lt;/li&gt;
+  &lt;li&gt;줄바꿈과 텍스트 박스 레이아웃이 달라지는 문제를 줄일 수 있습니다.&lt;/li&gt;
+  &lt;li&gt;발표 직전에 다른 PC에서 급하게 수정해야 하는 상황을 줄일 수 있습니다.&lt;/li&gt;
+  &lt;li&gt;작업용 원본과 배포용 결과물을 분리하는 흐름에 잘 맞습니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;핵심-기능&quot;&gt;핵심 기능&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;자동 그룹 해제: 슬라이드 안의 그룹을 해제해 그룹 내부 텍스트까지 빠짐없이 변환합니다.&lt;/li&gt;
+  &lt;li&gt;정밀 위치 보정: 텍스트 오버행을 계산해 원본과 최대한 같은 위치와 크기로 복원합니다.&lt;/li&gt;
+  &lt;li&gt;회전값 유지: 회전된 텍스트 박스도 이미지 변환 후 원래 각도를 유지합니다.&lt;/li&gt;
+  &lt;li&gt;실시간 진행 표시: 현재 진행 상태와 진행률을 UI에서 바로 확인할 수 있습니다.&lt;/li&gt;
+  &lt;li&gt;한국어/영어 UI 지원: 한영 전환이 가능해 팀 단위 사용에도 부담이 적습니다.&lt;/li&gt;
+  &lt;li&gt;사전 확인 안내: 변환 전 PowerPoint 종료 여부와 파일 잠금 상태를 확인할 수 있습니다.&lt;/li&gt;
+  &lt;li&gt;상황별 오류 안내: PowerPoint 미설치, 파일 사용 중, 저장 실패 등을 이해하기 쉬운 팝업으로 안내합니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;v11에서-좋아진-점&quot;&gt;v1.1에서 좋아진 점&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;데스크톱 UI를 더 보기 쉽게 정리했습니다.&lt;/li&gt;
+  &lt;li&gt;진행 상태 텍스트와 진행 바가 실제 변환 과정에서 정상적으로 보이도록 수정했습니다.&lt;/li&gt;
+  &lt;li&gt;변환 시작 전 확인 팝업과 주의 사항 패널을 추가했습니다.&lt;/li&gt;
+  &lt;li&gt;긴 파일명을 선택해도 진행 영역이 가려지지 않도록 레이아웃을 보완했습니다.&lt;/li&gt;
+  &lt;li&gt;그룹 내부 텍스트 처리 흐름을 개선해 변환 안정성을 높였습니다.&lt;/li&gt;
+  &lt;li&gt;오류 메시지를 더 사용자 친화적으로 바꿔, 실패 원인과 다음 조치를 쉽게 이해할 수 있도록 했습니다.&lt;/li&gt;
+  &lt;li&gt;소개 페이지와 문서를 최신 UI 기준으로 함께 정리했습니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;실제-사용-흐름&quot;&gt;실제 사용 흐름&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;프로그램을 실행합니다.&lt;/li&gt;
+  &lt;li&gt;변환할 PPT 파일을 선택합니다.&lt;/li&gt;
+  &lt;li&gt;PowerPoint 종료 여부와 파일 잠금 상태를 확인합니다.&lt;/li&gt;
+  &lt;li&gt;진행 상태와 진행률을 보면서 변환이 끝날 때까지 기다립니다.&lt;/li&gt;
+  &lt;li&gt;원본 파일과 같은 폴더에 변환 결과 파일이 생성됩니다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;사용자-친화적-안내도-강화했습니다&quot;&gt;사용자 친화적 안내도 강화했습니다&lt;/h2&gt;
+
+&lt;p&gt;이전에는 오류가 발생했을 때 일반적인 실패 메시지로 보일 수 있는 부분이 있었습니다.&lt;br /&gt;
+지금은 실제 사용자가 자주 겪는 상황을 기준으로 더 명확하게 안내합니다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Microsoft PowerPoint 필요&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;파일이 사용 중입니다&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;지원되지 않는 파일 형식&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;결과 파일을 저장할 수 없습니다&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;이렇게 오류 원인을 바로 이해할 수 있도록 구분해, 사용자가 다음 행동을 빠르게 결정할 수 있게 했습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;실행-환경-및-주의-사항&quot;&gt;실행 환경 및 주의 사항&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Windows 10 / 11 환경에서 실행해야 합니다.&lt;/li&gt;
+  &lt;li&gt;Microsoft PowerPoint 정식 설치 버전이 필요합니다.&lt;/li&gt;
+  &lt;li&gt;변환 전에 PowerPoint를 완전히 종료하는 것을 권장합니다.&lt;/li&gt;
+  &lt;li&gt;변환 대상 PPT 파일이 열려 있지 않아야 합니다.&lt;/li&gt;
+  &lt;li&gt;배포용 문서는 원본 대신 복사본으로 작업하는 것을 권장합니다.&lt;/li&gt;
+  &lt;li&gt;문서는 외부 서버에 업로드하지 않고 로컬 환경에서 처리합니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;화면-예시&quot;&gt;화면 예시&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/lahuman/ppt-text2img/main/docs/ko.png&quot; alt=&quot;한국어 UI&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/lahuman/ppt-text2img/main/docs/en.png&quot; alt=&quot;영어 UI&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/lahuman/ppt-text2img/main/docs/start_confirm.png&quot; alt=&quot;변환 시작 확인 팝업&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;이런-분들께-특히-유용합니다&quot;&gt;이런 분들께 특히 유용합니다&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;고객사 전달용 PPT를 준비하는 분&lt;/li&gt;
+  &lt;li&gt;회의실 PC나 행사장 PC에서 발표해야 하는 분&lt;/li&gt;
+  &lt;li&gt;폰트 저작권이나 레이아웃 깨짐 이슈를 줄이고 싶은 분&lt;/li&gt;
+  &lt;li&gt;작업용 원본과 배포용 파일을 분리해 관리하는 팀&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;링크&quot;&gt;링크&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;소개 페이지: https://lahuman.github.io/ppt-text2img&lt;/li&gt;
+  &lt;li&gt;GitHub 저장소: https://github.com/lahuman/ppt-text2img&lt;/li&gt;
+  &lt;li&gt;다운로드: https://github.com/lahuman/ppt-text2img/releases/download/1.1/ppt-txt2img.exe&lt;/li&gt;
+  &lt;li&gt;릴리즈 노트: https://github.com/lahuman/ppt-text2img/blob/main/RELEASE_NOTES.md&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;배포용 PPT는 마지막 순간의 작은 차이 하나로도 인상이 크게 달라질 수 있습니다.&lt;br /&gt;
+이 프로젝트는 그 불안을 줄이고, 더 안정적인 전달본을 만들기 위한 실무형 도구로 계속 다듬어가고 있습니다.&lt;/p&gt;</content><author><name></name></author><category term="ppt" /><category term="convert" /><category term="windows" /><summary type="html">배포용 PowerPoint에서 폰트 깨짐과 줄바꿈 오류를 줄이기 위해, 슬라이드 안의 텍스트를 이미지로 변환해 레이아웃을 더 안정적으로 유지하는 Windows용 데스크톱 도구입니다.</summary></entry><entry><title type="html">GitBackup 소개 - Windows에서 중요한 폴더를 더 쉽게 백업하는 방법</title><link href="https://lahuman.github.io/gitbackup/" rel="alternate" type="text/html" title="GitBackup 소개 - Windows에서 중요한 폴더를 더 쉽게 백업하는 방법" /><published>2026-04-06T00:00:00+00:00</published><updated>2026-04-06T00:00:00+00:00</updated><id>https://lahuman.github.io/gitbackup</id><content type="html" xml:base="https://lahuman.github.io/gitbackup/">&lt;h1 id=&quot;gitbackup-소개&quot;&gt;GitBackup 소개&lt;/h1&gt;
 &lt;p&gt;Windows에서 중요한 폴더를 더 쉽게 백업하는 방법&lt;/p&gt;
 
 &lt;p&gt;파일 백업은 중요하다는 걸 모두 알고 있지만, 실제로는 자주 미루게 됩니다.&lt;br /&gt;
@@ -82,6 +191,175 @@
 &lt;strong&gt;Windows에서 중요한 폴더를 더 쉽게 백업하는 경험&lt;/strong&gt;을 제공하는 것을 목표로 하고 있습니다.&lt;/p&gt;
 
 &lt;p&gt;필요하셨던 분들에게 작게나마 도움이 되길 바랍니다.&lt;/p&gt;</content><author><name></name></author><category term="git" /><category term="backup" /><category term="windows" /><summary type="html">GitHub를 활용해 Windows 폴더를 쉽고 간단하게 백업할 수 있는 GitBackup을 소개합니다.</summary></entry><entry><title type="html">말도 안되는 코드를 만났다.</title><link href="https://lahuman.github.io/java_ClassCastException/" rel="alternate" type="text/html" title="말도 안되는 코드를 만났다." /><published>2026-01-21T00:00:00+00:00</published><updated>2026-01-21T00:00:00+00:00</updated><id>https://lahuman.github.io/java_ClassCastException</id><content type="html" xml:base="https://lahuman.github.io/java_ClassCastException/">&lt;h1 id=&quot;java-제네릭의-거짓말-그리고-hashmapvalues의-진짜-정체&quot;&gt;[Java] 제네릭의 거짓말, 그리고 HashMap.values()의 진짜 정체&lt;/h1&gt;
+
+&lt;p&gt;안녕하세요. 오늘은 개발하다 보면 한 번쯤 마주치게 되는 Java 제네릭(Generics)의 허점과, 우리가 무심코 사용하는 &lt;code class=&quot;highlighter-rouge&quot;&gt;HashMap&lt;/code&gt;의 내부 동작에 대해 깊게 파보려고 합니다.&lt;/p&gt;
+
+&lt;p&gt;최근 재미있는 코드를 하나 보게 되었습니다. “이게 에러가 안 난다고?” 싶은 코드인데, 막상 돌려보면 멀쩡히 돌아갑니다. 왜 그런지, 그리고 그 속에 숨겨진 함정은 무엇인지 살펴보겠습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;1-제네릭은-런타임에-사라진다-type-erasure&quot;&gt;1. 제네릭은 런타임에 사라진다 (Type Erasure)&lt;/h2&gt;
+
+&lt;p&gt;다음 코드를 한번 보시죠.&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// 1. Map&amp;lt;String, String&amp;gt;을 담은 List 생성&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ArrayList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;gt;();&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;Map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;map&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HashMap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;gt;();&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;put&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;a&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;AA&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// 2. 이걸 Object로 감싸고...&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;Map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Object&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;wrapper&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HashMap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;gt;();&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;wrapper&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;put&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;vo&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// 3. 다시 꺼낼 때 전혀 다른 타입인 List&amp;lt;Vo&amp;gt;로 캐스팅!&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Vo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;voList&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Vo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;wrapper&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;vo&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// 4. 출력&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;voList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// 결과: [{a=AA}] (에러 없음!)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;List&amp;lt;Map&amp;gt;&lt;/code&gt;을 넣었는데 &lt;code class=&quot;highlighter-rouge&quot;&gt;List&amp;lt;Vo&amp;gt;&lt;/code&gt;로 꺼내집니다. 심지어 &lt;code class=&quot;highlighter-rouge&quot;&gt;ClassCastException&lt;/code&gt;도 발생하지 않습니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;왜-에러가-안-날까&quot;&gt;왜 에러가 안 날까?&lt;/h3&gt;
+&lt;p&gt;범인은 바로 자바의 &lt;strong&gt;Type Erasure(타입 소거)&lt;/strong&gt; 때문입니다.&lt;/p&gt;
+
+&lt;p&gt;우리가 코드에 적는 &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;String&amp;gt;&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;Vo&amp;gt;&lt;/code&gt; 같은 제네릭 타입 정보는 &lt;strong&gt;컴파일 타임에만 존재&lt;/strong&gt;합니다. 컴파일러가 유효성을 검사한 뒤, 바이트코드(.class)를 만들 때는 이 정보를 싹 지워버립니다.&lt;/p&gt;
+
+&lt;p&gt;즉, JVM이 코드를 실행할 때 보는 건 이렇습니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// JVM이 보는 세상&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;List&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;voList&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;wrapper&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;vo&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;JVM 입장에서는 “List를 List로 바꾸네? OK 통과!” 하고 넘어가는 것이죠. 이것을 &lt;strong&gt;Heap Pollution(힙 오염)&lt;/strong&gt;이라고 부릅니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;시한폭탄과-같다&quot;&gt;시한폭탄과 같다&lt;/h3&gt;
+&lt;p&gt;하지만 이건 &lt;strong&gt;성공한 게 아닙니다.&lt;/strong&gt; 출력(&lt;code class=&quot;highlighter-rouge&quot;&gt;println&lt;/code&gt;)만 했을 때는 내부의 &lt;code class=&quot;highlighter-rouge&quot;&gt;toString()&lt;/code&gt;을 호출할 뿐이라 문제가 없었지만, 실제로 데이터를 꺼내는 순간 터집니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// 여기서 터짐!&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;Vo&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;voList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// java.lang.ClassCastException: class java.util.HashMap cannot be cast to class Vo&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;꺼낼 때 비로소 JVM이 “어? 이거 Vo라며? 왜 HashMap이 나와?” 하고 배신감을 표출하는 것이죠.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;2-hashmapvalues는-list가-아니다&quot;&gt;2. HashMap.values()는 List가 아니다&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Map&lt;/code&gt;을 다루다 보면 값들만 뽑아서 리스트로 만들고 싶을 때가 있습니다. 흔히 이런 실수를 하곤 하죠.&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;Map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;map&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HashMap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;gt;();&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// ... 데이터 put ...&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// 컴파일 에러!&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;values&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// 런타임 에러! (강제 캐스팅 시)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;list2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;values&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;왜-안-될까&quot;&gt;왜 안 될까?&lt;/h3&gt;
+&lt;p&gt;이유는 단순하지만 중요합니다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;계층 구조의 문제:&lt;/strong&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;map.values()&lt;/code&gt;의 반환 타입은 &lt;code class=&quot;highlighter-rouge&quot;&gt;Collection&amp;lt;V&amp;gt;&lt;/code&gt;입니다. &lt;code class=&quot;highlighter-rouge&quot;&gt;List&lt;/code&gt;는 &lt;code class=&quot;highlighter-rouge&quot;&gt;Collection&lt;/code&gt;의 자식이지만, 부모(&lt;code class=&quot;highlighter-rouge&quot;&gt;Collection&lt;/code&gt;)를 자식(&lt;code class=&quot;highlighter-rouge&quot;&gt;List&lt;/code&gt;)에 그냥 담을 순 없습니다.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;구현체의 문제:&lt;/strong&gt; “그럼 캐스팅하면 되지 않나?” 싶지만, 런타임 에러가 발생합니다. &lt;code class=&quot;highlighter-rouge&quot;&gt;map.values()&lt;/code&gt;가 리턴하는 객체는 &lt;strong&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ArrayList&lt;/code&gt; 같은 리스트 구현체가 아니기 때문입니다.&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;까보자-구현체&quot;&gt;까보자, 구현체&lt;/h3&gt;
+&lt;p&gt;실제로 &lt;code class=&quot;highlighter-rouge&quot;&gt;getClass().getName()&lt;/code&gt;을 찍어보면 아주 낯선 녀석이 튀어나옵니다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;java.util.HashMap$Values&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;JDK 소스 코드를 열어보면 &lt;code class=&quot;highlighter-rouge&quot;&gt;HashMap&lt;/code&gt; 안에 다음과 같은 내부 클래스(Inner Class)가 숨어 있습니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// JDK HashMap 소스 중 일부&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Values&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;AbstractCollection&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;V&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Iterator&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;V&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;iterator&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ValueIterator&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// ...&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;List 아님:&lt;/strong&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;AbstractCollection&lt;/code&gt;을 상속받았을 뿐, &lt;code class=&quot;highlighter-rouge&quot;&gt;List&lt;/code&gt; 인터페이스는 구현하지 않았습니다. 인덱스로 접근(&lt;code class=&quot;highlighter-rouge&quot;&gt;.get(i)&lt;/code&gt;)할 수 없다는 뜻입니다.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;View 패턴:&lt;/strong&gt; 이 녀석은 데이터를 따로 저장하지 않습니다. 원본 &lt;code class=&quot;highlighter-rouge&quot;&gt;HashMap&lt;/code&gt;을 바라보는 창문(View) 역할만 합니다. 그래서 &lt;code class=&quot;highlighter-rouge&quot;&gt;map.values()&lt;/code&gt;로 얻은 컬렉션에서 아이템을 지우면 원본 맵에서도 지워집니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;3-결론-및-정리&quot;&gt;3. 결론 및 정리&lt;/h2&gt;
+
+&lt;p&gt;오늘 내용을 요약하면 다음과 같습니다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;제네릭 맹신 금지:&lt;/strong&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;(List&amp;lt;Vo&amp;gt;)&lt;/code&gt; 처럼 제네릭을 포함한 강제 형변환은 런타임에 타입 체크가 무시됩니다. 컴파일 경고(Unchecked cast)를 무시하지 마세요. 데이터는 &lt;strong&gt;ObjectMapper&lt;/strong&gt; 등을 통해 정석대로 변환해야 합니다.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;values()는 List가 아니다:&lt;/strong&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;map.values()&lt;/code&gt;는 &lt;code class=&quot;highlighter-rouge&quot;&gt;HashMap$Values&lt;/code&gt;라는 내부 전용 클래스를 반환합니다. 리스트로 쓰고 싶다면 생성자를 이용해 새로 만들어야 합니다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// 올바른 사용법&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ArrayList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;values&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;자바의 내부 구현을 알면 “도대체 왜 안 돼?” 혹은 “이게 왜 돼?” 하는 상황에서 빠르게 원인을 파악할 수 있습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;4-예시가-모두-포함된-전체-코드&quot;&gt;4. 예시가 모두 포함된 전체 코드&lt;/h2&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.util.ArrayList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.util.HashMap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.util.List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.util.Map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+
+&lt;span class=&quot;cm&quot;&gt;/**
+ * 타입 소거 (Type Erasure): 자바는 컴파일할 때만 제네릭 타입(예: &amp;lt;Vo&amp;gt;, &amp;lt;Map&amp;gt;)을 검사하고, 실행(Runtime) 시점에는 이 정보를 모두 지워버립니다.
+ * 형변환 성공: 실행 시점의 JVM은 리스트의 알맹이가 무엇인지 확인하지 않고, 그저 &quot;이것이 List인가?&quot;만 확인합니다. 따라서 Map이 담긴 리스트를 Vo 리스트로 강제 형변환해도 에러 없이 통과됩니다.
+ * 출력 결과: 데이터를 꺼내서 Vo로 사용하려던 것이 아니라, 단순히 리스트 자체를 출력(toString)했기 때문에 실제 들어있던 Map의 내용이 문자열로 출력된 것입니다.
+ * 결론: 이 코드는 **'성공한 것 처럼 보이는 시한폭탄'**입니다. 리스트에서 요소를 꺼내려는 순간(get) 바로 에러(ClassCastException)가 발생합니다.
+ */&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Main&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+        &lt;span class=&quot;n&quot;&gt;Map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HashMap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;gt;();&lt;/span&gt;
+
+        &lt;span class=&quot;n&quot;&gt;vo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;put&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;a&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;AA&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// 컴파일은 되지만, 실행 시 에러 발생!&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;l&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;values&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+
+        &lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ArrayList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;gt;();&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+
+        &lt;span class=&quot;n&quot;&gt;Map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Object&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;wapper&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HashMap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;gt;();&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;wapper&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;put&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;vo&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+
+        &lt;span class=&quot;c1&quot;&gt;// 타입 소거로 형병환 성공 BUT!&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Vo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vo1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Vo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;wapper&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;vo&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vo1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+
+        &lt;span class=&quot;c1&quot;&gt;// Exception in thread &quot;main&quot; java.lang.ClassCastException: class java.util.HashMap cannot be cast to class Vo (java.util.HashMap is in module java.base of loader 'bootstrap'; Vo is in unnamed module of loader 'app') 	at Main.main(Main.java:23)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;Vo&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;realVo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vo1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;realVo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+
+
+&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Vo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getA&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;setA&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="java" /><category term="cast" /><category term="exception" /><summary type="html">java ClassCaseException</summary></entry><entry><title type="html">말도 안되는 코드를 만났다.</title><link href="https://lahuman.github.io/20260415/" rel="alternate" type="text/html" title="말도 안되는 코드를 만났다." /><published>2026-01-21T00:00:00+00:00</published><updated>2026-01-21T00:00:00+00:00</updated><id>https://lahuman.github.io/20260415</id><content type="html" xml:base="https://lahuman.github.io/20260415/">&lt;h1 id=&quot;java-제네릭의-거짓말-그리고-hashmapvalues의-진짜-정체&quot;&gt;[Java] 제네릭의 거짓말, 그리고 HashMap.values()의 진짜 정체&lt;/h1&gt;
 
 &lt;p&gt;안녕하세요. 오늘은 개발하다 보면 한 번쯤 마주치게 되는 Java 제네릭(Generics)의 허점과, 우리가 무심코 사용하는 &lt;code class=&quot;highlighter-rouge&quot;&gt;HashMap&lt;/code&gt;의 내부 동작에 대해 깊게 파보려고 합니다.&lt;/p&gt;
 
@@ -831,154 +1109,4 @@ FLUSH PRIVILEGES;
 &lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://repost.aws/ko/knowledge-center/duplicate-master-user-mysql&quot;&gt;MySQL을 실행하는 Amazon RDS DB 인스턴스에 대해 다른 관리자 사용자를 생성하려면 어떻게 해야 합니까?&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="aws" /><category term="mysql" /><category term="root" /><summary type="html">그냥 mysql 디비 권한을 주면 안되고, 일일이 찍어줘야 함</summary></entry><entry><title type="html">단상</title><link href="https://lahuman.github.io/20250413/" rel="alternate" type="text/html" title="단상" /><published>2025-04-13T00:00:00+00:00</published><updated>2025-04-13T00:00:00+00:00</updated><id>https://lahuman.github.io/20250413</id><content type="html" xml:base="https://lahuman.github.io/20250413/">&lt;h1 id=&quot;시간이-지나-어른이-되면-쉬워질-줄-알았다&quot;&gt;시간이 지나, 어른이 되면 쉬워질 줄 알았다.&lt;/h1&gt;
-
-&lt;p&gt;쉽게 얻은게 없다. 항상 어렵게 힘들게 얻어왔다.&lt;/p&gt;
-
-&lt;p&gt;나이가 들면 조금은 쉬워질줄 알았다.&lt;/p&gt;
-
-&lt;p&gt;여전히 어렵다.&lt;/p&gt;
-
-&lt;p&gt;모든 걸 내려 놓지 못하는 나의 욕심이 원인인 줄 알지만,&lt;/p&gt;
-
-&lt;p&gt;욕심을 내려놓기엔 아직 어린거 같다.&lt;/p&gt;
-
-&lt;p&gt;조금 더 시간이 지나면, 쉽게 내려놓지 않을까?&lt;/p&gt;</content><author><name></name></author><category term="단상" /><summary type="html">삶은 시간이 지날수록 왜 어려워 지는가?</summary></entry><entry><title type="html">AWS NLB 에서 Preserved Client IP Address 사용시 Nginx 연계 오류</title><link href="https://lahuman.github.io/aws_nlb_nginx_/" rel="alternate" type="text/html" title="AWS NLB 에서 Preserved Client IP Address 사용시 Nginx 연계 오류" /><published>2025-03-26T00:00:00+00:00</published><updated>2025-03-26T00:00:00+00:00</updated><id>https://lahuman.github.io/aws_nlb_nginx_</id><content type="html" xml:base="https://lahuman.github.io/aws_nlb_nginx_/">&lt;h1 id=&quot;aws-nlb-preserve-client-ip와-nginx-연동-삽질기-feat-proxy-protocol&quot;&gt;AWS NLB Preserve Client IP와 Nginx 연동 삽질기 (feat. Proxy Protocol)&lt;/h1&gt;
-
-&lt;p&gt;오늘은 AWS 환경에서 애플리케이션을 운영하며 흔히 만날 수 있는 로드밸런서, 그중에서도 Network Load Balancer(NLB)와 Nginx를 함께 사용할 때 겪었던 &lt;code class=&quot;highlighter-rouge&quot;&gt;Preserve Client IP&lt;/code&gt; 옵션 관련 삽질기를 공유해볼까 합니다. 저와 비슷한 문제로 골머리를 앓았던 분들께 조금이나마 도움이 되기를 바랍니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;문제-상황-nlb--preserve-client-ip-addresses-옵션&quot;&gt;문제 상황: NLB  &lt;code class=&quot;highlighter-rouge&quot;&gt;Preserve client IP addresses&lt;/code&gt; 옵션&lt;/h2&gt;
-
-&lt;p&gt;일반적인 웹 서비스 구성이었습니다.&lt;/p&gt;
-
-&lt;div class=&quot;mermaid&quot;&gt; 
-  graph LR;
-    A[Client] --&amp;gt;|호출| B(NLB);
-    B --&amp;gt; C(Nginx);
-    C --&amp;gt; D(Tomcat);
-&lt;/div&gt;
-
-&lt;p&gt;Nginx는 리버스 프록시 역할을 수행합니다. Nginx 로그나 애플리케이션 단에서 &lt;strong&gt;실제 클라이언트의 IP 주소&lt;/strong&gt;를 확인해야 할 필요성이 생겼습니다. 가장 먼저 떠오른 것은 NLB의 &lt;code class=&quot;highlighter-rouge&quot;&gt;Preserve client IP addresses&lt;/code&gt; 옵션입니다. 이 옵션은 실제 클라이언트 IP로 호출 된것 같이 Nginx로 요청을 보내 줍니다.&lt;/p&gt;
-
-&lt;p&gt;하지만 결과는 참담했습니다. NLB의 모니터링 지표에서 해당 타겟 그룹(Nginx 인스턴스들)으로 가는 &lt;strong&gt;Request / Response Byte Size가 0/0&lt;/strong&gt; 으로 찍히며 통신이 완전히 두절된 것입니다. 옵션을 끄면 다시 정상으로 돌아왔고요. 대체 왜 이런 일이 발생했을까요?&lt;/p&gt;
-
-&lt;h2 id=&quot;원인-분석-비대칭-라우팅&quot;&gt;원인 분석: 비대칭 라우팅&lt;/h2&gt;
-
-&lt;p&gt;결론부터 말하자면, &lt;code class=&quot;highlighter-rouge&quot;&gt;Preserve Client IP&lt;/code&gt; 옵션을 켰을 때 발생하는 &lt;strong&gt;비대칭 라우팅(Asymmetric Routing)&lt;/strong&gt; 때문이었습니다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Preserve Client IP&lt;/code&gt; = OFF (기본값, 정상 작동 시):&lt;/strong&gt;
-    &lt;ol&gt;
-      &lt;li&gt;Client -&amp;gt; NLB 로 요청이 옵니다.&lt;/li&gt;
-      &lt;li&gt;NLB는 &lt;strong&gt;자신의 Private IP&lt;/strong&gt;를 Source IP로 사용하여 Nginx에 요청을 전달합니다 (Source NAT 발생).&lt;/li&gt;
-      &lt;li&gt;Nginx는 NLB IP로부터 요청을 받았으므로, 응답도 &lt;strong&gt;NLB IP&lt;/strong&gt;로 보냅니다.&lt;/li&gt;
-      &lt;li&gt;NLB는 응답을 받아 Client에게 전달합니다.&lt;/li&gt;
-      &lt;li&gt;요청과 응답이 NLB를 통해 대칭적으로 이루어집니다. Nginx는 같은 VPC 내의 NLB IP와 통신하므로 문제가 없습니다. 이를 &lt;strong&gt;대칭 라우팅(Symmetric Routing)&lt;/strong&gt;이라고 합니다. 즉, 요청(Request) 패킷이 지나간 경로와 응답(Response) 패킷이 돌아오는 경로가 동일한 네트워크 장비(여기서는 NLB)를 거치는 상태입니다.&lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Preserve Client IP&lt;/code&gt; = ON (문제 발생 시):&lt;/strong&gt;
-    &lt;ol&gt;
-      &lt;li&gt;Client -&amp;gt; NLB 로 요청이 옵니다.&lt;/li&gt;
-      &lt;li&gt;NLB는 Source IP를 변경하지 않고 &lt;strong&gt;원본 Client IP&lt;/strong&gt;를 Source IP로 사용하여 Nginx에 요청을 전달합니다.&lt;/li&gt;
-      &lt;li&gt;Nginx는 &lt;strong&gt;원본 Client IP&lt;/strong&gt;로부터 요청을 받은 것으로 인지합니다.&lt;/li&gt;
-      &lt;li&gt;Nginx는 응답을 &lt;strong&gt;원본 Client IP&lt;/strong&gt;로 직접 보내려고 시도합니다!&lt;/li&gt;
-      &lt;li&gt;이때, EC2 인스턴스(Nginx)의 기본 라우팅 경로는 보통 인터넷 게이트웨이(IGW)나 NAT 게이트웨이를 향합니다. 따라서 응답 패킷은 &lt;strong&gt;NLB를 거치지 않고&lt;/strong&gt; 바로 인터넷으로 나가버립니다.&lt;/li&gt;
-      &lt;li&gt;바로 이 지점에서 &lt;strong&gt;비대칭 라우팅(Asymmetric Routing)&lt;/strong&gt;이 발생합니다. 요청 패킷은 &lt;code class=&quot;highlighter-rouge&quot;&gt;Client -&amp;gt; NLB -&amp;gt; Nginx&lt;/code&gt; 경로로 왔지만, 응답 패킷은 &lt;code class=&quot;highlighter-rouge&quot;&gt;Nginx -&amp;gt; IGW -&amp;gt; Client&lt;/code&gt; 경로로 돌아가게 됩니다. 요청 경로와 응답 경로가 달라진 것입니다.&lt;/li&gt;
-      &lt;li&gt;NLB와 같은 상태 기반(Stateful) 네트워크 장비는 자신이 전달한 요청에 대한 응답이 &lt;strong&gt;자신을 통해&lt;/strong&gt; 돌아오는 것을 기대하며 연결 상태를 추적합니다. 하지만 비대칭 라우팅 상황에서는 NLB가 Nginx로 보낸 요청에 대한 응답을 볼 수 없으므로, 연결이 비정상적으로 종료되었거나 실패한 것으로 간주합니다. 이것이 0/0 카운트의 원인이었습니다.&lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;결국, 이 옵션을 켜려면 Nginx 인스턴스의 운영체제 레벨에서 라우팅 테이블을 수정하여 &lt;strong&gt;클라이언트 IP로 가는 응답 트래픽이 NLB를 거치도록&lt;/strong&gt; 매우 복잡한 설정을 해줘야 했습니다. 이건 너무 번거로웠죠.&lt;/p&gt;
-
-&lt;h2 id=&quot;대안-1-그냥-preserve-client-ip--off-쓰고-xff-헤더-확인하기&quot;&gt;대안 1: 그냥 &lt;code class=&quot;highlighter-rouge&quot;&gt;Preserve Client IP&lt;/code&gt; = OFF 쓰고 XFF 헤더 확인하기&lt;/h2&gt;
-
-&lt;p&gt;가장 간단한 방법입니다. &lt;code class=&quot;highlighter-rouge&quot;&gt;Preserve Client IP&lt;/code&gt; 옵션을 끄면, NLB는 자동으로 &lt;code class=&quot;highlighter-rouge&quot;&gt;X-Forwarded-For&lt;/code&gt; (XFF) HTTP 헤더에 원본 클라이언트 IP를 담아서 Nginx로 전달해줍니다. Nginx에서는 이 헤더 값을 읽으면 됩니다.&lt;/p&gt;
-
-&lt;p&gt;Nginx에서 XFF 헤더를 신뢰하고 실제 클라이언트 IP로 인식하게 하려면 &lt;code class=&quot;highlighter-rouge&quot;&gt;nginx.conf&lt;/code&gt; 등에 다음과 같이 설정합니다.&lt;/p&gt;
-
-&lt;div class=&quot;language-nginx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;http&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;# ... 다른 설정들 ...
-&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;# NLB의 IP 대역을 신뢰하도록 설정 (VPC CIDR 사용 권장)
-&lt;/span&gt;    &lt;span class=&quot;kn&quot;&gt;set_real_ip_from&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;.0.0.0/16&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 예시: VPC CIDR
-&lt;/span&gt;    &lt;span class=&quot;c1&quot;&gt;# 어떤 헤더를 실제 IP로 사용할지 지정
-&lt;/span&gt;    &lt;span class=&quot;kn&quot;&gt;real_ip_header&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;X-Forwarded-For&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;# XFF 헤더가 여러 IP를 포함할 경우, 가장 오른쪽 IP를 사용 (가장 마지막 프록시 IP 제외)
-&lt;/span&gt;    &lt;span class=&quot;c1&quot;&gt;# real_ip_recursive on; # 필요에 따라 설정
-&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;# ... 다른 설정들 ...
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;이 방법은 OS 라우팅 수정 없이 Nginx 설정만으로 해결 가능해서 매우 편리합니다. 대부분의 경우 이 방법으로 충분할 것입니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;대안-2-proxy-protocol-v2-사용하기&quot;&gt;대안 2: Proxy Protocol v2 사용하기&lt;/h2&gt;
-
-&lt;p&gt;하지만 어떤 이유로든 &lt;code class=&quot;highlighter-rouge&quot;&gt;Preserve Client IP = ON&lt;/code&gt;과 유사한 효과 (TCP 레벨에서 클라이언트 IP 확인 등)가 필요하거나, 혹은 다른 이유로 &lt;code class=&quot;highlighter-rouge&quot;&gt;Preserve Client IP = OFF&lt;/code&gt; 상태에서 &lt;strong&gt;Proxy Protocol v2&lt;/strong&gt;를 사용해야 하는 상황이 있을 수 있습니다. (예: &lt;code class=&quot;highlighter-rouge&quot;&gt;NLB -&amp;gt; ALB&lt;/code&gt; 구성에서 Client IP 전달 등)&lt;/p&gt;
-
-&lt;p&gt;그래서 다음 시도를 해봤습니다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;NLB 설정: &lt;code class=&quot;highlighter-rouge&quot;&gt;Preserve Client IP&lt;/code&gt; = &lt;strong&gt;OFF&lt;/strong&gt;, Target Group의 &lt;code class=&quot;highlighter-rouge&quot;&gt;Proxy Protocol v2&lt;/code&gt; = &lt;strong&gt;ON&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;Nginx 설정: 원본 IP를 받도록 설정&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;이론적으로는 &lt;code class=&quot;highlighter-rouge&quot;&gt;Preserve Client IP = OFF&lt;/code&gt; 이므로 라우팅은 해결되고, Proxy Protocol v2 헤더를 통해 원본 IP 정보가 TCP 스트림 내에 포함되어 Nginx로 전달될 것으로 기대했습니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;결과:&lt;/strong&gt; 또다시 0/0 !!&lt;/p&gt;
-
-&lt;p&gt;이번엔 또 무슨 문제일까요? 원인은 &lt;strong&gt;Nginx가 Proxy Protocol 헤더를 이해하도록 설정되지 않았기 때문&lt;/strong&gt;이었습니다.&lt;/p&gt;
-
-&lt;p&gt;NLB가 Proxy Protocol v2 헤더를 보내면, Nginx는 기본적으로 이를 해석하지 못하고 비정상적인 요청으로 간주하여 연결을 끊어버립니다. NLB는 Nginx와의 통신(Health Check 포함)이 실패하니 타겟이 비정상이라고 판단하는 것이죠.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;해결책:&lt;/strong&gt; Nginx의 &lt;code class=&quot;highlighter-rouge&quot;&gt;listen&lt;/code&gt; 지시어에 &lt;code class=&quot;highlighter-rouge&quot;&gt;proxy_protocol&lt;/code&gt; 파라미터를 추가해야 합니다.&lt;/p&gt;
-
-&lt;div class=&quot;language-nginx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;server&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;# HTTP (80번 포트) + Proxy Protocol
-&lt;/span&gt;    &lt;span class=&quot;kn&quot;&gt;listen&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;80&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;proxy_protocol&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-    &lt;span class=&quot;c1&quot;&gt;# HTTPS (443번 포트) + Proxy Protocol
-&lt;/span&gt;    &lt;span class=&quot;c1&quot;&gt;# listen 443 ssl proxy_protocol;
-&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;# Proxy Protocol 헤더를 보내는 주체(NLB)를 신뢰하도록 설정
-&lt;/span&gt;    &lt;span class=&quot;kn&quot;&gt;set_real_ip_from&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;.0.0.0/16&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 예시: VPC CIDR
-&lt;/span&gt;    &lt;span class=&quot;c1&quot;&gt;# 실제 IP를 Proxy Protocol 헤더에서 가져오도록 설정
-&lt;/span&gt;    &lt;span class=&quot;kn&quot;&gt;real_ip_header&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;proxy_protocol&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-    &lt;span class=&quot;c1&quot;&gt;# ... 나머지 설정 ...
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;여기서 중요한 점! &lt;code class=&quot;highlighter-rouge&quot;&gt;set_real_ip_from&lt;/code&gt; 지시어는 여전히 필요합니다. 왜냐하면 &lt;code class=&quot;highlighter-rouge&quot;&gt;real_ip_header proxy_protocol;&lt;/code&gt; 설정이 동작하려면, &lt;strong&gt;직접 연결을 시도한 IP 주소(&lt;code class=&quot;highlighter-rouge&quot;&gt;Preserve Client IP = OFF&lt;/code&gt;이므로 NLB의 Private IP)가 신뢰할 수 있는 프록시 목록(&lt;code class=&quot;highlighter-rouge&quot;&gt;set_real_ip_from&lt;/code&gt;)에 포함되어 있어야&lt;/strong&gt; Nginx가 Proxy Protocol 헤더의 내용을 신뢰하기 때문입니다.&lt;/p&gt;
-
-&lt;p&gt;이 설정을 적용하고 Nginx를 재시작하니 드디어 NLB &amp;lt;-&amp;gt; Nginx 통신이 정상화되고, Nginx 로그에도 실제 클라이언트 IP가 찍히는 것을 확인할 수 있었습니다!&lt;/p&gt;
-
-&lt;h2 id=&quot;결론&quot;&gt;결론&lt;/h2&gt;
-
-&lt;p&gt;AWS NLB의 &lt;code class=&quot;highlighter-rouge&quot;&gt;Preserve Client IP&lt;/code&gt; 옵션은 편리해 보이지만, &lt;strong&gt;비대칭 라우팅&lt;/strong&gt;이라는 숨겨진 복병을 만날 수 있습니다. 요청 경로와 응답 경로가 달라지면서 NLB와 같은 상태 기반 장비의 연결 추적을 방해하는 이 현상은 예상치 못한 통신 장애를 유발합니다.&lt;/p&gt;
-
-&lt;p&gt;대부분의 경우, 이 옵션을 &lt;strong&gt;끄고&lt;/strong&gt; NLB가 자동으로 추가해주는 &lt;strong&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;X-Forwarded-For&lt;/code&gt; 헤더를 Nginx에서 활용&lt;/strong&gt;하는 것이 가장 간단하고 권장되는 방법입니다.&lt;/p&gt;
-
-&lt;p&gt;만약 Proxy Protocol v2를 사용해야 한다면, NLB 타겟 그룹 설정뿐만 아니라 &lt;strong&gt;Nginx의 &lt;code class=&quot;highlighter-rouge&quot;&gt;listen&lt;/code&gt; 지시어에도 &lt;code class=&quot;highlighter-rouge&quot;&gt;proxy_protocol&lt;/code&gt; 파라미터를 반드시 추가&lt;/strong&gt;해야 한다는 점, 그리고 &lt;strong&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;set_real_ip_from&lt;/code&gt; 설정으로 NLB를 신뢰&lt;/strong&gt;하도록 지정해야 한다는 점을 잊지 마시기 바랍니다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
-
-&lt;p&gt;이 글의 내용은 AWS NLB 및 Nginx 설정과 관련된 일반적인 기술 개념과 문제 해결 과정을 바탕으로 작성되었습니다. 더 자세한 기술 정보는 아래 공식 문서를 참고하시면 좋습니다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;AWS Network Load Balancer - 대상 그룹:&lt;/strong&gt;
-    &lt;ul&gt;
-      &lt;li&gt;‘Preserve client IP addresses’ 설명: &lt;a href=&quot;https://docs.aws.amazon.com/ko_kr/elasticloadbalancing/latest/network/load-balancer-target-groups.html#preserve-client-ip&quot;&gt;https://docs.aws.amazon.com/ko_kr/elasticloadbalancing/latest/network/load-balancer-target-groups.html#preserve-client-ip&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;‘Proxy Protocol’ 설명: &lt;a href=&quot;https://docs.aws.amazon.com/ko_kr/elasticloadbalancing/latest/network/load-balancer-target-groups.html#proxy-protocol&quot;&gt;https://docs.aws.amazon.com/ko_kr/elasticloadbalancing/latest/network/load-balancer-target-groups.html#proxy-protocol&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Nginx Documentation:&lt;/strong&gt;
-    &lt;ul&gt;
-      &lt;li&gt;‘ngx_http_realip_module’ (‘set_real_ip_from’, ‘real_ip_header’): &lt;a href=&quot;http://nginx.org/en/docs/http/ngx_http_realip_module.html&quot;&gt;http://nginx.org/en/docs/http/ngx_http_realip_module.html&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;‘listen’ 지시어 (‘proxy_protocol’ 파라미터): &lt;a href=&quot;http://nginx.org/en/docs/http/ngx_http_core_module.html#listen&quot;&gt;http://nginx.org/en/docs/http/ngx_http_core_module.html#listen&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="aws" /><category term="nlb" /><category term="nginx" /><summary type="html">Proxy Protocol 설정으로 client ip 가져오기</summary></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><category term="aws" /><category term="mysql" /><category term="root" /><summary type="html">그냥 mysql 디비 권한을 주면 안되고, 일일이 찍어줘야 함</summary></entry></feed>
