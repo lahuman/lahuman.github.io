@@ -7,12 +7,12 @@
   <span class="nx">CommitmentPolicy</span><span class="p">,</span>
   <span class="nx">getClient</span><span class="p">,</span>
   <span class="nx">KMS</span><span class="p">,</span>
-<span class="p">}</span> <span class="k">from</span> <span class="s1">'@aws-crypto/client-node'</span><span class="p">;</span>
+<span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@aws-crypto/client-node</span><span class="dl">'</span><span class="p">;</span>
 
-<span class="k">import</span> <span class="s1">'dotenv/config'</span><span class="p">;</span>
+<span class="k">import</span> <span class="dl">'</span><span class="s1">dotenv/config</span><span class="dl">'</span><span class="p">;</span>
 
 <span class="kd">const</span> <span class="nx">clientProvider</span> <span class="o">=</span> <span class="nx">getClient</span><span class="p">(</span><span class="nx">KMS</span><span class="p">,</span> <span class="p">{</span>
-  <span class="na">endpoint</span><span class="p">:</span> <span class="s1">'https://kms.ap-northeast-2.amazonaws.com'</span><span class="p">,</span>
+  <span class="na">endpoint</span><span class="p">:</span> <span class="dl">'</span><span class="s1">https://kms.ap-northeast-2.amazonaws.com</span><span class="dl">'</span><span class="p">,</span>
   <span class="na">credentials</span><span class="p">:</span> <span class="p">{</span>
     <span class="na">accessKeyId</span><span class="p">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">AWS_ACCESSKEY</span><span class="p">,</span>
     <span class="na">secretAccessKey</span><span class="p">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">AWS_SECRETKEY</span><span class="p">,</span>
@@ -36,7 +36,7 @@
    * You need kms:GenerateDataKey permission on the CMK in generatorKeyId.
    */</span>
   <span class="kd">const</span> <span class="nx">generatorKeyId</span> <span class="o">=</span>
-    <span class="s1">'arn:aws:kms:us-west-2:111122223333:alias/EncryptDecrypt'</span><span class="p">;</span>
+    <span class="dl">'</span><span class="s1">arn:aws:kms:us-west-2:111122223333:alias/EncryptDecrypt</span><span class="dl">'</span><span class="p">;</span>
 
   <span class="cm">/* Adding alternate KMS keys that can decrypt.
    * Access to kms:Encrypt is required for every CMK in keyIds.
@@ -46,8 +46,8 @@
    * This is *only* to demonstrate how the CMK ARNs are configured.
    */</span>
   <span class="kd">const</span> <span class="nx">keyIds</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s1">'arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab'</span><span class="p">,</span>
-    <span class="s1">'arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ac'</span><span class="p">,</span>
+    <span class="dl">'</span><span class="s1">arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</span><span class="dl">'</span><span class="p">,</span>
+    <span class="dl">'</span><span class="s1">arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ac</span><span class="dl">'</span><span class="p">,</span>
   <span class="p">];</span>
 
   <span class="cm">/* The KMS keyring must be configured with the desired CMKs */</span>
@@ -67,21 +67,21 @@
    * See: https://docs.aws.amazon.com/encryption-sdk/latest/developer-guide/concepts.html#encryption-context
    */</span>
   <span class="kd">const</span> <span class="nx">context</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="na">stage</span><span class="p">:</span> <span class="s1">'petaverse'</span><span class="p">,</span>
-    <span class="na">purpose</span><span class="p">:</span> <span class="s1">'omoomo app'</span><span class="p">,</span>
-    <span class="na">origin</span><span class="p">:</span> <span class="s1">'ap-northeast-2'</span><span class="p">,</span>
+    <span class="na">stage</span><span class="p">:</span> <span class="dl">'</span><span class="s1">petaverse</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">purpose</span><span class="p">:</span> <span class="dl">'</span><span class="s1">omoomo app</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">origin</span><span class="p">:</span> <span class="dl">'</span><span class="s1">ap-northeast-2</span><span class="dl">'</span><span class="p">,</span>
   <span class="p">};</span>
 
   <span class="cm">/* Find data to encrypt.  A simple string. */</span>
-  <span class="kd">const</span> <span class="nx">cleartext</span> <span class="o">=</span> <span class="s1">'hello'</span><span class="p">;</span>
+  <span class="kd">const</span> <span class="nx">cleartext</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">hello</span><span class="dl">'</span><span class="p">;</span>
 
   <span class="cm">/* Encrypt the data. */</span>
-  <span class="kd">const</span> <span class="p">{</span> <span class="nx">result</span> <span class="p">}</span> <span class="o">=</span> <span class="kr">await</span> <span class="nx">encrypt</span><span class="p">(</span><span class="nx">keyring</span><span class="p">,</span> <span class="nx">cleartext</span><span class="p">,</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="p">{</span> <span class="nx">result</span> <span class="p">}</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">encrypt</span><span class="p">(</span><span class="nx">keyring</span><span class="p">,</span> <span class="nx">cleartext</span><span class="p">,</span> <span class="p">{</span>
     <span class="na">encryptionContext</span><span class="p">:</span> <span class="nx">context</span><span class="p">,</span>
   <span class="p">});</span>
 
   <span class="cm">/* Decrypt the data. */</span>
-  <span class="kd">const</span> <span class="p">{</span> <span class="nx">plaintext</span><span class="p">,</span> <span class="nx">messageHeader</span> <span class="p">}</span> <span class="o">=</span> <span class="kr">await</span> <span class="nx">decrypt</span><span class="p">(</span><span class="nx">keyring</span><span class="p">,</span> <span class="nx">result</span><span class="p">);</span>
+  <span class="kd">const</span> <span class="p">{</span> <span class="nx">plaintext</span><span class="p">,</span> <span class="nx">messageHeader</span> <span class="p">}</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">decrypt</span><span class="p">(</span><span class="nx">keyring</span><span class="p">,</span> <span class="nx">result</span><span class="p">);</span>
   <span class="cm">/* Grab the encryption context so you can verify it. */</span>
   <span class="kd">const</span> <span class="p">{</span> <span class="nx">encryptionContext</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">messageHeader</span><span class="p">;</span>
   <span class="cm">/* Verify the encryption context.
@@ -93,10 +93,10 @@
    */</span>
   <span class="nb">Object</span><span class="p">.</span><span class="nx">entries</span><span class="p">(</span><span class="nx">context</span><span class="p">).</span><span class="nx">forEach</span><span class="p">(([</span><span class="nx">key</span><span class="p">,</span> <span class="nx">value</span><span class="p">])</span> <span class="o">=&gt;</span> <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="nx">encryptionContext</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span> <span class="o">!==</span> <span class="nx">value</span><span class="p">)</span>
-      <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s1">'Encryption Context does not match expected values'</span><span class="p">);</span>
+      <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="dl">'</span><span class="s1">Encryption Context does not match expected values</span><span class="dl">'</span><span class="p">);</span>
   <span class="p">});</span>
 
-  <span class="k">return</span> <span class="p">{</span> <span class="na">plaintext</span><span class="p">:</span> <span class="nx">plaintext</span><span class="p">.</span><span class="nx">toString</span><span class="p">(),</span> <span class="na">result</span><span class="p">:</span> <span class="nx">result</span><span class="p">.</span><span class="nx">toString</span><span class="p">(</span><span class="s1">'base64'</span><span class="p">)</span> <span class="p">};</span>
+  <span class="k">return</span> <span class="p">{</span> <span class="na">plaintext</span><span class="p">:</span> <span class="nx">plaintext</span><span class="p">.</span><span class="nx">toString</span><span class="p">(),</span> <span class="na">result</span><span class="p">:</span> <span class="nx">result</span><span class="p">.</span><span class="nx">toString</span><span class="p">(</span><span class="dl">'</span><span class="s1">base64</span><span class="dl">'</span><span class="p">)</span> <span class="p">};</span>
 <span class="p">}</span>
 
 <span class="kd">function</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
@@ -115,40 +115,40 @@
 
     
     <span class="k">if</span> <span class="n">boto3_session</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
-        <span class="n">botocore_session</span> <span class="o">=</span> <span class="n">boto3_session</span><span class="o">.</span><span class="n">_session</span>
+        <span class="n">botocore_session</span> <span class="o">=</span> <span class="n">boto3_session</span><span class="p">.</span><span class="n">_session</span>
         <span class="n">encrypt_kwargs</span><span class="p">[</span><span class="s">"botocore_session"</span><span class="p">]</span> <span class="o">=</span> <span class="n">botocore_session</span>
 
-    <span class="n">client</span> <span class="o">=</span> <span class="n">aws_encryption_sdk</span><span class="o">.</span><span class="n">EncryptionSDKClient</span><span class="p">(</span><span class="n">commitment_policy</span><span class="o">=</span><span class="n">CommitmentPolicy</span><span class="o">.</span><span class="n">REQUIRE_ENCRYPT_REQUIRE_DECRYPT</span><span class="p">)</span>
+    <span class="n">client</span> <span class="o">=</span> <span class="n">aws_encryption_sdk</span><span class="p">.</span><span class="n">EncryptionSDKClient</span><span class="p">(</span><span class="n">commitment_policy</span><span class="o">=</span><span class="n">CommitmentPolicy</span><span class="p">.</span><span class="n">REQUIRE_ENCRYPT_REQUIRE_DECRYPT</span><span class="p">)</span>
 
-    <span class="c"># 복합 키를 이용한 암호화</span>
-    <span class="n">strict_encrypt_key_provider</span> <span class="o">=</span> <span class="n">aws_encryption_sdk</span><span class="o">.</span><span class="n">StrictAwsKmsMasterKeyProvider</span><span class="p">(</span><span class="o">**</span><span class="n">encrypt_kwargs</span><span class="p">)</span>
-    <span class="n">ciphertext</span><span class="p">,</span> <span class="n">encrypted_message_header</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">encrypt</span><span class="p">(</span>
+    <span class="c1"># 복합 키를 이용한 암호화
+</span>    <span class="n">strict_encrypt_key_provider</span> <span class="o">=</span> <span class="n">aws_encryption_sdk</span><span class="p">.</span><span class="n">StrictAwsKmsMasterKeyProvider</span><span class="p">(</span><span class="o">**</span><span class="n">encrypt_kwargs</span><span class="p">)</span>
+    <span class="n">ciphertext</span><span class="p">,</span> <span class="n">encrypted_message_header</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">encrypt</span><span class="p">(</span>
         <span class="n">source</span><span class="o">=</span><span class="n">source_plaintext</span><span class="p">,</span> <span class="n">key_provider</span><span class="o">=</span><span class="n">strict_encrypt_key_provider</span>
     <span class="p">)</span>
 
-    <span class="n">b64EncodeChpherTxt</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">ciphertext</span><span class="p">)</span> <span class="c"># DBMS에 적재를 위하여 byte 타입을 base64를 통한 변경 처리 </span>
-    <span class="n">decodePlaintext</span> <span class="o">=</span> <span class="s">""</span><span class="p">;</span>
+    <span class="n">b64EncodeChpherTxt</span> <span class="o">=</span> <span class="n">base64</span><span class="p">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">ciphertext</span><span class="p">)</span> <span class="c1"># DBMS에 적재를 위하여 byte 타입을 base64를 통한 변경 처리 
+</span>    <span class="n">decodePlaintext</span> <span class="o">=</span> <span class="s">""</span><span class="p">;</span>
 
-    <span class="c"># 두개의 키를 이용한 복호화 처리</span>
-    <span class="k">for</span> <span class="n">key_arn</span> <span class="ow">in</span> <span class="n">key_arns</span><span class="p">:</span>
+    <span class="c1"># 두개의 키를 이용한 복호화 처리
+</span>    <span class="k">for</span> <span class="n">key_arn</span> <span class="ow">in</span> <span class="n">key_arns</span><span class="p">:</span>
         <span class="n">decrypt_kwargs</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">key_ids</span><span class="o">=</span><span class="p">[</span><span class="n">key_arn</span><span class="p">])</span>
         <span class="k">if</span> <span class="n">boto3_session</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
-            <span class="n">botocore_session</span> <span class="o">=</span> <span class="n">boto3_session</span><span class="o">.</span><span class="n">_session</span>
+            <span class="n">botocore_session</span> <span class="o">=</span> <span class="n">boto3_session</span><span class="p">.</span><span class="n">_session</span>
             <span class="n">decrypt_kwargs</span><span class="p">[</span><span class="s">"botocore_session"</span><span class="p">]</span> <span class="o">=</span> <span class="n">botocore_session</span>
 
-        <span class="n">strict_decrypt_key_provider</span> <span class="o">=</span> <span class="n">aws_encryption_sdk</span><span class="o">.</span><span class="n">StrictAwsKmsMasterKeyProvider</span><span class="p">(</span><span class="o">**</span><span class="n">decrypt_kwargs</span><span class="p">)</span>
-        <span class="n">plaintext</span><span class="p">,</span> <span class="n">decrypted_message_header</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">decrypt</span><span class="p">(</span>
-            <span class="n">source</span><span class="o">=</span><span class="n">base64</span><span class="o">.</span><span class="n">b64decode</span><span class="p">(</span><span class="n">b64EncodeChpherTxt</span><span class="p">),</span> <span class="n">key_provider</span><span class="o">=</span><span class="n">strict_decrypt_key_provider</span>
+        <span class="n">strict_decrypt_key_provider</span> <span class="o">=</span> <span class="n">aws_encryption_sdk</span><span class="p">.</span><span class="n">StrictAwsKmsMasterKeyProvider</span><span class="p">(</span><span class="o">**</span><span class="n">decrypt_kwargs</span><span class="p">)</span>
+        <span class="n">plaintext</span><span class="p">,</span> <span class="n">decrypted_message_header</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">decrypt</span><span class="p">(</span>
+            <span class="n">source</span><span class="o">=</span><span class="n">base64</span><span class="p">.</span><span class="n">b64decode</span><span class="p">(</span><span class="n">b64EncodeChpherTxt</span><span class="p">),</span> <span class="n">key_provider</span><span class="o">=</span><span class="n">strict_decrypt_key_provider</span>
         <span class="p">)</span>
 
         <span class="n">decodePlaintext</span> <span class="o">=</span> <span class="n">plaintext</span>
 
-    <span class="k">print</span><span class="p">(</span><span class="n">b64EncodeChpherTxt</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">'utf-8'</span><span class="p">))</span> <span class="c"># byte 를 string 타입으로 전환 </span>
-    <span class="k">print</span><span class="p">(</span><span class="n">decodePlaintext</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">b64EncodeChpherTxt</span><span class="p">.</span><span class="n">decode</span><span class="p">(</span><span class="s">'utf-8'</span><span class="p">))</span> <span class="c1"># byte 를 string 타입으로 전환 
+</span>    <span class="k">print</span><span class="p">(</span><span class="n">decodePlaintext</span><span class="p">)</span>
 
 
-<span class="c"># Example usage with a boto3 session</span>
-<span class="n">boto3_session</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">Session</span><span class="p">(</span>
+<span class="c1"># Example usage with a boto3 session
+</span><span class="n">boto3_session</span> <span class="o">=</span> <span class="n">boto3</span><span class="p">.</span><span class="n">Session</span><span class="p">(</span>
     <span class="n">aws_access_key_id</span><span class="o">=</span><span class="s">"AWS_ACCESSKEY"</span><span class="p">,</span>
     <span class="n">aws_secret_access_key</span><span class="o">=</span><span class="s">"AWS_SECRETKEY"</span><span class="p">,</span>
     <span class="n">region_name</span><span class="o">=</span><span class="s">"REGION_NAME"</span>

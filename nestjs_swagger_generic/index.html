@@ -15,14 +15,14 @@
     <span class="k">this</span><span class="p">.</span><span class="nx">total</span> <span class="o">=</span> <span class="nx">paginationResults</span><span class="p">.</span><span class="nx">total</span><span class="p">;</span>
   <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div></div> <p>다른 부분의 표현은 문제가 없는데, <code class="highlighter-rouge">generic</code> 타입인 <code class="highlighter-rouge">public results: T[];</code>를 제대로 표현하지 못해서 아쉬움을 느끼고 있었습니다.</p> <p><a href="https://aalonso.dev/blog/how-to-generate-generics-dtos-with-nestjsswagger-422g">How to generate Generics DTOs with nestjs/swagger</a>를 찾아서 적용하니 잘 표현 되네요.</p> <p>적용 방법은 아래와 같습니다.</p> <p>우선 신규 <code class="highlighter-rouge">ApiOkResponsePaginated</code> 데코레이터를 추가 합니다.</p> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span>
+</code></pre></div></div> <p>다른 부분의 표현은 문제가 없는데, <code class="language-plaintext highlighter-rouge">generic</code> 타입인 <code class="language-plaintext highlighter-rouge">public results: T[];</code>를 제대로 표현하지 못해서 아쉬움을 느끼고 있었습니다.</p> <p><a href="https://aalonso.dev/blog/how-to-generate-generics-dtos-with-nestjsswagger-422g">How to generate Generics DTOs with nestjs/swagger</a>를 찾아서 적용하니 잘 표현 되네요.</p> <p>적용 방법은 아래와 같습니다.</p> <p>우선 신규 <code class="language-plaintext highlighter-rouge">ApiOkResponsePaginated</code> 데코레이터를 추가 합니다.</p> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span>
   <span class="nx">ApiOkResponse</span><span class="p">,</span>
   <span class="nx">getSchemaPath</span><span class="p">,</span>
   <span class="nx">ApiExtraModels</span><span class="p">,</span>
   <span class="nx">ApiProperty</span><span class="p">,</span>
-<span class="p">}</span> <span class="k">from</span> <span class="s1">'@nestjs/swagger'</span><span class="p">;</span>
-<span class="k">import</span> <span class="p">{</span> <span class="nx">PaginationResultInterface</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'./pagination.results.interface'</span><span class="p">;</span>
-<span class="k">import</span> <span class="p">{</span> <span class="nx">applyDecorators</span><span class="p">,</span> <span class="nx">Type</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@nestjs/common'</span><span class="p">;</span>
+<span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@nestjs/swagger</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">PaginationResultInterface</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./pagination.results.interface</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">applyDecorators</span><span class="p">,</span> <span class="nx">Type</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@nestjs/common</span><span class="dl">'</span><span class="p">;</span>
 
 <span class="k">export</span> <span class="kd">class</span> <span class="nx">Pagination</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span> <span class="p">{</span>
   <span class="c1">// 중요! ApiProperty 를 사용하지 않음</span>
@@ -41,7 +41,7 @@
 
 <span class="c1">// 데코레이터 추가</span>
 <span class="k">export</span> <span class="kd">const</span> <span class="nx">ApiOkResponsePaginated</span> <span class="o">=</span> <span class="o">&lt;</span><span class="nx">DataDto</span> <span class="kd">extends</span> <span class="nx">Type</span><span class="o">&lt;</span><span class="nx">unknown</span><span class="o">&gt;&gt;</span><span class="p">(</span>
-  <span class="na">dataDto</span><span class="p">:</span> <span class="nx">DataDto</span>
+  <span class="nx">dataDto</span><span class="p">:</span> <span class="nx">DataDto</span>
 <span class="p">)</span> <span class="o">=&gt;</span>
   <span class="nx">applyDecorators</span><span class="p">(</span>
     <span class="nx">ApiExtraModels</span><span class="p">(</span><span class="nx">Pagination</span><span class="p">,</span> <span class="nx">dataDto</span><span class="p">),</span>
@@ -52,7 +52,7 @@
           <span class="p">{</span>
             <span class="na">properties</span><span class="p">:</span> <span class="p">{</span>
               <span class="na">data</span><span class="p">:</span> <span class="p">{</span>
-                <span class="na">type</span><span class="p">:</span> <span class="s1">'array'</span><span class="p">,</span>
+                <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">array</span><span class="dl">'</span><span class="p">,</span>
                 <span class="na">items</span><span class="p">:</span> <span class="p">{</span> <span class="na">$ref</span><span class="p">:</span> <span class="nx">getSchemaPath</span><span class="p">(</span><span class="nx">dataDto</span><span class="p">)</span> <span class="p">},</span>
               <span class="p">},</span>
             <span class="p">},</span>
@@ -61,28 +61,28 @@
       <span class="p">},</span>
     <span class="p">})</span>
   <span class="p">);</span>
-</code></pre></div></div> <p>마지막으로 아래와 같이 사용하려는 컨트롤러에서 <code class="highlighter-rouge">@ApiResponse</code> 대신 <code class="highlighter-rouge">@ApiOkResponsePaginated</code> 를 사용합니다.</p> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="p">@</span><span class="nd">ApiOperation</span><span class="p">({</span> <span class="na">summary</span><span class="p">:</span> <span class="s1">'아이템 상품 목록 조회'</span> <span class="p">})</span>
+</code></pre></div></div> <p>마지막으로 아래와 같이 사용하려는 컨트롤러에서 <code class="language-plaintext highlighter-rouge">@ApiResponse</code> 대신 <code class="language-plaintext highlighter-rouge">@ApiOkResponsePaginated</code> 를 사용합니다.</p> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="p">@</span><span class="nd">ApiOperation</span><span class="p">({</span> <span class="na">summary</span><span class="p">:</span> <span class="dl">'</span><span class="s1">아이템 상품 목록 조회</span><span class="dl">'</span> <span class="p">})</span>
   <span class="p">@</span><span class="nd">ApiOkResponsePaginated</span><span class="p">(</span><span class="nx">ItmPrdMRO</span><span class="p">)</span> <span class="c1">// ApiOkResponsePaginated와 함께 사용할 generic 타입 지정</span>
-  <span class="p">@</span><span class="nd">Get</span><span class="p">(</span><span class="s1">'prd/list'</span><span class="p">)</span>
+  <span class="p">@</span><span class="nd">Get</span><span class="p">(</span><span class="dl">'</span><span class="s1">prd/list</span><span class="dl">'</span><span class="p">)</span>
   <span class="k">async</span> <span class="nx">getItmPrdMPaginate</span><span class="p">(@</span><span class="nd">Query</span><span class="p">()</span> <span class="nx">dto</span><span class="p">:</span> <span class="nx">FindByCondDto</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="kr">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">itmPrdMService</span><span class="p">.</span><span class="nx">getItmPrdMPaginate</span><span class="p">(</span><span class="nx">dto</span><span class="p">);</span>
+    <span class="k">return</span> <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">itmPrdMService</span><span class="p">.</span><span class="nx">getItmPrdMPaginate</span><span class="p">(</span><span class="nx">dto</span><span class="p">);</span>
   <span class="p">}</span>
 </code></pre></div></div> <p>설정을 하고 결과를 확인하면 아래와 같이 원하는 response schema를 확인 할 수 있습니다.</p> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span>
-  <span class="s2">"page_total"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-  <span class="s2">"total"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-  <span class="s2">"data"</span><span class="p">:</span> <span class="p">[</span>
+  <span class="dl">"</span><span class="s2">page_total</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">total</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
-      <span class="s2">"id"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-      <span class="s2">"admAdminMIdNm"</span><span class="p">:</span> <span class="s2">"string"</span><span class="p">,</span>
-      <span class="s2">"itmDcd"</span><span class="p">:</span> <span class="s2">"string"</span><span class="p">,</span>
-      <span class="s2">"imgPath"</span><span class="p">:</span> <span class="s2">"string"</span><span class="p">,</span>
-      <span class="s2">"itmWearDcdNm"</span><span class="p">:</span> <span class="s2">"string"</span><span class="p">,</span>
-      <span class="s2">"avlbStrtDt"</span><span class="p">:</span> <span class="s2">"string"</span><span class="p">,</span>
-      <span class="s2">"avlbEndDt"</span><span class="p">:</span> <span class="s2">"string"</span><span class="p">,</span>
-      <span class="s2">"appItmNm"</span><span class="p">:</span> <span class="s2">"string"</span><span class="p">,</span>
-      <span class="s2">"itmNm"</span><span class="p">:</span> <span class="s2">"string"</span><span class="p">,</span>
-      <span class="s2">"prdAmt"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-      <span class="s2">"modDtm"</span><span class="p">:</span> <span class="s2">"string"</span>
+      <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">admAdminMIdNm</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">itmDcd</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">imgPath</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">itmWearDcdNm</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">avlbStrtDt</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">avlbEndDt</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">appItmNm</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">itmNm</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">prdAmt</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">modDtm</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span>
     <span class="p">}</span>
   <span class="p">]</span>
 <span class="p">}</span>

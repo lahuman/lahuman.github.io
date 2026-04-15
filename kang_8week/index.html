@@ -10,18 +10,18 @@ kubectl top node
 kubectl top pod
 kubectl top pod <span class="nt">-A</span>
 </code></pre></div></div> <h2 id="1-istio-소개">1. istio 소개</h2> <ul> <li>
-<code class="highlighter-rouge">서비스 매시(Service Mesh)</code> <ul> <li>
+<code class="language-plaintext highlighter-rouge">서비스 매시(Service Mesh)</code> <ul> <li>
 <strong>등장 배경</strong> : 마이크로서비스 아키텍처 환경의 시스템 전체 모니터링의 어려움, 운영 시 시스템 문제 발생할 때 원인과 병목 구간 찾기 어려움</li> <li>
 <strong>개념</strong> : 마이크로서비스 간에 매시 형태의 <strong>통신</strong>이나 그 <strong>경로</strong>를 <strong>제어</strong> - 예) 이스티오(Istio), 링커드(Linkerd), AWS App Mesh - <a href="https://layer5.io/service-mesh-landscape">링크</a>
 </li> <li>
 <strong>기본 동작</strong> : 파드 간 통신 경로에 프록시를 놓고 <strong>트래픽 모니터링</strong>이나 <strong>트래픽 컨트롤</strong> → 기존 애플리케이션 <strong>코드에 수정 없이</strong> 구성 가능!</li> <li>
 <strong>트래픽 모니터링</strong> : 요청의 ‘에러율, 레이턴시, 커넥션 개수, 요청 개수’ 등 메트릭 모니터링, 특정 서비스간 혹은 특정 요청 경로로 필터링 → 원인 파악 용이!</li> <li>
 <strong>트래픽 컨트롤</strong> : 트래픽 시프팅(Traffic shifting), 서킷 브레이커(Circuit Breaker), 폴트 인젝션(Fault Injection), 속도 제한(Rate Limit) <ul> <li>트래픽 시프팅(Traffic shifting) : 예시) 99% 기존앱 + 1% 신규앱 , 특정 단말/사용자는 신규앱에 전달하여 단계적으로 적용하는 카니리 배포 가능</li> <li>서킷 브레이커(Circuit Breaker) : 목적지 마이크로서비스에 문제가 있을 시 접속을 차단하고 출발지 마이크로서비스에 요청 에러를 반환 (연쇄 장애, 시스템 전제 장애 예방)</li> <li>폴트 인젝션(Fault Injection) : 의도적으로 요청을 지연 혹은 실패를 구현</li> <li>속도 제한(Rate Limit) : 요청 개수를 제한</li> </ul> </li> </ul> </li> <li>
-<code class="highlighter-rouge">이스티오 소개</code> : ‘구글 IBM 리프트(Lyft)’가 중심이 되어 개발하고 있는 오픈 소스 소프트웨어이며, C++ 로 만들어진 엔보이(Envoy)를 사용하여 서비스 매시를 구성</li> </ul> <p><img src="/assets/img/post_img/kang_8week_1.svg" alt=""><br> <a href="https://istio.io/latest/docs/ops/deployment/architecture/">https://istio.io/latest/docs/ops/deployment/architecture/</a></p> <ul> <li>
+<code class="language-plaintext highlighter-rouge">이스티오 소개</code> : ‘구글 IBM 리프트(Lyft)’가 중심이 되어 개발하고 있는 오픈 소스 소프트웨어이며, C++ 로 만들어진 엔보이(Envoy)를 사용하여 서비스 매시를 구성</li> </ul> <p><img src="/assets/img/post_img/kang_8week_1.svg" alt=""><br> <a href="https://istio.io/latest/docs/ops/deployment/architecture/">https://istio.io/latest/docs/ops/deployment/architecture/</a></p> <ul> <li>
 <strong>Istio 구성요소와 envoy</strong> : 컨트롤 플레인(<strong>istiod</strong>) , <strong>데이터 플레인</strong>(istio-proxy &gt; <strong>envoy</strong>) <ul> <li>
 <strong>istiod</strong> : <strong>Pilot</strong>(데이터 플레인과 통신하면서 라우팅 규칙을 동기화, ADS), <strong>Gally</strong>(Istio 와 K8S 연동, Endpoint 갱신 등), <strong>Citadel</strong>(연결 암호화, 인증서관리 등)</li> </ul> </li> </ul> <p><img src="/assets/img/post_img/kang_8week_2.svg" alt=""><br> <a href="https://istio.io/latest/docs/concepts/security/">https://istio.io/latest/docs/concepts/security/</a></p> <ul> <li>Envoy proxy : C++ 구현된 고성능 프록시, 네트워크의 투명성을 목표, 다양한 <strong>필터체인</strong> 지원(L3/L4, HTTP L7), 동적 configuration API 제공 - <a href="https://www.envoyproxy.io/docs/envoy/latest/intro/what_is_envoy">링크</a>
 </li> <li>이스티오는 각 <strong>파드</strong> 안에 <strong>사이드카</strong>로 <strong>엔보이 프록시</strong>가 들어가 있는 형태</li> <li>모든 마이크로서비스간 통신은 엔보이를 통과하여, <strong>메트릭을 수집</strong>하거나 <strong>트래픽 컨트롤</strong>을 할 수 있음</li> <li>트래픽 컨트롤을 하기위해 엔보이 프록시에 <strong>전송 룰</strong>을 설정 → <strong>컨트롤 플레인</strong>의 <strong>이스티오</strong>가 정의된 정보를 기반으로 <strong>엔보이 설정</strong>을 하게 함</li> <li>마이크로서비스 간의 통신을 mutual TLS 인증(<strong>mTLS</strong>)으로 서로 TLS 인증으로 암호화 할 수 있음</li> <li>각 애플리케이션은 <strong>파드</strong> 내의 엔보이 프록시에 접속하기 위해 <strong>localhost 에 TCP 접속</strong>을 함</li> </ul> <h2 id="2-envoy">2. Envoy</h2> <ul> <li>
-<code class="highlighter-rouge">소개</code> : <strong>L7 Proxy</strong> , Istio 의 Sidecar proxy 로 사용 - <a href="https://www.envoyproxy.io/docs/envoy/latest/intro/life_of_a_request">링크</a> <a href="https://www.envoyproxy.io/docs/envoy/latest/intro/arch_overview/intro/terminology">주요 용어</a> <ul> <li>
+<code class="language-plaintext highlighter-rouge">소개</code> : <strong>L7 Proxy</strong> , Istio 의 Sidecar proxy 로 사용 - <a href="https://www.envoyproxy.io/docs/envoy/latest/intro/life_of_a_request">링크</a> <a href="https://www.envoyproxy.io/docs/envoy/latest/intro/arch_overview/intro/terminology">주요 용어</a> <ul> <li>
 <strong>Istio 구성요소와 envoy</strong> : 컨트롤 플레인(istiod) - ADS 를 이용한 Configuration 동기화 - 데이터 플레인(istio-proxy &gt; envoy)</li> </ul> <p><img src="/assets/img/post_img/kang_8week_3.png" alt=""></p> <p><a href="https://blog.naver.com/alice_k106/222000680202">https://blog.naver.com/alice_k106/222000680202</a></p> <p><img src="/assets/img/post_img/kang_8week_4.svg" alt=""></p> <p><a href="https://www.envoyproxy.io/docs/envoy/latest/intro/life_of_a_request">https://www.envoyproxy.io/docs/envoy/latest/intro/life_of_a_request</a></p> <ul> <li>
 <strong>Cluster</strong> : envoy 가 트래픽을 포워드할 수 있는 논리적인 서비스 (엔드포인트 세트), 실제 요청이 처리되는 IP 또는 엔드포인트의 묶음을 의미.</li> <li>
 <strong>Endpoint</strong> : IP 주소, 네트워크 노드로 클러스터로 그룹핑됨, 실제 접근이 가능한 엔드포인트를 의미. 엔드포인트가 모여서 하나의 Cluster 가 된다.</li> <li>
@@ -30,12 +30,12 @@ kubectl top pod <span class="nt">-A</span>
 <strong>Filter</strong> : Listener 로부터 서비스에 트래픽을 전달하기까지 요청 처리 파이프라인</li> <li>UpStream : envoy 요청을 포워딩해서 연결하는 백엔드 네트워크 노드 - 사이드카일때 application app, 아닐때 원격 백엔드</li> <li>DownStream : An entity connecting to envoy, In non-sidecar models this is a remote client</li> </ul> </li> <li>k8s-pc 에 Envoy 설치 (미리 설치 되어 있음) - <a href="https://www.envoyproxy.io/docs/envoy/latest/start/install">링크</a>
 </li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 설치 : 미리 설치 되어 있음</span>
 apt update
-apt install apt-transport-https gnupg2 curl lsb-release <span class="nt">-y</span>
+apt <span class="nb">install </span>apt-transport-https gnupg2 curl lsb-release <span class="nt">-y</span>
 curl <span class="nt">-sL</span> <span class="s1">'https://deb.dl.getenvoy.io/public/gpg.8115BA8E629CC074.key'</span> | <span class="nb">sudo </span>gpg <span class="nt">--dearmor</span> <span class="nt">-o</span> /usr/share/keyrings/getenvoy-keyring.gpg
-<span class="nb">echo </span>a077cb587a1b622e03aa4bf2f3689de14658a9497a9af2c427bba5f4cc3c4723 /usr/share/keyrings/getenvoy-keyring.gpg | sha256sum <span class="nt">--check</span>
-<span class="nb">echo</span> <span class="s2">"deb [arch=amd64 signed-by=/usr/share/keyrings/getenvoy-keyring.gpg] https://deb.dl.getenvoy.io/public/deb/ubuntu </span><span class="k">$(</span>lsb_release <span class="nt">-cs</span><span class="k">)</span><span class="s2"> main"</span> | <span class="nb">sudo </span>tee /etc/apt/sources.list.d/getenvoy.list
+<span class="nb">echo </span>a077cb587a1b622e03aa4bf2f3689de14658a9497a9af2c427bba5f4cc3c4723 /usr/share/keyrings/getenvoy-keyring.gpg | <span class="nb">sha256sum</span> <span class="nt">--check</span>
+<span class="nb">echo</span> <span class="s2">"deb [arch=amd64 signed-by=/usr/share/keyrings/getenvoy-keyring.gpg] https://deb.dl.getenvoy.io/public/deb/ubuntu </span><span class="si">$(</span>lsb_release <span class="nt">-cs</span><span class="si">)</span><span class="s2"> main"</span> | <span class="nb">sudo tee</span> /etc/apt/sources.list.d/getenvoy.list
 apt update
-apt install <span class="nt">-y</span> getenvoy-envoy
+apt <span class="nb">install</span> <span class="nt">-y</span> getenvoy-envoy
 
 <span class="c"># 확인</span>
 envoy <span class="nt">--version</span>
@@ -50,7 +50,7 @@ envoy <span class="nt">--help</span>
     <span class="na">address</span><span class="pi">:</span>
       <span class="na">socket_address</span><span class="pi">:</span>
         <span class="na">address</span><span class="pi">:</span> <span class="s">0.0.0.0</span>
-        <span class="na">port_value</span><span class="pi">:</span> <span class="s">10000</span>
+        <span class="na">port_value</span><span class="pi">:</span> <span class="m">10000</span>
     <span class="na">filter_chains</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="na">filters</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">envoy.filters.network.http_connection_manager</span>
@@ -89,7 +89,7 @@ envoy <span class="nt">--help</span>
             <span class="na">address</span><span class="pi">:</span>
               <span class="na">socket_address</span><span class="pi">:</span>
                 <span class="na">address</span><span class="pi">:</span> <span class="s">www.envoyproxy.io</span>
-                <span class="na">port_value</span><span class="pi">:</span> <span class="s">443</span>
+                <span class="na">port_value</span><span class="pi">:</span> <span class="m">443</span>
     <span class="na">transport_socket</span><span class="pi">:</span>
       <span class="na">name</span><span class="pi">:</span> <span class="s">envoy.transport_sockets.tls</span>
       <span class="na">typed_config</span><span class="pi">:</span>
@@ -103,7 +103,7 @@ envoy <span class="nt">-c</span> envoy-demo.yaml
 error initializing configuration <span class="s1">'envoy-demo.yaml'</span>: Field <span class="s1">'connect_timeout'</span> is missing <span class="k">in</span>: name: <span class="s2">"service_envoyproxy_io"</span>
 
 <span class="c"># (터미널1) connect_timeout 추가 후 다시 실행</span>
-sed <span class="nt">-i</span><span class="s1">''</span> <span class="nt">-r</span> <span class="nt">-e</span> <span class="s2">"/dns_lookup_family/a</span><span class="se">\ </span><span class="s2">   connect_timeout: 5s"</span> envoy-demo.yaml
+<span class="nb">sed</span> <span class="nt">-i</span><span class="s1">''</span> <span class="nt">-r</span> <span class="nt">-e</span> <span class="s2">"/dns_lookup_family/a</span><span class="se">\ </span><span class="s2">   connect_timeout: 5s"</span> envoy-demo.yaml
 envoy <span class="nt">-c</span> envoy-demo.yaml
 <span class="c">## 출력 로그</span>
 <span class="o">[</span>2021-12-13T12:20:25.981Z] <span class="s2">"GET / HTTP/1.1"</span> 200 - 0 4472 1140 1080 <span class="s2">"-"</span> <span class="s2">"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.93 Safari/537.36"</span> <span class="s2">"a6999dc1-5e5e-4029-89b7-331b081fca27"</span> <span class="s2">"www.envoyproxy.io"</span> <span class="s2">"52.220.193.16:443"</span>
@@ -112,7 +112,7 @@ envoy <span class="nt">-c</span> envoy-demo.yaml
 <span class="c"># (터미널2) 정보 확인</span>
 ss <span class="nt">-tnlp</span>
 State    Recv-Q  Send-Q    Local Address:Port   Peer Address:Port    Process
-LISTEN   0       4096      0.0.0.0:10000        0.0.0.0:<span class="k">*</span>            users:<span class="o">((</span><span class="s2">"envoy"</span>,pid<span class="o">=</span>8007,fd<span class="o">=</span>18<span class="o">)</span>,<span class="o">(</span><span class="s2">"envoy"</span>,pid<span class="o">=</span>8007,fd<span class="o">=</span>16<span class="o">))</span>
+LISTEN   0       4096      0.0.0.0:10000        0.0.0.0:<span class="k">*</span>            <span class="nb">users</span>:<span class="o">((</span><span class="s2">"envoy"</span>,pid<span class="o">=</span>8007,fd<span class="o">=</span>18<span class="o">)</span>,<span class="o">(</span><span class="s2">"envoy"</span>,pid<span class="o">=</span>8007,fd<span class="o">=</span>16<span class="o">))</span>
 
 <span class="c"># 접속 테스트</span>
 curl <span class="nt">-s</span> http://127.0.0.1:10000 | <span class="nb">grep</span> <span class="nt">-o</span> <span class="s2">"&lt;title&gt;.*&lt;/title&gt;"</span>
@@ -132,7 +132,7 @@ admin:
       address: 0.0.0.0
       port_value: 9902
 </span><span class="no">EOT
-</span>envoy <span class="nt">-c</span> envoy-demo.yaml <span class="nt">--config-yaml</span> <span class="s2">"</span><span class="k">$(</span><span class="nb">cat </span>envoy-override.yaml<span class="k">)</span><span class="s2">"</span>
+</span>envoy <span class="nt">-c</span> envoy-demo.yaml <span class="nt">--config-yaml</span> <span class="s2">"</span><span class="si">$(</span><span class="nb">cat </span>envoy-override.yaml<span class="si">)</span><span class="s2">"</span>
 
 <span class="c"># 웹브라우저에서 http://192.168.10.254:9902 접속 확인!</span>
 </code></pre></div></div> <p><img src="/assets/img/post_img/kang_8week_5.png" alt=""></p> <p>clusters 클릭 확인 endpoint) , listeners 클릭 확인</p> <ul> <li>myhome.yaml</li> </ul> <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">cat &lt;&lt;EOT&gt; myhome.yaml</span>
@@ -140,7 +140,7 @@ admin:
   <span class="na">address</span><span class="pi">:</span>
     <span class="na">socket_address</span><span class="pi">:</span>
       <span class="na">address</span><span class="pi">:</span> <span class="s">0.0.0.0</span>
-      <span class="na">port_value</span><span class="pi">:</span> <span class="s">9902</span>
+      <span class="na">port_value</span><span class="pi">:</span> <span class="m">9902</span>
 
 <span class="na">static_resources</span><span class="pi">:</span>
 
@@ -149,7 +149,7 @@ admin:
     <span class="na">address</span><span class="pi">:</span>
       <span class="na">socket_address</span><span class="pi">:</span>
         <span class="na">address</span><span class="pi">:</span> <span class="s">0.0.0.0</span>
-        <span class="na">port_value</span><span class="pi">:</span> <span class="s">20000</span>
+        <span class="na">port_value</span><span class="pi">:</span> <span class="m">20000</span>
     <span class="na">filter_chains</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="na">filters</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">envoy.filters.network.http_connection_manager</span>
@@ -187,7 +187,7 @@ admin:
             <span class="na">address</span><span class="pi">:</span>
               <span class="na">socket_address</span><span class="pi">:</span>
                 <span class="na">address</span><span class="pi">:</span> <span class="s">127.0.0.1</span>
-                <span class="na">port_value</span><span class="pi">:</span> <span class="s">80</span>
+                <span class="na">port_value</span><span class="pi">:</span> <span class="m">80</span>
 <span class="s">EOT</span>
 </code></pre></div></div> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># (터미널1) envoy 실행</span>
 envoy <span class="nt">-c</span> myhome.yaml
@@ -205,7 +205,7 @@ curl <span class="nt">-L</span> https://istio.io/downloadIstio | sh -
 
 <span class="c">#ISTIO_VERSION=1.12.4</span>
 <span class="nv">ISTIO_VERSION</span><span class="o">=</span>1.13.1
-cp istio-<span class="nv">$ISTIO_VERSION</span>/bin/istioctl /usr/bin/istioctl
+<span class="nb">cp </span>istio-<span class="nv">$ISTIO_VERSION</span>/bin/istioctl /usr/bin/istioctl
 <span class="c"># export PATH=$PWD/bin:$PATH # 실행 경로를 환경 변수에 추가 &lt;&lt; cp 대신 PATH 도 가능</span>
 
 <span class="c"># init : istio-operator 네임스페이스 생성, istio-operator 디플로이먼트 생성 - [링크](https://istio.io/latest/docs/setup/install/operator/)</span>
@@ -240,19 +240,19 @@ envoy  version: a971bfa7fddce41c1795fe2ce279735131c08878/<span class="k">**</spa
 </code></pre></div></div> <ul> <li><strong>Istio 접속 테스트를 위한 변수 지정</strong></li> </ul> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>k8s-pc, k8s-m 에서 아래 실행
 <span class="c"># istio ingress gw NodePort(HTTP 접속용) 변수 지정 : 아래 ports[0] 은 어떤 용도의 포트일까요?</span>
 <span class="nv">IGWHTTP</span><span class="o">=</span>&lt;각자 자신의 NodePort&gt;
-<span class="nb">export </span><span class="nv">IGWHTTP</span><span class="o">=</span><span class="k">$(</span>kubectl get service <span class="nt">-n</span> istio-system istio-ingressgateway <span class="nt">-o</span> <span class="nv">jsonpath</span><span class="o">=</span><span class="s1">'{.spec.ports[1].nodePort}'</span><span class="k">)</span>
+<span class="nb">export </span><span class="nv">IGWHTTP</span><span class="o">=</span><span class="si">$(</span>kubectl get service <span class="nt">-n</span> istio-system istio-ingressgateway <span class="nt">-o</span> <span class="nv">jsonpath</span><span class="o">=</span><span class="s1">'{.spec.ports[1].nodePort}'</span><span class="si">)</span>
 <span class="nb">echo</span> <span class="nv">$IGWHTTP</span>
 
 <span class="c">## istio-ingressgateway 파드 정보 확인</span>
-<span class="nv">ISTIOINGRSS</span><span class="o">=</span><span class="k">$(</span>kubectl get pods <span class="nt">-n</span> istio-system <span class="nt">-l</span> <span class="nv">app</span><span class="o">=</span>istio-ingressgateway <span class="nt">-o</span> <span class="nv">jsonpath</span><span class="o">=</span><span class="s1">'{.items[0].metadata.name}'</span><span class="k">)</span>
+<span class="nv">ISTIOINGRSS</span><span class="o">=</span><span class="si">$(</span>kubectl get pods <span class="nt">-n</span> istio-system <span class="nt">-l</span> <span class="nv">app</span><span class="o">=</span>istio-ingressgateway <span class="nt">-o</span> <span class="nv">jsonpath</span><span class="o">=</span><span class="s1">'{.items[0].metadata.name}'</span><span class="si">)</span>
 kubectl get pod <span class="nt">-n</span> istio-system <span class="nv">$ISTIOINGRSS</span> <span class="nt">-owide</span>
 
 <span class="c">## istio-ingressgateway 파드가 배치된 노드</span>
-<span class="nv">ISTIONODE</span><span class="o">=</span><span class="k">$(</span>kubectl get pod <span class="nt">-n</span> istio-system <span class="nv">$ISTIOINGRSS</span> <span class="nt">-o</span> <span class="nv">jsonpath</span><span class="o">={</span>.spec.nodeName<span class="o">}</span><span class="k">)</span>
+<span class="nv">ISTIONODE</span><span class="o">=</span><span class="si">$(</span>kubectl get pod <span class="nt">-n</span> istio-system <span class="nv">$ISTIOINGRSS</span> <span class="nt">-o</span> <span class="nv">jsonpath</span><span class="o">={</span>.spec.nodeName<span class="o">}</span><span class="si">)</span>
 <span class="nb">echo</span> <span class="nv">$ISTIONODE</span>
 
 <span class="c">## istio-ingressgateway 파드가 배치된 노드의 IP</span>
-<span class="nv">ISTIONODEIP</span><span class="o">=</span><span class="k">$(</span>kubectl get node <span class="nv">$ISTIONODE</span> <span class="nt">-o</span> <span class="nv">jsonpath</span><span class="o">={</span>.status.addresses[0].address<span class="o">}</span><span class="k">)</span>
+<span class="nv">ISTIONODEIP</span><span class="o">=</span><span class="si">$(</span>kubectl get node <span class="nv">$ISTIONODE</span> <span class="nt">-o</span> <span class="nv">jsonpath</span><span class="o">={</span>.status.addresses[0].address<span class="o">}</span><span class="si">)</span>
 <span class="nb">echo</span> <span class="nv">$ISTIONODEIP</span>
 
 <span class="c"># /etc/hosts 파일 수정 &gt;&gt; istio-ingressgateway 파드가 있는 워커 노드의 IP를 지정</span>
@@ -271,7 +271,7 @@ curl <span class="nt">-v</span> <span class="nt">-s</span> <span class="nv">$MYD
 <span class="na">metadata</span><span class="pi">:</span>
   <span class="na">name</span><span class="pi">:</span> <span class="s">deploy-websrv</span>
 <span class="na">spec</span><span class="pi">:</span>
-  <span class="na">replicas</span><span class="pi">:</span> <span class="s">1</span>
+  <span class="na">replicas</span><span class="pi">:</span> <span class="m">1</span>
   <span class="na">selector</span><span class="pi">:</span>
     <span class="na">matchLabels</span><span class="pi">:</span>
       <span class="na">app</span><span class="pi">:</span> <span class="s">deploy-websrv</span>
@@ -280,12 +280,12 @@ curl <span class="nt">-v</span> <span class="nt">-s</span> <span class="nv">$MYD
       <span class="na">labels</span><span class="pi">:</span>
         <span class="na">app</span><span class="pi">:</span> <span class="s">deploy-websrv</span>
     <span class="na">spec</span><span class="pi">:</span>
-      <span class="na">terminationGracePeriodSeconds</span><span class="pi">:</span> <span class="s">0</span>
+      <span class="na">terminationGracePeriodSeconds</span><span class="pi">:</span> <span class="m">0</span>
       <span class="na">containers</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">deploy-websrv</span>
         <span class="na">image</span><span class="pi">:</span> <span class="s">nginx:alpine</span>
         <span class="na">ports</span><span class="pi">:</span>
-        <span class="pi">-</span> <span class="na">containerPort</span><span class="pi">:</span> <span class="s">80</span>
+        <span class="pi">-</span> <span class="na">containerPort</span><span class="pi">:</span> <span class="m">80</span>
 <span class="nn">---</span>
 <span class="na">apiVersion</span><span class="pi">:</span> <span class="s">v1</span>
 <span class="na">kind</span><span class="pi">:</span> <span class="s">Service</span>
@@ -294,8 +294,8 @@ curl <span class="nt">-v</span> <span class="nt">-s</span> <span class="nv">$MYD
 <span class="na">spec</span><span class="pi">:</span>
   <span class="na">ports</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">svc-webport</span>
-      <span class="na">port</span><span class="pi">:</span> <span class="s">80</span>
-      <span class="na">targetPort</span><span class="pi">:</span> <span class="s">80</span>
+      <span class="na">port</span><span class="pi">:</span> <span class="m">80</span>
+      <span class="na">targetPort</span><span class="pi">:</span> <span class="m">80</span>
   <span class="na">selector</span><span class="pi">:</span>
     <span class="na">app</span><span class="pi">:</span> <span class="s">deploy-websrv</span>
   <span class="na">type</span><span class="pi">:</span> <span class="s">ClusterIP</span>
@@ -314,7 +314,7 @@ kubectl describe pod
     <span class="na">istio</span><span class="pi">:</span> <span class="s">ingressgateway</span>
   <span class="na">servers</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="na">port</span><span class="pi">:</span>
-      <span class="na">number</span><span class="pi">:</span> <span class="s">80</span>
+      <span class="na">number</span><span class="pi">:</span> <span class="m">80</span>
       <span class="na">name</span><span class="pi">:</span> <span class="s">http</span>
       <span class="na">protocol</span><span class="pi">:</span> <span class="s">HTTP</span>
     <span class="na">hosts</span><span class="pi">:</span>
@@ -334,7 +334,7 @@ kubectl describe pod
     <span class="pi">-</span> <span class="na">destination</span><span class="pi">:</span>
         <span class="na">host</span><span class="pi">:</span> <span class="s">svc-clusterip</span>
         <span class="na">port</span><span class="pi">:</span>
-          <span class="na">number</span><span class="pi">:</span> <span class="s">80</span>
+          <span class="na">number</span><span class="pi">:</span> <span class="m">80</span>
 <span class="s">EOF</span>
 </code></pre></div></div> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Istio Gateway(=gw)/VirtualService(=vs) 설정 정보를 확인</span>
 <span class="c"># virtual service 는 다른 네임스페이스의 서비스(ex. svc-nn.&lt;ns&gt;)도 참조할 수 있다</span>

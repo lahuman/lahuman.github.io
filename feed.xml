@@ -1,4 +1,14 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2026-04-15T06:58:19+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">PPT 텍스트-이미지 자동 변환기 v1.1</title><link href="https://lahuman.github.io/ppt-text2image/" rel="alternate" type="text/html" title="PPT 텍스트-이미지 자동 변환기 v1.1" /><published>2026-04-14T00:00:00+00:00</published><updated>2026-04-14T00:00:00+00:00</updated><id>https://lahuman.github.io/ppt-text2image</id><content type="html" xml:base="https://lahuman.github.io/ppt-text2image/">&lt;h1 id=&quot;ppt-텍스트-이미지-자동-변환기-v11&quot;&gt;PPT 텍스트-이미지 자동 변환기 v1.1&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2026-04-15T10:57:36+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">요즘은 뭔가 쉬운듯 어렵네요.</title><link href="https://lahuman.github.io/20260415/" rel="alternate" type="text/html" title="요즘은 뭔가 쉬운듯 어렵네요." /><published>2026-04-15T00:00:00+00:00</published><updated>2026-04-15T00:00:00+00:00</updated><id>https://lahuman.github.io/20260415</id><content type="html" xml:base="https://lahuman.github.io/20260415/">&lt;h1 id=&quot;바이브-코딩-프롬프트-엔지니어링-컨텍스트-엔지니어링-하네스-에이전틱-mcp-등등-너무나도-빠른-하루-하루-입니다&quot;&gt;바이브 코딩, 프롬프트 엔지니어링, 컨텍스트 엔지니어링, 하네스, 에이전틱, MCP 등등 너무나도 빠른 하루 하루 입니다.&lt;/h1&gt;
+
+&lt;p&gt;학습은 쉽지 않고 그냥 AI를 통해서 써보고 있습니다.&lt;/p&gt;
+
+&lt;p&gt;경험한다 라고 말하기 민망할 정도로 그냥 시켜서 결과만 확인하고 있는 하루 하루네요.&lt;/p&gt;
+
+&lt;p&gt;재미가 반감되기도 하고 가끔은 너무 재미있기도 합니다.&lt;/p&gt;
+
+&lt;p&gt;목표가 명확하지 않으면 계속 해나아가기 힘든 속도 입니다.&lt;/p&gt;
+
+&lt;p&gt;정신 바짝 차리고 중심을 잡고 나아가다록 노력해야겠습니다.&lt;/p&gt;</content><author><name></name></author><category term="ai" /><summary type="html">분명 쉬운데.. 어려운 AI 활용하기</summary></entry><entry><title type="html">PPT 텍스트-이미지 자동 변환기 v1.1</title><link href="https://lahuman.github.io/ppt-text2image/" rel="alternate" type="text/html" title="PPT 텍스트-이미지 자동 변환기 v1.1" /><published>2026-04-14T00:00:00+00:00</published><updated>2026-04-14T00:00:00+00:00</updated><id>https://lahuman.github.io/ppt-text2image</id><content type="html" xml:base="https://lahuman.github.io/ppt-text2image/">&lt;h1 id=&quot;ppt-텍스트-이미지-자동-변환기-v11&quot;&gt;PPT 텍스트-이미지 자동 변환기 v1.1&lt;/h1&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;배포용 PowerPoint에서 폰트 깨짐과 줄바꿈 오류를 줄이기 위해, 슬라이드 안의 텍스트를 이미지로 변환해 레이아웃을 더 안정적으로 유지하는 Windows용 데스크톱 도구입니다.&lt;/p&gt;
@@ -61,10 +71,10 @@
 지금은 실제 사용자가 자주 겪는 상황을 기준으로 더 명확하게 안내합니다.&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Microsoft PowerPoint 필요&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;파일이 사용 중입니다&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;지원되지 않는 파일 형식&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;결과 파일을 저장할 수 없습니다&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Microsoft PowerPoint 필요&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;파일이 사용 중입니다&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;지원되지 않는 파일 형식&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;결과 파일을 저장할 수 없습니다&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;이렇게 오류 원인을 바로 이해할 수 있도록 구분해, 사용자가 다음 행동을 빠르게 결정할 수 있게 했습니다.&lt;/p&gt;
@@ -192,7 +202,7 @@
 
 &lt;p&gt;필요하셨던 분들에게 작게나마 도움이 되길 바랍니다.&lt;/p&gt;</content><author><name></name></author><category term="git" /><category term="backup" /><category term="windows" /><summary type="html">GitHub를 활용해 Windows 폴더를 쉽고 간단하게 백업할 수 있는 GitBackup을 소개합니다.</summary></entry><entry><title type="html">말도 안되는 코드를 만났다.</title><link href="https://lahuman.github.io/java_ClassCastException/" rel="alternate" type="text/html" title="말도 안되는 코드를 만났다." /><published>2026-01-21T00:00:00+00:00</published><updated>2026-01-21T00:00:00+00:00</updated><id>https://lahuman.github.io/java_ClassCastException</id><content type="html" xml:base="https://lahuman.github.io/java_ClassCastException/">&lt;h1 id=&quot;java-제네릭의-거짓말-그리고-hashmapvalues의-진짜-정체&quot;&gt;[Java] 제네릭의 거짓말, 그리고 HashMap.values()의 진짜 정체&lt;/h1&gt;
 
-&lt;p&gt;안녕하세요. 오늘은 개발하다 보면 한 번쯤 마주치게 되는 Java 제네릭(Generics)의 허점과, 우리가 무심코 사용하는 &lt;code class=&quot;highlighter-rouge&quot;&gt;HashMap&lt;/code&gt;의 내부 동작에 대해 깊게 파보려고 합니다.&lt;/p&gt;
+&lt;p&gt;안녕하세요. 오늘은 개발하다 보면 한 번쯤 마주치게 되는 Java 제네릭(Generics)의 허점과, 우리가 무심코 사용하는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;HashMap&lt;/code&gt;의 내부 동작에 대해 깊게 파보려고 합니다.&lt;/p&gt;
 
 &lt;p&gt;최근 재미있는 코드를 하나 보게 되었습니다. “이게 에러가 안 난다고?” 싶은 코드인데, 막상 돌려보면 멀쩡히 돌아갑니다. 왜 그런지, 그리고 그 속에 숨겨진 함정은 무엇인지 살펴보겠습니다.&lt;/p&gt;
 
@@ -201,43 +211,43 @@
 &lt;p&gt;다음 코드를 한번 보시죠.&lt;/p&gt;
 
 &lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// 1. Map&amp;lt;String, String&amp;gt;을 담은 List 생성&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ArrayList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;gt;();&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;Map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;map&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HashMap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;gt;();&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ArrayList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;gt;();&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;Map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;map&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;HashMap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;gt;();&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;put&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;a&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;AA&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
 
 &lt;span class=&quot;c1&quot;&gt;// 2. 이걸 Object로 감싸고...&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;Map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Object&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;wrapper&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HashMap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;gt;();&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;Map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Object&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;wrapper&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;HashMap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;gt;();&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;wrapper&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;put&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;vo&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
 
 &lt;span class=&quot;c1&quot;&gt;// 3. 다시 꺼낼 때 전혀 다른 타입인 List&amp;lt;Vo&amp;gt;로 캐스팅!&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Vo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;voList&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Vo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;wrapper&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;vo&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Vo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;voList&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Vo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;wrapper&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;vo&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
 
 &lt;span class=&quot;c1&quot;&gt;// 4. 출력&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;voList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;voList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;c1&quot;&gt;// 결과: [{a=AA}] (에러 없음!)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;List&amp;lt;Map&amp;gt;&lt;/code&gt;을 넣었는데 &lt;code class=&quot;highlighter-rouge&quot;&gt;List&amp;lt;Vo&amp;gt;&lt;/code&gt;로 꺼내집니다. 심지어 &lt;code class=&quot;highlighter-rouge&quot;&gt;ClassCastException&lt;/code&gt;도 발생하지 않습니다.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;List&amp;lt;Map&amp;gt;&lt;/code&gt;을 넣었는데 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;List&amp;lt;Vo&amp;gt;&lt;/code&gt;로 꺼내집니다. 심지어 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ClassCastException&lt;/code&gt;도 발생하지 않습니다.&lt;/p&gt;
 
 &lt;h3 id=&quot;왜-에러가-안-날까&quot;&gt;왜 에러가 안 날까?&lt;/h3&gt;
 &lt;p&gt;범인은 바로 자바의 &lt;strong&gt;Type Erasure(타입 소거)&lt;/strong&gt; 때문입니다.&lt;/p&gt;
 
-&lt;p&gt;우리가 코드에 적는 &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;String&amp;gt;&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;Vo&amp;gt;&lt;/code&gt; 같은 제네릭 타입 정보는 &lt;strong&gt;컴파일 타임에만 존재&lt;/strong&gt;합니다. 컴파일러가 유효성을 검사한 뒤, 바이트코드(.class)를 만들 때는 이 정보를 싹 지워버립니다.&lt;/p&gt;
+&lt;p&gt;우리가 코드에 적는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;String&amp;gt;&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;Vo&amp;gt;&lt;/code&gt; 같은 제네릭 타입 정보는 &lt;strong&gt;컴파일 타임에만 존재&lt;/strong&gt;합니다. 컴파일러가 유효성을 검사한 뒤, 바이트코드(.class)를 만들 때는 이 정보를 싹 지워버립니다.&lt;/p&gt;
 
 &lt;p&gt;즉, JVM이 코드를 실행할 때 보는 건 이렇습니다.&lt;/p&gt;
 
 &lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// JVM이 보는 세상&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;List&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;voList&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;wrapper&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;vo&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;List&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;voList&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;wrapper&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;vo&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;JVM 입장에서는 “List를 List로 바꾸네? OK 통과!” 하고 넘어가는 것이죠. 이것을 &lt;strong&gt;Heap Pollution(힙 오염)&lt;/strong&gt;이라고 부릅니다.&lt;/p&gt;
 
 &lt;h3 id=&quot;시한폭탄과-같다&quot;&gt;시한폭탄과 같다&lt;/h3&gt;
-&lt;p&gt;하지만 이건 &lt;strong&gt;성공한 게 아닙니다.&lt;/strong&gt; 출력(&lt;code class=&quot;highlighter-rouge&quot;&gt;println&lt;/code&gt;)만 했을 때는 내부의 &lt;code class=&quot;highlighter-rouge&quot;&gt;toString()&lt;/code&gt;을 호출할 뿐이라 문제가 없었지만, 실제로 데이터를 꺼내는 순간 터집니다.&lt;/p&gt;
+&lt;p&gt;하지만 이건 &lt;strong&gt;성공한 게 아닙니다.&lt;/strong&gt; 출력(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;println&lt;/code&gt;)만 했을 때는 내부의 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;toString()&lt;/code&gt;을 호출할 뿐이라 문제가 없었지만, 실제로 데이터를 꺼내는 순간 터집니다.&lt;/p&gt;
 
 &lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// 여기서 터짐!&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;Vo&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;voList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;Vo&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;voList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;c1&quot;&gt;// java.lang.ClassCastException: class java.util.HashMap cannot be cast to class Vo&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
@@ -247,46 +257,46 @@
 
 &lt;h2 id=&quot;2-hashmapvalues는-list가-아니다&quot;&gt;2. HashMap.values()는 List가 아니다&lt;/h2&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Map&lt;/code&gt;을 다루다 보면 값들만 뽑아서 리스트로 만들고 싶을 때가 있습니다. 흔히 이런 실수를 하곤 하죠.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Map&lt;/code&gt;을 다루다 보면 값들만 뽑아서 리스트로 만들고 싶을 때가 있습니다. 흔히 이런 실수를 하곤 하죠.&lt;/p&gt;
 
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;Map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;map&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HashMap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;gt;();&lt;/span&gt;
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nc&quot;&gt;Map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;map&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;HashMap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;gt;();&lt;/span&gt;
 &lt;span class=&quot;c1&quot;&gt;// ... 데이터 put ...&lt;/span&gt;
 
 &lt;span class=&quot;c1&quot;&gt;// 컴파일 에러!&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;values&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;values&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
 
 &lt;span class=&quot;c1&quot;&gt;// 런타임 에러! (강제 캐스팅 시)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;list2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;values&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;list2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;values&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h3 id=&quot;왜-안-될까&quot;&gt;왜 안 될까?&lt;/h3&gt;
 &lt;p&gt;이유는 단순하지만 중요합니다.&lt;/p&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;&lt;strong&gt;계층 구조의 문제:&lt;/strong&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;map.values()&lt;/code&gt;의 반환 타입은 &lt;code class=&quot;highlighter-rouge&quot;&gt;Collection&amp;lt;V&amp;gt;&lt;/code&gt;입니다. &lt;code class=&quot;highlighter-rouge&quot;&gt;List&lt;/code&gt;는 &lt;code class=&quot;highlighter-rouge&quot;&gt;Collection&lt;/code&gt;의 자식이지만, 부모(&lt;code class=&quot;highlighter-rouge&quot;&gt;Collection&lt;/code&gt;)를 자식(&lt;code class=&quot;highlighter-rouge&quot;&gt;List&lt;/code&gt;)에 그냥 담을 순 없습니다.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;구현체의 문제:&lt;/strong&gt; “그럼 캐스팅하면 되지 않나?” 싶지만, 런타임 에러가 발생합니다. &lt;code class=&quot;highlighter-rouge&quot;&gt;map.values()&lt;/code&gt;가 리턴하는 객체는 &lt;strong&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ArrayList&lt;/code&gt; 같은 리스트 구현체가 아니기 때문입니다.&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;계층 구조의 문제:&lt;/strong&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;map.values()&lt;/code&gt;의 반환 타입은 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Collection&amp;lt;V&amp;gt;&lt;/code&gt;입니다. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;List&lt;/code&gt;는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Collection&lt;/code&gt;의 자식이지만, 부모(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Collection&lt;/code&gt;)를 자식(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;List&lt;/code&gt;)에 그냥 담을 순 없습니다.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;구현체의 문제:&lt;/strong&gt; “그럼 캐스팅하면 되지 않나?” 싶지만, 런타임 에러가 발생합니다. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;map.values()&lt;/code&gt;가 리턴하는 객체는 &lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ArrayList&lt;/code&gt; 같은 리스트 구현체가 아니기 때문입니다.&lt;/strong&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;h3 id=&quot;까보자-구현체&quot;&gt;까보자, 구현체&lt;/h3&gt;
-&lt;p&gt;실제로 &lt;code class=&quot;highlighter-rouge&quot;&gt;getClass().getName()&lt;/code&gt;을 찍어보면 아주 낯선 녀석이 튀어나옵니다.&lt;/p&gt;
+&lt;p&gt;실제로 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;getClass().getName()&lt;/code&gt;을 찍어보면 아주 낯선 녀석이 튀어나옵니다.&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;&lt;strong&gt;java.util.HashMap$Values&lt;/strong&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;JDK 소스 코드를 열어보면 &lt;code class=&quot;highlighter-rouge&quot;&gt;HashMap&lt;/code&gt; 안에 다음과 같은 내부 클래스(Inner Class)가 숨어 있습니다.&lt;/p&gt;
+&lt;p&gt;JDK 소스 코드를 열어보면 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;HashMap&lt;/code&gt; 안에 다음과 같은 내부 클래스(Inner Class)가 숨어 있습니다.&lt;/p&gt;
 
 &lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// JDK HashMap 소스 중 일부&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Values&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;AbstractCollection&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;V&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Iterator&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;V&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;iterator&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ValueIterator&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Values&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;AbstractCollection&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;V&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Iterator&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;V&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;iterator&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ValueIterator&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
     &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
     &lt;span class=&quot;c1&quot;&gt;// ...&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;List 아님:&lt;/strong&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;AbstractCollection&lt;/code&gt;을 상속받았을 뿐, &lt;code class=&quot;highlighter-rouge&quot;&gt;List&lt;/code&gt; 인터페이스는 구현하지 않았습니다. 인덱스로 접근(&lt;code class=&quot;highlighter-rouge&quot;&gt;.get(i)&lt;/code&gt;)할 수 없다는 뜻입니다.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;View 패턴:&lt;/strong&gt; 이 녀석은 데이터를 따로 저장하지 않습니다. 원본 &lt;code class=&quot;highlighter-rouge&quot;&gt;HashMap&lt;/code&gt;을 바라보는 창문(View) 역할만 합니다. 그래서 &lt;code class=&quot;highlighter-rouge&quot;&gt;map.values()&lt;/code&gt;로 얻은 컬렉션에서 아이템을 지우면 원본 맵에서도 지워집니다.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;List 아님:&lt;/strong&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AbstractCollection&lt;/code&gt;을 상속받았을 뿐, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;List&lt;/code&gt; 인터페이스는 구현하지 않았습니다. 인덱스로 접근(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.get(i)&lt;/code&gt;)할 수 없다는 뜻입니다.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;View 패턴:&lt;/strong&gt; 이 녀석은 데이터를 따로 저장하지 않습니다. 원본 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;HashMap&lt;/code&gt;을 바라보는 창문(View) 역할만 합니다. 그래서 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;map.values()&lt;/code&gt;로 얻은 컬렉션에서 아이템을 지우면 원본 맵에서도 지워집니다.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;hr /&gt;
@@ -296,12 +306,12 @@
 &lt;p&gt;오늘 내용을 요약하면 다음과 같습니다.&lt;/p&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;&lt;strong&gt;제네릭 맹신 금지:&lt;/strong&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;(List&amp;lt;Vo&amp;gt;)&lt;/code&gt; 처럼 제네릭을 포함한 강제 형변환은 런타임에 타입 체크가 무시됩니다. 컴파일 경고(Unchecked cast)를 무시하지 마세요. 데이터는 &lt;strong&gt;ObjectMapper&lt;/strong&gt; 등을 통해 정석대로 변환해야 합니다.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;values()는 List가 아니다:&lt;/strong&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;map.values()&lt;/code&gt;는 &lt;code class=&quot;highlighter-rouge&quot;&gt;HashMap$Values&lt;/code&gt;라는 내부 전용 클래스를 반환합니다. 리스트로 쓰고 싶다면 생성자를 이용해 새로 만들어야 합니다.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;제네릭 맹신 금지:&lt;/strong&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;(List&amp;lt;Vo&amp;gt;)&lt;/code&gt; 처럼 제네릭을 포함한 강제 형변환은 런타임에 타입 체크가 무시됩니다. 컴파일 경고(Unchecked cast)를 무시하지 마세요. 데이터는 &lt;strong&gt;ObjectMapper&lt;/strong&gt; 등을 통해 정석대로 변환해야 합니다.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;values()는 List가 아니다:&lt;/strong&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;map.values()&lt;/code&gt;는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;HashMap$Values&lt;/code&gt;라는 내부 전용 클래스를 반환합니다. 리스트로 쓰고 싶다면 생성자를 이용해 새로 만들어야 합니다.&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// 올바른 사용법&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ArrayList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;values&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ArrayList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;values&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;자바의 내부 구현을 알면 “도대체 왜 안 돼?” 혹은 “이게 왜 돼?” 하는 상황에서 빠르게 원인을 파악할 수 있습니다.&lt;/p&gt;
@@ -318,225 +328,56 @@
  * 타입 소거 (Type Erasure): 자바는 컴파일할 때만 제네릭 타입(예: &amp;lt;Vo&amp;gt;, &amp;lt;Map&amp;gt;)을 검사하고, 실행(Runtime) 시점에는 이 정보를 모두 지워버립니다.
  * 형변환 성공: 실행 시점의 JVM은 리스트의 알맹이가 무엇인지 확인하지 않고, 그저 &quot;이것이 List인가?&quot;만 확인합니다. 따라서 Map이 담긴 리스트를 Vo 리스트로 강제 형변환해도 에러 없이 통과됩니다.
  * 출력 결과: 데이터를 꺼내서 Vo로 사용하려던 것이 아니라, 단순히 리스트 자체를 출력(toString)했기 때문에 실제 들어있던 Map의 내용이 문자열로 출력된 것입니다.
- * 결론: 이 코드는 **'성공한 것 처럼 보이는 시한폭탄'**입니다. 리스트에서 요소를 꺼내려는 순간(get) 바로 에러(ClassCastException)가 발생합니다.
+ * 결론: 이 코드는 **&apos;성공한 것 처럼 보이는 시한폭탄&apos;**입니다. 리스트에서 요소를 꺼내려는 순간(get) 바로 에러(ClassCastException)가 발생합니다.
  */&lt;/span&gt;
 &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Main&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
 
-        &lt;span class=&quot;n&quot;&gt;Map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HashMap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;gt;();&lt;/span&gt;
+        &lt;span class=&quot;nc&quot;&gt;Map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;HashMap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;gt;();&lt;/span&gt;
 
         &lt;span class=&quot;n&quot;&gt;vo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;put&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;a&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;AA&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
         &lt;span class=&quot;c1&quot;&gt;// 컴파일은 되지만, 실행 시 에러 발생!&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;l&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;values&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;nc&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;l&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;values&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
 
-        &lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ArrayList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;gt;();&lt;/span&gt;
+        &lt;span class=&quot;nc&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ArrayList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;gt;();&lt;/span&gt;
         &lt;span class=&quot;n&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
 
-        &lt;span class=&quot;n&quot;&gt;Map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Object&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;wapper&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HashMap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;gt;();&lt;/span&gt;
+        &lt;span class=&quot;nc&quot;&gt;Map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Object&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;wapper&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;HashMap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;gt;();&lt;/span&gt;
         &lt;span class=&quot;n&quot;&gt;wapper&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;put&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;vo&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
 
         &lt;span class=&quot;c1&quot;&gt;// 타입 소거로 형병환 성공 BUT!&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Vo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vo1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Vo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;wapper&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;vo&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vo1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;nc&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Vo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vo1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Vo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;wapper&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;vo&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vo1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
 
-        &lt;span class=&quot;c1&quot;&gt;// Exception in thread &quot;main&quot; java.lang.ClassCastException: class java.util.HashMap cannot be cast to class Vo (java.util.HashMap is in module java.base of loader 'bootstrap'; Vo is in unnamed module of loader 'app') 	at Main.main(Main.java:23)&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;Vo&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;realVo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vo1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;realVo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// Exception in thread &quot;main&quot; java.lang.ClassCastException: class java.util.HashMap cannot be cast to class Vo (java.util.HashMap is in module java.base of loader &apos;bootstrap&apos;; Vo is in unnamed module of loader &apos;app&apos;) 	at Main.main(Main.java:23)&lt;/span&gt;
+        &lt;span class=&quot;nc&quot;&gt;Vo&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;realVo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vo1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;realVo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 
 
 
 &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Vo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
 
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getA&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getA&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
         &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;setA&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="java" /><category term="cast" /><category term="exception" /><summary type="html">java ClassCaseException</summary></entry><entry><title type="html">말도 안되는 코드를 만났다.</title><link href="https://lahuman.github.io/20260415/" rel="alternate" type="text/html" title="말도 안되는 코드를 만났다." /><published>2026-01-21T00:00:00+00:00</published><updated>2026-01-21T00:00:00+00:00</updated><id>https://lahuman.github.io/20260415</id><content type="html" xml:base="https://lahuman.github.io/20260415/">&lt;h1 id=&quot;java-제네릭의-거짓말-그리고-hashmapvalues의-진짜-정체&quot;&gt;[Java] 제네릭의 거짓말, 그리고 HashMap.values()의 진짜 정체&lt;/h1&gt;
-
-&lt;p&gt;안녕하세요. 오늘은 개발하다 보면 한 번쯤 마주치게 되는 Java 제네릭(Generics)의 허점과, 우리가 무심코 사용하는 &lt;code class=&quot;highlighter-rouge&quot;&gt;HashMap&lt;/code&gt;의 내부 동작에 대해 깊게 파보려고 합니다.&lt;/p&gt;
-
-&lt;p&gt;최근 재미있는 코드를 하나 보게 되었습니다. “이게 에러가 안 난다고?” 싶은 코드인데, 막상 돌려보면 멀쩡히 돌아갑니다. 왜 그런지, 그리고 그 속에 숨겨진 함정은 무엇인지 살펴보겠습니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;1-제네릭은-런타임에-사라진다-type-erasure&quot;&gt;1. 제네릭은 런타임에 사라진다 (Type Erasure)&lt;/h2&gt;
-
-&lt;p&gt;다음 코드를 한번 보시죠.&lt;/p&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// 1. Map&amp;lt;String, String&amp;gt;을 담은 List 생성&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ArrayList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;gt;();&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;Map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;map&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HashMap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;gt;();&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;put&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;a&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;AA&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;// 2. 이걸 Object로 감싸고...&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;Map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Object&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;wrapper&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HashMap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;gt;();&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;wrapper&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;put&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;vo&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;// 3. 다시 꺼낼 때 전혀 다른 타입인 List&amp;lt;Vo&amp;gt;로 캐스팅!&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Vo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;voList&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Vo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;wrapper&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;vo&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;// 4. 출력&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;voList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;// 결과: [{a=AA}] (에러 없음!)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;List&amp;lt;Map&amp;gt;&lt;/code&gt;을 넣었는데 &lt;code class=&quot;highlighter-rouge&quot;&gt;List&amp;lt;Vo&amp;gt;&lt;/code&gt;로 꺼내집니다. 심지어 &lt;code class=&quot;highlighter-rouge&quot;&gt;ClassCastException&lt;/code&gt;도 발생하지 않습니다.&lt;/p&gt;
-
-&lt;h3 id=&quot;왜-에러가-안-날까&quot;&gt;왜 에러가 안 날까?&lt;/h3&gt;
-&lt;p&gt;범인은 바로 자바의 &lt;strong&gt;Type Erasure(타입 소거)&lt;/strong&gt; 때문입니다.&lt;/p&gt;
-
-&lt;p&gt;우리가 코드에 적는 &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;String&amp;gt;&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;Vo&amp;gt;&lt;/code&gt; 같은 제네릭 타입 정보는 &lt;strong&gt;컴파일 타임에만 존재&lt;/strong&gt;합니다. 컴파일러가 유효성을 검사한 뒤, 바이트코드(.class)를 만들 때는 이 정보를 싹 지워버립니다.&lt;/p&gt;
-
-&lt;p&gt;즉, JVM이 코드를 실행할 때 보는 건 이렇습니다.&lt;/p&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// JVM이 보는 세상&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;List&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;voList&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;wrapper&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;vo&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;JVM 입장에서는 “List를 List로 바꾸네? OK 통과!” 하고 넘어가는 것이죠. 이것을 &lt;strong&gt;Heap Pollution(힙 오염)&lt;/strong&gt;이라고 부릅니다.&lt;/p&gt;
-
-&lt;h3 id=&quot;시한폭탄과-같다&quot;&gt;시한폭탄과 같다&lt;/h3&gt;
-&lt;p&gt;하지만 이건 &lt;strong&gt;성공한 게 아닙니다.&lt;/strong&gt; 출력(&lt;code class=&quot;highlighter-rouge&quot;&gt;println&lt;/code&gt;)만 했을 때는 내부의 &lt;code class=&quot;highlighter-rouge&quot;&gt;toString()&lt;/code&gt;을 호출할 뿐이라 문제가 없었지만, 실제로 데이터를 꺼내는 순간 터집니다.&lt;/p&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// 여기서 터짐!&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;Vo&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;voList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;// java.lang.ClassCastException: class java.util.HashMap cannot be cast to class Vo&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;꺼낼 때 비로소 JVM이 “어? 이거 Vo라며? 왜 HashMap이 나와?” 하고 배신감을 표출하는 것이죠.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;2-hashmapvalues는-list가-아니다&quot;&gt;2. HashMap.values()는 List가 아니다&lt;/h2&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Map&lt;/code&gt;을 다루다 보면 값들만 뽑아서 리스트로 만들고 싶을 때가 있습니다. 흔히 이런 실수를 하곤 하죠.&lt;/p&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;Map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;map&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HashMap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;gt;();&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;// ... 데이터 put ...&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;// 컴파일 에러!&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;values&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;// 런타임 에러! (강제 캐스팅 시)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;list2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;values&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;왜-안-될까&quot;&gt;왜 안 될까?&lt;/h3&gt;
-&lt;p&gt;이유는 단순하지만 중요합니다.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;&lt;strong&gt;계층 구조의 문제:&lt;/strong&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;map.values()&lt;/code&gt;의 반환 타입은 &lt;code class=&quot;highlighter-rouge&quot;&gt;Collection&amp;lt;V&amp;gt;&lt;/code&gt;입니다. &lt;code class=&quot;highlighter-rouge&quot;&gt;List&lt;/code&gt;는 &lt;code class=&quot;highlighter-rouge&quot;&gt;Collection&lt;/code&gt;의 자식이지만, 부모(&lt;code class=&quot;highlighter-rouge&quot;&gt;Collection&lt;/code&gt;)를 자식(&lt;code class=&quot;highlighter-rouge&quot;&gt;List&lt;/code&gt;)에 그냥 담을 순 없습니다.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;구현체의 문제:&lt;/strong&gt; “그럼 캐스팅하면 되지 않나?” 싶지만, 런타임 에러가 발생합니다. &lt;code class=&quot;highlighter-rouge&quot;&gt;map.values()&lt;/code&gt;가 리턴하는 객체는 &lt;strong&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ArrayList&lt;/code&gt; 같은 리스트 구현체가 아니기 때문입니다.&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;까보자-구현체&quot;&gt;까보자, 구현체&lt;/h3&gt;
-&lt;p&gt;실제로 &lt;code class=&quot;highlighter-rouge&quot;&gt;getClass().getName()&lt;/code&gt;을 찍어보면 아주 낯선 녀석이 튀어나옵니다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;java.util.HashMap$Values&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;JDK 소스 코드를 열어보면 &lt;code class=&quot;highlighter-rouge&quot;&gt;HashMap&lt;/code&gt; 안에 다음과 같은 내부 클래스(Inner Class)가 숨어 있습니다.&lt;/p&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// JDK HashMap 소스 중 일부&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Values&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;AbstractCollection&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;V&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Iterator&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;V&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;iterator&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ValueIterator&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;// ...&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;List 아님:&lt;/strong&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;AbstractCollection&lt;/code&gt;을 상속받았을 뿐, &lt;code class=&quot;highlighter-rouge&quot;&gt;List&lt;/code&gt; 인터페이스는 구현하지 않았습니다. 인덱스로 접근(&lt;code class=&quot;highlighter-rouge&quot;&gt;.get(i)&lt;/code&gt;)할 수 없다는 뜻입니다.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;View 패턴:&lt;/strong&gt; 이 녀석은 데이터를 따로 저장하지 않습니다. 원본 &lt;code class=&quot;highlighter-rouge&quot;&gt;HashMap&lt;/code&gt;을 바라보는 창문(View) 역할만 합니다. 그래서 &lt;code class=&quot;highlighter-rouge&quot;&gt;map.values()&lt;/code&gt;로 얻은 컬렉션에서 아이템을 지우면 원본 맵에서도 지워집니다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;3-결론-및-정리&quot;&gt;3. 결론 및 정리&lt;/h2&gt;
-
-&lt;p&gt;오늘 내용을 요약하면 다음과 같습니다.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;&lt;strong&gt;제네릭 맹신 금지:&lt;/strong&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;(List&amp;lt;Vo&amp;gt;)&lt;/code&gt; 처럼 제네릭을 포함한 강제 형변환은 런타임에 타입 체크가 무시됩니다. 컴파일 경고(Unchecked cast)를 무시하지 마세요. 데이터는 &lt;strong&gt;ObjectMapper&lt;/strong&gt; 등을 통해 정석대로 변환해야 합니다.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;values()는 List가 아니다:&lt;/strong&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;map.values()&lt;/code&gt;는 &lt;code class=&quot;highlighter-rouge&quot;&gt;HashMap$Values&lt;/code&gt;라는 내부 전용 클래스를 반환합니다. 리스트로 쓰고 싶다면 생성자를 이용해 새로 만들어야 합니다.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// 올바른 사용법&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ArrayList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;values&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;자바의 내부 구현을 알면 “도대체 왜 안 돼?” 혹은 “이게 왜 돼?” 하는 상황에서 빠르게 원인을 파악할 수 있습니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;4-예시가-모두-포함된-전체-코드&quot;&gt;4. 예시가 모두 포함된 전체 코드&lt;/h2&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.util.ArrayList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.util.HashMap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.util.List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.util.Map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-
-
-&lt;span class=&quot;cm&quot;&gt;/**
- * 타입 소거 (Type Erasure): 자바는 컴파일할 때만 제네릭 타입(예: &amp;lt;Vo&amp;gt;, &amp;lt;Map&amp;gt;)을 검사하고, 실행(Runtime) 시점에는 이 정보를 모두 지워버립니다.
- * 형변환 성공: 실행 시점의 JVM은 리스트의 알맹이가 무엇인지 확인하지 않고, 그저 &quot;이것이 List인가?&quot;만 확인합니다. 따라서 Map이 담긴 리스트를 Vo 리스트로 강제 형변환해도 에러 없이 통과됩니다.
- * 출력 결과: 데이터를 꺼내서 Vo로 사용하려던 것이 아니라, 단순히 리스트 자체를 출력(toString)했기 때문에 실제 들어있던 Map의 내용이 문자열로 출력된 것입니다.
- * 결론: 이 코드는 **'성공한 것 처럼 보이는 시한폭탄'**입니다. 리스트에서 요소를 꺼내려는 순간(get) 바로 에러(ClassCastException)가 발생합니다.
- */&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Main&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-
-        &lt;span class=&quot;n&quot;&gt;Map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HashMap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;gt;();&lt;/span&gt;
-
-        &lt;span class=&quot;n&quot;&gt;vo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;put&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;a&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;AA&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;c1&quot;&gt;// 컴파일은 되지만, 실행 시 에러 발생!&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;l&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;values&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-
-        &lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ArrayList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;gt;();&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-
-        &lt;span class=&quot;n&quot;&gt;Map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Object&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;wapper&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HashMap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;gt;();&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;wapper&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;put&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;vo&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-
-        &lt;span class=&quot;c1&quot;&gt;// 타입 소거로 형병환 성공 BUT!&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Vo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vo1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Vo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;wapper&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;vo&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vo1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-
-        &lt;span class=&quot;c1&quot;&gt;// Exception in thread &quot;main&quot; java.lang.ClassCastException: class java.util.HashMap cannot be cast to class Vo (java.util.HashMap is in module java.base of loader 'bootstrap'; Vo is in unnamed module of loader 'app') 	at Main.main(Main.java:23)&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;Vo&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;realVo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vo1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;realVo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-
-
-&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Vo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getA&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;setA&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;setA&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
         &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="java" /><category term="cast" /><category term="exception" /><summary type="html">java ClassCaseException</summary></entry><entry><title type="html">Docker에서 curl은 되는데 Node.js fetch만 실패할 때 (feat. undici)</title><link href="https://lahuman.github.io/fetch-undici-docker-error/" rel="alternate" type="text/html" title="Docker에서 curl은 되는데 Node.js fetch만 실패할 때 (feat. undici)" /><published>2025-10-20T00:00:00+00:00</published><updated>2025-10-20T00:00:00+00:00</updated><id>https://lahuman.github.io/fetch-undici-docker-error</id><content type="html" xml:base="https://lahuman.github.io/fetch-undici-docker-error/">&lt;p&gt;개발을 하다 보면 Docker 컨테이너 내부에서 호스트 머신(PC)의 API를 호출해야 하는 경우가 종종 있습니다.&lt;/p&gt;
 
-&lt;p&gt;일반적으로 Docker for Mac/Windows에서는 &lt;code class=&quot;highlighter-rouge&quot;&gt;host.docker.internal&lt;/code&gt;을 사용하지만, Linux 환경에서는 Docker 브리지의 기본 게이트웨이 주소인 &lt;code class=&quot;highlighter-rouge&quot;&gt;172.17.0.1&lt;/code&gt;을 사용하는 경우가 많습니다.&lt;/p&gt;
+&lt;p&gt;일반적으로 Docker for Mac/Windows에서는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;host.docker.internal&lt;/code&gt;을 사용하지만, Linux 환경에서는 Docker 브리지의 기본 게이트웨이 주소인 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;172.17.0.1&lt;/code&gt;을 사용하는 경우가 많습니다.&lt;/p&gt;
 
 &lt;p&gt;그런데 이 주소로 API를 호출하는 과정에서 매우 이상한 문제를 겪게 되어 트러블슈팅 과정을 공유해보고자 합니다.&lt;/p&gt;
 
 &lt;h2 id=&quot;증상-curl은-되는데-fetch는-실패&quot;&gt;증상: curl은 되는데 fetch는 실패&lt;/h2&gt;
 
-&lt;p&gt;먼저, 컨테이너 내부에서 호스트(&lt;code class=&quot;highlighter-rouge&quot;&gt;172.17.0.1&lt;/code&gt;)로 네트워크 연결이 되는지 확인하기 위해 &lt;code class=&quot;highlighter-rouge&quot;&gt;curl&lt;/code&gt; 명령어를 사용했습니다.&lt;/p&gt;
+&lt;p&gt;먼저, 컨테이너 내부에서 호스트(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;172.17.0.1&lt;/code&gt;)로 네트워크 연결이 되는지 확인하기 위해 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;curl&lt;/code&gt; 명령어를 사용했습니다.&lt;/p&gt;
 
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;eb7b0d89f82b:/app# curl http://172.17.0.1:6000/webhook/.... &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt;
 
@@ -549,19 +390,19 @@
 Authorization is required!
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;401 Unauthorized&lt;/code&gt; 응답이 왔습니다. 이는 서버가 인증을 요구한다는 뜻으로, &lt;strong&gt;네트워크 연결 자체는 성공&lt;/strong&gt;했다는 의미입니다.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;401 Unauthorized&lt;/code&gt; 응답이 왔습니다. 이는 서버가 인증을 요구한다는 뜻으로, &lt;strong&gt;네트워크 연결 자체는 성공&lt;/strong&gt;했다는 의미입니다.&lt;/p&gt;
 
-&lt;p&gt;그런데 동일한 주소를 Node.js의 &lt;code class=&quot;highlighter-rouge&quot;&gt;fetch&lt;/code&gt; API를 사용하여 호출하면 다른 결과가 나옵니다.&lt;/p&gt;
+&lt;p&gt;그런데 동일한 주소를 Node.js의 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fetch&lt;/code&gt; API를 사용하여 호출하면 다른 결과가 나옵니다.&lt;/p&gt;
 
 &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// test.js&lt;/span&gt;
 &lt;span class=&quot;c1&quot;&gt;// (인증 로직은 편의상 생략)&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'http://172.17.0.1:6000/webhook/....'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;http://172.17.0.1:6000/webhook/....&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 
 &lt;span class=&quot;k&quot;&gt;try&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fetch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;method&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'GET'&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kr&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fetch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;method&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;GET&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Error calling webhook:'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Error calling webhook:&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
@@ -570,81 +411,81 @@ Authorization is required!
 Error calling webhook: fetch failed
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;분명 &lt;code class=&quot;highlighter-rouge&quot;&gt;curl&lt;/code&gt;로는 연결이 되는데, 왜 Node.js의 &lt;code class=&quot;highlighter-rouge&quot;&gt;fetch&lt;/code&gt;만 &lt;code class=&quot;highlighter-rouge&quot;&gt;fetch failed&lt;/code&gt;라는 네트워크 연결 실패 오류를 반환하는 것일까요?&lt;/p&gt;
+&lt;p&gt;분명 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;curl&lt;/code&gt;로는 연결이 되는데, 왜 Node.js의 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fetch&lt;/code&gt;만 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fetch failed&lt;/code&gt;라는 네트워크 연결 실패 오류를 반환하는 것일까요?&lt;/p&gt;
 
 &lt;h2 id=&quot;원인-curl과-fetch는-다르다&quot;&gt;원인: curl과 fetch는 다르다&lt;/h2&gt;
 
-&lt;p&gt;이 문제의 핵심은 &lt;strong&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;curl&lt;/code&gt;과 Node.js의 &lt;code class=&quot;highlighter-rouge&quot;&gt;fetch&lt;/code&gt;가 동일하게 작동하지 않는다&lt;/strong&gt;는 점입니다.&lt;/p&gt;
+&lt;p&gt;이 문제의 핵심은 &lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;curl&lt;/code&gt;과 Node.js의 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fetch&lt;/code&gt;가 동일하게 작동하지 않는다&lt;/strong&gt;는 점입니다.&lt;/p&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;&lt;strong&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;curl&lt;/code&gt;&lt;/strong&gt;: C언어로 작성된, 매우 표준적이고 검증된 저수준(low-level) HTTP 클라이언트입니다.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Node.js &lt;code class=&quot;highlighter-rouge&quot;&gt;fetch&lt;/code&gt;&lt;/strong&gt;: Node.js 18 버전부터 내장된 &lt;code class=&quot;highlighter-rouge&quot;&gt;fetch&lt;/code&gt; API는 &lt;strong&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;undici&lt;/code&gt;&lt;/strong&gt;라는 이름의 별도 HTTP 클라이언트 라이브러리를 기반으로 합니다.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;curl&lt;/code&gt;&lt;/strong&gt;: C언어로 작성된, 매우 표준적이고 검증된 저수준(low-level) HTTP 클라이언트입니다.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Node.js &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fetch&lt;/code&gt;&lt;/strong&gt;: Node.js 18 버전부터 내장된 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fetch&lt;/code&gt; API는 &lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;undici&lt;/code&gt;&lt;/strong&gt;라는 이름의 별도 HTTP 클라이언트 라이브러리를 기반으로 합니다.&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;즉, &lt;code class=&quot;highlighter-rouge&quot;&gt;curl&lt;/code&gt;이 성공했다는 것은 “네트워크 경로, IP, 포트, 방화벽”은 모두 정상이란 뜻입니다.&lt;/p&gt;
+&lt;p&gt;즉, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;curl&lt;/code&gt;이 성공했다는 것은 “네트워크 경로, IP, 포트, 방화벽”은 모두 정상이란 뜻입니다.&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;fetch failed&lt;/code&gt;가 발생한 이유는, Node.js의 &lt;code class=&quot;highlighter-rouge&quot;&gt;undici&lt;/code&gt; 구현체가 특정 Docker 네트워크 환경(이 경우 &lt;code class=&quot;highlighter-rouge&quot;&gt;172.17.0.1&lt;/code&gt; 게이트웨이)과 통신하는 과정에서 호환성 문제를 일으켰기 때문입니다. (주로 IPv6/IPv4 처리 방식 차이나 커넥션 풀링 방식의 차이로 인해 발생하곤 합니다)&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fetch failed&lt;/code&gt;가 발생한 이유는, Node.js의 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;undici&lt;/code&gt; 구현체가 특정 Docker 네트워크 환경(이 경우 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;172.17.0.1&lt;/code&gt; 게이트웨이)과 통신하는 과정에서 호환성 문제를 일으켰기 때문입니다. (주로 IPv6/IPv4 처리 방식 차이나 커넥션 풀링 방식의 차이로 인해 발생하곤 합니다)&lt;/p&gt;
 
-&lt;h3 id=&quot;axios는-어떨까요&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;axios&lt;/code&gt;는 어떨까요?&lt;/h3&gt;
+&lt;h3 id=&quot;axios는-어떨까요&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;axios&lt;/code&gt;는 어떨까요?&lt;/h3&gt;
 
-&lt;p&gt;흥미롭게도, 이 상황에서 &lt;code class=&quot;highlighter-rouge&quot;&gt;axios&lt;/code&gt; 라이브러리를 사용하면 대부분 성공합니다.&lt;/p&gt;
+&lt;p&gt;흥미롭게도, 이 상황에서 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;axios&lt;/code&gt; 라이브러리를 사용하면 대부분 성공합니다.&lt;/p&gt;
 
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;axios&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'axios'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;axios&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;axios&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;c1&quot;&gt;// const response = await axios.get(url, { auth: { ... } });&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;axios&lt;/code&gt;가 성공하는 이유는 &lt;code class=&quot;highlighter-rouge&quot;&gt;undici&lt;/code&gt;와 다르게, Node.js의 &lt;strong&gt;내장 &lt;code class=&quot;highlighter-rouge&quot;&gt;http&lt;/code&gt; 모듈&lt;/strong&gt;을 기반으로 작동하기 때문입니다. 이 &lt;code class=&quot;highlighter-rouge&quot;&gt;http&lt;/code&gt; 모듈은 &lt;code class=&quot;highlighter-rouge&quot;&gt;curl&lt;/code&gt;과 유사하게 더 고전적이고 단순한 방식으로 통신하므로 호환성 문제를 피할 수 있었던 것입니다.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;axios&lt;/code&gt;가 성공하는 이유는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;undici&lt;/code&gt;와 다르게, Node.js의 &lt;strong&gt;내장 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;http&lt;/code&gt; 모듈&lt;/strong&gt;을 기반으로 작동하기 때문입니다. 이 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;http&lt;/code&gt; 모듈은 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;curl&lt;/code&gt;과 유사하게 더 고전적이고 단순한 방식으로 통신하므로 호환성 문제를 피할 수 있었던 것입니다.&lt;/p&gt;
 
-&lt;h2 id=&quot;해결-undici를-우회하기&quot;&gt;해결: &lt;code class=&quot;highlighter-rouge&quot;&gt;undici&lt;/code&gt;를 우회하기&lt;/h2&gt;
+&lt;h2 id=&quot;해결-undici를-우회하기&quot;&gt;해결: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;undici&lt;/code&gt;를 우회하기&lt;/h2&gt;
 
-&lt;p&gt;원인을 알았으니 해결 방법은 명확합니다. &lt;code class=&quot;highlighter-rouge&quot;&gt;undici&lt;/code&gt; 기반의 &lt;code class=&quot;highlighter-rouge&quot;&gt;fetch&lt;/code&gt; 대신, &lt;code class=&quot;highlighter-rouge&quot;&gt;http&lt;/code&gt; 모듈 기반의 클라이언트를 사용하면 됩니다.&lt;/p&gt;
+&lt;p&gt;원인을 알았으니 해결 방법은 명확합니다. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;undici&lt;/code&gt; 기반의 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fetch&lt;/code&gt; 대신, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;http&lt;/code&gt; 모듈 기반의 클라이언트를 사용하면 됩니다.&lt;/p&gt;
 
-&lt;h3 id=&quot;방법-1-axios-라이브러리-사용-권장&quot;&gt;방법 1. &lt;code class=&quot;highlighter-rouge&quot;&gt;axios&lt;/code&gt; 라이브러리 사용 (권장)&lt;/h3&gt;
+&lt;h3 id=&quot;방법-1-axios-라이브러리-사용-권장&quot;&gt;방법 1. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;axios&lt;/code&gt; 라이브러리 사용 (권장)&lt;/h3&gt;
 
-&lt;p&gt;가장 간단하고 현대적인 방법입니다. &lt;code class=&quot;highlighter-rouge&quot;&gt;npm&lt;/code&gt;이나 &lt;code class=&quot;highlighter-rouge&quot;&gt;yarn&lt;/code&gt;으로 &lt;code class=&quot;highlighter-rouge&quot;&gt;axios&lt;/code&gt;를 설치하고 코드를 수정합니다.&lt;/p&gt;
+&lt;p&gt;가장 간단하고 현대적인 방법입니다. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;npm&lt;/code&gt;이나 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;yarn&lt;/code&gt;으로 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;axios&lt;/code&gt;를 설치하고 코드를 수정합니다.&lt;/p&gt;
 
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# ESM 환경에서 require 오류가 났던 것을 기억합니다.&lt;/span&gt;
-npm install axios
+npm &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;axios
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// test.js&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;axios&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'axios'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// require 대신 import 사용&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;axios&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;axios&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// require 대신 import 사용&lt;/span&gt;
 
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'http://172.17.0.1:6000/webhook/....'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;http://172.17.0.1:6000/webhook/....&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 
 &lt;span class=&quot;c1&quot;&gt;// 401 오류를 해결하기 위해 인증 정보 추가&lt;/span&gt;
 &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;auth&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;username&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'YOUR_USERNAME'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;password&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'YOUR_PASSWORD'&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;username&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;YOUR_USERNAME&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;password&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;YOUR_PASSWORD&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
 
 &lt;span class=&quot;k&quot;&gt;try&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;c1&quot;&gt;// axios는 auth 객체를 Basic 인증 헤더로 자동 변환해 줍니다.&lt;/span&gt;
-  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;axios&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;auth&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;auth&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;axios&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;auth&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;auth&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
   
-  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Webhook GET call successful!'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Status Code:'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;status&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Server response:'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Webhook GET call successful!&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Status Code:&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;status&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Server response:&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;c1&quot;&gt;// ... (Axios 오류 처리) ...&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Error calling webhook:'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Error calling webhook:&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h3 id=&quot;방법-2-nodejs-내장-http-모듈-사용&quot;&gt;방법 2. Node.js 내장 &lt;code class=&quot;highlighter-rouge&quot;&gt;http&lt;/code&gt; 모듈 사용&lt;/h3&gt;
+&lt;h3 id=&quot;방법-2-nodejs-내장-http-모듈-사용&quot;&gt;방법 2. Node.js 내장 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;http&lt;/code&gt; 모듈 사용&lt;/h3&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;axios&lt;/code&gt; 같은 외부 라이브러리를 설치하기 어려운 환경이라면, Node.js에 100% 내장된 &lt;code class=&quot;highlighter-rouge&quot;&gt;http&lt;/code&gt; 모듈을 직접 사용할 수 있습니다. &lt;code class=&quot;highlighter-rouge&quot;&gt;curl&lt;/code&gt;과 거의 동일하게 작동합니다.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;axios&lt;/code&gt; 같은 외부 라이브러리를 설치하기 어려운 환경이라면, Node.js에 100% 내장된 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;http&lt;/code&gt; 모듈을 직접 사용할 수 있습니다. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;curl&lt;/code&gt;과 거의 동일하게 작동합니다.&lt;/p&gt;
 
 &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// test.js (Node.js 내장 http 모듈 사용)&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;http&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'http'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// ESM 방식&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;URL&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'url'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// URL 파싱을 위해 추가&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;http&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// ESM 방식&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;URL&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// URL 파싱을 위해 추가&lt;/span&gt;
 
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;urlString&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'http://172.17.0.1:6000/webhook/....'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;urlString&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;http://172.17.0.1:6000/webhook/....&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 
 &lt;span class=&quot;c1&quot;&gt;// 인증 정보&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;credentials&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'YOUR_USERNAME:YOUR_PASSWORD'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;encodedCredentials&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Buffer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;from&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;credentials&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'base64'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;credentials&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;YOUR_USERNAME:YOUR_PASSWORD&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;encodedCredentials&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Buffer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;from&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;credentials&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;base64&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 
 &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;hostname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;port&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;pathname&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;URL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;urlString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 
@@ -652,24 +493,24 @@ npm install axios
   &lt;span class=&quot;na&quot;&gt;hostname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;hostname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
   &lt;span class=&quot;na&quot;&gt;port&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;port&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
   &lt;span class=&quot;na&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;pathname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;method&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'GET'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;method&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;GET&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
   &lt;span class=&quot;na&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;s1&quot;&gt;'Authorization'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;`Basic &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;encodedCredentials&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`&lt;/span&gt;
+    &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Authorization&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;`Basic &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;encodedCredentials&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
 
 &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;req&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`Status Code: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;statusCode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;''&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'data'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;chunk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;chunk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'end'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Server response:'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;chunk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;chunk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Server response:&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
 
-&lt;span class=&quot;nx&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'error'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;c1&quot;&gt;// 이 오류는 'fetch failed'와 동일한 네트워크 오류입니다.&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Error calling webhook:'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// 이 오류는 &apos;fetch failed&apos;와 동일한 네트워크 오류입니다.&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Error calling webhook:&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
 
 &lt;span class=&quot;nx&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
@@ -677,18 +518,18 @@ npm install axios
 
 &lt;h2 id=&quot;마무리&quot;&gt;마무리&lt;/h2&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;fetch failed&lt;/code&gt;라는 단순한 오류 메시지를 만났을 때, 무조건 네트워크 방화벽이나 IP 주소 문제라고 단정 짓기 쉽습니다.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fetch failed&lt;/code&gt;라는 단순한 오류 메시지를 만났을 때, 무조건 네트워크 방화벽이나 IP 주소 문제라고 단정 짓기 쉽습니다.&lt;/p&gt;
 
-&lt;p&gt;하지만 &lt;code class=&quot;highlighter-rouge&quot;&gt;curl&lt;/code&gt;과 같은 기본 도구로 교차 검증을 해보니, 문제는 네트워크가 아니라 &lt;strong&gt;Node.js의 &lt;code class=&quot;highlighter-rouge&quot;&gt;fetch&lt;/code&gt; 구현체인 &lt;code class=&quot;highlighter-rouge&quot;&gt;undici&lt;/code&gt;&lt;/strong&gt;와 특정 Docker 네트워크 환경 간의 호환성 문제임을 알 수 있었습니다.&lt;/p&gt;
+&lt;p&gt;하지만 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;curl&lt;/code&gt;과 같은 기본 도구로 교차 검증을 해보니, 문제는 네트워크가 아니라 &lt;strong&gt;Node.js의 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fetch&lt;/code&gt; 구현체인 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;undici&lt;/code&gt;&lt;/strong&gt;와 특정 Docker 네트워크 환경 간의 호환성 문제임을 알 수 있었습니다.&lt;/p&gt;
 
-&lt;p&gt;비슷한 문제를 겪으신다면, &lt;code class=&quot;highlighter-rouge&quot;&gt;fetch&lt;/code&gt; 대신 &lt;code class=&quot;highlighter-rouge&quot;&gt;axios&lt;/code&gt;나 &lt;code class=&quot;highlighter-rouge&quot;&gt;http&lt;/code&gt; 기본 모듈을 사용해 보시는 것을 추천해 드립니다.&lt;/p&gt;
+&lt;p&gt;비슷한 문제를 겪으신다면, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fetch&lt;/code&gt; 대신 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;axios&lt;/code&gt;나 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;http&lt;/code&gt; 기본 모듈을 사용해 보시는 것을 추천해 드립니다.&lt;/p&gt;
 
 &lt;h2 id=&quot;레퍼런스-references&quot;&gt;레퍼런스 (References)&lt;/h2&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/Mintplex-Labs/anything-llm/issues/585&quot;&gt;GitHub Issue: &lt;code class=&quot;highlighter-rouge&quot;&gt;172.17.0.1&lt;/code&gt; 주소에서 &lt;code class=&quot;highlighter-rouge&quot;&gt;fetch failed&lt;/code&gt; 발생 사례 (Mintplex-Labs/anything-llm)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://community.n8n.io/t/http-request-node-fails-to-connect-to-host-docker-internal-but-wget-from-inside-the-container-works/151998&quot;&gt;n8n Community: Node.js HTTP 노드는 실패하지만, &lt;code class=&quot;highlighter-rouge&quot;&gt;wget&lt;/code&gt;은 성공하는 사례&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/nodejs/undici/issues/1248&quot;&gt;GitHub Issue: &lt;code class=&quot;highlighter-rouge&quot;&gt;undici&lt;/code&gt;의 &lt;code class=&quot;highlighter-rouge&quot;&gt;TypeError: fetch failed&lt;/code&gt; (nodejs/undici)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/Mintplex-Labs/anything-llm/issues/585&quot;&gt;GitHub Issue: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;172.17.0.1&lt;/code&gt; 주소에서 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fetch failed&lt;/code&gt; 발생 사례 (Mintplex-Labs/anything-llm)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://community.n8n.io/t/http-request-node-fails-to-connect-to-host-docker-internal-but-wget-from-inside-the-container-works/151998&quot;&gt;n8n Community: Node.js HTTP 노드는 실패하지만, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;wget&lt;/code&gt;은 성공하는 사례&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/nodejs/undici/issues/1248&quot;&gt;GitHub Issue: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;undici&lt;/code&gt;의 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;TypeError: fetch failed&lt;/code&gt; (nodejs/undici)&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</content><author><name></name></author><category term="fetch" /><category term="curl" /><category term="undici" /><category term="network" /><summary type="html">http 또는 Axios 를 이용하면 간단하게 해결</summary></entry><entry><title type="html">SlideFlow :: 이미지를 영샹으로</title><link href="https://lahuman.github.io/slide/" rel="alternate" type="text/html" title="SlideFlow :: 이미지를 영샹으로" /><published>2025-09-30T00:00:00+00:00</published><updated>2025-09-30T00:00:00+00:00</updated><id>https://lahuman.github.io/slide</id><content type="html" xml:base="https://lahuman.github.io/slide/">&lt;h1 id=&quot;-slideflow&quot;&gt;✨ SlideFlow&lt;/h1&gt;
 
 &lt;h2 id=&quot;바로가기&quot;&gt;&lt;a href=&quot;https://lahuman.github.io/slideshow-editor/dist/&quot;&gt;바로가기&lt;/a&gt;&lt;/h2&gt;
@@ -740,9 +581,9 @@ npm install axios
   &lt;li&gt;&lt;strong&gt;프레임워크&lt;/strong&gt;: React (Vite)&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;언어&lt;/strong&gt;: TypeScript&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;핵심 로직&lt;/strong&gt;: React Hooks&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;드래그 앤 드롭&lt;/strong&gt;: &lt;code class=&quot;highlighter-rouge&quot;&gt;@dnd-kit/core&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;react-draggable&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;드래그 앤 드롭&lt;/strong&gt;: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@dnd-kit/core&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;react-draggable&lt;/code&gt;&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;스타일링&lt;/strong&gt;: CSS (Creative Studio Dark Theme)&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;아이콘&lt;/strong&gt;: &lt;code class=&quot;highlighter-rouge&quot;&gt;react-icons&lt;/code&gt; (Feather Icons)&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;아이콘&lt;/strong&gt;: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;react-icons&lt;/code&gt; (Feather Icons)&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;hr /&gt;
@@ -756,14 +597,14 @@ npm install axios
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
   &lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;의존성 설치&lt;/strong&gt;:
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm install
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
   &lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;개발 서버 실행&lt;/strong&gt;:
     &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm run dev
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
   &lt;/li&gt;
-  &lt;li&gt;브라우저에서 &lt;code class=&quot;highlighter-rouge&quot;&gt;http://localhost:5173&lt;/code&gt;으로 접속합니다.&lt;/li&gt;
+  &lt;li&gt;브라우저에서 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;http://localhost:5173&lt;/code&gt;으로 접속합니다.&lt;/li&gt;
 &lt;/ol&gt;</content><author><name></name></author><category term="SlideFlow" /><summary type="html">이미지를 영상으로 슬라이드 쇼 에디터</summary></entry><entry><title type="html">요즘은 inkPad를 사용해서 손글씨 작성중입니다.</title><link href="https://lahuman.github.io/20250619/" rel="alternate" type="text/html" title="요즘은 inkPad를 사용해서 손글씨 작성중입니다." /><published>2025-06-19T00:00:00+00:00</published><updated>2025-06-19T00:00:00+00:00</updated><id>https://lahuman.github.io/20250619</id><content type="html" xml:base="https://lahuman.github.io/20250619/">&lt;h1 id=&quot;개인-프로젝트로-진행한-inkpad를-계속-고도화-하고-있습니다&quot;&gt;개인 프로젝트로 진행한 InkPad를 계속 고도화 하고 있습니다.&lt;/h1&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://inkpad.giize.com/view.html?publicId=ef7dd407-a536-42c5-84b9-9c187bed59b7&amp;amp;yearMonth=2025.06&amp;amp;displayName=%EC%9E%90%EB%91%90&amp;amp;createdAt=2025-06-18T11%3A00%3A36.794Z&quot;&gt;누군가의 그림&lt;/a&gt;&lt;/p&gt;
@@ -803,26 +644,26 @@ npm install axios
   &lt;li&gt;&lt;strong&gt;고해상도 지원&lt;/strong&gt;: 내부 캔버스 해상도 1000x1000 픽셀로 설정하여 그림 품질 향상.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;서버 연동&lt;/strong&gt;:
     &lt;ul&gt;
-      &lt;li&gt;&lt;strong&gt;새 그림 저장&lt;/strong&gt;: 그림 제목 입력 후 이미지(PNG)와 압축된 그림 데이터(gzipped JSON)를 서버에 &lt;code class=&quot;highlighter-rouge&quot;&gt;POST&lt;/code&gt; 요청으로 저장. 성공 시 &lt;code class=&quot;highlighter-rouge&quot;&gt;mainUuid&lt;/code&gt;를 클립보드에 복사하고 메시지로 ID 안내.&lt;/li&gt;
-      &lt;li&gt;&lt;strong&gt;기존 그림 수정&lt;/strong&gt;: 로드된 그림 수정 후 &lt;code class=&quot;highlighter-rouge&quot;&gt;PUT&lt;/code&gt; 요청으로 서버에 업데이트.&lt;/li&gt;
-      &lt;li&gt;&lt;strong&gt;그림 삭제&lt;/strong&gt;: &lt;code class=&quot;highlighter-rouge&quot;&gt;DELETE&lt;/code&gt; 요청으로 서버에서 현재 그림 삭제 후 갤러리 페이지로 이동.&lt;/li&gt;
-      &lt;li&gt;&lt;strong&gt;ID로 불러오기&lt;/strong&gt;: &lt;code class=&quot;highlighter-rouge&quot;&gt;mainUuid&lt;/code&gt;를 직접 입력하여 특정 그림을 서버에서 불러와 편집.&lt;/li&gt;
-      &lt;li&gt;&lt;strong&gt;URL 연동&lt;/strong&gt;: URL 파라미터 (&lt;code class=&quot;highlighter-rouge&quot;&gt;?mainUuid=...&lt;/code&gt;)를 통해 특정 그림을 로드하여 편집 가능. 저장/로드 시 URL 업데이트.&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;새 그림 저장&lt;/strong&gt;: 그림 제목 입력 후 이미지(PNG)와 압축된 그림 데이터(gzipped JSON)를 서버에 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;POST&lt;/code&gt; 요청으로 저장. 성공 시 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mainUuid&lt;/code&gt;를 클립보드에 복사하고 메시지로 ID 안내.&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;기존 그림 수정&lt;/strong&gt;: 로드된 그림 수정 후 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PUT&lt;/code&gt; 요청으로 서버에 업데이트.&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;그림 삭제&lt;/strong&gt;: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DELETE&lt;/code&gt; 요청으로 서버에서 현재 그림 삭제 후 갤러리 페이지로 이동.&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;ID로 불러오기&lt;/strong&gt;: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mainUuid&lt;/code&gt;를 직접 입력하여 특정 그림을 서버에서 불러와 편집.&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;URL 연동&lt;/strong&gt;: URL 파라미터 (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;?mainUuid=...&lt;/code&gt;)를 통해 특정 그림을 로드하여 편집 가능. 저장/로드 시 URL 업데이트.&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;로컬 파일 기능&lt;/strong&gt;:
     &lt;ul&gt;
       &lt;li&gt;현재 그림을 로컬 PNG 이미지 파일로 저장.&lt;/li&gt;
-      &lt;li&gt;로컬의 &lt;code class=&quot;highlighter-rouge&quot;&gt;.json&lt;/code&gt; 또는 &lt;code class=&quot;highlighter-rouge&quot;&gt;.drawing.gz&lt;/code&gt; 파일을 불러와 그림판에 로드 (서버 연동 해제).&lt;/li&gt;
+      &lt;li&gt;로컬의 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.json&lt;/code&gt; 또는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.drawing.gz&lt;/code&gt; 파일을 불러와 그림판에 로드 (서버 연동 해제).&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;사용자 경험&lt;/strong&gt;:
     &lt;ul&gt;
       &lt;li&gt;터치 인터페이스 지원 및 모바일 반응형 디자인.&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;user-scalable=no&lt;/code&gt; 및 &lt;code class=&quot;highlighter-rouge&quot;&gt;overscroll-behavior: none&lt;/code&gt; 등으로 모바일 드로잉 경험 최적화.&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;user-scalable=no&lt;/code&gt; 및 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;overscroll-behavior: none&lt;/code&gt; 등으로 모바일 드로잉 경험 최적화.&lt;/li&gt;
       &lt;li&gt;키보드 단축키 지원 (Ctrl+Z, Ctrl+Y, Ctrl+S).&lt;/li&gt;
       &lt;li&gt;상태 메시지 시스템 (성공, 오류, 정보 알림).&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;localStorage&lt;/code&gt;를 사용하여 사용자가 관리하는 그림 정보 (ID, 이름 등) 일부 저장.&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;localStorage&lt;/code&gt;를 사용하여 사용자가 관리하는 그림 정보 (ID, 이름 등) 일부 저장.&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
@@ -833,9 +674,9 @@ npm install axios
   &lt;li&gt;&lt;strong&gt;그림 목록 표시&lt;/strong&gt;: 저장된 그림들을 카드 형태로 표시 (이미지, 제목, 생성 날짜).&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;무한 스크롤&lt;/strong&gt;: 스크롤 시 다음 그림 목록을 10~12개씩 동적으로 로드.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;초기 화면 채우기&lt;/strong&gt;: PC 화면에서는 처음 로드 시 화면 높이를 채울 만큼의 그림을 미리 로드.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;그림 보기 연동&lt;/strong&gt;: 각 그림 카드를 클릭하면 &lt;code class=&quot;highlighter-rouge&quot;&gt;view.html&lt;/code&gt;로 이동하여 해당 그림의 상세 정보(이미지 URL, 제목, 날짜)를 전달.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;ID로 그림 열기&lt;/strong&gt;: 헤더의 “ID로 불러오기” 버튼을 통해 &lt;code class=&quot;highlighter-rouge&quot;&gt;mainUuid&lt;/code&gt;를 입력받아 &lt;code class=&quot;highlighter-rouge&quot;&gt;draw.html&lt;/code&gt;에서 해당 그림을 바로 열 수 있도록 링크.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;새 그림 작성 링크&lt;/strong&gt;: “새 그림” 버튼을 통해 &lt;code class=&quot;highlighter-rouge&quot;&gt;draw.html&lt;/code&gt;로 이동.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;그림 보기 연동&lt;/strong&gt;: 각 그림 카드를 클릭하면 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;view.html&lt;/code&gt;로 이동하여 해당 그림의 상세 정보(이미지 URL, 제목, 날짜)를 전달.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;ID로 그림 열기&lt;/strong&gt;: 헤더의 “ID로 불러오기” 버튼을 통해 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mainUuid&lt;/code&gt;를 입력받아 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;draw.html&lt;/code&gt;에서 해당 그림을 바로 열 수 있도록 링크.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;새 그림 작성 링크&lt;/strong&gt;: “새 그림” 버튼을 통해 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;draw.html&lt;/code&gt;로 이동.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;23-그림-상세-보기&quot;&gt;2.3. 그림 상세 보기&lt;/h3&gt;
@@ -843,8 +684,8 @@ npm install axios
 &lt;ul&gt;
   &lt;li&gt;갤러리에서 선택한 그림을 큰 이미지로 표시.&lt;/li&gt;
   &lt;li&gt;그림 제목 및 생성 날짜 정보 제공.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;URL 공유&lt;/strong&gt;: “공유하기” 버튼 클릭 시 현재 페이지의 URL(이미지 경로에 &lt;code class=&quot;highlighter-rouge&quot;&gt;publicId&lt;/code&gt; 사용, &lt;code class=&quot;highlighter-rouge&quot;&gt;mainUuid&lt;/code&gt; 미노출)을 클립보드에 복사.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;constants.js&lt;/code&gt;를 사용하여 이미지 기본 경로 관리.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;URL 공유&lt;/strong&gt;: “공유하기” 버튼 클릭 시 현재 페이지의 URL(이미지 경로에 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;publicId&lt;/code&gt; 사용, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mainUuid&lt;/code&gt; 미노출)을 클립보드에 복사.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;constants.js&lt;/code&gt;를 사용하여 이미지 기본 경로 관리.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;24-서버&quot;&gt;2.4. 서버&lt;/h3&gt;
@@ -852,25 +693,25 @@ npm install axios
 &lt;ul&gt;
   &lt;li&gt;&lt;strong&gt;API 제공&lt;/strong&gt;:
     &lt;ul&gt;
-      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;POST /api/drawings&lt;/code&gt;: 새 그림 저장 (이미지 + 압축된 JSON 데이터). &lt;code class=&quot;highlighter-rouge&quot;&gt;mainUuid&lt;/code&gt; 및 &lt;code class=&quot;highlighter-rouge&quot;&gt;publicId&lt;/code&gt; 생성.&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;GET /api/drawings&lt;/code&gt;: 그림 목록 조회 (페이지네이션 지원: &lt;code class=&quot;highlighter-rouge&quot;&gt;page&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;limit&lt;/code&gt; 파라미터). 각 항목에 &lt;code class=&quot;highlighter-rouge&quot;&gt;publicId&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;yearMonth&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;displayName&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;imageUrl&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;createdAt&lt;/code&gt; 포함.&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;GET /api/drawings/:mainUuid/json&lt;/code&gt;: 특정 그림의 JSON 데이터 조회.&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;PUT /api/drawings/:mainUuid&lt;/code&gt;: 기존 그림 업데이트.&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;DELETE /api/drawings/:mainUuid&lt;/code&gt;: 특정 그림 삭제.&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;POST /api/drawings&lt;/code&gt;: 새 그림 저장 (이미지 + 압축된 JSON 데이터). &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mainUuid&lt;/code&gt; 및 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;publicId&lt;/code&gt; 생성.&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GET /api/drawings&lt;/code&gt;: 그림 목록 조회 (페이지네이션 지원: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;page&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;limit&lt;/code&gt; 파라미터). 각 항목에 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;publicId&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;yearMonth&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;displayName&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;imageUrl&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;createdAt&lt;/code&gt; 포함.&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GET /api/drawings/:mainUuid/json&lt;/code&gt;: 특정 그림의 JSON 데이터 조회.&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PUT /api/drawings/:mainUuid&lt;/code&gt;: 기존 그림 업데이트.&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DELETE /api/drawings/:mainUuid&lt;/code&gt;: 특정 그림 삭제.&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;데이터 저장&lt;/strong&gt;:
     &lt;ul&gt;
-      &lt;li&gt;드로잉 데이터(메타데이터)는 &lt;code class=&quot;highlighter-rouge&quot;&gt;uploads/db.json&lt;/code&gt; 파일에 LowDB를 사용하여 관리.&lt;/li&gt;
+      &lt;li&gt;드로잉 데이터(메타데이터)는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;uploads/db.json&lt;/code&gt; 파일에 LowDB를 사용하여 관리.&lt;/li&gt;
       &lt;li&gt;실제 파일 저장 구조:
         &lt;ul&gt;
-          &lt;li&gt;이미지: &lt;code class=&quot;highlighter-rouge&quot;&gt;uploads/images/YYYY.MM/publicId.png&lt;/code&gt;&lt;/li&gt;
-          &lt;li&gt;그림 데이터: &lt;code class=&quot;highlighter-rouge&quot;&gt;uploads/json/YYYY.MM/mainUuid.drawing.gz&lt;/code&gt; (또는 &lt;code class=&quot;highlighter-rouge&quot;&gt;.json&lt;/code&gt;)&lt;/li&gt;
+          &lt;li&gt;이미지: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;uploads/images/YYYY.MM/publicId.png&lt;/code&gt;&lt;/li&gt;
+          &lt;li&gt;그림 데이터: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;uploads/json/YYYY.MM/mainUuid.drawing.gz&lt;/code&gt; (또는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.json&lt;/code&gt;)&lt;/li&gt;
         &lt;/ul&gt;
       &lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;정적 파일 서비스&lt;/strong&gt;: 업로드된 이미지 및 &lt;code class=&quot;highlighter-rouge&quot;&gt;public&lt;/code&gt; 폴더 내 정적 에셋(HTML, JS, CSS) 제공.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;정적 파일 서비스&lt;/strong&gt;: 업로드된 이미지 및 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;public&lt;/code&gt; 폴더 내 정적 에셋(HTML, JS, CSS) 제공.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;3-기술-스택&quot;&gt;3. 기술 스택&lt;/h2&gt;
@@ -879,7 +720,7 @@ npm install axios
   &lt;li&gt;&lt;strong&gt;프론트엔드&lt;/strong&gt;:
     &lt;ul&gt;
       &lt;li&gt;HTML5, CSS3, JavaScript (ES6+)&lt;/li&gt;
-      &lt;li&gt;Tailwind CSS (CDN 및 &lt;code class=&quot;highlighter-rouge&quot;&gt;custom-styles.css&lt;/code&gt; 사용)&lt;/li&gt;
+      &lt;li&gt;Tailwind CSS (CDN 및 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;custom-styles.css&lt;/code&gt; 사용)&lt;/li&gt;
       &lt;li&gt;Pako.js (데이터 압축/해제)&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
@@ -888,8 +729,8 @@ npm install axios
       &lt;li&gt;Node.js&lt;/li&gt;
       &lt;li&gt;Express.js&lt;/li&gt;
       &lt;li&gt;LowDB (JSON 파일 기반 데이터베이스)&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;fs-extra&lt;/code&gt; (파일 시스템 작업)&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;uuid&lt;/code&gt; (고유 ID 생성)&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fs-extra&lt;/code&gt; (파일 시스템 작업)&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;uuid&lt;/code&gt; (고유 ID 생성)&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;폰트&lt;/strong&gt;: Google Fonts (Inter)&lt;/li&gt;
@@ -897,7 +738,7 @@ npm install axios
 
 &lt;h2 id=&quot;4-프로젝트-파일-구조-주요-파일&quot;&gt;4. 프로젝트 파일 구조 (주요 파일)&lt;/h2&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;├── server.js               # 메인 서버 파일
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;├── server.js               # 메인 서버 파일
 ├── package.json
 ├── package-lock.json
 ├── public/                 # 클라이언트 사이드 정적 파일
@@ -927,18 +768,18 @@ npm install axios
   &lt;li&gt;&lt;strong&gt;프로젝트 클론 및 의존성 설치&lt;/strong&gt;:
     &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clone &amp;lt;repository-url&amp;gt;
 &lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; &amp;lt;project-directory&amp;gt;
-npm install
+npm &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
   &lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;서버 실행&lt;/strong&gt;:
     &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;node server.js
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-    &lt;p&gt;서버는 기본적으로 &lt;code class=&quot;highlighter-rouge&quot;&gt;http://localhost:3000&lt;/code&gt; 에서 실행됩니다.&lt;/p&gt;
+    &lt;p&gt;서버는 기본적으로 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;http://localhost:3000&lt;/code&gt; 에서 실행됩니다.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;애플리케이션 접속&lt;/strong&gt;:
     &lt;ul&gt;
-      &lt;li&gt;그림판: &lt;code class=&quot;highlighter-rouge&quot;&gt;http://localhost:3000/draw.html&lt;/code&gt;&lt;/li&gt;
-      &lt;li&gt;갤러리: &lt;code class=&quot;highlighter-rouge&quot;&gt;http://localhost:3000/gallery&lt;/code&gt; (또는 &lt;code class=&quot;highlighter-rouge&quot;&gt;list.html&lt;/code&gt; 직접 접근)&lt;/li&gt;
+      &lt;li&gt;그림판: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;http://localhost:3000/draw.html&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;갤러리: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;http://localhost:3000/gallery&lt;/code&gt; (또는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;list.html&lt;/code&gt; 직접 접근)&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
 &lt;/ol&gt;
@@ -946,12 +787,12 @@ npm install
 &lt;h2 id=&quot;6-주요-api-엔드포인트&quot;&gt;6. 주요 API 엔드포인트&lt;/h2&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;POST /api/drawings&lt;/code&gt;: 새 그림 저장.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;GET /api/drawings&lt;/code&gt;: 그림 목록 조회 (페이지네이션: &lt;code class=&quot;highlighter-rouge&quot;&gt;?page=1&amp;amp;limit=10&lt;/code&gt;).&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;GET /api/drawings/:mainUuid/json&lt;/code&gt;: 특정 그림 데이터(JSON) 조회.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;PUT /api/drawings/:mainUuid&lt;/code&gt;: 기존 그림 업데이트.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;DELETE /api/drawings/:mainUuid&lt;/code&gt;: 특정 그림 삭제.&lt;/li&gt;
-  &lt;li&gt;정적 이미지 제공: &lt;code class=&quot;highlighter-rouge&quot;&gt;/uploads/images/YYYY.MM/publicId.png&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;POST /api/drawings&lt;/code&gt;: 새 그림 저장.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GET /api/drawings&lt;/code&gt;: 그림 목록 조회 (페이지네이션: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;?page=1&amp;amp;limit=10&lt;/code&gt;).&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GET /api/drawings/:mainUuid/json&lt;/code&gt;: 특정 그림 데이터(JSON) 조회.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PUT /api/drawings/:mainUuid&lt;/code&gt;: 기존 그림 업데이트.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DELETE /api/drawings/:mainUuid&lt;/code&gt;: 특정 그림 삭제.&lt;/li&gt;
+  &lt;li&gt;정적 이미지 제공: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/uploads/images/YYYY.MM/publicId.png&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;7-향후-개선-사항-선택적&quot;&gt;7. 향후 개선 사항 (선택적)&lt;/h2&gt;
@@ -966,7 +807,7 @@ npm install
 &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/NT-xJ17T7y0&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;이 확장 프로그램은 특정 웹사이트(&lt;code class=&quot;highlighter-rouge&quot;&gt;https://lahuman.github.io/&lt;/code&gt;)에서만 활성화되며, 사용자가 상태를 켜고 끌 수 있는 간단한 기능을 제공합니다. 확장 프로그램이 켜져 있을 때는 해당 웹사이트에서 10초마다 특정 버튼을 클릭하고, 현재 페이지에 상태 표시와 카운트다운을 보여줍니다.&lt;/p&gt;
+  &lt;p&gt;이 확장 프로그램은 특정 웹사이트(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;https://lahuman.github.io/&lt;/code&gt;)에서만 활성화되며, 사용자가 상태를 켜고 끌 수 있는 간단한 기능을 제공합니다. 확장 프로그램이 켜져 있을 때는 해당 웹사이트에서 10초마다 특정 버튼을 클릭하고, 현재 페이지에 상태 표시와 카운트다운을 보여줍니다.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;h2 id=&quot;소스코드-바로가기&quot;&gt;&lt;a href=&quot;https://github.com/lahuman/chrome-extensions-example&quot;&gt;소스코드 바로가기&lt;/a&gt;&lt;/h2&gt;
@@ -978,7 +819,7 @@ npm install
     &lt;p&gt;&lt;strong&gt;상태 토글:&lt;/strong&gt; 확장 프로그램 아이콘 클릭 시 나타나는 팝업에서 상태를 ‘켜짐’ 또는 ‘꺼짐’으로 변경할 수 있습니다.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;특정 사이트에서만 활성화:&lt;/strong&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;https://lahuman.github.io/&lt;/code&gt; 도메인 및 하위 경로에서만 확장 프로그램이 기능합니다. 다른 사이트에서는 기능이 비활성화됩니다.&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;특정 사이트에서만 활성화:&lt;/strong&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;https://lahuman.github.io/&lt;/code&gt; 도메인 및 하위 경로에서만 확장 프로그램이 기능합니다. 다른 사이트에서는 기능이 비활성화됩니다.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;&lt;strong&gt;아이콘 변화:&lt;/strong&gt; 허용된 사이트와 그 외 사이트에서 확장 프로그램 아이콘이 다르게 표시됩니다.&lt;/p&gt;
@@ -987,7 +828,7 @@ npm install
     &lt;p&gt;&lt;strong&gt;팝업에 현재 URL 표시:&lt;/strong&gt; 허용된 사이트에서 확장 프로그램이 켜져 있을 때, 팝업에 현재 페이지의 전체 주소를 표시합니다.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;자동 버튼 클릭 (허용된 사이트, 켜짐 상태 시):&lt;/strong&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;https://lahuman.github.io/&lt;/code&gt; 사이트에서 확장 프로그램이 ‘켜짐’ 상태일 때, 10초마다 미리 정의된 특정 버튼을 자동으로 클릭합니다.&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;자동 버튼 클릭 (허용된 사이트, 켜짐 상태 시):&lt;/strong&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;https://lahuman.github.io/&lt;/code&gt; 사이트에서 확장 프로그램이 ‘켜짐’ 상태일 때, 10초마다 미리 정의된 특정 버튼을 자동으로 클릭합니다.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;&lt;strong&gt;페이지 내 상태 표시 및 카운트다운:&lt;/strong&gt; 확장 프로그램이 ‘켜짐’ 상태일 때, 현재 보고 있는 웹 페이지의 우측 하단에 상태 표시(“확장 프로그램 켜짐 (X초)”)와 다음 클릭까지 남은 카운트다운을 보여줍니다.&lt;/p&gt;
@@ -999,7 +840,7 @@ npm install
     &lt;p&gt;&lt;strong&gt;상태 유지:&lt;/strong&gt; 확장 프로그램의 켜짐/꺼짐 상태는 브라우저를 닫았다 열어도 유지됩니다.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;사이트 이탈 시 자동 꺼짐:&lt;/strong&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;https://lahuman.github.io/&lt;/code&gt; 사이트를 벗어나 다른 페이지로 이동하거나 탭을 닫으면 해당 탭의 확장 프로그램 상태가 자동으로 ‘꺼짐’으로 변경되고 자동 클릭 및 카운트다운이 중지됩니다.&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;사이트 이탈 시 자동 꺼짐:&lt;/strong&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;https://lahuman.github.io/&lt;/code&gt; 사이트를 벗어나 다른 페이지로 이동하거나 탭을 닫으면 해당 탭의 확장 프로그램 상태가 자동으로 ‘꺼짐’으로 변경되고 자동 클릭 및 카운트다운이 중지됩니다.&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
@@ -1007,13 +848,13 @@ npm install
 
 &lt;ol&gt;
   &lt;li&gt;
-    &lt;p&gt;이 프로젝트의 모든 파일 (&lt;code class=&quot;highlighter-rouge&quot;&gt;manifest.json&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;popup.html&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;popup.css&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;popup.js&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;content.js&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;background.js&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;constants.js&lt;/code&gt; 및 &lt;code class=&quot;highlighter-rouge&quot;&gt;icons&lt;/code&gt; 폴더 내 이미지 파일)을 하나의 폴더에 다운로드합니다.&lt;/p&gt;
+    &lt;p&gt;이 프로젝트의 모든 파일 (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;manifest.json&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;popup.html&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;popup.css&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;popup.js&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;content.js&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;background.js&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;constants.js&lt;/code&gt; 및 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;icons&lt;/code&gt; 폴더 내 이미지 파일)을 하나의 폴더에 다운로드합니다.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;크롬 브라우저를 엽니다.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;주소창에 &lt;code class=&quot;highlighter-rouge&quot;&gt;chrome://extensions&lt;/code&gt;를 입력하고 이동합니다.&lt;/p&gt;
+    &lt;p&gt;주소창에 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;chrome://extensions&lt;/code&gt;를 입력하고 이동합니다.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;페이지 우측 상단의 &lt;strong&gt;‘개발자 모드’&lt;/strong&gt; 토글 스위치를 M니다.&lt;/p&gt;
@@ -1033,7 +874,7 @@ npm install
 
 &lt;ol&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;https://lahuman.github.io/&lt;/code&gt; 사이트로 이동합니다. 확장 프로그램 아이콘이 활성화된 아이콘으로 변경될 것입니다.&lt;/p&gt;
+    &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;https://lahuman.github.io/&lt;/code&gt; 사이트로 이동합니다. 확장 프로그램 아이콘이 활성화된 아이콘으로 변경될 것입니다.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;확장 프로그램 아이콘을 클릭하여 팝업을 엽니다.&lt;/p&gt;
@@ -1051,7 +892,7 @@ npm install
 
 &lt;h2 id=&quot;파일-구조&quot;&gt;파일 구조&lt;/h2&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/ (확장 프로그램 루트 폴더)
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/ (확장 프로그램 루트 폴더)
 ├── manifest.json
 ├── popup.html
 ├── popup.css
@@ -1071,10 +912,10 @@ npm install
 
 &lt;ul&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;constants.js&lt;/code&gt;: 확장 프로그램이 활성화될 웹사이트 주소(&lt;code class=&quot;highlighter-rouge&quot;&gt;ALLOWED_URL&lt;/code&gt;)를 설정할 수 있습니다.&lt;/p&gt;
+    &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;constants.js&lt;/code&gt;: 확장 프로그램이 활성화될 웹사이트 주소(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ALLOWED_URL&lt;/code&gt;)를 설정할 수 있습니다.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;content.js&lt;/code&gt;: 자동 클릭할 버튼의 CSS 선택자(&lt;code class=&quot;highlighter-rouge&quot;&gt;BUTTON_SELECTOR&lt;/code&gt;)를 수정해야 합니다.&lt;/p&gt;
+    &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;content.js&lt;/code&gt;: 자동 클릭할 버튼의 CSS 선택자(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BUTTON_SELECTOR&lt;/code&gt;)를 수정해야 합니다.&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
@@ -1082,23 +923,23 @@ npm install
 
 &lt;p&gt;이 프로젝트는 별도의 라이선스 명시가 없는 경우 표준 MIT 라이선스를 따릅니다. (필요시 라이선스 정보를 추가하세요.)&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;참고:&lt;/strong&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;content.js&lt;/code&gt; 파일의 &lt;code class=&quot;highlighter-rouge&quot;&gt;BUTTON_SELECTOR&lt;/code&gt; 상수는 &lt;code class=&quot;highlighter-rouge&quot;&gt;https://lahuman.github.io/&lt;/code&gt; 사이트 내에서 실제로 클릭하려는 버튼의 정확한 CSS 선택자로 &lt;strong&gt;반드시 수정&lt;/strong&gt;해야 합니다.&lt;/p&gt;</content><author><name></name></author><category term="chrome" /><category term="extentions" /><summary type="html">자바스크립트 기반으로 이렇게 간단하게 만들 수 있었네요!</summary></entry><entry><title type="html">AWS RDS mysql에 root 권한 처리</title><link href="https://lahuman.github.io/aws_rds_root_role_user/" rel="alternate" type="text/html" title="AWS RDS mysql에 root 권한 처리" /><published>2025-04-28T00:00:00+00:00</published><updated>2025-04-28T00:00:00+00:00</updated><id>https://lahuman.github.io/aws_rds_root_role_user</id><content type="html" xml:base="https://lahuman.github.io/aws_rds_root_role_user/">&lt;h1 id=&quot;mysql을-실행하는-amazon-rds-db-인스턴스에-대해-다른-관리자-사용자를-생성하려면-어떻게-해야-합니까&quot;&gt;MySQL을 실행하는 Amazon RDS DB 인스턴스에 대해 다른 관리자 사용자를 생성하려면 어떻게 해야 합니까?&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;참고:&lt;/strong&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;content.js&lt;/code&gt; 파일의 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BUTTON_SELECTOR&lt;/code&gt; 상수는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;https://lahuman.github.io/&lt;/code&gt; 사이트 내에서 실제로 클릭하려는 버튼의 정확한 CSS 선택자로 &lt;strong&gt;반드시 수정&lt;/strong&gt;해야 합니다.&lt;/p&gt;</content><author><name></name></author><category term="chrome" /><category term="extentions" /><summary type="html">자바스크립트 기반으로 이렇게 간단하게 만들 수 있었네요!</summary></entry><entry><title type="html">AWS RDS mysql에 root 권한 처리</title><link href="https://lahuman.github.io/aws_rds_root_role_user/" rel="alternate" type="text/html" title="AWS RDS mysql에 root 권한 처리" /><published>2025-04-28T00:00:00+00:00</published><updated>2025-04-28T00:00:00+00:00</updated><id>https://lahuman.github.io/aws_rds_root_role_user</id><content type="html" xml:base="https://lahuman.github.io/aws_rds_root_role_user/">&lt;h1 id=&quot;mysql을-실행하는-amazon-rds-db-인스턴스에-대해-다른-관리자-사용자를-생성하려면-어떻게-해야-합니까&quot;&gt;MySQL을 실행하는 Amazon RDS DB 인스턴스에 대해 다른 관리자 사용자를 생성하려면 어떻게 해야 합니까?&lt;/h1&gt;
 
 &lt;p&gt;기존에 사용하던 명령어를 이용해서 권한을 줄 경우&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;GRANT ALL PRIVILEGES ON `new_master_user`.* TO 'mysql'@'%' WITH GRANT OPTION;
-Error Code: 1044. Access denied for user 'root'@'%' to database 'mysql' 
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;GRANT ALL PRIVILEGES ON `new_master_user`.* TO &apos;mysql&apos;@&apos;%&apos; WITH GRANT OPTION;
+Error Code: 1044. Access denied for user &apos;root&apos;@&apos;%&apos; to database &apos;mysql&apos; 
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;root&lt;/code&gt; 임에도 오류가 발생합니다.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;root&lt;/code&gt; 임에도 오류가 발생합니다.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://repost.aws/ko/knowledge-center/duplicate-master-user-mysql&quot;&gt;MySQL을 실행하는 Amazon RDS DB 인스턴스에 대해 다른 관리자 사용자를 생성하려면 어떻게 해야 합니까?&lt;/a&gt;를 참고해서 확인하면 아래와 같이 명령어를 이용하면 root와 동일한 권한을 가진 계정 생성이 가능합니다.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;-- CREATE USER
-Create a user: CREATE USER 'new_master_user'@'%' IDENTIFIED BY 'password';
+Create a user: CREATE USER &apos;new_master_user&apos;@&apos;%&apos; IDENTIFIED BY &apos;password&apos;;
 
 -- GRANT EVERY ROLES
-GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'new_master_user'@'%' WITH GRANT OPTION;
+GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO &apos;new_master_user&apos;@&apos;%&apos; WITH GRANT OPTION;
 
 -- 권한 적용
 FLUSH PRIVILEGES;

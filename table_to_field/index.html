@@ -9,7 +9,7 @@
                         <span class="k">COLUMN_NAME</span> 
                     <span class="k">END</span><span class="p">,</span>
                     <span class="s1">' */'</span><span class="p">,</span>
-                    <span class="n">CHAR</span><span class="p">(</span><span class="mi">13</span><span class="p">),</span>
+                    <span class="nb">CHAR</span><span class="p">(</span><span class="mi">13</span><span class="p">),</span>
                     <span class="n">CONCAT</span><span class="p">(</span>
                         <span class="k">TRIM</span><span class="p">(</span><span class="n">CN1</span><span class="p">),</span> 
                         <span class="k">TRIM</span><span class="p">(</span><span class="n">CONCAT</span><span class="p">(</span><span class="k">UPPER</span><span class="p">(</span><span class="k">SUBSTRING</span><span class="p">(</span><span class="n">CN2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span> <span class="p">,</span> <span class="k">SUBSTRING</span><span class="p">(</span><span class="n">CN2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="k">LENGTH</span><span class="p">(</span><span class="n">CN2</span><span class="p">)))),</span> 
@@ -25,7 +25,7 @@
                         <span class="k">ELSE</span> <span class="s1">' :object '</span>
                     <span class="k">END</span><span class="p">,</span> 
                     <span class="s1">';'</span><span class="p">,</span>
-                    <span class="n">CHAR</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span>
+                    <span class="nb">CHAR</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span>
                 <span class="p">)</span> <span class="n">SEPARATOR</span> <span class="s1">''</span><span class="p">)</span> <span class="k">as</span> <span class="n">field</span>
 <span class="k">FROM</span>
 <span class="p">(</span>
@@ -85,9 +85,9 @@
                         <span class="k">COLUMN_NAME</span> 
                     <span class="k">END</span><span class="p">,</span>
                     <span class="s1">' */'</span><span class="p">,</span>
-                    <span class="n">CHAR</span><span class="p">(</span><span class="mi">13</span><span class="p">),</span>
+                    <span class="nb">CHAR</span><span class="p">(</span><span class="mi">13</span><span class="p">),</span>
                     <span class="s1">'@Column()'</span><span class="p">,</span>
-                    <span class="n">CHAR</span><span class="p">(</span><span class="mi">13</span><span class="p">),</span>
+                    <span class="nb">CHAR</span><span class="p">(</span><span class="mi">13</span><span class="p">),</span>
                     <span class="n">CONCAT</span><span class="p">(</span>
                         <span class="k">TRIM</span><span class="p">(</span><span class="n">CN1</span><span class="p">),</span> 
                         <span class="k">TRIM</span><span class="p">(</span><span class="n">CONCAT</span><span class="p">(</span><span class="k">UPPER</span><span class="p">(</span><span class="k">SUBSTRING</span><span class="p">(</span><span class="n">CN2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span> <span class="p">,</span> <span class="k">SUBSTRING</span><span class="p">(</span><span class="n">CN2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="k">LENGTH</span><span class="p">(</span><span class="n">CN2</span><span class="p">)))),</span> 
@@ -103,8 +103,8 @@
                         <span class="k">ELSE</span> <span class="s1">' :object '</span>
                     <span class="k">END</span><span class="p">,</span> 
                     <span class="s1">';'</span><span class="p">,</span>
-                    <span class="n">CHAR</span><span class="p">(</span><span class="mi">13</span><span class="p">),</span>
-                    <span class="n">CHAR</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span>
+                    <span class="nb">CHAR</span><span class="p">(</span><span class="mi">13</span><span class="p">),</span>
+                    <span class="nb">CHAR</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span>
                 <span class="p">)</span> <span class="n">SEPARATOR</span> <span class="s1">''</span><span class="p">)</span> <span class="k">as</span> <span class="n">field</span>
 <span class="k">FROM</span>
 <span class="p">(</span>
