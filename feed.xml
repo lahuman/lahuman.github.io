@@ -1,4 +1,16 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2026-04-15T23:30:21+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">요즘은 뭔가 쉬운듯 어렵네요.</title><link href="https://lahuman.github.io/20260415/" rel="alternate" type="text/html" title="요즘은 뭔가 쉬운듯 어렵네요." /><published>2026-04-15T00:00:00+00:00</published><updated>2026-04-15T00:00:00+00:00</updated><id>https://lahuman.github.io/20260415</id><content type="html" xml:base="https://lahuman.github.io/20260415/">&lt;h1 id=&quot;바이브-코딩-프롬프트-엔지니어링-컨텍스트-엔지니어링-하네스-에이전틱-mcp-등등-너무나도-빠른-하루-하루-입니다&quot;&gt;바이브 코딩, 프롬프트 엔지니어링, 컨텍스트 엔지니어링, 하네스, 에이전틱, MCP 등등 너무나도 빠른 하루 하루 입니다.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2026-04-16T00:47:07+00:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">갑자기 아무것도 안하고 있지만 더욱 아무것도 안하고 싶다.</title><link href="https://lahuman.github.io/20260416/" rel="alternate" type="text/html" title="갑자기 아무것도 안하고 있지만 더욱 아무것도 안하고 싶다." /><published>2026-04-16T00:00:00+00:00</published><updated>2026-04-16T00:00:00+00:00</updated><id>https://lahuman.github.io/20260416</id><content type="html" xml:base="https://lahuman.github.io/20260416/">&lt;h1 id=&quot;26년-4월-벌써-4개월-째다&quot;&gt;26년 4월, 벌써 4개월 째다.&lt;/h1&gt;
+
+&lt;p&gt;26년도 1분기가 지나갔다. 2분기 시작점에 나는 무엇을 해야할지 어떻게 올해를 보낼지 방향성을 잃은거 같다.&lt;/p&gt;
+
+&lt;p&gt;아무것도 하기 싫고 무기력하다.&lt;/p&gt;
+
+&lt;p&gt;개인 프로젝트로 하나씩 만들어 보고 있지만, 대부분 바이브 코딩으로 딸칵질이다.&lt;/p&gt;
+
+&lt;p&gt;코딩은 이제 안하는 세상이 온거 같고 AI 를 활용해서 결과물을 빠르게 만들어 가는 시대가 되었다.&lt;/p&gt;
+
+&lt;p&gt;물론 개발 지식이 무쓸모가 된건 아니다.&lt;/p&gt;
+
+&lt;p&gt;다만 내 장점 중 하나인 코딩은 더이상 AI를 이길수 없다.&lt;/p&gt;</content><author><name></name></author><category term="단상" /><summary type="html">뭔가 하고 싶은데 하기 싫고 싱숭생숭하다.</summary></entry><entry><title type="html">요즘은 뭔가 쉬운듯 어렵네요.</title><link href="https://lahuman.github.io/20260415/" rel="alternate" type="text/html" title="요즘은 뭔가 쉬운듯 어렵네요." /><published>2026-04-15T00:00:00+00:00</published><updated>2026-04-15T00:00:00+00:00</updated><id>https://lahuman.github.io/20260415</id><content type="html" xml:base="https://lahuman.github.io/20260415/">&lt;h1 id=&quot;바이브-코딩-프롬프트-엔지니어링-컨텍스트-엔지니어링-하네스-에이전틱-mcp-등등-너무나도-빠른-하루-하루-입니다&quot;&gt;바이브 코딩, 프롬프트 엔지니어링, 컨텍스트 엔지니어링, 하네스, 에이전틱, MCP 등등 너무나도 빠른 하루 하루 입니다.&lt;/h1&gt;
 
 &lt;p&gt;학습은 쉽지 않고 그냥 AI를 통해서 써보고 있습니다.&lt;/p&gt;
 
@@ -923,31 +935,4 @@ npm &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt;
 
 &lt;p&gt;이 프로젝트는 별도의 라이선스 명시가 없는 경우 표준 MIT 라이선스를 따릅니다. (필요시 라이선스 정보를 추가하세요.)&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;참고:&lt;/strong&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;content.js&lt;/code&gt; 파일의 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BUTTON_SELECTOR&lt;/code&gt; 상수는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;https://lahuman.github.io/&lt;/code&gt; 사이트 내에서 실제로 클릭하려는 버튼의 정확한 CSS 선택자로 &lt;strong&gt;반드시 수정&lt;/strong&gt;해야 합니다.&lt;/p&gt;</content><author><name></name></author><category term="chrome" /><category term="extentions" /><summary type="html">자바스크립트 기반으로 이렇게 간단하게 만들 수 있었네요!</summary></entry><entry><title type="html">AWS RDS mysql에 root 권한 처리</title><link href="https://lahuman.github.io/aws_rds_root_role_user/" rel="alternate" type="text/html" title="AWS RDS mysql에 root 권한 처리" /><published>2025-04-28T00:00:00+00:00</published><updated>2025-04-28T00:00:00+00:00</updated><id>https://lahuman.github.io/aws_rds_root_role_user</id><content type="html" xml:base="https://lahuman.github.io/aws_rds_root_role_user/">&lt;h1 id=&quot;mysql을-실행하는-amazon-rds-db-인스턴스에-대해-다른-관리자-사용자를-생성하려면-어떻게-해야-합니까&quot;&gt;MySQL을 실행하는 Amazon RDS DB 인스턴스에 대해 다른 관리자 사용자를 생성하려면 어떻게 해야 합니까?&lt;/h1&gt;
-
-&lt;p&gt;기존에 사용하던 명령어를 이용해서 권한을 줄 경우&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;GRANT ALL PRIVILEGES ON `new_master_user`.* TO &apos;mysql&apos;@&apos;%&apos; WITH GRANT OPTION;
-Error Code: 1044. Access denied for user &apos;root&apos;@&apos;%&apos; to database &apos;mysql&apos; 
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;root&lt;/code&gt; 임에도 오류가 발생합니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://repost.aws/ko/knowledge-center/duplicate-master-user-mysql&quot;&gt;MySQL을 실행하는 Amazon RDS DB 인스턴스에 대해 다른 관리자 사용자를 생성하려면 어떻게 해야 합니까?&lt;/a&gt;를 참고해서 확인하면 아래와 같이 명령어를 이용하면 root와 동일한 권한을 가진 계정 생성이 가능합니다.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;-- CREATE USER
-Create a user: CREATE USER &apos;new_master_user&apos;@&apos;%&apos; IDENTIFIED BY &apos;password&apos;;
-
--- GRANT EVERY ROLES
-GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO &apos;new_master_user&apos;@&apos;%&apos; WITH GRANT OPTION;
-
--- 권한 적용
-FLUSH PRIVILEGES;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;AI도 잘 모르던 부분이네요 ㅎ&lt;/p&gt;
-
-&lt;h2 id=&quot;참고자료&quot;&gt;참고자료&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://repost.aws/ko/knowledge-center/duplicate-master-user-mysql&quot;&gt;MySQL을 실행하는 Amazon RDS DB 인스턴스에 대해 다른 관리자 사용자를 생성하려면 어떻게 해야 합니까?&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="aws" /><category term="mysql" /><category term="root" /><summary type="html">그냥 mysql 디비 권한을 주면 안되고, 일일이 찍어줘야 함</summary></entry></feed>
+&lt;p&gt;&lt;strong&gt;참고:&lt;/strong&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;content.js&lt;/code&gt; 파일의 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BUTTON_SELECTOR&lt;/code&gt; 상수는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;https://lahuman.github.io/&lt;/code&gt; 사이트 내에서 실제로 클릭하려는 버튼의 정확한 CSS 선택자로 &lt;strong&gt;반드시 수정&lt;/strong&gt;해야 합니다.&lt;/p&gt;</content><author><name></name></author><category term="chrome" /><category term="extentions" /><summary type="html">자바스크립트 기반으로 이렇게 간단하게 만들 수 있었네요!</summary></entry></feed>
