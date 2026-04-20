@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2026-04-20T08:56:23+09:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">AI를 활용한 1인 프로젝트 초고속 개발 워크플로우 정리</title><link href="https://lahuman.github.io/begin_ai_project/" rel="alternate" type="text/html" title="AI를 활용한 1인 프로젝트 초고속 개발 워크플로우 정리" /><published>2026-04-20T00:00:00+09:00</published><updated>2026-04-20T00:00:00+09:00</updated><id>https://lahuman.github.io/begin_ai_project</id><content type="html" xml:base="https://lahuman.github.io/begin_ai_project/">&lt;p&gt;요즘 같은 AI 시대에 혼자서 사이드 프로젝트나 간단한 PoC(개념 증명) 서비스를 만들 때, 개발 속도를 획기적으로 단축할 수 있는 저만의 워크플로우를 정리해 보았습니다.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2026-04-20T09:44:18+09:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">AI를 활용한 1인 프로젝트 초고속 개발 워크플로우 정리</title><link href="https://lahuman.github.io/begin_ai_project/" rel="alternate" type="text/html" title="AI를 활용한 1인 프로젝트 초고속 개발 워크플로우 정리" /><published>2026-04-20T00:00:00+09:00</published><updated>2026-04-20T00:00:00+09:00</updated><id>https://lahuman.github.io/begin_ai_project</id><content type="html" xml:base="https://lahuman.github.io/begin_ai_project/">&lt;p&gt;요즘 같은 AI 시대에 혼자서 사이드 프로젝트나 간단한 PoC(개념 증명) 서비스를 만들 때, 개발 속도를 획기적으로 단축할 수 있는 저만의 워크플로우를 정리해 보았습니다.&lt;/p&gt;
 
 &lt;p&gt;최근 간단한 웹 서비스를 하루 만에 뚝딱 만들면서 정립한 방법론이며, 과금 없이 무료 AI 툴들만 잘 조합해도 충분히 실무적인 퀄리티를 뽑아낼 수 있습니다. 사이드 프로젝트를 준비하시는 분들께 도움이 될까 하여 공유해 봅니다.&lt;/p&gt;
 
@@ -25,15 +25,15 @@
 &lt;hr /&gt;
 
 &lt;div class=&quot;mermaid&quot;&gt; 
-graph TD;
-    A[1. 기획 | 무료 AI 웹 UI로 기획서 작성] --&amp;gt; B[2. 디자인 | Google Stitch로 UI 도출];
-    B --&amp;gt; C[3. 분석 및 설계 | CLI 툴 + SvelteKit + SQLite3];
-    C --&amp;gt; D[4. 풀스택 개발 및 환경 일원화 | 의존성 최소화 / 단일 언어 적용];
-    D --&amp;gt; E[5. 배포 | Docker Compose 패키징];
+flowchart TD
+    A[&quot;1. 기획 - 무료 AI 웹 UI로 기획서 작성&quot;] --&amp;gt; B[&quot;2. 디자인 - Google Stitch로 UI 도출&quot;]
+    B --&amp;gt; C[&quot;3. 분석 및 설계 &amp;amp; 개발 - CLI 툴 + SvelteKit + SQLite3&quot;]
+    C --&amp;gt; D[&quot;4. 풀스택 개발 및 환경 일원화 - 의존성 최소화 / 단일 언어 적용&quot;]
+    D --&amp;gt; E[&quot;5. 배포 - Docker Compose 패키징&quot;]
 
     classDef defaultStyle fill:#f8f9fa,stroke:#ced4da,stroke-width:2px,color:#212529;
     classDef highlight fill:#e7f5ff,stroke:#339af0,stroke-width:2px,color:#1864ab;
-    
+
     class A,B,E defaultStyle;
     class C,D highlight;
 &lt;/div&gt;
