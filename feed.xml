@@ -1,4 +1,25 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2026-04-20T15:10:26+09:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">AI를 활용한 1인 프로젝트 초고속 개발 워크플로우 정리</title><link href="https://lahuman.github.io/begin_ai_project/" rel="alternate" type="text/html" title="AI를 활용한 1인 프로젝트 초고속 개발 워크플로우 정리" /><published>2026-04-20T00:00:00+09:00</published><updated>2026-04-20T00:00:00+09:00</updated><id>https://lahuman.github.io/begin_ai_project</id><content type="html" xml:base="https://lahuman.github.io/begin_ai_project/">&lt;p&gt;요즘 같은 AI 시대에 혼자서 사이드 프로젝트나 간단한 PoC(개념 증명) 서비스를 만들 때, 개발 속도를 획기적으로 단축할 수 있는 저만의 워크플로우를 정리해 보았습니다.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2026-07-07T13:30:18+09:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">코넬 노트 서비스</title><link href="https://lahuman.github.io/5r_note/" rel="alternate" type="text/html" title="코넬 노트 서비스" /><published>2026-07-07T00:00:00+09:00</published><updated>2026-07-07T00:00:00+09:00</updated><id>https://lahuman.github.io/5r_note</id><content type="html" xml:base="https://lahuman.github.io/5r_note/">&lt;h1 id=&quot;5r-기반-학습-노트앱&quot;&gt;5R 기반 학습 노트앱&lt;/h1&gt;
+
+&lt;h2 id=&quot;코넬-노트-바로-가기&quot;&gt;&lt;a href=&quot;https://note5r.kro.kr/index.html&quot;&gt;코넬 노트 바로 가기&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;미국 아이비리그 코넬대 Walte Pauk 교수가 고안한 노트 필기법&lt;/p&gt;
+
+&lt;h1 id=&quot;5r-단계&quot;&gt;5R 단계&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Record(기록) : 강의 내 중요한 정보 아이디어 필기&lt;/li&gt;
+  &lt;li&gt;Reduce(압축) : 필기 영역의 중요 키워드 정리&lt;/li&gt;
+  &lt;li&gt;Recite(암기) : 핵심 키워드 필기 영역 속 내용 암기&lt;/li&gt;
+  &lt;li&gt;Reflect(숙고) : 질문을 통해 강의 내용 심도 있게 정리&lt;/li&gt;
+  &lt;li&gt;Review(복습) : 주기적으로 노트를 보면서 다시 공부&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;코넬-대학교-학습-전략-센터-lsc-공식-자료&quot;&gt;코넬 대학교 학습 전략 센터 (LSC) 공식 자료&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;https://lsc.cornell.edu/how-to-study/taking-notes/cornell-note-taking-system/&quot;&gt;코넬 노트법 공식 안내 페이지 (영상 및 튜토리얼 포함)&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;https://lsc.cornell.edu/wp-content/uploads/2016/10/Cornell-NoteTaking-System.pdf&quot;&gt;코넬 노트 5R 시스템 및 템플릿 요약 (공식 PDF)&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="5r" /><category term="cornell" /><summary type="html">5R 기반의 노트앱 서비스 입니다.</summary></entry><entry><title type="html">AI를 활용한 1인 프로젝트 초고속 개발 워크플로우 정리</title><link href="https://lahuman.github.io/begin_ai_project/" rel="alternate" type="text/html" title="AI를 활용한 1인 프로젝트 초고속 개발 워크플로우 정리" /><published>2026-04-20T00:00:00+09:00</published><updated>2026-04-20T00:00:00+09:00</updated><id>https://lahuman.github.io/begin_ai_project</id><content type="html" xml:base="https://lahuman.github.io/begin_ai_project/">&lt;p&gt;요즘 같은 AI 시대에 혼자서 사이드 프로젝트나 간단한 PoC(개념 증명) 서비스를 만들 때, 개발 속도를 획기적으로 단축할 수 있는 저만의 워크플로우를 정리해 보았습니다.&lt;/p&gt;
 
 &lt;p&gt;최근 간단한 웹 서비스를 하루 만에 뚝딱 만들면서 정립한 방법론이며, 과금 없이 무료 AI 툴들만 잘 조합해도 충분히 실무적인 퀄리티를 뽑아낼 수 있습니다. 사이드 프로젝트를 준비하시는 분들께 도움이 될까 하여 공유해 봅니다.&lt;/p&gt;
 
@@ -667,22 +688,4 @@ npm &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;axios
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
   &lt;/li&gt;
   &lt;li&gt;브라우저에서 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;http://localhost:5173&lt;/code&gt;으로 접속합니다.&lt;/li&gt;
-&lt;/ol&gt;</content><author><name></name></author><category term="SlideFlow" /><summary type="html">이미지를 영상으로 슬라이드 쇼 에디터</summary></entry><entry><title type="html">요즘은 inkPad를 사용해서 손글씨 작성중입니다.</title><link href="https://lahuman.github.io/20250619/" rel="alternate" type="text/html" title="요즘은 inkPad를 사용해서 손글씨 작성중입니다." /><published>2025-06-19T00:00:00+09:00</published><updated>2025-06-19T00:00:00+09:00</updated><id>https://lahuman.github.io/20250619</id><content type="html" xml:base="https://lahuman.github.io/20250619/">&lt;h1 id=&quot;개인-프로젝트로-진행한-inkpad를-계속-고도화-하고-있습니다&quot;&gt;개인 프로젝트로 진행한 InkPad를 계속 고도화 하고 있습니다.&lt;/h1&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://inkpad.giize.com/view.html?publicId=ef7dd407-a536-42c5-84b9-9c187bed59b7&amp;amp;yearMonth=2025.06&amp;amp;displayName=%EC%9E%90%EB%91%90&amp;amp;createdAt=2025-06-18T11%3A00%3A36.794Z&quot;&gt;누군가의 그림&lt;/a&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;첨음 손쉽게 빠르게 한장 그리는 온라인 그림판 이라는 아이디어를 가진건 몇 년이 전이였습니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;구현을 위해서 몇번의 시도를 했었지만, 당시 능력 부족으로 꾸준하게 진행이 되지 않았습니다.&lt;/p&gt;
-
-&lt;p&gt;최근에 AI와 간략한 아이디어 회의를 진행하면서 함께 만들어 보았습니다.&lt;/p&gt;
-
-&lt;p&gt;내가 부족한 기획력, 디자인, 그리고 코드까지 완벽하지는 않아도 꾸준하게 지원해주는 무언가가 있다는건 큰힘이 된다고 다시 한번 느꼈네요.&lt;/p&gt;
-
-&lt;p&gt;몇년 안에 개발자라는 직군에 큰 변화가 올거라고 생각됩니다.&lt;/p&gt;
-
-&lt;p&gt;빠르게 변화하는 세상에 발맞춰서 나아갈 수 있도록 노력해야겠습니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;inkpad-바로-가기&quot;&gt;&lt;a href=&quot;https://inkpad.giize.com/index.html&quot;&gt;InkPad 바로 가기&lt;/a&gt;&lt;/h2&gt;</content><author><name></name></author><category term="단상" /><category term="inkpad" /><summary type="html">어제도 늦은 밤까지 개발하느라 잠을 못...</summary></entry></feed>
+&lt;/ol&gt;</content><author><name></name></author><category term="SlideFlow" /><summary type="html">이미지를 영상으로 슬라이드 쇼 에디터</summary></entry></feed>
