@@ -1,4 +1,60 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2026-07-07T13:30:18+09:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">코넬 노트 서비스</title><link href="https://lahuman.github.io/5r_note/" rel="alternate" type="text/html" title="코넬 노트 서비스" /><published>2026-07-07T00:00:00+09:00</published><updated>2026-07-07T00:00:00+09:00</updated><id>https://lahuman.github.io/5r_note</id><content type="html" xml:base="https://lahuman.github.io/5r_note/">&lt;h1 id=&quot;5r-기반-학습-노트앱&quot;&gt;5R 기반 학습 노트앱&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2026-08-18T19:28:40+09:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">sori-tts</title><link href="https://lahuman.github.io/sori-tts/" rel="alternate" type="text/html" title="sori-tts" /><published>2026-08-18T00:00:00+09:00</published><updated>2026-08-18T00:00:00+09:00</updated><id>https://lahuman.github.io/sori-tts</id><content type="html" xml:base="https://lahuman.github.io/sori-tts/">&lt;h1 id=&quot;sori-tts&quot;&gt;sori-tts&lt;/h1&gt;
+
+&lt;h2 id=&quot;sori-tts-상세-정보-바로가기&quot;&gt;&lt;a href=&quot;https://lahuman.github.io/sori.tts/&quot;&gt;sori-tts 상세 정보 바로가기&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;텍스트를 서버에 보내지 않고, 내 PC에서 바로 한국어 음성을 만드세요. 로그인도 인터넷도 필요 없습니다.&lt;/p&gt;
+
+&lt;p&gt;Supertonic 3 기반 오프라인 한국어 TTS 입니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;주요-기능&quot;&gt;주요 기능&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Supertonic 3 기반 로컬 CPU 음성 합성&lt;/li&gt;
+  &lt;li&gt;여성 5개, 남성 5개, 특별 남성 1개 음성 선택&lt;/li&gt;
+  &lt;li&gt;0.5×~2.0× 속도 조절&lt;/li&gt;
+  &lt;li&gt;최대 10,000자 입력과 문단별 누적 진행률 표시&lt;/li&gt;
+  &lt;li&gt;생성 결과 미리듣기와 WAV 저장&lt;/li&gt;
+  &lt;li&gt;긴 생성 작업 취소&lt;/li&gt;
+  &lt;li&gt;앱 중복 실행 방지&lt;/li&gt;
+  &lt;li&gt;생성 텍스트와 오디오를 외부 서버로 전송하지 않는 오프라인 실행&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;v100-사용-방법&quot;&gt;v1.0.0 사용 방법&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;배포 ZIP의 압축을 새 폴더에 풉니다.&lt;/li&gt;
+  &lt;li&gt;폴더 안의 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SoriTTS.exe&lt;/code&gt;를 실행합니다. EXE만 따로 이동하면 실행되지 않습니다.&lt;/li&gt;
+  &lt;li&gt;읽을 텍스트, 음성, 속도를 선택하고 &lt;strong&gt;음성 생성&lt;/strong&gt;을 누릅니다.&lt;/li&gt;
+  &lt;li&gt;전체 진행률이 100%가 되면 저장 전에 미리 듣거나 &lt;strong&gt;WAV 저장&lt;/strong&gt;을 누릅니다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;생성 속도는 CPU 성능과 텍스트 길이에 따라 달라집니다. 긴 WAV는 전체 파일을 메모리에 미리 올리지 않고 필요한 부분부터 재생합니다.&lt;/p&gt;
+
+&lt;p&gt;지원 환경:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Windows 10/11 x64&lt;/li&gt;
+  &lt;li&gt;인터넷 연결 불필요&lt;/li&gt;
+  &lt;li&gt;배포 폴더 전체를 유지할 수 있는 디스크 공간&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;개발-환경에서-실행&quot;&gt;개발 환경에서 실행&lt;/h2&gt;
+
+&lt;p&gt;필수 환경:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Windows 10/11 x64&lt;/li&gt;
+  &lt;li&gt;Node.js 22&lt;/li&gt;
+  &lt;li&gt;Microsoft Visual C++ 2015-2022 Redistributable (x64)&lt;/li&gt;
+  &lt;li&gt;최초 모델 다운로드를 위한 인터넷 연결&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;라이선스-상세&quot;&gt;라이선스 상세&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://raw.githubusercontent.com/lahuman/sori.tts/refs/heads/main/LICENSE.md&quot;&gt;프로그램 라이선스&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://raw.githubusercontent.com/lahuman/sori.tts/refs/heads/main/MODEL_USE_TERMS.md&quot;&gt;모델 사용 조건&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="tts" /><category term="sori" /><summary type="html">텍스트를 서버에 보내지 않고, 내 PC에서 바로 한국어 음성을 만드세요. 로그인도 인터넷도 필요 없습니다.</summary></entry><entry><title type="html">코넬 노트 서비스</title><link href="https://lahuman.github.io/5r_note/" rel="alternate" type="text/html" title="코넬 노트 서비스" /><published>2026-07-07T00:00:00+09:00</published><updated>2026-07-07T00:00:00+09:00</updated><id>https://lahuman.github.io/5r_note</id><content type="html" xml:base="https://lahuman.github.io/5r_note/">&lt;h1 id=&quot;5r-기반-학습-노트앱&quot;&gt;5R 기반 학습 노트앱&lt;/h1&gt;
 
 &lt;h2 id=&quot;코넬-노트-바로-가기&quot;&gt;&lt;a href=&quot;https://note5r.kro.kr/index.html&quot;&gt;코넬 노트 바로 가기&lt;/a&gt;&lt;/h2&gt;
 
@@ -613,79 +669,4 @@ npm &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;axios
   &lt;li&gt;&lt;a href=&quot;https://github.com/Mintplex-Labs/anything-llm/issues/585&quot;&gt;GitHub Issue: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;172.17.0.1&lt;/code&gt; 주소에서 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fetch failed&lt;/code&gt; 발생 사례 (Mintplex-Labs/anything-llm)&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://community.n8n.io/t/http-request-node-fails-to-connect-to-host-docker-internal-but-wget-from-inside-the-container-works/151998&quot;&gt;n8n Community: Node.js HTTP 노드는 실패하지만, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;wget&lt;/code&gt;은 성공하는 사례&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://github.com/nodejs/undici/issues/1248&quot;&gt;GitHub Issue: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;undici&lt;/code&gt;의 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;TypeError: fetch failed&lt;/code&gt; (nodejs/undici)&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="fetch" /><category term="curl" /><category term="undici" /><category term="network" /><summary type="html">http 또는 Axios 를 이용하면 간단하게 해결</summary></entry><entry><title type="html">SlideFlow :: 이미지를 영샹으로</title><link href="https://lahuman.github.io/slide/" rel="alternate" type="text/html" title="SlideFlow :: 이미지를 영샹으로" /><published>2025-09-30T00:00:00+09:00</published><updated>2025-09-30T00:00:00+09:00</updated><id>https://lahuman.github.io/slide</id><content type="html" xml:base="https://lahuman.github.io/slide/">&lt;h1 id=&quot;-slideflow&quot;&gt;✨ SlideFlow&lt;/h1&gt;
-
-&lt;h2 id=&quot;바로가기&quot;&gt;&lt;a href=&quot;https://lahuman.github.io/slideshow-editor/dist/&quot;&gt;바로가기&lt;/a&gt;&lt;/h2&gt;
-
-&lt;p&gt;&lt;strong&gt;SlideFlow는 당신의 흩어진 이미지들을 단 몇 번의 클릭만으로 흐름이 있는 하나의 스토리로 완성합니다.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;웹 기반의 인터랙티브 슬라이드쇼 에디터, SlideFlow를 통해 전문가 수준의 동영상 스토리를 가장 빠르고 직관적으로 만들어보세요. 복잡한 타임라인과 어려운 설정에 얽매이지 않고, 당신의 창의력에만 집중할 수 있습니다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;💡 &lt;strong&gt;Note:&lt;/strong&gt; SlideFlow는 데스크톱 환경에 최적화되어 있습니다. 최상의 경험을 위해 PC에서 접속해주세요.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;-주요-기능&quot;&gt;🚀 주요 기능&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;모던하고 직관적인 UI&lt;/strong&gt;: 전문적인 다크 모드 스튜디오 테마를 적용하여 콘텐츠에 집중할 수 있는 환경을 제공합니다.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;이미지 라이브러리&lt;/strong&gt;: 드래그 앤 드롭 또는 파일 선택으로 이미지를 손쉽게 관리합니다.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;다중 트랙 타임라인&lt;/strong&gt;: 간트 차트 스타일의 타임라인에서 여러 이미지를 동시에, 다른 트랙에 배치하여 복합적인 연출을 할 수 있습니다.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;실시간 캔버스 편집&lt;/strong&gt;: 타임라인에서 슬라이드를 선택하면 중앙 캔버스에 표시되며, 위치, 크기, 회전 등 모든 변경 사항이 실시간으로 반영됩니다.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;다양한 속성 및 전환 효과&lt;/strong&gt;: 각 슬라이드의 재생 시간, 화면 순서(zIndex)는 물론, ‘페이드’, ‘슬라이드’, ‘줌’, ‘플립’ 등 다채로운 전환 효과를 설정할 수 있습니다.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;다중 선택 및 동시 편집&lt;/strong&gt;: Ctrl/Cmd 또는 Shift 키를 조합하여 여러 슬라이드를 동시에 선택하고 속성을 한 번에 편집하여 작업 효율을 높일 수 있습니다.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;반응형 캔버스 및 고품질 미리보기&lt;/strong&gt;:
-    &lt;ul&gt;
-      &lt;li&gt;&lt;strong&gt;비율 기반 캔버스&lt;/strong&gt;: 16:9, 4:3 등 원하는 종횡비를 설정하면, 캔버스가 브라우저 크기에 맞춰 반응형으로 조절됩니다.&lt;/li&gt;
-      &lt;li&gt;&lt;strong&gt;몰입형 전체 화면 미리보기&lt;/strong&gt;: 헤더와 컨트롤러가 사라진 실제 영상 캔버스 영역만으로 전체 화면을 채워, 완성된 슬라이드쇼를 온전히 감상할 수 있습니다.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;유연한 작업 공간&lt;/strong&gt;: 좌우 패널을 접고 펼 수 있어, 현재 작업에 맞게 공간을 최적화할 수 있습니다.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;프로젝트 가져오기/내보내기&lt;/strong&gt;: 작업 내용을 이미지 데이터가 포함된 JSON 파일로 저장하고, 언제든지 다시 불러와 작업을 이어갈 수 있습니다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;-최근-변경-사항-v11&quot;&gt;🔄 최근 변경 사항 (v1.1)&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;캔버스 회전 기능 추가&lt;/strong&gt;: 이제 캔버스 위의 이미지를 직접 선택하고 회전 핸들을 드래그하여 시각적으로 회전시킬 수 있습니다.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;터치 장치 지원 개선&lt;/strong&gt;: 태블릿 및 모바일 장치에서 타임라인 아이템을 드래그 앤 드롭할 수 있도록 수정되었습니다.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;선택 테두리 개선&lt;/strong&gt;: 캔버스에서 크기가 조절되거나 회전된 이미지의 선택 테두리가 이제 이미지와 함께 정확하게 표시됩니다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;️-기술-스택&quot;&gt;🛠️ 기술 스택&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;프레임워크&lt;/strong&gt;: React (Vite)&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;언어&lt;/strong&gt;: TypeScript&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;핵심 로직&lt;/strong&gt;: React Hooks&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;드래그 앤 드롭&lt;/strong&gt;: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@dnd-kit/core&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;react-draggable&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;스타일링&lt;/strong&gt;: CSS (Creative Studio Dark Theme)&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;아이콘&lt;/strong&gt;: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;react-icons&lt;/code&gt; (Feather Icons)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;-설치-및-실행&quot;&gt;📖 설치 및 실행&lt;/h2&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;&lt;strong&gt;저장소 복제&lt;/strong&gt;:
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clone https://github.com/lahuman/slideshow-editor.git
-&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;slideshow-editor
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;의존성 설치&lt;/strong&gt;:
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;개발 서버 실행&lt;/strong&gt;:
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm run dev
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;브라우저에서 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;http://localhost:5173&lt;/code&gt;으로 접속합니다.&lt;/li&gt;
-&lt;/ol&gt;</content><author><name></name></author><category term="SlideFlow" /><summary type="html">이미지를 영상으로 슬라이드 쇼 에디터</summary></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><category term="fetch" /><category term="curl" /><category term="undici" /><category term="network" /><summary type="html">http 또는 Axios 를 이용하면 간단하게 해결</summary></entry></feed>
