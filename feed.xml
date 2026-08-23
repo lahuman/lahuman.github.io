@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2026-08-23T09:47:21+09:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Codex 토큰을 다 썼다. 그래서 웹을 써봤습니다.</title><link href="https://lahuman.github.io/chatgpt-cokacremote/" rel="alternate" type="text/html" title="Codex 토큰을 다 썼다. 그래서 웹을 써봤습니다." /><published>2026-08-23T00:00:00+09:00</published><updated>2026-08-23T00:00:00+09:00</updated><id>https://lahuman.github.io/chatgpt-cokacremote</id><content type="html" xml:base="https://lahuman.github.io/chatgpt-cokacremote/">&lt;p&gt;요즘 Codex를 정말 많이 사용하고 있습니다.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2026-08-23T09:53:07+09:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Codex 토큰을 다 썼다. 그래서 웹을 써봤습니다.</title><link href="https://lahuman.github.io/chatgpt-cokacremote/" rel="alternate" type="text/html" title="Codex 토큰을 다 썼다. 그래서 웹을 써봤습니다." /><published>2026-08-23T00:00:00+09:00</published><updated>2026-08-23T00:00:00+09:00</updated><id>https://lahuman.github.io/chatgpt-cokacremote</id><content type="html" xml:base="https://lahuman.github.io/chatgpt-cokacremote/">&lt;p&gt;요즘 Codex를 정말 많이 사용하고 있습니다.&lt;/p&gt;
 
 &lt;p&gt;코드 작성도 시키고,&lt;/p&gt;
 
@@ -114,7 +114,7 @@
 
 &lt;div class=&quot;mermaid&quot;&gt;
 flowchart TD;
-    A[ChatGPT] --&amp;gt; B[nginx proxy&lt;br /&gt;domain + SSH];
+    A[ChatGPT] --&amp;gt; B[nginx proxy domain + SSH];
     B --&amp;gt; C[Mac];
     C --&amp;gt; D[Docker];
     D --&amp;gt; E[cokacremote MCP];
@@ -199,18 +199,14 @@ flowchart TD;
 
 &lt;p&gt;그래도 예전처럼&lt;/p&gt;
 
-&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;AI
- ↓
-코드 복사
- ↓
-IDE
- ↓
-실행
- ↓
-에러 복사
- ↓
-AI
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;mermaid&quot;&gt;
+flowchart TD;
+    A[AI] --&amp;gt; B[코드 복사];
+    B --&amp;gt; C[IDE];
+    C --&amp;gt; D[실행];
+    D --&amp;gt; E[에러 복사];
+    E --&amp;gt; A;
+&lt;/div&gt;
 
 &lt;p&gt;이렇게 왔다 갔다 하는 일이 많이 줄었습니다.&lt;/p&gt;
 
