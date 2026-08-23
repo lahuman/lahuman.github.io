@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2026-08-23T09:58:11+09:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Codex 토큰을 다 썼다. 그래서 웹을 써봤습니다.</title><link href="https://lahuman.github.io/chatgpt-cokacremote/" rel="alternate" type="text/html" title="Codex 토큰을 다 썼다. 그래서 웹을 써봤습니다." /><published>2026-08-23T00:00:00+09:00</published><updated>2026-08-23T00:00:00+09:00</updated><id>https://lahuman.github.io/chatgpt-cokacremote</id><content type="html" xml:base="https://lahuman.github.io/chatgpt-cokacremote/">&lt;p&gt;요즘 Codex를 정말 많이 사용하고 있습니다.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2026-08-23T10:00:30+09:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Codex 토큰을 다 썼다. 그래서 웹을 써봤습니다.</title><link href="https://lahuman.github.io/chatgpt-cokacremote/" rel="alternate" type="text/html" title="Codex 토큰을 다 썼다. 그래서 웹을 써봤습니다." /><published>2026-08-23T00:00:00+09:00</published><updated>2026-08-23T00:00:00+09:00</updated><id>https://lahuman.github.io/chatgpt-cokacremote</id><content type="html" xml:base="https://lahuman.github.io/chatgpt-cokacremote/">&lt;p&gt;요즘 Codex를 정말 많이 사용하고 있습니다.&lt;/p&gt;
 
 &lt;p&gt;코드 작성도 시키고,&lt;/p&gt;
 
@@ -114,11 +114,11 @@
 
 &lt;div class=&quot;mermaid&quot;&gt;
 flowchart TD;
-    A[ChatGPT] --&amp;gt; B[nginx proxy domain + SSH];
+    A[ChatGPT] --&amp;gt; B[nginx proxy];
     B --&amp;gt; C[Mac];
     C --&amp;gt; D[Docker];
     D --&amp;gt; E[cokacremote MCP];
-    E --&amp;gt; F[/workspace];
+    E --&amp;gt; F[workspace];
 &lt;/div&gt;
 
 &lt;p&gt;ChatGPT에서 바로 제 Mac으로 들어오는 것은 아니고,&lt;/p&gt;
