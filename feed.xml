@@ -1,4 +1,362 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2026-08-18T19:28:40+09:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">sori-tts</title><link href="https://lahuman.github.io/sori-tts/" rel="alternate" type="text/html" title="sori-tts" /><published>2026-08-18T00:00:00+09:00</published><updated>2026-08-18T00:00:00+09:00</updated><id>https://lahuman.github.io/sori-tts</id><content type="html" xml:base="https://lahuman.github.io/sori-tts/">&lt;h1 id=&quot;sori-tts&quot;&gt;sori-tts&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2026-08-23T09:40:54+09:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Codex 토큰을 다 썼다. 그래서 웹을 써봤습니다.</title><link href="https://lahuman.github.io/chatgpt-cokacremote/" rel="alternate" type="text/html" title="Codex 토큰을 다 썼다. 그래서 웹을 써봤습니다." /><published>2026-08-23T00:00:00+09:00</published><updated>2026-08-23T00:00:00+09:00</updated><id>https://lahuman.github.io/chatgpt-cokacremote</id><content type="html" xml:base="https://lahuman.github.io/chatgpt-cokacremote/">&lt;p&gt;요즘 Codex를 정말 많이 사용하고 있습니다.&lt;/p&gt;
+
+&lt;p&gt;코드 작성도 시키고,&lt;/p&gt;
+
+&lt;p&gt;수정도 시키고,&lt;/p&gt;
+
+&lt;p&gt;테스트도 시키고,&lt;/p&gt;
+
+&lt;p&gt;문제 생기면 다시 고쳐달라고 하고…&lt;/p&gt;
+
+&lt;p&gt;그렇게 계속 사용하다 보니 결국 토큰을 다 써버렸습니다.&lt;/p&gt;
+
+&lt;p&gt;안그래도 요즘 AI로 이것저것 만들어보고 있는데,&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;토큰까지 떨어지니 손가락만 빨고 있어야 하나…&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;하고 있었습니다.&lt;/p&gt;
+
+&lt;p&gt;그러던 중 유튜브에서 우연히 영상을 하나 보게 되었습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://youtu.be/dKQQs-z_E64&quot;&gt;YouTube 영상&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;영상을 보면서 생각했습니다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;어?&lt;/p&gt;
+
+  &lt;p&gt;이거 새로운 기회인데?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Codex 토큰도 없겠다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;웹 ChatGPT를 제대로 한번 써보자.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;그렇게 시작했습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;일단-찾아봤습니다&quot;&gt;일단 찾아봤습니다.&lt;/h2&gt;
+
+&lt;p&gt;영상을 보고 관련 내용을 조금 찾아봤습니다.&lt;/p&gt;
+
+&lt;p&gt;ChatGPT에서 개발환경을 직접 다룰 수 있는 방법도 있고 MCP라는 것도 있고 여러 가지가 있더군요.&lt;/p&gt;
+
+&lt;p&gt;그러다 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cokacremote&lt;/code&gt;라는 프로젝트를 보게 되었습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/lahuman/cokacremote&quot;&gt;cokacremote&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;제가 생각하던 방향과 비슷했습니다.&lt;/p&gt;
+
+&lt;p&gt;프로젝트를 조금 살펴봤는데,&lt;/p&gt;
+
+&lt;p&gt;제가 원하는 &lt;strong&gt;Docker Desktop으로 쉽게 띄워서 사용하는 부분은 없었습니다.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;그럼…&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;만들면 되겠네요.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;docker를-붙여봤습니다&quot;&gt;Docker를 붙여봤습니다.&lt;/h2&gt;
+
+&lt;p&gt;여기부터는 ChatGPT에게 일을 시켰습니다.&lt;/p&gt;
+
+&lt;p&gt;프로젝트 전체 구조부터 확인하고,&lt;/p&gt;
+
+&lt;p&gt;Docker로 구성하려면 어떻게 하는 게 좋을지 물어보고,&lt;/p&gt;
+
+&lt;p&gt;필요한 부분을 하나씩 수정했습니다.&lt;/p&gt;
+
+&lt;p&gt;처음부터 제가 직접 코드를 작성한 것은 아닙니다.&lt;/p&gt;
+
+&lt;p&gt;그냥 계속 시켰습니다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;이 프로젝트 구조 확인해줘.&lt;/p&gt;
+
+  &lt;p&gt;Docker Desktop에서 사용할 수 있게 만들어줘.&lt;/p&gt;
+
+  &lt;p&gt;필요한 부분 수정해줘.&lt;/p&gt;
+
+  &lt;p&gt;실제로 실행해서 확인해줘.&lt;/p&gt;
+
+  &lt;p&gt;문제가 있으면 고쳐줘.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;이런 식입니다.&lt;/p&gt;
+
+&lt;p&gt;생각보다 빠르게 진행됐습니다.&lt;/p&gt;
+
+&lt;p&gt;Dockerfile 만들고,&lt;/p&gt;
+
+&lt;p&gt;Compose 구성하고,&lt;/p&gt;
+
+&lt;p&gt;실행해보고,&lt;/p&gt;
+
+&lt;p&gt;문제가 생기면 다시 수정하고…&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;딸칵질의 연속입니다.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;그리고-pull-request까지-올렸습니다&quot;&gt;그리고 Pull Request까지 올렸습니다.&lt;/h2&gt;
+
+&lt;p&gt;그렇게 작업하다 보니 Docker 관련 부분이 어느 정도 정리가 됐습니다.&lt;/p&gt;
+
+&lt;p&gt;그래서 그냥 제 컴퓨터에서만 쓰고 끝내기보다는 원래 프로젝트에도 반영되면 좋겠다는 생각이 들었습니다.&lt;/p&gt;
+
+&lt;p&gt;그래서 Pull Request도 올렸습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/lahuman/cokacremote/tree/docker-desktop-setup&quot;&gt;cokacremote - docker-desktop-setup&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;기존 프로젝트를 참고해서 제가 필요한 부분을 빠르게 추가해본 것이고,&lt;/p&gt;
+
+&lt;p&gt;지금은 실제로 제 환경에서 사용하고 있습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;제-환경은-이렇게-되어-있습니다&quot;&gt;제 환경은 이렇게 되어 있습니다.&lt;/h2&gt;
+
+&lt;p&gt;현재 제가 사용하는 구조는 생각보다 단순합니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ChatGPT
+   ↓
+nginx proxy
+(domain + ssh)
+   ↓
+Mac
+   ↓
+Docker
+   ↓
+cokacremote MCP
+   ↓
+/workspace
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;ChatGPT에서 바로 제 Mac으로 들어오는 것은 아니고,&lt;/p&gt;
+
+&lt;p&gt;중간에 nginx proxy를 두고 있습니다.&lt;/p&gt;
+
+&lt;p&gt;도메인과 SSH도 여기에서 처리하고,&lt;/p&gt;
+
+&lt;p&gt;그 뒤에 있는 Mac에서 Docker를 실행합니다.&lt;/p&gt;
+
+&lt;p&gt;Docker 안에는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cokacremote&lt;/code&gt;가 있고,&lt;/p&gt;
+
+&lt;p&gt;실제 작업할 프로젝트는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/workspace&lt;/code&gt;에 연결해두었습니다.&lt;/p&gt;
+
+&lt;p&gt;처음에는 그냥 테스트 정도로 생각했는데,&lt;/p&gt;
+
+&lt;p&gt;지금은 실제로 잘 사용하고 있습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;실제로-해보니&quot;&gt;실제로 해보니&lt;/h2&gt;
+
+&lt;p&gt;이게 생각보다 재미있습니다.&lt;/p&gt;
+
+&lt;p&gt;예를 들어 ChatGPT에게 프로젝트를 확인해달라고 하면,&lt;/p&gt;
+
+&lt;p&gt;실제 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/workspace&lt;/code&gt;에 있는 프로젝트를 확인할 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;Git 상태도 확인하고,&lt;/p&gt;
+
+&lt;p&gt;파일도 확인하고,&lt;/p&gt;
+
+&lt;p&gt;코드도 읽고,&lt;/p&gt;
+
+&lt;p&gt;필요한 부분을 수정하고,&lt;/p&gt;
+
+&lt;p&gt;테스트도 실행합니다.&lt;/p&gt;
+
+&lt;p&gt;결과가 이상하면 다시 확인하고 수정합니다.&lt;/p&gt;
+
+&lt;p&gt;예전에는 제가 직접 터미널을 열어서 하던 일입니다.&lt;/p&gt;
+
+&lt;p&gt;지금은 그냥 이야기합니다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;이 프로젝트 확인해줘.&lt;/p&gt;
+
+  &lt;p&gt;이 부분 수정해줘.&lt;/p&gt;
+
+  &lt;p&gt;테스트 돌려줘.&lt;/p&gt;
+
+  &lt;p&gt;에러가 있으면 확인해줘.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;이렇게요.&lt;/p&gt;
+
+&lt;h2 id=&quot;코드-생성도-잘-됩니다&quot;&gt;코드 생성도 잘 됩니다.&lt;/h2&gt;
+
+&lt;p&gt;처음에는 사실 이것도 반신반의했습니다.&lt;/p&gt;
+
+&lt;p&gt;AI가 코드를 만들어주는 건 이미 익숙하지만,&lt;/p&gt;
+
+&lt;p&gt;실제 제 개발환경에 들어와서 코드를 만들고 테스트까지 하는 건 조금 다른 문제니까요.&lt;/p&gt;
+
+&lt;p&gt;그런데 실제로 연결해보니 잘 됩니다.&lt;/p&gt;
+
+&lt;p&gt;코드 생성하고,&lt;/p&gt;
+
+&lt;p&gt;파일에 반영하고,&lt;/p&gt;
+
+&lt;p&gt;테스트 실행하고,&lt;/p&gt;
+
+&lt;p&gt;결과를 확인하는 것까지 이어집니다.&lt;/p&gt;
+
+&lt;p&gt;물론 모든 걸 믿고 맡기는 것은 아닙니다.&lt;/p&gt;
+
+&lt;p&gt;중간중간 제가 확인합니다.&lt;/p&gt;
+
+&lt;p&gt;잘못된 부분이 있으면 다시 이야기하고요.&lt;/p&gt;
+
+&lt;p&gt;그래도 예전처럼&lt;/p&gt;
+
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;AI
+ ↓
+코드 복사
+ ↓
+IDE
+ ↓
+실행
+ ↓
+에러 복사
+ ↓
+AI
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이렇게 왔다 갔다 하는 일이 많이 줄었습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;그래서-요즘은-웹-chatgpt를-이렇게-쓰고-있습니다&quot;&gt;그래서 요즘은 웹 ChatGPT를 이렇게 쓰고 있습니다.&lt;/h2&gt;
+
+&lt;p&gt;Codex를 쓸 때와 조금 다릅니다.&lt;/p&gt;
+
+&lt;p&gt;Codex에서는 실제 개발 작업을 많이 시켰다면,&lt;/p&gt;
+
+&lt;p&gt;웹 ChatGPT에서는 검색도 하고,&lt;/p&gt;
+
+&lt;p&gt;GitHub도 보고,&lt;/p&gt;
+
+&lt;p&gt;자료도 찾아보고,&lt;/p&gt;
+
+&lt;p&gt;프로젝트도 분석하고,&lt;/p&gt;
+
+&lt;p&gt;필요하면 실제 개발환경에 작업도 시킵니다.&lt;/p&gt;
+
+&lt;p&gt;이번 작업도 거의 그런 식으로 진행했습니다.&lt;/p&gt;
+
+&lt;p&gt;유튜브를 보고,&lt;/p&gt;
+
+&lt;p&gt;관련 프로젝트를 찾아보고,&lt;/p&gt;
+
+&lt;p&gt;GitHub 코드를 확인하고,&lt;/p&gt;
+
+&lt;p&gt;Docker로 구성하고,&lt;/p&gt;
+
+&lt;p&gt;실제로 실행해보고,&lt;/p&gt;
+
+&lt;p&gt;문제가 있으면 다시 ChatGPT에게 물어보고…&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;웹 하나만 잘 활용해도 할 수 있는 게 생각보다 많습니다.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;ai를-쓰는-방법이-조금-바뀐-것-같습니다&quot;&gt;AI를 쓰는 방법이 조금 바뀐 것 같습니다.&lt;/h2&gt;
+
+&lt;p&gt;예전에는 AI에게 주로 물어봤습니다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;이거 어떻게 만들어요?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;그러면 답을 받고 제가 직접 했습니다.&lt;/p&gt;
+
+&lt;p&gt;요즘은 조금 달라졌습니다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;이거 확인해봐.&lt;/p&gt;
+
+  &lt;p&gt;직접 해봐.&lt;/p&gt;
+
+  &lt;p&gt;실행해봐.&lt;/p&gt;
+
+  &lt;p&gt;테스트해봐.&lt;/p&gt;
+
+  &lt;p&gt;안되면 고쳐봐.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;이렇게 이야기합니다.&lt;/p&gt;
+
+&lt;p&gt;물론 제가 해야 할 일이 없어지는 것은 아닙니다.&lt;/p&gt;
+
+&lt;p&gt;오히려 뭘 시킬지 정하는 일이 더 중요해진 것 같습니다.&lt;/p&gt;
+
+&lt;p&gt;결과도 확인해야 하고,&lt;/p&gt;
+
+&lt;p&gt;잘못된 방향으로 가면 다시 잡아줘야 합니다.&lt;/p&gt;
+
+&lt;p&gt;그래도 반복적인 작업을 맡길 수 있다는 것은 꽤 편합니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;재미있는-건-토큰을-다-써서-시작했다는-것&quot;&gt;재미있는 건 토큰을 다 써서 시작했다는 것&lt;/h2&gt;
+
+&lt;p&gt;사실 이번 작업의 시작은 별거 없었습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Codex 토큰을 다 썼습니다.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;그래서 손가락만 빨고 있다가 유튜브 영상을 하나 봤고,&lt;/p&gt;
+
+&lt;p&gt;그걸 보면서&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“어? 웹 ChatGPT도 있잖아.”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;하고 시작했습니다.&lt;/p&gt;
+
+&lt;p&gt;그러다 프로젝트를 하나 찾아보고,&lt;/p&gt;
+
+&lt;p&gt;Docker가 없길래 붙여보고,&lt;/p&gt;
+
+&lt;p&gt;실제로 사용해보고,&lt;/p&gt;
+
+&lt;p&gt;Pull Request까지 올렸습니다.&lt;/p&gt;
+
+&lt;p&gt;그리고 지금은 제 개발환경에서 실제로 사용하고 있습니다.&lt;/p&gt;
+
+&lt;p&gt;처음부터 이런 결과를 생각하고 시작한 것은 아닙니다.&lt;/p&gt;
+
+&lt;p&gt;그냥 &lt;strong&gt;토큰이 없어서 다른 방법을 찾아본 것뿐입니다.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;해보고-나니&quot;&gt;해보고 나니&lt;/h2&gt;
+
+&lt;p&gt;요즘 AI 개발이라는 게 참 빠르게 변하는 것 같습니다.&lt;/p&gt;
+
+&lt;p&gt;얼마 전까지만 해도 AI에게 코드를 만들어달라고 하는 것만으로도 신기했는데,&lt;/p&gt;
+
+&lt;p&gt;이제는 실제 개발환경에 연결해서 일을 시킬 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;저도 아직 이것저것 해보는 단계라서 뭐가 정답인지는 모르겠습니다.&lt;/p&gt;
+
+&lt;p&gt;다만 확실한 건,&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;그냥 구경하는 것보다 직접 연결해서 써보는 게 훨씬 재미있습니다.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;이번에는 Codex 토큰이 떨어져서 시작했지만,&lt;/p&gt;
+
+&lt;p&gt;결과적으로는 새로운 방법 하나를 알게 된 것 같습니다.&lt;/p&gt;
+
+&lt;p&gt;일단 지금 제 환경에서는&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;ChatGPT → nginx proxy → Mac → Docker → cokacremote MCP&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;구조로 잘 돌아가고 있습니다.&lt;/p&gt;
+
+&lt;p&gt;코드 생성도 되고,&lt;/p&gt;
+
+&lt;p&gt;테스트도 잘 됩니다.&lt;/p&gt;
+
+&lt;p&gt;이제 조금 더 사용해보면서 어디까지 맡길 수 있는지 확인해봐야겠습니다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;참고&quot;&gt;참고&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://youtu.be/dKQQs-z_E64&quot;&gt;YouTube 영상&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/lahuman/cokacremote&quot;&gt;cokacremote&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/lahuman/cokacremote/tree/docker-desktop-setup&quot;&gt;cokacremote - docker-desktop-setup&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/epoko77-ai/im-not-ai&quot;&gt;im-not-ai - Humanize Korean&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="ai" /><category term="chatgpt" /><category term="codex" /><category term="mcp" /><category term="docker" /><summary type="html">Codex 토큰을 다 쓰고 유튜브 영상을 보다가, ChatGPT와 Docker를 이용해서 실제 개발환경을 연결해봤습니다.</summary></entry><entry><title type="html">sori-tts</title><link href="https://lahuman.github.io/sori-tts/" rel="alternate" type="text/html" title="sori-tts" /><published>2026-08-18T00:00:00+09:00</published><updated>2026-08-18T00:00:00+09:00</updated><id>https://lahuman.github.io/sori-tts</id><content type="html" xml:base="https://lahuman.github.io/sori-tts/">&lt;h1 id=&quot;sori-tts&quot;&gt;sori-tts&lt;/h1&gt;
 
 &lt;h2 id=&quot;sori-tts-상세-정보-바로가기&quot;&gt;&lt;a href=&quot;https://lahuman.github.io/sori.tts/&quot;&gt;sori-tts 상세 정보 바로가기&lt;/a&gt;&lt;/h2&gt;
 
@@ -508,165 +866,4 @@ flowchart TD;
     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="java" /><category term="cast" /><category term="exception" /><summary type="html">java ClassCaseException</summary></entry><entry><title type="html">Docker에서 curl은 되는데 Node.js fetch만 실패할 때 (feat. undici)</title><link href="https://lahuman.github.io/fetch-undici-docker-error/" rel="alternate" type="text/html" title="Docker에서 curl은 되는데 Node.js fetch만 실패할 때 (feat. undici)" /><published>2025-10-20T00:00:00+09:00</published><updated>2025-10-20T00:00:00+09:00</updated><id>https://lahuman.github.io/fetch-undici-docker-error</id><content type="html" xml:base="https://lahuman.github.io/fetch-undici-docker-error/">&lt;p&gt;개발을 하다 보면 Docker 컨테이너 내부에서 호스트 머신(PC)의 API를 호출해야 하는 경우가 종종 있습니다.&lt;/p&gt;
-
-&lt;p&gt;일반적으로 Docker for Mac/Windows에서는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;host.docker.internal&lt;/code&gt;을 사용하지만, Linux 환경에서는 Docker 브리지의 기본 게이트웨이 주소인 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;172.17.0.1&lt;/code&gt;을 사용하는 경우가 많습니다.&lt;/p&gt;
-
-&lt;p&gt;그런데 이 주소로 API를 호출하는 과정에서 매우 이상한 문제를 겪게 되어 트러블슈팅 과정을 공유해보고자 합니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;증상-curl은-되는데-fetch는-실패&quot;&gt;증상: curl은 되는데 fetch는 실패&lt;/h2&gt;
-
-&lt;p&gt;먼저, 컨테이너 내부에서 호스트(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;172.17.0.1&lt;/code&gt;)로 네트워크 연결이 되는지 확인하기 위해 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;curl&lt;/code&gt; 명령어를 사용했습니다.&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;eb7b0d89f82b:/app# curl http://172.17.0.1:6000/webhook/.... &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; Trying 172.17.0.1:6000...
-&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; Connected to 172.17.0.1 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;172.17.0.1&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; port 6000
-...
-&amp;lt; HTTP/1.1 401 Unauthorized
-&amp;lt; WWW-Authenticate: Basic &lt;span class=&quot;nv&quot;&gt;realm&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Webhook&quot;&lt;/span&gt;
-...
-Authorization is required!
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;401 Unauthorized&lt;/code&gt; 응답이 왔습니다. 이는 서버가 인증을 요구한다는 뜻으로, &lt;strong&gt;네트워크 연결 자체는 성공&lt;/strong&gt;했다는 의미입니다.&lt;/p&gt;
-
-&lt;p&gt;그런데 동일한 주소를 Node.js의 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fetch&lt;/code&gt; API를 사용하여 호출하면 다른 결과가 나옵니다.&lt;/p&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// test.js&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;// (인증 로직은 편의상 생략)&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;http://172.17.0.1:6000/webhook/....&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;try&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fetch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;method&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;GET&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Error calling webhook:&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;eb7b0d89f82b:/app# node test.js
-
-Error calling webhook: fetch failed
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;분명 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;curl&lt;/code&gt;로는 연결이 되는데, 왜 Node.js의 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fetch&lt;/code&gt;만 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fetch failed&lt;/code&gt;라는 네트워크 연결 실패 오류를 반환하는 것일까요?&lt;/p&gt;
-
-&lt;h2 id=&quot;원인-curl과-fetch는-다르다&quot;&gt;원인: curl과 fetch는 다르다&lt;/h2&gt;
-
-&lt;p&gt;이 문제의 핵심은 &lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;curl&lt;/code&gt;과 Node.js의 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fetch&lt;/code&gt;가 동일하게 작동하지 않는다&lt;/strong&gt;는 점입니다.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;curl&lt;/code&gt;&lt;/strong&gt;: C언어로 작성된, 매우 표준적이고 검증된 저수준(low-level) HTTP 클라이언트입니다.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Node.js &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fetch&lt;/code&gt;&lt;/strong&gt;: Node.js 18 버전부터 내장된 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fetch&lt;/code&gt; API는 &lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;undici&lt;/code&gt;&lt;/strong&gt;라는 이름의 별도 HTTP 클라이언트 라이브러리를 기반으로 합니다.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;즉, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;curl&lt;/code&gt;이 성공했다는 것은 “네트워크 경로, IP, 포트, 방화벽”은 모두 정상이란 뜻입니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fetch failed&lt;/code&gt;가 발생한 이유는, Node.js의 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;undici&lt;/code&gt; 구현체가 특정 Docker 네트워크 환경(이 경우 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;172.17.0.1&lt;/code&gt; 게이트웨이)과 통신하는 과정에서 호환성 문제를 일으켰기 때문입니다. (주로 IPv6/IPv4 처리 방식 차이나 커넥션 풀링 방식의 차이로 인해 발생하곤 합니다)&lt;/p&gt;
-
-&lt;h3 id=&quot;axios는-어떨까요&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;axios&lt;/code&gt;는 어떨까요?&lt;/h3&gt;
-
-&lt;p&gt;흥미롭게도, 이 상황에서 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;axios&lt;/code&gt; 라이브러리를 사용하면 대부분 성공합니다.&lt;/p&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;axios&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;axios&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;// const response = await axios.get(url, { auth: { ... } });&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;axios&lt;/code&gt;가 성공하는 이유는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;undici&lt;/code&gt;와 다르게, Node.js의 &lt;strong&gt;내장 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;http&lt;/code&gt; 모듈&lt;/strong&gt;을 기반으로 작동하기 때문입니다. 이 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;http&lt;/code&gt; 모듈은 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;curl&lt;/code&gt;과 유사하게 더 고전적이고 단순한 방식으로 통신하므로 호환성 문제를 피할 수 있었던 것입니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;해결-undici를-우회하기&quot;&gt;해결: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;undici&lt;/code&gt;를 우회하기&lt;/h2&gt;
-
-&lt;p&gt;원인을 알았으니 해결 방법은 명확합니다. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;undici&lt;/code&gt; 기반의 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fetch&lt;/code&gt; 대신, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;http&lt;/code&gt; 모듈 기반의 클라이언트를 사용하면 됩니다.&lt;/p&gt;
-
-&lt;h3 id=&quot;방법-1-axios-라이브러리-사용-권장&quot;&gt;방법 1. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;axios&lt;/code&gt; 라이브러리 사용 (권장)&lt;/h3&gt;
-
-&lt;p&gt;가장 간단하고 현대적인 방법입니다. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;npm&lt;/code&gt;이나 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;yarn&lt;/code&gt;으로 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;axios&lt;/code&gt;를 설치하고 코드를 수정합니다.&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# ESM 환경에서 require 오류가 났던 것을 기억합니다.&lt;/span&gt;
-npm &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;axios
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// test.js&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;axios&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;axios&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// require 대신 import 사용&lt;/span&gt;
-
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;http://172.17.0.1:6000/webhook/....&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;// 401 오류를 해결하기 위해 인증 정보 추가&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;auth&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;username&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;YOUR_USERNAME&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;password&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;YOUR_PASSWORD&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;try&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;c1&quot;&gt;// axios는 auth 객체를 Basic 인증 헤더로 자동 변환해 줍니다.&lt;/span&gt;
-  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;axios&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;auth&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;auth&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-  
-  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Webhook GET call successful!&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Status Code:&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;status&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Server response:&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;c1&quot;&gt;// ... (Axios 오류 처리) ...&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Error calling webhook:&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;방법-2-nodejs-내장-http-모듈-사용&quot;&gt;방법 2. Node.js 내장 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;http&lt;/code&gt; 모듈 사용&lt;/h3&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;axios&lt;/code&gt; 같은 외부 라이브러리를 설치하기 어려운 환경이라면, Node.js에 100% 내장된 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;http&lt;/code&gt; 모듈을 직접 사용할 수 있습니다. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;curl&lt;/code&gt;과 거의 동일하게 작동합니다.&lt;/p&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// test.js (Node.js 내장 http 모듈 사용)&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;http&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// ESM 방식&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;URL&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// URL 파싱을 위해 추가&lt;/span&gt;
-
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;urlString&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;http://172.17.0.1:6000/webhook/....&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;// 인증 정보&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;credentials&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;YOUR_USERNAME:YOUR_PASSWORD&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;encodedCredentials&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Buffer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;from&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;credentials&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;base64&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;hostname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;port&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;pathname&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;URL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;urlString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;hostname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;hostname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;port&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;port&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;pathname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;method&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;GET&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Authorization&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;`Basic &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;encodedCredentials&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
-
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;req&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`Status Code: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;statusCode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;chunk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;chunk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Server response:&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-
-&lt;span class=&quot;nx&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;c1&quot;&gt;// 이 오류는 &apos;fetch failed&apos;와 동일한 네트워크 오류입니다.&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Error calling webhook:&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-
-&lt;span class=&quot;nx&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;마무리&quot;&gt;마무리&lt;/h2&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fetch failed&lt;/code&gt;라는 단순한 오류 메시지를 만났을 때, 무조건 네트워크 방화벽이나 IP 주소 문제라고 단정 짓기 쉽습니다.&lt;/p&gt;
-
-&lt;p&gt;하지만 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;curl&lt;/code&gt;과 같은 기본 도구로 교차 검증을 해보니, 문제는 네트워크가 아니라 &lt;strong&gt;Node.js의 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fetch&lt;/code&gt; 구현체인 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;undici&lt;/code&gt;&lt;/strong&gt;와 특정 Docker 네트워크 환경 간의 호환성 문제임을 알 수 있었습니다.&lt;/p&gt;
-
-&lt;p&gt;비슷한 문제를 겪으신다면, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fetch&lt;/code&gt; 대신 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;axios&lt;/code&gt;나 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;http&lt;/code&gt; 기본 모듈을 사용해 보시는 것을 추천해 드립니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;레퍼런스-references&quot;&gt;레퍼런스 (References)&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/Mintplex-Labs/anything-llm/issues/585&quot;&gt;GitHub Issue: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;172.17.0.1&lt;/code&gt; 주소에서 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fetch failed&lt;/code&gt; 발생 사례 (Mintplex-Labs/anything-llm)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://community.n8n.io/t/http-request-node-fails-to-connect-to-host-docker-internal-but-wget-from-inside-the-container-works/151998&quot;&gt;n8n Community: Node.js HTTP 노드는 실패하지만, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;wget&lt;/code&gt;은 성공하는 사례&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/nodejs/undici/issues/1248&quot;&gt;GitHub Issue: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;undici&lt;/code&gt;의 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;TypeError: fetch failed&lt;/code&gt; (nodejs/undici)&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="fetch" /><category term="curl" /><category term="undici" /><category term="network" /><summary type="html">http 또는 Axios 를 이용하면 간단하게 해결</summary></entry></feed>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="java" /><category term="cast" /><category term="exception" /><summary type="html">java ClassCaseException</summary></entry></feed>
