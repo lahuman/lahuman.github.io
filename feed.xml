@@ -1,4 +1,127 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2026-08-23T13:04:36+09:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Codex 토큰을 다 썼다. 그래서 웹을 써봤습니다.</title><link href="https://lahuman.github.io/chatgpt-cokacremote/" rel="alternate" type="text/html" title="Codex 토큰을 다 썼다. 그래서 웹을 써봤습니다." /><published>2026-08-23T00:00:00+09:00</published><updated>2026-08-23T00:00:00+09:00</updated><id>https://lahuman.github.io/chatgpt-cokacremote</id><content type="html" xml:base="https://lahuman.github.io/chatgpt-cokacremote/">&lt;p&gt;요즘 Codex를 정말 많이 사용하고 있습니다.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2026-08-24T12:38:58+09:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Oracle AVG(NVL())을 썼는데 왜 NULL이 나올까?</title><link href="https://lahuman.github.io/oracle-avg-nvl-null/" rel="alternate" type="text/html" title="Oracle AVG(NVL())을 썼는데 왜 NULL이 나올까?" /><published>2026-08-24T00:00:00+09:00</published><updated>2026-08-24T00:00:00+09:00</updated><id>https://lahuman.github.io/oracle-avg-nvl-null</id><content type="html" xml:base="https://lahuman.github.io/oracle-avg-nvl-null/">&lt;p&gt;Oracle에서 평균을 구하다가 예상하지 못한 결과를 만났습니다.&lt;/p&gt;
+
+&lt;p&gt;NULL을 0으로 바꾸려고 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NVL&lt;/code&gt;까지 넣었는데도 결과가 NULL이었습니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;AVG&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;NVL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;score&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;student_score&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;WHERE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;class_id&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;999&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;처음에는 이런 생각이 들었습니다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NVL(score, 0)&lt;/code&gt;을 했는데 왜 NULL이 나오지?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;score&lt;/code&gt;가 NULL이면 0으로 바뀔 테니 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AVG&lt;/code&gt; 결과도 적어도 0이 나올 것 같았습니다.&lt;/p&gt;
+
+&lt;p&gt;그런데 여기에는 한 가지 놓치기 쉬운 경우가 있습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;NULL인 값이 있는 것과 조회된 행 자체가 없는 것은 다릅니다.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;값이-null인-경우&quot;&gt;값이 NULL인 경우&lt;/h2&gt;
+
+&lt;p&gt;조건에 맞는 데이터가 세 건 있고 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;score&lt;/code&gt;가 모두 NULL이라고 해보겠습니다.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;score&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;NULL&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;NULL&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;NULL&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;이 상태에서&lt;/p&gt;
+
+&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;AVG&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;NVL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;score&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;student_score&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NVL&lt;/code&gt;이 각 NULL을 0으로 바꾸기 때문에 실제 계산은 다음과 같습니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;AVG(0, 0, 0) = 0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;결과는 예상대로 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;입니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;조회된-행이-없는-경우&quot;&gt;조회된 행이 없는 경우&lt;/h2&gt;
+
+&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;AVG&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;NVL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;score&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;student_score&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;WHERE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;class_id&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;999&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;class_id = 999&lt;/code&gt;인 행이 한 건도 없다고 해보겠습니다.&lt;/p&gt;
+
+&lt;p&gt;이때는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;score&lt;/code&gt;가 NULL인 게 아닙니다. &lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NVL&lt;/code&gt;을 적용할 행 자체가 없습니다.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NVL(score, 0)&lt;/code&gt;은 존재하는 행의 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;score&lt;/code&gt;가 NULL일 때 0으로 바꿀 뿐, 없는 행을 만들어주지는 않습니다. 결국 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AVG&lt;/code&gt;가 계산할 값이 없으므로 결과는 NULL입니다.&lt;/p&gt;
+
+&lt;div class=&quot;mermaid&quot;&gt;
+flowchart TD;
+    A[WHERE 조건으로 조회] --&amp;gt; B{행이 있는가?};
+    B --&amp;gt;|있음| C[NVL로 NULL을 0으로 변경];
+    C --&amp;gt; D[AVG 계산];
+    B --&amp;gt;|없음| E[NVL을 적용할 값이 없음];
+    E --&amp;gt; F[AVG 결과 NULL];
+&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AVG(NVL(score, 0))&lt;/code&gt;에서 안쪽의 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NVL&lt;/code&gt;이 처리하는 대상은 &lt;strong&gt;조회된 행 안의 NULL 값&lt;/strong&gt;입니다. 조회된 행이 없는 경우까지 처리하는 것은 아닙니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;결과를-항상-0으로-받고-싶다면&quot;&gt;결과를 항상 0으로 받고 싶다면&lt;/h2&gt;
+
+&lt;p&gt;집계 결과에도 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NVL&lt;/code&gt;을 적용하면 됩니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;NVL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;AVG&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;NVL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;score&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)),&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;student_score&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;WHERE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;class_id&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;999&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;두 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NVL&lt;/code&gt;의 역할은 다릅니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;NVL(score, 0)    -&amp;gt; 행에 있는 NULL 값을 0으로 변경
+AVG(...)         -&amp;gt; 평균 계산
+NVL(AVG(...), 0) -&amp;gt; AVG 결과가 NULL이면 0으로 변경
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;count는-조금-다릅니다&quot;&gt;COUNT는 조금 다릅니다&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AVG&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SUM&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MIN&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MAX&lt;/code&gt;는 대상 행이 없을 때 NULL을 반환할 수 있지만 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;COUNT(*)&lt;/code&gt;는 0을 반환합니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;COUNT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;student_score&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;WHERE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;class_id&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;999&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;집계 쿼리를 작성할 때는 컬럼에 NULL이 들어올 수 있는지만 볼 게 아니라 &lt;strong&gt;조건에 맞는 행이 아예 없을 수도 있는지&lt;/strong&gt;도 같이 확인해야 합니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;정리&quot;&gt;정리&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AVG(NVL(score, 0))&lt;/code&gt;은 조회된 행의 NULL 값을 처리합니다. 조회 결과가 0건이면 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NVL&lt;/code&gt;을 적용할 대상도 없고 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AVG&lt;/code&gt; 결과는 NULL입니다.&lt;/p&gt;
+
+&lt;p&gt;이 경우까지 0으로 처리하려면 집계 결과에도 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NVL&lt;/code&gt;을 적용합니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;NVL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;AVG&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;NVL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;score&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)),&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;결국 기억할 것은 하나입니다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;NULL인 값과 행이 없는 것은 다르다.&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NVL&lt;/code&gt;을 썼는데도 집계 결과가 NULL이라면, 컬럼 값만 보지 말고 먼저 조회된 행이 실제로 있는지 확인해보면 됩니다.&lt;/p&gt;</content><author><name></name></author><category term="oracle" /><category term="sql" /><category term="database" /><summary type="html">AVG 안에 NVL을 사용했는데도 NULL이 반환되는 이유를 조회 행이 있는 경우와 없는 경우로 나눠 살펴봅니다.</summary></entry><entry><title type="html">Codex 토큰을 다 썼다. 그래서 웹을 써봤습니다.</title><link href="https://lahuman.github.io/chatgpt-cokacremote/" rel="alternate" type="text/html" title="Codex 토큰을 다 썼다. 그래서 웹을 써봤습니다." /><published>2026-08-23T00:00:00+09:00</published><updated>2026-08-23T00:00:00+09:00</updated><id>https://lahuman.github.io/chatgpt-cokacremote</id><content type="html" xml:base="https://lahuman.github.io/chatgpt-cokacremote/">&lt;p&gt;요즘 Codex를 정말 많이 사용하고 있습니다.&lt;/p&gt;
 
 &lt;p&gt;코드 작성도 시키고,&lt;/p&gt;
 
@@ -3059,14 +3182,4 @@ flowchart TD;
 
 &lt;p&gt;물론 개발 지식이 무쓸모가 된건 아니다.&lt;/p&gt;
 
-&lt;p&gt;다만 내 장점 중 하나인 코딩은 더이상 AI를 이길수 없다.&lt;/p&gt;</content><author><name></name></author><category term="단상" /><summary type="html">뭔가 하고 싶은데 하기 싫고 싱숭생숭하다.</summary></entry><entry><title type="html">요즘은 뭔가 쉬운듯 어렵네요.</title><link href="https://lahuman.github.io/20260415/" rel="alternate" type="text/html" title="요즘은 뭔가 쉬운듯 어렵네요." /><published>2026-04-15T00:00:00+09:00</published><updated>2026-04-15T00:00:00+09:00</updated><id>https://lahuman.github.io/20260415</id><content type="html" xml:base="https://lahuman.github.io/20260415/">&lt;h1 id=&quot;바이브-코딩-프롬프트-엔지니어링-컨텍스트-엔지니어링-하네스-에이전틱-mcp-등등-너무나도-빠른-하루-하루-입니다&quot;&gt;바이브 코딩, 프롬프트 엔지니어링, 컨텍스트 엔지니어링, 하네스, 에이전틱, MCP 등등 너무나도 빠른 하루 하루 입니다.&lt;/h1&gt;
-
-&lt;p&gt;학습은 쉽지 않고 그냥 AI를 통해서 써보고 있습니다.&lt;/p&gt;
-
-&lt;p&gt;경험한다 라고 말하기 민망할 정도로 그냥 시켜서 결과만 확인하고 있는 하루 하루네요.&lt;/p&gt;
-
-&lt;p&gt;재미가 반감되기도 하고 가끔은 너무 재미있기도 합니다.&lt;/p&gt;
-
-&lt;p&gt;목표가 명확하지 않으면 계속 해나아가기 힘든 속도 입니다.&lt;/p&gt;
-
-&lt;p&gt;정신 바짝 차리고 중심을 잡고 나아가다록 노력해야겠습니다.&lt;/p&gt;</content><author><name></name></author><category term="ai" /><summary type="html">분명 쉬운데.. 어려운 AI 활용하기</summary></entry></feed>
+&lt;p&gt;다만 내 장점 중 하나인 코딩은 더이상 AI를 이길수 없다.&lt;/p&gt;</content><author><name></name></author><category term="단상" /><summary type="html">뭔가 하고 싶은데 하기 싫고 싱숭생숭하다.</summary></entry></feed>
