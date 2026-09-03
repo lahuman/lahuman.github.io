@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2026-09-03T12:06:44+09:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">LLMWard: 작은 조직을 위한 온프레미스 LLM Gateway를 만들었습니다</title><link href="https://lahuman.github.io/llmward-on-premise-llm-gateway/" rel="alternate" type="text/html" title="LLMWard: 작은 조직을 위한 온프레미스 LLM Gateway를 만들었습니다" /><published>2026-09-03T00:00:00+09:00</published><updated>2026-09-03T00:00:00+09:00</updated><id>https://lahuman.github.io/llmward-on-premise-llm-gateway</id><content type="html" xml:base="https://lahuman.github.io/llmward-on-premise-llm-gateway/">&lt;p&gt;사내에서 LLM을 처음 쓸 때는 별일 없어 보입니다. OpenWebUI 같은 화면을 하나 띄우고 API Key만 연결하면 바로 사용할 수 있으니까요.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2026-09-03T23:00:15+09:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">LLMWard: 작은 조직을 위한 온프레미스 LLM Gateway를 만들었습니다</title><link href="https://lahuman.github.io/llmward-on-premise-llm-gateway/" rel="alternate" type="text/html" title="LLMWard: 작은 조직을 위한 온프레미스 LLM Gateway를 만들었습니다" /><published>2026-09-03T00:00:00+09:00</published><updated>2026-09-03T00:00:00+09:00</updated><id>https://lahuman.github.io/llmward-on-premise-llm-gateway</id><content type="html" xml:base="https://lahuman.github.io/llmward-on-premise-llm-gateway/">&lt;p&gt;사내에서 LLM을 처음 쓸 때는 별일 없어 보입니다. OpenWebUI 같은 화면을 하나 띄우고 API Key만 연결하면 바로 사용할 수 있으니까요.&lt;/p&gt;
 
 &lt;p&gt;하지만 사용자가 조금씩 늘자 다른 문제가 보였습니다.&lt;/p&gt;
 
@@ -574,7 +574,326 @@ flowchart TD;
   &lt;li&gt;&lt;a href=&quot;https://github.com/lahuman/LLMWard/blob/main/docs/THREAT_MODEL.md&quot;&gt;LLMWard 위협 모델&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://github.com/lahuman/LLMWard/blob/main/docs/BACKUP_RESTORE.md&quot;&gt;LLMWard 백업과 복구&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;분석 기준 commit: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;9ba860092f81f8ad3d9c53267fc16d9a01d22b9a&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="ai" /><category term="llm" /><category term="gateway" /><category term="nodejs" /><category term="sqlite" /><category term="security" /><summary type="html">사내 LLM API Key를 함께 쓰며 생기는 문제를 어떻게 풀었는지, LLMWard의 코드와 구조를 따라가며 정리했습니다.</summary></entry><entry><title type="html">Oracle AVG(NVL())을 썼는데 왜 NULL이 나올까?</title><link href="https://lahuman.github.io/oracle-avg-nvl-null/" rel="alternate" type="text/html" title="Oracle AVG(NVL())을 썼는데 왜 NULL이 나올까?" /><published>2026-08-24T00:00:00+09:00</published><updated>2026-08-24T00:00:00+09:00</updated><id>https://lahuman.github.io/oracle-avg-nvl-null</id><content type="html" xml:base="https://lahuman.github.io/oracle-avg-nvl-null/">&lt;p&gt;Oracle에서 평균을 구하다가 예상하지 못한 결과를 만났습니다.&lt;/p&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="ai" /><category term="llm" /><category term="gateway" /><category term="nodejs" /><category term="sqlite" /><category term="security" /><summary type="html">사내 LLM API Key를 함께 쓰며 생기는 문제를 어떻게 풀었는지, LLMWard의 코드와 구조를 따라가며 정리했습니다.</summary></entry><entry><title type="html">Spring AOP는 왜 인터페이스 메서드의 애노테이션을 놓칠까?</title><link href="https://lahuman.github.io/spring-aop-interface-method-annotation/" rel="alternate" type="text/html" title="Spring AOP는 왜 인터페이스 메서드의 애노테이션을 놓칠까?" /><published>2026-09-03T00:00:00+09:00</published><updated>2026-09-03T00:00:00+09:00</updated><id>https://lahuman.github.io/spring-aop-interface-method-annotation</id><content type="html" xml:base="https://lahuman.github.io/spring-aop-interface-method-annotation/">&lt;p&gt;Spring AOP로 감사 로그를 남기려고 커스텀 애노테이션을 만들었습니다.&lt;/p&gt;
+
+&lt;p&gt;서비스의 계약을 인터페이스에 모아 두고 있어서 애노테이션도 자연스럽게 인터페이스 메서드에 붙였습니다. 애플리케이션은 문제없이 실행됐습니다. 그런데 정작 Advice는 한 번도 호출되지 않았습니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@Target&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ElementType&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;METHOD&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@Retention&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;RetentionPolicy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;RUNTIME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nd&quot;&gt;@interface&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Audit&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;런타임에 AOP가 애노테이션을 읽어야 하므로 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@Retention(RetentionPolicy.RUNTIME)&lt;/code&gt;도 필요합니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;OrderService&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;nd&quot;&gt;@Audit&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;order&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nd&quot;&gt;@Service&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;OrderServiceImpl&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;OrderService&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;order&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// 주문 처리&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Aspect는 특별할 것 없는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@annotation&lt;/code&gt; 포인트컷이었습니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@Aspect&lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@Component&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;AuditAspect&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;nd&quot;&gt;@Around&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@annotation(audit)&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Object&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;audit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;
+            &lt;span class=&quot;nc&quot;&gt;ProceedingJoinPoint&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;joinPoint&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;nc&quot;&gt;Audit&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;audit&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Throwable&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// 감사 로그 기록&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;joinPoint&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;proceed&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;코드만 보면 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;OrderService.order()&lt;/code&gt;에 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@Audit&lt;/code&gt;이 있으니 당연히 잡힐 것 같습니다. 하지만 Spring AOP에서 커스텀 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@annotation&lt;/code&gt; 포인트컷을 쓸 때는 이 Advice가 실행되지 않는 것이 일반적입니다.&lt;/p&gt;
+
+&lt;p&gt;왜 그런지 하나씩 살펴보겠습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;annotation이-실제로-확인하는-것&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@annotation&lt;/code&gt;이 실제로 확인하는 것&lt;/h2&gt;
+
+&lt;p&gt;Spring 공식 문서는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@annotation&lt;/code&gt;을 “실행되는 메서드에 해당 애노테이션이 있는 조인 포인트”를 고르는 표현으로 설명합니다.&lt;/p&gt;
+
+&lt;p&gt;여기서 중요한 말은 &lt;strong&gt;실행되는 메서드&lt;/strong&gt;입니다.&lt;/p&gt;
+
+&lt;p&gt;호출자는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;OrderService&lt;/code&gt; 타입으로 메서드를 호출하더라도 실제 비즈니스 코드는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;OrderServiceImpl.order()&lt;/code&gt;에서 실행됩니다. 그런데 이 구현 메서드에는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@Audit&lt;/code&gt;이 없습니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;OrderService.order()      -&amp;gt; @Audit 있음
+OrderServiceImpl.order()  -&amp;gt; @Audit 없음
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Java에서 오버라이드한 메서드는 부모나 인터페이스 메서드에 붙은 애노테이션을 자동으로 복사하지 않습니다. 메서드 이름과 매개변수가 같아도 리플렉션 관점에서는 서로 다른 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Method&lt;/code&gt;입니다.&lt;/p&gt;
+
+&lt;p&gt;실제 흐름을 그리면 이렇습니다.&lt;/p&gt;
+
+&lt;div class=&quot;mermaid&quot;&gt;
+flowchart TD;
+    A[클라이언트가 order 호출] --&amp;gt; B[Spring AOP Proxy 통과];
+    B --&amp;gt; C[OrderServiceImpl.order 실행 검사];
+    C --&amp;gt; D{구현 메서드에 Audit이 있는가?};
+    D --&amp;gt;|없음| E[annotation 포인트컷 불일치];
+&lt;/div&gt;
+
+&lt;p&gt;인터페이스에 애노테이션이 없는 것은 아닙니다. Spring AOP가 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@annotation&lt;/code&gt;을 매칭하는 순간에 그 애노테이션을 인터페이스 계층까지 거슬러 올라가 찾아주지 않는다는 것이 문제입니다.&lt;/p&gt;
+
+&lt;p&gt;Spring Framework에는 이 동작을 개선해 달라는 &lt;a href=&quot;https://github.com/spring-projects/spring-framework/issues/22311&quot;&gt;이슈 #22311&lt;/a&gt;이 2019년에 등록됐습니다. 2026년 9월 현재도 열린 상태이며 7.x 마일스톤에 들어 있습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;jdk-프록시로-바꾸면-해결될까&quot;&gt;JDK 프록시로 바꾸면 해결될까?&lt;/h2&gt;
+
+&lt;p&gt;Spring AOP는 대상이 인터페이스를 구현하면 JDK 동적 프록시를 사용할 수 있고, 클래스 기반 프록시가 필요하면 CGLIB를 사용합니다. 프록시 방식이 다르니 JDK 프록시에서는 인터페이스 애노테이션도 잡힐 것 같습니다. 하지만 이 문제를 프록시 종류만 바꿔 해결하려 해서는 안 됩니다.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;구분&lt;/th&gt;
+      &lt;th&gt;프록시가 노출하는 형태&lt;/th&gt;
+      &lt;th&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@annotation&lt;/code&gt;에서 기대할 결과&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;JDK 동적 프록시&lt;/td&gt;
+      &lt;td&gt;인터페이스 기반&lt;/td&gt;
+      &lt;td&gt;인터페이스 메서드의 애노테이션이 구현 메서드로 상속되지는 않음&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;CGLIB 프록시&lt;/td&gt;
+      &lt;td&gt;구현 클래스를 상속한 프록시&lt;/td&gt;
+      &lt;td&gt;구현 메서드에 애노테이션이 없으면 매칭되지 않음&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;프록시는 호출을 가로채는 방법을 정할 뿐 Java의 메서드 애노테이션 상속 규칙을 바꾸지 않습니다. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;spring.aop.proxy-target-class&lt;/code&gt; 값을 바꾸는 것은 이 문제의 확실한 해결책이 아닙니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;inherited도-답은-아닙니다&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@Inherited&lt;/code&gt;도 답은 아닙니다&lt;/h2&gt;
+
+&lt;p&gt;커스텀 애노테이션에 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@Inherited&lt;/code&gt;를 추가하면 되지 않을까 생각할 수 있습니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@Inherited&lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@Target&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ElementType&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;METHOD&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@Retention&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;RetentionPolicy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;RUNTIME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nd&quot;&gt;@interface&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Audit&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;하지만 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@Inherited&lt;/code&gt;는 클래스 선언에 붙은 애노테이션을 하위 클래스에서 조회할 때만 영향을 줍니다. 메서드에 붙은 애노테이션에는 적용되지 않으며 구현한 인터페이스에 붙은 애노테이션을 클래스가 물려받게 만들지도 않습니다.&lt;/p&gt;
+
+&lt;p&gt;위 코드는 문제를 해결하지 못합니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;가장-단순하고-안전한-방법&quot;&gt;가장 단순하고 안전한 방법&lt;/h2&gt;
+
+&lt;p&gt;애노테이션의 위치를 바꿀 수 있다면 구현체 메서드에 붙이는 것이 가장 안전합니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@Service&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;OrderServiceImpl&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;OrderService&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;@Audit&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;order&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// 주문 처리&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이제 실행 대상인 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;OrderServiceImpl.order()&lt;/code&gt;에 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@Audit&lt;/code&gt;이 있으므로 기존 포인트컷이 그대로 동작합니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@Around&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@annotation(audit)&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Object&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;audit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;
+        &lt;span class=&quot;nc&quot;&gt;ProceedingJoinPoint&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;joinPoint&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;nc&quot;&gt;Audit&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;audit&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Throwable&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// audit의 속성도 바로 사용할 수 있다.&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;joinPoint&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;proceed&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;중복처럼 보일 수 있지만 AOP 적용 여부가 코드에 분명하게 드러나고 프록시 방식이나 호출 타입에 덜 민감합니다. 구현체를 직접 관리할 수 있는 프로젝트라면 이 방식을 먼저 선택하는 편이 좋습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;애노테이션을-인터페이스에-유지해야-한다면&quot;&gt;애노테이션을 인터페이스에 유지해야 한다면&lt;/h2&gt;
+
+&lt;p&gt;인터페이스가 외부 모듈에 공개된 계약이거나 구현체가 여러 개라서 정책을 인터페이스에 두어야 할 수도 있습니다.&lt;/p&gt;
+
+&lt;p&gt;이때는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@annotation&lt;/code&gt;만으로 Advice 진입 여부를 결정하지 않습니다. 먼저 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;execution&lt;/code&gt;으로 대상 범위를 잡은 뒤 Advice 안에서 인터페이스 계층까지 애노테이션을 조회합니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.lang.reflect.Method&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.aspectj.lang.ProceedingJoinPoint&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.aspectj.lang.annotation.Around&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.aspectj.lang.annotation.Aspect&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.aspectj.lang.reflect.MethodSignature&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.springframework.aop.support.AopUtils&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.springframework.core.annotation.AnnotationUtils&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.springframework.stereotype.Component&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;nd&quot;&gt;@Aspect&lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@Component&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;AuditAspect&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;nd&quot;&gt;@Around&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;execution(* com.example.order.OrderService.*(..))&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Object&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;audit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ProceedingJoinPoint&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;joinPoint&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Throwable&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nc&quot;&gt;MethodSignature&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;signature&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;
+                &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;MethodSignature&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;joinPoint&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getSignature&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+
+        &lt;span class=&quot;nc&quot;&gt;Method&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;invokedMethod&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;signature&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getMethod&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;nc&quot;&gt;Class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;?&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;targetClass&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;joinPoint&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getTarget&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getClass&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;nc&quot;&gt;Method&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;targetMethod&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;AopUtils&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getMostSpecificMethod&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;invokedMethod&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;targetClass&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+
+        &lt;span class=&quot;nc&quot;&gt;Audit&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;audit&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;AnnotationUtils&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;findAnnotation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;targetMethod&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+                &lt;span class=&quot;nc&quot;&gt;Audit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;audit&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;joinPoint&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;proceed&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+        &lt;span class=&quot;c1&quot;&gt;// 감사 로그 기록&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;joinPoint&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;proceed&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;코드에서 가장 신경 써야 할 부분은 메서드를 찾는 순서입니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;signature.getMethod()&lt;/code&gt;는 호출 지점에서 보이는 메서드를 가져옵니다. JDK 프록시와 CGLIB 프록시에서는 이 값이 다르게 보일 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AopUtils.getMostSpecificMethod(...)&lt;/code&gt;는 실제 대상 클래스에서 실행될 가장 구체적인 메서드를 찾습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AnnotationUtils.findAnnotation(...)&lt;/code&gt;은 해당 메서드에 애노테이션이 없으면 상위 클래스와 인터페이스의 같은 메서드까지 탐색합니다. 단순한 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;method.getAnnotation(Audit.class)&lt;/code&gt;보다 이 경우에 잘 맞습니다. 제네릭 때문에 생긴 bridge method도 함께 처리합니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@Audit&lt;/code&gt;이 다른 애노테이션의 meta-annotation으로 쓰이거나 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@AliasFor&lt;/code&gt;를 이용한 조합 애노테이션까지 지원해야 한다면 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AnnotatedElementUtils.findMergedAnnotation(...)&lt;/code&gt;도 검토할 수 있습니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nc&quot;&gt;Audit&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;audit&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;AnnotatedElementUtils&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;findMergedAnnotation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;targetMethod&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;nc&quot;&gt;Audit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Spring이 제공하는 조회 API를 사용하면 직접 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;targetClass.getInterfaces()&lt;/code&gt;를 순회하는 코드보다 상속 계층, bridge method, meta-annotation을 빠뜨릴 가능성이 작습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;포인트컷-범위는-꼭-좁혀야-합니다&quot;&gt;포인트컷 범위는 꼭 좁혀야 합니다&lt;/h2&gt;
+
+&lt;p&gt;수동 조회 방식은 Advice에 들어온 뒤 애노테이션 유무를 판단합니다. 이 때문에 모든 Bean의 모든 메서드를 대상으로 아래처럼 잡는 것은 피하는 편이 좋습니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@Around&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;execution(* *(..))&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;패키지, 인터페이스, Bean 이름처럼 애노테이션이 존재할 만한 범위로 먼저 좁혀야 합니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@Around&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;execution(* com.example..service.*.*(..))&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;또는 서비스 인터페이스의 위치가 일정하다면 다음처럼 계약 자체를 기준으로 잡을 수 있습니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@Around&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;execution(* com.example..service.*Service.*(..))&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Spring 공식 문서도 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;execution&lt;/code&gt;을 Spring AOP에서 사용하는 주된 포인트컷 지정자로 설명합니다. 가능하면 타입이나 패키지 범위까지 함께 제한할 것도 권합니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;같은-메서드를-여러-인터페이스가-선언한다면&quot;&gt;같은 메서드를 여러 인터페이스가 선언한다면&lt;/h2&gt;
+
+&lt;p&gt;조금 드문 경우지만 구현 클래스가 같은 시그니처의 메서드를 가진 인터페이스 여러 개를 구현할 수 있습니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;OrderService&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;@Audit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;ORDER&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;execute&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;PaymentService&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;@Audit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;PAYMENT&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;execute&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이 상태에서 한 구현체가 두 인터페이스를 모두 구현하면 어느 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@Audit&lt;/code&gt;을 우선할지 애매해집니다. 계층 탐색 API는 첫 번째로 발견한 애노테이션을 반환하므로 발견 순서에 업무 의미를 맡기면 안 됩니다.&lt;/p&gt;
+
+&lt;p&gt;이런 구조라면 구현 메서드에 최종 정책을 명시하거나 인터페이스마다 메서드 이름을 구분해 충돌을 없애는 편이 낫습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;aop가-동작하지-않을-때-같이-볼-것&quot;&gt;AOP가 동작하지 않을 때 같이 볼 것&lt;/h2&gt;
+
+&lt;p&gt;애노테이션 위치를 고쳤는데도 Advice가 호출되지 않는다면 다음 조건을 확인해야 합니다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;커스텀 애노테이션에 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@Retention(RetentionPolicy.RUNTIME)&lt;/code&gt;이 선언돼 있는지&lt;/li&gt;
+  &lt;li&gt;구현체가 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@Service&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@Component&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@Bean&lt;/code&gt; 등으로 등록된 Spring Bean인지&lt;/li&gt;
+  &lt;li&gt;객체를 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;new&lt;/code&gt;로 직접 만들지 않고 Spring이 주입한 프록시를 통해 호출하는지&lt;/li&gt;
+  &lt;li&gt;같은 클래스 안에서 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;this.order()&lt;/code&gt;처럼 내부 호출하고 있지 않은지&lt;/li&gt;
+  &lt;li&gt;JDK 프록시를 쓴다면 호출 메서드가 인터페이스에 공개돼 있는지&lt;/li&gt;
+  &lt;li&gt;CGLIB 프록시를 쓴다면 메서드나 클래스가 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;final&lt;/code&gt; 또는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;private&lt;/code&gt;이 아닌지&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Spring AOP는 프록시 기반입니다. 외부 호출은 프록시를 지나가지만 같은 객체 안의 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;this&lt;/code&gt; 호출은 프록시를 거치지 않습니다. 그래서 self-invocation은 애노테이션 위치가 올바르더라도 Advice가 실행되지 않습니다.&lt;/p&gt;
+
+&lt;p&gt;이 글에서 다룬 내용은 커스텀 애노테이션과 AspectJ 표현식의 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@annotation&lt;/code&gt; 조합을 기준으로 합니다. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@Transactional&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@Async&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@Cacheable&lt;/code&gt;처럼 Spring이 별도의 인프라와 탐색 규칙을 제공하는 애노테이션의 동작을 그대로 일반화해서는 안 됩니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;테스트로-동작을-고정해-두기&quot;&gt;테스트로 동작을 고정해 두기&lt;/h2&gt;
+
+&lt;p&gt;AOP는 애플리케이션이 정상적으로 실행되면서 Advice만 빠지는 경우가 많습니다. 설정이나 프록시 방식이 달라져도 놓치지 않도록 호출 횟수를 테스트해 두는 것이 좋습니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@SpringBootTest&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;AuditAspectTest&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;nd&quot;&gt;@Autowired&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;OrderService&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;orderService&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;nd&quot;&gt;@Autowired&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;AuditRecorder&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;auditRecorder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;nd&quot;&gt;@Test&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;interfaceMethodAnnotationIsDetected&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;orderService&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;order&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+
+        &lt;span class=&quot;n&quot;&gt;assertThat&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;auditRecorder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;isEqualTo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;테스트에서는 구현체를 직접 생성하지 말고 Spring Context가 주입한 Bean을 호출해야 실제 프록시 동작까지 확인할 수 있습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;정리&quot;&gt;정리&lt;/h2&gt;
+
+&lt;p&gt;인터페이스 메서드에만 붙인 애노테이션은 구현 메서드로 상속되지 않습니다. 그래서 커스텀 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@annotation&lt;/code&gt; 포인트컷은 구현체 실행 시 매칭되지 않을 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;구현체를 수정할 수 있다면 실행되는 구현 메서드에 애노테이션을 붙이는 방법이 가장 단순합니다.&lt;/p&gt;
+
+&lt;p&gt;애노테이션을 인터페이스에 유지해야 한다면 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;execution&lt;/code&gt;으로 Advice 적용 범위를 정합니다. 그런 다음 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AopUtils.getMostSpecificMethod(...)&lt;/code&gt;와 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AnnotationUtils.findAnnotation(...)&lt;/code&gt;으로 메서드 계층을 직접 조회합니다.&lt;/p&gt;
+
+&lt;p&gt;그리고 프록시 종류를 바꾸기 전에 세 가지를 먼저 확인하면 됩니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;어느 Method가 실제로 실행되는가?
+애노테이션은 어느 Method에 선언돼 있는가?
+호출이 Spring Proxy를 지나가는가?
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이 세 가지가 보이면 “애노테이션은 있는데 왜 AOP가 안 잡히지?”라는 문제도 훨씬 빠르게 찾을 수 있습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.spring.io/spring-framework/reference/core/aop/ataspectj/pointcuts.html&quot;&gt;Spring Framework: Declaring a Pointcut&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.spring.io/spring-framework/reference/core/aop/proxying.html&quot;&gt;Spring Framework: Proxying Mechanisms&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/spring-projects/spring-framework/issues/22311&quot;&gt;Spring Framework Issue #22311&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/core/annotation/AnnotationUtils.html&quot;&gt;Spring Framework API: AnnotationUtils&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/annotation/Inherited.html&quot;&gt;Java API: @Inherited&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="java" /><category term="spring" /><category term="aop" /><category term="annotation" /><summary type="html">인터페이스 메서드에만 붙인 애노테이션이 @annotation 포인트컷에 잡히지 않는 이유와 안전한 해결 방법을 정리합니다.</summary></entry><entry><title type="html">Oracle AVG(NVL())을 썼는데 왜 NULL이 나올까?</title><link href="https://lahuman.github.io/oracle-avg-nvl-null/" rel="alternate" type="text/html" title="Oracle AVG(NVL())을 썼는데 왜 NULL이 나올까?" /><published>2026-08-24T00:00:00+09:00</published><updated>2026-08-24T00:00:00+09:00</updated><id>https://lahuman.github.io/oracle-avg-nvl-null</id><content type="html" xml:base="https://lahuman.github.io/oracle-avg-nvl-null/">&lt;p&gt;Oracle에서 평균을 구하다가 예상하지 못한 결과를 만났습니다.&lt;/p&gt;
 
 &lt;p&gt;NULL을 0으로 바꾸려고 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NVL&lt;/code&gt;까지 넣었는데도 결과가 NULL이었습니다.&lt;/p&gt;
 
@@ -3738,12 +4057,4 @@ flowchart TD;
 
 &lt;p&gt;무엇보다 이 방법론의 가장 큰 장점은 &lt;strong&gt;초기 뼈대를 직접 통제할 수 있도록 가볍고 단순하게 짰다&lt;/strong&gt;는 점입니다. 과도한 외부 라이브러리나 인프라에 의존하지 않기 때문에, 추후 AI의 도움 없이도 개발자 본인이 직접 소스 코드를 쉽게 수정하고 유지보수할 수 있습니다.&lt;/p&gt;
 
-&lt;p&gt;퇴근 후 짬을 내어 1인 개발이나 사이드 프로젝트를 계획하고 계신 분들이라면, 이 워크플로우를 한번 적용해 보시길 추천해 드립니다!&lt;/p&gt;</content><author><name></name></author><category term="ai" /><category term="sveltkit" /><category term="사이드프로젝트" /><summary type="html">개인적인 노하우</summary></entry><entry><title type="html">코드를 보고 있다보면 마음이 편하다.</title><link href="https://lahuman.github.io/20260418/" rel="alternate" type="text/html" title="코드를 보고 있다보면 마음이 편하다." /><published>2026-04-18T00:00:00+09:00</published><updated>2026-04-18T00:00:00+09:00</updated><id>https://lahuman.github.io/20260418</id><content type="html" xml:base="https://lahuman.github.io/20260418/">&lt;h1 id=&quot;딸칵-클릭으로-만들어진-수많은-코드들이-나에게-오고-있다&quot;&gt;딸칵 클릭으로 만들어진 수많은 코드들이 나에게 오고 있다.&lt;/h1&gt;
-
-&lt;p&gt;개발을 직접 하지 않더라도 큰 구조를 확인하고 코드를 들여다 보며 여유를 가지게 되면 편한거 같다.&lt;/p&gt;
-
-&lt;p&gt;여유가 앖을땐, 내가 개발하지 않은 코드에 대한 불안감과 두려움이 크지만 여유가 있으면 좋다.&lt;/p&gt;
-
-&lt;p&gt;단계적으로 의견을 나누며 기획 &amp;gt; 분석 &amp;gt; 설계 &amp;gt; 개발 &amp;gt; 테스트를 진행하면 할만 하다는 생각이 들기도 한다.&lt;/p&gt;
-
-&lt;p&gt;또 바쁘게 하라고 하면 그냥 딸칵질만 할지도 모르겠지만, 개발의 방식의 변화하는 흐름을 거스릴수 없다고 느끼게 된다.&lt;/p&gt;</content><author><name></name></author><category term="단상" /><summary type="html">내가 만든 코드가 아니라도 좋은거 같다.</summary></entry></feed>
+&lt;p&gt;퇴근 후 짬을 내어 1인 개발이나 사이드 프로젝트를 계획하고 계신 분들이라면, 이 워크플로우를 한번 적용해 보시길 추천해 드립니다!&lt;/p&gt;</content><author><name></name></author><category term="ai" /><category term="sveltkit" /><category term="사이드프로젝트" /><summary type="html">개인적인 노하우</summary></entry></feed>
