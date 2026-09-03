@@ -1,4 +1,580 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2026-08-24T12:38:58+09:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">Oracle AVG(NVL())을 썼는데 왜 NULL이 나올까?</title><link href="https://lahuman.github.io/oracle-avg-nvl-null/" rel="alternate" type="text/html" title="Oracle AVG(NVL())을 썼는데 왜 NULL이 나올까?" /><published>2026-08-24T00:00:00+09:00</published><updated>2026-08-24T00:00:00+09:00</updated><id>https://lahuman.github.io/oracle-avg-nvl-null</id><content type="html" xml:base="https://lahuman.github.io/oracle-avg-nvl-null/">&lt;p&gt;Oracle에서 평균을 구하다가 예상하지 못한 결과를 만났습니다.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2026-09-03T10:03:22+09:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">LLMWard: 작은 조직을 위한 온프레미스 LLM Gateway를 만들었습니다</title><link href="https://lahuman.github.io/llmward-on-premise-llm-gateway/" rel="alternate" type="text/html" title="LLMWard: 작은 조직을 위한 온프레미스 LLM Gateway를 만들었습니다" /><published>2026-09-03T00:00:00+09:00</published><updated>2026-09-03T00:00:00+09:00</updated><id>https://lahuman.github.io/llmward-on-premise-llm-gateway</id><content type="html" xml:base="https://lahuman.github.io/llmward-on-premise-llm-gateway/">&lt;p&gt;사내에서 LLM을 처음 쓸 때는 별일 없어 보입니다. OpenWebUI 같은 화면을 하나 띄우고 API Key만 연결하면 바로 사용할 수 있으니까요.&lt;/p&gt;
+
+&lt;p&gt;하지만 사용자가 조금씩 늘자 다른 문제가 보였습니다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;API Key 하나를 여러 사람이 돌려 써도 괜찮을까?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;누가 어떤 모델을 쓸 수 있는지, 하루 사용량과 비용은 어느 정도인지 확인하기 어려웠습니다. 민감한 정보가 외부 모델로 그대로 넘어가는지도 알기 힘들었습니다.&lt;/p&gt;
+
+&lt;p&gt;그렇다고 이 문제를 해결하려고 Kubernetes, Redis, 별도 DB와 복잡한 인증 시스템까지 운영하고 싶지는 않았습니다.&lt;/p&gt;
+
+&lt;p&gt;제가 필요했던 건 거대한 AI Platform이 아니었습니다. 사내 LLM 앞에 세워 둘, 작고 구조가 눈에 들어오는 Gateway면 충분했습니다.&lt;/p&gt;
+
+&lt;p&gt;그래서 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;LLMWard&lt;/code&gt;를 만들었습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;llmward가-하는-일&quot;&gt;LLMWard가 하는 일&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/lahuman/LLMWard&quot;&gt;LLMWard&lt;/a&gt;는 100명 이하 온프레미스 조직을 위한 OpenAI 호환 LLM 접근 관리 Gateway입니다.&lt;/p&gt;
+
+&lt;p&gt;처음부터 범위를 작게 잡았습니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;단일 서버
+단일 Node.js 프로세스
+단일 SQLite 파일
+100명 이하 사용자
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;외부 DB나 Redis, 클라우드 계정은 필요하지 않습니다.&lt;/p&gt;
+
+&lt;p&gt;사용자 API도 세 개만 엽니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;GET  /v1/models
+POST /v1/chat/completions
+POST /v1/chat/completions + SSE streaming
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Claude, Gemini, Responses API처럼 서로 다른 형식을 모두 바꾸는 범용 Proxy는 아닙니다. OpenAI 호환 API를 제공하는 모델 서버를 연결하고, 그 앞에서 인증과 사용 정책을 적용합니다.&lt;/p&gt;
+
+&lt;p&gt;분석 기준은 다음 커밋입니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;repository: https://github.com/lahuman/LLMWard
+commit: 9ba860092f81f8ad3d9c53267fc16d9a01d22b9a
+date: 2026-09-03
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;코드는 계속 바뀔 수 있으니 이 글의 파일명이나 동작이 다르게 보인다면 위 커밋을 기준으로 보면 됩니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;코드-구조부터-살펴보면&quot;&gt;코드 구조부터 살펴보면&lt;/h2&gt;
+
+&lt;p&gt;주요 파일만 추리면 이렇습니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;LLMWard/
+├── server.js
+├── app.js
+├── config/
+│   └── index.js
+├── middleware/
+│   └── auth.js
+├── routes/
+│   ├── admin.js
+│   └── v1.js
+├── services/
+│   ├── provider-router.js
+│   ├── limits.js
+│   ├── usage.js
+│   ├── content-filters.js
+│   ├── pii-filter.js
+│   ├── backup.js
+│   ├── retention.js
+│   └── audit.js
+├── db/
+│   ├── database.js
+│   ├── migrations.js
+│   ├── schema.js
+│   └── verify.js
+└── public/
+    ├── admin-dashboard.html
+    ├── admin-dashboard.css
+    └── admin-dashboard.js
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;파일은 제법 있지만 역할은 명확하게 나뉩니다.&lt;/p&gt;
+
+&lt;div class=&quot;mermaid&quot;&gt;
+flowchart TD;
+    A[LLM Client] --&amp;gt; B[Express API];
+    B --&amp;gt; C[인증과 정책 집행];
+    C --&amp;gt; D[Provider Router];
+    D --&amp;gt; E[OpenAI 호환 LLM Provider];
+    C --&amp;gt; F[(SQLite)];
+    G[Signal Grid 관리자 콘솔] --&amp;gt; H[Admin API];
+    H --&amp;gt; F;
+    F --&amp;gt; I[백업·보존·통계];
+&lt;/div&gt;
+
+&lt;p&gt;사용자 요청 경로와 관리자 경로가 나뉘고, 두 경로에서 필요한 설정과 운영 데이터만 SQLite에 저장합니다.&lt;/p&gt;
+
+&lt;p&gt;LLMWard는 대화 저장소가 아니라 접근 제어 Gateway입니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;archify로-만든-전체-구조도&quot;&gt;Archify로 만든 전체 구조도&lt;/h3&gt;
+
+&lt;p&gt;조금 더 자세한 연결 관계는 아래 구조도에서 바로 확인할 수 있습니다. 노드를 누르면 역할과 근거가 된 소스 파일도 함께 나옵니다.&lt;/p&gt;
+
+&lt;div style=&quot;width:100%; margin:1.5rem 0; border:1px solid #d9d9d9; border-radius:10px; overflow:hidden; background:#fff;&quot;&gt;
+  &lt;iframe src=&quot;/assets/diagrams/llmward/&quot; title=&quot;LLMWard 런타임 아키텍처 구조도&quot; loading=&quot;lazy&quot; style=&quot;display:block; width:100%; height:82vh; min-height:680px; border:0;&quot;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/diagrams/llmward/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;구조도를 새 창에서 크게 보기&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;서버가-뜨는-과정&quot;&gt;서버가 뜨는 과정&lt;/h2&gt;
+
+&lt;p&gt;시작점은 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;server.js&lt;/code&gt;입니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;app&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;./app&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;config&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;./config&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;db&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;./db/database&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;startServer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;server&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;listen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;port&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;host&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// ...&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;실제 Express 설정은 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;app.js&lt;/code&gt;에 있습니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;use&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;cors&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;origin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;allowedOrigins&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}));&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;use&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;express&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;limit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;1mb&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}));&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;use&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;express&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;__dirname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;public&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)));&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;use&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;/admin&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;adminRoutes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;use&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;/v1&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;v1Routes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;use&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;/dashboard&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;v1Routes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;서버가 시작되기 전에는 데이터베이스 마이그레이션과 보존 기간이 지난 요청 로그 정리도 실행합니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;runMigrations&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;cleanupRequestLogs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;애플리케이션을 여러 프로세스로 나누지 않았습니다. 관리 화면, 사용자 API, 정책 처리와 SQLite 접근이 모두 하나의 Node.js 프로세스 안에 있습니다.&lt;/p&gt;
+
+&lt;p&gt;처음에는 이것이 너무 단순한 게 아닐까 생각할 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;하지만 대상이 100명 이하 조직이고 운영자가 직접 관리하는 온프레미스 서버라면, 이 단순함 자체가 장점이 됩니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;요청-하나를-따라가-보면&quot;&gt;요청 하나를 따라가 보면&lt;/h2&gt;
+
+&lt;p&gt;핵심은 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;routes/v1.js&lt;/code&gt;의 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/chat/completions&lt;/code&gt;입니다.&lt;/p&gt;
+
+&lt;p&gt;요청은 대략 아래 순서로 처리됩니다.&lt;/p&gt;
+
+&lt;div class=&quot;mermaid&quot;&gt;
+flowchart TD;
+    A[POST chat completions] --&amp;gt; B[사용자 토큰 검증];
+    B --&amp;gt; C[모델 접근 권한 확인];
+    C --&amp;gt; D[RPM·동시성 제한];
+    D --&amp;gt; E[입력 차단·마스킹];
+    E --&amp;gt; F[PII 가명화];
+    F --&amp;gt; G[출력 Token 쿼터 예약];
+    G --&amp;gt; H[등록된 Provider 호출];
+    H --&amp;gt; I[응답 복원·마스킹];
+    I --&amp;gt; J[사용량 기록];
+    J --&amp;gt; K[JSON 또는 SSE 응답];
+&lt;/div&gt;
+
+&lt;p&gt;각 단계가 실제 코드에서 어떻게 동작하는지 살펴보겠습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;사용자-토큰은-원문으로-저장하지-않습니다&quot;&gt;사용자 토큰은 원문으로 저장하지 않습니다.&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;middleware/auth.js&lt;/code&gt;에서 Authorization 헤더를 확인합니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;tokenHash&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;hashToken&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;header&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;slice&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;user&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;db&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;prepare&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;SQL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;tokenHash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toISOString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;사용자에게 발급한 원문 Token은 생성할 때 한 번만 반환합니다.&lt;/p&gt;
+
+&lt;p&gt;데이터베이스에는 SHA-256 전체 Hash를 저장하고 인증할 때도 전체 Hash로 비교합니다.&lt;/p&gt;
+
+&lt;p&gt;화면에 보여주는 Token prefix는 식별용일 뿐 인증에는 사용하지 않습니다.&lt;/p&gt;
+
+&lt;p&gt;활성 여부, 폐기 여부와 만료 시간도 함께 확인합니다.&lt;/p&gt;
+
+&lt;p&gt;Token이 맞더라도 사용자가 비활성 상태면 요청은 통과하지 못합니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;모델-접근-권한도-따로-확인합니다&quot;&gt;모델 접근 권한도 따로 확인합니다.&lt;/h2&gt;
+
+&lt;p&gt;인증에 성공했다고 모든 모델을 사용할 수 있는 것은 아닙니다.&lt;/p&gt;
+
+&lt;p&gt;사용자별 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;allowed_models&lt;/code&gt;를 읽어서 요청한 모델이 허용되어 있는지 확인합니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;router&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+  &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;/chat/completions&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;validateToken&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;validateModelAccess&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// ...&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;등록된 모델과 활성 Provider를 함께 조회하고, 사용자에게 허용되지 않은 모델이면 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;403&lt;/code&gt;으로 거부합니다.&lt;/p&gt;
+
+&lt;p&gt;API Key를 사용자마다 나눠주는 것만으로는 부족합니다. 사용자, 허용 모델, Provider의 관계까지 관리해야 실제 접근 통제가 됩니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;쿼터와-동시성은-요청-전에-확보합니다&quot;&gt;쿼터와 동시성은 요청 전에 확보합니다.&lt;/h2&gt;
+
+&lt;p&gt;LLM 요청은 일반 API보다 오래 걸립니다.&lt;/p&gt;
+
+&lt;p&gt;Streaming이면 연결이 몇 분 동안 유지될 수도 있습니다.&lt;/p&gt;
+
+&lt;p&gt;사용량을 응답이 끝난 뒤에만 확인하면 여러 요청이 동시에 들어올 때 쿼터를 넘길 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;LLMWard는 Provider를 호출하기 전에 출력 Token 쿼터를 예약합니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;reservation&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;reserveQuota&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;max_tokens&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;gatewayModel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;max_tokens&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;requestLifetimeMs&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;SQLite의 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BEGIN IMMEDIATE&lt;/code&gt; Transaction 안에서 이미 사용한 Token과 진행 중인 예약량을 함께 계산합니다.&lt;/p&gt;
+
+&lt;p&gt;사용자 RPM과 사용자·모델·Provider 동시성 제한은 단일 프로세스 메모리에서 관리합니다.&lt;/p&gt;
+
+&lt;p&gt;이 값은 프로세스를 재시작하면 초기화됩니다.&lt;/p&gt;
+
+&lt;p&gt;분산 Rate Limit을 지원하지 않는 대신 구조가 단순하고, 단일 프로세스라는 제품 경계에도 맞습니다.&lt;/p&gt;
+
+&lt;p&gt;성공하거나 오류가 나거나, Timeout이나 Client 연결 종료로 끝나더라도 예약과 동시성 자원은 한 번만 해제됩니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;입력과-출력-사이에-정책이-들어갑니다&quot;&gt;입력과 출력 사이에 정책이 들어갑니다.&lt;/h2&gt;
+
+&lt;p&gt;관리자는 문자열 기반 콘텐츠 필터를 만들 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;필터는 다음 동작을 지원합니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;입력: block 또는 mask
+출력: mask
+범위: 전체 모델 또는 선택한 모델
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;새 필터는 기본적으로 비활성 상태로 생성됩니다.&lt;/p&gt;
+
+&lt;p&gt;전체 적용이 아니면서 연결된 모델도 없으면 어떤 요청에도 적용되지 않습니다.&lt;/p&gt;
+
+&lt;p&gt;실수로 필터를 만들자마자 모든 요청이 차단되는 동작을 피한 것입니다.&lt;/p&gt;
+
+&lt;p&gt;별도로 Built-in Korean PII &amp;amp; Secret Filter가 있습니다.&lt;/p&gt;
+
+&lt;p&gt;주민등록번호, 외국인등록번호, 카드번호, 전화번호, 이메일, IPv4 주소와 여러 Secret 형식을 검사합니다.&lt;/p&gt;
+
+&lt;p&gt;이 기능 역시 기본값은 비활성입니다.&lt;/p&gt;
+
+&lt;p&gt;입력에서 발견한 개인정보는 요청 범위 안에서만 가명화하고, Secret은 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[FILTERED]&lt;/code&gt;로 치환합니다.&lt;/p&gt;
+
+&lt;p&gt;가명값과 원래 값의 매핑은 요청이 끝나면 버립니다.&lt;/p&gt;
+
+&lt;p&gt;이 기능을 범용 DLP라고 부르지는 않습니다. 정해진 규칙을 적용하는 Gateway 보호 장치이며, 모든 개인정보 유출을 막는 완전한 보안 제품은 아닙니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;provider에는-등록된-주소로만-요청합니다&quot;&gt;Provider에는 등록된 주소로만 요청합니다.&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;services/provider-router.js&lt;/code&gt;는 Provider Base URL을 정규화하고 실제 endpoint를 만듭니다.&lt;/p&gt;
+
+&lt;p&gt;지원 preset은 다음과 같습니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Generic OpenAI-compatible
+Ollama
+vLLM
+LM Studio
+llama.cpp server
+LocalAI
+NVIDIA NIM
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Preset은 SDK가 아니라 관리 화면에서 URL과 설명을 쉽게 채우기 위한 설정입니다.&lt;/p&gt;
+
+&lt;p&gt;실제 호출은 Node.js의 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fetch&lt;/code&gt;를 사용합니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fetch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;buildProviderEndpoint&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;gatewayModel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;base_url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;chat/completions&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;method&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;POST&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;getAuthHeaders&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;gatewayModel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;serializedPayload&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;signal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;controller&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;signal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;redirect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;manual&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Client가 보낸 Authorization 헤더를 그대로 Provider에 전달하지 않습니다.&lt;/p&gt;
+
+&lt;p&gt;관리자가 등록한 Provider Credential로 새로운 인증 헤더를 만듭니다.&lt;/p&gt;
+
+&lt;p&gt;HTTP Redirect도 자동으로 따라가지 않고 거부합니다.&lt;/p&gt;
+
+&lt;p&gt;요청 중 Client 연결이 끊기거나 Timeout이 발생하면 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AbortController&lt;/code&gt;로 upstream 요청을 중단합니다.&lt;/p&gt;
+
+&lt;p&gt;규모는 작아도 SSRF와 Credential 전달 경계는 흐리지 않으려 했습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;streaming에서-챙긴-것&quot;&gt;Streaming에서 챙긴 것&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;stream: true&lt;/code&gt; 요청은 SSE로 전달합니다.&lt;/p&gt;
+
+&lt;p&gt;이때 세 종류의 Timeout을 구분합니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;LLMWARD_PROVIDER_TIMEOUT_MS
+LLMWARD_STREAM_IDLE_TIMEOUT_MS
+LLMWARD_STREAM_MAX_DURATION_MS
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Provider 응답 Header를 기다리는 시간, SSE Chunk 사이에 응답이 없는 시간, Stream 전체가 유지될 수 있는 절대 시간을 따로 관리합니다.&lt;/p&gt;
+
+&lt;p&gt;Streaming 응답도 Chunk 경계를 고려해 출력 Filter를 적용하고 마지막 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[DONE]&lt;/code&gt;까지 확인합니다.&lt;/p&gt;
+
+&lt;p&gt;이미 SSE Header를 Client에 보낸 뒤 오류가 발생하면 중간에 JSON 오류를 섞지 않고 연결을 종료합니다.&lt;/p&gt;
+
+&lt;p&gt;그래서 Streaming 처리는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;response.body.pipe()&lt;/code&gt; 한 줄로 끝나지 않습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;프롬프트는-저장하지-않습니다&quot;&gt;프롬프트는 저장하지 않습니다.&lt;/h2&gt;
+
+&lt;p&gt;처음부터 지키려 한 원칙입니다.&lt;/p&gt;
+
+&lt;p&gt;다음 내용은 저장하거나 로그로 남기지 않습니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;프롬프트
+messages 배열
+system prompt
+응답 본문
+생성된 콘텐츠
+Provider 오류 본문
+원문 사용자 Token
+관리자 Key
+Provider Credential
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;대신 운영에 필요한 Metadata만 기록합니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;사용자
+모델
+Provider
+입력·출력 Token 수
+성공 또는 실패 상태
+안전한 오류 분류
+응답 시간
+설정된 경우 예상 비용
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;여기서 비용은 실제 청구가 아니라 관리자가 모델별 단가를 설정했을 때 계산하는 예상값입니다.&lt;/p&gt;
+
+&lt;p&gt;결제나 충전 기능은 없습니다.&lt;/p&gt;
+
+&lt;p&gt;OpenWebUI 같은 Client가 이전 대화를 이어가려면 전체 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;messages&lt;/code&gt;를 다시 보내야 합니다.&lt;/p&gt;
+
+&lt;p&gt;LLMWard는 대화를 기억하지 않습니다.&lt;/p&gt;
+
+&lt;p&gt;대화를 기억하지 않는 동작은 의도적으로 정한 개인정보 경계입니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;sqlite-하나를-고른-이유&quot;&gt;SQLite 하나를 고른 이유&lt;/h2&gt;
+
+&lt;p&gt;SQLite는 임시 선택이 아닙니다. LLMWard의 사용자 규모와 운영 방식을 생각하고 고른 저장소입니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;db/database.js&lt;/code&gt;를 보면 다음 설정을 적용합니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;db&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;pragma&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;journal_mode = WAL&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;db&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;pragma&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;synchronous = NORMAL&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;db&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;pragma&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;foreign_keys = ON&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;db&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;pragma&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;busy_timeout = 5000&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Schema 변경은 Version이 있는 Migration으로 실행합니다.&lt;/p&gt;
+
+&lt;p&gt;애플리케이션이 지원하는 것보다 새로운 Schema의 DB를 만나면 시작을 거부합니다.&lt;/p&gt;
+
+&lt;p&gt;Migration 전후에는 Integrity와 Foreign Key를 검사합니다.&lt;/p&gt;
+
+&lt;p&gt;기존 WAL이 남아 있는 DB도 바로 열지 않고 별도의 임시 복사본으로 먼저 확인합니다.&lt;/p&gt;
+
+&lt;p&gt;DB 한 파일이라 운영은 단순하지만, 그 한 파일이 망가지면 전체 운영 데이터가 영향을 받습니다.&lt;/p&gt;
+
+&lt;p&gt;운영 구성이 단순하다고 검증까지 줄이지는 않았습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;별도-framework-없는-관리자-화면&quot;&gt;별도 Framework 없는 관리자 화면&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/admin/&lt;/code&gt;에는 Signal Grid 관리자 콘솔이 있습니다.&lt;/p&gt;
+
+&lt;p&gt;구성은 정적 HTML, CSS와 Vanilla JavaScript입니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Overview
+Users
+Models
+Providers
+Filters
+Usage
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;관리자 Key는 Browser Storage에 저장하지 않습니다.&lt;/p&gt;
+
+&lt;p&gt;현재 페이지의 JavaScript 메모리에만 들고 있기 때문에 새로고침하거나 로그아웃하면 다시 입력해야 합니다.&lt;/p&gt;
+
+&lt;p&gt;관리 화면에서는 Provider 연결 확인, 모델 검색과 등록, 사용자 Token 발급, 쿼터, 콘텐츠 필터, 사용량, 백업과 보존 기간을 관리할 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;복잡한 Frontend Build 환경을 더하지 않고 운영에 필요한 화면만 만들었습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;백업은-파일-복사로-끝내지-않습니다&quot;&gt;백업은 파일 복사로 끝내지 않습니다.&lt;/h2&gt;
+
+&lt;p&gt;SQLite 파일이 하나라고 해서 실행 중인 DB를 그냥 복사하면 안 됩니다.&lt;/p&gt;
+
+&lt;p&gt;LLMWard의 백업 서비스는 SQLite Backup API로 Snapshot을 만들고, 생성된 파일을 다시 열어 다음 항목을 확인합니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;SQLite integrity
+Foreign key
+Schema version
+SHA-256
+파일 권한
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;자동 복구는 하지 않습니다.&lt;/p&gt;
+
+&lt;p&gt;잘못된 판단으로 운영 DB를 덮어쓰지 않도록, 검증된 백업만 만들고 복구는 운영자가 직접 실행하게 했습니다.&lt;/p&gt;
+
+&lt;p&gt;요청 상세 로그에는 기본 30일 보존 기간을 적용합니다.&lt;/p&gt;
+
+&lt;p&gt;상세 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;request_logs&lt;/code&gt;가 삭제되어도 일별 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;usage_logs&lt;/code&gt; 집계는 유지합니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;docker에도-서비스는-하나뿐입니다&quot;&gt;Docker에도 서비스는 하나뿐입니다&lt;/h2&gt;
+
+&lt;p&gt;Docker Compose 구성도 Gateway 하나뿐입니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;na&quot;&gt;services&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;gateway&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;.&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;ports&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;3000:3000&quot;&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;env_file&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;.env&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;environment&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;DATABASE_PATH&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;/app/data/gateway.db&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;volumes&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;./data:/app/data&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;restart&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;unless-stopped&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;cap_drop&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;ALL&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;security_opt&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;no-new-privileges:true&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;PostgreSQL, MySQL, Redis Container은 없습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/app/data&lt;/code&gt;만 영속 Volume으로 사용하고, Container는 non-root 사용자로 실행합니다.&lt;/p&gt;
+
+&lt;p&gt;처음 실행은 다음 정도입니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm &lt;span class=&quot;nb&quot;&gt;install
+&lt;/span&gt;npm run setup
+npm start
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Docker를 사용한다면 설정을 만든 뒤 다음처럼 실행합니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker compose up &lt;span class=&quot;nt&quot;&gt;--build&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;setup&lt;/code&gt;이 처음 한 번만 보여주는 관리자 Key는 별도의 안전한 비밀 저장소에 보관해야 합니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;넣지-않기로-한-기능&quot;&gt;넣지 않기로 한 기능&lt;/h2&gt;
+
+&lt;p&gt;프로젝트를 만들다 보면 기능을 더 넣고 싶어집니다.&lt;/p&gt;
+
+&lt;p&gt;하지만 LLMWard는 다음 기능을 지원하지 않습니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;다중 서버와 분산 Rate Limit
+Kubernetes
+Redis와 외부 Database
+SSO / OIDC / LDAP
+결제와 Credit 판매
+Prompt 저장과 분석
+Semantic Cache와 Vector DB
+복잡한 Fallback과 Load Balancing
+별도 Telemetry
+Plugin Framework
+Claude / Gemini / Responses / Realtime 형식 변환
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;단순히 아직 만들지 못한 목록이 아니라, 제품 경계를 지키려고 정한 비목표입니다.&lt;/p&gt;
+
+&lt;p&gt;예를 들어 여러 서버에서 무중단으로 확장해야 한다면 메모리 기반 동시성 제한과 단일 SQLite는 맞지 않습니다.&lt;/p&gt;
+
+&lt;p&gt;회사 전체의 SSO와 중앙 감사 체계가 필요하다면 별도의 Enterprise Gateway를 검토하는 편이 낫습니다.&lt;/p&gt;
+
+&lt;p&gt;LLMWard에 계속 기능을 붙여서 다른 제품으로 만드는 것보다, 맞지 않는 환경에서는 쓰지 않는 것이 더 정확합니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;잘-맞는-환경&quot;&gt;잘 맞는 환경&lt;/h2&gt;
+
+&lt;p&gt;이런 환경에 잘 맞습니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;사용자가 100명 이하인 작은 조직
+온프레미스 또는 내부망에서 LLM을 운영
+OpenAI 호환 API를 제공하는 모델 서버 사용
+사용자별 Token과 모델 권한이 필요
+일일 쿼터와 대략적인 비용을 확인
+프롬프트 본문은 Gateway에 남기고 싶지 않음
+운영 구성 요소를 최소화하고 싶음
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;아래 요구가 있다면 다른 제품을 찾는 편이 낫습니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;여러 Gateway Instance를 수평 확장
+SSO와 조직 Directory 연동
+정교한 Billing
+여러 Provider 사이의 자동 Fallback
+모든 LLM API 형식을 하나로 변환
+대화와 Prompt를 저장해 분석
+완전한 DLP 또는 보안 관제
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;도입 전에는 지원 기능만큼 비목표도 함께 확인해야 합니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;만들고-싶었던-건-결국-경계였습니다&quot;&gt;만들고 싶었던 건 결국 경계였습니다&lt;/h2&gt;
+
+&lt;p&gt;LLMWard를 처음 생각했을 때는 API Key를 사용자마다 나눠주는 정도면 될 것 같았습니다.&lt;/p&gt;
+
+&lt;p&gt;코드를 만들다 보니 Key 발급 기능 하나로는 해결되지 않았습니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;누가
+어떤 모델을
+얼마나 사용할 수 있고
+어떤 정보가 Provider로 넘어가며
+운영자는 무엇을 볼 수 있는가
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이 경계를 한곳에서 설명하고 집행할 수 있어야 했습니다.&lt;/p&gt;
+
+&lt;div class=&quot;mermaid&quot;&gt;
+flowchart TD;
+    A[사용자] --&amp;gt; B[인증];
+    B --&amp;gt; C[모델 권한];
+    C --&amp;gt; D[쿼터와 동시성];
+    D --&amp;gt; E[콘텐츠와 PII 정책];
+    E --&amp;gt; F[등록된 Provider];
+    F --&amp;gt; G[본문을 제외한 사용량 기록];
+&lt;/div&gt;
+
+&lt;p&gt;단일 프로세스와 단일 SQLite 안에서 인증, 정책, Provider 호출과 운영 기록의 경계를 분명하게 만드는 데 집중했습니다.&lt;/p&gt;
+
+&lt;p&gt;저에게 LLMWard의 핵심은 이것입니다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;LLM을 연결하는 Proxy가 아니라, 조직이 허용한 방식으로만 연결되게 만드는 작은 관문&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;필요한 범위가 이 경계 안에 있다면 설치와 운영은 단순합니다.&lt;/p&gt;
+
+&lt;p&gt;범위를 넘어서는 순간에는 기능을 억지로 추가하기보다 더 큰 도구를 선택하면 됩니다.&lt;/p&gt;
+
+&lt;p&gt;직접 운영할 수 있을 만큼 작게 만들었고, 책임 범위는 문서와 코드에 분명히 적었습니다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;참고&quot;&gt;참고&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/lahuman/LLMWard&quot;&gt;LLMWard&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/lahuman/LLMWard/blob/main/docs/API.md&quot;&gt;LLMWard API 문서&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/lahuman/LLMWard/blob/main/docs/THREAT_MODEL.md&quot;&gt;LLMWard 위협 모델&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/lahuman/LLMWard/blob/main/docs/BACKUP_RESTORE.md&quot;&gt;LLMWard 백업과 복구&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;분석 기준 commit: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;9ba860092f81f8ad3d9c53267fc16d9a01d22b9a&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="ai" /><category term="llm" /><category term="gateway" /><category term="nodejs" /><category term="sqlite" /><category term="security" /><summary type="html">사내 LLM API Key를 함께 쓰며 생기는 문제를 어떻게 풀었는지, LLMWard의 코드와 구조를 따라가며 정리했습니다.</summary></entry><entry><title type="html">Oracle AVG(NVL())을 썼는데 왜 NULL이 나올까?</title><link href="https://lahuman.github.io/oracle-avg-nvl-null/" rel="alternate" type="text/html" title="Oracle AVG(NVL())을 썼는데 왜 NULL이 나올까?" /><published>2026-08-24T00:00:00+09:00</published><updated>2026-08-24T00:00:00+09:00</updated><id>https://lahuman.github.io/oracle-avg-nvl-null</id><content type="html" xml:base="https://lahuman.github.io/oracle-avg-nvl-null/">&lt;p&gt;Oracle에서 평균을 구하다가 예상하지 못한 결과를 만났습니다.&lt;/p&gt;
 
 &lt;p&gt;NULL을 0으로 바꾸려고 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NVL&lt;/code&gt;까지 넣었는데도 결과가 NULL이었습니다.&lt;/p&gt;
 
@@ -3170,16 +3746,4 @@ flowchart TD;
 
 &lt;p&gt;단계적으로 의견을 나누며 기획 &amp;gt; 분석 &amp;gt; 설계 &amp;gt; 개발 &amp;gt; 테스트를 진행하면 할만 하다는 생각이 들기도 한다.&lt;/p&gt;
 
-&lt;p&gt;또 바쁘게 하라고 하면 그냥 딸칵질만 할지도 모르겠지만, 개발의 방식의 변화하는 흐름을 거스릴수 없다고 느끼게 된다.&lt;/p&gt;</content><author><name></name></author><category term="단상" /><summary type="html">내가 만든 코드가 아니라도 좋은거 같다.</summary></entry><entry><title type="html">갑자기 아무것도 안하고 있지만 더욱 아무것도 안하고 싶다.</title><link href="https://lahuman.github.io/20260416/" rel="alternate" type="text/html" title="갑자기 아무것도 안하고 있지만 더욱 아무것도 안하고 싶다." /><published>2026-04-16T00:00:00+09:00</published><updated>2026-04-16T00:00:00+09:00</updated><id>https://lahuman.github.io/20260416</id><content type="html" xml:base="https://lahuman.github.io/20260416/">&lt;h1 id=&quot;26년-4월-벌써-4개월-째다&quot;&gt;26년 4월, 벌써 4개월 째다.&lt;/h1&gt;
-
-&lt;p&gt;26년도 1분기가 지나갔다. 2분기 시작점에 나는 무엇을 해야할지 어떻게 올해를 보낼지 방향성을 잃은거 같다.&lt;/p&gt;
-
-&lt;p&gt;아무것도 하기 싫고 무기력하다.&lt;/p&gt;
-
-&lt;p&gt;개인 프로젝트로 하나씩 만들어 보고 있지만, 대부분 바이브 코딩으로 딸칵질이다.&lt;/p&gt;
-
-&lt;p&gt;코딩은 이제 안하는 세상이 온거 같고 AI 를 활용해서 결과물을 빠르게 만들어 가는 시대가 되었다.&lt;/p&gt;
-
-&lt;p&gt;물론 개발 지식이 무쓸모가 된건 아니다.&lt;/p&gt;
-
-&lt;p&gt;다만 내 장점 중 하나인 코딩은 더이상 AI를 이길수 없다.&lt;/p&gt;</content><author><name></name></author><category term="단상" /><summary type="html">뭔가 하고 싶은데 하기 싫고 싱숭생숭하다.</summary></entry></feed>
+&lt;p&gt;또 바쁘게 하라고 하면 그냥 딸칵질만 할지도 모르겠지만, 개발의 방식의 변화하는 흐름을 거스릴수 없다고 느끼게 된다.&lt;/p&gt;</content><author><name></name></author><category term="단상" /><summary type="html">내가 만든 코드가 아니라도 좋은거 같다.</summary></entry></feed>

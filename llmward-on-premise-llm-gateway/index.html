@@ -1,0 +1,181 @@
+<!DOCTYPE html> <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]--> <!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8"><![endif]--> <!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9"><![endif]--> <!--[if gt IE 8]><!--> <html class="no-js"><!--<![endif]--> <head> <meta charset="UTF-8"> <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"> <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1"> <title>LLMWard: 작은 조직을 위한 온프레미스 LLM Gateway를 만들었습니다 &#8211; lahuman</title> <meta name="description" content="열심히 사는 아저씨"> <meta name="keywords" content="ai, llm, gateway, nodejs, sqlite, security"> <!-- Twitter Cards --> <meta name="twitter:card" content="summary"> <meta name="twitter:image" content="https://lahuman.github.io/assets/img/logo.png"> <meta name="twitter:title" content="LLMWard: 작은 조직을 위한 온프레미스 LLM Gateway를 만들었습니다"> <meta name="twitter:description" content="사내 LLM API Key를 함께 쓰며 생기는 문제를 어떻게 풀었는지, LLMWard의 코드와 구조를 따라가며 정리했습니다."> <!-- Open Graph --> <meta property="og:locale" content="ko_KR"> <meta property="og:type" content="article"> <meta property="og:title" content="LLMWard: 작은 조직을 위한 온프레미스 LLM Gateway를 만들었습니다"> <meta property="og:description" content="사내 LLM API Key를 함께 쓰며 생기는 문제를 어떻게 풀었는지, LLMWard의 코드와 구조를 따라가며 정리했습니다."> <meta property="og:url" content="https://lahuman.github.io/llmward-on-premise-llm-gateway/"> <meta property="og:site_name" content="lahuman"> <meta property="og:image" content="https://lahuman.github.io/assets/img/logo.png"> <link rel="canonical" href="https://lahuman.github.io/llmward-on-premise-llm-gateway/"> <link href="https://lahuman.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="lahuman Feed"> <!-- Handheld --> <meta name="HandheldFriendly" content="True"> <meta name="MobileOptimized" content="320"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- CSS --> <link rel="stylesheet" href="https://lahuman.github.io/assets/css/main.css"> <!-- JS --> <script src="https://lahuman.github.io/assets/js/modernizr-3.3.1.custom.min.js"></script> <!-- Favicons --> <link rel="apple-touch-icon" href="https://lahuman.github.io/assets/img/favicons/apple-icon-precomposed.png"> <link rel="apple-touch-icon" sizes="72x72" href="https://lahuman.github.io/assets/img/favicons/apple-icon-72x72.png"> <link rel="apple-touch-icon" sizes="114x114" href="https://lahuman.github.io/assets/img/favicons/apple-icon-114x114.png"> <link rel="apple-touch-icon" sizes="144x144" href="https://lahuman.github.io/assets/img/favicons/apple-icon-144x144.png"> <link rel="shortcut icon" type="image/png" href="https://lahuman.github.io/favicon.png" /> <link rel="shortcut icon" href="https://lahuman.github.io/favicon.ico" /> <!-- mermaid --> <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script> <script>mermaid.initialize({startOnLoad:true});</script> <!-- Background Image --> <style type="text/css">body {background-image:url(https://lahuman.github.io/assets/img/placeholder-big.jpg); background-repeat: no-repeat; background-size: cover; }</style> <!-- Post Feature Image --> </head> <body> <nav id="dl-menu" class="dl-menuwrapper" role="navigation"> <button class="dl-trigger">Open Menu</button> <ul class="dl-menu"> <li><a href="https://lahuman.github.io/">Home</a></li> <li> <a href="#">About</a> <ul class="dl-submenu"> <li> <img src="https://lahuman.github.io/assets/img/logo.png" alt="lahuman photo" class="author-photo"> <h4>lahuman</h4> <p>열심히 사는 아저씨</p> </li> <li><a href="https://lahuman.github.io/about/"><span class="btn btn-inverse">Learn More</span></a></li> <li> <a href="http://facebook.com/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-facebook-square"></i> Facebook</a> </li> <li> <a href="http://linkedin.com/in/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-linkedin-square"></i> LinkedIn</a> </li> <li> <a href="http://github.com/lahuman" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-github"></i> Github</a> </li> </ul><!-- /.dl-submenu --> </li> <li> <a href="#">Posts</a> <ul class="dl-submenu"> <li><a href="https://lahuman.github.io/posts/">All Posts</a></li> <li><a href="https://lahuman.github.io/tags/">All Tags</a></li> </ul> </li> <li><a href="https://lahuman.github.io/projects/" >Projects</a></li> </ul><!-- /.dl-menu --> </nav><!-- /.dl-menuwrapper --> <!-- Header --> <header class="header" role="banner"> <div class="wrapper animated fadeIn"> <div class="content"> <div class="post-title "> <h1>LLMWard: 작은 조직을 위한 온프레미스 LLM Gateway를 만들었습니다</h1> <h4>03 Sep 2026</h4> <p class="reading-time"> <i class="fa fa-clock-o"></i> Reading time ~9 minutes </p><!-- /.entry-reading-time --> <a class="btn zoombtn" href="https://lahuman.github.io/posts/"> <i class="fa fa-chevron-left"></i> </a> </div> <p>사내에서 LLM을 처음 쓸 때는 별일 없어 보입니다. OpenWebUI 같은 화면을 하나 띄우고 API Key만 연결하면 바로 사용할 수 있으니까요.</p> <p>하지만 사용자가 조금씩 늘자 다른 문제가 보였습니다.</p> <blockquote> <p>API Key 하나를 여러 사람이 돌려 써도 괜찮을까?</p> </blockquote> <p>누가 어떤 모델을 쓸 수 있는지, 하루 사용량과 비용은 어느 정도인지 확인하기 어려웠습니다. 민감한 정보가 외부 모델로 그대로 넘어가는지도 알기 힘들었습니다.</p> <p>그렇다고 이 문제를 해결하려고 Kubernetes, Redis, 별도 DB와 복잡한 인증 시스템까지 운영하고 싶지는 않았습니다.</p> <p>제가 필요했던 건 거대한 AI Platform이 아니었습니다. 사내 LLM 앞에 세워 둘, 작고 구조가 눈에 들어오는 Gateway면 충분했습니다.</p> <p>그래서 <code class="language-plaintext highlighter-rouge">LLMWard</code>를 만들었습니다.</p> <h2 id="llmward가-하는-일">LLMWard가 하는 일</h2> <p><a href="https://github.com/lahuman/LLMWard">LLMWard</a>는 100명 이하 온프레미스 조직을 위한 OpenAI 호환 LLM 접근 관리 Gateway입니다.</p> <p>처음부터 범위를 작게 잡았습니다.</p> <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>단일 서버
+단일 Node.js 프로세스
+단일 SQLite 파일
+100명 이하 사용자
+</code></pre></div></div> <p>외부 DB나 Redis, 클라우드 계정은 필요하지 않습니다.</p> <p>사용자 API도 세 개만 엽니다.</p> <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET  /v1/models
+POST /v1/chat/completions
+POST /v1/chat/completions + SSE streaming
+</code></pre></div></div> <p>Claude, Gemini, Responses API처럼 서로 다른 형식을 모두 바꾸는 범용 Proxy는 아닙니다. OpenAI 호환 API를 제공하는 모델 서버를 연결하고, 그 앞에서 인증과 사용 정책을 적용합니다.</p> <p>분석 기준은 다음 커밋입니다.</p> <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>repository: https://github.com/lahuman/LLMWard
+commit: 9ba860092f81f8ad3d9c53267fc16d9a01d22b9a
+date: 2026-09-03
+</code></pre></div></div> <p>코드는 계속 바뀔 수 있으니 이 글의 파일명이나 동작이 다르게 보인다면 위 커밋을 기준으로 보면 됩니다.</p> <h2 id="코드-구조부터-살펴보면">코드 구조부터 살펴보면</h2> <p>주요 파일만 추리면 이렇습니다.</p> <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>LLMWard/
+├── server.js
+├── app.js
+├── config/
+│   └── index.js
+├── middleware/
+│   └── auth.js
+├── routes/
+│   ├── admin.js
+│   └── v1.js
+├── services/
+│   ├── provider-router.js
+│   ├── limits.js
+│   ├── usage.js
+│   ├── content-filters.js
+│   ├── pii-filter.js
+│   ├── backup.js
+│   ├── retention.js
+│   └── audit.js
+├── db/
+│   ├── database.js
+│   ├── migrations.js
+│   ├── schema.js
+│   └── verify.js
+└── public/
+    ├── admin-dashboard.html
+    ├── admin-dashboard.css
+    └── admin-dashboard.js
+</code></pre></div></div> <p>파일은 제법 있지만 역할은 명확하게 나뉩니다.</p> <div class="mermaid"> flowchart TD; A[LLM Client] --&gt; B[Express API]; B --&gt; C[인증과 정책 집행]; C --&gt; D[Provider Router]; D --&gt; E[OpenAI 호환 LLM Provider]; C --&gt; F[(SQLite)]; G[Signal Grid 관리자 콘솔] --&gt; H[Admin API]; H --&gt; F; F --&gt; I[백업·보존·통계]; </div> <p>사용자 요청 경로와 관리자 경로가 나뉘고, 두 경로에서 필요한 설정과 운영 데이터만 SQLite에 저장합니다.</p> <p>LLMWard는 대화 저장소가 아니라 접근 제어 Gateway입니다.</p> <h3 id="archify로-만든-전체-구조도">Archify로 만든 전체 구조도</h3> <p>조금 더 자세한 연결 관계는 아래 구조도에서 바로 확인할 수 있습니다. 노드를 누르면 역할과 근거가 된 소스 파일도 함께 나옵니다.</p> <div style="width:100%; margin:1.5rem 0; border:1px solid #d9d9d9; border-radius:10px; overflow:hidden; background:#fff;"> <iframe src="/assets/diagrams/llmward/" title="LLMWard 런타임 아키텍처 구조도" loading="lazy" style="display:block; width:100%; height:82vh; min-height:680px; border:0;"></iframe> </div> <p><a href="/assets/diagrams/llmward/" target="_blank" rel="noopener">구조도를 새 창에서 크게 보기</a></p> <h2 id="서버가-뜨는-과정">서버가 뜨는 과정</h2> <p>시작점은 <code class="language-plaintext highlighter-rouge">server.js</code>입니다.</p> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">./app</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">config</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">./config</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">db</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">./db/database</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="kd">function</span> <span class="nx">startServer</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">server</span> <span class="o">=</span> <span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="nx">config</span><span class="p">.</span><span class="nx">port</span><span class="p">,</span> <span class="nx">config</span><span class="p">.</span><span class="nx">host</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+  <span class="p">});</span>
+<span class="p">}</span>
+</code></pre></div></div> <p>실제 Express 설정은 <code class="language-plaintext highlighter-rouge">app.js</code>에 있습니다.</p> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">cors</span><span class="p">({</span> <span class="na">origin</span><span class="p">:</span> <span class="nx">allowedOrigins</span> <span class="p">}));</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">express</span><span class="p">.</span><span class="nx">json</span><span class="p">({</span> <span class="na">limit</span><span class="p">:</span> <span class="dl">'</span><span class="s1">1mb</span><span class="dl">'</span> <span class="p">}));</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">express</span><span class="p">.</span><span class="kd">static</span><span class="p">(</span><span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="dl">'</span><span class="s1">public</span><span class="dl">'</span><span class="p">)));</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="dl">'</span><span class="s1">/admin</span><span class="dl">'</span><span class="p">,</span> <span class="nx">adminRoutes</span><span class="p">);</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="dl">'</span><span class="s1">/v1</span><span class="dl">'</span><span class="p">,</span> <span class="nx">v1Routes</span><span class="p">);</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="dl">'</span><span class="s1">/dashboard</span><span class="dl">'</span><span class="p">,</span> <span class="nx">v1Routes</span><span class="p">);</span>
+</code></pre></div></div> <p>서버가 시작되기 전에는 데이터베이스 마이그레이션과 보존 기간이 지난 요청 로그 정리도 실행합니다.</p> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">runMigrations</span><span class="p">();</span>
+<span class="nx">cleanupRequestLogs</span><span class="p">();</span>
+</code></pre></div></div> <p>애플리케이션을 여러 프로세스로 나누지 않았습니다. 관리 화면, 사용자 API, 정책 처리와 SQLite 접근이 모두 하나의 Node.js 프로세스 안에 있습니다.</p> <p>처음에는 이것이 너무 단순한 게 아닐까 생각할 수 있습니다.</p> <p>하지만 대상이 100명 이하 조직이고 운영자가 직접 관리하는 온프레미스 서버라면, 이 단순함 자체가 장점이 됩니다.</p> <h2 id="요청-하나를-따라가-보면">요청 하나를 따라가 보면</h2> <p>핵심은 <code class="language-plaintext highlighter-rouge">routes/v1.js</code>의 <code class="language-plaintext highlighter-rouge">/chat/completions</code>입니다.</p> <p>요청은 대략 아래 순서로 처리됩니다.</p> <div class="mermaid"> flowchart TD; A[POST chat completions] --&gt; B[사용자 토큰 검증]; B --&gt; C[모델 접근 권한 확인]; C --&gt; D[RPM·동시성 제한]; D --&gt; E[입력 차단·마스킹]; E --&gt; F[PII 가명화]; F --&gt; G[출력 Token 쿼터 예약]; G --&gt; H[등록된 Provider 호출]; H --&gt; I[응답 복원·마스킹]; I --&gt; J[사용량 기록]; J --&gt; K[JSON 또는 SSE 응답]; </div> <p>각 단계가 실제 코드에서 어떻게 동작하는지 살펴보겠습니다.</p> <h2 id="사용자-토큰은-원문으로-저장하지-않습니다">사용자 토큰은 원문으로 저장하지 않습니다.</h2> <p><code class="language-plaintext highlighter-rouge">middleware/auth.js</code>에서 Authorization 헤더를 확인합니다.</p> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">tokenHash</span> <span class="o">=</span> <span class="nx">hashToken</span><span class="p">(</span><span class="nx">header</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">7</span><span class="p">));</span>
+
+<span class="kd">const</span> <span class="nx">user</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">prepare</span><span class="p">(</span><span class="nx">SQL</span><span class="p">).</span><span class="kd">get</span><span class="p">(</span>
+  <span class="nx">tokenHash</span><span class="p">,</span>
+  <span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">toISOString</span><span class="p">()</span>
+<span class="p">);</span>
+</code></pre></div></div> <p>사용자에게 발급한 원문 Token은 생성할 때 한 번만 반환합니다.</p> <p>데이터베이스에는 SHA-256 전체 Hash를 저장하고 인증할 때도 전체 Hash로 비교합니다.</p> <p>화면에 보여주는 Token prefix는 식별용일 뿐 인증에는 사용하지 않습니다.</p> <p>활성 여부, 폐기 여부와 만료 시간도 함께 확인합니다.</p> <p>Token이 맞더라도 사용자가 비활성 상태면 요청은 통과하지 못합니다.</p> <h2 id="모델-접근-권한도-따로-확인합니다">모델 접근 권한도 따로 확인합니다.</h2> <p>인증에 성공했다고 모든 모델을 사용할 수 있는 것은 아닙니다.</p> <p>사용자별 <code class="language-plaintext highlighter-rouge">allowed_models</code>를 읽어서 요청한 모델이 허용되어 있는지 확인합니다.</p> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">router</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span>
+  <span class="dl">'</span><span class="s1">/chat/completions</span><span class="dl">'</span><span class="p">,</span>
+  <span class="nx">validateToken</span><span class="p">,</span>
+  <span class="nx">validateModelAccess</span><span class="p">,</span>
+  <span class="k">async</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+  <span class="p">}</span>
+<span class="p">);</span>
+</code></pre></div></div> <p>등록된 모델과 활성 Provider를 함께 조회하고, 사용자에게 허용되지 않은 모델이면 <code class="language-plaintext highlighter-rouge">403</code>으로 거부합니다.</p> <p>API Key를 사용자마다 나눠주는 것만으로는 부족합니다. 사용자, 허용 모델, Provider의 관계까지 관리해야 실제 접근 통제가 됩니다.</p> <h2 id="쿼터와-동시성은-요청-전에-확보합니다">쿼터와 동시성은 요청 전에 확보합니다.</h2> <p>LLM 요청은 일반 API보다 오래 걸립니다.</p> <p>Streaming이면 연결이 몇 분 동안 유지될 수도 있습니다.</p> <p>사용량을 응답이 끝난 뒤에만 확인하면 여러 요청이 동시에 들어올 때 쿼터를 넘길 수 있습니다.</p> <p>LLMWard는 Provider를 호출하기 전에 출력 Token 쿼터를 예약합니다.</p> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">reservation</span> <span class="o">=</span> <span class="nx">reserveQuota</span><span class="p">(</span>
+  <span class="nx">req</span><span class="p">.</span><span class="nx">user</span><span class="p">,</span>
+  <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">max_tokens</span><span class="p">,</span>
+  <span class="nx">req</span><span class="p">.</span><span class="nx">gatewayModel</span><span class="p">.</span><span class="nx">max_tokens</span><span class="p">,</span>
+  <span class="nx">requestLifetimeMs</span>
+<span class="p">);</span>
+</code></pre></div></div> <p>SQLite의 <code class="language-plaintext highlighter-rouge">BEGIN IMMEDIATE</code> Transaction 안에서 이미 사용한 Token과 진행 중인 예약량을 함께 계산합니다.</p> <p>사용자 RPM과 사용자·모델·Provider 동시성 제한은 단일 프로세스 메모리에서 관리합니다.</p> <p>이 값은 프로세스를 재시작하면 초기화됩니다.</p> <p>분산 Rate Limit을 지원하지 않는 대신 구조가 단순하고, 단일 프로세스라는 제품 경계에도 맞습니다.</p> <p>성공하거나 오류가 나거나, Timeout이나 Client 연결 종료로 끝나더라도 예약과 동시성 자원은 한 번만 해제됩니다.</p> <h2 id="입력과-출력-사이에-정책이-들어갑니다">입력과 출력 사이에 정책이 들어갑니다.</h2> <p>관리자는 문자열 기반 콘텐츠 필터를 만들 수 있습니다.</p> <p>필터는 다음 동작을 지원합니다.</p> <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>입력: block 또는 mask
+출력: mask
+범위: 전체 모델 또는 선택한 모델
+</code></pre></div></div> <p>새 필터는 기본적으로 비활성 상태로 생성됩니다.</p> <p>전체 적용이 아니면서 연결된 모델도 없으면 어떤 요청에도 적용되지 않습니다.</p> <p>실수로 필터를 만들자마자 모든 요청이 차단되는 동작을 피한 것입니다.</p> <p>별도로 Built-in Korean PII &amp; Secret Filter가 있습니다.</p> <p>주민등록번호, 외국인등록번호, 카드번호, 전화번호, 이메일, IPv4 주소와 여러 Secret 형식을 검사합니다.</p> <p>이 기능 역시 기본값은 비활성입니다.</p> <p>입력에서 발견한 개인정보는 요청 범위 안에서만 가명화하고, Secret은 <code class="language-plaintext highlighter-rouge">[FILTERED]</code>로 치환합니다.</p> <p>가명값과 원래 값의 매핑은 요청이 끝나면 버립니다.</p> <p>이 기능을 범용 DLP라고 부르지는 않습니다. 정해진 규칙을 적용하는 Gateway 보호 장치이며, 모든 개인정보 유출을 막는 완전한 보안 제품은 아닙니다.</p> <h2 id="provider에는-등록된-주소로만-요청합니다">Provider에는 등록된 주소로만 요청합니다.</h2> <p><code class="language-plaintext highlighter-rouge">services/provider-router.js</code>는 Provider Base URL을 정규화하고 실제 endpoint를 만듭니다.</p> <p>지원 preset은 다음과 같습니다.</p> <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Generic OpenAI-compatible
+Ollama
+vLLM
+LM Studio
+llama.cpp server
+LocalAI
+NVIDIA NIM
+</code></pre></div></div> <p>Preset은 SDK가 아니라 관리 화면에서 URL과 설명을 쉽게 채우기 위한 설정입니다.</p> <p>실제 호출은 Node.js의 <code class="language-plaintext highlighter-rouge">fetch</code>를 사용합니다.</p> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">fetch</span><span class="p">(</span>
+  <span class="nx">buildProviderEndpoint</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">gatewayModel</span><span class="p">.</span><span class="nx">base_url</span><span class="p">,</span> <span class="dl">'</span><span class="s1">chat/completions</span><span class="dl">'</span><span class="p">),</span>
+  <span class="p">{</span>
+    <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">POST</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">headers</span><span class="p">:</span> <span class="nx">getAuthHeaders</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">gatewayModel</span><span class="p">),</span>
+    <span class="na">body</span><span class="p">:</span> <span class="nx">serializedPayload</span><span class="p">,</span>
+    <span class="na">signal</span><span class="p">:</span> <span class="nx">controller</span><span class="p">.</span><span class="nx">signal</span><span class="p">,</span>
+    <span class="na">redirect</span><span class="p">:</span> <span class="dl">'</span><span class="s1">manual</span><span class="dl">'</span>
+  <span class="p">}</span>
+<span class="p">);</span>
+</code></pre></div></div> <p>Client가 보낸 Authorization 헤더를 그대로 Provider에 전달하지 않습니다.</p> <p>관리자가 등록한 Provider Credential로 새로운 인증 헤더를 만듭니다.</p> <p>HTTP Redirect도 자동으로 따라가지 않고 거부합니다.</p> <p>요청 중 Client 연결이 끊기거나 Timeout이 발생하면 <code class="language-plaintext highlighter-rouge">AbortController</code>로 upstream 요청을 중단합니다.</p> <p>규모는 작아도 SSRF와 Credential 전달 경계는 흐리지 않으려 했습니다.</p> <h2 id="streaming에서-챙긴-것">Streaming에서 챙긴 것</h2> <p><code class="language-plaintext highlighter-rouge">stream: true</code> 요청은 SSE로 전달합니다.</p> <p>이때 세 종류의 Timeout을 구분합니다.</p> <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>LLMWARD_PROVIDER_TIMEOUT_MS
+LLMWARD_STREAM_IDLE_TIMEOUT_MS
+LLMWARD_STREAM_MAX_DURATION_MS
+</code></pre></div></div> <p>Provider 응답 Header를 기다리는 시간, SSE Chunk 사이에 응답이 없는 시간, Stream 전체가 유지될 수 있는 절대 시간을 따로 관리합니다.</p> <p>Streaming 응답도 Chunk 경계를 고려해 출력 Filter를 적용하고 마지막 <code class="language-plaintext highlighter-rouge">[DONE]</code>까지 확인합니다.</p> <p>이미 SSE Header를 Client에 보낸 뒤 오류가 발생하면 중간에 JSON 오류를 섞지 않고 연결을 종료합니다.</p> <p>그래서 Streaming 처리는 <code class="language-plaintext highlighter-rouge">response.body.pipe()</code> 한 줄로 끝나지 않습니다.</p> <h2 id="프롬프트는-저장하지-않습니다">프롬프트는 저장하지 않습니다.</h2> <p>처음부터 지키려 한 원칙입니다.</p> <p>다음 내용은 저장하거나 로그로 남기지 않습니다.</p> <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>프롬프트
+messages 배열
+system prompt
+응답 본문
+생성된 콘텐츠
+Provider 오류 본문
+원문 사용자 Token
+관리자 Key
+Provider Credential
+</code></pre></div></div> <p>대신 운영에 필요한 Metadata만 기록합니다.</p> <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>사용자
+모델
+Provider
+입력·출력 Token 수
+성공 또는 실패 상태
+안전한 오류 분류
+응답 시간
+설정된 경우 예상 비용
+</code></pre></div></div> <p>여기서 비용은 실제 청구가 아니라 관리자가 모델별 단가를 설정했을 때 계산하는 예상값입니다.</p> <p>결제나 충전 기능은 없습니다.</p> <p>OpenWebUI 같은 Client가 이전 대화를 이어가려면 전체 <code class="language-plaintext highlighter-rouge">messages</code>를 다시 보내야 합니다.</p> <p>LLMWard는 대화를 기억하지 않습니다.</p> <p>대화를 기억하지 않는 동작은 의도적으로 정한 개인정보 경계입니다.</p> <h2 id="sqlite-하나를-고른-이유">SQLite 하나를 고른 이유</h2> <p>SQLite는 임시 선택이 아닙니다. LLMWard의 사용자 규모와 운영 방식을 생각하고 고른 저장소입니다.</p> <p><code class="language-plaintext highlighter-rouge">db/database.js</code>를 보면 다음 설정을 적용합니다.</p> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">db</span><span class="p">.</span><span class="nx">pragma</span><span class="p">(</span><span class="dl">'</span><span class="s1">journal_mode = WAL</span><span class="dl">'</span><span class="p">);</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">pragma</span><span class="p">(</span><span class="dl">'</span><span class="s1">synchronous = NORMAL</span><span class="dl">'</span><span class="p">);</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">pragma</span><span class="p">(</span><span class="dl">'</span><span class="s1">foreign_keys = ON</span><span class="dl">'</span><span class="p">);</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">pragma</span><span class="p">(</span><span class="dl">'</span><span class="s1">busy_timeout = 5000</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div></div> <p>Schema 변경은 Version이 있는 Migration으로 실행합니다.</p> <p>애플리케이션이 지원하는 것보다 새로운 Schema의 DB를 만나면 시작을 거부합니다.</p> <p>Migration 전후에는 Integrity와 Foreign Key를 검사합니다.</p> <p>기존 WAL이 남아 있는 DB도 바로 열지 않고 별도의 임시 복사본으로 먼저 확인합니다.</p> <p>DB 한 파일이라 운영은 단순하지만, 그 한 파일이 망가지면 전체 운영 데이터가 영향을 받습니다.</p> <p>운영 구성이 단순하다고 검증까지 줄이지는 않았습니다.</p> <h2 id="별도-framework-없는-관리자-화면">별도 Framework 없는 관리자 화면</h2> <p><code class="language-plaintext highlighter-rouge">/admin/</code>에는 Signal Grid 관리자 콘솔이 있습니다.</p> <p>구성은 정적 HTML, CSS와 Vanilla JavaScript입니다.</p> <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Overview
+Users
+Models
+Providers
+Filters
+Usage
+</code></pre></div></div> <p>관리자 Key는 Browser Storage에 저장하지 않습니다.</p> <p>현재 페이지의 JavaScript 메모리에만 들고 있기 때문에 새로고침하거나 로그아웃하면 다시 입력해야 합니다.</p> <p>관리 화면에서는 Provider 연결 확인, 모델 검색과 등록, 사용자 Token 발급, 쿼터, 콘텐츠 필터, 사용량, 백업과 보존 기간을 관리할 수 있습니다.</p> <p>복잡한 Frontend Build 환경을 더하지 않고 운영에 필요한 화면만 만들었습니다.</p> <h2 id="백업은-파일-복사로-끝내지-않습니다">백업은 파일 복사로 끝내지 않습니다.</h2> <p>SQLite 파일이 하나라고 해서 실행 중인 DB를 그냥 복사하면 안 됩니다.</p> <p>LLMWard의 백업 서비스는 SQLite Backup API로 Snapshot을 만들고, 생성된 파일을 다시 열어 다음 항목을 확인합니다.</p> <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>SQLite integrity
+Foreign key
+Schema version
+SHA-256
+파일 권한
+</code></pre></div></div> <p>자동 복구는 하지 않습니다.</p> <p>잘못된 판단으로 운영 DB를 덮어쓰지 않도록, 검증된 백업만 만들고 복구는 운영자가 직접 실행하게 했습니다.</p> <p>요청 상세 로그에는 기본 30일 보존 기간을 적용합니다.</p> <p>상세 <code class="language-plaintext highlighter-rouge">request_logs</code>가 삭제되어도 일별 <code class="language-plaintext highlighter-rouge">usage_logs</code> 집계는 유지합니다.</p> <h2 id="docker에도-서비스는-하나뿐입니다">Docker에도 서비스는 하나뿐입니다</h2> <p>Docker Compose 구성도 Gateway 하나뿐입니다.</p> <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">services</span><span class="pi">:</span>
+  <span class="na">gateway</span><span class="pi">:</span>
+    <span class="na">build</span><span class="pi">:</span> <span class="s">.</span>
+    <span class="na">ports</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s2">"</span><span class="s">3000:3000"</span>
+    <span class="na">env_file</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">.env</span>
+    <span class="na">environment</span><span class="pi">:</span>
+      <span class="na">DATABASE_PATH</span><span class="pi">:</span> <span class="s">/app/data/gateway.db</span>
+    <span class="na">volumes</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">./data:/app/data</span>
+    <span class="na">restart</span><span class="pi">:</span> <span class="s">unless-stopped</span>
+    <span class="na">cap_drop</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">ALL</span>
+    <span class="na">security_opt</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">no-new-privileges:true</span>
+</code></pre></div></div> <p>PostgreSQL, MySQL, Redis Container은 없습니다.</p> <p><code class="language-plaintext highlighter-rouge">/app/data</code>만 영속 Volume으로 사용하고, Container는 non-root 사용자로 실행합니다.</p> <p>처음 실행은 다음 정도입니다.</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm <span class="nb">install
+</span>npm run setup
+npm start
+</code></pre></div></div> <p>Docker를 사용한다면 설정을 만든 뒤 다음처럼 실행합니다.</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker compose up <span class="nt">--build</span> <span class="nt">-d</span>
+</code></pre></div></div> <p><code class="language-plaintext highlighter-rouge">setup</code>이 처음 한 번만 보여주는 관리자 Key는 별도의 안전한 비밀 저장소에 보관해야 합니다.</p> <h2 id="넣지-않기로-한-기능">넣지 않기로 한 기능</h2> <p>프로젝트를 만들다 보면 기능을 더 넣고 싶어집니다.</p> <p>하지만 LLMWard는 다음 기능을 지원하지 않습니다.</p> <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>다중 서버와 분산 Rate Limit
+Kubernetes
+Redis와 외부 Database
+SSO / OIDC / LDAP
+결제와 Credit 판매
+Prompt 저장과 분석
+Semantic Cache와 Vector DB
+복잡한 Fallback과 Load Balancing
+별도 Telemetry
+Plugin Framework
+Claude / Gemini / Responses / Realtime 형식 변환
+</code></pre></div></div> <p>단순히 아직 만들지 못한 목록이 아니라, 제품 경계를 지키려고 정한 비목표입니다.</p> <p>예를 들어 여러 서버에서 무중단으로 확장해야 한다면 메모리 기반 동시성 제한과 단일 SQLite는 맞지 않습니다.</p> <p>회사 전체의 SSO와 중앙 감사 체계가 필요하다면 별도의 Enterprise Gateway를 검토하는 편이 낫습니다.</p> <p>LLMWard에 계속 기능을 붙여서 다른 제품으로 만드는 것보다, 맞지 않는 환경에서는 쓰지 않는 것이 더 정확합니다.</p> <h2 id="잘-맞는-환경">잘 맞는 환경</h2> <p>이런 환경에 잘 맞습니다.</p> <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>사용자가 100명 이하인 작은 조직
+온프레미스 또는 내부망에서 LLM을 운영
+OpenAI 호환 API를 제공하는 모델 서버 사용
+사용자별 Token과 모델 권한이 필요
+일일 쿼터와 대략적인 비용을 확인
+프롬프트 본문은 Gateway에 남기고 싶지 않음
+운영 구성 요소를 최소화하고 싶음
+</code></pre></div></div> <p>아래 요구가 있다면 다른 제품을 찾는 편이 낫습니다.</p> <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>여러 Gateway Instance를 수평 확장
+SSO와 조직 Directory 연동
+정교한 Billing
+여러 Provider 사이의 자동 Fallback
+모든 LLM API 형식을 하나로 변환
+대화와 Prompt를 저장해 분석
+완전한 DLP 또는 보안 관제
+</code></pre></div></div> <p>도입 전에는 지원 기능만큼 비목표도 함께 확인해야 합니다.</p> <h2 id="만들고-싶었던-건-결국-경계였습니다">만들고 싶었던 건 결국 경계였습니다</h2> <p>LLMWard를 처음 생각했을 때는 API Key를 사용자마다 나눠주는 정도면 될 것 같았습니다.</p> <p>코드를 만들다 보니 Key 발급 기능 하나로는 해결되지 않았습니다.</p> <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>누가
+어떤 모델을
+얼마나 사용할 수 있고
+어떤 정보가 Provider로 넘어가며
+운영자는 무엇을 볼 수 있는가
+</code></pre></div></div> <p>이 경계를 한곳에서 설명하고 집행할 수 있어야 했습니다.</p> <div class="mermaid"> flowchart TD; A[사용자] --&gt; B[인증]; B --&gt; C[모델 권한]; C --&gt; D[쿼터와 동시성]; D --&gt; E[콘텐츠와 PII 정책]; E --&gt; F[등록된 Provider]; F --&gt; G[본문을 제외한 사용량 기록]; </div> <p>단일 프로세스와 단일 SQLite 안에서 인증, 정책, Provider 호출과 운영 기록의 경계를 분명하게 만드는 데 집중했습니다.</p> <p>저에게 LLMWard의 핵심은 이것입니다.</p> <blockquote> <p>LLM을 연결하는 Proxy가 아니라, 조직이 허용한 방식으로만 연결되게 만드는 작은 관문</p> </blockquote> <p>필요한 범위가 이 경계 안에 있다면 설치와 운영은 단순합니다.</p> <p>범위를 넘어서는 순간에는 기능을 억지로 추가하기보다 더 큰 도구를 선택하면 됩니다.</p> <p>직접 운영할 수 있을 만큼 작게 만들었고, 책임 범위는 문서와 코드에 분명히 적었습니다.</p> <hr /> <h3 id="참고">참고</h3> <ul> <li><a href="https://github.com/lahuman/LLMWard">LLMWard</a></li> <li><a href="https://github.com/lahuman/LLMWard/blob/main/docs/API.md">LLMWard API 문서</a></li> <li><a href="https://github.com/lahuman/LLMWard/blob/main/docs/THREAT_MODEL.md">LLMWard 위협 모델</a></li> <li><a href="https://github.com/lahuman/LLMWard/blob/main/docs/BACKUP_RESTORE.md">LLMWard 백업과 복구</a></li> <li>분석 기준 commit: <code class="language-plaintext highlighter-rouge">9ba860092f81f8ad3d9c53267fc16d9a01d22b9a</code></li> </ul> <div class="entry-meta"> <br> <hr> <span class="entry-tags"><a href="https://lahuman.github.io/tags/#ai" title="Pages tagged ai" class="tag"><span class="term">ai</span></a><a href="https://lahuman.github.io/tags/#llm" title="Pages tagged llm" class="tag"><span class="term">llm</span></a><a href="https://lahuman.github.io/tags/#gateway" title="Pages tagged gateway" class="tag"><span class="term">gateway</span></a><a href="https://lahuman.github.io/tags/#nodejs" title="Pages tagged nodejs" class="tag"><span class="term">nodejs</span></a><a href="https://lahuman.github.io/tags/#sqlite" title="Pages tagged sqlite" class="tag"><span class="term">sqlite</span></a><a href="https://lahuman.github.io/tags/#security" title="Pages tagged security" class="tag"><span class="term">security</span></a></span> <span class="social-share"> <a href="https://www.facebook.com/sharer/sharer.php?u=https://lahuman.github.io/llmward-on-premise-llm-gateway/" title="Share on Facebook" class="tag"> <span class="term"><i class="fa fa-facebook-square"></i> Share</span> </a> <a href="https://twitter.com/intent/tweet?text=https://lahuman.github.io/llmward-on-premise-llm-gateway/" title="Share on Twitter" class="tag"> <span class="term"><i class="fa fa-twitter-square"></i> Tweet</span> </a> <a href="https://plus.google.com/share?url=https://lahuman.github.io/llmward-on-premise-llm-gateway/" title="Share on Google+" class="tag"> <span class="term"><i class="fa fa-google-plus-square"></i> +1</span> </a> </span> <div style="clear:both"></div> </div> <ins class="kakao_ad_area" style="display:none;" data-ad-unit = "DAN-ubp67fs9s850" data-ad-width = "320" data-ad-height = "100"></ins> <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script> </div> </div> <section id="disqus_thread" class="animated fadeInUp"></section><!-- /#disqus_thread --> </header> <!-- JS --> <script src="https://lahuman.github.io/assets/js/jquery-1.12.0.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.dlmenu.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.goup.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.magnific-popup.min.js"></script> <script src="https://lahuman.github.io/assets/js/jquery.fitvid.min.js"></script> <script src="https://lahuman.github.io/assets/js/scripts.js"></script> <!-- Global site tag (gtag.js) - Google Analytics --> <script async src="https://www.googletagmanager.com/gtag/js?id=UA-74095083-1"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-74095083-1'); </script> <script type="text/javascript"> var disqus_shortname = 'daniels-blog'; (function() { var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true; dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js'; (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq); })(); (function () { var s = document.createElement('script'); s.async = true; s.type = 'text/javascript'; s.src = '//' + disqus_shortname + '.disqus.com/count.js'; (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s); }()); </script> <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript> <!-- MathJax --> <script async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> </body> </html>
