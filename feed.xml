@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2026-09-03T10:03:22+09:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">LLMWard: 작은 조직을 위한 온프레미스 LLM Gateway를 만들었습니다</title><link href="https://lahuman.github.io/llmward-on-premise-llm-gateway/" rel="alternate" type="text/html" title="LLMWard: 작은 조직을 위한 온프레미스 LLM Gateway를 만들었습니다" /><published>2026-09-03T00:00:00+09:00</published><updated>2026-09-03T00:00:00+09:00</updated><id>https://lahuman.github.io/llmward-on-premise-llm-gateway</id><content type="html" xml:base="https://lahuman.github.io/llmward-on-premise-llm-gateway/">&lt;p&gt;사내에서 LLM을 처음 쓸 때는 별일 없어 보입니다. OpenWebUI 같은 화면을 하나 띄우고 API Key만 연결하면 바로 사용할 수 있으니까요.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://lahuman.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lahuman.github.io/" rel="alternate" type="text/html" /><updated>2026-09-03T12:06:44+09:00</updated><id>https://lahuman.github.io/feed.xml</id><title type="html">lahuman</title><subtitle>열심히 사는 아저씨</subtitle><entry><title type="html">LLMWard: 작은 조직을 위한 온프레미스 LLM Gateway를 만들었습니다</title><link href="https://lahuman.github.io/llmward-on-premise-llm-gateway/" rel="alternate" type="text/html" title="LLMWard: 작은 조직을 위한 온프레미스 LLM Gateway를 만들었습니다" /><published>2026-09-03T00:00:00+09:00</published><updated>2026-09-03T00:00:00+09:00</updated><id>https://lahuman.github.io/llmward-on-premise-llm-gateway</id><content type="html" xml:base="https://lahuman.github.io/llmward-on-premise-llm-gateway/">&lt;p&gt;사내에서 LLM을 처음 쓸 때는 별일 없어 보입니다. OpenWebUI 같은 화면을 하나 띄우고 API Key만 연결하면 바로 사용할 수 있으니까요.&lt;/p&gt;
 
 &lt;p&gt;하지만 사용자가 조금씩 늘자 다른 문제가 보였습니다.&lt;/p&gt;
 
@@ -103,10 +103,10 @@ flowchart TD;
 &lt;p&gt;조금 더 자세한 연결 관계는 아래 구조도에서 바로 확인할 수 있습니다. 노드를 누르면 역할과 근거가 된 소스 파일도 함께 나옵니다.&lt;/p&gt;
 
 &lt;div style=&quot;width:100%; margin:1.5rem 0; border:1px solid #d9d9d9; border-radius:10px; overflow:hidden; background:#fff;&quot;&gt;
-  &lt;iframe src=&quot;/assets/diagrams/llmward/&quot; title=&quot;LLMWard 런타임 아키텍처 구조도&quot; loading=&quot;lazy&quot; style=&quot;display:block; width:100%; height:82vh; min-height:680px; border:0;&quot;&gt;&lt;/iframe&gt;
+  &lt;iframe src=&quot;/assets/project/llmward/&quot; title=&quot;LLMWard 런타임 아키텍처 구조도&quot; loading=&quot;lazy&quot; style=&quot;display:block; width:100%; height:82vh; min-height:680px; border:0;&quot;&gt;&lt;/iframe&gt;
 &lt;/div&gt;
 
-&lt;p&gt;&lt;a href=&quot;/assets/diagrams/llmward/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;구조도를 새 창에서 크게 보기&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/assets/project/llmward/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;구조도를 새 창에서 크게 보기&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;서버가-뜨는-과정&quot;&gt;서버가 뜨는 과정&lt;/h2&gt;
 
